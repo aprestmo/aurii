@@ -368,6 +368,46 @@ rather than short-term convenience.
 
 ---
 
+# Article 21 — Specifications Are Not Proof
+
+A specification is a hypothesis.
+
+It defines intent.
+
+It does not prove that the design works.
+
+Only runnable code executed against real data constitutes validation.
+
+Aurii shall not treat a well-written specification as evidence of a working system.
+
+The measure of progress is not the quality of documentation.
+
+The measure of progress is what the system can do.
+
+---
+
+# Article 22 — Vertical Before Horizontal
+
+Aurii shall not attempt to become complete before it has proven that one narrow vertical works end to end.
+
+The first vertical is import.
+
+Aurii must be able to:
+
+- accept a real external dataset
+- map it declaratively to an Entity model
+- validate it against a Schema
+- store it
+- expose it through a Query
+
+Until this works in production, no new horizontal capabilities shall take priority.
+
+This is not a limitation.
+
+This is the foundation.
+
+---
+
 # Final Principle
 
 Whenever uncertainty exists, ask one question:

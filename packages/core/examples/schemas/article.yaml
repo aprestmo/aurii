@@ -1,0 +1,35 @@
+id: article
+name: Article
+description: A published article or blog post
+version: 1
+fields:
+  - name: title
+    type: string
+    required: true
+    label: Title
+
+  - name: slug
+    type: string
+    required: true
+    label: Slug
+
+  - name: body
+    type: string
+    label: Body
+
+  - name: published
+    type: boolean
+    default: false
+    label: Published
+
+  - name: publishedAt
+    type: date
+    label: Published date
+
+  - name: author
+    type: string
+    label: Author
+
+  - name: tags
+    type: string
+    label: Tags

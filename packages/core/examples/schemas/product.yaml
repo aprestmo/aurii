@@ -1,0 +1,40 @@
+id: product
+name: Product
+description: A product in a catalogue
+version: 1
+fields:
+  - name: sku
+    type: string
+    required: true
+    label: SKU
+
+  - name: name
+    type: string
+    required: true
+    label: Product name
+
+  - name: description
+    type: string
+    label: Description
+
+  - name: price
+    type: number
+    required: true
+    label: Price
+
+  - name: currency
+    type: string
+    label: Currency
+
+  - name: inStock
+    type: boolean
+    default: true
+    label: In stock
+
+  - name: category
+    type: string
+    label: Category
+
+  - name: brand
+    type: string
+    label: Brand

@@ -1,0 +1,42 @@
+[
+  {
+    "SKU": "BOOK-001",
+    "Product Name": "The Pragmatic Programmer",
+    "Description": "A classic guide to software craftsmanship.",
+    "Price": "49.99",
+    "Currency": "USD",
+    "In Stock": "true",
+    "Category": "Books",
+    "Brand": "Addison-Wesley"
+  },
+  {
+    "SKU": "BOOK-002",
+    "Product Name": "Clean Architecture",
+    "Description": "Robert C. Martin on software architecture principles.",
+    "Price": "44.99",
+    "Currency": "USD",
+    "In Stock": "true",
+    "Category": "Books",
+    "Brand": "Prentice Hall"
+  },
+  {
+    "SKU": "TOOL-001",
+    "Product Name": "Standing Desk Pro",
+    "Description": "Electric height-adjustable standing desk.",
+    "Price": "799.00",
+    "Currency": "USD",
+    "In Stock": "false",
+    "Category": "Furniture",
+    "Brand": "Uplift"
+  },
+  {
+    "SKU": "TOOL-002",
+    "Product Name": "Mechanical Keyboard",
+    "Description": "Compact 65% layout with tactile switches.",
+    "Price": "159.00",
+    "Currency": "USD",
+    "In Stock": "true",
+    "Category": "Peripherals",
+    "Brand": "Keychron"
+  }
+]

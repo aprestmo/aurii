@@ -1,0 +1,16 @@
+{
+  "compilerOptions": {
+    "target": "ESNext",
+    "module": "ESNext",
+    "moduleResolution": "bundler",
+    "strict": true,
+    "noUncheckedIndexedAccess": true,
+    "exactOptionalPropertyTypes": true,
+    "lib": ["ESNext"],
+    "types": ["bun-types"],
+    "paths": {
+      "@aurii/core": ["./src/index.ts"]
+    }
+  },
+  "include": ["src/**/*", "examples/**/*"]
+}

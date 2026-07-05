@@ -1,0 +1,7 @@
+Title,Slug,Body,Published,Published Date,Author,Tags
+"Getting Started with Aurii","getting-started","Aurii is a declarative runtime for structured knowledge. This guide walks you through the basics of defining schemas and importing data.","true","2024-03-01","Alice Andersen","guide,beginner"
+"Schema-first Design","schema-first-design","When you declare your data structure before writing code, everything becomes simpler. Aurii makes schema-first design practical.","true","2024-03-15","Bob Bakke","architecture,schema"
+"Import as a First-class Capability","import-first","Most platforms treat import as an afterthought. In Aurii, import is a product with validation, mapping, and repeatability built in.","true","2024-04-02","Alice Andersen","import,product"
+"The Query Language","query-language","Aurii v0 ships with a readable query language. From selecting fields to filtering by conditions, it stays close to natural language.","true","2024-04-20","Charlie Christoffersen","query,language"
+"Draft: Event-driven Architecture","event-driven","Events connect the platform without creating direct dependencies. This post explores the event model planned for Phase 2.","false","","Bob Bakke","events,architecture"
+"Draft: Plugin Runtime","plugin-runtime","The plugin runtime will allow extending Aurii without touching Core. Still in design.","false","","Alice Andersen","plugins"

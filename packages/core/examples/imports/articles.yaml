@@ -1,0 +1,30 @@
+id: import-articles
+name: Import Articles from CSV
+schema: article
+source:
+  type: csv
+  path: ./examples/data/articles.csv
+pipeline:
+  steps:
+    - type: map
+      mapping:
+        title: Title
+        slug: Slug
+        body: Body
+        published: Published
+        publishedAt: Published Date
+        author: Author
+        tags: Tags
+
+    - type: transform
+      transforms:
+        - field: published
+          fn: toBoolean
+        - field: publishedAt
+          fn: toDate
+        - field: slug
+          fn: toSlug
+
+    - type: validate
+
+    - type: persist

@@ -1,0 +1,29 @@
+id: import-products
+name: Import Products from JSON
+schema: product
+source:
+  type: json
+  path: ./examples/data/products.json
+pipeline:
+  steps:
+    - type: map
+      mapping:
+        sku: SKU
+        name: Product Name
+        description: Description
+        price: Price
+        currency: Currency
+        inStock: In Stock
+        category: Category
+        brand: Brand
+
+    - type: transform
+      transforms:
+        - field: price
+          fn: toNumber
+        - field: inStock
+          fn: toBoolean
+
+    - type: validate
+
+    - type: persist

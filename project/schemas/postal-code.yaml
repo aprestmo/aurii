@@ -1,7 +1,7 @@
 id: postal-code
 name: Postal Code
 description: Norwegian postal code (postnummer) from Bring
-version: 1
+version: 2
 fields:
   - name: code
     type: string
@@ -15,7 +15,8 @@ fields:
     label: Postal city (poststed)
 
   - name: municipalityId
-    type: string
+    type: reference
+    to: municipality
     required: true
     label: Municipality number (kommunenummer)
     description: References municipality.id

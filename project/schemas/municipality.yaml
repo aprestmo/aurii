@@ -1,7 +1,7 @@
 id: municipality
 name: Municipality
 description: Norwegian administrative municipality (kommune) from Kartverket/GeoNorge
-version: 1
+version: 2
 fields:
   - name: id
     type: string
@@ -15,7 +15,8 @@ fields:
     label: Municipality name (kommunenavnNorsk)
 
   - name: countyId
-    type: string
+    type: reference
+    to: county
     required: true
     label: County number (fylkesnummer)
     description: Two-digit county identifier; first two digits of the municipality number

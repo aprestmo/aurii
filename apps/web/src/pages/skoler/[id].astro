@@ -1,0 +1,60 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import { url } from "../../lib/base";
+import {
+  getCounty,
+  getMunicipality,
+  getSchool,
+  loadSchools,
+} from "../../lib/data";
+
+export async function getStaticPaths() {
+  const schools = await loadSchools();
+  return schools.map((school) => ({
+    params: { id: school.id },
+  }));
+}
+
+const { id } = Astro.params;
+const school = await getSchool(id!);
+if (!school) {
+  return Astro.redirect(url("skoler"));
+}
+
+const municipality = await getMunicipality(school.municipalityId);
+const county = await getCounty(school.countyId);
+---
+
+<Layout title={school.name}>
+  <p class="muted">
+    <a href={url("")} style="color: var(--accent)">← Referansedata</a>
+    {" · "}
+    <a href={url("skoler")} style="color: var(--accent)">Skoler</a>
+  </p>
+  <h1>{school.name}</h1>
+  <p class="muted">
+    Org.nr. <span class="badge">{school.id}</span>
+    {municipality && (
+      <>
+        {" · "}
+        <a href={url(`kommuner/${municipality.id}`)} style="color: var(--accent)">
+          {municipality.name}
+        </a>
+      </>
+    )}
+    {county && (
+      <>
+        {" · "}
+        <a href={url(`fylker/${county.id}`)} style="color: var(--accent)">{county.name}</a>
+      </>
+    )}
+  </p>
+
+  <h2>Egenskaper</h2>
+  <ul>
+    <li class="row"><span>Type</span><span>{school.isPrimary ? "Grunnskole" : school.isSecondary ? "Videregående" : "Annet"}</span></li>
+    <li class="row"><span>Eierform</span><span>{school.isPublic ? "Offentlig" : "Privat"}</span></li>
+    <li class="row"><span>Aktiv</span><span>{school.isActive ? "Ja" : "Nei"}</span></li>
+    <li class="row"><span>Kilde</span><span class="mono">{school.source}</span></li>
+  </ul>
+</Layout>

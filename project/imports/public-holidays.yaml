@@ -1,0 +1,23 @@
+id: import-public-holidays
+name: Import Public Holidays
+description: Norwegian public holidays
+schema: public-holiday
+dataset: norwegian-geo
+deduplicateBy: id
+source:
+  type: json
+  path: ../data/public-holidays.json
+pipeline:
+  steps:
+    - type: map
+      mapping:
+        id: id
+        date: date
+        localName: localName
+        name: name
+        year: year
+        isNational: isNational
+        holidayType: holidayType
+        source: source
+    - type: validate
+    - type: persist

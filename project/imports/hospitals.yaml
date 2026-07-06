@@ -1,0 +1,21 @@
+id: import-hospitals
+name: Import Hospitals
+description: Norwegian hospitals from Brønnøysundregistrene
+schema: hospital
+dataset: norwegian-geo
+deduplicateBy: id
+source:
+  type: json
+  path: ../data/hospitals.json
+pipeline:
+  steps:
+    - type: map
+      mapping:
+        id: id
+        name: name
+        municipalityId: municipalityId
+        industryCode: industryCode
+        industryDescription: industryDescription
+        source: source
+    - type: validate
+    - type: persist

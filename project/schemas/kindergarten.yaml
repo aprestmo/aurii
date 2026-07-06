@@ -1,0 +1,39 @@
+id: kindergarten
+name: Kindergarten
+description: Norwegian kindergarten from UDIR Nasjonalt barnehageregister (NBR)
+version: 1
+fields:
+  - name: id
+    type: string
+    required: true
+    label: Organization number (organisasjonsnummer)
+
+  - name: name
+    type: string
+    required: true
+    label: Kindergarten name
+
+  - name: municipalityId
+    type: reference
+    to: municipality
+    required: true
+    label: Municipality number (kommunenummer)
+
+  - name: countyId
+    type: reference
+    to: county
+    required: true
+    label: County number (fylkesnummer)
+
+  - name: isPublic
+    type: boolean
+    label: Public kindergarten (offentlig barnehage)
+
+  - name: isActive
+    type: boolean
+    required: true
+    label: Active in NBR
+
+  - name: source
+    type: string
+    label: Data source

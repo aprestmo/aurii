@@ -1,0 +1,26 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import { url } from "../../lib/base";
+import { loadHospitals } from "../../lib/data";
+
+const hospitals = (await loadHospitals()).sort((a, b) =>
+  a.name.localeCompare(b.name, "nb"),
+);
+---
+
+<Layout title="Sykehus">
+  <p class="muted"><a href={url("")} style="color: var(--accent)">← Referansedata</a></p>
+  <h1>Sykehus</h1>
+  <p class="muted">{hospitals.length} sykehus fra Brønnøysundregistrene (næringskode 86.10)</p>
+
+  <ul>
+    {hospitals.map((hospital) => (
+      <li>
+        <a href={url(`sykehus/${hospital.id}`)}>
+          <span>{hospital.name}</span>
+          <span class="mono">{hospital.id}</span>
+        </a>
+      </li>
+    ))}
+  </ul>
+</Layout>

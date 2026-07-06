@@ -1,0 +1,922 @@
+[
+  {
+    "id": "923801812",
+    "name": "A88A HOLDING AS",
+    "municipalityId": "3240",
+    "industryCode": "86.102",
+    "industryDescription": "Psykiatriske sykehustjenester for voksne",
+    "source": "brreg"
+  },
+  {
+    "id": "983971636",
+    "name": "AKERSHUS UNIVERSITETSSYKEHUS HF",
+    "municipalityId": "3222",
+    "industryCode": "86.101",
+    "industryDescription": "Somatiske sykehustjenester",
+    "source": "brreg"
+  },
+  {
+    "id": "943545634",
+    "name": "ALERIS HELSE AS",
+    "municipalityId": "0301",
+    "industryCode": "86.101",
+    "industryDescription": "Somatiske sykehustjenester",
+    "source": "brreg"
+  },
+  {
+    "id": "977114446",
+    "name": "ANDREAS OG LISABETH IMERSLUNDS M.FL. I TRYSIL STI",
+    "municipalityId": "3421",
+    "industryCode": "86.101",
+    "industryDescription": "Somatiske sykehustjenester",
+    "source": "brreg"
+  },
+  {
+    "id": "931247778",
+    "name": "ASCENDI AS",
+    "municipalityId": "3240",
+    "industryCode": "86.102",
+    "industryDescription": "Psykiatriske sykehustjenester for voksne",
+    "source": "brreg"
+  },
+  {
+    "id": "936473350",
+    "name": "BETANIEN HOSPITAL SKIEN AS",
+    "municipalityId": "4003",
+    "industryCode": "86.101",
+    "industryDescription": "Somatiske sykehustjenester",
+    "source": "brreg"
+  },
+  {
+    "id": "922716552",
+    "name": "BETANIEN SYKEHUS AS",
+    "municipalityId": "4601",
+    "industryCode": "86.102",
+    "industryDescription": "Psykiatriske sykehustjenester for voksne",
+    "source": "brreg"
+  },
+  {
+    "id": "991314113",
+    "name": "BLÅ KORS KLINIKK HAUGALAND AS",
+    "municipalityId": "1106",
+    "industryCode": "86.103",
+    "industryDescription": "Spesialisert rusbehandling",
+    "source": "brreg"
+  },
+  {
+    "id": "892237832",
+    "name": "BLÅ KORS KLINIKK LADE AS",
+    "municipalityId": "5001",
+    "industryCode": "86.103",
+    "industryDescription": "Spesialisert rusbehandling",
+    "source": "brreg"
+  },
+  {
+    "id": "920827438",
+    "name": "BLÅ KORS KLINIKK LOLAND AS",
+    "municipalityId": "4223",
+    "industryCode": "86.103",
+    "industryDescription": "Spesialisert rusbehandling",
+    "source": "brreg"
+  },
+  {
+    "id": "971450231",
+    "name": "BLÅ KORS KLINIKK SKIEN AS",
+    "municipalityId": "4003",
+    "industryCode": "86.103",
+    "industryDescription": "Spesialisert rusbehandling",
+    "source": "brreg"
+  },
+  {
+    "id": "976692888",
+    "name": "BLÅ KORS KLINIKK TJELDSUND AS",
+    "municipalityId": "5512",
+    "industryCode": "86.103",
+    "industryDescription": "Spesialisert rusbehandling",
+    "source": "brreg"
+  },
+  {
+    "id": "977203287",
+    "name": "BLÅ KORS ØST AS",
+    "municipalityId": "0301",
+    "industryCode": "86.103",
+    "industryDescription": "Spesialisert rusbehandling",
+    "source": "brreg"
+  },
+  {
+    "id": "913572041",
+    "name": "BORGER AS",
+    "municipalityId": "3305",
+    "industryCode": "86.102",
+    "industryDescription": "Psykiatriske sykehustjenester for voksne",
+    "source": "brreg"
+  },
+  {
+    "id": "999019544",
+    "name": "BROVAKTENE",
+    "municipalityId": "4627",
+    "industryCode": "86.104",
+    "industryDescription": "Psykiatriske sykehustjenester for barn og ungdom",
+    "source": "brreg"
+  },
+  {
+    "id": "980524493",
+    "name": "CAPIO ANOREKSI SENTER AS",
+    "municipalityId": "3107",
+    "industryCode": "86.104",
+    "industryDescription": "Psykiatriske sykehustjenester for barn og ungdom",
+    "source": "brreg"
+  },
+  {
+    "id": "993839140",
+    "name": "CAPIO NORGE HOLDING AS",
+    "municipalityId": "0301",
+    "industryCode": "86.101",
+    "industryDescription": "Somatiske sykehustjenester",
+    "source": "brreg"
+  },
+  {
+    "id": "812794922",
+    "name": "CMEDICAL AS",
+    "municipalityId": "0301",
+    "industryCode": "86.101",
+    "industryDescription": "Somatiske sykehustjenester",
+    "source": "brreg"
+  },
+  {
+    "id": "918928324",
+    "name": "CMEDICAL GROUP AS",
+    "municipalityId": "0301",
+    "industryCode": "86.101",
+    "industryDescription": "Somatiske sykehustjenester",
+    "source": "brreg"
+  },
+  {
+    "id": "982791952",
+    "name": "DIAKONHJEMMET SYKEHUS AS",
+    "municipalityId": "0301",
+    "industryCode": "86.101",
+    "industryDescription": "Somatiske sykehustjenester",
+    "source": "brreg"
+  },
+  {
+    "id": "913404130",
+    "name": "DRAMMEN TANNLEGESENTER AS",
+    "municipalityId": "3301",
+    "industryCode": "86.101",
+    "industryDescription": "Somatiske sykehustjenester",
+    "source": "brreg"
+  },
+  {
+    "id": "983974880",
+    "name": "FINNMARKSSYKEHUSET HF",
+    "municipalityId": "5603",
+    "industryCode": "86.101",
+    "industryDescription": "Somatiske sykehustjenester",
+    "source": "brreg"
+  },
+  {
+    "id": "999168086",
+    "name": "FJORDHAGEN DRIFT AS",
+    "municipalityId": "1130",
+    "industryCode": "86.103",
+    "industryDescription": "Spesialisert rusbehandling",
+    "source": "brreg"
+  },
+  {
+    "id": "913322533",
+    "name": "FRISKSTIFTELSEN",
+    "municipalityId": "3420",
+    "industryCode": "86.102",
+    "industryDescription": "Psykiatriske sykehustjenester for voksne",
+    "source": "brreg"
+  },
+  {
+    "id": "996980103",
+    "name": "FURUKOLLEN PSYKIATRISKE SENTER AS",
+    "municipalityId": "3228",
+    "industryCode": "86.102",
+    "industryDescription": "Psykiatriske sykehustjenester for voksne",
+    "source": "brreg"
+  },
+  {
+    "id": "979931638",
+    "name": "FØDEAVDELING I NORDREISA, KVÆNANGEN, KÅFJORD OG SKJERVØY",
+    "municipalityId": "5544",
+    "industryCode": "86.101",
+    "industryDescription": "Somatiske sykehustjenester",
+    "source": "brreg"
+  },
+  {
+    "id": "984027737",
+    "name": "HARALDSPLASS DIAKONALE SYKEHUS AS",
+    "municipalityId": "4601",
+    "industryCode": "86.101",
+    "industryDescription": "Somatiske sykehustjenester",
+    "source": "brreg"
+  },
+  {
+    "id": "986106839",
+    "name": "HAUGESUND SANITETSFORENINGS REVMATISMESYKEHUS AS",
+    "municipalityId": "1106",
+    "industryCode": "86.101",
+    "industryDescription": "Somatiske sykehustjenester",
+    "source": "brreg"
+  },
+  {
+    "id": "983974929",
+    "name": "HELGELANDSSYKEHUSET HF",
+    "municipalityId": "1820",
+    "industryCode": "86.101",
+    "industryDescription": "Somatiske sykehustjenester",
+    "source": "brreg"
+  },
+  {
+    "id": "983974724",
+    "name": "HELSE BERGEN HF",
+    "municipalityId": "4601",
+    "industryCode": "86.101",
+    "industryDescription": "Somatiske sykehustjenester",
+    "source": "brreg"
+  },
+  {
+    "id": "983974694",
+    "name": "HELSE FONNA HF",
+    "municipalityId": "1106",
+    "industryCode": "86.101",
+    "industryDescription": "Somatiske sykehustjenester",
+    "source": "brreg"
+  },
+  {
+    "id": "983974732",
+    "name": "HELSE FØRDE HF",
+    "municipalityId": "4647",
+    "industryCode": "86.101",
+    "industryDescription": "Somatiske sykehustjenester",
+    "source": "brreg"
+  },
+  {
+    "id": "997005562",
+    "name": "HELSE MØRE OG ROMSDAL HF",
+    "municipalityId": "1508",
+    "industryCode": "86.101",
+    "industryDescription": "Somatiske sykehustjenester",
+    "source": "brreg"
+  },
+  {
+    "id": "918177833",
+    "name": "HELSE NORD IKT HF",
+    "municipalityId": "5501",
+    "industryCode": "86.101",
+    "industryDescription": "Somatiske sykehustjenester",
+    "source": "brreg"
+  },
+  {
+    "id": "983974791",
+    "name": "HELSE NORD-TRØNDELAG HF",
+    "municipalityId": "5037",
+    "industryCode": "86.101",
+    "industryDescription": "Somatiske sykehustjenester",
+    "source": "brreg"
+  },
+  {
+    "id": "983974678",
+    "name": "HELSE STAVANGER HF",
+    "municipalityId": "1103",
+    "industryCode": "86.101",
+    "industryDescription": "Somatiske sykehustjenester",
+    "source": "brreg"
+  },
+  {
+    "id": "987601787",
+    "name": "HELSE VEST IKT AS",
+    "municipalityId": "4601",
+    "industryCode": "86.101",
+    "industryDescription": "Somatiske sykehustjenester",
+    "source": "brreg"
+  },
+  {
+    "id": "911912759",
+    "name": "HELSETJENESTENS DRIFTSORGANISASJON FOR NØDNETT HF",
+    "municipalityId": "3407",
+    "industryCode": "86.101",
+    "industryDescription": "Somatiske sykehustjenester",
+    "source": "brreg"
+  },
+  {
+    "id": "928033821",
+    "name": "HEMIT HF",
+    "municipalityId": "5001",
+    "industryCode": "86.101",
+    "industryDescription": "Somatiske sykehustjenester",
+    "source": "brreg"
+  },
+  {
+    "id": "993890200",
+    "name": "HOLM ERIK",
+    "municipalityId": "3905",
+    "industryCode": "86.102",
+    "industryDescription": "Psykiatriske sykehustjenester for voksne",
+    "source": "brreg"
+  },
+  {
+    "id": "971427051",
+    "name": "INCOGNITO KLINIKK STI",
+    "municipalityId": "0301",
+    "industryCode": "86.103",
+    "industryDescription": "Spesialisert rusbehandling",
+    "source": "brreg"
+  },
+  {
+    "id": "918686967",
+    "name": "KASTVOLLEN REHABILITERINGSSENTER AS",
+    "municipalityId": "5053",
+    "industryCode": "86.101",
+    "industryDescription": "Somatiske sykehustjenester",
+    "source": "brreg"
+  },
+  {
+    "id": "929153065",
+    "name": "KELLY JANE JUMERAS FLORES",
+    "municipalityId": "0301",
+    "industryCode": "86.101",
+    "industryDescription": "Somatiske sykehustjenester",
+    "source": "brreg"
+  },
+  {
+    "id": "919894377",
+    "name": "KILDEVANGEN KURS OG KOMPETANSESENTER AS",
+    "municipalityId": "3442",
+    "industryCode": "86.103",
+    "industryDescription": "Spesialisert rusbehandling",
+    "source": "brreg"
+  },
+  {
+    "id": "965985166",
+    "name": "LOVISENBERG DIAKONALE SYKEHUS AS",
+    "municipalityId": "0301",
+    "industryCode": "86.101",
+    "industryDescription": "Somatiske sykehustjenester",
+    "source": "brreg"
+  },
+  {
+    "id": "915647014",
+    "name": "LOVISENBERG DRIFTSTJENESTER AS",
+    "municipalityId": "3209",
+    "industryCode": "86.101",
+    "industryDescription": "Somatiske sykehustjenester",
+    "source": "brreg"
+  },
+  {
+    "id": "924212446",
+    "name": "LOVISENBERG REHABILITERING AS",
+    "municipalityId": "3209",
+    "industryCode": "86.101",
+    "industryDescription": "Somatiske sykehustjenester",
+    "source": "brreg"
+  },
+  {
+    "id": "953557088",
+    "name": "LUKAS STIFTELSEN",
+    "municipalityId": "5001",
+    "industryCode": "86.102",
+    "industryDescription": "Psykiatriske sykehustjenester for voksne",
+    "source": "brreg"
+  },
+  {
+    "id": "936431143",
+    "name": "MESTRINGSHUSENE AS KONKURSBO",
+    "municipalityId": "4005",
+    "industryCode": "86.103",
+    "industryDescription": "Spesialisert rusbehandling",
+    "source": "brreg"
+  },
+  {
+    "id": "923443223",
+    "name": "MESTRINGSHUSENE TYSNES AS",
+    "municipalityId": "4616",
+    "industryCode": "86.103",
+    "industryDescription": "Spesialisert rusbehandling",
+    "source": "brreg"
+  },
+  {
+    "id": "936459331",
+    "name": "MESTRINGSHUSENE TYSNES AS KONKURSBO",
+    "municipalityId": "4616",
+    "industryCode": "86.103",
+    "industryDescription": "Spesialisert rusbehandling",
+    "source": "brreg"
+  },
+  {
+    "id": "971049456",
+    "name": "MJØS KIRURGENE LEGE OG SPESIALISTSENTER AS",
+    "municipalityId": "3407",
+    "industryCode": "86.101",
+    "industryDescription": "Somatiske sykehustjenester",
+    "source": "brreg"
+  },
+  {
+    "id": "992018062",
+    "name": "N.K.S. GREFSENLIA AS",
+    "municipalityId": "0301",
+    "industryCode": "86.102",
+    "industryDescription": "Psykiatriske sykehustjenester for voksne",
+    "source": "brreg"
+  },
+  {
+    "id": "993253375",
+    "name": "N.K.S. KLØVERÅSEN AS",
+    "municipalityId": "1804",
+    "industryCode": "86.102",
+    "industryDescription": "Psykiatriske sykehustjenester for voksne",
+    "source": "brreg"
+  },
+  {
+    "id": "992104457",
+    "name": "N.K.S. ØSTBYTUNET, SENTER FOR BEHANDLING OG FAGUTVIKLING AS",
+    "municipalityId": "3222",
+    "industryCode": "86.104",
+    "industryDescription": "Psykiatriske sykehustjenester for barn og ungdom",
+    "source": "brreg"
+  },
+  {
+    "id": "996380041",
+    "name": "NKS JÆREN DISTRIKTSPSYKIATRISKE SENTER AS",
+    "municipalityId": "1121",
+    "industryCode": "86.102",
+    "industryDescription": "Psykiatriske sykehustjenester for voksne",
+    "source": "brreg"
+  },
+  {
+    "id": "987554401",
+    "name": "NKS OLAVIKEN ALDERSPSYKIATRISKE SYKEHUS AS",
+    "municipalityId": "4627",
+    "industryCode": "86.102",
+    "industryDescription": "Psykiatriske sykehustjenester for voksne",
+    "source": "brreg"
+  },
+  {
+    "id": "983974910",
+    "name": "NORDLANDSSYKEHUSET HF",
+    "municipalityId": "1804",
+    "industryCode": "86.101",
+    "industryDescription": "Somatiske sykehustjenester",
+    "source": "brreg"
+  },
+  {
+    "id": "976765559",
+    "name": "NØSTRET BO OG OMSORGSENTER AS",
+    "municipalityId": "3310",
+    "industryCode": "86.102",
+    "industryDescription": "Psykiatriske sykehustjenester for voksne",
+    "source": "brreg"
+  },
+  {
+    "id": "892902852",
+    "name": "NØSTRET KROKSUND AS",
+    "municipalityId": "3310",
+    "industryCode": "86.102",
+    "industryDescription": "Psykiatriske sykehustjenester for voksne",
+    "source": "brreg"
+  },
+  {
+    "id": "926186183",
+    "name": "OMEGASTIFTELSEN",
+    "municipalityId": "3905",
+    "industryCode": "86.103",
+    "industryDescription": "Spesialisert rusbehandling",
+    "source": "brreg"
+  },
+  {
+    "id": "937990804",
+    "name": "OMEGASTIFTELSEN KONKURSBO",
+    "municipalityId": "3905",
+    "industryCode": "86.103",
+    "industryDescription": "Spesialisert rusbehandling",
+    "source": "brreg"
+  },
+  {
+    "id": "918936599",
+    "name": "OPNE SAMTALAR MED BERIT ØYGARD",
+    "municipalityId": "3451",
+    "industryCode": "86.104",
+    "industryDescription": "Psykiatriske sykehustjenester for barn og ungdom",
+    "source": "brreg"
+  },
+  {
+    "id": "993467049",
+    "name": "OSLO UNIVERSITETSSYKEHUS HF",
+    "municipalityId": "0301",
+    "industryCode": "86.101",
+    "industryDescription": "Somatiske sykehustjenester",
+    "source": "brreg"
+  },
+  {
+    "id": "918695079",
+    "name": "PASIENTREISER HF",
+    "municipalityId": "4003",
+    "industryCode": "86.101",
+    "industryDescription": "Somatiske sykehustjenester",
+    "source": "brreg"
+  },
+  {
+    "id": "914751934",
+    "name": "PRIVATHOSPITALET FANA MEDISINSKE SENTER AS",
+    "municipalityId": "4601",
+    "industryCode": "86.101",
+    "industryDescription": "Somatiske sykehustjenester",
+    "source": "brreg"
+  },
+  {
+    "id": "935811503",
+    "name": "REBNORD ANESTESITJENESTER",
+    "municipalityId": "4601",
+    "industryCode": "86.101",
+    "industryDescription": "Somatiske sykehustjenester",
+    "source": "brreg"
+  },
+  {
+    "id": "953484366",
+    "name": "REINSNOS AS",
+    "municipalityId": "3310",
+    "industryCode": "86.102",
+    "industryDescription": "Psykiatriske sykehustjenester for voksne",
+    "source": "brreg"
+  },
+  {
+    "id": "985773238",
+    "name": "REVMATISMESYKEHUSET AS",
+    "municipalityId": "3405",
+    "industryCode": "86.101",
+    "industryDescription": "Somatiske sykehustjenester",
+    "source": "brreg"
+  },
+  {
+    "id": "986476695",
+    "name": "ROGALAND A- SENTER AS",
+    "municipalityId": "0301",
+    "industryCode": "86.103",
+    "industryDescription": "Spesialisert rusbehandling",
+    "source": "brreg"
+  },
+  {
+    "id": "986395865",
+    "name": "SAMTUN AS",
+    "municipalityId": "4020",
+    "industryCode": "86.103",
+    "industryDescription": "Spesialisert rusbehandling",
+    "source": "brreg"
+  },
+  {
+    "id": "922363277",
+    "name": "SFPH AS",
+    "municipalityId": "3212",
+    "industryCode": "86.102",
+    "industryDescription": "Psykiatriske sykehustjenester for voksne",
+    "source": "brreg"
+  },
+  {
+    "id": "919865636",
+    "name": "SOLLI DPS AS",
+    "municipalityId": "4601",
+    "industryCode": "86.102",
+    "industryDescription": "Psykiatriske sykehustjenester for voksne",
+    "source": "brreg"
+  },
+  {
+    "id": "971427272",
+    "name": "SOLLI SYKEHUS",
+    "municipalityId": "4601",
+    "industryCode": "86.102",
+    "industryDescription": "Psykiatriske sykehustjenester for voksne",
+    "source": "brreg"
+  },
+  {
+    "id": "999175031",
+    "name": "SOLSTAD BO- OG OMSORGSSENTER AS",
+    "municipalityId": "3310",
+    "industryCode": "86.102",
+    "industryDescription": "Psykiatriske sykehustjenester for voksne",
+    "source": "brreg"
+  },
+  {
+    "id": "883974832",
+    "name": "ST. OLAVS HOSPITAL HF",
+    "municipalityId": "5001",
+    "industryCode": "86.101",
+    "industryDescription": "Somatiske sykehustjenester",
+    "source": "brreg"
+  },
+  {
+    "id": "981275721",
+    "name": "STIFTELSEN BETANIEN HOSPITAL SKIEN",
+    "municipalityId": "4003",
+    "industryCode": "86.101",
+    "industryDescription": "Somatiske sykehustjenester",
+    "source": "brreg"
+  },
+  {
+    "id": "975387011",
+    "name": "STIFTELSEN CRUX",
+    "municipalityId": "0301",
+    "industryCode": "86.103",
+    "industryDescription": "Spesialisert rusbehandling",
+    "source": "brreg"
+  },
+  {
+    "id": "979607229",
+    "name": "STIFTELSEN DIAKONISSEHUSET LOVISENBERG",
+    "municipalityId": "0301",
+    "industryCode": "86.101",
+    "industryDescription": "Somatiske sykehustjenester",
+    "source": "brreg"
+  },
+  {
+    "id": "918311556",
+    "name": "STIFTELSEN FEKJÆR",
+    "municipalityId": "3449",
+    "industryCode": "86.102",
+    "industryDescription": "Psykiatriske sykehustjenester for voksne",
+    "source": "brreg"
+  },
+  {
+    "id": "980230066",
+    "name": "STIFTELSEN FINNMARKSKOLLEKTIVET",
+    "municipalityId": "5601",
+    "industryCode": "86.103",
+    "industryDescription": "Spesialisert rusbehandling",
+    "source": "brreg"
+  },
+  {
+    "id": "936698123",
+    "name": "STIFTELSEN FJELLHEIMEN REHABILITERING KONKURSBO",
+    "municipalityId": "5034",
+    "industryCode": "86.103",
+    "industryDescription": "Spesialisert rusbehandling",
+    "source": "brreg"
+  },
+  {
+    "id": "971474483",
+    "name": "STIFTELSEN FOSSUM-KOLLEKTIVET",
+    "municipalityId": "3118",
+    "industryCode": "87.991",
+    "industryDescription": "Tjenester i barneverninstitusjoner",
+    "source": "brreg"
+  },
+  {
+    "id": "970572066",
+    "name": "STIFTELSEN FREDHEIM",
+    "municipalityId": "3411",
+    "industryCode": "86.103",
+    "industryDescription": "Spesialisert rusbehandling",
+    "source": "brreg"
+  },
+  {
+    "id": "970167501",
+    "name": "STIFTELSEN FURUKOLLEN PSYKIATRISKE SENTER",
+    "municipalityId": "3228",
+    "industryCode": "86.102",
+    "industryDescription": "Psykiatriske sykehustjenester for voksne",
+    "source": "brreg"
+  },
+  {
+    "id": "871491682",
+    "name": "STIFTELSEN KVINNEKOLLEKTIVET ARKEN",
+    "municipalityId": "0301",
+    "industryCode": "86.103",
+    "industryDescription": "Spesialisert rusbehandling",
+    "source": "brreg"
+  },
+  {
+    "id": "971517093",
+    "name": "STIFTELSEN MANIFESTSENTERET",
+    "municipalityId": "3203",
+    "industryCode": "86.102",
+    "industryDescription": "Psykiatriske sykehustjenester for voksne",
+    "source": "brreg"
+  },
+  {
+    "id": "970107592",
+    "name": "STIFTELSEN MODUM BAD",
+    "municipalityId": "3316",
+    "industryCode": "86.102",
+    "industryDescription": "Psykiatriske sykehustjenester for voksne",
+    "source": "brreg"
+  },
+  {
+    "id": "971497289",
+    "name": "STIFTELSEN PHOENIX",
+    "municipalityId": "3118",
+    "industryCode": "86.103",
+    "industryDescription": "Spesialisert rusbehandling",
+    "source": "brreg"
+  },
+  {
+    "id": "956779510",
+    "name": "STIFTELSEN RENÅVANGEN",
+    "municipalityId": "3424",
+    "industryCode": "86.103",
+    "industryDescription": "Spesialisert rusbehandling",
+    "source": "brreg"
+  },
+  {
+    "id": "984012721",
+    "name": "STIFTELSEN RIISBY BEHANDLINGSSENTER",
+    "municipalityId": "3448",
+    "industryCode": "86.103",
+    "industryDescription": "Spesialisert rusbehandling",
+    "source": "brreg"
+  },
+  {
+    "id": "961790840",
+    "name": "STIFTELSEN SOLLIAKOLLEKTIVET",
+    "municipalityId": "3447",
+    "industryCode": "86.103",
+    "industryDescription": "Spesialisert rusbehandling",
+    "source": "brreg"
+  },
+  {
+    "id": "871427062",
+    "name": "STIFTELSEN TRASOPPKLINIKKEN",
+    "municipalityId": "0301",
+    "industryCode": "86.103",
+    "industryDescription": "Spesialisert rusbehandling",
+    "source": "brreg"
+  },
+  {
+    "id": "937206224",
+    "name": "STIFTELSEN TROGSTAD GÅRD",
+    "municipalityId": "3442",
+    "industryCode": "86.103",
+    "industryDescription": "Spesialisert rusbehandling",
+    "source": "brreg"
+  },
+  {
+    "id": "963971729",
+    "name": "STIFTELSEN VALDRESKLINIKKEN",
+    "municipalityId": "3451",
+    "industryCode": "86.103",
+    "industryDescription": "Spesialisert rusbehandling",
+    "source": "brreg"
+  },
+  {
+    "id": "984806329",
+    "name": "STIFTELSEN VIKEN SENTER",
+    "municipalityId": "5520",
+    "industryCode": "86.102",
+    "industryDescription": "Psykiatriske sykehustjenester for voksne",
+    "source": "brreg"
+  },
+  {
+    "id": "883971752",
+    "name": "SUNNAAS SYKEHUS HF",
+    "municipalityId": "3212",
+    "industryCode": "86.101",
+    "industryDescription": "Somatiske sykehustjenester",
+    "source": "brreg"
+  },
+  {
+    "id": "814630722",
+    "name": "SYKEHUSBYGG HF",
+    "municipalityId": "5001",
+    "industryCode": "86.101",
+    "industryDescription": "Somatiske sykehustjenester",
+    "source": "brreg"
+  },
+  {
+    "id": "983975259",
+    "name": "SYKEHUSET I VESTFOLD HF",
+    "municipalityId": "3905",
+    "industryCode": "86.101",
+    "industryDescription": "Somatiske sykehustjenester",
+    "source": "brreg"
+  },
+  {
+    "id": "983971709",
+    "name": "SYKEHUSET INNLANDET HF",
+    "municipalityId": "3411",
+    "industryCode": "86.101",
+    "industryDescription": "Somatiske sykehustjenester",
+    "source": "brreg"
+  },
+  {
+    "id": "983975267",
+    "name": "SYKEHUSET TELEMARK HF",
+    "municipalityId": "4003",
+    "industryCode": "86.101",
+    "industryDescription": "Somatiske sykehustjenester",
+    "source": "brreg"
+  },
+  {
+    "id": "983971768",
+    "name": "SYKEHUSET ØSTFOLD HF",
+    "municipalityId": "3105",
+    "industryCode": "86.101",
+    "industryDescription": "Somatiske sykehustjenester",
+    "source": "brreg"
+  },
+  {
+    "id": "916879067",
+    "name": "SYKEHUSINNKJØP HF",
+    "municipalityId": "5607",
+    "industryCode": "86.101",
+    "industryDescription": "Somatiske sykehustjenester",
+    "source": "brreg"
+  },
+  {
+    "id": "914637651",
+    "name": "SYKEHUSPARTNER HF",
+    "municipalityId": "3301",
+    "industryCode": "86.101",
+    "industryDescription": "Somatiske sykehustjenester",
+    "source": "brreg"
+  },
+  {
+    "id": "919820489",
+    "name": "SØRLANDET PRIVATSYKEHUS AS",
+    "municipalityId": "4204",
+    "industryCode": "86.101",
+    "industryDescription": "Somatiske sykehustjenester",
+    "source": "brreg"
+  },
+  {
+    "id": "983975240",
+    "name": "SØRLANDET SYKEHUS HF",
+    "municipalityId": "4204",
+    "industryCode": "86.101",
+    "industryDescription": "Somatiske sykehustjenester",
+    "source": "brreg"
+  },
+  {
+    "id": "971427019",
+    "name": "TYRIFJORDHEIMEN",
+    "municipalityId": "3310",
+    "industryCode": "86.102",
+    "industryDescription": "Psykiatriske sykehustjenester for voksne",
+    "source": "brreg"
+  },
+  {
+    "id": "961025311",
+    "name": "TYRILISTIFTELSEN",
+    "municipalityId": "3411",
+    "industryCode": "86.103",
+    "industryDescription": "Spesialisert rusbehandling",
+    "source": "brreg"
+  },
+  {
+    "id": "983974899",
+    "name": "UNIVERSITETSSYKEHUSET NORD-NORGE HF",
+    "municipalityId": "5501",
+    "industryCode": "86.101",
+    "industryDescription": "Somatiske sykehustjenester",
+    "source": "brreg"
+  },
+  {
+    "id": "932840723",
+    "name": "VENDEPUNKTET AS",
+    "municipalityId": "3216",
+    "industryCode": "86.103",
+    "industryDescription": "Spesialisert rusbehandling",
+    "source": "brreg"
+  },
+  {
+    "id": "894166762",
+    "name": "VESTRE VIKEN HF",
+    "municipalityId": "3301",
+    "industryCode": "86.101",
+    "industryDescription": "Somatiske sykehustjenester",
+    "source": "brreg"
+  },
+  {
+    "id": "929283406",
+    "name": "VIKER HELSE AS",
+    "municipalityId": "3316",
+    "industryCode": "87.101",
+    "industryDescription": "Tjenester i spesialinstitusjon innenfor helse- og omsorg",
+    "source": "brreg"
+  },
+  {
+    "id": "917529337",
+    "name": "VITALIS HELSE AS",
+    "municipalityId": "4211",
+    "industryCode": "86.101",
+    "industryDescription": "Somatiske sykehustjenester",
+    "source": "brreg"
+  },
+  {
+    "id": "953164701",
+    "name": "VOLVAT MEDISINSKE SENTER AS",
+    "municipalityId": "0301",
+    "industryCode": "86.101",
+    "industryDescription": "Somatiske sykehustjenester",
+    "source": "brreg"
+  },
+  {
+    "id": "916270097",
+    "name": "VOSS DPS NKS BJØRKELI AS",
+    "municipalityId": "4621",
+    "industryCode": "86.102",
+    "industryDescription": "Psykiatriske sykehustjenester for voksne",
+    "source": "brreg"
+  }
+]

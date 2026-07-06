@@ -1,0 +1,36 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import { url } from "../../lib/base";
+import { loadPublicHolidays } from "../../lib/data";
+
+const holidays = (await loadPublicHolidays()).sort((a, b) =>
+  a.date.localeCompare(b.date),
+);
+const years = [...new Set(holidays.map((h) => h.year))].sort();
+---
+
+<Layout title="Helligdager">
+  <p class="muted"><a href={url("")} style="color: var(--accent)">← Referansedata</a></p>
+  <h1>Helligdager</h1>
+  <p class="muted">
+    {holidays.length} helligdager ({years[0]}–{years[years.length - 1]}) · avledet fra Helligdagsloven via Nager.Date
+  </p>
+
+  {years.map((year) => (
+    <>
+      <h2>{year}</h2>
+      <ul>
+        {holidays
+          .filter((h) => h.year === year)
+          .map((holiday) => (
+            <li class="row">
+              <span>
+                <span class="mono">{holiday.date}</span> {holiday.localName}
+              </span>
+              <span class="badge">{holiday.holidayType}</span>
+            </li>
+          ))}
+      </ul>
+    </>
+  ))}
+</Layout>

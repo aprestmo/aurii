@@ -1,0 +1,24 @@
+id: import-schools
+name: Import Schools
+description: Norwegian schools from UDIR NSR
+schema: school
+dataset: norwegian-geo
+deduplicateBy: id
+source:
+  type: json
+  path: ../data/schools.json
+pipeline:
+  steps:
+    - type: map
+      mapping:
+        id: id
+        name: name
+        municipalityId: municipalityId
+        countyId: countyId
+        isPublic: isPublic
+        isPrimary: isPrimary
+        isSecondary: isSecondary
+        isActive: isActive
+        source: source
+    - type: validate
+    - type: persist

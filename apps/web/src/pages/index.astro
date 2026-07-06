@@ -1,19 +1,39 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import { url } from "../lib/base";
-import { loadCounties, loadMunicipalities } from "../lib/data";
+import { loadCounties, loadDatasetSummaries, loadMunicipalities, SAMPLE_QUERIES } from "../lib/data";
 
 const counties = (await loadCounties()).sort((a, b) =>
   a.name.localeCompare(b.name, "nb"),
 );
 const municipalities = await loadMunicipalities();
+const datasets = await loadDatasetSummaries();
 ---
 
-<Layout title="Fylker og kommuner">
-  <h1>Norske fylker og kommuner</h1>
+<Layout title="Offentlig referansedata">
+  <h1>Norsk offentlig referansedata</h1>
   <p class="muted">
-    {counties.length} fylker · {municipalities.length} kommuner · data fra Kartverket og Bring
+    {datasets.length} datasett · {municipalities.length} kommuner · importert via Aurii
   </p>
+
+  <h2>Datasett</h2>
+  <ul>
+    {datasets.map((dataset) => (
+      <li>
+        {dataset.path ? (
+          <a href={url(dataset.path)}>
+            <span>{dataset.title}</span>
+            <span class="mono">{dataset.count.toLocaleString("nb-NO")}</span>
+          </a>
+        ) : (
+          <span class="row">
+            <span>{dataset.title}</span>
+            <span class="mono">{dataset.count.toLocaleString("nb-NO")}</span>
+          </span>
+        )}
+      </li>
+    ))}
+  </ul>
 
   <h2>Fylker</h2>
   <ul>
@@ -23,6 +43,16 @@ const municipalities = await loadMunicipalities();
           <span>{county.name}</span>
           <span class="mono">{county.id}</span>
         </a>
+      </li>
+    ))}
+  </ul>
+
+  <h2>Eksempelspørringer</h2>
+  <p class="muted">Kjør i Studio eller <code>bun run cli query</code> med dataset <code>norwegian-geo</code>.</p>
+  <ul>
+    {SAMPLE_QUERIES.map((query) => (
+      <li class="row">
+        <span class="mono">{query}</span>
       </li>
     ))}
   </ul>

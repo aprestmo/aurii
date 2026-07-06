@@ -1,0 +1,72 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import { url } from "../../lib/base";
+import { loadKindergartens } from "../../lib/data";
+
+const kindergartens = (await loadKindergartens()).sort((a, b) =>
+  a.name.localeCompare(b.name, "nb"),
+);
+---
+
+<Layout title="Barnehager">
+  <p class="muted"><a href={url("")} style="color: var(--accent)">← Referansedata</a></p>
+  <h1>Barnehager</h1>
+  <p class="muted">{kindergartens.length.toLocaleString("nb-NO")} barnehager fra UDIR Nasjonalt barnehageregister</p>
+
+  <label for="search" class="muted">Søk</label>
+  <input
+    id="search"
+    type="search"
+    placeholder="Barnehagenavn eller org.nr."
+    style="width: 100%; margin: 0.5rem 0 1rem; padding: 0.5rem; border-radius: 4px; border: 1px solid var(--border); background: var(--surface); color: var(--text);"
+  />
+
+  <ul id="kindergarten-list">
+    {kindergartens.slice(0, 100).map((kg) => (
+      <li>
+        <a href={url(`barnehager/${kg.id}`)}>
+          <span>{kg.name}</span>
+          <span class="mono">{kg.id}</span>
+        </a>
+      </li>
+    ))}
+  </ul>
+  <p id="more-note" class="muted">Viser de første 100. Bruk søk for å finne en bestemt barnehage.</p>
+</Layout>
+
+<script define:vars={{ kindergartens }}>
+  const input = document.getElementById("search");
+  const list = document.getElementById("kindergarten-list");
+  const note = document.getElementById("more-note");
+
+  input?.addEventListener("input", () => {
+    const q = input.value.trim().toLowerCase();
+    list.innerHTML = "";
+    const matches = q
+      ? kindergartens.filter(
+          (k) =>
+            k.name.toLowerCase().includes(q) || k.id.toLowerCase().includes(q),
+        )
+      : kindergartens.slice(0, 100);
+
+    for (const kg of matches.slice(0, 200)) {
+      const li = document.createElement("li");
+      const a = document.createElement("a");
+      a.href = `${import.meta.env.BASE_URL}barnehager/${kg.id}`;
+      const name = document.createElement("span");
+      name.textContent = kg.name;
+      const id = document.createElement("span");
+      id.className = "mono";
+      id.textContent = kg.id;
+      a.append(name, id);
+      li.append(a);
+      list.append(li);
+    }
+
+    if (note) {
+      note.textContent = q
+        ? `${matches.length} treff`
+        : "Viser de første 100. Bruk søk for å finne en bestemt barnehage.";
+    }
+  });
+</script>

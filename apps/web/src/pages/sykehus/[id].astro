@@ -1,0 +1,51 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import { url } from "../../lib/base";
+import {
+  getHospital,
+  getMunicipality,
+  loadHospitals,
+} from "../../lib/data";
+
+export async function getStaticPaths() {
+  const hospitals = await loadHospitals();
+  return hospitals.map((hospital) => ({
+    params: { id: hospital.id },
+  }));
+}
+
+const { id } = Astro.params;
+const hospital = await getHospital(id!);
+if (!hospital) {
+  return Astro.redirect(url("sykehus"));
+}
+
+const municipality = await getMunicipality(hospital.municipalityId);
+---
+
+<Layout title={hospital.name}>
+  <p class="muted">
+    <a href={url("")} style="color: var(--accent)">← Referansedata</a>
+    {" · "}
+    <a href={url("sykehus")} style="color: var(--accent)">Sykehus</a>
+  </p>
+  <h1>{hospital.name}</h1>
+  <p class="muted">
+    Org.nr. <span class="badge">{hospital.id}</span>
+    {municipality && (
+      <>
+        {" · "}
+        <a href={url(`kommuner/${municipality.id}`)} style="color: var(--accent)">
+          {municipality.name}
+        </a>
+      </>
+    )}
+  </p>
+
+  <h2>Egenskaper</h2>
+  <ul>
+    <li class="row"><span>Næringskode</span><span class="mono">{hospital.industryCode}</span></li>
+    <li class="row"><span>Beskrivelse</span><span>{hospital.industryDescription}</span></li>
+    <li class="row"><span>Kilde</span><span class="mono">{hospital.source}</span></li>
+  </ul>
+</Layout>

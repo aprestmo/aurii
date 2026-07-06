@@ -32,6 +32,56 @@ export interface PostalCode {
   postalCodeType?: string;
 }
 
+export interface School {
+  id: string;
+  name: string;
+  municipalityId: string;
+  countyId: string;
+  isPublic?: boolean;
+  isPrimary?: boolean;
+  isSecondary?: boolean;
+  isActive?: boolean;
+  source?: string;
+}
+
+export interface Kindergarten {
+  id: string;
+  name: string;
+  municipalityId: string;
+  countyId: string;
+  isPublic?: boolean;
+  isActive?: boolean;
+  source?: string;
+}
+
+export interface Hospital {
+  id: string;
+  name: string;
+  municipalityId: string;
+  industryCode?: string;
+  industryDescription?: string;
+  source?: string;
+}
+
+export interface PublicHoliday {
+  id: string;
+  date: string;
+  localName: string;
+  name: string;
+  year: number;
+  isNational?: boolean;
+  holidayType?: string;
+  source?: string;
+}
+
+export interface DatasetSummary {
+  id: string;
+  title: string;
+  count: number;
+  path: string;
+  source: string;
+}
+
 async function readJson<T>(file: string): Promise<T> {
   const text = await readFile(resolve(DATA, file), "utf-8");
   return JSON.parse(text) as T;
@@ -49,6 +99,22 @@ export async function loadPostalCodes(): Promise<PostalCode[]> {
   return readJson<PostalCode[]>("postal-codes.json");
 }
 
+export async function loadSchools(): Promise<School[]> {
+  return readJson<School[]>("schools.json");
+}
+
+export async function loadKindergartens(): Promise<Kindergarten[]> {
+  return readJson<Kindergarten[]>("kindergartens.json");
+}
+
+export async function loadHospitals(): Promise<Hospital[]> {
+  return readJson<Hospital[]>("hospitals.json");
+}
+
+export async function loadPublicHolidays(): Promise<PublicHoliday[]> {
+  return readJson<PublicHoliday[]>("public-holidays.json");
+}
+
 export async function getCounty(id: string): Promise<County | undefined> {
   const counties = await loadCounties();
   return counties.find((c) => c.id === id);
@@ -59,6 +125,23 @@ export async function getMunicipality(
 ): Promise<Municipality | undefined> {
   const municipalities = await loadMunicipalities();
   return municipalities.find((m) => m.id === id);
+}
+
+export async function getSchool(id: string): Promise<School | undefined> {
+  const schools = await loadSchools();
+  return schools.find((s) => s.id === id);
+}
+
+export async function getKindergarten(
+  id: string,
+): Promise<Kindergarten | undefined> {
+  const kindergartens = await loadKindergartens();
+  return kindergartens.find((k) => k.id === id);
+}
+
+export async function getHospital(id: string): Promise<Hospital | undefined> {
+  const hospitals = await loadHospitals();
+  return hospitals.find((h) => h.id === id);
 }
 
 export async function getMunicipalitiesByCounty(
@@ -80,3 +163,116 @@ export async function getPostalCodesByMunicipality(
     .sort((a, b) => a.code.localeCompare(b.code))
     .slice(0, limit);
 }
+
+export async function getSchoolsByMunicipality(
+  municipalityId: string,
+  limit = 15,
+): Promise<School[]> {
+  const schools = await loadSchools();
+  return schools
+    .filter((s) => s.municipalityId === municipalityId)
+    .sort((a, b) => a.name.localeCompare(b.name, "nb"))
+    .slice(0, limit);
+}
+
+export async function getKindergartensByMunicipality(
+  municipalityId: string,
+  limit = 15,
+): Promise<Kindergarten[]> {
+  const kindergartens = await loadKindergartens();
+  return kindergartens
+    .filter((k) => k.municipalityId === municipalityId)
+    .sort((a, b) => a.name.localeCompare(b.name, "nb"))
+    .slice(0, limit);
+}
+
+export async function getHospitalsByMunicipality(
+  municipalityId: string,
+): Promise<Hospital[]> {
+  const hospitals = await loadHospitals();
+  return hospitals
+    .filter((h) => h.municipalityId === municipalityId)
+    .sort((a, b) => a.name.localeCompare(b.name, "nb"));
+}
+
+export async function loadDatasetSummaries(): Promise<DatasetSummary[]> {
+  const [
+    counties,
+    municipalities,
+    postalCodes,
+    schools,
+    kindergartens,
+    hospitals,
+    holidays,
+  ] = await Promise.all([
+    loadCounties(),
+    loadMunicipalities(),
+    loadPostalCodes(),
+    loadSchools(),
+    loadKindergartens(),
+    loadHospitals(),
+    loadPublicHolidays(),
+  ]);
+
+  return [
+    {
+      id: "county",
+      title: "Fylker",
+      count: counties.length,
+      path: "",
+      source: "Kartverket",
+    },
+    {
+      id: "municipality",
+      title: "Kommuner",
+      count: municipalities.length,
+      path: "",
+      source: "Kartverket",
+    },
+    {
+      id: "postal-code",
+      title: "Postnummer",
+      count: postalCodes.length,
+      path: "",
+      source: "Bring",
+    },
+    {
+      id: "school",
+      title: "Skoler",
+      count: schools.length,
+      path: "skoler",
+      source: "UDIR NSR",
+    },
+    {
+      id: "kindergarten",
+      title: "Barnehager",
+      count: kindergartens.length,
+      path: "barnehager",
+      source: "UDIR NBR",
+    },
+    {
+      id: "hospital",
+      title: "Sykehus",
+      count: hospitals.length,
+      path: "sykehus",
+      source: "Brønnøysundregistrene",
+    },
+    {
+      id: "public-holiday",
+      title: "Helligdager",
+      count: holidays.length,
+      path: "helligdager",
+      source: "Nager.Date",
+    },
+  ];
+}
+
+export const SAMPLE_QUERIES = [
+  'from county where name == "Oslo"',
+  'from municipality where countyId == "03" limit 5',
+  'from postal-code where municipalityId == "0301" limit 10',
+  'from school where municipalityId == "0301" and isPublic == true limit 10',
+  'from kindergarten where municipalityId == "0301" limit 10',
+  'from hospital where municipalityId == "0301"',
+  'from public-holiday where year == 2026 order by date asc',
+] as const;

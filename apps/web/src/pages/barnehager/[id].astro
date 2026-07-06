@@ -1,0 +1,59 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import { url } from "../../lib/base";
+import {
+  getCounty,
+  getMunicipality,
+  getKindergarten,
+  loadKindergartens,
+} from "../../lib/data";
+
+export async function getStaticPaths() {
+  const kindergartens = await loadKindergartens();
+  return kindergartens.map((kg) => ({
+    params: { id: kg.id },
+  }));
+}
+
+const { id } = Astro.params;
+const kindergarten = await getKindergarten(id!);
+if (!kindergarten) {
+  return Astro.redirect(url("barnehager"));
+}
+
+const municipality = await getMunicipality(kindergarten.municipalityId);
+const county = await getCounty(kindergarten.countyId);
+---
+
+<Layout title={kindergarten.name}>
+  <p class="muted">
+    <a href={url("")} style="color: var(--accent)">← Referansedata</a>
+    {" · "}
+    <a href={url("barnehager")} style="color: var(--accent)">Barnehager</a>
+  </p>
+  <h1>{kindergarten.name}</h1>
+  <p class="muted">
+    Org.nr. <span class="badge">{kindergarten.id}</span>
+    {municipality && (
+      <>
+        {" · "}
+        <a href={url(`kommuner/${municipality.id}`)} style="color: var(--accent)">
+          {municipality.name}
+        </a>
+      </>
+    )}
+    {county && (
+      <>
+        {" · "}
+        <a href={url(`fylker/${county.id}`)} style="color: var(--accent)">{county.name}</a>
+      </>
+    )}
+  </p>
+
+  <h2>Egenskaper</h2>
+  <ul>
+    <li class="row"><span>Eierform</span><span>{kindergarten.isPublic ? "Offentlig" : "Privat"}</span></li>
+    <li class="row"><span>Aktiv</span><span>{kindergarten.isActive ? "Ja" : "Nei"}</span></li>
+    <li class="row"><span>Kilde</span><span class="mono">{kindergarten.source}</span></li>
+  </ul>
+</Layout>

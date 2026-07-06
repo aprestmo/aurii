@@ -4,6 +4,7 @@ description: Imports Norwegian postal codes from Bring open data
 schema: postal-code
 dataset: norwegian-geo
 deduplicateBy: code
+referenceValidation: warning
 source:
   type: json
   path: ../data/postal-codes.json

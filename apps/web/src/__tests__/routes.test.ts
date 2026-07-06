@@ -1,20 +1,33 @@
 /**
- * Geo demo site — validates static route generation for all counties and municipalities.
+ * Geo demo site — validates static route generation for reference datasets.
  */
 
 import { describe, expect, it } from "bun:test";
 import { resolve } from "path";
 import {
   getCounty,
+  getKindergarten,
   getMunicipalitiesByCounty,
   getMunicipality,
+  getSchool,
   loadCounties,
+  loadDatasetSummaries,
+  loadHospitals,
+  loadKindergartens,
   loadMunicipalities,
+  loadPublicHolidays,
+  loadSchools,
 } from "../lib/data";
 
 const ROOT = resolve(import.meta.dir, "../../../..");
 
 describe("geo demo site routes", () => {
+  it("exposes seven reference datasets", async () => {
+    const datasets = await loadDatasetSummaries();
+    expect(datasets).toHaveLength(7);
+    expect(datasets.find((d) => d.id === "school")?.count).toBeGreaterThan(5000);
+  });
+
   it("generates 15 county pages and 357 municipality pages", async () => {
     const counties = await loadCounties();
     const municipalities = await loadMunicipalities();
@@ -40,6 +53,29 @@ describe("geo demo site routes", () => {
       const county = await getCounty(m.countyId);
       expect(county).toBeDefined();
     }
+  });
+
+  it("school and kindergarten entities resolve with municipality references", async () => {
+    const schools = await loadSchools();
+    const kindergartens = await loadKindergartens();
+    expect(schools.length).toBeGreaterThan(5000);
+    expect(kindergartens.length).toBeGreaterThan(5000);
+
+    const school = await getSchool("974587815");
+    if (school) {
+      const municipality = await getMunicipality(school.municipalityId);
+      expect(municipality).toBeDefined();
+    }
+
+    const kg = await getKindergarten(kindergartens[0]!.id);
+    expect(kg?.municipalityId).toBeDefined();
+  });
+
+  it("hospitals and holidays data files are present", async () => {
+    const hospitals = await loadHospitals();
+    const holidays = await loadPublicHolidays();
+    expect(hospitals.length).toBeGreaterThan(100);
+    expect(holidays.length).toBeGreaterThan(80);
   });
 
   it("data files exist at expected path", async () => {

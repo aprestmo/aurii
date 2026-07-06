@@ -1,0 +1,47 @@
+id: school
+name: School
+description: Norwegian school from UDIR Nasjonalt skoleregister (NSR)
+version: 1
+fields:
+  - name: id
+    type: string
+    required: true
+    label: Organization number (organisasjonsnummer)
+
+  - name: name
+    type: string
+    required: true
+    label: School name
+
+  - name: municipalityId
+    type: reference
+    to: municipality
+    required: true
+    label: Municipality number (kommunenummer)
+
+  - name: countyId
+    type: reference
+    to: county
+    required: true
+    label: County number (fylkesnummer)
+
+  - name: isPublic
+    type: boolean
+    label: Public school (offentlig skole)
+
+  - name: isPrimary
+    type: boolean
+    label: Primary school (grunnskole)
+
+  - name: isSecondary
+    type: boolean
+    label: Upper secondary school (videregående skole)
+
+  - name: isActive
+    type: boolean
+    required: true
+    label: Active in NSR
+
+  - name: source
+    type: string
+    label: Data source

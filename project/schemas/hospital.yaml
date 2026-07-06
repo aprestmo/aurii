@@ -1,0 +1,32 @@
+id: hospital
+name: Hospital
+description: Norwegian hospital entity from Brønnøysundregistrene (Enhetsregisteret)
+version: 1
+fields:
+  - name: id
+    type: string
+    required: true
+    label: Organization number (organisasjonsnummer)
+
+  - name: name
+    type: string
+    required: true
+    label: Hospital name
+
+  - name: municipalityId
+    type: reference
+    to: municipality
+    required: true
+    label: Municipality number (kommunenummer)
+
+  - name: industryCode
+    type: string
+    label: Industry code (næringskode)
+
+  - name: industryDescription
+    type: string
+    label: Industry description
+
+  - name: source
+    type: string
+    label: Data source

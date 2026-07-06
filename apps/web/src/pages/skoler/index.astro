@@ -1,0 +1,72 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import { url } from "../../lib/base";
+import { loadSchools } from "../../lib/data";
+
+const schools = (await loadSchools()).sort((a, b) =>
+  a.name.localeCompare(b.name, "nb"),
+);
+---
+
+<Layout title="Skoler">
+  <p class="muted"><a href={url("")} style="color: var(--accent)">← Referansedata</a></p>
+  <h1>Skoler</h1>
+  <p class="muted">{schools.length.toLocaleString("nb-NO")} skoler fra UDIR Nasjonalt skoleregister</p>
+
+  <label for="search" class="muted">Søk</label>
+  <input
+    id="search"
+    type="search"
+    placeholder="Skolenavn eller org.nr."
+    style="width: 100%; margin: 0.5rem 0 1rem; padding: 0.5rem; border-radius: 4px; border: 1px solid var(--border); background: var(--surface); color: var(--text);"
+  />
+
+  <ul id="school-list">
+    {schools.slice(0, 100).map((school) => (
+      <li data-name={school.name.toLowerCase()} data-id={school.id}>
+        <a href={url(`skoler/${school.id}`)}>
+          <span>{school.name}</span>
+          <span class="mono">{school.id}</span>
+        </a>
+      </li>
+    ))}
+  </ul>
+  <p id="more-note" class="muted">Viser de første 100. Bruk søk for å finne en bestemt skole.</p>
+</Layout>
+
+<script define:vars={{ schools }}>
+  const input = document.getElementById("search");
+  const list = document.getElementById("school-list");
+  const note = document.getElementById("more-note");
+
+  input?.addEventListener("input", () => {
+    const q = input.value.trim().toLowerCase();
+    list.innerHTML = "";
+    const matches = q
+      ? schools.filter(
+          (s) =>
+            s.name.toLowerCase().includes(q) || s.id.toLowerCase().includes(q),
+        )
+      : schools.slice(0, 100);
+
+    for (const school of matches.slice(0, 200)) {
+      const li = document.createElement("li");
+      const a = document.createElement("a");
+      a.href = `${import.meta.env.BASE_URL}skoler/${school.id}`;
+      const name = document.createElement("span");
+      name.textContent = school.name;
+      const id = document.createElement("span");
+      id.className = "mono";
+      id.textContent = school.id;
+      a.append(name, id);
+      li.append(a);
+      list.append(li);
+    }
+
+    if (note) {
+      note.textContent = q
+        ? `${matches.length} treff`
+        : "Viser de første 100. Bruk søk for å finne en bestemt skole.";
+    }
+  });
+</script>

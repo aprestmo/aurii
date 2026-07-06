@@ -1,0 +1,22 @@
+id: import-kindergartens
+name: Import Kindergartens
+description: Norwegian kindergartens from UDIR NBR
+schema: kindergarten
+dataset: norwegian-geo
+deduplicateBy: id
+source:
+  type: json
+  path: ../data/kindergartens.json
+pipeline:
+  steps:
+    - type: map
+      mapping:
+        id: id
+        name: name
+        municipalityId: municipalityId
+        countyId: countyId
+        isPublic: isPublic
+        isActive: isActive
+        source: source
+    - type: validate
+    - type: persist

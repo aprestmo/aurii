@@ -3,8 +3,10 @@ import Layout from "../../layouts/Layout.astro";
 import { url } from "../../lib/base";
 import {
   getCounty,
+  getKindergartensByMunicipality,
   getMunicipality,
   getPostalCodesByMunicipality,
+  getSchoolsByMunicipality,
   loadMunicipalities,
 } from "../../lib/data";
 
@@ -23,6 +25,8 @@ if (!municipality) {
 
 const county = await getCounty(municipality.countyId);
 const postalCodes = await getPostalCodesByMunicipality(id!, 15);
+const schools = await getSchoolsByMunicipality(id!, 10);
+const kindergartens = await getKindergartensByMunicipality(id!, 10);
 ---
 
 <Layout title={municipality.name}>
@@ -42,6 +46,40 @@ const postalCodes = await getPostalCodesByMunicipality(id!, 15);
       <> · Fylke <span class="badge">{county.name}</span></>
     )}
   </p>
+
+  {schools.length > 0 && (
+    <>
+      <h2>Skoler</h2>
+      <ul>
+        {schools.map((school) => (
+          <li>
+            <a href={url(`skoler/${school.id}`)}>
+              <span>{school.name}</span>
+              <span class="mono">{school.isPublic ? "Offentlig" : "Privat"}</span>
+            </a>
+          </li>
+        ))}
+      </ul>
+      <p class="muted"><a href={url("skoler")} style="color: var(--accent)">Søk alle skoler →</a></p>
+    </>
+  )}
+
+  {kindergartens.length > 0 && (
+    <>
+      <h2>Barnehager</h2>
+      <ul>
+        {kindergartens.map((kg) => (
+          <li>
+            <a href={url(`barnehager/${kg.id}`)}>
+              <span>{kg.name}</span>
+              <span class="mono">{kg.isPublic ? "Offentlig" : "Privat"}</span>
+            </a>
+          </li>
+        ))}
+      </ul>
+      <p class="muted"><a href={url("barnehager")} style="color: var(--accent)">Søk alle barnehager →</a></p>
+    </>
+  )}
 
   {postalCodes.length > 0 && (
     <>

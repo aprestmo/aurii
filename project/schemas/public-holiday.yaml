@@ -1,0 +1,42 @@
+id: public-holiday
+name: Public Holiday
+description: Norwegian public holiday derived from statutory calendar rules
+version: 1
+fields:
+  - name: id
+    type: string
+    required: true
+    label: Holiday identifier (ISO date)
+
+  - name: date
+    type: date
+    required: true
+    label: Holiday date
+
+  - name: localName
+    type: string
+    required: true
+    label: Norwegian name
+
+  - name: name
+    type: string
+    required: true
+    label: English name
+
+  - name: year
+    type: number
+    required: true
+    label: Calendar year
+
+  - name: isNational
+    type: boolean
+    required: true
+    label: Applies nationwide
+
+  - name: holidayType
+    type: string
+    label: Holiday type (Public, Bank, etc.)
+
+  - name: source
+    type: string
+    label: Data source

@@ -1,0 +1,28 @@
+---
+import Layout from "../layouts/Layout.astro";
+import { loadCounties, loadMunicipalities } from "../lib/data";
+
+const counties = (await loadCounties()).sort((a, b) =>
+  a.name.localeCompare(b.name, "nb"),
+);
+const municipalities = await loadMunicipalities();
+---
+
+<Layout title="Fylker og kommuner">
+  <h1>Norske fylker og kommuner</h1>
+  <p class="muted">
+    {counties.length} fylker · {municipalities.length} kommuner · data fra Kartverket og Bring
+  </p>
+
+  <h2>Fylker</h2>
+  <ul>
+    {counties.map((county) => (
+      <li>
+        <a href={`/fylker/${county.id}`}>
+          <span>{county.name}</span>
+          <span class="mono">{county.id}</span>
+        </a>
+      </li>
+    ))}
+  </ul>
+</Layout>

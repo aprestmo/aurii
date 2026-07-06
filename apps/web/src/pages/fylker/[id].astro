@@ -1,0 +1,44 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import {
+  getCounty,
+  getMunicipalitiesByCounty,
+  loadCounties,
+} from "../../lib/data";
+
+export async function getStaticPaths() {
+  const counties = await loadCounties();
+  return counties.map((county) => ({
+    params: { id: county.id },
+  }));
+}
+
+const { id } = Astro.params;
+const county = await getCounty(id!);
+if (!county) {
+  return Astro.redirect("/");
+}
+
+const municipalities = await getMunicipalitiesByCounty(id!);
+---
+
+<Layout title={county.name}>
+  <p class="muted"><a href="/" style="color: var(--accent)">← Alle fylker</a></p>
+  <h1>{county.name}</h1>
+  <p class="muted">
+    Fylkesnummer <span class="badge">{county.id}</span>
+    · {municipalities.length} kommune{municipalities.length === 1 ? "" : "r"}
+  </p>
+
+  <h2>Kommuner</h2>
+  <ul>
+    {municipalities.map((mun) => (
+      <li>
+        <a href={`/kommuner/${mun.id}`}>
+          <span>{mun.name}</span>
+          <span class="mono">{mun.id}</span>
+        </a>
+      </li>
+    ))}
+  </ul>
+</Layout>

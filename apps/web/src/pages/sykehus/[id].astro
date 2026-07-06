@@ -25,9 +25,9 @@ const municipality = await getMunicipality(hospital.municipalityId);
 
 <Layout title={hospital.name}>
   <p class="muted">
-    <a href={url("")} style="color: var(--accent)">← Referansedata</a>
+    <a href={url("")}>← Referansedata</a>
     {" · "}
-    <a href={url("sykehus")} style="color: var(--accent)">Sykehus</a>
+    <a href={url("sykehus")}>Sykehus</a>
   </p>
   <h1>{hospital.name}</h1>
   <p class="muted">
@@ -35,7 +35,7 @@ const municipality = await getMunicipality(hospital.municipalityId);
     {municipality && (
       <>
         {" · "}
-        <a href={url(`kommuner/${municipality.id}`)} style="color: var(--accent)">
+        <a href={url(`kommuner/${municipality.id}`)}>
           {municipality.name}
         </a>
       </>

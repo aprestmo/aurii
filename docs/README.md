@@ -39,6 +39,10 @@ The specification is the **source of truth**. Code implements the specification.
 - [Constitution.md](./Constitution.md) — Architectural principles
 - [Toc.md](./Toc.md) — Table of contents for the full specification
 
+### Development
+
+- [REFERENCE_DEMO.md](./REFERENCE_DEMO.md) — **Canonical demo project** for agents and contributors (Norwegian geo vertical slice)
+
 ---
 
 ## Architecture Decision Records

@@ -101,6 +101,7 @@ export interface ImportResult {
 	dryRun: boolean;
 	total: number;
 	imported: number;
+	inserted: number;
 	updated: number;
 	failed: number;
 	errors: Array<{ row: number; message: string; data: unknown }>;

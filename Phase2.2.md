@@ -1,6 +1,8 @@
 # Phase 2.2 — Reality Check
 
-> Validate that the Phase 1–2 architecture solves a realistic problem end-to-end.
+> **Status: complete.** Phase 2 is closed. This document records the reality check and remains the reference for the canonical demo project.
+
+Validate that the Phase 1–2 architecture solves a realistic problem end-to-end.
 
 Phase 2.2 is **not** about adding platform capabilities. It proves the existing stack works as a complete vertical slice.
 
@@ -204,8 +206,8 @@ Documented honestly — these are known gaps, not hidden behind new abstractions
 |----------|--------|---------------------------|
 | **No join queries** | County → municipality → postal-code requires 3 separate queries | Add relation-aware query syntax or application-level graph queries |
 | **Relationships are string fields only** | `countyId` is not enforced as a foreign key; orphaned references possible | Schema-level `reference` type with validation at import time |
-| **Type inference misclassifies numeric-looking IDs** | Municipality `id` inferred as `number` in analyzer | Majority-wins heuristic or explicit identifier detection |
-| **`imported` count includes updates** | Second idempotent run reports `imported: 357` even though rows were updated | Separate `inserted` vs `updated` in `ImportResult` reporting |
+| **Type inference misclassifies numeric-looking IDs** | Municipality `id` inferred as `number` in analyzer | Majority-wins heuristic or explicit identifier detection | **Fixed** — identifier columns infer as `string` |
+| **`imported` count includes updates** | Second idempotent run reports `imported: 357` even though rows were updated | Separate `inserted` vs `updated` in `ImportResult` reporting | **Fixed** — `inserted` and `updated` reported separately |
 | **`toBoolean` drops multi-state values** | "Hybrid" remote work values silently lost | Add `enum` field type (see `docs/RealWorldTest.md`) |
 | **`toNumber` corrupts locale-formatted numbers** | `"1,500"` → `1` | Locale-aware number parsing transform |
 | **No OR / aggregate queries** | Cannot express `where A or B` or `count(*)` | Extend Query Language v1 |
@@ -250,3 +252,47 @@ Documented honestly — these are known gaps, not hidden behind new abstractions
 | `packages/core/src/__tests__/vertical-slice.test.ts` | Integration tests |
 | `packages/sdk/src/__tests__/vertical-slice.test.ts` | SDK integration tests |
 | `Phase2.2.md` | This document |
+| `docs/REFERENCE_DEMO.md` | Agent guide for the canonical demo project |
+| `AGENTS.md` | Reference Demo Project section for agents |
+| `apps/geo/` | Public website demo (373 routes) |
+
+---
+
+## Website validation
+
+A public county/municipality website is feasible with the current data and API.
+
+### Data completeness
+
+| Check | Result |
+|-------|--------|
+| Counties (Kartverket) | 15 — all have municipalities |
+| Municipalities (Kartverket) | 357 — all linked to a valid county |
+| Postal codes (Bring) | 5,122 — linkable via `municipalityId` |
+| Unique routable IDs | County `03`, municipality `0301` — URL-safe, no slugs required |
+
+### Route map
+
+| URL | Aurii query |
+|-----|-------------|
+| `/fylker` | `from county order by name asc` |
+| `/fylker/03` | `from county where id == "03"` + `from municipality where countyId == "03"` |
+| `/kommuner/0301` | `from municipality where id == "0301"` + `from postal-code where municipalityId == "0301"` |
+
+### Demo site
+
+`apps/geo` is a minimal Astro consumer that builds **373 static pages** (1 index + 15 counties + 357 municipalities):
+
+```bash
+cd apps/geo && bun run dev    # http://localhost:4322
+cd apps/geo && bun run build  # generates all routes
+```
+
+Automated validation: `packages/core/src/__tests__/geo-website-routes.test.ts` (queries every county and municipality via Core).
+
+### Limitations for a production website
+
+- **No join queries** — county name on a municipality page requires a second query (or denormalization at import)
+- **Entity list pagination** — default API limit is 50; use Query Language with explicit `limit` for full lists
+- **Pretty URLs** — IDs work (`/kommuner/0301`); human-readable slugs would need a `slug` field added to schemas
+- **No search** — filtering is query-based only; full-text search is Phase 3

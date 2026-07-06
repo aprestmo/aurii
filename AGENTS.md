@@ -410,6 +410,55 @@ Never more complicated.
 
 ---
 
+# Reference Demo Project
+
+When adding features, fixing bugs, or validating architecture changes, use the **Norwegian geographic reference demo** as the canonical end-to-end testbed. Do not invent new synthetic datasets when this one already exercises the platform.
+
+## What it is
+
+A complete vertical slice built during Phase 2.2:
+
+| Layer | Location | Purpose |
+|-------|----------|---------|
+| **Data** | `demo/norwegian-geo/` | Real Kartverket + Bring data (15 counties, 357 municipalities, 5,122 postal codes) |
+| **Import** | `bun run import:norwegian-geo` | One-command import into Core |
+| **Tests** | `vertical-slice.test.ts`, `geo-website-routes.test.ts`, `norwegian-geo-import.test.ts` | Integration coverage |
+| **Consumer site** | `apps/geo` | Public website with 373 static routes (`/fylker/:id`, `/kommuner/:id`) |
+| **Admin client** | `apps/studio` | Import wizard, entity browser (dataset: `norwegian-geo`) |
+
+Full documentation: `docs/REFERENCE_DEMO.md` and `Phase2.2.md`.
+
+## When to use it
+
+**Always extend this demo when:**
+
+- Adding import, query, schema, or API capabilities
+- Changing SDK or storage behaviour
+- Validating that a feature works end-to-end before Phase 3
+
+**Workflow for agents:**
+
+1. Import the dataset: `bun run import:norwegian-geo`
+2. Run relevant tests: `bun test` (especially `vertical-slice`, `geo-website-routes`)
+3. If the feature affects public consumers, update `apps/geo` or add a test there
+4. Update `docs/REFERENCE_DEMO.md` if the demo workflow changes
+
+**Do not:**
+
+- Create parallel demo datasets for the same purpose
+- Hardcode Norwegian geo logic in Core (keep it in schemas, imports, and demo apps)
+- Skip integration tests and rely only on unit tests
+
+## Example queries (copy-paste)
+
+```
+from county order by name asc
+from municipality where countyId == "03"
+from postal-code where municipalityId == "0301" limit 10
+```
+
+---
+
 # The Final Question
 
 Before every pull request, every design decision and every implementation, ask one question:

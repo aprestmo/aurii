@@ -103,3 +103,22 @@ jobs:
       - name: Test
         working-directory: apps/studio
         run: bun run test
+
+  # ── Geo demo site ─────────────────────────────────────────────────────────────
+  geo:
+    name: geo — build, test
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: oven-sh/setup-bun@v2
+        with:
+          bun-version: latest
+      - name: Install dependencies
+        working-directory: apps/geo
+        run: bun install --frozen-lockfile
+      - name: Test
+        working-directory: apps/geo
+        run: bun run test
+      - name: Build (373 static pages)
+        working-directory: apps/geo
+        run: bun run build

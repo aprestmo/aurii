@@ -9,7 +9,7 @@
   ],
   "scripts": {
     "build": "bun run --filter='*' build",
-    "test": "bun run --filter='@aurii/core' test && bun run --filter='@aurii/sdk' test && bun run --filter='@aurii/studio' test",
+    "test": "bun run --filter='@aurii/core' test && bun run --filter='@aurii/sdk' test && bun run --filter='@aurii/studio' test && bun run --filter='@aurii/geo' test",
     "lint": "bun run --filter='*' lint",
     "typecheck": "bun run --filter='*' typecheck",
     "dev": "bun run --filter='@aurii/core' dev & bun run --filter='@aurii/studio' dev",

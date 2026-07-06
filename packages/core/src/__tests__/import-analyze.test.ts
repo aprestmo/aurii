@@ -157,4 +157,15 @@ Widget C,9.99,ja,01.03.2024`;
 		const r = analyzeContent("products.csv", csvContent, "my-custom-id");
 		expect(r.suggestedSchema.id).toBe("my-custom-id");
 	});
+
+	it("infers identifier columns (id, countyId, code) as string even when numeric", () => {
+		const json = JSON.stringify([
+			{ id: "0301", name: "Oslo", countyId: "03", code: "0001" },
+			{ id: "1103", name: "Stavanger", countyId: "11", code: "4001" },
+		]);
+		const r = analyzeContent("municipalities.json", json);
+		expect(r.inferredTypes["id"]).toBe("string");
+		expect(r.inferredTypes["countyId"]).toBe("string");
+		expect(r.inferredTypes["code"]).toBe("string");
+	});
 });

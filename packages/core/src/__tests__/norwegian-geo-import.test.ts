@@ -570,6 +570,7 @@ describe("4. Idempotency — running the same import twice produces no duplicate
 
 			// Second run: all rows were found → updated in place, none inserted anew
 			expect(run2.updated).toBe(counties.length);
+			expect(run2.inserted).toBe(0);
 
 			const storage = await getStorage();
 			const count = await storage.countEntities("county", DATASET);
@@ -612,6 +613,7 @@ describe("4. Idempotency — running the same import twice produces no duplicate
 			const run2 = await runImport(def, "/");
 
 			expect(run2.updated).toBe(municipalities.length);
+			expect(run2.inserted).toBe(0);
 			const storage = await getStorage();
 			expect(await storage.countEntities("municipality", DATASET)).toBe(
 				municipalities.length,
@@ -655,6 +657,7 @@ describe("4. Idempotency — running the same import twice produces no duplicate
 			const run2 = await runImport(def, "/");
 
 			expect(run2.updated).toBe(postalCodes.length);
+			expect(run2.inserted).toBe(0);
 			const storage = await getStorage();
 			expect(await storage.countEntities("postal-code", DATASET)).toBe(
 				postalCodes.length,

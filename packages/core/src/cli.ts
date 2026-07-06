@@ -150,6 +150,9 @@ async function cmdImportRun(filePath: string) {
 	console.log(
 		`  ${c.green}${dryRun ? "Would import" : "Imported"}: ${result.imported}${c.reset}`,
 	);
+	if (!dryRun && result.updated > 0) {
+		console.log(`  ${c.gray}Inserted: ${result.inserted}  Updated: ${result.updated}${c.reset}`);
+	}
 	if (result.failed > 0) {
 		console.log(`  ${c.red}Failed:   ${result.failed}${c.reset}`);
 		for (const e of result.errors.slice(0, 10)) {

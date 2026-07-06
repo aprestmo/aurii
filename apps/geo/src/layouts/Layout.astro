@@ -1,0 +1,90 @@
+---
+interface Props {
+  title: string;
+}
+
+const { title } = Astro.props;
+---
+
+<!doctype html>
+<html lang="nb">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title} — Norge</title>
+    <style>
+      :root {
+        --bg: #0f1419;
+        --surface: #1a2332;
+        --text: #e8edf4;
+        --muted: #8b9cb3;
+        --accent: #3d8bfd;
+        --border: #2a3544;
+      }
+      * { box-sizing: border-box; margin: 0; padding: 0; }
+      body {
+        font-family: system-ui, -apple-system, sans-serif;
+        background: var(--bg);
+        color: var(--text);
+        line-height: 1.5;
+        min-height: 100vh;
+      }
+      header {
+        border-bottom: 1px solid var(--border);
+        padding: 1rem 1.5rem;
+        background: var(--surface);
+      }
+      header a {
+        color: var(--text);
+        text-decoration: none;
+        font-weight: 600;
+      }
+      main { max-width: 56rem; margin: 0 auto; padding: 2rem 1.5rem; }
+      h1 { font-size: 1.75rem; margin-bottom: 0.5rem; }
+      h2 { font-size: 1.125rem; margin: 2rem 0 0.75rem; color: var(--muted); font-weight: 500; text-transform: uppercase; letter-spacing: 0.05em; }
+      p.muted { color: var(--muted); margin-bottom: 1.5rem; }
+      ul { list-style: none; }
+      li { border-bottom: 1px solid var(--border); }
+      li a {
+        display: flex;
+        justify-content: space-between;
+        padding: 0.75rem 0;
+        color: var(--text);
+        text-decoration: none;
+      }
+      li.row {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0.75rem 0;
+      }
+      li a:hover { color: var(--accent); }
+      .mono { font-family: ui-monospace, monospace; color: var(--muted); font-size: 0.875rem; }
+      .badge {
+        display: inline-block;
+        background: var(--surface);
+        border: 1px solid var(--border);
+        padding: 0.125rem 0.5rem;
+        border-radius: 4px;
+        font-size: 0.75rem;
+        color: var(--muted);
+      }
+      footer {
+        margin-top: 3rem;
+        padding-top: 1rem;
+        border-top: 1px solid var(--border);
+        color: var(--muted);
+        font-size: 0.875rem;
+      }
+    </style>
+  </head>
+  <body>
+    <header><a href="/">Norske fylker og kommuner</a></header>
+    <main>
+      <slot />
+    </main>
+    <footer>
+      Data: Kartverket/GeoNorge og Bring · Drevet av Aurii
+    </footer>
+  </body>
+</html>

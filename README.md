@@ -414,6 +414,7 @@ The Norwegian geographic reference dataset (15 counties, 357 municipalities, 5,1
 ```
 apps/
   studio/          @aurii/studio — Astro admin client
+  geo/             @aurii/geo    — Norwegian counties/municipalities demo site
 packages/
   core/            @aurii/core   — Runtime (Bun + Elysia)
   sdk/             @aurii/sdk    — Typed HTTP client (browser + server)

@@ -1,0 +1,60 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import {
+  getCounty,
+  getMunicipality,
+  getPostalCodesByMunicipality,
+  loadMunicipalities,
+} from "../../lib/data";
+
+export async function getStaticPaths() {
+  const municipalities = await loadMunicipalities();
+  return municipalities.map((mun) => ({
+    params: { id: mun.id },
+  }));
+}
+
+const { id } = Astro.params;
+const municipality = await getMunicipality(id!);
+if (!municipality) {
+  return Astro.redirect("/");
+}
+
+const county = await getCounty(municipality.countyId);
+const postalCodes = await getPostalCodesByMunicipality(id!, 15);
+---
+
+<Layout title={municipality.name}>
+  <p class="muted">
+    <a href="/" style="color: var(--accent)">← Alle fylker</a>
+    {county && (
+      <>
+        {" · "}
+        <a href={`/fylker/${county.id}`} style="color: var(--accent)">{county.name}</a>
+      </>
+    )}
+  </p>
+  <h1>{municipality.name}</h1>
+  <p class="muted">
+    Kommunenummer <span class="badge">{municipality.id}</span>
+    {county && (
+      <> · Fylke <span class="badge">{county.name}</span></>
+    )}
+  </p>
+
+  {postalCodes.length > 0 && (
+    <>
+      <h2>Postnummer ({postalCodes.length}{postalCodes.length >= 15 ? "+" : ""})</h2>
+      <ul>
+        {postalCodes.map((pc) => (
+          <li class="row">
+            <span>
+              <span class="mono">{pc.code}</span> {pc.city}
+            </span>
+            {pc.postalCodeType && <span class="badge">{pc.postalCodeType}</span>}
+          </li>
+        ))}
+      </ul>
+    </>
+  )}
+</Layout>

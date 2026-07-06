@@ -16,6 +16,12 @@ A minimal public website proving that Kartverket and Bring data imported into Au
 
 County and municipality IDs are numeric (`03`, `0301`) and URL-safe — no slug encoding required.
 
+## Live demo
+
+Hosted on GitHub Pages (see `docs/DEPLOYMENT.md`):
+
+**https://aprestmo.github.io/aurii/**
+
 ## Run locally
 
 ```bash

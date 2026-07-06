@@ -100,8 +100,19 @@ export async function runImport(
 		}
 	}
 
+	let updated = 0;
+
 	if (!dryRun && toInsert.length > 0) {
-		await storage.insertEntities(toInsert, datasetId);
+		if (def.deduplicateBy) {
+			const upsertResult = await storage.upsertEntitiesByField(
+				toInsert,
+				datasetId,
+				def.deduplicateBy,
+			);
+			updated = upsertResult.updated;
+		} else {
+			await storage.insertEntities(toInsert, datasetId);
+		}
 	}
 
 	const imported = toInsert.length;
@@ -129,6 +140,7 @@ export async function runImport(
 		dryRun,
 		total,
 		imported,
+		updated,
 		failed,
 		errors,
 		durationMs,

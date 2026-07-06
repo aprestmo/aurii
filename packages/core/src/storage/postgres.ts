@@ -9,6 +9,7 @@ import type {
 	SchemaStats,
 	StorageAdapter,
 	StorageStats,
+	UpsertByFieldResult,
 } from "./types";
 import { DEFAULT_DATASET } from "./types";
 
@@ -287,6 +288,62 @@ export class PostgresAdapter implements StorageAdapter {
 			ids as never[],
 		);
 		return (rows as unknown as RawEntityRow[]).map(rowToEntity);
+	}
+
+	async upsertEntitiesByField(
+		inputs: EntityInput[],
+		datasetId: string,
+		fieldName: string,
+	): Promise<UpsertByFieldResult> {
+		if (inputs.length === 0) return { inserted: 0, updated: 0 };
+
+		const schemaId = inputs[0]!.schemaId;
+		const safeField = fieldName.replace(/[^a-zA-Z0-9_]/g, "");
+
+		// Fetch all existing natural-key values for this schema in one query.
+		const existingRows = await this.sql.unsafe(
+			`SELECT id, data->>'${safeField}' AS key
+       FROM aurii_entities
+       WHERE dataset_id = $1 AND schema_id = $2`,
+			[datasetId, schemaId] as never[],
+		);
+		const existingMap = new Map(
+			(existingRows as { id: string; key: string }[]).map((r) => [
+				String(r.key),
+				r.id,
+			]),
+		);
+
+		const toInsert: EntityInput[] = [];
+		const toUpdate: { id: string; data: Record<string, unknown> }[] = [];
+
+		for (const input of inputs) {
+			const keyValue = String(input.data[fieldName] ?? "");
+			const existingId = existingMap.get(keyValue);
+			if (existingId !== undefined) {
+				toUpdate.push({ id: existingId, data: input.data });
+			} else {
+				toInsert.push(input);
+			}
+		}
+
+		if (toUpdate.length > 0) {
+			await this.sql.begin(async (tx: SQL) => {
+				for (const { id, data } of toUpdate) {
+					await tx`
+            UPDATE aurii_entities
+            SET data = ${data as never}, updated_at = now()
+            WHERE id = ${id}::uuid
+          `;
+				}
+			});
+		}
+
+		if (toInsert.length > 0) {
+			await this.insertEntities(toInsert, datasetId);
+		}
+
+		return { inserted: toInsert.length, updated: toUpdate.length };
 	}
 
 	async getEntity(id: string): Promise<Entity | null> {

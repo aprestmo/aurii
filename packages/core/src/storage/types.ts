@@ -47,6 +47,11 @@ export interface StorageStats {
 	schemas: SchemaStats[];
 }
 
+export interface UpsertByFieldResult {
+	inserted: number;
+	updated: number;
+}
+
 /**
  * Storage adapter contract.
  *
@@ -73,6 +78,19 @@ export interface StorageAdapter {
 
 	// Entities
 	insertEntities(inputs: EntityInput[], datasetId: string): Promise<Entity[]>;
+	/**
+	 * Upsert entities by a natural key field.
+	 *
+	 * For each input, if an entity with the same value in `fieldName` already
+	 * exists (same schema + dataset), its `data` is updated in-place.
+	 * Otherwise a new entity is inserted.  This is the foundation for
+	 * idempotent imports: running the same import twice never creates duplicates.
+	 */
+	upsertEntitiesByField(
+		inputs: EntityInput[],
+		datasetId: string,
+		fieldName: string,
+	): Promise<UpsertByFieldResult>;
 	getEntity(id: string): Promise<Entity | null>;
 	listEntities(
 		schemaId: string,

@@ -1,0 +1,38 @@
+id: postal-code
+name: Postal Code
+description: Norwegian postal code (postnummer) from Bring Postal Code API
+version: 1
+fields:
+  - name: code
+    type: string
+    required: true
+    label: Postal code (postnummer)
+    description: Four-digit Norwegian postal code, zero-padded, e.g. "0001"
+  - name: city
+    type: string
+    required: true
+    label: Postal city (poststed)
+  - name: municipalityId
+    type: string
+    required: true
+    label: Municipality number (kommunenummer)
+    description: References municipality.id
+  - name: municipalityName
+    type: string
+    label: Municipality name
+  - name: countyName
+    type: string
+    label: County name
+  - name: postalCodeType
+    type: string
+    label: Postal code type
+    description: B=street addresses, P=PO boxes, S=service postal codes
+  - name: latitude
+    type: number
+    label: Latitude (WGS84)
+  - name: longitude
+    type: number
+    label: Longitude (WGS84)
+  - name: source
+    type: string
+    label: Data source

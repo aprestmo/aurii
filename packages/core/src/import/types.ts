@@ -58,6 +58,15 @@ export interface ImportDefinition {
 	dataset?: string;
 	source: Source;
 	pipeline: ImportPipeline;
+	/**
+	 * Field name to use as the natural key for deduplication.
+	 *
+	 * When set, the import engine calls `upsertEntitiesByField` instead of
+	 * `insertEntities`, so running the same import multiple times never
+	 * creates duplicate entities.  The field must be present in every row
+	 * that passes validation.
+	 */
+	deduplicateBy?: string;
 }
 
 export interface RowError {
@@ -73,6 +82,8 @@ export interface ImportResult {
 	dryRun: boolean;
 	total: number;
 	imported: number;
+	/** Number of existing entities updated in place (only when deduplicateBy is set) */
+	updated: number;
 	failed: number;
 	errors: RowError[];
 	durationMs: number;

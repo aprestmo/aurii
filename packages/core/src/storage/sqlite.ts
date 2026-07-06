@@ -11,6 +11,7 @@ import type {
 	SchemaStats,
 	StorageAdapter,
 	StorageStats,
+	UpsertByFieldResult,
 } from "./types";
 import { DEFAULT_DATASET } from "./types";
 
@@ -318,6 +319,60 @@ export class SqliteAdapter implements StorageAdapter {
 			.prepare(`SELECT * FROM aurii_entities WHERE id IN (${placeholders})`)
 			.all(...ids) as RawEntityRow[];
 		return rows.map(rowToEntity);
+	}
+
+	async upsertEntitiesByField(
+		inputs: EntityInput[],
+		datasetId: string,
+		fieldName: string,
+	): Promise<UpsertByFieldResult> {
+		if (inputs.length === 0) return { inserted: 0, updated: 0 };
+
+		const schemaId = inputs[0]!.schemaId;
+		const safeField = fieldName.replace(/[^a-zA-Z0-9_]/g, "");
+
+		// Fetch all existing natural-key values for this schema in one query.
+		const existingRows = this.db
+			.prepare(
+				`SELECT id, json_extract(data, '$.${safeField}') AS key
+         FROM aurii_entities
+         WHERE dataset_id = ? AND schema_id = ?`,
+			)
+			.all(datasetId, schemaId) as { id: string; key: string }[];
+
+		const existingMap = new Map(existingRows.map((r) => [String(r.key), r.id]));
+
+		const toInsert: EntityInput[] = [];
+		const toUpdate: { id: string; data: Record<string, unknown> }[] = [];
+
+		for (const input of inputs) {
+			const keyValue = String(input.data[fieldName] ?? "");
+			const existingId = existingMap.get(keyValue);
+			if (existingId !== undefined) {
+				toUpdate.push({ id: existingId, data: input.data });
+			} else {
+				toInsert.push(input);
+			}
+		}
+
+		const now = new Date().toISOString();
+
+		if (toUpdate.length > 0) {
+			const update = this.db.prepare(
+				"UPDATE aurii_entities SET data = ?, updated_at = ? WHERE id = ?",
+			);
+			this.db.transaction(() => {
+				for (const { id, data } of toUpdate) {
+					update.run(JSON.stringify(data), now, id);
+				}
+			})();
+		}
+
+		if (toInsert.length > 0) {
+			await this.insertEntities(toInsert, datasetId);
+		}
+
+		return { inserted: toInsert.length, updated: toUpdate.length };
 	}
 
 	async getEntity(id: string): Promise<Entity | null> {

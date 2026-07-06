@@ -1,0 +1,23 @@
+id: county
+name: County
+description: Norwegian administrative county (fylke) from Kartverket/GeoNorge
+version: 1
+fields:
+  - name: id
+    type: string
+    required: true
+    label: County number (fylkesnummer)
+    description: Two-digit Norwegian county identifier, e.g. "03" for Oslo
+  - name: name
+    type: string
+    required: true
+    label: County name (fylkesnavn)
+  - name: source
+    type: string
+    label: Data source
+  - name: validFrom
+    type: date
+    label: Valid from (gyldigFra)
+  - name: validTo
+    type: date
+    label: Valid to (gyldigTil)

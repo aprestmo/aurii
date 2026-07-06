@@ -1,0 +1,74 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  core:
+    name: core — typecheck, lint, test (SQLite)
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: oven-sh/setup-bun@v2
+        with:
+          bun-version: latest
+      - name: Install dependencies
+        working-directory: packages/core
+        run: bun install --frozen-lockfile
+      - name: Typecheck
+        working-directory: packages/core
+        run: bun run typecheck
+      - name: Lint
+        working-directory: packages/core
+        run: bun run lint
+      - name: Test
+        working-directory: packages/core
+        run: bun run test
+
+  core-postgres:
+    name: core — test (PostgreSQL adapter)
+    runs-on: ubuntu-latest
+    services:
+      postgres:
+        image: postgres:16
+        env:
+          POSTGRES_USER: aurii
+          POSTGRES_PASSWORD: aurii
+          POSTGRES_DB: aurii_test
+        ports:
+          - 5432:5432
+        options: >-
+          --health-cmd pg_isready
+          --health-interval 5s
+          --health-timeout 5s
+          --health-retries 10
+    env:
+      DATABASE_URL: postgres://aurii:aurii@localhost:5432/aurii_test
+    steps:
+      - uses: actions/checkout@v4
+      - uses: oven-sh/setup-bun@v2
+        with:
+          bun-version: latest
+      - name: Install dependencies
+        working-directory: packages/core
+        run: bun install --frozen-lockfile
+      - name: Test against real PostgreSQL/JSONB
+        working-directory: packages/core
+        run: bun run test
+
+  studio:
+    name: studio — build
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: oven-sh/setup-bun@v2
+        with:
+          bun-version: latest
+      - name: Install dependencies
+        working-directory: packages/studio
+        run: bun install --frozen-lockfile
+      - name: Build
+        working-directory: packages/studio
+        run: bun run build

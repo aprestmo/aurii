@@ -55,8 +55,9 @@ async function writeTempCsv(): Promise<string> {
 
 async function deleteTempCsv(path: string) {
 	try {
-		(await Bun.file(path).exists()) &&
-			(await import("fs/promises")).unlink(path);
+		if (await Bun.file(path).exists()) {
+			await (await import("fs/promises")).unlink(path);
+		}
 	} catch {
 		/* ignore */
 	}

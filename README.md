@@ -415,10 +415,21 @@ This is not a product. It is an early prototype that validates the import-first 
 |-----------|--------|
 | `packages/core` — CLI, HTTP API, schema, import, query, pipeline | Running |
 | SQLite storage adapter | Verified end-to-end |
-| PostgreSQL storage adapter | Code exists, not CI-verified |
+| PostgreSQL storage adapter | **CI-verified** — same adapter contract runs against a real `postgres:16` service container on every push ([`.github/workflows/ci.yml`](.github/workflows/ci.yml)) |
 | Query Language v0 (parser + executor) | 23 unit tests passing |
 | Import pipeline (CSV/JSON, mapping, transforms, validation) | 7 e2e tests passing |
+| HTTP API (Elysia routes: auth, datasets, schemas, entities, query, import, stats) | 28 integration tests passing (`app.handle()`, no real socket) |
 | Studio (Astro) — dashboard, import wizard, entity browser | Builds, talks to Core over HTTP |
+
+### Continuous Integration
+
+Every push and pull request runs three jobs (see [`.github/workflows/ci.yml`](.github/workflows/ci.yml)):
+
+- **core** — typecheck, lint, and the full `packages/core` test suite against in-memory SQLite
+- **core-postgres** — the same test suite run a second time against a real PostgreSQL/JSONB service container, so the PostgreSQL adapter is no longer "code exists, unverified" — its JSON querying, numeric/boolean casting, ordering and transaction behaviour are checked on every change
+- **studio** — builds the Astro Studio to catch build regressions
+
+The PostgreSQL adapter tests are opt-in locally: they only run when a reachable `DATABASE_URL` is set (`describe.skipIf` in `src/__tests__/postgres-adapter.test.ts`), so `bun run test` still works without Docker/Postgres installed.
 
 ### What is not built yet
 
@@ -427,6 +438,16 @@ This is not a product. It is an early prototype that validates the import-first 
 - Plugin system
 - AI integration
 - Phase 3 features
+
+### Known limitations to keep an eye on
+
+- **`skipLibCheck: true`** is set in `packages/core/tsconfig.json` to work around an
+  Elysia 1.4.x / TypeScript 6.0 type-declaration incompatibility. This only skips
+  checking `.d.ts` files in dependencies — our own source is still fully checked
+  (`bun run typecheck`, 0 errors) — but it should be revisited and removed once
+  upstream compatibility improves.
+- Studio has no automated test suite yet, only a CI build check. Its test coverage
+  is well behind Core's.
 
 ### Running locally
 
@@ -462,9 +483,16 @@ Set `AURII_API_URL=http://localhost:3000` in Studio's environment so it points t
 
 ```bash
 cd packages/core
-bun run test        # 136 unit + e2e tests
+bun run test        # 164 unit, e2e and HTTP integration tests (SQLite)
 bun run typecheck   # TypeScript check (0 errors)
 bun run lint        # Biome lint
+```
+
+To also run the PostgreSQL adapter suite locally (27 tests), point `DATABASE_URL`
+at a real database — the tests are skipped automatically otherwise:
+
+```bash
+DATABASE_URL=postgres://user:pass@localhost:5432/aurii_test bun run test
 ```
 
 ### Specification

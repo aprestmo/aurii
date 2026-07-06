@@ -155,13 +155,13 @@ export async function getMunicipalitiesByCounty(
 
 export async function getPostalCodesByMunicipality(
   municipalityId: string,
-  limit = 20,
+  limit?: number,
 ): Promise<PostalCode[]> {
   const codes = await loadPostalCodes();
-  return codes
+  const filtered = codes
     .filter((p) => p.municipalityId === municipalityId)
-    .sort((a, b) => a.code.localeCompare(b.code))
-    .slice(0, limit);
+    .sort((a, b) => a.code.localeCompare(b.code));
+  return limit === undefined ? filtered : filtered.slice(0, limit);
 }
 
 export async function getSchoolsByMunicipality(

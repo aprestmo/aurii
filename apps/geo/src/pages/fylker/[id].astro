@@ -24,7 +24,7 @@ const municipalities = await getMunicipalitiesByCounty(id!);
 ---
 
 <Layout title={county.name}>
-  <p class="muted"><a href={url("")} style="color: var(--accent)">← Alle fylker</a></p>
+  <p class="muted"><a href={url("")}>← Alle fylker</a></p>
   <h1>{county.name}</h1>
   <p class="muted">
     Fylkesnummer <span class="badge">{county.id}</span>

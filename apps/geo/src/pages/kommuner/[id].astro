@@ -24,18 +24,20 @@ if (!municipality) {
 }
 
 const county = await getCounty(municipality.countyId);
-const postalCodes = await getPostalCodesByMunicipality(id!, 15);
+const INITIAL_POSTAL = 20;
+const postalCodes = await getPostalCodesByMunicipality(id!);
+const hasMorePostal = postalCodes.length > INITIAL_POSTAL;
 const schools = await getSchoolsByMunicipality(id!, 10);
 const kindergartens = await getKindergartensByMunicipality(id!, 10);
 ---
 
 <Layout title={municipality.name}>
   <p class="muted">
-    <a href={url("")} style="color: var(--accent)">← Alle fylker</a>
+    <a href={url("")}>← Alle fylker</a>
     {county && (
       <>
         {" · "}
-        <a href={url(`fylker/${county.id}`)} style="color: var(--accent)">{county.name}</a>
+        <a href={url(`fylker/${county.id}`)}>{county.name}</a>
       </>
     )}
   </p>
@@ -60,7 +62,7 @@ const kindergartens = await getKindergartensByMunicipality(id!, 10);
           </li>
         ))}
       </ul>
-      <p class="muted"><a href={url("skoler")} style="color: var(--accent)">Søk alle skoler →</a></p>
+      <p class="muted"><a href={url("skoler")}>Søk alle skoler →</a></p>
     </>
   )}
 
@@ -77,16 +79,16 @@ const kindergartens = await getKindergartensByMunicipality(id!, 10);
           </li>
         ))}
       </ul>
-      <p class="muted"><a href={url("barnehager")} style="color: var(--accent)">Søk alle barnehager →</a></p>
+      <p class="muted"><a href={url("barnehager")}>Søk alle barnehager →</a></p>
     </>
   )}
 
   {postalCodes.length > 0 && (
     <>
-      <h2>Postnummer ({postalCodes.length}{postalCodes.length >= 15 ? "+" : ""})</h2>
-      <ul>
-        {postalCodes.map((pc) => (
-          <li class="row">
+      <h2>Postnummer ({postalCodes.length})</h2>
+      <ul id="postal-list">
+        {postalCodes.map((pc, index) => (
+          <li class:list={["row", { "postal-hidden": index >= INITIAL_POSTAL }]}>
             <span>
               <span class="mono">{pc.code}</span> {pc.city}
             </span>
@@ -94,6 +96,20 @@ const kindergartens = await getKindergartensByMunicipality(id!, 10);
           </li>
         ))}
       </ul>
+      {hasMorePostal && (
+        <button type="button" class="btn-text" id="postal-show-more">
+          Vis alle {postalCodes.length} postnummer
+        </button>
+      )}
     </>
+  )}
+
+  {hasMorePostal && (
+    <script>
+      document.getElementById("postal-show-more")?.addEventListener("click", () => {
+        document.getElementById("postal-list")?.classList.add("postal-expanded");
+        document.getElementById("postal-show-more")?.remove();
+      });
+    </script>
   )}
 </Layout>

@@ -10,7 +10,7 @@ const years = [...new Set(holidays.map((h) => h.year))].sort();
 ---
 
 <Layout title="Helligdager">
-  <p class="muted"><a href={url("")} style="color: var(--accent)">← Referansedata</a></p>
+  <p class="muted"><a href={url("")}>← Referansedata</a></p>
   <h1>Helligdager</h1>
   <p class="muted">
     {holidays.length} helligdager ({years[0]}–{years[years.length - 1]}) · avledet fra Helligdagsloven via Nager.Date

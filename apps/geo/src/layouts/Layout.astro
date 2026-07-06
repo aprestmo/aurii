@@ -19,6 +19,7 @@ const { title } = Astro.props;
         --bg: #0f1419;
         --surface: #1a2332;
         --text: #e8edf4;
+        --link: #f0f2f5;
         --muted: #8b9cb3;
         --accent: #3d8bfd;
         --border: #2a3544;
@@ -45,6 +46,8 @@ const { title } = Astro.props;
       h1 { font-size: 1.75rem; margin-bottom: 0.5rem; }
       h2 { font-size: 1.125rem; margin: 2rem 0 0.75rem; color: var(--muted); font-weight: 500; text-transform: uppercase; letter-spacing: 0.05em; }
       p.muted { color: var(--muted); margin-bottom: 1.5rem; }
+      p.muted a { color: var(--link); text-decoration: none; }
+      p.muted a:hover { color: var(--accent); }
       ul { list-style: none; }
       li { border-bottom: 1px solid var(--border); }
       li a {
@@ -61,6 +64,21 @@ const { title } = Astro.props;
         padding: 0.75rem 0;
       }
       li a:hover { color: var(--accent); }
+      .btn-text {
+        display: inline-block;
+        margin-top: 0.5rem;
+        padding: 0;
+        border: none;
+        background: none;
+        color: var(--link);
+        font: inherit;
+        cursor: pointer;
+        text-decoration: underline;
+        text-underline-offset: 2px;
+      }
+      .btn-text:hover { color: var(--accent); }
+      .postal-hidden { display: none; }
+      .postal-expanded .postal-hidden { display: flex; }
       .mono { font-family: ui-monospace, monospace; color: var(--muted); font-size: 0.875rem; }
       .badge {
         display: inline-block;

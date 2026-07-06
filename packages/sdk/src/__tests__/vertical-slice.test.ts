@@ -66,7 +66,7 @@ beforeAll(async () => {
 	await runImport(countyDef, resolve(DEMO, "imports"));
 	await runImport(munDef, resolve(DEMO, "imports"));
 
-	globalThis.fetch = async (input: RequestInfo | URL, init?: RequestInit) => {
+	const mockFetch = async (input: RequestInfo | URL, init?: RequestInit) => {
 		const url =
 			typeof input === "string"
 				? input
@@ -78,6 +78,8 @@ beforeAll(async () => {
 		}
 		return originalFetch(input as RequestInfo, init);
 	};
+	// @ts-expect-error — replacing with a compatible subset for testing
+	globalThis.fetch = mockFetch;
 });
 
 afterAll(async () => {

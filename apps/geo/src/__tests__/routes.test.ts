@@ -44,7 +44,8 @@ describe("geo demo site routes", () => {
 
   it("data files exist at expected path", async () => {
     const path = resolve(ROOT, "demo/norwegian-geo/data/counties.json");
-    const { access } = await import("node:fs/promises");
-    await expect(access(path)).resolves.toBeUndefined();
+    const { readFile } = await import("node:fs/promises");
+    const text = await readFile(path, "utf-8");
+    expect(JSON.parse(text).length).toBeGreaterThan(0);
   });
 });

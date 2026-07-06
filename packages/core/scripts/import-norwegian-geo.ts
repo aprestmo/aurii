@@ -32,7 +32,7 @@ async function runImportFile(file: string): Promise<void> {
 	const def = await loadImportDefinition(file);
 	const result = await runImport(def, resolve(file, ".."));
 	console.log(
-		`  ✓ ${def.name}: ${result.imported} imported, ${result.failed} failed (${result.durationMs}ms)`,
+		`  ✓ ${def.name}: ${result.inserted} inserted, ${result.updated} updated, ${result.failed} failed (${result.durationMs}ms)`,
 	);
 	if (result.failed > 0) {
 		for (const e of result.errors.slice(0, 5)) {

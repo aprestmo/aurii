@@ -81,8 +81,11 @@ export interface ImportResult {
 	datasetId: string;
 	dryRun: boolean;
 	total: number;
+	/** Rows successfully persisted (inserted + updated) */
 	imported: number;
-	/** Number of existing entities updated in place (only when deduplicateBy is set) */
+	/** New entities created */
+	inserted: number;
+	/** Existing entities updated in place (only when deduplicateBy is set) */
 	updated: number;
 	failed: number;
 	errors: RowError[];

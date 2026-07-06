@@ -110,6 +110,7 @@ export async function runImport(
 		}
 	}
 
+	let inserted = 0;
 	let updated = 0;
 
 	if (!dryRun && toInsert.length > 0) {
@@ -119,13 +120,17 @@ export async function runImport(
 				datasetId,
 				def.deduplicateBy,
 			);
+			inserted = upsertResult.inserted;
 			updated = upsertResult.updated;
 		} else {
 			await storage.insertEntities(toInsert, datasetId);
+			inserted = toInsert.length;
 		}
+	} else if (dryRun) {
+		inserted = toInsert.length;
 	}
 
-	const imported = toInsert.length;
+	const imported = inserted + updated;
 	const failed = errors.length;
 	const durationMs = Date.now() - startedAt;
 
@@ -163,6 +168,7 @@ export async function runImport(
 		dryRun,
 		total,
 		imported,
+		inserted,
 		updated,
 		failed,
 		errors,

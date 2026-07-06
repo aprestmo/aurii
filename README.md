@@ -405,9 +405,9 @@ Aurii should become the foundation upon which entirely new classes of applicatio
 
 ## Status
 
-**Current state: Phase 2.2 complete — reality check vertical slice verified.**
+**Current state: Phase 2 complete.**
 
-The Norwegian geographic reference dataset (15 counties, 357 municipalities, 5,122 postal codes) validates the full workflow from import through Studio. See `Phase2.2.md` for the complete guide and reality check report.
+Phase 2.2 validated the architecture with the Norwegian geographic reference demo. Phase 3 work begins from here. See `Phase2.2.md`, `docs/REFERENCE_DEMO.md`, and `AGENTS.md` (Reference Demo Project).
 
 ### Repository layout
 

@@ -145,6 +145,9 @@ describe("2. Import Analysis — detects format, columns, types and record count
 		expect(analysis.columns).toContain("countyId");
 		expect(analysis.rowCount).toBeGreaterThanOrEqual(300);
 		expect(["string", "number"]).toContain(analysis.inferredTypes["id"]);
+		// Identifier columns should infer as string after Phase 2.2 fix
+		expect(analysis.inferredTypes["id"]).toBe("string");
+		expect(analysis.inferredTypes["countyId"]).toBe("string");
 		expect(analysis.suggestedMapping["name"]).toBe("name");
 	});
 
@@ -188,6 +191,7 @@ describe("4. Persistence — inserts, updates, duplicate handling", () => {
 		const secondRun = await runImport(def, resolve(DEMO, "imports"));
 
 		expect(secondRun.updated).toBe(before);
+		expect(secondRun.inserted).toBe(0);
 		expect(await storage.countEntities("municipality", DATASET)).toBe(before);
 	});
 });

@@ -94,7 +94,22 @@ export function detectDelimiter(content: string): string {
 	return best;
 }
 
-function inferType(values: string[]): FieldType {
+function isIdentifierColumn(name: string): boolean {
+	const n = name.toLowerCase();
+	return (
+		n === "id" ||
+		n === "code" ||
+		n.endsWith("id") ||
+		n.includes("nummer") ||
+		n.includes("number")
+	);
+}
+
+function inferType(values: string[], columnName?: string): FieldType {
+	if (columnName && isIdentifierColumn(columnName)) {
+		return "string";
+	}
+
 	const nonEmpty = values.filter(
 		(v) => v !== "" && v !== null && v !== undefined,
 	);
@@ -162,7 +177,7 @@ export function analyzeContent(
 	const inferredTypes: Record<string, FieldType> = {};
 	for (const col of columns) {
 		const values = rows.slice(0, sampleSize).map((r) => String(r[col] ?? ""));
-		inferredTypes[col] = inferType(values);
+		inferredTypes[col] = inferType(values, col);
 	}
 
 	const schemaId =

@@ -288,3 +288,30 @@ Phase 2 exists to answer:
 - Which dashboard widgets do users actually look at?
 
 Phase 3 (shared datasets, connectors, scheduling) builds on those answers.
+
+---
+
+# Phase 2 — Complete
+
+**Status: closed** (including Phase 2.1 hardening and Phase 2.2 reality check).
+
+## What was delivered
+
+| Phase | Focus | Status |
+|-------|-------|--------|
+| 2.0 | PostgreSQL, Studio, import wizard, datasets | Complete |
+| 2.1 | Capability registry, domain events, dedup imports, Docker, SDK | Complete |
+| 2.2 | Real-world vertical slice, Norwegian geo demo, website validation | Complete |
+
+## Reference demo for future work
+
+The **Norwegian geographic reference demo** (`demo/norwegian-geo/`, `apps/geo`) is the canonical testbed for validating new features. Agents and contributors should extend this demo rather than creating parallel examples.
+
+See:
+- `docs/REFERENCE_DEMO.md` — agent guide
+- `AGENTS.md` — Reference Demo Project section
+- `Phase2.2.md` — reality check report
+
+## Handoff to Phase 3
+
+Known gaps documented in `Phase2.2.md` (join queries, enum types, reference validation, Query Language v1, RBAC, plugins, AI). Phase 3 planning should start from those findings.

@@ -13,7 +13,7 @@ function tryParseDate(value: string): string | null {
 	const v = value.trim();
 	if (!v) return null;
 
-	if (ISO_DATE_PATTERNS[0]!.test(v)) return v;
+	if (ISO_DATE_PATTERNS[0]!.test(v)) return v.slice(0, 10);
 
 	const mmddyyyy = v.match(ISO_DATE_PATTERNS[1]!);
 	if (mmddyyyy) {
@@ -52,14 +52,17 @@ export function applyTransform(value: unknown, fn: TransformFn): unknown {
 			return isNaN(n) ? null : n;
 		}
 
-		case "toDate": {
+		case "toDate":
 			return tryParseDate(str);
-		}
 
 		case "toSlug": {
 			return str
 				.toLowerCase()
 				.trim()
+				// Transliterate common Norwegian/Nordic letters before stripping
+				.replace(/[æÆ]/g, "ae")
+				.replace(/[øØ]/g, "o")
+				.replace(/[åÅ]/g, "a")
 				.replace(/[^\w\s-]/g, "")
 				.replace(/[\s_]+/g, "-")
 				.replace(/^-+|-+$/g, "");

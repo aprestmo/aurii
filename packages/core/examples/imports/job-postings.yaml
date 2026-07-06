@@ -1,0 +1,43 @@
+id: import-job-postings
+name: Import Job Postings from CSV
+schema: job-posting
+source:
+  type: csv
+  path: ./examples/data/job-postings.csv
+pipeline:
+  steps:
+    - type: map
+      mapping:
+        title: Title
+        company: Company
+        location: Location
+        salaryMin: Salary Min
+        salaryMax: Salary Max
+        currency: Currency
+        remote: Remote
+        postedDate: Posted Date
+        deadline: Deadline
+        category: Category
+        description: Description
+        contactEmail: Contact Email
+        tags: Tags
+        openings: Openings
+
+    - type: transform
+      transforms:
+        - field: salaryMin
+          fn: toNumber
+        - field: salaryMax
+          fn: toNumber
+        - field: remote
+          fn: toBoolean
+        - field: postedDate
+          fn: toDate
+        - field: deadline
+          fn: toDate
+        - field: openings
+          fn: toNumber
+
+    - type: validate
+
+    - type: persist

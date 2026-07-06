@@ -72,6 +72,12 @@ function conditionToSql(
 		return `${path} LIKE ?`;
 	}
 
+	// NULL comparisons must use IS NULL / IS NOT NULL; binding null and using = always
+	// evaluates to UNKNOWN in SQL, so `where field == null` would never match anything.
+	if (condition.value === null) {
+		return condition.op === "==" ? `${path} IS NULL` : `${path} IS NOT NULL`;
+	}
+
 	const value =
 		typeof condition.value === "boolean"
 			? condition.value

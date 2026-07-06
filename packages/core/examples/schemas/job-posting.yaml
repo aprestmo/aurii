@@ -1,0 +1,61 @@
+id: job-posting
+name: Job Posting
+description: A job posting from a Norwegian job board
+version: 1
+fields:
+  - name: title
+    type: string
+    required: true
+    label: Job Title
+
+  - name: company
+    type: string
+    label: Company
+
+  - name: location
+    type: string
+    label: Location
+
+  - name: salaryMin
+    type: number
+    label: Minimum Salary
+
+  - name: salaryMax
+    type: number
+    label: Maximum Salary
+
+  - name: currency
+    type: string
+    label: Currency
+
+  - name: remote
+    type: boolean
+    label: Remote Eligible
+
+  - name: postedDate
+    type: date
+    label: Posted Date
+
+  - name: deadline
+    type: date
+    label: Application Deadline
+
+  - name: category
+    type: string
+    label: Category
+
+  - name: description
+    type: string
+    label: Description
+
+  - name: contactEmail
+    type: string
+    label: Contact Email
+
+  - name: tags
+    type: string
+    label: Tags (comma-separated)
+
+  - name: openings
+    type: number
+    label: Number of Openings

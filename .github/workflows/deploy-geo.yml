@@ -7,6 +7,7 @@ on:
       - "apps/geo/**"
       - "demo/norwegian-geo/data/**"
       - ".github/workflows/deploy-geo.yml"
+      - "docs/DEPLOYMENT.md"
   workflow_dispatch:
 
 permissions:

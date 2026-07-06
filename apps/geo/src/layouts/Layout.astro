@@ -1,4 +1,6 @@
 ---
+import { url } from "../lib/base";
+
 interface Props {
   title: string;
 }
@@ -79,7 +81,7 @@ const { title } = Astro.props;
     </style>
   </head>
   <body>
-    <header><a href="/">Norske fylker og kommuner</a></header>
+    <header><a href={url("")}>Norske fylker og kommuner</a></header>
     <main>
       <slot />
     </main>

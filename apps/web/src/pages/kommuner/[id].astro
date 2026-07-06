@@ -1,5 +1,6 @@
 ---
 import Layout from "../../layouts/Layout.astro";
+import { url } from "../../lib/base";
 import {
   getCounty,
   getMunicipality,
@@ -17,7 +18,7 @@ export async function getStaticPaths() {
 const { id } = Astro.params;
 const municipality = await getMunicipality(id!);
 if (!municipality) {
-  return Astro.redirect("/");
+  return Astro.redirect(url(""));
 }
 
 const county = await getCounty(municipality.countyId);
@@ -26,11 +27,11 @@ const postalCodes = await getPostalCodesByMunicipality(id!, 15);
 
 <Layout title={municipality.name}>
   <p class="muted">
-    <a href="/" style="color: var(--accent)">← Alle fylker</a>
+    <a href={url("")} style="color: var(--accent)">← Alle fylker</a>
     {county && (
       <>
         {" · "}
-        <a href={`/fylker/${county.id}`} style="color: var(--accent)">{county.name}</a>
+        <a href={url(`fylker/${county.id}`)} style="color: var(--accent)">{county.name}</a>
       </>
     )}
   </p>

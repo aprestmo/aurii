@@ -405,7 +405,9 @@ Aurii should become the foundation upon which entirely new classes of applicatio
 
 ## Status
 
-**Current state: Phase 2.1 complete — production hardening pass applied.**
+**Current state: Phase 2.2 complete — reality check vertical slice verified.**
+
+The Norwegian geographic reference dataset (15 counties, 357 municipalities, 5,122 postal codes) validates the full workflow from import through Studio. See `Phase2.2.md` for the complete guide and reality check report.
 
 ### Repository layout
 
@@ -438,6 +440,7 @@ adr/               Architecture Decision Records
 | Studio automated tests | SDK integration tests against in-process Core |
 | Docker developer environment | `docker compose up` starts Core + Studio + PostgreSQL |
 | Demo datasets | news, products, municipalities, companies in `demo/` |
+| **Norwegian geo vertical slice** | `demo/norwegian-geo/` — real counties, municipalities, postal codes |
 
 ### Continuous Integration
 
@@ -532,13 +535,26 @@ const schemas  = await client.schemas.list();
 const result   = await client.query.run("FROM article LIMIT 10");
 ```
 
+### Norwegian geographic dataset (Phase 2.2)
+
+Import real Norwegian reference data (counties, municipalities, postal codes):
+
+```bash
+# After docker compose up:
+AURII_STORAGE=postgres \
+  DATABASE_URL=postgres://aurii:aurii@localhost:5432/aurii \
+  bun run import:norwegian-geo
+```
+
+See `Phase2.2.md` and `demo/norwegian-geo/README.md` for query examples and Studio setup.
+
 ### Demo datasets
 
 Load ready-made example data:
 
 ```bash
 cd packages/core
-bun run cli schema register ../demo/news/schema.yaml
+bun run cli schema apply ../demo/news/schema.yaml
 bun run cli import run ../demo/news/import.yaml
 ```
 
@@ -559,4 +575,4 @@ Architecture design documents live in `docs/`:
 - `docs/Architecture.md`, `docs/API.md`, `docs/Core.md`
 - `docs/Schema Language.md`, `docs/Query Language.md`, `docs/Pipeline Language.md`
 - `adr/` — Architecture Decision Records
-- `Phase1.md`, `Phase2.md` — implementation phase records
+- `Phase1.md`, `Phase2.md`, `Phase2.2.md` — implementation phase records

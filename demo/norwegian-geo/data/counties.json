@@ -1,0 +1,77 @@
+[
+  {
+    "id": "55",
+    "name": "Troms",
+    "source": "kartverket"
+  },
+  {
+    "id": "56",
+    "name": "Finnmark",
+    "source": "kartverket"
+  },
+  {
+    "id": "33",
+    "name": "Buskerud",
+    "source": "kartverket"
+  },
+  {
+    "id": "40",
+    "name": "Telemark",
+    "source": "kartverket"
+  },
+  {
+    "id": "39",
+    "name": "Vestfold",
+    "source": "kartverket"
+  },
+  {
+    "id": "42",
+    "name": "Agder",
+    "source": "kartverket"
+  },
+  {
+    "id": "11",
+    "name": "Rogaland",
+    "source": "kartverket"
+  },
+  {
+    "id": "18",
+    "name": "Nordland",
+    "source": "kartverket"
+  },
+  {
+    "id": "50",
+    "name": "Trøndelag",
+    "source": "kartverket"
+  },
+  {
+    "id": "34",
+    "name": "Innlandet",
+    "source": "kartverket"
+  },
+  {
+    "id": "31",
+    "name": "Østfold",
+    "source": "kartverket"
+  },
+  {
+    "id": "32",
+    "name": "Akershus",
+    "source": "kartverket"
+  },
+  {
+    "id": "03",
+    "name": "Oslo",
+    "source": "kartverket"
+  },
+  {
+    "id": "15",
+    "name": "Møre og Romsdal",
+    "source": "kartverket"
+  },
+  {
+    "id": "46",
+    "name": "Vestland",
+    "source": "kartverket"
+  }
+]

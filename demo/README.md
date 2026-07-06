@@ -17,6 +17,7 @@ Each dataset includes:
 | `products/` | CSV | 12 | E-commerce products with pricing and inventory |
 | `municipalities/` | CSV | 15 | Norwegian municipalities with population and geographic data |
 | `companies/` | JSON | 10 | Company directory with industry, revenue and headquarters |
+| `norwegian-geo/` | JSON | 5,494 | **Real** Norwegian counties, municipalities and postal codes (Phase 2.2) |
 
 ---
 
@@ -39,19 +40,19 @@ docker compose up
 cd packages/core
 
 # News articles
-bun run cli schema register ../demo/news/schema.yaml
+bun run cli schema apply ../demo/news/schema.yaml
 bun run cli import run ../demo/news/import.yaml
 
 # Products
-bun run cli schema register ../demo/products/schema.yaml
+bun run cli schema apply ../demo/products/schema.yaml
 bun run cli import run ../demo/products/import.yaml
 
 # Municipalities
-bun run cli schema register ../demo/municipalities/schema.yaml
+bun run cli schema apply ../demo/municipalities/schema.yaml
 bun run cli import run ../demo/municipalities/import.yaml
 
 # Companies
-bun run cli schema register ../demo/companies/schema.yaml
+bun run cli schema apply ../demo/companies/schema.yaml
 bun run cli import run ../demo/companies/import.yaml
 ```
 

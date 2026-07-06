@@ -1,0 +1,25 @@
+id: municipality
+name: Municipality
+description: Norwegian administrative municipality (kommune) from Kartverket/GeoNorge
+version: 1
+fields:
+  - name: id
+    type: string
+    required: true
+    label: Municipality number (kommunenummer)
+    description: Four-digit Norwegian municipality identifier, e.g. "0301" for Oslo
+
+  - name: name
+    type: string
+    required: true
+    label: Municipality name (kommunenavnNorsk)
+
+  - name: countyId
+    type: string
+    required: true
+    label: County number (fylkesnummer)
+    description: Two-digit county identifier; first two digits of the municipality number
+
+  - name: source
+    type: string
+    label: Data source

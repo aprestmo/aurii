@@ -1,0 +1,21 @@
+id: import-postal-codes
+name: Import Postal Codes (Bring)
+description: Imports Norwegian postal codes from Bring open data
+schema: postal-code
+dataset: norwegian-geo
+deduplicateBy: code
+source:
+  type: json
+  path: ../data/postal-codes.json
+pipeline:
+  steps:
+    - type: map
+      mapping:
+        code: code
+        city: city
+        municipalityId: municipalityId
+        municipalityName: municipalityName
+        postalCodeType: postalCodeType
+        source: source
+    - type: validate
+    - type: persist

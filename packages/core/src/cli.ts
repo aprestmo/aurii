@@ -130,7 +130,10 @@ async function cmdImportRun(filePath: string) {
 	dim(`  Source:  ${def.source.type} — ${def.source.path}`);
 	console.log("");
 
-	const result = await runImport(def, process.cwd(), { datasetId, dryRun });
+	const result = await runImport(def, process.cwd(), {
+		...(hasFlag("--dataset") ? { datasetId } : {}),
+		dryRun,
+	});
 
 	const statusColor =
 		result.failed === 0 ? c.green : result.imported === 0 ? c.red : c.yellow;

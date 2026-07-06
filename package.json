@@ -9,10 +9,12 @@
   ],
   "scripts": {
     "build": "bun run --filter='*' build",
-    "test": "bun run --filter='@aurii/core' test && bun run --filter='@aurii/sdk' test",
+    "test": "bun run --filter='@aurii/core' test && bun run --filter='@aurii/sdk' test && bun run --filter='@aurii/studio' test",
     "lint": "bun run --filter='*' lint",
     "typecheck": "bun run --filter='*' typecheck",
     "dev": "bun run --filter='@aurii/core' dev & bun run --filter='@aurii/studio' dev",
-    "serve": "bun run --filter='@aurii/core' serve"
+    "serve": "bun run --filter='@aurii/core' serve",
+    "fetch:norwegian-geo": "bun run packages/core/scripts/fetch-norwegian-geo.ts",
+    "import:norwegian-geo": "bun run packages/core/scripts/import-norwegian-geo.ts"
   }
 }

@@ -1,0 +1,17 @@
+{
+  "name": "@aurii/geo",
+  "version": "0.1.0",
+  "description": "Norwegian counties and municipalities — Aurii API consumer demo",
+  "type": "module",
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "test": "bun test src/__tests__",
+    "typecheck": "astro check"
+  },
+  "dependencies": {
+    "@aurii/sdk": "workspace:*",
+    "astro": "^5.0.0"
+  }
+}

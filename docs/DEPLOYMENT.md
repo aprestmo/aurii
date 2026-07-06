@@ -6,9 +6,9 @@ The Norwegian geo website (`apps/geo`) is a **fully static** Astro site (373 pag
 
 ### Live URL
 
-After enabling GitHub Pages (one-time setup below):
-
 **https://aprestmo.github.io/aurii/**
+
+Deployed automatically when `main` changes (workflow: `.github/workflows/deploy-geo.yml`).
 
 ### How it works
 

@@ -1,0 +1,19 @@
+id: import-municipalities
+name: Import Municipalities (Kartverket)
+description: Imports Norwegian municipalities from Kartverket/GeoNorge open data
+schema: municipality
+dataset: norwegian-geo
+deduplicateBy: id
+source:
+  type: json
+  path: ../data/municipalities.json
+pipeline:
+  steps:
+    - type: map
+      mapping:
+        id: id
+        name: name
+        countyId: countyId
+        source: source
+    - type: validate
+    - type: persist

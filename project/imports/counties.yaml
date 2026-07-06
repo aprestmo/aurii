@@ -1,0 +1,18 @@
+id: import-counties
+name: Import Counties (Kartverket)
+description: Imports Norwegian counties from Kartverket/GeoNorge open data
+schema: county
+dataset: norwegian-geo
+deduplicateBy: id
+source:
+  type: json
+  path: ../data/counties.json
+pipeline:
+  steps:
+    - type: map
+      mapping:
+        id: id
+        name: name
+        source: source
+    - type: validate
+    - type: persist

@@ -288,7 +288,7 @@ import Layout from "../layouts/Layout.astro";
         filename: analysis.filename,
         schemaId: activeSchema.id,
         datasetId: ds,
-        delimiter: analysis.delimiter,
+        ...(analysis.delimiter ? { delimiter: analysis.delimiter } : {}),
         mapping,
         transforms,
         dryRun,

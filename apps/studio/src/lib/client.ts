@@ -13,9 +13,10 @@ import { getApiUrl, getDataset, getToken } from "./api";
  * Should be called inside client-side scripts where localStorage is available.
  */
 export function getClient(): AuriiClient {
+	const token = getToken();
 	return createClient({
 		baseUrl: getApiUrl(),
-		token: getToken() ?? undefined,
+		...(token ? { token } : {}),
 		defaultDataset: getDataset(),
 	});
 }

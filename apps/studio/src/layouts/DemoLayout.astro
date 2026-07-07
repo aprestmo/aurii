@@ -6,6 +6,8 @@ interface Props {
 const { title } = Astro.props;
 
 import "@/styles/starwind.css";
+
+const base = import.meta.env.BASE_URL;
 ---
 
 <!doctype html>
@@ -18,17 +20,17 @@ import "@/styles/starwind.css";
   <body class="min-h-screen bg-background text-foreground">
     <div class="border-b bg-background/80 backdrop-blur supports-[backdrop-filter]:bg-background/60">
       <div class="mx-auto flex max-w-6xl items-center justify-between px-4 py-3">
-        <a href="/demo" class="flex items-center gap-2 font-semibold tracking-tight">
+        <a href={`${base}demo`} class="flex items-center gap-2 font-semibold tracking-tight">
           <span class="inline-flex h-8 w-8 items-center justify-center rounded-md bg-primary text-primary-foreground">
             A
           </span>
           Aurii Demo
         </a>
         <nav class="flex items-center gap-2 text-sm">
-          <a href="/demo/municipalities" class="rounded-md px-3 py-2 hover:bg-accent hover:text-accent-foreground">
+          <a href={`${base}demo/municipalities`} class="rounded-md px-3 py-2 hover:bg-accent hover:text-accent-foreground">
             Municipalities
           </a>
-          <a href="/" class="rounded-md px-3 py-2 text-muted-foreground hover:bg-accent hover:text-accent-foreground">
+          <a href={`${base}`} class="rounded-md px-3 py-2 text-muted-foreground hover:bg-accent hover:text-accent-foreground">
             Studio
           </a>
         </nav>

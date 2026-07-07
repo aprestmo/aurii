@@ -1,23 +1,19 @@
 ---
-export const prerender = false;
-
 import DemoLayout from "@/layouts/DemoLayout.astro";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/starwind/card";
 import { Badge } from "@/components/starwind/badge";
 import { Table, TableBody, TableHead, TableRow } from "@/components/starwind/table";
 import ExpandableDataSection from "@/components/demo/ExpandableDataSection.astro";
-
-const { id } = Astro.params;
 ---
 
-<DemoLayout title={`Municipality ${id}`}>
+<DemoLayout title="Municipality">
   <div class="space-y-6">
     <div class="flex items-center gap-3 text-sm text-muted-foreground">
-      <a href="/demo" class="hover:underline">Demo</a>
+      <a href="../" class="hover:underline">Demo</a>
       <span>/</span>
-      <a href="/demo/municipalities" class="hover:underline">Municipalities</a>
+      <a href="./" class="hover:underline">Municipalities</a>
       <span>/</span>
-      <span class="font-mono text-foreground">{id}</span>
+      <span class="font-mono text-foreground" id="m-id">—</span>
     </div>
 
     <Card>
@@ -86,9 +82,14 @@ const { id } = Astro.params;
     import { getDataset } from "../../../lib/api";
     import type { StoredSchema } from "@aurii/sdk";
 
-    const municipalityId = "{id}";
     const dataset = getDataset();
     const client = getClient();
+
+    const params = new URLSearchParams(window.location.search);
+    const municipalityId = params.get("id") ?? "";
+
+    const idEl = document.getElementById("m-id");
+    if (idEl) idEl.textContent = municipalityId || "—";
 
     function escapeHtml(s: unknown): string {
       return String(s).replaceAll("&", "&amp;").replaceAll("<", "&lt;").replaceAll(">", "&gt;").replaceAll('"', "&quot;");
@@ -183,6 +184,7 @@ const { id } = Astro.params;
     }
 
     async function load() {
+      if (!municipalityId) throw new Error("Missing municipality id (use ?id=...)");
       const schemas = await client.schemas.list(dataset);
       const municipalitySchemaId = pickSchemaId(schemas, ["municipality", "kommune"]);
       if (!municipalitySchemaId) throw new Error("No municipality schema found");
@@ -242,11 +244,11 @@ const { id } = Astro.params;
           const place = asText(getValue(e.data, ["postalPlace", "place", "poststed"]));
           const category = asText(getValue(e.data, ["category", "type"]));
           const mun = asText(getValue(e.data, ["municipalityName", "municipality", "kommunenavn"])) || name;
-          return `<tr data-row-index="${idx}" class="border-b last:border-b-0">
-            <td class="px-3 py-2 font-mono text-xs">${escapeHtml(code)}</td>
-            <td class="px-3 py-2">${escapeHtml(place)}</td>
-            <td class="px-3 py-2">${escapeHtml(category)}</td>
-            <td class="px-3 py-2">${escapeHtml(mun)}</td>
+          return `<tr data-row-index="${idx}" data-slot="table-row">
+            <td data-slot="table-cell" class="font-mono text-xs">${escapeHtml(code)}</td>
+            <td data-slot="table-cell">${escapeHtml(place)}</td>
+            <td data-slot="table-cell">${escapeHtml(category)}</td>
+            <td data-slot="table-cell">${escapeHtml(mun)}</td>
           </tr>`;
         })
         .join("");
@@ -259,12 +261,12 @@ const { id } = Astro.params;
           const org = asText(getValue(e.data, ["organisationNumber", "orgnr", "orgNumber"]));
           const addr = asText(getValue(e.data, ["address", "streetAddress", "adresse"]));
           const mun = asText(getValue(e.data, ["municipalityName", "municipality", "kommunenavn"])) || name;
-          return `<tr data-row-index="${idx}" class="border-b last:border-b-0">
-            <td class="px-3 py-2 font-medium">${escapeHtml(n)}</td>
-            <td class="px-3 py-2">${escapeHtml(t)}</td>
-            <td class="px-3 py-2 font-mono text-xs">${escapeHtml(org)}</td>
-            <td class="px-3 py-2">${escapeHtml(addr)}</td>
-            <td class="px-3 py-2">${escapeHtml(mun)}</td>
+          return `<tr data-row-index="${idx}" data-slot="table-row">
+            <td data-slot="table-cell" class="font-medium">${escapeHtml(n)}</td>
+            <td data-slot="table-cell">${escapeHtml(t)}</td>
+            <td data-slot="table-cell" class="font-mono text-xs">${escapeHtml(org)}</td>
+            <td data-slot="table-cell">${escapeHtml(addr)}</td>
+            <td data-slot="table-cell">${escapeHtml(mun)}</td>
           </tr>`;
         })
         .join("");
@@ -277,12 +279,12 @@ const { id } = Astro.params;
           const owner = asText(getValue(e.data, ["owner", "eier"]));
           const t = asText(getValue(e.data, ["type", "barnehageType"]));
           const addr = asText(getValue(e.data, ["address", "streetAddress", "adresse"]));
-          return `<tr data-row-index="${idx}" class="border-b last:border-b-0">
-            <td class="px-3 py-2 font-medium">${escapeHtml(n)}</td>
-            <td class="px-3 py-2 font-mono text-xs">${escapeHtml(org)}</td>
-            <td class="px-3 py-2">${escapeHtml(owner)}</td>
-            <td class="px-3 py-2">${escapeHtml(t)}</td>
-            <td class="px-3 py-2">${escapeHtml(addr)}</td>
+          return `<tr data-row-index="${idx}" data-slot="table-row">
+            <td data-slot="table-cell" class="font-medium">${escapeHtml(n)}</td>
+            <td data-slot="table-cell" class="font-mono text-xs">${escapeHtml(org)}</td>
+            <td data-slot="table-cell">${escapeHtml(owner)}</td>
+            <td data-slot="table-cell">${escapeHtml(t)}</td>
+            <td data-slot="table-cell">${escapeHtml(addr)}</td>
           </tr>`;
         })
         .join("");

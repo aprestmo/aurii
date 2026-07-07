@@ -3,6 +3,8 @@ import DemoLayout from "@/layouts/DemoLayout.astro";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/starwind/card";
 import { Button } from "@/components/starwind/button";
 import { Input } from "@/components/starwind/input";
+
+const base = import.meta.env.BASE_URL;
 ---
 
 <DemoLayout title="Demo">
@@ -19,10 +21,10 @@ import { Input } from "@/components/starwind/input";
             relationships, and queries as first-class concepts.
           </p>
           <div class="flex flex-col gap-3 sm:flex-row sm:items-center">
-            <a href="/demo/municipalities">
+            <a href={`${base}demo/municipalities`}>
               <Button size="lg">Browse municipalities</Button>
             </a>
-            <a href="/demo/municipalities">
+            <a href={`${base}demo/municipalities`}>
               <Button size="lg" variant="secondary">Explore relationships</Button>
             </a>
           </div>
@@ -82,7 +84,7 @@ import { Input } from "@/components/starwind/input";
           <div class="flex-1">
             <Input id="demo-search" placeholder="Search municipalities (name or number)…" />
           </div>
-          <a href="/demo/municipalities">
+          <a href={`${base}demo/municipalities`}>
             <Button variant="secondary">Open list</Button>
           </a>
         </div>

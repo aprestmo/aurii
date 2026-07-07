@@ -2,6 +2,8 @@
 import DemoLayout from "@/layouts/DemoLayout.astro";
 import { Input } from "@/components/starwind/input";
 import { Card, CardDescription, CardHeader, CardTitle } from "@/components/starwind/card";
+
+const base = import.meta.env.BASE_URL;
 ---
 
 <DemoLayout title="Municipalities">
@@ -101,8 +103,10 @@ import { Card, CardDescription, CardHeader, CardTitle } from "@/components/starw
             "[&_svg]:pointer-events-none [&_svg]:shrink-0 transition-all outline-none focus-visible:ring-3 " +
             "bg-foreground/10 text-foreground focus-visible:ring-outline/50 px-2.5 py-0.5 text-xs";
 
+          const href = `${base}demo/municipalities/detail?id=${encodeURIComponent(m.id)}`;
+
           return `
-            <a href="/demo/municipalities/${encodeURIComponent(m.id)}"
+            <a href="${href}"
                class="group block rounded-xl border bg-card transition hover:bg-accent/30 focus:outline-none focus-visible:ring-2 focus-visible:ring-outline">
               <div class="p-6">
                 <div class="flex items-start justify-between gap-3">

@@ -1,8 +1,8 @@
 ---
+import ShowMoreFooter from "@/components/ShowMoreFooter.astro";
 import Layout from "../../layouts/Layout.astro";
 import { Badge } from "@/components/starwind/badge";
-import { Button } from "@/components/starwind/button";
-import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "@/components/starwind/card";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/starwind/card";
 import {
   Table,
   TableBody,
@@ -12,6 +12,7 @@ import {
   TableRow,
 } from "@/components/starwind/table";
 import { url } from "../../lib/base";
+import { INITIAL_LIST_SIZE } from "@/lib/show-more";
 import {
   getCounty,
   getKindergartensByMunicipality,
@@ -35,11 +36,9 @@ if (!municipality) {
 }
 
 const county = await getCounty(municipality.countyId);
-const INITIAL_POSTAL = 20;
 const postalCodes = await getPostalCodesByMunicipality(id!);
-const hasMorePostal = postalCodes.length > INITIAL_POSTAL;
-const schools = await getSchoolsByMunicipality(id!, 10);
-const kindergartens = await getKindergartensByMunicipality(id!, 10);
+const schools = await getSchoolsByMunicipality(id!);
+const kindergartens = await getKindergartensByMunicipality(id!);
 ---
 
 <Layout title={municipality.name}>
@@ -69,13 +68,16 @@ const kindergartens = await getKindergartensByMunicipality(id!, 10);
       <section>
         <Card>
           <CardHeader>
-            <CardTitle class="text-base">Skoler</CardTitle>
+            <CardTitle class="text-base">Skoler ({schools.length})</CardTitle>
           </CardHeader>
           <CardContent class="p-0">
             <Table>
-              <TableBody>
-                {schools.map((school) => (
-                  <TableRow>
+              <TableBody data-show-more-list="school-list">
+                {schools.map((school, index) => (
+                  <TableRow
+                    class:list={[{ hidden: index >= INITIAL_LIST_SIZE }]}
+                    data-show-more-hidden={index >= INITIAL_LIST_SIZE ? "" : undefined}
+                  >
                     <TableCell>
                       <a href={url(`skoler/${school.id}`)} class="font-medium hover:text-primary">
                         {school.name}
@@ -89,9 +91,7 @@ const kindergartens = await getKindergartensByMunicipality(id!, 10);
               </TableBody>
             </Table>
           </CardContent>
-          <CardFooter>
-            <a href={url("skoler")} class="text-sm font-medium text-primary hover:underline">Søk alle skoler →</a>
-          </CardFooter>
+          <ShowMoreFooter listId="school-list" total={schools.length} noun="skoler" />
         </Card>
       </section>
     )}
@@ -100,13 +100,16 @@ const kindergartens = await getKindergartensByMunicipality(id!, 10);
       <section>
         <Card>
           <CardHeader>
-            <CardTitle class="text-base">Barnehager</CardTitle>
+            <CardTitle class="text-base">Barnehager ({kindergartens.length})</CardTitle>
           </CardHeader>
           <CardContent class="p-0">
             <Table>
-              <TableBody>
-                {kindergartens.map((kg) => (
-                  <TableRow>
+              <TableBody data-show-more-list="kindergarten-list">
+                {kindergartens.map((kg, index) => (
+                  <TableRow
+                    class:list={[{ hidden: index >= INITIAL_LIST_SIZE }]}
+                    data-show-more-hidden={index >= INITIAL_LIST_SIZE ? "" : undefined}
+                  >
                     <TableCell>
                       <a href={url(`barnehager/${kg.id}`)} class="font-medium hover:text-primary">
                         {kg.name}
@@ -120,9 +123,7 @@ const kindergartens = await getKindergartensByMunicipality(id!, 10);
               </TableBody>
             </Table>
           </CardContent>
-          <CardFooter>
-            <a href={url("barnehager")} class="text-sm font-medium text-primary hover:underline">Søk alle barnehager →</a>
-          </CardFooter>
+          <ShowMoreFooter listId="kindergarten-list" total={kindergartens.length} noun="barnehager" />
         </Card>
       </section>
     )}
@@ -142,9 +143,12 @@ const kindergartens = await getKindergartensByMunicipality(id!, 10);
                   <TableHead class="text-right">Type</TableHead>
                 </TableRow>
               </TableHeader>
-              <TableBody id="postal-list">
+              <TableBody data-show-more-list="postal-list">
                 {postalCodes.map((pc, index) => (
-                  <TableRow class:list={[{ "hidden": index >= INITIAL_POSTAL, "postal-hidden-row": index >= INITIAL_POSTAL }]}>
+                  <TableRow
+                    class:list={[{ hidden: index >= INITIAL_LIST_SIZE }]}
+                    data-show-more-hidden={index >= INITIAL_LIST_SIZE ? "" : undefined}
+                  >
                     <TableCell class="font-mono text-xs">{pc.code}</TableCell>
                     <TableCell>{pc.city}</TableCell>
                     <TableCell class="text-right">
@@ -155,26 +159,9 @@ const kindergartens = await getKindergartensByMunicipality(id!, 10);
               </TableBody>
             </Table>
           </CardContent>
-          {hasMorePostal && (
-            <CardFooter>
-              <Button type="button" variant="outline" size="sm" id="postal-show-more">
-                Vis alle {postalCodes.length} postnummer
-              </Button>
-            </CardFooter>
-          )}
+          <ShowMoreFooter listId="postal-list" total={postalCodes.length} noun="postnummer" />
         </Card>
       </section>
     )}
   </div>
-
-  {hasMorePostal && (
-    <script>
-      document.getElementById("postal-show-more")?.addEventListener("click", (event) => {
-        document
-          .querySelectorAll<HTMLElement>("#postal-list .postal-hidden-row")
-          .forEach((row) => row.classList.remove("hidden"));
-        (event.currentTarget as HTMLElement)?.remove();
-      });
-    </script>
-  )}
 </Layout>

@@ -1,8 +1,10 @@
 ---
+import ShowMoreFooter from "@/components/ShowMoreFooter.astro";
 import Layout from "../../layouts/Layout.astro";
 import { Badge } from "@/components/starwind/badge";
 import { Card, CardContent } from "@/components/starwind/card";
 import { url } from "../../lib/base";
+import { INITIAL_LIST_SIZE } from "@/lib/show-more";
 import {
   getCounty,
   getMunicipalitiesByCounty,
@@ -40,9 +42,12 @@ const municipalities = await getMunicipalitiesByCounty(id!);
   <h2 class="mb-3 text-sm font-medium uppercase tracking-wide text-muted-foreground">Kommuner</h2>
   <Card>
     <CardContent class="p-0">
-      <ul class="divide-y divide-border">
-        {municipalities.map((mun) => (
-          <li>
+      <ul class="divide-y divide-border" data-show-more-list="municipality-list">
+        {municipalities.map((mun, index) => (
+          <li
+            class:list={[{ hidden: index >= INITIAL_LIST_SIZE }]}
+            data-show-more-hidden={index >= INITIAL_LIST_SIZE ? "" : undefined}
+          >
             <a
               href={url(`kommuner/${mun.id}`)}
               class="flex items-center justify-between px-4 py-3 transition hover:bg-accent/30 focus:outline-none focus-visible:ring-2 focus-visible:ring-outline"
@@ -54,5 +59,6 @@ const municipalities = await getMunicipalitiesByCounty(id!);
         ))}
       </ul>
     </CardContent>
+    <ShowMoreFooter listId="municipality-list" total={municipalities.length} noun="kommuner" />
   </Card>
 </Layout>

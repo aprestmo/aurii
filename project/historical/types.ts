@@ -103,3 +103,62 @@ export interface HeraldryManifestEntry {
   license?: string;
   attribution?: string;
 }
+
+/** Historisk navneform fra Norske kommunenummer. */
+export interface HistoricalNameForm {
+  name: string;
+  until?: string;
+  notes?: string;
+}
+
+/** Referanse til en forgjenger-kommune (nummer + navn). */
+export interface MunicipalityNumberRef {
+  number: string;
+  name: string;
+}
+
+/** Oppsummert forgjenger fra Liste over tidligere norske kommuner. */
+export interface EnrichmentPredecessor {
+  id?: string;
+  name: string;
+  number?: string;
+  validFrom?: number;
+  validTo?: number;
+  changeType?: ChangeType;
+  notes?: string;
+}
+
+/** Kronologisk hendelse i kommunens historikk. */
+export interface EnrichmentTimelineEvent {
+  year?: number;
+  date?: string;
+  type: string;
+  description: string;
+  entities?: MunicipalityNumberRef[];
+}
+
+/**
+ * Berikelsesdata for dagens kommuner — kombinerer Norges kommuner,
+ * Norske kommunenummer og tidligere kommuner.
+ */
+export interface MunicipalityEnrichment {
+  id: string;
+  name: string;
+  administrativeCenter?: string;
+  areaKm2?: number;
+  languageForm?: string;
+  languageArea?: string;
+  wikipediaUrl?: string;
+  established?: string;
+  establishedYear?: number;
+  prehistory?: string;
+  historicalNames?: HistoricalNameForm[];
+  /** Direkte forgjengere ved siste større reform (typisk 2020). */
+  directPredecessors?: MunicipalityNumberRef[];
+  /** Kommuner som inngikk ved opprettelsen (fra kommunenummer-tabellen). */
+  formedFrom?: MunicipalityNumberRef[];
+  /** Alle utgåtte kommuner som inngår i dagens kommune. */
+  predecessors?: EnrichmentPredecessor[];
+  timeline?: EnrichmentTimelineEvent[];
+  sources: string[];
+}

@@ -64,6 +64,26 @@ export interface WikiCurrentCounty {
   status: "current";
   sourceUrl: string;
   wikipediaUrl?: string;
+  websiteUrl?: string;
+  coatOfArms?: CoatOfArms;
+}
+
+/** Dagens kommuner fra Wikipedia-tabellen på Norges kommuner. */
+export interface WikiCurrentMunicipality {
+  id: string;
+  type: "municipality";
+  name: string;
+  countyName?: string;
+  administrativeCenter?: string;
+  population?: number;
+  areaKm2?: number;
+  languageForm?: string;
+  languageArea?: string;
+  validFrom: number;
+  status: "current";
+  sourceUrl: string;
+  wikipediaUrl?: string;
+  websiteUrl?: string;
   coatOfArms?: CoatOfArms;
 }
 
@@ -149,6 +169,7 @@ export interface MunicipalityEnrichment {
   languageForm?: string;
   languageArea?: string;
   wikipediaUrl?: string;
+  websiteUrl?: string;
   established?: string;
   establishedYear?: number;
   prehistory?: string;

@@ -108,13 +108,19 @@ function validateDataset(
 }
 
 async function main(): Promise<void> {
-  const [municipalities, counties, changes] = await Promise.all([
+  const [municipalities, counties, changes, currentCounties] = await Promise.all([
     loadJson<HistoricalMunicipality[]>("municipalities.json"),
     loadJson<HistoricalCounty[]>("counties.json"),
     loadJson<AdministrativeChange[]>("administrative-changes.json"),
+    loadJson<import("./types").WikiCurrentCounty[]>("current-counties.json"),
   ]);
 
-  const result = validateDataset(municipalities, counties, changes);
+  const result = validateDataset(
+    municipalities,
+    counties,
+    changes,
+    currentCounties,
+  );
 
   console.log("Historical dataset validation");
   console.log("Stats:", result.stats);

@@ -132,6 +132,13 @@ export async function loadCurrentCountiesWiki(): Promise<WikiCurrentCounty[]> {
   return readHistoricalJson<WikiCurrentCounty[]>("current-counties.json");
 }
 
+export async function getWikiCurrentCounty(
+  id: string,
+): Promise<WikiCurrentCounty | undefined> {
+  const counties = await loadCurrentCountiesWiki();
+  return counties.find((c) => c.id === id || c.countyNumber === id);
+}
+
 export async function loadHistoricalCounties(): Promise<HistoricalCounty[]> {
   return readHistoricalJson<HistoricalCounty[]>("counties.json");
 }

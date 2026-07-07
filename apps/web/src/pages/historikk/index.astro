@@ -22,14 +22,16 @@ import {
   changeTypeLabel,
   formatPeriod,
   getCountyNamesFromMunicipalities,
+  loadCurrentCountiesWiki,
   loadHistoricalCounties,
   loadHistoricalMunicipalities,
   loadHistoricalSummary,
 } from "../../lib/historical-data";
 
-const [municipalities, counties, summary] = await Promise.all([
+const [municipalities, counties, currentCounties, summary] = await Promise.all([
   loadHistoricalMunicipalities(),
   loadHistoricalCounties(),
+  loadCurrentCountiesWiki(),
   loadHistoricalSummary(),
 ]);
 
@@ -37,6 +39,9 @@ const sortedMunicipalities = [...municipalities].sort((a, b) =>
   a.name.localeCompare(b.name, "nb"),
 );
 const sortedCounties = [...counties].sort((a, b) =>
+  a.name.localeCompare(b.name, "nb"),
+);
+const sortedCurrentCounties = [...currentCounties].sort((a, b) =>
   a.name.localeCompare(b.name, "nb"),
 );
 const countyFilterOptions = getCountyNamesFromMunicipalities(municipalities);
@@ -122,6 +127,19 @@ const changeTypes = [
       id="tab-counties"
     >
       Tidligere fylker
+    </Button>
+    <Button
+      type="button"
+      variant="outline"
+      size="sm"
+      class="historikk-tab"
+      data-tab="current-counties"
+      role="tab"
+      aria-selected="false"
+      aria-controls="panel-current-counties"
+      id="tab-current-counties"
+    >
+      Dagens fylker
     </Button>
   </div>
 
@@ -345,7 +363,72 @@ const changeTypes = [
         </TableScroll>
       </CardContent>
       <CardDescription class="border-t border-border/60 px-4 py-3 text-sm">
-        Kilde: <a href="https://no.wikipedia.org/wiki/Norges_fylker" class="underline" target="_blank" rel="noopener noreferrer">Wikipedia — Norges fylker (tabellen «Tidligere fylker»)</a>
+        Kilde: <a href="https://no.wikipedia.org/wiki/Norges_fylker#Tidligere_fylker" class="underline" target="_blank" rel="noopener noreferrer">Wikipedia — Norges fylker (tabellen «Tidligere fylker»)</a>
+      </CardDescription>
+    </Card>
+  </section>
+
+  <section
+    id="panel-current-counties"
+    role="tabpanel"
+    aria-labelledby="tab-current-counties"
+    class="historikk-panel hidden"
+    hidden
+  >
+    <SectionHeading
+      title="Dagens fylker (2024–)"
+      description="De 15 fylkene per 1. januar 2024, med fylkesvåpen fra Wikipedia."
+    />
+
+    <Card class="border-border/80">
+      <CardContent class="p-0">
+        <TableScroll>
+          <Table id="current-county-table" data-sortable>
+            <TableCaption class="sr-only">Dagens norske fylker</TableCaption>
+            <TableHeader>
+              <TableRow class="hover:bg-transparent">
+                <TableHead data-sort-type="text" class="w-16">Nr.</TableHead>
+                <TableHead data-sort-type="text">Navn</TableHead>
+                <TableHead data-sort-type="text">Adm.senter</TableHead>
+              </TableRow>
+            </TableHeader>
+            <TableBody>
+              {sortedCurrentCounties.map((county) => (
+                <TableRow class="transition-colors hover:bg-muted/50">
+                  <TableCell class="font-mono text-xs text-muted-foreground" data-sort-value={county.countyNumber}>
+                    {county.countyNumber}
+                  </TableCell>
+                  <TableCell>
+                    <div class="flex items-center gap-3">
+                      {county.coatOfArms && (
+                        <img
+                          src={url(county.coatOfArms.localPath.replace(/^\//, ""))}
+                          alt=""
+                          width="28"
+                          height="32"
+                          class="h-7 w-auto shrink-0"
+                          loading="lazy"
+                        />
+                      )}
+                      <a
+                        href={url(`fylker/${county.id}`)}
+                        class="font-medium text-foreground underline-offset-4 hover:text-primary hover:underline"
+                      >
+                        {county.name}
+                      </a>
+                    </div>
+                  </TableCell>
+                  <TableCell data-sort-value={county.administrativeCenter ?? ""}>
+                    {county.administrativeCenter ?? "—"}
+                  </TableCell>
+                </TableRow>
+              ))}
+            </TableBody>
+          </Table>
+        </TableScroll>
+      </CardContent>
+      <CardDescription class="border-t border-border/60 px-4 py-3 text-sm">
+        Kilde: <a href="https://no.wikipedia.org/wiki/Norges_fylker#Norges_fylker_2024–" class="underline" target="_blank" rel="noopener noreferrer">Wikipedia — Norges fylker (tabellen «Norges fylker 2024–»)</a>
       </CardDescription>
     </Card>
   </section>

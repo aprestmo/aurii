@@ -466,18 +466,7 @@ async function main(): Promise<void> {
   console.log("Downloading heraldry…");
   const heraldryTargets: HeraldryTarget[] = [];
 
-  for (const mun of rawMunicipalities) {
-    const coatSource = (mun as HistoricalMunicipality & { _coatSource?: string })
-      ._coatSource;
-    if (coatSource) {
-      heraldryTargets.push({
-        entityType: "municipality",
-        name: mun.name,
-        number: mun.municipalityNumber,
-        sourceUrl: coatSource,
-      });
-    }
-  }
+  // Counties first — avoids Commons rate limits after large municipality batches.
   for (const county of rawCounties) {
     const coatSource = (county as HistoricalCounty & { _coatSource?: string })
       ._coatSource;
@@ -498,6 +487,19 @@ async function main(): Promise<void> {
         entityType: "county",
         name: county.name,
         number: county.countyNumber,
+        sourceUrl: coatSource,
+      });
+    }
+  }
+
+  for (const mun of rawMunicipalities) {
+    const coatSource = (mun as HistoricalMunicipality & { _coatSource?: string })
+      ._coatSource;
+    if (coatSource) {
+      heraldryTargets.push({
+        entityType: "municipality",
+        name: mun.name,
+        number: mun.municipalityNumber,
         sourceUrl: coatSource,
       });
     }

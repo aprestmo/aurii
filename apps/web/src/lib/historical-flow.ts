@@ -3,9 +3,11 @@ import {
   getCounty,
   getMunicipality,
   loadAdministrativeChanges,
+  loadCurrentCountiesWiki,
   loadHistoricalCounties,
   loadHistoricalMunicipalities,
   type ChangeType,
+  type CoatOfArms,
 } from "./historical-data";
 
 export interface FlowNode {
@@ -17,6 +19,7 @@ export interface FlowNode {
   validTo?: number;
   layer: number;
   link?: string;
+  coatOfArms?: import("./historical-data").CoatOfArms;
 }
 
 export interface FlowEdge {
@@ -45,6 +48,32 @@ interface EntityRef {
 
 function entityKey(entity: EntityRef): string {
   return entity.id ?? `${entity.name}::${entity.number ?? ""}`;
+}
+
+async function lookupCountyCoat(
+  name: string,
+  number?: string,
+  isCurrent?: boolean,
+): Promise<CoatOfArms | undefined> {
+  const historical = await loadHistoricalCounties();
+  const hist = historical.find(
+    (c) =>
+      c.name === name &&
+      (!number || c.countyNumber === number.padStart(2, "0").slice(-2)),
+  );
+  if (hist?.coatOfArms) return hist.coatOfArms;
+
+  if (isCurrent || number) {
+    const currentWiki = await loadCurrentCountiesWiki();
+    const wiki = currentWiki.find(
+      (c) =>
+        c.name === name ||
+        (number && c.countyNumber === number.padStart(2, "0").slice(-2)),
+    );
+    if (wiki?.coatOfArms) return wiki.coatOfArms;
+  }
+
+  return undefined;
 }
 
 function edgeLabel(changeType: ChangeType, year?: number): string {
@@ -133,8 +162,10 @@ async function resolveNode(
         validTo: historical.validTo,
         layer,
         link: `historikk/fylker/${historical.id}`,
+        coatOfArms: historical.coatOfArms,
       };
     } else if (current) {
+      const coatOfArms = await lookupCountyCoat(current.name, current.id, true);
       node = {
         id: key,
         name: current.name,
@@ -142,6 +173,7 @@ async function resolveNode(
         isCurrent: true,
         layer,
         link: `fylker/${current.id}`,
+        coatOfArms,
       };
     } else {
       node = {

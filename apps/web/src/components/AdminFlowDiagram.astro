@@ -57,6 +57,16 @@ function edgesBetween(fromLayer: string[], toLayer: string[]) {
                         isFocus && "admin-flow__node--focus",
                       ]}
                     >
+                      {node.coatOfArms && (
+                        <img
+                          src={url(node.coatOfArms.localPath.replace(/^\//, ""))}
+                          alt=""
+                          width="36"
+                          height="44"
+                          class="admin-flow__node-coat"
+                          loading="lazy"
+                        />
+                      )}
                       <p class="admin-flow__node-name">{node.name}</p>
                       {nodeSubtitle(node) && (
                         <p class="admin-flow__node-meta">{nodeSubtitle(node)}</p>
@@ -131,6 +141,10 @@ function edgesBetween(fromLayer: string[], toLayer: string[]) {
 
   .admin-flow__node {
     position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
     border: 1px solid var(--color-border);
     border-radius: 0.5rem;
     background: var(--color-card);
@@ -150,6 +164,12 @@ function edgesBetween(fromLayer: string[], toLayer: string[]) {
 
   .admin-flow__node--focus {
     box-shadow: 0 0 0 2px color-mix(in srgb, var(--color-primary) 25%, transparent);
+  }
+
+  .admin-flow__node-coat {
+    margin-bottom: 0.375rem;
+    height: 2.25rem;
+    width: auto;
   }
 
   .admin-flow__node-name {

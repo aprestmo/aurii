@@ -43,7 +43,9 @@ Skriptet:
 3. Normaliserer endringstyper fra merknadsfeltet
 4. Kobler resultatnavn mot dagens kommuner/fylker (navn + nummer)
 5. Lagrer usikre koblinger i `unresolved-matches.json`
-6. Laster ned SVG-våpenskjold der tilgjengelig
+6. Laster ned fylkesvåpen og kommunevåpen fra Wikimedia Commons (SVG der tilgjengelig)
+
+Fylkesvåpen hentes fra miniatyrbildene i begge Wikipedia-tabellene på [Norges fylker](https://no.wikipedia.org/wiki/Norges_fylker).
 
 ## Datamodell
 

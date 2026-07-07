@@ -1,7 +1,7 @@
 id: municipality
 name: Municipality
 description: Norwegian administrative municipality (kommune) from Kartverket/GeoNorge
-version: 2
+version: 3
 fields:
   - name: id
     type: string
@@ -20,6 +20,16 @@ fields:
     required: true
     label: County number (fylkesnummer)
     description: Two-digit county identifier; first two digits of the municipality number
+
+  - name: population
+    type: number
+    label: Population (innbyggere)
+    description: Resident population per 1 January from SSB Statbank table 07459
+
+  - name: populationYear
+    type: number
+    label: Population reference year
+    description: Year of the population figure from SSB
 
   - name: source
     type: string

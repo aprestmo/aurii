@@ -61,7 +61,7 @@ const { title } = Astro.props;
     </main>
 
     <footer class="mx-auto max-w-4xl border-t border-border px-4 py-6 text-sm text-muted-foreground sm:px-6">
-      Data: Kartverket, Bring, UDIR, Brønnøysundregistrene · Drevet av Aurii
+      Data: Kartverket, Bring, SSB, UDIR, Brønnøysundregistrene · Drevet av Aurii
     </footer>
 
     <script>
@@ -82,6 +82,66 @@ const { title } = Astro.props;
         button.remove();
         document.dispatchEvent(new CustomEvent("show-more:revealed", { detail: { listId } }));
       });
+
+      function parseSortValue(value: string, type: string): string | number {
+        if (type === "number") {
+          const parsed = Number.parseFloat(value.replace(/\s/g, "").replace(",", "."));
+          return Number.isFinite(parsed) ? parsed : 0;
+        }
+        return value.toLocaleLowerCase("nb");
+      }
+
+      function sortTable(table: HTMLTableElement, columnIndex: number, type: string, ascending: boolean) {
+        const tbody = table.tBodies[0];
+        if (!tbody) return;
+
+        const rows = Array.from(tbody.querySelectorAll<HTMLTableRowElement>("tr"));
+        const multiplier = ascending ? 1 : -1;
+
+        rows.sort((a, b) => {
+          const aCell = a.cells[columnIndex];
+          const bCell = b.cells[columnIndex];
+          const aValue = parseSortValue(aCell?.dataset.sortValue ?? aCell?.textContent?.trim() ?? "", type);
+          const bValue = parseSortValue(bCell?.dataset.sortValue ?? bCell?.textContent?.trim() ?? "", type);
+
+          if (typeof aValue === "number" && typeof bValue === "number") {
+            return (aValue - bValue) * multiplier;
+          }
+
+          return String(aValue).localeCompare(String(bValue), "nb") * multiplier;
+        });
+
+        rows.forEach((row) => tbody.appendChild(row));
+      }
+
+      function initSortableTables(root: ParentNode = document) {
+        root.querySelectorAll<HTMLTableElement>("table[data-sortable]").forEach((table) => {
+          if (table.dataset.sortableInit === "true") return;
+          table.dataset.sortableInit = "true";
+
+          const headers = table.tHead?.rows[0]?.cells;
+          if (!headers) return;
+
+          Array.from(headers).forEach((header, index) => {
+            const type = header.dataset.sortType ?? "text";
+            if (type === "none") return;
+
+            header.classList.add("cursor-pointer", "select-none", "hover:text-foreground");
+            header.setAttribute("aria-sort", "none");
+            header.addEventListener("click", () => {
+              const ascending = header.getAttribute("aria-sort") !== "ascending";
+              Array.from(headers).forEach((h) => {
+                if (h !== header) h.setAttribute("aria-sort", "none");
+              });
+              header.setAttribute("aria-sort", ascending ? "ascending" : "descending");
+              sortTable(table, index, type, ascending);
+            });
+          });
+        });
+      }
+
+      initSortableTables();
+      document.addEventListener("astro:after-swap", () => initSortableTables());
     </script>
   </body>
 </html>

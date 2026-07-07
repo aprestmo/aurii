@@ -3,2142 +3,2856 @@
     "id": "3419",
     "name": "Våler",
     "countyId": "34",
-    "source": "kartverket"
+    "source": "kartverket",
+    "population": 3615,
+    "populationYear": 2025
   },
   {
     "id": "3326",
     "name": "Hemsedal",
     "countyId": "33",
-    "source": "kartverket"
+    "source": "kartverket",
+    "population": 2666,
+    "populationYear": 2025
   },
   {
     "id": "4622",
     "name": "Kvam",
     "countyId": "46",
-    "source": "kartverket"
+    "source": "kartverket",
+    "population": 8496,
+    "populationYear": 2025
   },
   {
     "id": "5054",
     "name": "Indre Fosen",
     "countyId": "50",
-    "source": "kartverket"
+    "source": "kartverket",
+    "population": 10023,
+    "populationYear": 2025
   },
   {
     "id": "4617",
     "name": "Kvinnherad",
     "countyId": "46",
-    "source": "kartverket"
+    "source": "kartverket",
+    "population": 13089,
+    "populationYear": 2025
   },
   {
     "id": "4621",
     "name": "Voss",
     "countyId": "46",
-    "source": "kartverket"
+    "source": "kartverket",
+    "population": 16471,
+    "populationYear": 2025
   },
   {
     "id": "4036",
     "name": "Vinje",
     "countyId": "40",
-    "source": "kartverket"
+    "source": "kartverket",
+    "population": 3851,
+    "populationYear": 2025
   },
   {
     "id": "3420",
     "name": "Elverum",
     "countyId": "34",
-    "source": "kartverket"
+    "source": "kartverket",
+    "population": 21761,
+    "populationYear": 2025
   },
   {
     "id": "4643",
     "name": "Årdal",
     "countyId": "46",
-    "source": "kartverket"
+    "source": "kartverket",
+    "population": 5239,
+    "populationYear": 2025
   },
   {
     "id": "4642",
     "name": "Lærdal",
     "countyId": "46",
-    "source": "kartverket"
+    "source": "kartverket",
+    "population": 2160,
+    "populationYear": 2025
   },
   {
     "id": "4644",
     "name": "Luster",
     "countyId": "46",
-    "source": "kartverket"
+    "source": "kartverket",
+    "population": 5371,
+    "populationYear": 2025
   },
   {
     "id": "3429",
     "name": "Folldal",
     "countyId": "34",
-    "source": "kartverket"
+    "source": "kartverket",
+    "population": 1532,
+    "populationYear": 2025
   },
   {
     "id": "3427",
     "name": "Tynset",
     "countyId": "34",
-    "source": "kartverket"
+    "source": "kartverket",
+    "population": 5692,
+    "populationYear": 2025
   },
   {
     "id": "3431",
     "name": "Dovre",
     "countyId": "34",
-    "source": "kartverket"
+    "source": "kartverket",
+    "population": 2503,
+    "populationYear": 2025
   },
   {
     "id": "4638",
     "name": "Høyanger",
     "countyId": "46",
-    "source": "kartverket"
+    "source": "kartverket",
+    "population": 3879,
+    "populationYear": 2025
   },
   {
     "id": "5036",
     "name": "Frosta",
     "countyId": "50",
-    "source": "kartverket"
+    "source": "kartverket",
+    "population": 2645,
+    "populationYear": 2025
   },
   {
     "id": "5037",
     "name": "Levanger",
     "countyId": "50",
-    "source": "kartverket"
+    "source": "kartverket",
+    "population": 20574,
+    "populationYear": 2025
   },
   {
     "id": "4631",
     "name": "Alver",
     "countyId": "46",
-    "source": "kartverket"
+    "source": "kartverket",
+    "population": 29986,
+    "populationYear": 2025
   },
   {
     "id": "1127",
     "name": "Randaberg",
     "countyId": "11",
-    "source": "kartverket"
+    "source": "kartverket",
+    "population": 11742,
+    "populationYear": 2025
   },
   {
     "id": "3424",
     "name": "Rendalen",
     "countyId": "34",
-    "source": "kartverket"
+    "source": "kartverket",
+    "population": 1837,
+    "populationYear": 2025
   },
   {
     "id": "1824",
     "name": "Vefsn",
     "countyId": "18",
-    "source": "kartverket"
+    "source": "kartverket",
+    "population": 13469,
+    "populationYear": 2025
   },
   {
     "id": "1825",
     "name": "Grane",
     "countyId": "18",
-    "source": "kartverket"
+    "source": "kartverket",
+    "population": 1447,
+    "populationYear": 2025
   },
   {
     "id": "5528",
     "name": "Dyrøy",
     "countyId": "55",
-    "source": "kartverket"
+    "source": "kartverket",
+    "population": 1073,
+    "populationYear": 2025
   },
   {
     "id": "5538",
     "name": "Storfjord",
     "countyId": "55",
-    "source": "kartverket"
+    "source": "kartverket",
+    "population": 1825,
+    "populationYear": 2025
   },
   {
     "id": "5520",
     "name": "Bardu",
     "countyId": "55",
-    "source": "kartverket"
+    "source": "kartverket",
+    "population": 3986,
+    "populationYear": 2025
   },
   {
     "id": "5532",
     "name": "Balsfjord",
     "countyId": "55",
-    "source": "kartverket"
+    "source": "kartverket",
+    "population": 5571,
+    "populationYear": 2025
   },
   {
     "id": "4651",
     "name": "Stryn",
     "countyId": "46",
-    "source": "kartverket"
+    "source": "kartverket",
+    "population": 7271,
+    "populationYear": 2025
   },
   {
     "id": "4650",
     "name": "Gloppen",
     "countyId": "46",
-    "source": "kartverket"
+    "source": "kartverket",
+    "population": 5926,
+    "populationYear": 2025
   },
   {
     "id": "1837",
     "name": "Meløy",
     "countyId": "18",
-    "source": "kartverket"
+    "source": "kartverket",
+    "population": 6180,
+    "populationYear": 2025
   },
   {
     "id": "4026",
     "name": "Tinn",
     "countyId": "40",
-    "source": "kartverket"
+    "source": "kartverket",
+    "population": 5533,
+    "populationYear": 2025
   },
   {
     "id": "1822",
     "name": "Leirfjord",
     "countyId": "18",
-    "source": "kartverket"
+    "source": "kartverket",
+    "population": 2352,
+    "populationYear": 2025
   },
   {
     "id": "1528",
     "name": "Sykkylven",
     "countyId": "15",
-    "source": "kartverket"
+    "source": "kartverket",
+    "population": 7617,
+    "populationYear": 2025
   },
   {
     "id": "1827",
     "name": "Dønna",
     "countyId": "18",
-    "source": "kartverket"
+    "source": "kartverket",
+    "population": 1427,
+    "populationYear": 2025
   },
   {
     "id": "3454",
     "name": "Vang",
     "countyId": "34",
-    "source": "kartverket"
+    "source": "kartverket",
+    "population": 1645,
+    "populationYear": 2025
   },
   {
     "id": "3416",
     "name": "Eidskog",
     "countyId": "34",
-    "source": "kartverket"
+    "source": "kartverket",
+    "population": 6040,
+    "populationYear": 2025
   },
   {
     "id": "4647",
     "name": "Sunnfjord",
     "countyId": "46",
-    "source": "kartverket"
+    "source": "kartverket",
+    "population": 22450,
+    "populationYear": 2025
   },
   {
     "id": "1506",
     "name": "Molde",
     "countyId": "15",
-    "source": "kartverket"
+    "source": "kartverket",
+    "population": 32816,
+    "populationYear": 2025
   },
   {
     "id": "1539",
     "name": "Rauma",
     "countyId": "15",
-    "source": "kartverket"
+    "source": "kartverket",
+    "population": 7299,
+    "populationYear": 2025
   },
   {
     "id": "3432",
     "name": "Lesja",
     "countyId": "34",
-    "source": "kartverket"
+    "source": "kartverket",
+    "population": 1983,
+    "populationYear": 2025
   },
   {
     "id": "1578",
     "name": "Fjord",
     "countyId": "15",
-    "source": "kartverket"
+    "source": "kartverket",
+    "population": 2492,
+    "populationYear": 2025
   },
   {
     "id": "1525",
     "name": "Stranda",
     "countyId": "15",
-    "source": "kartverket"
+    "source": "kartverket",
+    "population": 4348,
+    "populationYear": 2025
   },
   {
     "id": "1866",
     "name": "Hadsel",
     "countyId": "18",
-    "source": "kartverket"
+    "source": "kartverket",
+    "population": 8236,
+    "populationYear": 2025
   },
   {
     "id": "4646",
     "name": "Fjaler",
     "countyId": "46",
-    "source": "kartverket"
+    "source": "kartverket",
+    "population": 2869,
+    "populationYear": 2025
   },
   {
     "id": "1868",
     "name": "Øksnes",
     "countyId": "18",
-    "source": "kartverket"
+    "source": "kartverket",
+    "population": 4569,
+    "populationYear": 2025
   },
   {
     "id": "1106",
     "name": "Haugesund",
     "countyId": "11",
-    "source": "kartverket"
+    "source": "kartverket",
+    "population": 38292,
+    "populationYear": 2025
   },
   {
     "id": "1856",
     "name": "Røst",
     "countyId": "18",
-    "source": "kartverket"
+    "source": "kartverket",
+    "population": 460,
+    "populationYear": 2025
   },
   {
     "id": "3434",
     "name": "Lom",
     "countyId": "34",
-    "source": "kartverket"
+    "source": "kartverket",
+    "population": 2212,
+    "populationYear": 2025
   },
   {
     "id": "5060",
     "name": "Nærøysund",
     "countyId": "50",
-    "source": "kartverket"
+    "source": "kartverket",
+    "population": 9968,
+    "populationYear": 2025
   },
   {
     "id": "4614",
     "name": "Stord",
     "countyId": "46",
-    "source": "kartverket"
+    "source": "kartverket",
+    "population": 19287,
+    "populationYear": 2025
   },
   {
     "id": "3226",
     "name": "Aurskog-Høland",
     "countyId": "32",
-    "source": "kartverket"
+    "source": "kartverket",
+    "population": 18058,
+    "populationYear": 2025
   },
   {
     "id": "3224",
     "name": "Rælingen",
     "countyId": "32",
-    "source": "kartverket"
+    "source": "kartverket",
+    "population": 20099,
+    "populationYear": 2025
   },
   {
     "id": "3222",
     "name": "Lørenskog",
     "countyId": "32",
-    "source": "kartverket"
+    "source": "kartverket",
+    "population": 48188,
+    "populationYear": 2025
   },
   {
     "id": "4635",
     "name": "Gulen",
     "countyId": "46",
-    "source": "kartverket"
+    "source": "kartverket",
+    "population": 2234,
+    "populationYear": 2025
   },
   {
     "id": "4612",
     "name": "Sveio",
     "countyId": "46",
-    "source": "kartverket"
+    "source": "kartverket",
+    "population": 5742,
+    "populationYear": 2025
   },
   {
     "id": "4618",
     "name": "Ullensvang",
     "countyId": "46",
-    "source": "kartverket"
+    "source": "kartverket",
+    "population": 11017,
+    "populationYear": 2025
   },
   {
     "id": "4620",
     "name": "Ulvik",
     "countyId": "46",
-    "source": "kartverket"
+    "source": "kartverket",
+    "population": 1089,
+    "populationYear": 2025
   },
   {
     "id": "1516",
     "name": "Ulstein",
     "countyId": "15",
-    "source": "kartverket"
+    "source": "kartverket",
+    "population": 8861,
+    "populationYear": 2025
   },
   {
     "id": "3312",
     "name": "Lier",
     "countyId": "33",
-    "source": "kartverket"
+    "source": "kartverket",
+    "population": 28470,
+    "populationYear": 2025
   },
   {
     "id": "4628",
     "name": "Vaksdal",
     "countyId": "46",
-    "source": "kartverket"
+    "source": "kartverket",
+    "population": 3852,
+    "populationYear": 2025
   },
   {
     "id": "4629",
     "name": "Modalen",
     "countyId": "46",
-    "source": "kartverket"
+    "source": "kartverket",
+    "population": 384,
+    "populationYear": 2025
   },
   {
     "id": "3120",
     "name": "Rakkestad",
     "countyId": "31",
-    "source": "kartverket"
+    "source": "kartverket",
+    "population": 8420,
+    "populationYear": 2025
   },
   {
     "id": "3433",
     "name": "Skjåk",
     "countyId": "34",
-    "source": "kartverket"
+    "source": "kartverket",
+    "population": 2141,
+    "populationYear": 2025
   },
   {
     "id": "5006",
     "name": "Steinkjer",
     "countyId": "50",
-    "source": "kartverket"
+    "source": "kartverket",
+    "population": 24032,
+    "populationYear": 2025
   },
   {
     "id": "5058",
     "name": "Åfjord",
     "countyId": "50",
-    "source": "kartverket"
+    "source": "kartverket",
+    "population": 4339,
+    "populationYear": 2025
   },
   {
     "id": "4641",
     "name": "Aurland",
     "countyId": "46",
-    "source": "kartverket"
+    "source": "kartverket",
+    "population": 1800,
+    "populationYear": 2025
   },
   {
     "id": "1145",
     "name": "Bokn",
     "countyId": "11",
-    "source": "kartverket"
+    "source": "kartverket",
+    "population": 883,
+    "populationYear": 2025
   },
   {
     "id": "3418",
     "name": "Åsnes",
     "countyId": "34",
-    "source": "kartverket"
+    "source": "kartverket",
+    "population": 7339,
+    "populationYear": 2025
   },
   {
     "id": "4632",
     "name": "Austrheim",
     "countyId": "46",
-    "source": "kartverket"
+    "source": "kartverket",
+    "population": 2881,
+    "populationYear": 2025
   },
   {
     "id": "3401",
     "name": "Kongsvinger",
     "countyId": "34",
-    "source": "kartverket"
+    "source": "kartverket",
+    "population": 18058,
+    "populationYear": 2025
   },
   {
     "id": "3417",
     "name": "Grue",
     "countyId": "34",
-    "source": "kartverket"
+    "source": "kartverket",
+    "population": 4532,
+    "populationYear": 2025
   },
   {
     "id": "5514",
     "name": "Ibestad",
     "countyId": "55",
-    "source": "kartverket"
+    "source": "kartverket",
+    "population": 1311,
+    "populationYear": 2025
   },
   {
     "id": "5516",
     "name": "Gratangen",
     "countyId": "55",
-    "source": "kartverket"
+    "source": "kartverket",
+    "population": 1070,
+    "populationYear": 2025
   },
   {
     "id": "4630",
     "name": "Osterøy",
     "countyId": "46",
-    "source": "kartverket"
+    "source": "kartverket",
+    "population": 8200,
+    "populationYear": 2025
   },
   {
     "id": "4634",
     "name": "Masfjorden",
     "countyId": "46",
-    "source": "kartverket"
+    "source": "kartverket",
+    "population": 1694,
+    "populationYear": 2025
   },
   {
     "id": "5601",
     "name": "Alta",
     "countyId": "56",
-    "source": "kartverket"
+    "source": "kartverket",
+    "population": 21708,
+    "populationYear": 2025
   },
   {
     "id": "1812",
     "name": "Sømna",
     "countyId": "18",
-    "source": "kartverket"
+    "source": "kartverket",
+    "population": 1976,
+    "populationYear": 2025
   },
   {
     "id": "1813",
     "name": "Brønnøy",
     "countyId": "18",
-    "source": "kartverket"
+    "source": "kartverket",
+    "population": 7826,
+    "populationYear": 2025
   },
   {
     "id": "4639",
     "name": "Vik",
     "countyId": "46",
-    "source": "kartverket"
+    "source": "kartverket",
+    "population": 2551,
+    "populationYear": 2025
   },
   {
     "id": "1815",
     "name": "Vega",
     "countyId": "18",
-    "source": "kartverket"
+    "source": "kartverket",
+    "population": 1208,
+    "populationYear": 2025
   },
   {
     "id": "5524",
     "name": "Målselv",
     "countyId": "55",
-    "source": "kartverket"
+    "source": "kartverket",
+    "population": 6714,
+    "populationYear": 2025
   },
   {
     "id": "5522",
     "name": "Salangen",
     "countyId": "55",
-    "source": "kartverket"
+    "source": "kartverket",
+    "population": 2069,
+    "populationYear": 2025
   },
   {
     "id": "5518",
     "name": "Lavangen",
     "countyId": "55",
-    "source": "kartverket"
+    "source": "kartverket",
+    "population": 986,
+    "populationYear": 2025
   },
   {
     "id": "5526",
     "name": "Sørreisa",
     "countyId": "55",
-    "source": "kartverket"
+    "source": "kartverket",
+    "population": 3485,
+    "populationYear": 2025
   },
   {
     "id": "5053",
     "name": "Inderøy",
     "countyId": "50",
-    "source": "kartverket"
+    "source": "kartverket",
+    "population": 6938,
+    "populationYear": 2025
   },
   {
     "id": "4018",
     "name": "Nome",
     "countyId": "40",
-    "source": "kartverket"
+    "source": "kartverket",
+    "population": 6539,
+    "populationYear": 2025
   },
   {
     "id": "4028",
     "name": "Kviteseid",
     "countyId": "40",
-    "source": "kartverket"
+    "source": "kartverket",
+    "population": 2458,
+    "populationYear": 2025
   },
   {
     "id": "4034",
     "name": "Tokke",
     "countyId": "40",
-    "source": "kartverket"
+    "source": "kartverket",
+    "population": 2212,
+    "populationYear": 2025
   },
   {
     "id": "4020",
     "name": "Midt-Telemark",
     "countyId": "40",
-    "source": "kartverket"
+    "source": "kartverket",
+    "population": 10904,
+    "populationYear": 2025
   },
   {
     "id": "5605",
     "name": "Sør-Varanger",
     "countyId": "56",
-    "source": "kartverket"
+    "source": "kartverket",
+    "population": 10063,
+    "populationYear": 2025
   },
   {
     "id": "3446",
     "name": "Gran",
     "countyId": "34",
-    "source": "kartverket"
+    "source": "kartverket",
+    "population": 13593,
+    "populationYear": 2025
   },
   {
     "id": "3407",
     "name": "Gjøvik",
     "countyId": "34",
-    "source": "kartverket"
+    "source": "kartverket",
+    "population": 30903,
+    "populationYear": 2025
   },
   {
     "id": "3443",
     "name": "Vestre Toten",
     "countyId": "34",
-    "source": "kartverket"
+    "source": "kartverket",
+    "population": 13691,
+    "populationYear": 2025
   },
   {
     "id": "3212",
     "name": "Nesodden",
     "countyId": "32",
-    "source": "kartverket"
+    "source": "kartverket",
+    "population": 20521,
+    "populationYear": 2025
   },
   {
     "id": "1833",
     "name": "Rana",
     "countyId": "18",
-    "source": "kartverket"
+    "source": "kartverket",
+    "population": 25994,
+    "populationYear": 2025
   },
   {
     "id": "1840",
     "name": "Saltdal",
     "countyId": "18",
-    "source": "kartverket"
+    "source": "kartverket",
+    "population": 4880,
+    "populationYear": 2025
   },
   {
     "id": "1860",
     "name": "Vestvågøy",
     "countyId": "18",
-    "source": "kartverket"
+    "source": "kartverket",
+    "population": 11619,
+    "populationYear": 2025
   },
   {
     "id": "4221",
     "name": "Valle",
     "countyId": "42",
-    "source": "kartverket"
+    "source": "kartverket",
+    "population": 1205,
+    "populationYear": 2025
   },
   {
     "id": "1133",
     "name": "Hjelmeland",
     "countyId": "11",
-    "source": "kartverket"
+    "source": "kartverket",
+    "population": 2643,
+    "populationYear": 2025
   },
   {
     "id": "1146",
     "name": "Tysvær",
     "countyId": "11",
-    "source": "kartverket"
+    "source": "kartverket",
+    "population": 11570,
+    "populationYear": 2025
   },
   {
     "id": "4615",
     "name": "Fitjar",
     "countyId": "46",
-    "source": "kartverket"
+    "source": "kartverket",
+    "population": 3203,
+    "populationYear": 2025
   },
   {
     "id": "3238",
     "name": "Nannestad",
     "countyId": "32",
-    "source": "kartverket"
+    "source": "kartverket",
+    "population": 16126,
+    "populationYear": 2025
   },
   {
     "id": "3324",
     "name": "Gol",
     "countyId": "33",
-    "source": "kartverket"
+    "source": "kartverket",
+    "population": 4986,
+    "populationYear": 2025
   },
   {
     "id": "5038",
     "name": "Verdal",
     "countyId": "50",
-    "source": "kartverket"
+    "source": "kartverket",
+    "population": 15193,
+    "populationYear": 2025
   },
   {
     "id": "1134",
     "name": "Suldal",
     "countyId": "11",
-    "source": "kartverket"
+    "source": "kartverket",
+    "population": 3889,
+    "populationYear": 2025
   },
   {
     "id": "4222",
     "name": "Bykle",
     "countyId": "42",
-    "source": "kartverket"
+    "source": "kartverket",
+    "population": 1011,
+    "populationYear": 2025
   },
   {
     "id": "5007",
     "name": "Namsos",
     "countyId": "50",
-    "source": "kartverket"
+    "source": "kartverket",
+    "population": 15083,
+    "populationYear": 2025
   },
   {
     "id": "1122",
     "name": "Gjesdal",
     "countyId": "11",
-    "source": "kartverket"
+    "source": "kartverket",
+    "population": 12362,
+    "populationYear": 2025
   },
   {
     "id": "4616",
     "name": "Tysnes",
     "countyId": "46",
-    "source": "kartverket"
+    "source": "kartverket",
+    "population": 2922,
+    "populationYear": 2025
   },
   {
     "id": "4623",
     "name": "Samnanger",
     "countyId": "46",
-    "source": "kartverket"
+    "source": "kartverket",
+    "population": 2502,
+    "populationYear": 2025
   },
   {
     "id": "1851",
     "name": "Lødingen",
     "countyId": "18",
-    "source": "kartverket"
+    "source": "kartverket",
+    "population": 2060,
+    "populationYear": 2025
   },
   {
     "id": "1832",
     "name": "Hemnes",
     "countyId": "18",
-    "source": "kartverket"
+    "source": "kartverket",
+    "population": 4485,
+    "populationYear": 2025
   },
   {
     "id": "4032",
     "name": "Fyresdal",
     "countyId": "40",
-    "source": "kartverket"
+    "source": "kartverket",
+    "population": 1256,
+    "populationYear": 2025
   },
   {
     "id": "1870",
     "name": "Sortland",
     "countyId": "18",
-    "source": "kartverket"
+    "source": "kartverket",
+    "population": 10618,
+    "populationYear": 2025
   },
   {
     "id": "5510",
     "name": "Kvæfjord",
     "countyId": "55",
-    "source": "kartverket"
+    "source": "kartverket",
+    "population": 2845,
+    "populationYear": 2025
   },
   {
     "id": "4220",
     "name": "Bygland",
     "countyId": "42",
-    "source": "kartverket"
+    "source": "kartverket",
+    "population": 1180,
+    "populationYear": 2025
   },
   {
     "id": "4226",
     "name": "Hægebostad",
     "countyId": "42",
-    "source": "kartverket"
+    "source": "kartverket",
+    "population": 1776,
+    "populationYear": 2025
   },
   {
     "id": "3439",
     "name": "Ringebu",
     "countyId": "34",
-    "source": "kartverket"
+    "source": "kartverket",
+    "population": 4413,
+    "populationYear": 2025
   },
   {
     "id": "5628",
     "name": "Tana",
     "countyId": "56",
-    "source": "kartverket"
+    "source": "kartverket",
+    "population": 2807,
+    "populationYear": 2025
   },
   {
     "id": "3322",
     "name": "Nesbyen",
     "countyId": "33",
-    "source": "kartverket"
+    "source": "kartverket",
+    "population": 3301,
+    "populationYear": 2025
   },
   {
     "id": "3122",
     "name": "Marker",
     "countyId": "31",
-    "source": "kartverket"
+    "source": "kartverket",
+    "population": 3658,
+    "populationYear": 2025
   },
   {
     "id": "1121",
     "name": "Time",
     "countyId": "11",
-    "source": "kartverket"
+    "source": "kartverket",
+    "population": 19910,
+    "populationYear": 2025
   },
   {
     "id": "1108",
     "name": "Sandnes",
     "countyId": "11",
-    "source": "kartverket"
+    "source": "kartverket",
+    "population": 83702,
+    "populationYear": 2025
   },
   {
     "id": "1874",
     "name": "Moskenes",
     "countyId": "18",
-    "source": "kartverket"
+    "source": "kartverket",
+    "population": 954,
+    "populationYear": 2025
   },
   {
     "id": "1828",
     "name": "Nesna",
     "countyId": "18",
-    "source": "kartverket"
+    "source": "kartverket",
+    "population": 1808,
+    "populationYear": 2025
   },
   {
     "id": "5503",
     "name": "Harstad",
     "countyId": "55",
-    "source": "kartverket"
+    "source": "kartverket",
+    "population": 25056,
+    "populationYear": 2025
   },
   {
     "id": "5512",
     "name": "Tjeldsund",
     "countyId": "55",
-    "source": "kartverket"
+    "source": "kartverket",
+    "population": 4281,
+    "populationYear": 2025
   },
   {
     "id": "3330",
     "name": "Hol",
     "countyId": "33",
-    "source": "kartverket"
+    "source": "kartverket",
+    "population": 4496,
+    "populationYear": 2025
   },
   {
     "id": "1535",
     "name": "Vestnes",
     "countyId": "15",
-    "source": "kartverket"
+    "source": "kartverket",
+    "population": 7147,
+    "populationYear": 2025
   },
   {
     "id": "1151",
     "name": "Utsira",
     "countyId": "11",
-    "source": "kartverket"
+    "source": "kartverket",
+    "population": 215,
+    "populationYear": 2025
   },
   {
     "id": "5607",
     "name": "Vadsø",
     "countyId": "56",
-    "source": "kartverket"
+    "source": "kartverket",
+    "population": 5807,
+    "populationYear": 2025
   },
   {
     "id": "3236",
     "name": "Jevnaker",
     "countyId": "32",
-    "source": "kartverket"
+    "source": "kartverket",
+    "population": 7037,
+    "populationYear": 2025
   },
   {
     "id": "1826",
     "name": "Hattfjelldal",
     "countyId": "18",
-    "source": "kartverket"
+    "source": "kartverket",
+    "population": 1284,
+    "populationYear": 2025
   },
   {
     "id": "3411",
     "name": "Ringsaker",
     "countyId": "34",
-    "source": "kartverket"
+    "source": "kartverket",
+    "population": 35612,
+    "populationYear": 2025
   },
   {
     "id": "3405",
     "name": "Lillehammer",
     "countyId": "34",
-    "source": "kartverket"
+    "source": "kartverket",
+    "population": 28768,
+    "populationYear": 2025
   },
   {
     "id": "3453",
     "name": "Øystre Slidre",
     "countyId": "34",
-    "source": "kartverket"
+    "source": "kartverket",
+    "population": 3298,
+    "populationYear": 2025
   },
   {
     "id": "1859",
     "name": "Flakstad",
     "countyId": "18",
-    "source": "kartverket"
+    "source": "kartverket",
+    "population": 1229,
+    "populationYear": 2025
   },
   {
     "id": "5056",
     "name": "Hitra",
     "countyId": "50",
-    "source": "kartverket"
+    "source": "kartverket",
+    "population": 5323,
+    "populationYear": 2025
   },
   {
     "id": "5029",
     "name": "Skaun",
     "countyId": "50",
-    "source": "kartverket"
+    "source": "kartverket",
+    "population": 8484,
+    "populationYear": 2025
   },
   {
     "id": "3328",
     "name": "Ål",
     "countyId": "33",
-    "source": "kartverket"
+    "source": "kartverket",
+    "population": 5007,
+    "populationYear": 2025
   },
   {
     "id": "4627",
     "name": "Askøy",
     "countyId": "46",
-    "source": "kartverket"
+    "source": "kartverket",
+    "population": 30145,
+    "populationYear": 2025
   },
   {
     "id": "5636",
     "name": "Nesseby",
     "countyId": "56",
-    "source": "kartverket"
+    "source": "kartverket",
+    "population": 859,
+    "populationYear": 2025
   },
   {
     "id": "5057",
     "name": "Ørland",
     "countyId": "50",
-    "source": "kartverket"
+    "source": "kartverket",
+    "population": 10522,
+    "populationYear": 2025
   },
   {
     "id": "4224",
     "name": "Åseral",
     "countyId": "42",
-    "source": "kartverket"
+    "source": "kartverket",
+    "population": 923,
+    "populationYear": 2025
   },
   {
     "id": "5055",
     "name": "Heim",
     "countyId": "50",
-    "source": "kartverket"
+    "source": "kartverket",
+    "population": 6093,
+    "populationYear": 2025
   },
   {
     "id": "5544",
     "name": "Nordreisa",
     "countyId": "55",
-    "source": "kartverket"
+    "source": "kartverket",
+    "population": 4794,
+    "populationYear": 2025
   },
   {
     "id": "5546",
     "name": "Kvænangen",
     "countyId": "55",
-    "source": "kartverket"
+    "source": "kartverket",
+    "population": 1157,
+    "populationYear": 2025
   },
   {
     "id": "5540",
     "name": "Kåfjord",
     "countyId": "55",
-    "source": "kartverket"
+    "source": "kartverket",
+    "population": 1974,
+    "populationYear": 2025
   },
   {
     "id": "1560",
     "name": "Tingvoll",
     "countyId": "15",
-    "source": "kartverket"
+    "source": "kartverket",
+    "population": 3041,
+    "populationYear": 2025
   },
   {
     "id": "1820",
     "name": "Alstahaug",
     "countyId": "18",
-    "source": "kartverket"
+    "source": "kartverket",
+    "population": 7421,
+    "populationYear": 2025
   },
   {
     "id": "5027",
     "name": "Midtre Gauldal",
     "countyId": "50",
-    "source": "kartverket"
+    "source": "kartverket",
+    "population": 6140,
+    "populationYear": 2025
   },
   {
     "id": "1576",
     "name": "Aure",
     "countyId": "15",
-    "source": "kartverket"
+    "source": "kartverket",
+    "population": 3408,
+    "populationYear": 2025
   },
   {
     "id": "1557",
     "name": "Gjemnes",
     "countyId": "15",
-    "source": "kartverket"
+    "source": "kartverket",
+    "population": 2700,
+    "populationYear": 2025
   },
   {
     "id": "3421",
     "name": "Trysil",
     "countyId": "34",
-    "source": "kartverket"
+    "source": "kartverket",
+    "population": 6566,
+    "populationYear": 2025
   },
   {
     "id": "3905",
     "name": "Tønsberg",
     "countyId": "39",
-    "source": "kartverket"
+    "source": "kartverket",
+    "population": 59174,
+    "populationYear": 2025
   },
   {
     "id": "3435",
     "name": "Vågå",
     "countyId": "34",
-    "source": "kartverket"
+    "source": "kartverket",
+    "population": 3531,
+    "populationYear": 2025
   },
   {
     "id": "3437",
     "name": "Sel",
     "countyId": "34",
-    "source": "kartverket"
+    "source": "kartverket",
+    "population": 5756,
+    "populationYear": 2025
   },
   {
     "id": "1531",
     "name": "Sula",
     "countyId": "15",
-    "source": "kartverket"
+    "source": "kartverket",
+    "population": 9720,
+    "populationYear": 2025
   },
   {
     "id": "5047",
     "name": "Overhalla",
     "countyId": "50",
-    "source": "kartverket"
+    "source": "kartverket",
+    "population": 3924,
+    "populationYear": 2025
   },
   {
     "id": "5046",
     "name": "Høylandet",
     "countyId": "50",
-    "source": "kartverket"
+    "source": "kartverket",
+    "population": 1222,
+    "populationYear": 2025
   },
   {
     "id": "1135",
     "name": "Sauda",
     "countyId": "11",
-    "source": "kartverket"
+    "source": "kartverket",
+    "population": 4572,
+    "populationYear": 2025
   },
   {
     "id": "5542",
     "name": "Skjervøy",
     "countyId": "55",
-    "source": "kartverket"
+    "source": "kartverket",
+    "population": 2794,
+    "populationYear": 2025
   },
   {
     "id": "3314",
     "name": "Øvre Eiker",
     "countyId": "33",
-    "source": "kartverket"
+    "source": "kartverket",
+    "population": 20779,
+    "populationYear": 2025
   },
   {
     "id": "3301",
     "name": "Drammen",
     "countyId": "33",
-    "source": "kartverket"
+    "source": "kartverket",
+    "population": 104487,
+    "populationYear": 2025
   },
   {
     "id": "1520",
     "name": "Ørsta",
     "countyId": "15",
-    "source": "kartverket"
+    "source": "kartverket",
+    "population": 10958,
+    "populationYear": 2025
   },
   {
     "id": "1867",
     "name": "Bø",
     "countyId": "18",
-    "source": "kartverket"
+    "source": "kartverket",
+    "population": 2634,
+    "populationYear": 2025
   },
   {
     "id": "3203",
     "name": "Asker",
     "countyId": "32",
-    "source": "kartverket"
+    "source": "kartverket",
+    "population": 98815,
+    "populationYear": 2025
   },
   {
     "id": "3201",
     "name": "Bærum",
     "countyId": "32",
-    "source": "kartverket"
+    "source": "kartverket",
+    "population": 130921,
+    "populationYear": 2025
   },
   {
     "id": "3316",
     "name": "Modum",
     "countyId": "33",
-    "source": "kartverket"
+    "source": "kartverket",
+    "population": 14665,
+    "populationYear": 2025
   },
   {
     "id": "5536",
     "name": "Lyngen",
     "countyId": "55",
-    "source": "kartverket"
+    "source": "kartverket",
+    "population": 2743,
+    "populationYear": 2025
   },
   {
     "id": "1816",
     "name": "Vevelstad",
     "countyId": "18",
-    "source": "kartverket"
+    "source": "kartverket",
+    "population": 480,
+    "populationYear": 2025
   },
   {
     "id": "3423",
     "name": "Stor-Elvdal",
     "countyId": "34",
-    "source": "kartverket"
+    "source": "kartverket",
+    "population": 2276,
+    "populationYear": 2025
   },
   {
     "id": "3414",
     "name": "Nord-Odal",
     "countyId": "34",
-    "source": "kartverket"
+    "source": "kartverket",
+    "population": 4992,
+    "populationYear": 2025
   },
   {
     "id": "1848",
     "name": "Steigen",
     "countyId": "18",
-    "source": "kartverket"
+    "source": "kartverket",
+    "population": 2672,
+    "populationYear": 2025
   },
   {
     "id": "1875",
     "name": "Hamarøy",
     "countyId": "18",
-    "source": "kartverket"
+    "source": "kartverket",
+    "population": 2729,
+    "populationYear": 2025
   },
   {
     "id": "4012",
     "name": "Bamble",
     "countyId": "40",
-    "source": "kartverket"
+    "source": "kartverket",
+    "population": 14269,
+    "populationYear": 2025
   },
   {
     "id": "3220",
     "name": "Enebakk",
     "countyId": "32",
-    "source": "kartverket"
+    "source": "kartverket",
+    "population": 11482,
+    "populationYear": 2025
   },
   {
     "id": "1160",
     "name": "Vindafjord",
     "countyId": "11",
-    "source": "kartverket"
+    "source": "kartverket",
+    "population": 8938,
+    "populationYear": 2025
   },
   {
     "id": "1865",
     "name": "Vågan",
     "countyId": "18",
-    "source": "kartverket"
+    "source": "kartverket",
+    "population": 9793,
+    "populationYear": 2025
   },
   {
     "id": "3422",
     "name": "Åmot",
     "countyId": "34",
-    "source": "kartverket"
+    "source": "kartverket",
+    "population": 4289,
+    "populationYear": 2025
   },
   {
     "id": "3234",
     "name": "Lunner",
     "countyId": "32",
-    "source": "kartverket"
+    "source": "kartverket",
+    "population": 9357,
+    "populationYear": 2025
   },
   {
     "id": "1834",
     "name": "Lurøy",
     "countyId": "18",
-    "source": "kartverket"
+    "source": "kartverket",
+    "population": 1886,
+    "populationYear": 2025
   },
   {
     "id": "3242",
     "name": "Hurdal",
     "countyId": "32",
-    "source": "kartverket"
+    "source": "kartverket",
+    "population": 3041,
+    "populationYear": 2025
   },
   {
     "id": "5622",
     "name": "Porsanger",
     "countyId": "56",
-    "source": "kartverket"
+    "source": "kartverket",
+    "population": 3889,
+    "populationYear": 2025
   },
   {
     "id": "1144",
     "name": "Kvitsøy",
     "countyId": "11",
-    "source": "kartverket"
+    "source": "kartverket",
+    "population": 544,
+    "populationYear": 2025
   },
   {
     "id": "1130",
     "name": "Strand",
     "countyId": "11",
-    "source": "kartverket"
+    "source": "kartverket",
+    "population": 13703,
+    "populationYear": 2025
   },
   {
     "id": "5044",
     "name": "Namsskogan",
     "countyId": "50",
-    "source": "kartverket"
+    "source": "kartverket",
+    "population": 810,
+    "populationYear": 2025
   },
   {
     "id": "1818",
     "name": "Herøy",
     "countyId": "18",
-    "source": "kartverket"
+    "source": "kartverket",
+    "population": 1842,
+    "populationYear": 2025
   },
   {
     "id": "1836",
     "name": "Rødøy",
     "countyId": "18",
-    "source": "kartverket"
+    "source": "kartverket",
+    "population": 1139,
+    "populationYear": 2025
   },
   {
     "id": "3442",
     "name": "Østre Toten",
     "countyId": "34",
-    "source": "kartverket"
+    "source": "kartverket",
+    "population": 14840,
+    "populationYear": 2025
   },
   {
     "id": "3438",
     "name": "Sør-Fron",
     "countyId": "34",
-    "source": "kartverket"
+    "source": "kartverket",
+    "population": 3119,
+    "populationYear": 2025
   },
   {
     "id": "1149",
     "name": "Karmøy",
     "countyId": "11",
-    "source": "kartverket"
+    "source": "kartverket",
+    "population": 43306,
+    "populationYear": 2025
   },
   {
     "id": "3428",
     "name": "Alvdal",
     "countyId": "34",
-    "source": "kartverket"
+    "source": "kartverket",
+    "population": 2526,
+    "populationYear": 2025
   },
   {
     "id": "1857",
     "name": "Værøy",
     "countyId": "18",
-    "source": "kartverket"
+    "source": "kartverket",
+    "population": 683,
+    "populationYear": 2025
   },
   {
     "id": "5026",
     "name": "Holtålen",
     "countyId": "50",
-    "source": "kartverket"
+    "source": "kartverket",
+    "population": 2035,
+    "populationYear": 2025
   },
   {
     "id": "3440",
     "name": "Øyer",
     "countyId": "34",
-    "source": "kartverket"
+    "source": "kartverket",
+    "population": 5124,
+    "populationYear": 2025
   },
   {
     "id": "5034",
     "name": "Meråker",
     "countyId": "50",
-    "source": "kartverket"
+    "source": "kartverket",
+    "population": 2454,
+    "populationYear": 2025
   },
   {
     "id": "4619",
     "name": "Eidfjord",
     "countyId": "46",
-    "source": "kartverket"
+    "source": "kartverket",
+    "population": 968,
+    "populationYear": 2025
   },
   {
     "id": "1835",
     "name": "Træna",
     "countyId": "18",
-    "source": "kartverket"
+    "source": "kartverket",
+    "population": 442,
+    "populationYear": 2025
   },
   {
     "id": "1841",
     "name": "Fauske",
     "countyId": "18",
-    "source": "kartverket"
+    "source": "kartverket",
+    "population": 9827,
+    "populationYear": 2025
   },
   {
     "id": "1845",
     "name": "Sørfold",
     "countyId": "18",
-    "source": "kartverket"
+    "source": "kartverket",
+    "population": 1858,
+    "populationYear": 2025
   },
   {
     "id": "1871",
     "name": "Andøy",
     "countyId": "18",
-    "source": "kartverket"
+    "source": "kartverket",
+    "population": 4553,
+    "populationYear": 2025
   },
   {
     "id": "4211",
     "name": "Gjerstad",
     "countyId": "42",
-    "source": "kartverket"
+    "source": "kartverket",
+    "population": 2444,
+    "populationYear": 2025
   },
   {
     "id": "4016",
     "name": "Drangedal",
     "countyId": "40",
-    "source": "kartverket"
+    "source": "kartverket",
+    "population": 4086,
+    "populationYear": 2025
   },
   {
     "id": "1517",
     "name": "Hareid",
     "countyId": "15",
-    "source": "kartverket"
+    "source": "kartverket",
+    "population": 5322,
+    "populationYear": 2025
   },
   {
     "id": "4637",
     "name": "Hyllestad",
     "countyId": "46",
-    "source": "kartverket"
+    "source": "kartverket",
+    "population": 1268,
+    "populationYear": 2025
   },
   {
     "id": "3116",
     "name": "Skiptvet",
     "countyId": "31",
-    "source": "kartverket"
+    "source": "kartverket",
+    "population": 3919,
+    "populationYear": 2025
   },
   {
     "id": "4010",
     "name": "Siljan",
     "countyId": "40",
-    "source": "kartverket"
+    "source": "kartverket",
+    "population": 2382,
+    "populationYear": 2025
   },
   {
     "id": "4640",
     "name": "Sogndal",
     "countyId": "46",
-    "source": "kartverket"
+    "source": "kartverket",
+    "population": 12319,
+    "populationYear": 2025
   },
   {
     "id": "1838",
     "name": "Gildeskål",
     "countyId": "18",
-    "source": "kartverket"
+    "source": "kartverket",
+    "population": 1958,
+    "populationYear": 2025
   },
   {
     "id": "4611",
     "name": "Etne",
     "countyId": "46",
-    "source": "kartverket"
+    "source": "kartverket",
+    "population": 4072,
+    "populationYear": 2025
   },
   {
     "id": "5534",
     "name": "Karlsøy",
     "countyId": "55",
-    "source": "kartverket"
+    "source": "kartverket",
+    "population": 2237,
+    "populationYear": 2025
   },
   {
     "id": "3436",
     "name": "Nord-Fron",
     "countyId": "34",
-    "source": "kartverket"
+    "source": "kartverket",
+    "population": 5586,
+    "populationYear": 2025
   },
   {
     "id": "5021",
     "name": "Oppdal",
     "countyId": "50",
-    "source": "kartverket"
+    "source": "kartverket",
+    "population": 7389,
+    "populationYear": 2025
   },
   {
     "id": "3426",
     "name": "Tolga",
     "countyId": "34",
-    "source": "kartverket"
+    "source": "kartverket",
+    "population": 1604,
+    "populationYear": 2025
   },
   {
     "id": "5028",
     "name": "Melhus",
     "countyId": "50",
-    "source": "kartverket"
+    "source": "kartverket",
+    "population": 17560,
+    "populationYear": 2025
   },
   {
     "id": "4223",
     "name": "Vennesla",
     "countyId": "42",
-    "source": "kartverket"
+    "source": "kartverket",
+    "population": 15452,
+    "populationYear": 2025
   },
   {
     "id": "3214",
     "name": "Frogn",
     "countyId": "32",
-    "source": "kartverket"
+    "source": "kartverket",
+    "population": 16244,
+    "populationYear": 2025
   },
   {
     "id": "3441",
     "name": "Gausdal",
     "countyId": "34",
-    "source": "kartverket"
+    "source": "kartverket",
+    "population": 6177,
+    "populationYear": 2025
   },
   {
     "id": "1124",
     "name": "Sola",
     "countyId": "11",
-    "source": "kartverket"
+    "source": "kartverket",
+    "population": 28685,
+    "populationYear": 2025
   },
   {
     "id": "1563",
     "name": "Sunndal",
     "countyId": "15",
-    "source": "kartverket"
+    "source": "kartverket",
+    "population": 7227,
+    "populationYear": 2025
   },
   {
     "id": "3336",
     "name": "Rollag",
     "countyId": "33",
-    "source": "kartverket"
+    "source": "kartverket",
+    "population": 1395,
+    "populationYear": 2025
   },
   {
     "id": "3334",
     "name": "Flesberg",
     "countyId": "33",
-    "source": "kartverket"
+    "source": "kartverket",
+    "population": 2781,
+    "populationYear": 2025
   },
   {
     "id": "1804",
     "name": "Bodø",
     "countyId": "18",
-    "source": "kartverket"
+    "source": "kartverket",
+    "population": 53712,
+    "populationYear": 2025
   },
   {
     "id": "1839",
     "name": "Beiarn",
     "countyId": "18",
-    "source": "kartverket"
+    "source": "kartverket",
+    "population": 1062,
+    "populationYear": 2025
   },
   {
     "id": "1103",
     "name": "Stavanger",
     "countyId": "11",
-    "source": "kartverket"
+    "source": "kartverket",
+    "population": 149048,
+    "populationYear": 2025
   },
   {
     "id": "5022",
     "name": "Rennebu",
     "countyId": "50",
-    "source": "kartverket"
+    "source": "kartverket",
+    "population": 2484,
+    "populationYear": 2025
   },
   {
     "id": "5059",
     "name": "Orkland",
     "countyId": "50",
-    "source": "kartverket"
+    "source": "kartverket",
+    "population": 18793,
+    "populationYear": 2025
   },
   {
     "id": "1566",
     "name": "Surnadal",
     "countyId": "15",
-    "source": "kartverket"
+    "source": "kartverket",
+    "population": 5953,
+    "populationYear": 2025
   },
   {
     "id": "5061",
     "name": "Rindal",
     "countyId": "50",
-    "source": "kartverket"
+    "source": "kartverket",
+    "population": 1958,
+    "populationYear": 2025
   },
   {
     "id": "5045",
     "name": "Grong",
     "countyId": "50",
-    "source": "kartverket"
+    "source": "kartverket",
+    "population": 2322,
+    "populationYear": 2025
   },
   {
     "id": "5041",
     "name": "Snåsa",
     "countyId": "50",
-    "source": "kartverket"
+    "source": "kartverket",
+    "population": 2114,
+    "populationYear": 2025
   },
   {
     "id": "5033",
     "name": "Tydal",
     "countyId": "50",
-    "source": "kartverket"
+    "source": "kartverket",
+    "population": 773,
+    "populationYear": 2025
   },
   {
     "id": "5049",
     "name": "Flatanger",
     "countyId": "50",
-    "source": "kartverket"
+    "source": "kartverket",
+    "population": 1116,
+    "populationYear": 2025
   },
   {
     "id": "5610",
     "name": "Karasjok",
     "countyId": "56",
-    "source": "kartverket"
+    "source": "kartverket",
+    "population": 2565,
+    "populationYear": 2025
   },
   {
     "id": "5612",
     "name": "Kautokeino",
     "countyId": "56",
-    "source": "kartverket"
+    "source": "kartverket",
+    "population": 2848,
+    "populationYear": 2025
   },
   {
     "id": "3451",
     "name": "Nord-Aurdal",
     "countyId": "34",
-    "source": "kartverket"
+    "source": "kartverket",
+    "population": 6562,
+    "populationYear": 2025
   },
   {
     "id": "3452",
     "name": "Vestre Slidre",
     "countyId": "34",
-    "source": "kartverket"
+    "source": "kartverket",
+    "population": 2112,
+    "populationYear": 2025
   },
   {
     "id": "4212",
     "name": "Vegårshei",
     "countyId": "42",
-    "source": "kartverket"
+    "source": "kartverket",
+    "population": 2268,
+    "populationYear": 2025
   },
   {
     "id": "3218",
     "name": "Ås",
     "countyId": "32",
-    "source": "kartverket"
+    "source": "kartverket",
+    "population": 22005,
+    "populationYear": 2025
   },
   {
     "id": "5530",
     "name": "Senja",
     "countyId": "55",
-    "source": "kartverket"
+    "source": "kartverket",
+    "population": 14894,
+    "populationYear": 2025
   },
   {
     "id": "5501",
     "name": "Tromsø",
     "countyId": "55",
-    "source": "kartverket"
+    "source": "kartverket",
+    "population": 78745,
+    "populationYear": 2025
   },
   {
     "id": "4624",
     "name": "Bjørnafjorden",
     "countyId": "46",
-    "source": "kartverket"
+    "source": "kartverket",
+    "population": 26080,
+    "populationYear": 2025
   },
   {
     "id": "4601",
     "name": "Bergen",
     "countyId": "46",
-    "source": "kartverket"
+    "source": "kartverket",
+    "population": 291940,
+    "populationYear": 2025
   },
   {
     "id": "3430",
     "name": "Os",
     "countyId": "34",
-    "source": "kartverket"
+    "source": "kartverket",
+    "population": 1891,
+    "populationYear": 2025
   },
   {
     "id": "3447",
     "name": "Søndre Land",
     "countyId": "34",
-    "source": "kartverket"
+    "source": "kartverket",
+    "population": 5587,
+    "populationYear": 2025
   },
   {
     "id": "3448",
     "name": "Nordre Land",
     "countyId": "34",
-    "source": "kartverket"
+    "source": "kartverket",
+    "population": 6510,
+    "populationYear": 2025
   },
   {
     "id": "5634",
     "name": "Vardø",
     "countyId": "56",
-    "source": "kartverket"
+    "source": "kartverket",
+    "population": 1972,
+    "populationYear": 2025
   },
   {
     "id": "4005",
     "name": "Notodden",
     "countyId": "40",
-    "source": "kartverket"
+    "source": "kartverket",
+    "population": 13266,
+    "populationYear": 2025
   },
   {
     "id": "3303",
     "name": "Kongsberg",
     "countyId": "33",
-    "source": "kartverket"
+    "source": "kartverket",
+    "population": 28848,
+    "populationYear": 2025
   },
   {
     "id": "3450",
     "name": "Etnedal",
     "countyId": "34",
-    "source": "kartverket"
+    "source": "kartverket",
+    "population": 1366,
+    "populationYear": 2025
   },
   {
     "id": "4030",
     "name": "Nissedal",
     "countyId": "40",
-    "source": "kartverket"
+    "source": "kartverket",
+    "population": 1471,
+    "populationYear": 2025
   },
   {
     "id": "4214",
     "name": "Froland",
     "countyId": "42",
-    "source": "kartverket"
+    "source": "kartverket",
+    "population": 6236,
+    "populationYear": 2025
   },
   {
     "id": "4217",
     "name": "Åmli",
     "countyId": "42",
-    "source": "kartverket"
+    "source": "kartverket",
+    "population": 1802,
+    "populationYear": 2025
   },
   {
     "id": "4633",
     "name": "Fedje",
     "countyId": "46",
-    "source": "kartverket"
+    "source": "kartverket",
+    "population": 519,
+    "populationYear": 2025
   },
   {
     "id": "1511",
     "name": "Vanylven",
     "countyId": "15",
-    "source": "kartverket"
+    "source": "kartverket",
+    "population": 3026,
+    "populationYear": 2025
   },
   {
     "id": "1577",
     "name": "Volda",
     "countyId": "15",
-    "source": "kartverket"
+    "source": "kartverket",
+    "population": 11093,
+    "populationYear": 2025
   },
   {
     "id": "3112",
     "name": "Råde",
     "countyId": "31",
-    "source": "kartverket"
+    "source": "kartverket",
+    "population": 7883,
+    "populationYear": 2025
   },
   {
     "id": "3107",
     "name": "Fredrikstad",
     "countyId": "31",
-    "source": "kartverket"
+    "source": "kartverket",
+    "population": 85230,
+    "populationYear": 2025
   },
   {
     "id": "4228",
     "name": "Sirdal",
     "countyId": "42",
-    "source": "kartverket"
+    "source": "kartverket",
+    "population": 1873,
+    "populationYear": 2025
   },
   {
     "id": "4227",
     "name": "Kvinesdal",
     "countyId": "42",
-    "source": "kartverket"
+    "source": "kartverket",
+    "population": 6192,
+    "populationYear": 2025
   },
   {
     "id": "3449",
     "name": "Sør-Aurdal",
     "countyId": "34",
-    "source": "kartverket"
+    "source": "kartverket",
+    "population": 2836,
+    "populationYear": 2025
   },
   {
     "id": "3124",
     "name": "Aremark",
     "countyId": "31",
-    "source": "kartverket"
+    "source": "kartverket",
+    "population": 1347,
+    "populationYear": 2025
   },
   {
     "id": "5043",
     "name": "Røyrvik",
     "countyId": "50",
-    "source": "kartverket"
+    "source": "kartverket",
+    "population": 423,
+    "populationYear": 2025
   },
   {
     "id": "5042",
     "name": "Lierne",
     "countyId": "50",
-    "source": "kartverket"
+    "source": "kartverket",
+    "population": 1301,
+    "populationYear": 2025
   },
   {
     "id": "5020",
     "name": "Osen",
     "countyId": "50",
-    "source": "kartverket"
+    "source": "kartverket",
+    "population": 898,
+    "populationYear": 2025
   },
   {
     "id": "1101",
     "name": "Eigersund",
     "countyId": "11",
-    "source": "kartverket"
+    "source": "kartverket",
+    "population": 15221,
+    "populationYear": 2025
   },
   {
     "id": "1114",
     "name": "Bjerkreim",
     "countyId": "11",
-    "source": "kartverket"
+    "source": "kartverket",
+    "population": 2892,
+    "populationYear": 2025
   },
   {
     "id": "3403",
     "name": "Hamar",
     "countyId": "34",
-    "source": "kartverket"
+    "source": "kartverket",
+    "population": 32879,
+    "populationYear": 2025
   },
   {
     "id": "3240",
     "name": "Eidsvoll",
     "countyId": "32",
-    "source": "kartverket"
+    "source": "kartverket",
+    "population": 27916,
+    "populationYear": 2025
   },
   {
     "id": "3209",
     "name": "Ullensaker",
     "countyId": "32",
-    "source": "kartverket"
+    "source": "kartverket",
+    "population": 43814,
+    "populationYear": 2025
   },
   {
     "id": "3332",
     "name": "Sigdal",
     "countyId": "33",
-    "source": "kartverket"
+    "source": "kartverket",
+    "population": 3526,
+    "populationYear": 2025
   },
   {
     "id": "3318",
     "name": "Krødsherad",
     "countyId": "33",
-    "source": "kartverket"
+    "source": "kartverket",
+    "population": 2241,
+    "populationYear": 2025
   },
   {
     "id": "3230",
     "name": "Gjerdrum",
     "countyId": "32",
-    "source": "kartverket"
+    "source": "kartverket",
+    "population": 7398,
+    "populationYear": 2025
   },
   {
     "id": "3205",
     "name": "Lillestrøm",
     "countyId": "32",
-    "source": "kartverket"
+    "source": "kartverket",
+    "population": 94201,
+    "populationYear": 2025
   },
   {
     "id": "1853",
     "name": "Evenes",
     "countyId": "18",
-    "source": "kartverket"
+    "source": "kartverket",
+    "population": 1330,
+    "populationYear": 2025
   },
   {
     "id": "1806",
     "name": "Narvik",
     "countyId": "18",
-    "source": "kartverket"
+    "source": "kartverket",
+    "population": 21580,
+    "populationYear": 2025
   },
   {
     "id": "1532",
     "name": "Giske",
     "countyId": "15",
-    "source": "kartverket"
+    "source": "kartverket",
+    "population": 8691,
+    "populationYear": 2025
   },
   {
     "id": "3425",
     "name": "Engerdal",
     "countyId": "34",
-    "source": "kartverket"
+    "source": "kartverket",
+    "population": 1361,
+    "populationYear": 2025
   },
   {
     "id": "4203",
     "name": "Arendal",
     "countyId": "42",
-    "source": "kartverket"
+    "source": "kartverket",
+    "population": 46355,
+    "populationYear": 2025
   },
   {
     "id": "4219",
     "name": "Evje og Hornnes",
     "countyId": "42",
-    "source": "kartverket"
+    "source": "kartverket",
+    "population": 3967,
+    "populationYear": 2025
   },
   {
     "id": "3101",
     "name": "Halden",
     "countyId": "31",
-    "source": "kartverket"
+    "source": "kartverket",
+    "population": 31935,
+    "populationYear": 2025
   },
   {
     "id": "4213",
     "name": "Tvedestrand",
     "countyId": "42",
-    "source": "kartverket"
+    "source": "kartverket",
+    "population": 6323,
+    "populationYear": 2025
   },
   {
     "id": "1579",
     "name": "Hustadvika",
     "countyId": "15",
-    "source": "kartverket"
+    "source": "kartverket",
+    "population": 13437,
+    "populationYear": 2025
   },
   {
     "id": "4204",
     "name": "Kristiansand",
     "countyId": "42",
-    "source": "kartverket"
+    "source": "kartverket",
+    "population": 116986,
+    "populationYear": 2025
   },
   {
     "id": "4206",
     "name": "Farsund",
     "countyId": "42",
-    "source": "kartverket"
+    "source": "kartverket",
+    "population": 9876,
+    "populationYear": 2025
   },
   {
     "id": "4014",
     "name": "Kragerø",
     "countyId": "40",
-    "source": "kartverket"
+    "source": "kartverket",
+    "population": 10445,
+    "populationYear": 2025
   },
   {
     "id": "4201",
     "name": "Risør",
     "countyId": "42",
-    "source": "kartverket"
+    "source": "kartverket",
+    "population": 6825,
+    "populationYear": 2025
   },
   {
     "id": "4636",
     "name": "Solund",
     "countyId": "46",
-    "source": "kartverket"
+    "source": "kartverket",
+    "population": 750,
+    "populationYear": 2025
   },
   {
     "id": "4216",
     "name": "Birkenes",
     "countyId": "42",
-    "source": "kartverket"
+    "source": "kartverket",
+    "population": 5480,
+    "populationYear": 2025
   },
   {
     "id": "4218",
     "name": "Iveland",
     "countyId": "42",
-    "source": "kartverket"
+    "source": "kartverket",
+    "population": 1380,
+    "populationYear": 2025
   },
   {
     "id": "3909",
     "name": "Larvik",
     "countyId": "39",
-    "source": "kartverket"
+    "source": "kartverket",
+    "population": 48715,
+    "populationYear": 2025
   },
   {
     "id": "3911",
     "name": "Færder",
     "countyId": "39",
-    "source": "kartverket"
+    "source": "kartverket",
+    "population": 27501,
+    "populationYear": 2025
   },
   {
     "id": "5014",
     "name": "Frøya",
     "countyId": "50",
-    "source": "kartverket"
+    "source": "kartverket",
+    "population": 5453,
+    "populationYear": 2025
   },
   {
     "id": "5025",
     "name": "Røros",
     "countyId": "50",
-    "source": "kartverket"
+    "source": "kartverket",
+    "population": 5685,
+    "populationYear": 2025
   },
   {
     "id": "1508",
     "name": "Ålesund",
     "countyId": "15",
-    "source": "kartverket"
+    "source": "kartverket",
+    "population": 58509,
+    "populationYear": 2025
   },
   {
     "id": "1580",
     "name": "Haram",
     "countyId": "15",
-    "source": "kartverket"
+    "source": "kartverket",
+    "population": 9357,
+    "populationYear": 2025
   },
   {
     "id": "3228",
     "name": "Nes",
     "countyId": "32",
-    "source": "kartverket"
+    "source": "kartverket",
+    "population": 24645,
+    "populationYear": 2025
   },
   {
     "id": "3415",
     "name": "Sør-Odal",
     "countyId": "34",
-    "source": "kartverket"
+    "source": "kartverket",
+    "population": 8112,
+    "populationYear": 2025
   },
   {
     "id": "1573",
     "name": "Smøla",
     "countyId": "15",
-    "source": "kartverket"
+    "source": "kartverket",
+    "population": 2159,
+    "populationYear": 2025
   },
   {
     "id": "3110",
     "name": "Hvaler",
     "countyId": "31",
-    "source": "kartverket"
+    "source": "kartverket",
+    "population": 4787,
+    "populationYear": 2025
   },
   {
     "id": "1515",
     "name": "Herøy",
     "countyId": "15",
-    "source": "kartverket"
+    "source": "kartverket",
+    "population": 8968,
+    "populationYear": 2025
   },
   {
     "id": "4602",
     "name": "Kinn",
     "countyId": "46",
-    "source": "kartverket"
+    "source": "kartverket",
+    "population": 17349,
+    "populationYear": 2025
   },
   {
     "id": "4645",
     "name": "Askvoll",
     "countyId": "46",
-    "source": "kartverket"
+    "source": "kartverket",
+    "population": 2986,
+    "populationYear": 2025
   },
   {
     "id": "1547",
     "name": "Aukra",
     "countyId": "15",
-    "source": "kartverket"
+    "source": "kartverket",
+    "population": 3678,
+    "populationYear": 2025
   },
   {
     "id": "1120",
     "name": "Klepp",
     "countyId": "11",
-    "source": "kartverket"
+    "source": "kartverket",
+    "population": 20900,
+    "populationYear": 2025
   },
   {
     "id": "1119",
     "name": "Hå",
     "countyId": "11",
-    "source": "kartverket"
+    "source": "kartverket",
+    "population": 19827,
+    "populationYear": 2025
   },
   {
     "id": "4625",
     "name": "Austevoll",
     "countyId": "46",
-    "source": "kartverket"
+    "source": "kartverket",
+    "population": 5300,
+    "populationYear": 2025
   },
   {
     "id": "1811",
     "name": "Bindal",
     "countyId": "18",
-    "source": "kartverket"
+    "source": "kartverket",
+    "population": 1399,
+    "populationYear": 2025
   },
   {
     "id": "4613",
     "name": "Bømlo",
     "countyId": "46",
-    "source": "kartverket"
+    "source": "kartverket",
+    "population": 12268,
+    "populationYear": 2025
   },
   {
     "id": "4207",
     "name": "Flekkefjord",
     "countyId": "42",
-    "source": "kartverket"
+    "source": "kartverket",
+    "population": 9279,
+    "populationYear": 2025
   },
   {
     "id": "5052",
     "name": "Leka",
     "countyId": "50",
-    "source": "kartverket"
+    "source": "kartverket",
+    "population": 604,
+    "populationYear": 2025
   },
   {
     "id": "3413",
     "name": "Stange",
     "countyId": "34",
-    "source": "kartverket"
+    "source": "kartverket",
+    "population": 21605,
+    "populationYear": 2025
   },
   {
     "id": "3412",
     "name": "Løten",
     "countyId": "34",
-    "source": "kartverket"
+    "source": "kartverket",
+    "population": 7929,
+    "populationYear": 2025
   },
   {
     "id": "4626",
     "name": "Øygarden",
     "countyId": "46",
-    "source": "kartverket"
+    "source": "kartverket",
+    "population": 39768,
+    "populationYear": 2025
   },
   {
     "id": "3903",
     "name": "Holmestrand",
     "countyId": "39",
-    "source": "kartverket"
+    "source": "kartverket",
+    "population": 26872,
+    "populationYear": 2025
   },
   {
     "id": "3901",
     "name": "Horten",
     "countyId": "39",
-    "source": "kartverket"
+    "source": "kartverket",
+    "population": 27939,
+    "populationYear": 2025
   },
   {
     "id": "4225",
     "name": "Lyngdal",
     "countyId": "42",
-    "source": "kartverket"
+    "source": "kartverket",
+    "population": 10835,
+    "populationYear": 2025
   },
   {
     "id": "4205",
     "name": "Lindesnes",
     "countyId": "42",
-    "source": "kartverket"
+    "source": "kartverket",
+    "population": 23690,
+    "populationYear": 2025
   },
   {
     "id": "3310",
     "name": "Hole",
     "countyId": "33",
-    "source": "kartverket"
+    "source": "kartverket",
+    "population": 6989,
+    "populationYear": 2025
   },
   {
     "id": "3305",
     "name": "Ringerike",
     "countyId": "33",
-    "source": "kartverket"
+    "source": "kartverket",
+    "population": 31581,
+    "populationYear": 2025
   },
   {
     "id": "4215",
     "name": "Lillesand",
     "countyId": "42",
-    "source": "kartverket"
+    "source": "kartverket",
+    "population": 11523,
+    "populationYear": 2025
   },
   {
     "id": "4202",
     "name": "Grimstad",
     "countyId": "42",
-    "source": "kartverket"
+    "source": "kartverket",
+    "population": 24969,
+    "populationYear": 2025
   },
   {
     "id": "3103",
     "name": "Moss",
     "countyId": "31",
-    "source": "kartverket"
+    "source": "kartverket",
+    "population": 52051,
+    "populationYear": 2025
   },
   {
     "id": "3207",
     "name": "Nordre Follo",
     "countyId": "32",
-    "source": "kartverket"
+    "source": "kartverket",
+    "population": 63560,
+    "populationYear": 2025
   },
   {
     "id": "3118",
     "name": "Indre Østfold",
     "countyId": "31",
-    "source": "kartverket"
+    "source": "kartverket",
+    "population": 47006,
+    "populationYear": 2025
   },
   {
     "id": "3216",
     "name": "Vestby",
     "countyId": "32",
-    "source": "kartverket"
+    "source": "kartverket",
+    "population": 19493,
+    "populationYear": 2025
   },
   {
     "id": "5032",
     "name": "Selbu",
     "countyId": "50",
-    "source": "kartverket"
+    "source": "kartverket",
+    "population": 4216,
+    "populationYear": 2025
   },
   {
     "id": "5035",
     "name": "Stjørdal",
     "countyId": "50",
-    "source": "kartverket"
+    "source": "kartverket",
+    "population": 24717,
+    "populationYear": 2025
   },
   {
     "id": "4001",
     "name": "Porsgrunn",
     "countyId": "40",
-    "source": "kartverket"
+    "source": "kartverket",
+    "population": 37193,
+    "populationYear": 2025
   },
   {
     "id": "4003",
     "name": "Skien",
     "countyId": "40",
-    "source": "kartverket"
+    "source": "kartverket",
+    "population": 56619,
+    "populationYear": 2025
   },
   {
     "id": "3907",
     "name": "Sandefjord",
     "countyId": "39",
-    "source": "kartverket"
+    "source": "kartverket",
+    "population": 66231,
+    "populationYear": 2025
   },
   {
     "id": "4648",
     "name": "Bremanger",
     "countyId": "46",
-    "source": "kartverket"
+    "source": "kartverket",
+    "population": 3392,
+    "populationYear": 2025
   },
   {
     "id": "1111",
     "name": "Sokndal",
     "countyId": "11",
-    "source": "kartverket"
+    "source": "kartverket",
+    "population": 3347,
+    "populationYear": 2025
   },
   {
     "id": "1112",
     "name": "Lund",
     "countyId": "11",
-    "source": "kartverket"
+    "source": "kartverket",
+    "population": 3226,
+    "populationYear": 2025
   },
   {
     "id": "3320",
     "name": "Flå",
     "countyId": "33",
-    "source": "kartverket"
+    "source": "kartverket",
+    "population": 1115,
+    "populationYear": 2025
   },
   {
     "id": "3338",
     "name": "Nore og Uvdal",
     "countyId": "33",
-    "source": "kartverket"
+    "source": "kartverket",
+    "population": 2486,
+    "populationYear": 2025
   },
   {
     "id": "3232",
     "name": "Nittedal",
     "countyId": "32",
-    "source": "kartverket"
+    "source": "kartverket",
+    "population": 25882,
+    "populationYear": 2025
   },
   {
     "id": "0301",
     "name": "Oslo",
     "countyId": "03",
-    "source": "kartverket"
+    "source": "kartverket",
+    "population": 717710,
+    "populationYear": 2025
   },
   {
     "id": "5620",
     "name": "Nordkapp",
     "countyId": "56",
-    "source": "kartverket"
+    "source": "kartverket",
+    "population": 2951,
+    "populationYear": 2025
   },
   {
     "id": "5618",
     "name": "Måsøy",
     "countyId": "56",
-    "source": "kartverket"
+    "source": "kartverket",
+    "population": 1113,
+    "populationYear": 2025
   },
   {
     "id": "4024",
     "name": "Hjartdal",
     "countyId": "40",
-    "source": "kartverket"
+    "source": "kartverket",
+    "population": 1630,
+    "populationYear": 2025
   },
   {
     "id": "4022",
     "name": "Seljord",
     "countyId": "40",
-    "source": "kartverket"
+    "source": "kartverket",
+    "population": 2979,
+    "populationYear": 2025
   },
   {
     "id": "3105",
     "name": "Sarpsborg",
     "countyId": "31",
-    "source": "kartverket"
+    "source": "kartverket",
+    "population": 59771,
+    "populationYear": 2025
   },
   {
     "id": "3114",
     "name": "Våler",
     "countyId": "31",
-    "source": "kartverket"
+    "source": "kartverket",
+    "population": 6145,
+    "populationYear": 2025
   },
   {
     "id": "5624",
     "name": "Lebesby",
     "countyId": "56",
-    "source": "kartverket"
+    "source": "kartverket",
+    "population": 1215,
+    "populationYear": 2025
   },
   {
     "id": "5632",
     "name": "Båtsfjord",
     "countyId": "56",
-    "source": "kartverket"
+    "source": "kartverket",
+    "population": 2113,
+    "populationYear": 2025
   },
   {
     "id": "5603",
     "name": "Hammerfest",
     "countyId": "56",
-    "source": "kartverket"
+    "source": "kartverket",
+    "population": 11338,
+    "populationYear": 2025
   },
   {
     "id": "5626",
     "name": "Gamvik",
     "countyId": "56",
-    "source": "kartverket"
+    "source": "kartverket",
+    "population": 1070,
+    "populationYear": 2025
   },
   {
     "id": "5630",
     "name": "Berlevåg",
     "countyId": "56",
-    "source": "kartverket"
+    "source": "kartverket",
+    "population": 892,
+    "populationYear": 2025
   },
   {
     "id": "5614",
     "name": "Loppa",
     "countyId": "56",
-    "source": "kartverket"
+    "source": "kartverket",
+    "population": 864,
+    "populationYear": 2025
   },
   {
     "id": "5616",
     "name": "Hasvik",
     "countyId": "56",
-    "source": "kartverket"
+    "source": "kartverket",
+    "population": 979,
+    "populationYear": 2025
   },
   {
     "id": "4649",
     "name": "Stad",
     "countyId": "46",
-    "source": "kartverket"
+    "source": "kartverket",
+    "population": 9610,
+    "populationYear": 2025
   },
   {
     "id": "1514",
     "name": "Sande",
     "countyId": "15",
-    "source": "kartverket"
+    "source": "kartverket",
+    "population": 2438,
+    "populationYear": 2025
   },
   {
     "id": "1505",
     "name": "Kristiansund",
     "countyId": "15",
-    "source": "kartverket"
+    "source": "kartverket",
+    "population": 24404,
+    "populationYear": 2025
   },
   {
     "id": "1554",
     "name": "Averøy",
     "countyId": "15",
-    "source": "kartverket"
+    "source": "kartverket",
+    "population": 5955,
+    "populationYear": 2025
   },
   {
     "id": "5001",
     "name": "Trondheim",
     "countyId": "50",
-    "source": "kartverket"
+    "source": "kartverket",
+    "population": 214565,
+    "populationYear": 2025
   },
   {
     "id": "5031",
     "name": "Malvik",
     "countyId": "50",
-    "source": "kartverket"
+    "source": "kartverket",
+    "population": 14783,
+    "populationYear": 2025
   }
 ]

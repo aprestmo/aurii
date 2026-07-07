@@ -1,5 +1,6 @@
 ---
 import "@/styles/starwind.css";
+import { ThemeToggle } from "@/components/starwind/theme-toggle";
 import { url } from "../lib/base";
 
 interface Props {
@@ -10,11 +11,37 @@ const { title } = Astro.props;
 ---
 
 <!doctype html>
-<html lang="nb" class="dark">
+<html lang="nb">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>{title} — Norge</title>
+    <script is:inline>
+      function initTheme() {
+        const colorTheme = localStorage.getItem("colorTheme");
+        if (!colorTheme) {
+          if (window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches) {
+            document.documentElement.classList.add("dark");
+            localStorage.setItem("colorTheme", "dark");
+          } else {
+            document.documentElement.classList.remove("dark");
+            localStorage.setItem("colorTheme", "light");
+          }
+        } else {
+          if (colorTheme === "dark") {
+            document.documentElement.classList.add("dark");
+          } else if (colorTheme === "light") {
+            document.documentElement.classList.remove("dark");
+          } else if (colorTheme === "system") {
+            const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+            document.documentElement.classList.toggle("dark", prefersDark);
+          }
+        }
+      }
+
+      initTheme();
+      document.addEventListener("astro:after-swap", initTheme);
+    </script>
   </head>
   <body class="min-h-screen bg-background text-foreground">
     <div class="border-b border-border bg-background/80 backdrop-blur supports-[backdrop-filter]:bg-background/60">
@@ -25,6 +52,7 @@ const { title } = Astro.props;
           </span>
           Norsk referansedata
         </a>
+        <ThemeToggle size="sm" ariaLabel="Bytt mellom lys og mørk modus" />
       </div>
     </div>
 
@@ -35,5 +63,25 @@ const { title } = Astro.props;
     <footer class="mx-auto max-w-4xl border-t border-border px-4 py-6 text-sm text-muted-foreground sm:px-6">
       Data: Kartverket, Bring, UDIR, Brønnøysundregistrene · Drevet av Aurii
     </footer>
+
+    <script>
+      document.addEventListener("click", (event) => {
+        const button = (event.target as HTMLElement).closest<HTMLButtonElement>(".show-more-btn");
+        if (!button) return;
+
+        const listId = button.getAttribute("data-show-more-for");
+        if (!listId) return;
+
+        document
+          .querySelectorAll<HTMLElement>(`[data-show-more-list="${listId}"] [data-show-more-hidden]`)
+          .forEach((row) => {
+            row.classList.remove("hidden");
+            row.removeAttribute("data-show-more-hidden");
+          });
+
+        button.remove();
+        document.dispatchEvent(new CustomEvent("show-more:revealed", { detail: { listId } }));
+      });
+    </script>
   </body>
 </html>

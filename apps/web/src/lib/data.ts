@@ -169,24 +169,24 @@ export async function getPostalCodesByMunicipality(
 
 export async function getSchoolsByMunicipality(
   municipalityId: string,
-  limit = 15,
+  limit?: number,
 ): Promise<School[]> {
   const schools = await loadSchools();
-  return schools
+  const filtered = schools
     .filter((s) => s.municipalityId === municipalityId)
-    .sort((a, b) => a.name.localeCompare(b.name, "nb"))
-    .slice(0, limit);
+    .sort((a, b) => a.name.localeCompare(b.name, "nb"));
+  return limit === undefined ? filtered : filtered.slice(0, limit);
 }
 
 export async function getKindergartensByMunicipality(
   municipalityId: string,
-  limit = 15,
+  limit?: number,
 ): Promise<Kindergarten[]> {
   const kindergartens = await loadKindergartens();
-  return kindergartens
+  const filtered = kindergartens
     .filter((k) => k.municipalityId === municipalityId)
-    .sort((a, b) => a.name.localeCompare(b.name, "nb"))
-    .slice(0, limit);
+    .sort((a, b) => a.name.localeCompare(b.name, "nb"));
+  return limit === undefined ? filtered : filtered.slice(0, limit);
 }
 
 export async function getHospitalsByMunicipality(

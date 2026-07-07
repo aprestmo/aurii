@@ -412,41 +412,48 @@ Never more complicated.
 
 # Reference Demo Project
 
-When adding features, fixing bugs, or validating architecture changes, use the **Norwegian geographic reference demo** as the canonical end-to-end testbed. Do not invent new synthetic datasets when this one already exercises the platform.
+When adding features, fixing bugs, or validating architecture changes, use **Norwegian Geo** as the canonical end-to-end testbed. It is Aurii's primary reference implementation and a reusable Norwegian reference data product. Do not invent new synthetic datasets when this one already exercises the platform.
 
 ## What it is
 
-A complete vertical slice built during Phase 2.2:
+A three-layer product built on Aurii:
+
+```
+Aurii Core → Norwegian Geo Core → Dataset Modules
+```
 
 | Layer | Location | Purpose |
 |-------|----------|---------|
-| **Data** | `demo/norwegian-geo/` | Real Kartverket + Bring data (15 counties, 357 municipalities, 5,122 postal codes) |
-| **Import** | `bun run import:norwegian-geo` | One-command import into Core |
-| **Tests** | `vertical-slice.test.ts`, `geo-website-routes.test.ts`, `norwegian-geo-import.test.ts` | Integration coverage |
-| **Consumer site** | `apps/geo` | Public website with 373 static routes (`/fylker/:id`, `/kommuner/:id`) |
-| **Admin client** | `apps/studio` | Import wizard, entity browser (dataset: `norwegian-geo`) |
+| **Aurii Core** | `packages/core/` | Generic runtime (no Norwegian logic) |
+| **Norwegian Geo Core** | `demo/norwegian-geo/core/` | Counties, municipalities, postal codes, history |
+| **Dataset modules** | `demo/norwegian-geo/modules/` | Schools, kindergartens, hospitals, holidays (+ future domains) |
+| **Import** | `bun run import:norwegian-geo` | One-command import into Core (dataset: `norwegian-geo`) |
+| **Tests** | `vertical-slice.test.ts`, `geo-website-routes.test.ts`, `public-reference-datasets.test.ts` | Integration coverage |
+| **Consumer site** | `apps/geo` | Public website |
+| **Admin client** | `apps/studio` | Entity browser (dataset: `norwegian-geo`) |
 
-Full documentation: `docs/REFERENCE_DEMO.md` and `Phase2.2.md`.
+Full documentation: `docs/NORWEGIAN_GEO.md`, `docs/REFERENCE_DEMO.md`, and `Phase2.2.md`.
 
 ## When to use it
 
-**Always extend this demo when:**
+**Always extend Norwegian Geo when:**
 
 - Adding import, query, schema, or API capabilities
 - Changing SDK or storage behaviour
-- Validating that a feature works end-to-end before Phase 3
+- Validating that a feature works end-to-end
 
 **Workflow for agents:**
 
-1. Import the dataset: `bun run import:norwegian-geo`
-2. Run relevant tests: `bun test` (especially `vertical-slice`, `geo-website-routes`)
-3. If the feature affects public consumers, update `apps/geo` or add a test there
-4. Update `docs/REFERENCE_DEMO.md` if the demo workflow changes
+1. Read `docs/NORWEGIAN_GEO.md` to understand layer boundaries
+2. Import the dataset: `bun run import:norwegian-geo`
+3. Run relevant tests: `bun test` (especially `vertical-slice`, `geo-website-routes`, `public-reference-datasets`)
+4. If the feature affects public consumers, update `apps/geo` or add a test there
+5. New domain data → add a module under `demo/norwegian-geo/modules/`, not Core hacks
 
 **Do not:**
 
 - Create parallel demo datasets for the same purpose
-- Hardcode Norwegian geo logic in Core (keep it in schemas, imports, and demo apps)
+- Hardcode Norwegian geo logic in Core (keep it in schemas, imports, and the Norwegian Geo product)
 - Skip integration tests and rely only on unit tests
 
 ## Example queries (copy-paste)

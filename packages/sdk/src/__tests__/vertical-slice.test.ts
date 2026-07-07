@@ -16,6 +16,7 @@ import { createClient } from "../index";
 
 const ROOT = resolve(import.meta.dir, "../../../..");
 const DEMO = resolve(ROOT, "demo/norwegian-geo");
+const CORE = resolve(DEMO, "core");
 const DATASET = "norwegian-geo-sdk";
 const MOCK_BASE = "http://localhost:3000";
 
@@ -55,16 +56,16 @@ beforeAll(async () => {
 	}
 
 	const countyDef = await loadImportDefinition(
-		resolve(DEMO, "imports/counties.yaml"),
+		resolve(CORE, "imports/counties.yaml"),
 	);
 	const munDef = await loadImportDefinition(
-		resolve(DEMO, "imports/municipalities.yaml"),
+		resolve(CORE, "imports/municipalities.yaml"),
 	);
 	// Override dataset for SDK test isolation
 	countyDef.dataset = DATASET;
 	munDef.dataset = DATASET;
-	await runImport(countyDef, resolve(DEMO, "imports"));
-	await runImport(munDef, resolve(DEMO, "imports"));
+	await runImport(countyDef, resolve(CORE, "imports"));
+	await runImport(munDef, resolve(CORE, "imports"));
 
 	const mockFetch = async (input: RequestInfo | URL, init?: RequestInit) => {
 		const url =

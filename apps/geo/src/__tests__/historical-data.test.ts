@@ -10,7 +10,7 @@ import {
 } from "../lib/historical-data";
 
 const ROOT = resolve(import.meta.dir, "../../../..");
-const DATA_DIR = resolve(ROOT, "data/historical");
+const DATA_DIR = resolve(ROOT, "demo/norwegian-geo/core/historical/data");
 const HERALDRY_ROOT = resolve(ROOT, "apps/geo/public/assets/heraldry");
 
 describe("historical norwegian geo dataset", () => {

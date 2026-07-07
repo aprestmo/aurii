@@ -2,7 +2,7 @@
 
 ## Geo demo (free — GitHub Pages)
 
-The Norwegian geo website (`apps/geo`) is a **fully static** Astro site (373 pages). It reads bundled JSON from `demo/norwegian-geo/data/` at build time and needs no running API.
+The Norwegian geo website (`apps/geo`) is a **fully static** Astro site. It reads bundled JSON from `demo/norwegian-geo/core/data/` and `demo/norwegian-geo/modules/*/data/` at build time and needs no running API.
 
 ### Live URL
 

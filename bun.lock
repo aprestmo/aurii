@@ -4,6 +4,9 @@
   "workspaces": {
     "": {
       "name": "aurii",
+      "dependencies": {
+        "yaml": "^2.7.1",
+      },
     },
     "apps/geo": {
       "name": "@aurii/geo",

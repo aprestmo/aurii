@@ -1,0 +1,20 @@
+id: education
+name: Education
+description: Norwegian schools and kindergartens from UDIR
+dependsOn: [norwegian-geo-core]
+
+schemas:
+  - school
+  - kindergarten
+
+imports:
+  - schools
+  - kindergartens
+
+sources:
+  - id: udir-nsr
+    url: https://data-nsr.udir.no/v4/enheter
+    entity: school
+  - id: udir-nbr
+    url: https://data-nbr.udir.no/v4/enheter
+    entity: kindergarten

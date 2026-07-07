@@ -12,7 +12,10 @@ import {
 } from "./data";
 
 const ROOT = resolve(process.cwd(), "../..");
-const HISTORICAL_DATA = resolve(ROOT, "data/historical");
+const HISTORICAL_DATA = resolve(
+  ROOT,
+  "demo/norwegian-geo/core/historical/data",
+);
 
 export type ChangeType =
   | "merged"

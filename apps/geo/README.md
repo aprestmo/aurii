@@ -39,7 +39,7 @@ bun run preview
 
 ## Relationship to Aurii Core
 
-This demo reads bundled snapshots from `demo/norwegian-geo/data/` at build time — the same files imported into Core via `bun run import:norwegian-geo`.
+This demo reads bundled snapshots from `demo/norwegian-geo/core/data/` and `demo/norwegian-geo/modules/*/data/` at build time — the same files imported into Core via `bun run import:norwegian-geo`.
 
 Equivalent Aurii Query Language for each page:
 

@@ -1,0 +1,121 @@
+id: norwegian-geo
+name: Norwegian Geo
+# Human-readable manifest. Programmatic source: lib/manifest.ts (keep in sync).
+description: >
+  Production-quality Norwegian reference data product built on Aurii.
+  Serves as Aurii's primary real-world reference implementation and
+  reusable foundation for domain-specific public datasets.
+
+dataset:
+  id: norwegian-geo
+  name: Norwegian Public Reference Data
+
+# Three-layer architecture — see docs/NORWEGIAN_GEO.md
+layers:
+  aurii:
+    description: Declarative Runtime — schemas, import engine, query language, API, pipelines
+    location: packages/core
+    owner: Aurii platform
+
+  norwegianGeoCore:
+    description: >
+      Stable Norwegian geographic and administrative reference data.
+      Counties, municipalities, postal codes, history, heraldry.
+    location: core
+    owner: Norwegian Geo product
+    schemas:
+      - county
+      - municipality
+      - postal-code
+    imports:
+      - counties
+      - municipalities
+      - postal-codes
+
+  datasetModules:
+    description: Domain-specific datasets that reference Norwegian Geo Core entities
+    location: modules
+    owner: Norwegian Geo product (per module)
+
+modules:
+  - id: education
+    name: Education
+    description: Schools and kindergartens from UDIR
+    dependsOn: [norwegian-geo-core]
+    schemas:
+      - school
+      - kindergarten
+    imports:
+      - schools
+      - kindergartens
+    sources:
+      - id: udir-nsr
+        name: UDIR Nasjonalt skoleregister
+      - id: udir-nbr
+        name: UDIR Nasjonalt barnehageregister
+
+  - id: health
+    name: Health
+    description: Hospitals from Brønnøysundregistrene
+    dependsOn: [norwegian-geo-core]
+    schemas:
+      - hospital
+    imports:
+      - hospitals
+    sources:
+      - id: brreg
+        name: Brønnøysundregistrene Enhetsregisteret
+
+  - id: calendar
+    name: Calendar
+    description: Norwegian public holidays (national calendar)
+    dependsOn: []
+    schemas:
+      - public-holiday
+    imports:
+      - public-holidays
+    sources:
+      - id: nager-date
+        name: Nager.Date Public Holidays API
+
+# Planned dataset modules — add under modules/<id>/ following the same pattern
+futureModules:
+  - id: tax
+    name: Tax Administration
+    dependsOn: [norwegian-geo-core]
+  - id: gaselle
+    name: Gaselle companies
+    dependsOn: [norwegian-geo-core]
+  - id: bankruptcy
+    name: Bankruptcy register
+    dependsOn: [norwegian-geo-core]
+  - id: elections
+    name: Elections
+    dependsOn: [norwegian-geo-core]
+  - id: population
+    name: Population statistics
+    dependsOn: [norwegian-geo-core]
+  - id: companies
+    name: Company register
+    dependsOn: [norwegian-geo-core]
+  - id: property
+    name: Property data
+    dependsOn: [norwegian-geo-core]
+  - id: transport
+    name: Transport
+    dependsOn: [norwegian-geo-core]
+  - id: ssb
+    name: SSB datasets
+    dependsOn: [norwegian-geo-core]
+
+metadata:
+  # Target fields for all reference entities — adopt incrementally in schemas
+  standardFields:
+    - id
+    - source
+    - sourceUrl
+    - retrievedAt
+    - validFrom
+    - validTo
+    - confidence
+    - version

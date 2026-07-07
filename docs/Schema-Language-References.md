@@ -36,7 +36,7 @@ referenceValidation: skip     # remove invalid reference values and import
 
 ## Norwegian geo migration
 
-`countyId` and `municipalityId` are now `type: reference` in `demo/norwegian-geo/schemas/`.
+`countyId` and `municipalityId` are now `type: reference` in `demo/norwegian-geo/core/schemas/`.
 
 Stored values are unchanged (still string IDs like `"03"` and `"0301"`).
 

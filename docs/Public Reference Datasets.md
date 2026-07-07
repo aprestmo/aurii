@@ -82,7 +82,7 @@ counties → municipalities → postal-codes → schools → kindergartens → h
 
 ### Fetch layer (`bun run fetch:norwegian-geo`)
 
-External APIs are normalized into committed JSON snapshots under `demo/norwegian-geo/data/`:
+External APIs are normalized into committed JSON snapshots under `demo/norwegian-geo/core/data/` and `demo/norwegian-geo/modules/*/data/`:
 
 | File | Normalization |
 |------|---------------|

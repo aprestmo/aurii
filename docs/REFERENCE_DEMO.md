@@ -1,22 +1,36 @@
 # Reference Demo Project
 
-> **For AI agents:** This is the canonical demo for validating Aurii features. Read this before adding new capabilities. Also see the **Reference Demo Project** section in `AGENTS.md`.
+> **For AI agents:** This is the canonical demo for validating Aurii features. Read this before adding new capabilities. Also see the **Reference Demo Project** section in `AGENTS.md` and [`docs/NORWEGIAN_GEO.md`](NORWEGIAN_GEO.md) for product architecture.
 
 ---
 
 ## Overview
 
-The Norwegian public reference dataset proves the full Aurii loop against **real open data** from multiple independent sources:
+**Norwegian Geo** is Aurii's primary real-world reference implementation — a reusable Norwegian reference data product, not just a demo.
 
 ```
 Kartverket + Bring + UDIR + Brreg  →  import  →  storage  →  query  →  API  →  SDK  →  Studio / apps/geo
 ```
 
+### Three layers
+
+```
+Aurii Core (packages/core)
+        ↓
+Norwegian Geo Core (demo/norwegian-geo/core/)
+        ↓
+Dataset Modules (demo/norwegian-geo/modules/)
+```
+
 | Component | Path |
 |-----------|------|
-| Dataset (schemas, imports, snapshots) | `demo/norwegian-geo/` |
+| Product manifest | `demo/norwegian-geo/product.yaml` |
+| Architecture guide | `docs/NORWEGIAN_GEO.md` |
+| Norwegian Geo Core | `demo/norwegian-geo/core/` |
+| Dataset modules | `demo/norwegian-geo/modules/` |
+| Fetch / import scripts | `demo/norwegian-geo/scripts/` |
 | Dataset survey & strategy | `docs/Public Reference Datasets.md` |
-| Import script | `bun run import:norwegian-geo` |
+| Import | `bun run import:norwegian-geo` |
 | Refresh from live APIs | `bun run fetch:norwegian-geo` |
 | Core integration tests | `packages/core/src/__tests__/vertical-slice.test.ts` |
 | Public reference datasets test | `packages/core/src/__tests__/public-reference-datasets.test.ts` |
@@ -30,24 +44,24 @@ Kartverket + Bring + UDIR + Brreg  →  import  →  storage  →  query  →  A
 
 ## Dataset
 
+### Norwegian Geo Core
+
 | Schema | Records | Natural key | Relationships |
 |--------|---------|-------------|---------------|
 | `county` | 15 | `id` | — |
 | `municipality` | 357 | `id` | `countyId` → `county` (reference) |
 | `postal-code` | 5,122 | `code` | `municipalityId` → `municipality` (reference) |
-| `school` | ~5,683 | `id` | `municipalityId`, `countyId` → geography |
-| `kindergarten` | ~5,541 | `id` | `municipalityId`, `countyId` → geography |
-| `hospital` | ~115 | `id` | `municipalityId` → `municipality` |
-| `public-holiday` | 84 | `id` | — (national calendar) |
+
+### Dataset modules
+
+| Module | Schema | Records | Relationships |
+|--------|--------|---------|---------------|
+| education | `school` | ~5,683 | `municipalityId`, `countyId` → geography |
+| education | `kindergarten` | ~5,541 | `municipalityId`, `countyId` → geography |
+| health | `hospital` | ~115 | `municipalityId` → `municipality` |
+| calendar | `public-holiday` | 84 | — (national calendar) |
 
 Dataset ID: **`norwegian-geo`**
-
-Sources:
-- Counties & municipalities: [Kartverket/GeoNorge](https://ws.geonorge.no/kommuneinfo/v1/)
-- Postal codes: [Bring](https://www.bring.no/tjenester/adressetjenester/postnummer)
-- Schools & kindergartens: [UDIR NSR/NBR](https://www.udir.no/om-udir/data/nxr/)
-- Hospitals: [Brønnøysundregistrene](https://data.brreg.no/enhetsregisteret/api)
-- Public holidays: [Nager.Date](https://date.nager.at) (see `docs/Public Reference Datasets.md`)
 
 ---
 
@@ -67,7 +81,7 @@ bun run test
 
 # Run geo website demo
 cd apps/geo && bun run dev    # http://localhost:4322
-cd apps/geo && bun run build  # 373 static pages
+cd apps/geo && bun run build
 
 # Studio
 # Open http://localhost:4321/login → dataset: norwegian-geo
@@ -79,11 +93,13 @@ cd apps/geo && bun run build  # 373 static pages
 
 Use this checklist:
 
-1. **Does it affect import?** → Extend `demo/norwegian-geo/imports/` or add a test in `vertical-slice.test.ts`
-2. **Does it affect query?** → Add cases to `geo-website-routes.test.ts` using real county/municipality IDs
-3. **Does it affect the API/SDK?** → Extend `packages/sdk/src/__tests__/vertical-slice.test.ts`
-4. **Does it affect public consumers?** → Update `apps/geo` to exercise the feature
-5. **Does it affect Studio?** → Verify against dataset `norwegian-geo` in the import wizard or entity browser
+1. **Does it affect Core geography?** → Extend `demo/norwegian-geo/core/`
+2. **Does it affect a domain dataset?** → Add or extend a module under `demo/norwegian-geo/modules/`
+3. **Does it affect import?** → Update `product.yaml` and `scripts/import.ts`; add tests in `vertical-slice.test.ts` or `public-reference-datasets.test.ts`
+4. **Does it affect query?** → Add cases to `geo-website-routes.test.ts` using real county/municipality IDs
+5. **Does it affect the API/SDK?** → Extend `packages/sdk/src/__tests__/vertical-slice.test.ts`
+6. **Does it affect public consumers?** → Update `apps/geo`
+7. **Does it affect Studio?** → Verify against dataset `norwegian-geo` after import
 
 ### Test IDs (stable)
 
@@ -102,19 +118,22 @@ bun run cli query 'from municipality where countyId == "03"' --dataset norwegian
 bun run cli query 'from municipality join county on municipality.countyId = county.id where municipality.id == "0301"' --dataset norwegian-geo
 bun run cli query 'count municipality where countyId == "03"' --dataset norwegian-geo
 bun run cli query 'from postal-code where code == "0001"' --dataset norwegian-geo
+bun run cli query 'from school where municipalityId == "0301" limit 10' --dataset norwegian-geo
 ```
 
 ---
 
 ## Website routes (`apps/geo`)
 
-| Route | Count | Description |
-|-------|-------|-------------|
-| `/` | 1 | County index |
-| `/fylker/[id]` | 15 | County + municipalities |
-| `/kommuner/[id]` | 357 | Municipality + postal codes |
+| Route | Description |
+|-------|-------------|
+| `/` | Dataset index |
+| `/fylker/[id]` | County + municipalities |
+| `/kommuner/[id]` | Municipality + postal codes + linked module data |
+| `/skoler/`, `/barnehager/`, `/sykehus/`, `/helligdager/` | Module datasets |
+| `/historikk/` | Historical admin (from `core/historical/data/`) |
 
-Build validates all routes resolve. See `apps/geo/README.md`.
+Build validates routes resolve. See `apps/geo/README.md`.
 
 ---
 
@@ -122,11 +141,11 @@ Build validates all routes resolve. See `apps/geo/README.md`.
 
 - Performance benchmarking at scale (dataset is small by design)
 - Features explicitly deferred to Phase 4+ (RBAC, plugins, AI, full-text search, dot-notation traversal)
-- Domain-specific Core hacks — behaviour belongs in schemas, imports, or demo apps
+- Domain-specific Core hacks — behaviour belongs in schemas, imports, or the Norwegian Geo product
 
 ---
 
-## Maintaining the demo
+## Maintaining the product
 
 Refresh data periodically from authoritative sources:
 
@@ -137,4 +156,4 @@ bun run test
 cd apps/geo && bun run build
 ```
 
-Commit updated snapshots in `demo/norwegian-geo/data/` when Kartverket or Bring publish changes.
+Commit updated snapshots under `demo/norwegian-geo/core/data/` and `demo/norwegian-geo/modules/*/data/` when sources publish changes.

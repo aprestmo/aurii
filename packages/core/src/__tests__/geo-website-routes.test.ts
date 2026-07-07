@@ -24,6 +24,7 @@ import { closeStorage, getStorage } from "../storage";
 
 const ROOT = resolve(import.meta.dir, "../../../..");
 const DEMO = resolve(ROOT, "demo/norwegian-geo");
+const CORE = resolve(DEMO, "core");
 const DATASET = "norwegian-geo";
 
 const COUNTY_SCHEMA: SchemaDefinition = {
@@ -79,9 +80,9 @@ let sourceCounties: CountyRow[] = [];
 let sourceMunicipalities: MunicipalityRow[] = [];
 
 beforeAll(async () => {
-	sourceCounties = await Bun.file(resolve(DEMO, "data/counties.json")).json();
+	sourceCounties = await Bun.file(resolve(CORE, "data/counties.json")).json();
 	sourceMunicipalities = await Bun.file(
-		resolve(DEMO, "data/municipalities.json"),
+		resolve(CORE, "data/municipalities.json"),
 	).json();
 });
 
@@ -98,7 +99,7 @@ beforeEach(async () => {
 	]);
 
 	for (const imp of ["counties", "municipalities", "postal-codes"]) {
-		const file = resolve(DEMO, "imports", `${imp}.yaml`);
+		const file = resolve(CORE, "imports", `${imp}.yaml`);
 		const def = await loadImportDefinition(file);
 		await runImport(def, resolve(file, ".."));
 	}

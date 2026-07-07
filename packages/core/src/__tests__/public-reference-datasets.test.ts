@@ -8,6 +8,12 @@
 import { afterAll, beforeAll, describe, expect, it } from "bun:test";
 import { resolve } from "path";
 import { parse as parseYaml } from "yaml";
+import {
+	getDatasetId,
+	listAllImports,
+	listAllSchemas,
+	loadManifest,
+} from "../../../../demo/norwegian-geo/lib/manifest";
 import { loadImportDefinition, runImport } from "../import/engine";
 import { executeQuery } from "../query/executor";
 import { parseQuery } from "../query/parser";
@@ -15,54 +21,32 @@ import { registerSchema } from "../schema/registry";
 import type { SchemaDefinition } from "../schema/types";
 import { closeStorage, getStorage } from "../storage";
 
-const ROOT = resolve(import.meta.dir, "../../../..");
-const DEMO = resolve(ROOT, "demo/norwegian-geo");
 const DATASET = "norwegian-geo";
 const TEST_TIMEOUT_MS = 120_000;
-
-const SCHEMA_FILES = [
-	"county",
-	"municipality",
-	"postal-code",
-	"school",
-	"kindergarten",
-	"hospital",
-	"public-holiday",
-] as const;
-
-const IMPORT_FILES = [
-	"counties",
-	"municipalities",
-	"postal-codes",
-	"schools",
-	"kindergartens",
-	"hospitals",
-	"public-holidays",
-] as const;
 
 beforeAll(async () => {
 	process.env["AURII_STORAGE"] = "sqlite";
 	process.env["AURII_DB_PATH"] = ":memory:";
 
+	const manifest = loadManifest();
+	const datasetId = getDatasetId(manifest);
+
 	const storage = await getStorage();
 	await storage.createDataset({
-		id: DATASET,
-		name: "Norwegian Public Reference Data",
+		id: datasetId,
+		name: manifest.dataset.name,
 	});
 
-	for (const schema of SCHEMA_FILES) {
-		const content = await Bun.file(
-			resolve(DEMO, "schemas", `${schema}.yaml`),
-		).text();
+	for (const schema of listAllSchemas(manifest)) {
+		const content = await Bun.file(schema.file).text();
 		const def = parseYaml(content) as SchemaDefinition;
-		await registerSchema(def, DATASET);
+		await registerSchema(def, datasetId);
 	}
 
-	for (const imp of IMPORT_FILES) {
-		const file = resolve(DEMO, "imports", `${imp}.yaml`);
-		const def = await loadImportDefinition(file);
-		const result = await runImport(def, resolve(file, ".."), {
-			datasetId: DATASET,
+	for (const imp of listAllImports(manifest)) {
+		const def = await loadImportDefinition(imp.file);
+		const result = await runImport(def, resolve(imp.file, ".."), {
+			datasetId,
 		});
 		expect(result.failed).toBe(0);
 	}
@@ -151,9 +135,12 @@ describe("Public reference datasets", () => {
 	it(
 		"re-imports idempotently for schools and kindergartens",
 		async () => {
-			const file = resolve(DEMO, "imports/schools.yaml");
-			const def = await loadImportDefinition(file);
-			const second = await runImport(def, resolve(file, ".."), {
+			const manifest = loadManifest();
+			const schools = listAllImports(manifest).find(
+				(imp) => imp.importId === "schools",
+			)!;
+			const def = await loadImportDefinition(schools.file);
+			const second = await runImport(def, resolve(schools.file, ".."), {
 				datasetId: DATASET,
 			});
 

@@ -7,6 +7,9 @@
     "packages/*",
     "apps/*"
   ],
+  "dependencies": {
+    "yaml": "^2.7.1"
+  },
   "scripts": {
     "build": "bun run --filter='*' build",
     "test": "bun run --filter='@aurii/core' test && bun run --filter='@aurii/sdk' test && bun run --filter='@aurii/studio' test && bun run --filter='@aurii/geo' test",
@@ -14,10 +17,10 @@
     "typecheck": "bun run --filter='*' typecheck",
     "dev": "bun run --filter='@aurii/core' dev & bun run --filter='@aurii/studio' dev",
     "serve": "bun run --filter='@aurii/core' serve",
-    "fetch:norwegian-geo": "bun run packages/core/scripts/fetch-norwegian-geo.ts",
-    "fetch:historical-norwegian-geo": "bun run demo/norwegian-geo/historical/fetch-historical.ts",
-    "build:municipality-enrichment": "bun run demo/norwegian-geo/historical/build-enrichment.ts",
-    "validate:historical-norwegian-geo": "bun run demo/norwegian-geo/historical/validate.ts",
-    "import:norwegian-geo": "bun run packages/core/scripts/import-norwegian-geo.ts"
+    "fetch:norwegian-geo": "bun run demo/norwegian-geo/scripts/fetch.ts",
+    "fetch:historical-norwegian-geo": "bun run demo/norwegian-geo/core/historical/fetch-historical.ts",
+    "build:municipality-enrichment": "bun run demo/norwegian-geo/core/historical/build-enrichment.ts",
+    "validate:historical-norwegian-geo": "bun run demo/norwegian-geo/core/historical/validate.ts",
+    "import:norwegian-geo": "bun run demo/norwegian-geo/scripts/import.ts"
   }
 }

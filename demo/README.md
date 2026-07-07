@@ -17,9 +17,9 @@ Each dataset includes:
 | `products/` | CSV | 12 | E-commerce products with pricing and inventory |
 | `municipalities/` | CSV | 15 | Norwegian municipalities with population and geographic data |
 | `companies/` | JSON | 10 | Company directory with industry, revenue and headquarters |
-| `norwegian-geo/` | JSON | 5,494 | **Canonical demo** — Norwegian counties, municipalities and postal codes |
+| `norwegian-geo/` | JSON | ~17,000 | **Canonical product** — Norwegian Geo Core + dataset modules (see `docs/NORWEGIAN_GEO.md`) |
 
-> **For agents:** `norwegian-geo` is the goto demo project. See `docs/REFERENCE_DEMO.md` and `AGENTS.md`.
+> **For agents:** `norwegian-geo` is the goto reference product. See `docs/NORWEGIAN_GEO.md`, `docs/REFERENCE_DEMO.md` and `AGENTS.md`.
 
 ---
 

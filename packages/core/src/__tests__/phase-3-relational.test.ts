@@ -19,6 +19,7 @@ import { closeStorage, getStorage } from "../storage";
 const ROOT = resolve(import.meta.dir, "../../../..");
 const DATASET = "phase3-relational";
 const DEMO = join(ROOT, "demo/norwegian-geo");
+const CORE = join(DEMO, "core");
 
 const COUNTY_SCHEMA: SchemaDefinition = {
 	id: "county",
@@ -55,7 +56,7 @@ const POSTAL_SCHEMA: SchemaDefinition = {
 };
 
 async function importDemo() {
-	const importsDir = join(DEMO, "imports");
+	const importsDir = join(CORE, "imports");
 	for (const name of ["counties", "municipalities", "postal-codes"]) {
 		const file = join(importsDir, `${name}.yaml`);
 		const def = await loadImportDefinition(file);

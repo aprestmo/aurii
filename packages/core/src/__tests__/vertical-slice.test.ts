@@ -6,7 +6,7 @@
  *   Real dataset → Schema → Import Analysis → Mapping → Pipeline →
  *   Validation → Persist → Query → REST API
  *
- * Uses bundled snapshots in demo/norwegian-geo/data/ so CI runs offline.
+ * Uses bundled snapshots in demo/norwegian-geo/core/data/ so CI runs offline.
  * The norwegian-geo-import.test.ts covers live API fetching separately.
  */
 
@@ -27,6 +27,7 @@ import { closeStorage, getStorage } from "../storage";
 
 const ROOT = resolve(import.meta.dir, "../../../..");
 const DEMO = resolve(ROOT, "demo/norwegian-geo");
+const CORE = resolve(DEMO, "core");
 const DATASET = "norwegian-geo";
 
 const COUNTY_SCHEMA: SchemaDefinition = {
@@ -96,7 +97,7 @@ async function importAll(): Promise<{
 	municipalities: number;
 	postalCodes: number;
 }> {
-	const importsDir = resolve(DEMO, "imports");
+	const importsDir = resolve(CORE, "imports");
 	const results = [];
 	for (const name of ["counties", "municipalities", "postal-codes"]) {
 		const file = resolve(importsDir, `${name}.yaml`);
@@ -139,7 +140,7 @@ describe("1. Schema — complete definitions with validation and relationships",
 describe("2. Import Analysis — detects format, columns, types and record count", () => {
 	it("analyzes municipalities JSON: format, columns, row count", async () => {
 		const content = await Bun.file(
-			resolve(DEMO, "data/municipalities.json"),
+			resolve(CORE, "data/municipalities.json"),
 		).text();
 		const analysis = analyzeContent("municipalities.json", content);
 
@@ -155,7 +156,7 @@ describe("2. Import Analysis — detects format, columns, types and record count
 
 	it("analyzes postal codes JSON with correct record count", async () => {
 		const content = await Bun.file(
-			resolve(DEMO, "data/postal-codes.json"),
+			resolve(CORE, "data/postal-codes.json"),
 		).text();
 		const analysis = analyzeContent("postal-codes.json", content);
 
@@ -188,9 +189,9 @@ describe("4. Persistence — inserts, updates, duplicate handling", () => {
 		const before = await storage.countEntities("municipality", DATASET);
 
 		const def = await loadImportDefinition(
-			resolve(DEMO, "imports/municipalities.yaml"),
+			resolve(CORE, "imports/municipalities.yaml"),
 		);
-		const secondRun = await runImport(def, resolve(DEMO, "imports"));
+		const secondRun = await runImport(def, resolve(CORE, "imports"));
 
 		expect(secondRun.updated).toBe(before);
 		expect(secondRun.inserted).toBe(0);
@@ -351,9 +352,9 @@ describe("6. REST API — health, schemas, entities, query, stats", () => {
 describe("7. Error handling — graceful failures", () => {
 	it("rejects import when schema is not registered", async () => {
 		const def = await loadImportDefinition(
-			resolve(DEMO, "imports/counties.yaml"),
+			resolve(CORE, "imports/counties.yaml"),
 		);
-		await expect(runImport(def, resolve(DEMO, "imports"))).rejects.toThrow(
+		await expect(runImport(def, resolve(CORE, "imports"))).rejects.toThrow(
 			/not found/,
 		);
 	});

@@ -1,54 +1,87 @@
-# Norwegian Public Reference Data
+# Norwegian Geo
 
-Real-world open data from authoritative Norwegian sources, packaged as a complete Aurii vertical slice and reusable public reference catalogue.
+Production-quality Norwegian reference data built on [Aurii](../../README.md).
 
-| Entity | Records | Source |
-|--------|---------|--------|
-| Counties (fylker) | 15 | [Kartverket/GeoNorge](https://ws.geonorge.no/kommuneinfo/v1/fylker) |
-| Municipalities (kommuner) | 357 | [Kartverket/GeoNorge](https://ws.geonorge.no/kommuneinfo/v1/kommuner) |
-| Postal codes (postnummer) | 5,122 | [Bring](https://www.bring.no/tjenester/adressetjenester/postnummer) |
-| Schools (skoler) | ~5,683 | [UDIR NSR](https://data-nsr.udir.no) |
-| Kindergartens (barnehager) | ~5,541 | [UDIR NBR](https://data-nbr.udir.no) |
-| Hospitals (sykehus) | ~115 | [Brønnøysundregistrene](https://data.brreg.no/enhetsregisteret/api) |
-| Public holidays (helligdager) | 84 | [Nager.Date](https://date.nager.at) (2024–2030) |
+Norwegian Geo serves three roles:
 
-Full survey and selection rationale: [`docs/Public Reference Datasets.md`](../../docs/Public%20Reference%20Datasets.md).
+1. **Aurii's primary reference implementation** — validates the full Runtime loop against real open data
+2. **Reusable reference data platform** — stable counties, municipalities, and postal codes for any application
+3. **Foundation for domain datasets** — schools, hospitals, holidays today; tax, elections, companies tomorrow
 
-Data snapshots are committed in `data/` so imports work offline. Refresh from live sources with:
+---
 
-```bash
-bun run fetch:norwegian-geo
+## Architecture
+
+```
+Aurii Core (packages/core)
+        ↓
+Norwegian Geo Core (core/)
+        ↓
+Dataset Modules (modules/)
 ```
 
----
-
-## Schemas
-
-Seven related entity types in dataset `norwegian-geo`:
-
-- **county** — `id`, `name`, `source`
-- **municipality** — `id`, `name`, `countyId` (→ county.id), `source`
-- **postal-code** — `code`, `city`, `municipalityId` (→ municipality.id), …
-- **school** — `id`, `name`, `municipalityId`, `countyId`, `isPublic`, `isPrimary`, `isSecondary`, `isActive`, `source`
-- **kindergarten** — `id`, `name`, `municipalityId`, `countyId`, `isPublic`, `isActive`, `source`
-- **hospital** — `id`, `name`, `municipalityId`, `industryCode`, `industryDescription`, `source`
-- **public-holiday** — `id`, `date`, `localName`, `name`, `year`, `isNational`, `holidayType`, `source`
+Full documentation: [`docs/NORWEGIAN_GEO.md`](../docs/NORWEGIAN_GEO.md)
 
 ---
 
-## One-command import
+## Layout
+
+```
+demo/norwegian-geo/
+├── product.yaml          # Product manifest — schemas, modules, import order
+├── lib/                  # Shared paths and manifest loader
+├── scripts/              # fetch, import, enrich-population
+├── core/                 # Counties, municipalities, postal codes, history
+│   ├── schemas/
+│   ├── imports/
+│   ├── data/
+│   ├── raw/              # Reserved for raw source capture
+│   └── historical/       # Wikipedia pipeline + historical data
+└── modules/
+    ├── education/        # Schools, kindergartens (UDIR)
+    ├── health/           # Hospitals (Brreg)
+    └── calendar/         # Public holidays (Nager.Date)
+```
+
+Dataset ID: **`norwegian-geo`**
+
+---
+
+## Quick start
 
 ```bash
+# Import Core + all modules into Aurii (offline, uses committed snapshots)
 bun run import:norwegian-geo
+
+# Refresh from live APIs (network required)
+bun run fetch:norwegian-geo
+
+# Run integration tests
+bun run test
+
+# Public demo site
+cd apps/geo && bun run dev
 ```
 
-With PostgreSQL:
+---
 
-```bash
-AURII_STORAGE=postgres \
-  DATABASE_URL=postgres://aurii:aurii@localhost:5432/aurii \
-  bun run import:norwegian-geo
-```
+## Entities
+
+### Norwegian Geo Core
+
+| Schema | Records | Source |
+|--------|---------|--------|
+| `county` | 15 | Kartverket/GeoNorge |
+| `municipality` | 357 | Kartverket/GeoNorge |
+| `postal-code` | 5,122 | Bring |
+
+### Dataset modules
+
+| Module | Schemas | Records | Source |
+|--------|---------|---------|--------|
+| education | `school`, `kindergarten` | ~5,683 / ~5,541 | UDIR |
+| health | `hospital` | ~115 | Brreg |
+| calendar | `public-holiday` | 84 | Nager.Date |
 
 ---
 
@@ -57,18 +90,18 @@ AURII_STORAGE=postgres \
 ```bash
 cd packages/core
 
+bun run cli query 'from municipality where countyId == "03"' --dataset norwegian-geo
 bun run cli query 'from school where municipalityId == "0301" limit 10' --dataset norwegian-geo
-bun run cli query 'from kindergarten where municipalityId == "0301" limit 10' --dataset norwegian-geo
-bun run cli query 'from hospital where municipalityId == "0301"' --dataset norwegian-geo
 bun run cli query 'from public-holiday where year == 2026 order by date asc' --dataset norwegian-geo
 ```
 
 ---
 
-## Public demo site
+## Adding a dataset module
 
-```bash
-cd apps/geo && bun run dev
-```
+1. Create `modules/<id>/` with `module.yaml`, schemas, imports, and `data/`
+2. Add the module to `product.yaml`
+3. Extend `scripts/fetch.ts` if needed
+4. Run `bun run import:norwegian-geo`
 
-Browse datasets at `/`, schools at `/skoler`, kindergartens at `/barnehager`, hospitals at `/sykehus`, holidays at `/helligdager`.
+See [`docs/NORWEGIAN_GEO.md`](../docs/NORWEGIAN_GEO.md) for boundaries and import principles.

@@ -5,7 +5,9 @@ on:
     branches: [main]
     paths:
       - "apps/geo/**"
-      - "demo/norwegian-geo/data/**"
+      - "demo/norwegian-geo/core/data/**"
+      - "demo/norwegian-geo/modules/**/data/**"
+      - "demo/norwegian-geo/core/historical/data/**"
       - ".github/workflows/deploy-geo.yml"
       - "docs/DEPLOYMENT.md"
   workflow_dispatch:

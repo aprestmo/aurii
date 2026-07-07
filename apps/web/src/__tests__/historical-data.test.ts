@@ -17,6 +17,7 @@ describe("historical norwegian geo dataset", () => {
     for (const file of [
       "municipalities.json",
       "counties.json",
+      "current-counties.json",
       "administrative-changes.json",
       "unresolved-matches.json",
       "heraldry-manifest.json",
@@ -106,5 +107,14 @@ describe("historical norwegian geo dataset", () => {
     expect(existsSync(HERALDRY_ROOT)).toBe(true);
     expect(existsSync(resolve(HERALDRY_ROOT, "municipalities"))).toBe(true);
     expect(existsSync(resolve(HERALDRY_ROOT, "counties"))).toBe(true);
+  });
+
+  it("all historical and current counties have coat of arms from Wikipedia", async () => {
+    const { loadCurrentCountiesWiki } = await import("../lib/historical-data");
+    const historical = await loadHistoricalCounties();
+    const current = await loadCurrentCountiesWiki();
+    expect(historical.every((c) => c.coatOfArms?.localPath)).toBe(true);
+    expect(current.every((c) => c.coatOfArms?.localPath)).toBe(true);
+    expect(current).toHaveLength(15);
   });
 });

@@ -8,7 +8,10 @@
 import { readFile } from "node:fs/promises";
 import { resolve } from "node:path";
 
-const ROOT = resolve(import.meta.dirname, "../../../..");
+// Resolved from the current working directory (apps/geo) rather than
+// import.meta.dirname, since the build output nests compiled chunks at
+// varying depths (e.g. dist/.prerender/chunks/) across Astro versions.
+const ROOT = resolve(process.cwd(), "../..");
 const DATA = resolve(ROOT, "demo/norwegian-geo/data");
 
 export interface County {

@@ -1,5 +1,8 @@
 ---
 import Layout from "../../layouts/Layout.astro";
+import { Badge } from "@/components/starwind/badge";
+import { Card, CardContent } from "@/components/starwind/card";
+import { Table, TableBody, TableCell, TableRow } from "@/components/starwind/table";
 import { url } from "../../lib/base";
 import { loadPublicHolidays } from "../../lib/data";
 
@@ -10,27 +13,40 @@ const years = [...new Set(holidays.map((h) => h.year))].sort();
 ---
 
 <Layout title="Helligdager">
-  <p class="muted"><a href={url("")}>← Referansedata</a></p>
-  <h1>Helligdager</h1>
-  <p class="muted">
-    {holidays.length} helligdager ({years[0]}–{years[years.length - 1]}) · avledet fra Helligdagsloven via Nager.Date
+  <p class="mb-3 text-sm">
+    <a href={url("")} class="text-muted-foreground hover:text-foreground">← Referansedata</a>
   </p>
+  <div class="mb-8">
+    <h1 class="text-3xl font-semibold tracking-tight">Helligdager</h1>
+    <p class="mt-2 text-muted-foreground">
+      {holidays.length} helligdager ({years[0]}–{years[years.length - 1]}) · avledet fra Helligdagsloven via Nager.Date
+    </p>
+  </div>
 
-  {years.map((year) => (
-    <>
-      <h2>{year}</h2>
-      <ul>
-        {holidays
-          .filter((h) => h.year === year)
-          .map((holiday) => (
-            <li class="row">
-              <span>
-                <span class="mono">{holiday.date}</span> {holiday.localName}
-              </span>
-              <span class="badge">{holiday.holidayType}</span>
-            </li>
-          ))}
-      </ul>
-    </>
-  ))}
+  <div class="space-y-8">
+    {years.map((year) => (
+      <section>
+        <h2 class="mb-3 text-sm font-medium uppercase tracking-wide text-muted-foreground">{year}</h2>
+        <Card>
+          <CardContent class="p-0">
+            <Table>
+              <TableBody>
+                {holidays
+                  .filter((h) => h.year === year)
+                  .map((holiday) => (
+                    <TableRow>
+                      <TableCell class="font-mono text-xs text-muted-foreground">{holiday.date}</TableCell>
+                      <TableCell class="font-medium">{holiday.localName}</TableCell>
+                      <TableCell class="text-right">
+                        <Badge variant="outline">{holiday.holidayType}</Badge>
+                      </TableCell>
+                    </TableRow>
+                  ))}
+              </TableBody>
+            </Table>
+          </CardContent>
+        </Card>
+      </section>
+    ))}
+  </div>
 </Layout>

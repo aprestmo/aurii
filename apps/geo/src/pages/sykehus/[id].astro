@@ -1,5 +1,8 @@
 ---
 import Layout from "../../layouts/Layout.astro";
+import { Badge } from "@/components/starwind/badge";
+import { Card, CardContent } from "@/components/starwind/card";
+import { Table, TableBody, TableCell, TableRow } from "@/components/starwind/table";
 import { url } from "../../lib/base";
 import {
   getHospital,
@@ -24,28 +27,43 @@ const municipality = await getMunicipality(hospital.municipalityId);
 ---
 
 <Layout title={hospital.name}>
-  <p class="muted">
-    <a href={url("")}>← Referansedata</a>
+  <p class="mb-3 text-sm">
+    <a href={url("")} class="text-muted-foreground hover:text-foreground">← Referansedata</a>
     {" · "}
-    <a href={url("sykehus")}>Sykehus</a>
+    <a href={url("sykehus")} class="text-muted-foreground hover:text-foreground">Sykehus</a>
   </p>
-  <h1>{hospital.name}</h1>
-  <p class="muted">
-    Org.nr. <span class="badge">{hospital.id}</span>
-    {municipality && (
-      <>
-        {" · "}
-        <a href={url(`kommuner/${municipality.id}`)}>
-          {municipality.name}
-        </a>
-      </>
-    )}
-  </p>
+  <div class="mb-8">
+    <h1 class="text-3xl font-semibold tracking-tight">{hospital.name}</h1>
+    <p class="mt-2 flex flex-wrap items-center gap-2 text-muted-foreground">
+      Org.nr. <Badge variant="outline">{hospital.id}</Badge>
+      {municipality && (
+        <>
+          {" · "}
+          <a href={url(`kommuner/${municipality.id}`)} class="hover:text-foreground">{municipality.name}</a>
+        </>
+      )}
+    </p>
+  </div>
 
-  <h2>Egenskaper</h2>
-  <ul>
-    <li class="row"><span>Næringskode</span><span class="mono">{hospital.industryCode}</span></li>
-    <li class="row"><span>Beskrivelse</span><span>{hospital.industryDescription}</span></li>
-    <li class="row"><span>Kilde</span><span class="mono">{hospital.source}</span></li>
-  </ul>
+  <h2 class="mb-3 text-sm font-medium uppercase tracking-wide text-muted-foreground">Egenskaper</h2>
+  <Card>
+    <CardContent class="p-0">
+      <Table>
+        <TableBody>
+          <TableRow>
+            <TableCell class="text-muted-foreground">Næringskode</TableCell>
+            <TableCell class="text-right font-mono text-xs">{hospital.industryCode}</TableCell>
+          </TableRow>
+          <TableRow>
+            <TableCell class="text-muted-foreground">Beskrivelse</TableCell>
+            <TableCell class="text-right font-medium">{hospital.industryDescription}</TableCell>
+          </TableRow>
+          <TableRow>
+            <TableCell class="text-muted-foreground">Kilde</TableCell>
+            <TableCell class="text-right font-mono text-xs">{hospital.source}</TableCell>
+          </TableRow>
+        </TableBody>
+      </Table>
+    </CardContent>
+  </Card>
 </Layout>

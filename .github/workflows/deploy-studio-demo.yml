@@ -41,12 +41,12 @@ jobs:
         run: bun run --filter="@aurii/studio" build
 
       - name: Disable Jekyll
-        run: touch apps/studio/dist/client/.nojekyll
+        run: touch apps/studio/dist/.nojekyll
 
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: apps/studio/dist/client
+          path: apps/studio/dist
 
   deploy:
     name: Deploy to GitHub Pages

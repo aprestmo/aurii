@@ -1,5 +1,6 @@
 ---
 import Layout from "../../layouts/Layout.astro";
+import { Card, CardContent } from "@/components/starwind/card";
 import { url } from "../../lib/base";
 import { loadHospitals } from "../../lib/data";
 
@@ -9,18 +10,31 @@ const hospitals = (await loadHospitals()).sort((a, b) =>
 ---
 
 <Layout title="Sykehus">
-  <p class="muted"><a href={url("")}>← Referansedata</a></p>
-  <h1>Sykehus</h1>
-  <p class="muted">{hospitals.length} sykehus fra Brønnøysundregistrene (næringskode 86.10)</p>
+  <p class="mb-3 text-sm">
+    <a href={url("")} class="text-muted-foreground hover:text-foreground">← Referansedata</a>
+  </p>
+  <div class="mb-6">
+    <h1 class="text-3xl font-semibold tracking-tight">Sykehus</h1>
+    <p class="mt-2 text-muted-foreground">
+      {hospitals.length} sykehus fra Brønnøysundregistrene (næringskode 86.10)
+    </p>
+  </div>
 
-  <ul>
-    {hospitals.map((hospital) => (
-      <li>
-        <a href={url(`sykehus/${hospital.id}`)}>
-          <span>{hospital.name}</span>
-          <span class="mono">{hospital.id}</span>
-        </a>
-      </li>
-    ))}
-  </ul>
+  <Card>
+    <CardContent class="p-0">
+      <ul class="divide-y divide-border">
+        {hospitals.map((hospital) => (
+          <li>
+            <a
+              href={url(`sykehus/${hospital.id}`)}
+              class="flex items-center justify-between px-4 py-3 transition hover:bg-accent/30 focus:outline-none focus-visible:ring-2 focus-visible:ring-outline"
+            >
+              <span class="font-medium">{hospital.name}</span>
+              <span class="font-mono text-xs text-muted-foreground">{hospital.id}</span>
+            </a>
+          </li>
+        ))}
+      </ul>
+    </CardContent>
+  </Card>
 </Layout>

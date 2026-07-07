@@ -1,5 +1,8 @@
 ---
 import Layout from "../layouts/Layout.astro";
+import { Badge } from "@/components/starwind/badge";
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/starwind/card";
+import { Table, TableBody, TableCell, TableRow } from "@/components/starwind/table";
 import { url } from "../lib/base";
 import { loadCounties, loadDatasetSummaries, loadMunicipalities, SAMPLE_QUERIES } from "../lib/data";
 
@@ -11,49 +14,77 @@ const datasets = await loadDatasetSummaries();
 ---
 
 <Layout title="Offentlig referansedata">
-  <h1>Norsk offentlig referansedata</h1>
-  <p class="muted">
-    {datasets.length} datasett · {municipalities.length} kommuner · importert via Aurii
-  </p>
+  <div class="mb-10">
+    <h1 class="text-3xl font-semibold tracking-tight">Norsk offentlig referansedata</h1>
+    <p class="mt-2 text-muted-foreground">
+      {datasets.length} datasett · {municipalities.length} kommuner · importert via Aurii
+    </p>
+  </div>
 
-  <h2>Datasett</h2>
-  <ul>
-    {datasets.map((dataset) => (
-      <li>
-        {dataset.path ? (
-          <a href={url(dataset.path)}>
-            <span>{dataset.title}</span>
-            <span class="mono">{dataset.count.toLocaleString("nb-NO")}</span>
+  <section class="mb-12">
+    <h2 class="mb-4 text-sm font-medium uppercase tracking-wide text-muted-foreground">Datasett</h2>
+    <div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+      {datasets.map((dataset) =>
+        dataset.path ? (
+          <a href={url(dataset.path)} class="block focus:outline-none focus-visible:ring-2 focus-visible:ring-outline rounded-lg">
+            <Card class="h-full transition hover:border-outline/60 hover:bg-accent/30">
+              <CardHeader>
+                <div class="flex items-center justify-between gap-3">
+                  <CardTitle class="text-base">{dataset.title}</CardTitle>
+                  <Badge variant="outline">{dataset.count.toLocaleString("nb-NO")}</Badge>
+                </div>
+                <CardDescription>Kilde: {dataset.source}</CardDescription>
+              </CardHeader>
+            </Card>
           </a>
         ) : (
-          <span class="row">
-            <span>{dataset.title}</span>
-            <span class="mono">{dataset.count.toLocaleString("nb-NO")}</span>
-          </span>
-        )}
-      </li>
-    ))}
-  </ul>
+          <Card class="h-full">
+            <CardHeader>
+              <div class="flex items-center justify-between gap-3">
+                <CardTitle class="text-base">{dataset.title}</CardTitle>
+                <Badge variant="outline">{dataset.count.toLocaleString("nb-NO")}</Badge>
+              </div>
+              <CardDescription>Kilde: {dataset.source}</CardDescription>
+            </CardHeader>
+          </Card>
+        ),
+      )}
+    </div>
+  </section>
 
-  <h2>Fylker</h2>
-  <ul>
-    {counties.map((county) => (
-      <li>
-        <a href={url(`fylker/${county.id}`)}>
-          <span>{county.name}</span>
-          <span class="mono">{county.id}</span>
+  <section class="mb-12">
+    <h2 class="mb-4 text-sm font-medium uppercase tracking-wide text-muted-foreground">Fylker</h2>
+    <div class="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+      {counties.map((county) => (
+        <a
+          href={url(`fylker/${county.id}`)}
+          class="group flex items-center justify-between rounded-lg border border-border bg-card px-4 py-3 transition hover:bg-accent/30 focus:outline-none focus-visible:ring-2 focus-visible:ring-outline"
+        >
+          <span class="font-medium">{county.name}</span>
+          <span class="font-mono text-xs text-muted-foreground">{county.id}</span>
         </a>
-      </li>
-    ))}
-  </ul>
+      ))}
+    </div>
+  </section>
 
-  <h2>Eksempelspørringer</h2>
-  <p class="muted">Kjør i Studio eller <code>bun run cli query</code> med dataset <code>norwegian-geo</code>.</p>
-  <ul>
-    {SAMPLE_QUERIES.map((query) => (
-      <li class="row">
-        <span class="mono">{query}</span>
-      </li>
-    ))}
-  </ul>
+  <section>
+    <h2 class="mb-2 text-sm font-medium uppercase tracking-wide text-muted-foreground">Eksempelspørringer</h2>
+    <p class="mb-4 text-sm text-muted-foreground">
+      Kjør i Studio eller <code class="rounded bg-muted px-1.5 py-0.5 font-mono text-xs">bun run cli query</code> med dataset{" "}
+      <code class="rounded bg-muted px-1.5 py-0.5 font-mono text-xs">norwegian-geo</code>.
+    </p>
+    <Card>
+      <CardContent class="p-0">
+        <Table>
+          <TableBody>
+            {SAMPLE_QUERIES.map((query) => (
+              <TableRow>
+                <TableCell class="font-mono text-xs text-muted-foreground">{query}</TableCell>
+              </TableRow>
+            ))}
+          </TableBody>
+        </Table>
+      </CardContent>
+    </Card>
+  </section>
 </Layout>

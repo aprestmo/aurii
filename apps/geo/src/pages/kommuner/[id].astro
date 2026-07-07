@@ -1,5 +1,16 @@
 ---
 import Layout from "../../layouts/Layout.astro";
+import { Badge } from "@/components/starwind/badge";
+import { Button } from "@/components/starwind/button";
+import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "@/components/starwind/card";
+import {
+  Table,
+  TableBody,
+  TableCell,
+  TableHead,
+  TableHeader,
+  TableRow,
+} from "@/components/starwind/table";
 import { url } from "../../lib/base";
 import {
   getCounty,
@@ -32,83 +43,137 @@ const kindergartens = await getKindergartensByMunicipality(id!, 10);
 ---
 
 <Layout title={municipality.name}>
-  <p class="muted">
-    <a href={url("")}>← Alle fylker</a>
+  <p class="mb-3 text-sm">
+    <a href={url("")} class="text-muted-foreground hover:text-foreground">← Alle fylker</a>
     {county && (
       <>
         {" · "}
-        <a href={url(`fylker/${county.id}`)}>{county.name}</a>
+        <a href={url(`fylker/${county.id}`)} class="text-muted-foreground hover:text-foreground">{county.name}</a>
       </>
     )}
   </p>
-  <h1>{municipality.name}</h1>
-  <p class="muted">
-    Kommunenummer <span class="badge">{municipality.id}</span>
-    {county && (
-      <> · Fylke <span class="badge">{county.name}</span></>
-    )}
-  </p>
-
-  {schools.length > 0 && (
-    <>
-      <h2>Skoler</h2>
-      <ul>
-        {schools.map((school) => (
-          <li>
-            <a href={url(`skoler/${school.id}`)}>
-              <span>{school.name}</span>
-              <span class="mono">{school.isPublic ? "Offentlig" : "Privat"}</span>
-            </a>
-          </li>
-        ))}
-      </ul>
-      <p class="muted"><a href={url("skoler")}>Søk alle skoler →</a></p>
-    </>
-  )}
-
-  {kindergartens.length > 0 && (
-    <>
-      <h2>Barnehager</h2>
-      <ul>
-        {kindergartens.map((kg) => (
-          <li>
-            <a href={url(`barnehager/${kg.id}`)}>
-              <span>{kg.name}</span>
-              <span class="mono">{kg.isPublic ? "Offentlig" : "Privat"}</span>
-            </a>
-          </li>
-        ))}
-      </ul>
-      <p class="muted"><a href={url("barnehager")}>Søk alle barnehager →</a></p>
-    </>
-  )}
-
-  {postalCodes.length > 0 && (
-    <>
-      <h2>Postnummer ({postalCodes.length})</h2>
-      <ul id="postal-list">
-        {postalCodes.map((pc, index) => (
-          <li class:list={["row", { "postal-hidden": index >= INITIAL_POSTAL }]}>
-            <span>
-              <span class="mono">{pc.code}</span> {pc.city}
-            </span>
-            {pc.postalCodeType && <span class="badge">{pc.postalCodeType}</span>}
-          </li>
-        ))}
-      </ul>
-      {hasMorePostal && (
-        <button type="button" class="btn-text" id="postal-show-more">
-          Vis alle {postalCodes.length} postnummer
-        </button>
+  <div class="mb-8">
+    <h1 class="text-3xl font-semibold tracking-tight">{municipality.name}</h1>
+    <p class="mt-2 flex items-center gap-2 text-muted-foreground">
+      Kommunenummer <Badge variant="outline">{municipality.id}</Badge>
+      {county && (
+        <>
+          · Fylke <Badge variant="outline">{county.name}</Badge>
+        </>
       )}
-    </>
-  )}
+    </p>
+  </div>
+
+  <div class="space-y-8">
+    {schools.length > 0 && (
+      <section>
+        <Card>
+          <CardHeader>
+            <CardTitle class="text-base">Skoler</CardTitle>
+          </CardHeader>
+          <CardContent class="p-0">
+            <Table>
+              <TableBody>
+                {schools.map((school) => (
+                  <TableRow>
+                    <TableCell>
+                      <a href={url(`skoler/${school.id}`)} class="font-medium hover:text-primary">
+                        {school.name}
+                      </a>
+                    </TableCell>
+                    <TableCell class="text-right text-xs text-muted-foreground">
+                      {school.isPublic ? "Offentlig" : "Privat"}
+                    </TableCell>
+                  </TableRow>
+                ))}
+              </TableBody>
+            </Table>
+          </CardContent>
+          <CardFooter>
+            <a href={url("skoler")} class="text-sm font-medium text-primary hover:underline">Søk alle skoler →</a>
+          </CardFooter>
+        </Card>
+      </section>
+    )}
+
+    {kindergartens.length > 0 && (
+      <section>
+        <Card>
+          <CardHeader>
+            <CardTitle class="text-base">Barnehager</CardTitle>
+          </CardHeader>
+          <CardContent class="p-0">
+            <Table>
+              <TableBody>
+                {kindergartens.map((kg) => (
+                  <TableRow>
+                    <TableCell>
+                      <a href={url(`barnehager/${kg.id}`)} class="font-medium hover:text-primary">
+                        {kg.name}
+                      </a>
+                    </TableCell>
+                    <TableCell class="text-right text-xs text-muted-foreground">
+                      {kg.isPublic ? "Offentlig" : "Privat"}
+                    </TableCell>
+                  </TableRow>
+                ))}
+              </TableBody>
+            </Table>
+          </CardContent>
+          <CardFooter>
+            <a href={url("barnehager")} class="text-sm font-medium text-primary hover:underline">Søk alle barnehager →</a>
+          </CardFooter>
+        </Card>
+      </section>
+    )}
+
+    {postalCodes.length > 0 && (
+      <section>
+        <Card>
+          <CardHeader>
+            <CardTitle class="text-base">Postnummer ({postalCodes.length})</CardTitle>
+          </CardHeader>
+          <CardContent class="p-0">
+            <Table>
+              <TableHeader>
+                <TableRow>
+                  <TableHead>Postnummer</TableHead>
+                  <TableHead>Poststed</TableHead>
+                  <TableHead class="text-right">Type</TableHead>
+                </TableRow>
+              </TableHeader>
+              <TableBody id="postal-list">
+                {postalCodes.map((pc, index) => (
+                  <TableRow class:list={[{ "hidden": index >= INITIAL_POSTAL, "postal-hidden-row": index >= INITIAL_POSTAL }]}>
+                    <TableCell class="font-mono text-xs">{pc.code}</TableCell>
+                    <TableCell>{pc.city}</TableCell>
+                    <TableCell class="text-right">
+                      {pc.postalCodeType && <Badge variant="outline">{pc.postalCodeType}</Badge>}
+                    </TableCell>
+                  </TableRow>
+                ))}
+              </TableBody>
+            </Table>
+          </CardContent>
+          {hasMorePostal && (
+            <CardFooter>
+              <Button type="button" variant="outline" size="sm" id="postal-show-more">
+                Vis alle {postalCodes.length} postnummer
+              </Button>
+            </CardFooter>
+          )}
+        </Card>
+      </section>
+    )}
+  </div>
 
   {hasMorePostal && (
     <script>
-      document.getElementById("postal-show-more")?.addEventListener("click", () => {
-        document.getElementById("postal-list")?.classList.add("postal-expanded");
-        document.getElementById("postal-show-more")?.remove();
+      document.getElementById("postal-show-more")?.addEventListener("click", (event) => {
+        document
+          .querySelectorAll<HTMLElement>("#postal-list .postal-hidden-row")
+          .forEach((row) => row.classList.remove("hidden"));
+        (event.currentTarget as HTMLElement)?.remove();
       });
     </script>
   )}

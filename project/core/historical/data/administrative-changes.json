@@ -1,0 +1,7339 @@
+[
+  {
+    "id": "change-municipality-austre-moland-1962-0",
+    "entityType": "municipality",
+    "changeYear": 1962,
+    "changeType": "merged",
+    "from": [
+      {
+        "name": "Austre Moland",
+        "number": "0918",
+        "id": "hist-mun-0918-austre-moland"
+      }
+    ],
+    "to": [
+      {
+        "name": "Moland",
+        "id": "hist-mun-0918-moland"
+      }
+    ],
+    "notes": "Slått sammen med Flosta og Stokken",
+    "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
+  },
+  {
+    "id": "change-municipality-barbu-1902-1",
+    "entityType": "municipality",
+    "changeYear": 1902,
+    "changeType": "incorporated",
+    "from": [
+      {
+        "name": "Barbu",
+        "number": "0990",
+        "id": "hist-mun-0990-barbu"
+      }
+    ],
+    "to": [
+      {
+        "name": "Arendal",
+        "id": "4203"
+      }
+    ],
+    "notes": "Innlemmet i Arendal",
+    "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
+  },
+  {
+    "id": "change-municipality-dypvag-1960-2",
+    "entityType": "municipality",
+    "changeYear": 1960,
+    "changeType": "incorporated",
+    "from": [
+      {
+        "name": "Dypvåg",
+        "number": "0915",
+        "id": "hist-mun-0915-dypvag"
+      }
+    ],
+    "to": [
+      {
+        "name": "Tvedestrand",
+        "id": "4213"
+      }
+    ],
+    "notes": "Innlemmet i Tvedestrand",
+    "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
+  },
+  {
+    "id": "change-municipality-eide-1962-3",
+    "entityType": "municipality",
+    "changeYear": 1962,
+    "changeType": "incorporated",
+    "from": [
+      {
+        "name": "Eide",
+        "number": "0925",
+        "id": "hist-mun-0925-eide"
+      }
+    ],
+    "to": [
+      {
+        "name": "Landvik",
+        "id": "hist-mun-0924-landvik"
+      }
+    ],
+    "notes": "Innlemmet i Landvik",
+    "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
+  },
+  {
+    "id": "change-municipality-evje-1960-4",
+    "entityType": "municipality",
+    "changeYear": 1960,
+    "changeType": "merged",
+    "from": [
+      {
+        "name": "Evje",
+        "number": "0937",
+        "id": "hist-mun-0937-evje"
+      }
+    ],
+    "to": [
+      {
+        "name": "Evje og Hornnes",
+        "id": "4219"
+      }
+    ],
+    "notes": "Slått sammen med Hornnes",
+    "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
+  },
+  {
+    "id": "change-municipality-evje-og-vegusdal-1877-5",
+    "entityType": "municipality",
+    "changeYear": 1877,
+    "changeType": "split",
+    "from": [
+      {
+        "name": "Evje og Vegusdal",
+        "number": "0934",
+        "id": "hist-mun-0934-evje-og-vegusdal"
+      }
+    ],
+    "to": [
+      {
+        "name": "Evje",
+        "id": "hist-mun-0937-evje"
+      },
+      {
+        "name": "Vegusdal",
+        "id": "hist-mun-0934-vegusdal"
+      }
+    ],
+    "notes": "Delt i to",
+    "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
+  },
+  {
+    "id": "change-municipality-fjaere-1971-6",
+    "entityType": "municipality",
+    "changeYear": 1971,
+    "changeType": "incorporated",
+    "from": [
+      {
+        "name": "Fjære",
+        "number": "0923",
+        "id": "hist-mun-0923-fjaere"
+      }
+    ],
+    "to": [
+      {
+        "name": "Grimstad",
+        "id": "4202"
+      }
+    ],
+    "notes": "Innlemmet i Grimstad",
+    "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
+  },
+  {
+    "id": "change-municipality-flosta-1962-7",
+    "entityType": "municipality",
+    "changeYear": 1962,
+    "changeType": "merged",
+    "from": [
+      {
+        "name": "Flosta",
+        "number": "0916",
+        "id": "hist-mun-0916-flosta"
+      }
+    ],
+    "to": [
+      {
+        "name": "Moland",
+        "id": "hist-mun-0918-moland"
+      }
+    ],
+    "notes": "Slått sammen med Austre Moland og Stokken",
+    "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
+  },
+  {
+    "id": "change-municipality-gjovdal-1960-8",
+    "entityType": "municipality",
+    "changeYear": 1960,
+    "changeType": "incorporated",
+    "from": [
+      {
+        "name": "Gjøvdal",
+        "number": "0930",
+        "id": "hist-mun-0930-gjovdal"
+      }
+    ],
+    "to": [
+      {
+        "name": "Åmli",
+        "id": "4217"
+      }
+    ],
+    "notes": "Innlemmet i Åmli",
+    "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
+  },
+  {
+    "id": "change-municipality-herefoss-1967-9",
+    "entityType": "municipality",
+    "changeYear": 1967,
+    "changeType": "incorporated",
+    "from": [
+      {
+        "name": "Herefoss",
+        "number": "0933",
+        "id": "hist-mun-0933-herefoss"
+      }
+    ],
+    "to": [
+      {
+        "name": "Birkenes",
+        "id": "4216"
+      }
+    ],
+    "notes": "Innlemmet i Birkenes",
+    "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
+  },
+  {
+    "id": "change-municipality-hisoy-1992-10",
+    "entityType": "municipality",
+    "changeYear": 1992,
+    "changeType": "incorporated",
+    "from": [
+      {
+        "name": "Hisøy",
+        "number": "0922",
+        "id": "hist-mun-0922-hisoy"
+      }
+    ],
+    "to": [
+      {
+        "name": "Arendal",
+        "id": "4203"
+      }
+    ],
+    "notes": "Innlemmet i Arendal",
+    "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
+  },
+  {
+    "id": "change-municipality-holt-1960-11",
+    "entityType": "municipality",
+    "changeYear": 1960,
+    "changeType": "incorporated",
+    "from": [
+      {
+        "name": "Holt",
+        "number": "0914",
+        "id": "hist-mun-0914-holt"
+      }
+    ],
+    "to": [
+      {
+        "name": "Tvedestrand",
+        "id": "4213"
+      }
+    ],
+    "notes": "Innlemmet i Tvedestrand",
+    "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
+  },
+  {
+    "id": "change-municipality-hornnes-1960-12",
+    "entityType": "municipality",
+    "changeYear": 1960,
+    "changeType": "merged",
+    "from": [
+      {
+        "name": "Hornnes",
+        "number": "0936",
+        "id": "hist-mun-0936-hornnes"
+      }
+    ],
+    "to": [
+      {
+        "name": "Evje og Hornnes",
+        "id": "4219"
+      }
+    ],
+    "notes": "Slått sammen med Evje",
+    "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
+  },
+  {
+    "id": "change-municipality-hornnes-og-iveland-1886-13",
+    "entityType": "municipality",
+    "changeYear": 1886,
+    "changeType": "split",
+    "from": [
+      {
+        "name": "Hornnes og Iveland",
+        "number": "0935",
+        "id": "hist-mun-0935-hornnes-og-iveland"
+      }
+    ],
+    "to": [
+      {
+        "name": "Hornnes",
+        "id": "hist-mun-0936-hornnes"
+      },
+      {
+        "name": "Iveland",
+        "id": "4218"
+      }
+    ],
+    "notes": "Delt i to",
+    "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
+  },
+  {
+    "id": "change-municipality-hylestad-1962-14",
+    "entityType": "municipality",
+    "changeYear": 1962,
+    "changeType": "incorporated",
+    "from": [
+      {
+        "name": "Hylestad",
+        "number": "0939",
+        "id": "hist-mun-0939-hylestad"
+      }
+    ],
+    "to": [
+      {
+        "name": "Valle",
+        "id": "4221"
+      }
+    ],
+    "notes": "Innlemmet i Valle",
+    "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
+  },
+  {
+    "id": "change-municipality-hovag-1962-15",
+    "entityType": "municipality",
+    "changeYear": 1962,
+    "changeType": "incorporated",
+    "from": [
+      {
+        "name": "Høvåg",
+        "number": "0927",
+        "id": "hist-mun-0927-hovag"
+      }
+    ],
+    "to": [
+      {
+        "name": "Lillesand",
+        "id": "4215"
+      }
+    ],
+    "notes": "Innlemmet i Lillesand",
+    "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
+  },
+  {
+    "id": "change-municipality-landvik-1971-16",
+    "entityType": "municipality",
+    "changeYear": 1971,
+    "changeType": "incorporated",
+    "from": [
+      {
+        "name": "Landvik",
+        "number": "0924",
+        "id": "hist-mun-0924-landvik"
+      }
+    ],
+    "to": [
+      {
+        "name": "Grimstad",
+        "id": "4202"
+      }
+    ],
+    "notes": "Innlemmet i Grimstad",
+    "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
+  },
+  {
+    "id": "change-municipality-moland-1992-17",
+    "entityType": "municipality",
+    "changeYear": 1992,
+    "changeType": "incorporated",
+    "from": [
+      {
+        "name": "Moland",
+        "number": "0918",
+        "id": "hist-mun-0918-moland"
+      }
+    ],
+    "to": [
+      {
+        "name": "Arendal",
+        "id": "4203"
+      }
+    ],
+    "notes": "Innlemmet i Arendal",
+    "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
+  },
+  {
+    "id": "change-municipality-mykland-1967-18",
+    "entityType": "municipality",
+    "changeYear": 1967,
+    "changeType": "incorporated",
+    "from": [
+      {
+        "name": "Mykland",
+        "number": "0932",
+        "id": "hist-mun-0932-mykland"
+      }
+    ],
+    "to": [
+      {
+        "name": "Froland",
+        "id": "4214"
+      }
+    ],
+    "notes": "Innlemmet i Froland",
+    "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
+  },
+  {
+    "id": "change-municipality-stokken-1962-19",
+    "entityType": "municipality",
+    "changeYear": 1962,
+    "changeType": "merged",
+    "from": [
+      {
+        "name": "Stokken",
+        "number": "0917",
+        "id": "hist-mun-0917-stokken"
+      }
+    ],
+    "to": [
+      {
+        "name": "Moland",
+        "id": "hist-mun-0918-moland"
+      }
+    ],
+    "notes": "Slått sammen med Austre Moland og Flosta",
+    "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
+  },
+  {
+    "id": "change-municipality-sondeled-1964-20",
+    "entityType": "municipality",
+    "changeYear": 1964,
+    "changeType": "incorporated",
+    "from": [
+      {
+        "name": "Søndeled",
+        "number": "0913",
+        "id": "hist-mun-0913-sondeled"
+      }
+    ],
+    "to": [
+      {
+        "name": "Risør",
+        "id": "4201"
+      }
+    ],
+    "notes": "Innlemmet i Risør",
+    "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
+  },
+  {
+    "id": "change-municipality-tovdal-1967-21",
+    "entityType": "municipality",
+    "changeYear": 1967,
+    "changeType": "incorporated",
+    "from": [
+      {
+        "name": "Tovdal",
+        "number": "0931",
+        "id": "hist-mun-0931-tovdal"
+      }
+    ],
+    "to": [
+      {
+        "name": "Åmli",
+        "id": "4217"
+      }
+    ],
+    "notes": "Innlemmet i Åmli",
+    "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
+  },
+  {
+    "id": "change-municipality-tromoy-1992-22",
+    "entityType": "municipality",
+    "changeYear": 1992,
+    "changeType": "incorporated",
+    "from": [
+      {
+        "name": "Tromøy",
+        "number": "0921",
+        "id": "hist-mun-0921-tromoy"
+      }
+    ],
+    "to": [
+      {
+        "name": "Arendal",
+        "id": "4203"
+      }
+    ],
+    "notes": "Innlemmet i Arendal",
+    "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
+  },
+  {
+    "id": "change-municipality-vegusdal-1967-23",
+    "entityType": "municipality",
+    "changeYear": 1967,
+    "changeType": "incorporated",
+    "from": [
+      {
+        "name": "Vegusdal",
+        "number": "0934",
+        "id": "hist-mun-0934-vegusdal"
+      }
+    ],
+    "to": [
+      {
+        "name": "Birkenes",
+        "id": "4216"
+      }
+    ],
+    "notes": "Innlemmet i Birkenes",
+    "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
+  },
+  {
+    "id": "change-municipality-vestre-moland-1962-24",
+    "entityType": "municipality",
+    "changeYear": 1962,
+    "changeType": "incorporated",
+    "from": [
+      {
+        "name": "Vestre Moland",
+        "number": "0926",
+        "id": "hist-mun-0926-vestre-moland"
+      }
+    ],
+    "to": [
+      {
+        "name": "Lillesand",
+        "id": "4215"
+      }
+    ],
+    "notes": "Innlemmet i Lillesand",
+    "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
+  },
+  {
+    "id": "change-municipality-oyestad-1992-25",
+    "entityType": "municipality",
+    "changeYear": 1992,
+    "changeType": "incorporated",
+    "from": [
+      {
+        "name": "Øyestad",
+        "number": "0920",
+        "id": "hist-mun-0920-oyestad"
+      }
+    ],
+    "to": [
+      {
+        "name": "Arendal",
+        "id": "4203"
+      }
+    ],
+    "notes": "Innlemmet i Arendal",
+    "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
+  },
+  {
+    "id": "change-municipality-audnedal-2020-26",
+    "entityType": "municipality",
+    "changeYear": 2020,
+    "changeType": "incorporated",
+    "from": [
+      {
+        "name": "Audnedal",
+        "number": "1027",
+        "id": "hist-mun-1027-audnedal"
+      }
+    ],
+    "to": [
+      {
+        "name": "Lyngdal",
+        "id": "4225"
+      }
+    ],
+    "notes": "Innlemmet i Lyngdal",
+    "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
+  },
+  {
+    "id": "change-municipality-austad-1963-27",
+    "entityType": "municipality",
+    "changeYear": 1963,
+    "changeType": "incorporated",
+    "from": [
+      {
+        "name": "Austad",
+        "number": "1031",
+        "id": "hist-mun-1031-austad"
+      }
+    ],
+    "to": [
+      {
+        "name": "Lyngdal",
+        "id": "4225"
+      }
+    ],
+    "notes": "Innlemmet i Lyngdal",
+    "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
+  },
+  {
+    "id": "change-municipality-bakke-1965-28",
+    "entityType": "municipality",
+    "changeYear": 1965,
+    "changeType": "incorporated",
+    "from": [
+      {
+        "name": "Bakke",
+        "number": "1045",
+        "id": "hist-mun-1045-bakke"
+      }
+    ],
+    "to": [
+      {
+        "name": "Flekkefjord",
+        "id": "4207"
+      }
+    ],
+    "notes": "Innlemmet i Flekkefjord",
+    "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
+  },
+  {
+    "id": "change-municipality-bjelland-1964-29",
+    "entityType": "municipality",
+    "changeYear": 1964,
+    "changeType": "merged",
+    "from": [
+      {
+        "name": "Bjelland",
+        "number": "1024",
+        "id": "hist-mun-1024-bjelland"
+      }
+    ],
+    "to": [
+      {
+        "name": "Marnardal",
+        "id": "hist-mun-1021-marnardal"
+      }
+    ],
+    "notes": "Slått sammen med Laudal og Øyslebø",
+    "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
+  },
+  {
+    "id": "change-municipality-bjelland-og-grindheim-1902-30",
+    "entityType": "municipality",
+    "changeYear": 1902,
+    "changeType": "split",
+    "from": [
+      {
+        "name": "Bjelland og Grindheim",
+        "number": "1024",
+        "id": "hist-mun-1024-bjelland-og-grindheim"
+      }
+    ],
+    "to": [
+      {
+        "name": "Bjelland",
+        "id": "hist-mun-1024-bjelland"
+      },
+      {
+        "name": "Grindum"
+      }
+    ],
+    "notes": "Delt i to",
+    "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
+  },
+  {
+    "id": "change-municipality-eiken-1963-31",
+    "entityType": "municipality",
+    "changeYear": 1963,
+    "changeType": "incorporated",
+    "from": [
+      {
+        "name": "Eiken",
+        "number": "1035",
+        "id": "hist-mun-1035-eiken"
+      }
+    ],
+    "to": [
+      {
+        "name": "Hægebostad",
+        "id": "4226"
+      }
+    ],
+    "notes": "Innlemmet i Hægebostad",
+    "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
+  },
+  {
+    "id": "change-municipality-feda-1963-32",
+    "entityType": "municipality",
+    "changeYear": 1963,
+    "changeType": "incorporated",
+    "from": [
+      {
+        "name": "Feda",
+        "number": "1038",
+        "id": "hist-mun-1038-feda"
+      }
+    ],
+    "to": [
+      {
+        "name": "Kvinesdal",
+        "id": "4227"
+      }
+    ],
+    "notes": "Innlemmet i Kvinesdal",
+    "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
+  },
+  {
+    "id": "change-municipality-finsland-1964-33",
+    "entityType": "municipality",
+    "changeYear": 1964,
+    "changeType": "merged",
+    "from": [
+      {
+        "name": "Finsland",
+        "number": "1023",
+        "id": "hist-mun-1023-finsland"
+      }
+    ],
+    "to": [
+      {
+        "name": "Songdalen",
+        "id": "hist-mun-1017-songdalen"
+      }
+    ],
+    "notes": "Slått sammen med Greipstad",
+    "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
+  },
+  {
+    "id": "change-municipality-fjotland-1963-34",
+    "entityType": "municipality",
+    "changeYear": 1963,
+    "changeType": "incorporated",
+    "from": [
+      {
+        "name": "Fjotland",
+        "number": "1036",
+        "id": "hist-mun-1036-fjotland"
+      }
+    ],
+    "to": [
+      {
+        "name": "Kvinesdal",
+        "id": "4227"
+      }
+    ],
+    "notes": "Innlemmet i Kvinesdal",
+    "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
+  },
+  {
+    "id": "change-municipality-greipstad-1964-35",
+    "entityType": "municipality",
+    "changeYear": 1964,
+    "changeType": "merged",
+    "from": [
+      {
+        "name": "Greipstad",
+        "number": "1017",
+        "id": "hist-mun-1017-greipstad"
+      }
+    ],
+    "to": [
+      {
+        "name": "Songdalen",
+        "id": "hist-mun-1017-songdalen"
+      }
+    ],
+    "notes": "Slått sammen med Finsland",
+    "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
+  },
+  {
+    "id": "change-municipality-grindheim-1964-36",
+    "entityType": "municipality",
+    "changeYear": 1964,
+    "changeType": "merged",
+    "from": [
+      {
+        "name": "Grindheim",
+        "number": "1025",
+        "id": "hist-mun-1025-grindheim"
+      }
+    ],
+    "to": [
+      {
+        "name": "Audnedal",
+        "id": "hist-mun-1027-audnedal"
+      }
+    ],
+    "notes": "Slått sammen med Konsmo",
+    "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
+  },
+  {
+    "id": "change-municipality-gyland-1965-37",
+    "entityType": "municipality",
+    "changeYear": 1965,
+    "changeType": "incorporated",
+    "from": [
+      {
+        "name": "Gyland",
+        "number": "1044",
+        "id": "hist-mun-1044-gyland"
+      }
+    ],
+    "to": [
+      {
+        "name": "Flekkefjord",
+        "id": "4207"
+      }
+    ],
+    "notes": "Innlemmet i Flekkefjord",
+    "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
+  },
+  {
+    "id": "change-municipality-halse-og-harkmark-1964-38",
+    "entityType": "municipality",
+    "changeYear": 1964,
+    "changeType": "incorporated",
+    "from": [
+      {
+        "name": "Halse og Harkmark",
+        "number": "1019",
+        "id": "hist-mun-1019-halse-og-harkmark"
+      }
+    ],
+    "to": [
+      {
+        "name": "Mandal",
+        "id": "hist-mun-1002-mandal"
+      }
+    ],
+    "notes": "Innlemmet i Mandal",
+    "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
+  },
+  {
+    "id": "change-municipality-herad-1965-39",
+    "entityType": "municipality",
+    "changeYear": 1965,
+    "changeType": "incorporated",
+    "from": [
+      {
+        "name": "Herad",
+        "number": "1039",
+        "id": "hist-mun-1039-herad"
+      }
+    ],
+    "to": [
+      {
+        "name": "Farsund",
+        "id": "4206"
+      }
+    ],
+    "notes": "Innlemmet i Farsund",
+    "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
+  },
+  {
+    "id": "change-municipality-hidra-1965-40",
+    "entityType": "municipality",
+    "changeYear": 1965,
+    "changeType": "incorporated",
+    "from": [
+      {
+        "name": "Hidra",
+        "number": "1042",
+        "id": "hist-mun-1042-hidra"
+      }
+    ],
+    "to": [
+      {
+        "name": "Flekkefjord",
+        "id": "4207"
+      }
+    ],
+    "notes": "Innlemmet i Flekkefjord",
+    "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
+  },
+  {
+    "id": "change-municipality-holum-1964-41",
+    "entityType": "municipality",
+    "changeYear": 1964,
+    "changeType": "incorporated",
+    "from": [
+      {
+        "name": "Holum",
+        "number": "1020",
+        "id": "hist-mun-1020-holum"
+      }
+    ],
+    "to": [
+      {
+        "name": "Mandal",
+        "id": "hist-mun-1002-mandal"
+      }
+    ],
+    "notes": "Innlemmet i Mandal",
+    "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
+  },
+  {
+    "id": "change-municipality-haegeland-1964-42",
+    "entityType": "municipality",
+    "changeYear": 1964,
+    "changeType": "incorporated",
+    "from": [
+      {
+        "name": "Hægeland",
+        "number": "1015",
+        "id": "hist-mun-1015-haegeland"
+      }
+    ],
+    "to": [
+      {
+        "name": "Vennesla",
+        "id": "4223"
+      }
+    ],
+    "notes": "Innlemmet i Vennesla",
+    "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
+  },
+  {
+    "id": "change-municipality-konsmo-1964-43",
+    "entityType": "municipality",
+    "changeYear": 1964,
+    "changeType": "merged",
+    "from": [
+      {
+        "name": "Konsmo",
+        "number": "1027",
+        "id": "hist-mun-1027-konsmo"
+      }
+    ],
+    "to": [
+      {
+        "name": "Audnedal",
+        "id": "hist-mun-1027-audnedal"
+      }
+    ],
+    "notes": "Slått sammen med Grindheim",
+    "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
+  },
+  {
+    "id": "change-municipality-kvas-1963-44",
+    "entityType": "municipality",
+    "changeYear": 1963,
+    "changeType": "incorporated",
+    "from": [
+      {
+        "name": "Kvås",
+        "number": "1033",
+        "id": "hist-mun-1033-kvas"
+      }
+    ],
+    "to": [
+      {
+        "name": "Lyngdal",
+        "id": "4225"
+      }
+    ],
+    "notes": "Innlemmet i Lyngdal",
+    "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
+  },
+  {
+    "id": "change-municipality-laudal-1964-45",
+    "entityType": "municipality",
+    "changeYear": 1964,
+    "changeType": "merged",
+    "from": [
+      {
+        "name": "Laudal",
+        "number": "1022",
+        "id": "hist-mun-1022-laudal"
+      }
+    ],
+    "to": [
+      {
+        "name": "Marnardal",
+        "id": "hist-mun-1021-marnardal"
+      }
+    ],
+    "notes": "Slått sammen med Bjelland og Øyslebø",
+    "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
+  },
+  {
+    "id": "change-municipality-lista-1965-46",
+    "entityType": "municipality",
+    "changeYear": 1965,
+    "changeType": "incorporated",
+    "from": [
+      {
+        "name": "Lista",
+        "number": "1041",
+        "id": "hist-mun-1041-lista"
+      }
+    ],
+    "to": [
+      {
+        "name": "Farsund",
+        "id": "4206"
+      }
+    ],
+    "notes": "Innlemmet i Farsund",
+    "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
+  },
+  {
+    "id": "change-municipality-mandal-2020-47",
+    "entityType": "municipality",
+    "changeYear": 2020,
+    "changeType": "merged",
+    "from": [
+      {
+        "name": "Mandal",
+        "number": "1002",
+        "id": "hist-mun-1002-mandal"
+      }
+    ],
+    "to": [
+      {
+        "name": "Lindesnes",
+        "id": "4205"
+      }
+    ],
+    "notes": "Slått sammen med Marnardal og Lindesnes",
+    "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
+  },
+  {
+    "id": "change-municipality-marnardal-2020-48",
+    "entityType": "municipality",
+    "changeYear": 2020,
+    "changeType": "merged",
+    "from": [
+      {
+        "name": "Marnardal",
+        "number": "1021",
+        "id": "hist-mun-1021-marnardal"
+      }
+    ],
+    "to": [
+      {
+        "name": "Lindesnes",
+        "id": "4205"
+      }
+    ],
+    "notes": "Slått sammen med Mandal og Lindesnes",
+    "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
+  },
+  {
+    "id": "change-municipality-nes-1965-49",
+    "entityType": "municipality",
+    "changeYear": 1965,
+    "changeType": "incorporated",
+    "from": [
+      {
+        "name": "Nes",
+        "number": "1043",
+        "id": "hist-mun-1043-nes"
+      }
+    ],
+    "to": [
+      {
+        "name": "Flekkefjord",
+        "id": "4207"
+      }
+    ],
+    "notes": "Innlemmet i Flekkefjord",
+    "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
+  },
+  {
+    "id": "change-municipality-nes-og-hidra-1893-50",
+    "entityType": "municipality",
+    "changeYear": 1893,
+    "changeType": "split",
+    "from": [
+      {
+        "name": "Nes og Hidra",
+        "number": "1042",
+        "id": "hist-mun-1042-nes-og-hidra"
+      }
+    ],
+    "to": [
+      {
+        "name": "Hitterø"
+      },
+      {
+        "name": "Nes",
+        "id": "3228"
+      }
+    ],
+    "notes": "Delt i to",
+    "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
+  },
+  {
+    "id": "change-municipality-nord-audnedal-1911-51",
+    "entityType": "municipality",
+    "changeYear": 1911,
+    "changeType": "split",
+    "from": [
+      {
+        "name": "Nord-Audnedal",
+        "number": "1027",
+        "id": "hist-mun-1027-nord-audnedal"
+      }
+    ],
+    "to": [
+      {
+        "name": "Konsmo",
+        "id": "hist-mun-1027-konsmo"
+      },
+      {
+        "name": "Vigmostad",
+        "id": "hist-mun-1028-vigmostad"
+      }
+    ],
+    "notes": "Delt i to",
+    "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
+  },
+  {
+    "id": "change-municipality-oddernes-1965-52",
+    "entityType": "municipality",
+    "changeYear": 1965,
+    "changeType": "incorporated",
+    "from": [
+      {
+        "name": "Oddernes",
+        "number": "1012",
+        "id": "hist-mun-1012-oddernes"
+      }
+    ],
+    "to": [
+      {
+        "name": "Kristiansand",
+        "id": "4204"
+      }
+    ],
+    "notes": "Innlemmet i Kristiansand",
+    "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
+  },
+  {
+    "id": "change-municipality-randesund-1965-53",
+    "entityType": "municipality",
+    "changeYear": 1965,
+    "changeType": "incorporated",
+    "from": [
+      {
+        "name": "Randesund",
+        "number": "1011",
+        "id": "hist-mun-1011-randesund"
+      }
+    ],
+    "to": [
+      {
+        "name": "Kristiansand",
+        "id": "4204"
+      }
+    ],
+    "notes": "Innlemmet i Kristiansand",
+    "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
+  },
+  {
+    "id": "change-municipality-songdalen-2020-54",
+    "entityType": "municipality",
+    "changeYear": 2020,
+    "changeType": "incorporated",
+    "from": [
+      {
+        "name": "Songdalen",
+        "number": "1017",
+        "id": "hist-mun-1017-songdalen"
+      }
+    ],
+    "to": [
+      {
+        "name": "Kristiansand",
+        "id": "4204"
+      }
+    ],
+    "notes": "Innlemmet i Kristiansand",
+    "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
+  },
+  {
+    "id": "change-municipality-sogne-2020-55",
+    "entityType": "municipality",
+    "changeYear": 2020,
+    "changeType": "incorporated",
+    "from": [
+      {
+        "name": "Søgne",
+        "number": "1018",
+        "id": "hist-mun-1018-sogne"
+      }
+    ],
+    "to": [
+      {
+        "name": "Kristiansand",
+        "id": "4204"
+      }
+    ],
+    "notes": "Innlemmet i Kristiansand",
+    "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
+  },
+  {
+    "id": "change-municipality-spangereid-1964-56",
+    "entityType": "municipality",
+    "changeYear": 1964,
+    "changeType": "merged",
+    "from": [
+      {
+        "name": "Spangereid",
+        "number": "1030",
+        "id": "hist-mun-1030-spangereid"
+      }
+    ],
+    "to": [
+      {
+        "name": "Lindesnes",
+        "id": "4205"
+      }
+    ],
+    "notes": "Slått sammen med Sør-Audnedal og Vigmostad",
+    "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
+  },
+  {
+    "id": "change-municipality-spind-1965-57",
+    "entityType": "municipality",
+    "changeYear": 1965,
+    "changeType": "incorporated",
+    "from": [
+      {
+        "name": "Spind",
+        "number": "1040",
+        "id": "hist-mun-1040-spind"
+      }
+    ],
+    "to": [
+      {
+        "name": "Farsund",
+        "id": "4206"
+      }
+    ],
+    "notes": "Innlemmet i Farsund",
+    "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
+  },
+  {
+    "id": "change-municipality-sor-audnedal-1964-58",
+    "entityType": "municipality",
+    "changeYear": 1964,
+    "changeType": "merged",
+    "from": [
+      {
+        "name": "Sør-Audnedal",
+        "number": "1029",
+        "id": "hist-mun-1029-sor-audnedal"
+      }
+    ],
+    "to": [
+      {
+        "name": "Lindesnes",
+        "id": "4205"
+      }
+    ],
+    "notes": "Slått sammen med Spangereid og Vigmostad",
+    "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
+  },
+  {
+    "id": "change-municipality-tonstad-1960-59",
+    "entityType": "municipality",
+    "changeYear": 1960,
+    "changeType": "merged",
+    "from": [
+      {
+        "name": "Tonstad",
+        "number": "1046",
+        "id": "hist-mun-1046-tonstad"
+      }
+    ],
+    "to": [
+      {
+        "name": "Sirdal",
+        "id": "4228"
+      }
+    ],
+    "notes": "Slått sammen med Øvre Sirdal",
+    "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
+  },
+  {
+    "id": "change-municipality-tveit-1965-60",
+    "entityType": "municipality",
+    "changeYear": 1965,
+    "changeType": "incorporated",
+    "from": [
+      {
+        "name": "Tveit",
+        "number": "1013",
+        "id": "hist-mun-1013-tveit"
+      }
+    ],
+    "to": [
+      {
+        "name": "Kristiansand",
+        "id": "4204"
+      }
+    ],
+    "notes": "Innlemmet i Kristiansand",
+    "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
+  },
+  {
+    "id": "change-municipality-undal-1845-61",
+    "entityType": "municipality",
+    "changeYear": 1845,
+    "changeType": "split",
+    "from": [
+      {
+        "name": "Undal",
+        "number": "1027",
+        "id": "hist-mun-1027-undal"
+      }
+    ],
+    "to": [
+      {
+        "name": "Nord-Undal"
+      },
+      {
+        "name": "Sør-Undal"
+      }
+    ],
+    "notes": "Delt i to",
+    "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
+  },
+  {
+    "id": "change-municipality-vigmostad-1964-62",
+    "entityType": "municipality",
+    "changeYear": 1964,
+    "changeType": "merged",
+    "from": [
+      {
+        "name": "Vigmostad",
+        "number": "1028",
+        "id": "hist-mun-1028-vigmostad"
+      }
+    ],
+    "to": [
+      {
+        "name": "Lindesnes",
+        "id": "4205"
+      }
+    ],
+    "notes": "Slått sammen med Spangereid og Sør-Audnedal",
+    "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
+  },
+  {
+    "id": "change-municipality-ovre-sirdal-1960-63",
+    "entityType": "municipality",
+    "changeYear": 1960,
+    "changeType": "merged",
+    "from": [
+      {
+        "name": "Øvre Sirdal",
+        "number": "1047",
+        "id": "hist-mun-1047-ovre-sirdal"
+      }
+    ],
+    "to": [
+      {
+        "name": "Sirdal",
+        "id": "4228"
+      }
+    ],
+    "notes": "Slått sammen med Tonstad",
+    "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
+  },
+  {
+    "id": "change-municipality-ovrebo-1964-64",
+    "entityType": "municipality",
+    "changeYear": 1964,
+    "changeType": "incorporated",
+    "from": [
+      {
+        "name": "Øvrebø",
+        "number": "1016",
+        "id": "hist-mun-1016-ovrebo"
+      }
+    ],
+    "to": [
+      {
+        "name": "Vennesla",
+        "id": "4223"
+      }
+    ],
+    "notes": "Innlemmet i Vennesla",
+    "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
+  },
+  {
+    "id": "change-municipality-ovrebo-og-haegeland-1896-65",
+    "entityType": "municipality",
+    "changeYear": 1896,
+    "changeType": "split",
+    "from": [
+      {
+        "name": "Øvrebø og Hægeland",
+        "number": "1016",
+        "id": "hist-mun-1016-ovrebo-og-haegeland"
+      }
+    ],
+    "to": [
+      {
+        "name": "Hægeland",
+        "id": "hist-mun-1015-haegeland"
+      },
+      {
+        "name": "Øvrebø",
+        "id": "hist-mun-1016-ovrebo"
+      }
+    ],
+    "notes": "Delt i to",
+    "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
+  },
+  {
+    "id": "change-municipality-oyslebo-1964-66",
+    "entityType": "municipality",
+    "changeYear": 1964,
+    "changeType": "merged",
+    "from": [
+      {
+        "name": "Øyslebø",
+        "number": "1021",
+        "id": "hist-mun-1021-oyslebo"
+      }
+    ],
+    "to": [
+      {
+        "name": "Marnardal",
+        "id": "hist-mun-1021-marnardal"
+      }
+    ],
+    "notes": "Slått sammen med Bjelland og Laudal",
+    "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
+  },
+  {
+    "id": "change-municipality-oyslebo-og-laudal-1899-67",
+    "entityType": "municipality",
+    "changeYear": 1899,
+    "changeType": "split",
+    "from": [
+      {
+        "name": "Øyslebø og Laudal",
+        "number": "1021",
+        "id": "hist-mun-1021-oyslebo-og-laudal"
+      }
+    ],
+    "to": [
+      {
+        "name": "Laudal",
+        "id": "hist-mun-1022-laudal"
+      },
+      {
+        "name": "Øyslebø",
+        "id": "hist-mun-1021-oyslebo"
+      }
+    ],
+    "notes": "Delt i to",
+    "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
+  },
+  {
+    "id": "change-municipality-brandval-1964-68",
+    "entityType": "municipality",
+    "changeYear": 1964,
+    "changeType": "incorporated",
+    "from": [
+      {
+        "name": "Brandval",
+        "number": "0422",
+        "id": "hist-mun-0422-brandval"
+      }
+    ],
+    "to": [
+      {
+        "name": "Kongsvinger",
+        "id": "3401"
+      }
+    ],
+    "notes": "Innlemmet i Kongsvinger",
+    "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
+  },
+  {
+    "id": "change-municipality-furnes-1964-69",
+    "entityType": "municipality",
+    "changeYear": 1964,
+    "changeType": "incorporated",
+    "from": [
+      {
+        "name": "Furnes",
+        "number": "0413",
+        "id": "hist-mun-0413-furnes"
+      }
+    ],
+    "to": [
+      {
+        "name": "Ringsaker",
+        "id": "3411"
+      }
+    ],
+    "notes": "Innlemmet i Ringsaker",
+    "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
+  },
+  {
+    "id": "change-municipality-hof-1963-70",
+    "entityType": "municipality",
+    "changeYear": 1963,
+    "changeType": "incorporated",
+    "from": [
+      {
+        "name": "Hof",
+        "number": "0424",
+        "id": "hist-mun-0424-hof"
+      }
+    ],
+    "to": [
+      {
+        "name": "Åsnes",
+        "id": "3418"
+      }
+    ],
+    "notes": "Innlemmet i Åsnes",
+    "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
+  },
+  {
+    "id": "change-municipality-kvikne-1966-71",
+    "entityType": "municipality",
+    "changeYear": 1966,
+    "changeType": "split",
+    "from": [
+      {
+        "name": "Kvikne",
+        "number": "0440",
+        "id": "hist-mun-0440-kvikne"
+      }
+    ],
+    "to": [
+      {
+        "name": "Rennebu",
+        "id": "5022"
+      },
+      {
+        "name": "Tynset",
+        "id": "3427"
+      }
+    ],
+    "notes": "Delt mellom Tynset (mest) og Rennebu (litt)",
+    "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
+  },
+  {
+    "id": "change-municipality-nes-1964-72",
+    "entityType": "municipality",
+    "changeYear": 1964,
+    "changeType": "incorporated",
+    "from": [
+      {
+        "name": "Nes",
+        "number": "0411",
+        "id": "hist-mun-0411-nes"
+      }
+    ],
+    "to": [
+      {
+        "name": "Ringsaker",
+        "id": "3411"
+      }
+    ],
+    "notes": "Innlemmet i Ringsaker",
+    "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
+  },
+  {
+    "id": "change-municipality-rendal-1880-73",
+    "entityType": "municipality",
+    "changeYear": 1880,
+    "changeType": "split",
+    "from": [
+      {
+        "name": "Rendal",
+        "number": "0432",
+        "id": "hist-mun-0432-rendal"
+      }
+    ],
+    "to": [
+      {
+        "name": "Ytre Rendal",
+        "id": "hist-mun-0432-ytre-rendal"
+      },
+      {
+        "name": "Øvre Rendal",
+        "id": "hist-mun-0433-ovre-rendal"
+      }
+    ],
+    "notes": "Delt i to",
+    "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
+  },
+  {
+    "id": "change-municipality-romedal-1964-74",
+    "entityType": "municipality",
+    "changeYear": 1964,
+    "changeType": "incorporated",
+    "from": [
+      {
+        "name": "Romedal",
+        "number": "0416",
+        "id": "hist-mun-0416-romedal"
+      }
+    ],
+    "to": [
+      {
+        "name": "Stange",
+        "id": "3413"
+      }
+    ],
+    "notes": "Innlemmet i Stange",
+    "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
+  },
+  {
+    "id": "change-municipality-sollia-1965-75",
+    "entityType": "municipality",
+    "changeYear": 1965,
+    "changeType": "incorporated",
+    "from": [
+      {
+        "name": "Sollia",
+        "number": "0580",
+        "id": "hist-mun-0580-sollia"
+      }
+    ],
+    "to": [
+      {
+        "name": "Stor-Elvdal",
+        "id": "3423"
+      }
+    ],
+    "notes": "Innlemmet i Stor-Elvdal",
+    "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
+  },
+  {
+    "id": "change-municipality-tolga-os-1976-76",
+    "entityType": "municipality",
+    "changeYear": 1976,
+    "changeType": "split",
+    "from": [
+      {
+        "name": "Tolga-Os",
+        "number": "0435",
+        "id": "hist-mun-0435-tolga-os"
+      }
+    ],
+    "to": [
+      {
+        "name": "Os",
+        "id": "3430"
+      },
+      {
+        "name": "Tolga",
+        "id": "3426"
+      }
+    ],
+    "notes": "Delt i to",
+    "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
+  },
+  {
+    "id": "change-municipality-vang-1992-77",
+    "entityType": "municipality",
+    "changeYear": 1992,
+    "changeType": "incorporated",
+    "from": [
+      {
+        "name": "Vang",
+        "number": "0414",
+        "id": "hist-mun-0414-vang"
+      }
+    ],
+    "to": [
+      {
+        "name": "Hamar",
+        "id": "3403"
+      }
+    ],
+    "notes": "Innlemmet i Hamar",
+    "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
+  },
+  {
+    "id": "change-municipality-vinger-1964-78",
+    "entityType": "municipality",
+    "changeYear": 1964,
+    "changeType": "incorporated",
+    "from": [
+      {
+        "name": "Vinger",
+        "number": "0421",
+        "id": "hist-mun-0421-vinger"
+      }
+    ],
+    "to": [
+      {
+        "name": "Kongsvinger",
+        "id": "3401"
+      }
+    ],
+    "notes": "Innlemmet i Kongsvinger",
+    "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
+  },
+  {
+    "id": "change-municipality-ytre-rendal-1965-79",
+    "entityType": "municipality",
+    "changeYear": 1965,
+    "changeType": "merged",
+    "from": [
+      {
+        "name": "Ytre Rendal",
+        "number": "0432",
+        "id": "hist-mun-0432-ytre-rendal"
+      }
+    ],
+    "to": [
+      {
+        "name": "Rendalen",
+        "id": "3424"
+      }
+    ],
+    "notes": "Slått sammen med Øvre Rendal",
+    "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
+  },
+  {
+    "id": "change-municipality-ovre-rendal-1965-80",
+    "entityType": "municipality",
+    "changeYear": 1965,
+    "changeType": "merged",
+    "from": [
+      {
+        "name": "Øvre Rendal",
+        "number": "0433",
+        "id": "hist-mun-0433-ovre-rendal"
+      }
+    ],
+    "to": [
+      {
+        "name": "Rendalen",
+        "id": "3424"
+      }
+    ],
+    "notes": "Slått sammen med Ytre Rendal",
+    "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
+  },
+  {
+    "id": "change-municipality-asnes-og-valer-1854-81",
+    "entityType": "municipality",
+    "changeYear": 1854,
+    "changeType": "split",
+    "from": [
+      {
+        "name": "Åsnes og Våler",
+        "number": "0425",
+        "id": "hist-mun-0425-asnes-og-valer"
+      }
+    ],
+    "to": [
+      {
+        "name": "Våler"
+      },
+      {
+        "name": "Åsnes",
+        "id": "3418"
+      }
+    ],
+    "notes": "Delt i to",
+    "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
+  },
+  {
+    "id": "change-municipality-biri-1964-82",
+    "entityType": "municipality",
+    "changeYear": 1964,
+    "changeType": "incorporated",
+    "from": [
+      {
+        "name": "Biri",
+        "number": "0525",
+        "id": "hist-mun-0525-biri"
+      }
+    ],
+    "to": [
+      {
+        "name": "Gjøvik",
+        "id": "3407"
+      }
+    ],
+    "notes": "Innlemmet i Gjøvik",
+    "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
+  },
+  {
+    "id": "change-municipality-brandbu-1962-83",
+    "entityType": "municipality",
+    "changeYear": 1962,
+    "changeType": "incorporated",
+    "from": [
+      {
+        "name": "Brandbu",
+        "number": "0535",
+        "id": "hist-mun-0535-brandbu"
+      }
+    ],
+    "to": [
+      {
+        "name": "Gran",
+        "id": "3446"
+      }
+    ],
+    "notes": "Innlemmet i Gran",
+    "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
+  },
+  {
+    "id": "change-municipality-eina-1964-84",
+    "entityType": "municipality",
+    "changeYear": 1964,
+    "changeType": "incorporated",
+    "from": [
+      {
+        "name": "Eina",
+        "number": "0530",
+        "id": "hist-mun-0530-eina"
+      }
+    ],
+    "to": [
+      {
+        "name": "Vestre Toten",
+        "id": "3443"
+      }
+    ],
+    "notes": "Innlemmet i Vestre Toten",
+    "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
+  },
+  {
+    "id": "change-municipality-fluberg-1962-85",
+    "entityType": "municipality",
+    "changeYear": 1962,
+    "changeType": "incorporated",
+    "from": [
+      {
+        "name": "Fluberg",
+        "number": "0537",
+        "id": "hist-mun-0537-fluberg"
+      }
+    ],
+    "to": [
+      {
+        "name": "Søndre Land",
+        "id": "3447"
+      }
+    ],
+    "notes": "Innlemmet i Søndre Land",
+    "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
+  },
+  {
+    "id": "change-municipality-faberg-1964-86",
+    "entityType": "municipality",
+    "changeYear": 1964,
+    "changeType": "incorporated",
+    "from": [
+      {
+        "name": "Fåberg",
+        "number": "0524",
+        "id": "hist-mun-0524-faberg"
+      }
+    ],
+    "to": [
+      {
+        "name": "Lillehammer",
+        "id": "3405"
+      }
+    ],
+    "notes": "Innlemmet i Lillehammer",
+    "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
+  },
+  {
+    "id": "change-municipality-heidal-1965-87",
+    "entityType": "municipality",
+    "changeYear": 1965,
+    "changeType": "incorporated",
+    "from": [
+      {
+        "name": "Heidal",
+        "number": "0516",
+        "id": "hist-mun-0516-heidal"
+      }
+    ],
+    "to": [
+      {
+        "name": "Sel",
+        "id": "3437"
+      }
+    ],
+    "notes": "Innlemmet i Sel",
+    "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
+  },
+  {
+    "id": "change-municipality-kolbu-1964-88",
+    "entityType": "municipality",
+    "changeYear": 1964,
+    "changeType": "incorporated",
+    "from": [
+      {
+        "name": "Kolbu",
+        "number": "0531",
+        "id": "hist-mun-0531-kolbu"
+      }
+    ],
+    "to": [
+      {
+        "name": "Østre Toten",
+        "id": "3442"
+      }
+    ],
+    "notes": "Innlemmet i Østre Toten",
+    "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
+  },
+  {
+    "id": "change-municipality-land-1847-89",
+    "entityType": "municipality",
+    "changeYear": 1847,
+    "changeType": "split",
+    "from": [
+      {
+        "name": "Land",
+        "number": "0536",
+        "id": "hist-mun-0536-land"
+      }
+    ],
+    "to": [
+      {
+        "name": "Nordre Land",
+        "id": "3448"
+      },
+      {
+        "name": "Søndre Land",
+        "id": "3447"
+      }
+    ],
+    "notes": "Delt i to",
+    "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
+  },
+  {
+    "id": "change-municipality-slidre-1849-90",
+    "entityType": "municipality",
+    "changeYear": 1849,
+    "changeType": "split",
+    "from": [
+      {
+        "name": "Slidre",
+        "number": "0543",
+        "id": "hist-mun-0543-slidre"
+      }
+    ],
+    "to": [
+      {
+        "name": "Vestre Slidre",
+        "id": "3452"
+      },
+      {
+        "name": "Øystre Slidre",
+        "id": "3453"
+      }
+    ],
+    "notes": "Delt i to",
+    "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
+  },
+  {
+    "id": "change-municipality-snertingdal-1964-91",
+    "entityType": "municipality",
+    "changeYear": 1964,
+    "changeType": "incorporated",
+    "from": [
+      {
+        "name": "Snertingdal",
+        "number": "0526",
+        "id": "hist-mun-0526-snertingdal"
+      }
+    ],
+    "to": [
+      {
+        "name": "Gjøvik",
+        "id": "3407"
+      }
+    ],
+    "notes": "Innlemmet i Gjøvik",
+    "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
+  },
+  {
+    "id": "change-municipality-torpa-1962-92",
+    "entityType": "municipality",
+    "changeYear": 1962,
+    "changeType": "incorporated",
+    "from": [
+      {
+        "name": "Torpa",
+        "number": "0539",
+        "id": "hist-mun-0539-torpa"
+      }
+    ],
+    "to": [
+      {
+        "name": "Nordre Land",
+        "id": "3448"
+      }
+    ],
+    "notes": "Innlemmet i Nordre Land",
+    "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
+  },
+  {
+    "id": "change-municipality-vardal-1964-93",
+    "entityType": "municipality",
+    "changeYear": 1964,
+    "changeType": "incorporated",
+    "from": [
+      {
+        "name": "Vardal",
+        "number": "0527",
+        "id": "hist-mun-0527-vardal"
+      }
+    ],
+    "to": [
+      {
+        "name": "Gjøvik",
+        "id": "3407"
+      }
+    ],
+    "notes": "Innlemmet i Gjøvik",
+    "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
+  },
+  {
+    "id": "change-municipality-vestre-gausdal-1962-94",
+    "entityType": "municipality",
+    "changeYear": 1962,
+    "changeType": "merged",
+    "from": [
+      {
+        "name": "Vestre Gausdal",
+        "number": "0522",
+        "id": "hist-mun-0522-vestre-gausdal"
+      }
+    ],
+    "to": [
+      {
+        "name": "Gausdal",
+        "id": "3441"
+      }
+    ],
+    "notes": "Slått sammen med Østre Gausdal",
+    "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
+  },
+  {
+    "id": "change-municipality-ostre-gausdal-1962-95",
+    "entityType": "municipality",
+    "changeYear": 1962,
+    "changeType": "merged",
+    "from": [
+      {
+        "name": "Østre Gausdal",
+        "number": "0523",
+        "id": "hist-mun-0523-ostre-gausdal"
+      }
+    ],
+    "to": [
+      {
+        "name": "Gausdal",
+        "id": "3441"
+      }
+    ],
+    "notes": "Slått sammen med Vestre Gausdal",
+    "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
+  },
+  {
+    "id": "change-municipality-andenes-1964-96",
+    "entityType": "municipality",
+    "changeYear": 1964,
+    "changeType": "merged",
+    "from": [
+      {
+        "name": "Andenes",
+        "number": "1873",
+        "id": "hist-mun-1873-andenes"
+      }
+    ],
+    "to": [
+      {
+        "name": "Andøy",
+        "id": "1871"
+      }
+    ],
+    "notes": "Slått sammen med Bjørnskinn og Dverberg",
+    "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
+  },
+  {
+    "id": "change-municipality-andoya-1924-97",
+    "entityType": "municipality",
+    "changeYear": 1924,
+    "changeType": "split",
+    "from": [
+      {
+        "name": "Andøya",
+        "number": "1872",
+        "id": "hist-mun-1872-andoya"
+      }
+    ],
+    "to": [
+      {
+        "name": "Andenes",
+        "id": "hist-mun-1873-andenes"
+      },
+      {
+        "name": "Bjørnskinn",
+        "id": "hist-mun-1871-bjornskinn"
+      },
+      {
+        "name": "Dverberg",
+        "id": "hist-mun-1872-dverberg"
+      }
+    ],
+    "notes": "Delt i tre",
+    "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
+  },
+  {
+    "id": "change-municipality-ankenes-1974-98",
+    "entityType": "municipality",
+    "changeYear": 1974,
+    "changeType": "incorporated",
+    "from": [
+      {
+        "name": "Ankenes",
+        "number": "1855",
+        "id": "hist-mun-1855-ankenes"
+      }
+    ],
+    "to": [
+      {
+        "name": "Narvik",
+        "id": "1806"
+      }
+    ],
+    "notes": "Innlemmet i Narvik",
+    "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
+  },
+  {
+    "id": "change-municipality-ballangen-2020-99",
+    "entityType": "municipality",
+    "changeYear": 2020,
+    "changeType": "incorporated",
+    "from": [
+      {
+        "name": "Ballangen",
+        "number": "1854",
+        "id": "hist-mun-1854-ballangen"
+      }
+    ],
+    "to": [
+      {
+        "name": "Narvik",
+        "id": "1806"
+      }
+    ],
+    "notes": "Innlemmet i Narvik",
+    "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
+  },
+  {
+    "id": "change-municipality-bjornskinn-1964-100",
+    "entityType": "municipality",
+    "changeYear": 1964,
+    "changeType": "merged",
+    "from": [
+      {
+        "name": "Bjørnskinn",
+        "number": "1871",
+        "id": "hist-mun-1871-bjornskinn"
+      }
+    ],
+    "to": [
+      {
+        "name": "Andøy",
+        "id": "1871"
+      }
+    ],
+    "notes": "Slått sammen med Andenes og Dverberg",
+    "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
+  },
+  {
+    "id": "change-municipality-bodin-1968-101",
+    "entityType": "municipality",
+    "changeYear": 1968,
+    "changeType": "incorporated",
+    "from": [
+      {
+        "name": "Bodin",
+        "number": "1843",
+        "id": "hist-mun-1843-bodin"
+      }
+    ],
+    "to": [
+      {
+        "name": "Bodø",
+        "id": "1804"
+      }
+    ],
+    "notes": "Innlemmet i Bodø",
+    "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
+  },
+  {
+    "id": "change-municipality-borge-1963-102",
+    "entityType": "municipality",
+    "changeYear": 1963,
+    "changeType": "merged",
+    "from": [
+      {
+        "name": "Borge",
+        "number": "1862",
+        "id": "hist-mun-1862-borge"
+      }
+    ],
+    "to": [
+      {
+        "name": "Vestvågøy",
+        "id": "1860"
+      }
+    ],
+    "notes": "Slått sammen med Buksnes , Hol og Valberg",
+    "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
+  },
+  {
+    "id": "change-municipality-bronnoysund-1964-103",
+    "entityType": "municipality",
+    "changeYear": 1964,
+    "changeType": "incorporated",
+    "from": [
+      {
+        "name": "Brønnøysund",
+        "number": "1801",
+        "id": "hist-mun-1801-bronnoysund"
+      }
+    ],
+    "to": [
+      {
+        "name": "Brønnøy",
+        "id": "1813"
+      }
+    ],
+    "notes": "Innlemmet i Brønnøy",
+    "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
+  },
+  {
+    "id": "change-municipality-buksnes-1963-104",
+    "entityType": "municipality",
+    "changeYear": 1963,
+    "changeType": "merged",
+    "from": [
+      {
+        "name": "Buksnes",
+        "number": "1860",
+        "id": "hist-mun-1860-buksnes"
+      }
+    ],
+    "to": [
+      {
+        "name": "Vestvågøy",
+        "id": "1860"
+      }
+    ],
+    "notes": "Slått sammen med Borge , Hol og Valberg",
+    "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
+  },
+  {
+    "id": "change-municipality-drevja-1962-105",
+    "entityType": "municipality",
+    "changeYear": 1962,
+    "changeType": "incorporated",
+    "from": [
+      {
+        "name": "Drevja",
+        "number": "1823",
+        "id": "hist-mun-1823-drevja"
+      }
+    ],
+    "to": [
+      {
+        "name": "Vefsn",
+        "id": "1824"
+      }
+    ],
+    "notes": "Innlemmet i Vefsn",
+    "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
+  },
+  {
+    "id": "change-municipality-dverberg-1964-106",
+    "entityType": "municipality",
+    "changeYear": 1964,
+    "changeType": "merged",
+    "from": [
+      {
+        "name": "Dverberg",
+        "number": "1872",
+        "id": "hist-mun-1872-dverberg"
+      }
+    ],
+    "to": [
+      {
+        "name": "Andøy",
+        "id": "1871"
+      }
+    ],
+    "notes": "Slått sammen med Andenes og Bjørnskinn",
+    "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
+  },
+  {
+    "id": "change-municipality-donnes-1962-107",
+    "entityType": "municipality",
+    "changeYear": 1962,
+    "changeType": "merged",
+    "from": [
+      {
+        "name": "Dønnes",
+        "number": "1827",
+        "id": "hist-mun-1827-donnes"
+      }
+    ],
+    "to": [
+      {
+        "name": "Dønna",
+        "id": "1827"
+      }
+    ],
+    "notes": "Slått sammen med Nordvik",
+    "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
+  },
+  {
+    "id": "change-municipality-elsfjord-1962-108",
+    "entityType": "municipality",
+    "changeYear": 1962,
+    "changeType": "incorporated",
+    "from": [
+      {
+        "name": "Elsfjord",
+        "number": "1829",
+        "id": "hist-mun-1829-elsfjord"
+      }
+    ],
+    "to": [
+      {
+        "name": "Vefsn",
+        "id": "1824"
+      }
+    ],
+    "notes": "Innlemmet i Vefsn",
+    "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
+  },
+  {
+    "id": "change-municipality-folden-1887-109",
+    "entityType": "municipality",
+    "changeYear": 1887,
+    "changeType": "split",
+    "from": [
+      {
+        "name": "Folden",
+        "number": "1845",
+        "id": "hist-mun-1845-folden"
+      }
+    ],
+    "to": [
+      {
+        "name": "Nordfold-Kjerringøy",
+        "id": "hist-mun-1846-nordfold-kjerringoy"
+      },
+      {
+        "name": "Sørfold",
+        "id": "1845"
+      }
+    ],
+    "notes": "Delt i to",
+    "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
+  },
+  {
+    "id": "change-municipality-gimsoy-1964-110",
+    "entityType": "municipality",
+    "changeYear": 1964,
+    "changeType": "incorporated",
+    "from": [
+      {
+        "name": "Gimsøy",
+        "number": "1864",
+        "id": "hist-mun-1864-gimsoy"
+      }
+    ],
+    "to": [
+      {
+        "name": "Vågan",
+        "id": "1865"
+      }
+    ],
+    "notes": "Innlemmet i Vågan",
+    "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
+  },
+  {
+    "id": "change-municipality-hol-1963-111",
+    "entityType": "municipality",
+    "changeYear": 1963,
+    "changeType": "merged",
+    "from": [
+      {
+        "name": "Hol",
+        "number": "1861",
+        "id": "hist-mun-1861-hol"
+      }
+    ],
+    "to": [
+      {
+        "name": "Vestvågøy",
+        "id": "1860"
+      }
+    ],
+    "notes": "Slått sammen med Borge , Buksnes og Valberg",
+    "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
+  },
+  {
+    "id": "change-municipality-kjerringoy-1964-112",
+    "entityType": "municipality",
+    "changeYear": 1964,
+    "changeType": "incorporated",
+    "from": [
+      {
+        "name": "Kjerringøy",
+        "number": "1844",
+        "id": "hist-mun-1844-kjerringoy"
+      }
+    ],
+    "to": [
+      {
+        "name": "Bodin",
+        "id": "hist-mun-1843-bodin"
+      }
+    ],
+    "notes": "Innlemmet i Bodin",
+    "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
+  },
+  {
+    "id": "change-municipality-korgen-1964-113",
+    "entityType": "municipality",
+    "changeYear": 1964,
+    "changeType": "incorporated",
+    "from": [
+      {
+        "name": "Korgen",
+        "number": "1830",
+        "id": "hist-mun-1830-korgen"
+      }
+    ],
+    "to": [
+      {
+        "name": "Hemnes",
+        "id": "1832"
+      }
+    ],
+    "notes": "Innlemmet i Hemnes",
+    "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
+  },
+  {
+    "id": "change-municipality-langenes-1964-114",
+    "entityType": "municipality",
+    "changeYear": 1964,
+    "changeType": "incorporated",
+    "from": [
+      {
+        "name": "Langenes",
+        "number": "1869",
+        "id": "hist-mun-1869-langenes"
+      }
+    ],
+    "to": [
+      {
+        "name": "Øksnes",
+        "id": "1868"
+      }
+    ],
+    "notes": "Innlemmet i Øksnes",
+    "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
+  },
+  {
+    "id": "change-municipality-leiranger-1964-115",
+    "entityType": "municipality",
+    "changeYear": 1964,
+    "changeType": "incorporated",
+    "from": [
+      {
+        "name": "Leiranger",
+        "number": "1847",
+        "id": "hist-mun-1847-leiranger"
+      }
+    ],
+    "to": [
+      {
+        "name": "Steigen",
+        "id": "1848"
+      }
+    ],
+    "notes": "Innlemmet i Steigen",
+    "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
+  },
+  {
+    "id": "change-municipality-mo-1964-116",
+    "entityType": "municipality",
+    "changeYear": 1964,
+    "changeType": "merged",
+    "from": [
+      {
+        "name": "Mo",
+        "number": "1833",
+        "id": "hist-mun-1833-mo"
+      }
+    ],
+    "to": [
+      {
+        "name": "Rana",
+        "id": "1833"
+      }
+    ],
+    "notes": "Slått sammen med Nord-Rana og deler av Nesna og Sør-Rana",
+    "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
+  },
+  {
+    "id": "change-municipality-mosjoen-1962-117",
+    "entityType": "municipality",
+    "changeYear": 1962,
+    "changeType": "incorporated",
+    "from": [
+      {
+        "name": "Mosjøen",
+        "number": "1802",
+        "id": "hist-mun-1802-mosjoen"
+      }
+    ],
+    "to": [
+      {
+        "name": "Vefsn",
+        "id": "1824"
+      }
+    ],
+    "notes": "Innlemmet i Vefsn",
+    "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
+  },
+  {
+    "id": "change-municipality-nord-rana-1964-118",
+    "entityType": "municipality",
+    "changeYear": 1964,
+    "changeType": "merged",
+    "from": [
+      {
+        "name": "Nord-Rana",
+        "number": "1833",
+        "id": "hist-mun-1833-nord-rana"
+      }
+    ],
+    "to": [
+      {
+        "name": "Rana",
+        "id": "1833"
+      }
+    ],
+    "notes": "Slått sammen med Mo og deler av Nesna og Sør-Rana",
+    "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
+  },
+  {
+    "id": "change-municipality-nordfold-1964-119",
+    "entityType": "municipality",
+    "changeYear": 1964,
+    "changeType": "incorporated",
+    "from": [
+      {
+        "name": "Nordfold",
+        "number": "1846",
+        "id": "hist-mun-1846-nordfold"
+      }
+    ],
+    "to": [
+      {
+        "name": "Steigen",
+        "id": "1848"
+      }
+    ],
+    "notes": "Innlemmet i Steigen",
+    "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
+  },
+  {
+    "id": "change-municipality-nordfold-kjerringoy-1906-120",
+    "entityType": "municipality",
+    "changeYear": 1906,
+    "changeType": "split",
+    "from": [
+      {
+        "name": "Nordfold-Kjerringøy",
+        "number": "1846",
+        "id": "hist-mun-1846-nordfold-kjerringoy"
+      }
+    ],
+    "to": [
+      {
+        "name": "Kjerringøy",
+        "id": "hist-mun-1844-kjerringoy"
+      },
+      {
+        "name": "Nordfold",
+        "id": "hist-mun-1846-nordfold"
+      }
+    ],
+    "notes": "Delt i to",
+    "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
+  },
+  {
+    "id": "change-municipality-nordvik-1962-121",
+    "entityType": "municipality",
+    "changeYear": 1962,
+    "changeType": "merged",
+    "from": [
+      {
+        "name": "Nordvik",
+        "number": "1819",
+        "id": "hist-mun-1819-nordvik"
+      }
+    ],
+    "to": [
+      {
+        "name": "Dønna",
+        "id": "1827"
+      }
+    ],
+    "notes": "Slått sammen med Dønnes",
+    "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
+  },
+  {
+    "id": "change-municipality-ofoten-1884-122",
+    "entityType": "municipality",
+    "changeYear": 1884,
+    "changeType": "split",
+    "from": [
+      {
+        "name": "Ofoten",
+        "number": "1853",
+        "id": "hist-mun-1853-ofoten"
+      }
+    ],
+    "to": [
+      {
+        "name": "Ankenes",
+        "id": "hist-mun-1855-ankenes"
+      },
+      {
+        "name": "Evindnæs"
+      }
+    ],
+    "notes": "Delt i to",
+    "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
+  },
+  {
+    "id": "change-municipality-sandnessjoen-1965-123",
+    "entityType": "municipality",
+    "changeYear": 1965,
+    "changeType": "incorporated",
+    "from": [
+      {
+        "name": "Sandnessjøen",
+        "number": "1821",
+        "id": "hist-mun-1821-sandnessjoen"
+      }
+    ],
+    "to": [
+      {
+        "name": "Alstahaug",
+        "id": "1820"
+      }
+    ],
+    "notes": "Innlemmet i Alstahaug",
+    "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
+  },
+  {
+    "id": "change-municipality-skjerstad-2005-124",
+    "entityType": "municipality",
+    "changeYear": 2005,
+    "changeType": "incorporated",
+    "from": [
+      {
+        "name": "Skjerstad",
+        "number": "1842",
+        "id": "hist-mun-1842-skjerstad"
+      }
+    ],
+    "to": [
+      {
+        "name": "Bodø",
+        "id": "1804"
+      }
+    ],
+    "notes": "Innlemmet i Bodø",
+    "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
+  },
+  {
+    "id": "change-municipality-svolvaer-1964-125",
+    "entityType": "municipality",
+    "changeYear": 1964,
+    "changeType": "incorporated",
+    "from": [
+      {
+        "name": "Svolvær",
+        "number": "1806",
+        "id": "hist-mun-1806-svolvaer"
+      }
+    ],
+    "to": [
+      {
+        "name": "Vågan",
+        "id": "1865"
+      }
+    ],
+    "notes": "Innlemmet i Vågan",
+    "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
+  },
+  {
+    "id": "change-municipality-tjotta-1965-126",
+    "entityType": "municipality",
+    "changeYear": 1965,
+    "changeType": "incorporated",
+    "from": [
+      {
+        "name": "Tjøtta",
+        "number": "1817",
+        "id": "hist-mun-1817-tjotta"
+      }
+    ],
+    "to": [
+      {
+        "name": "Alstahaug",
+        "id": "1820"
+      }
+    ],
+    "notes": "Innlemmet i Alstahaug",
+    "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
+  },
+  {
+    "id": "change-municipality-valberg-1963-127",
+    "entityType": "municipality",
+    "changeYear": 1963,
+    "changeType": "merged",
+    "from": [
+      {
+        "name": "Valberg",
+        "number": "1863",
+        "id": "hist-mun-1863-valberg"
+      }
+    ],
+    "to": [
+      {
+        "name": "Vestvågøy",
+        "id": "1860"
+      }
+    ],
+    "notes": "Slått sammen med Borge , Buksnes og Hol",
+    "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
+  },
+  {
+    "id": "change-municipality-velfjord-1964-128",
+    "entityType": "municipality",
+    "changeYear": 1964,
+    "changeType": "incorporated",
+    "from": [
+      {
+        "name": "Velfjord",
+        "number": "1813",
+        "id": "hist-mun-1813-velfjord"
+      }
+    ],
+    "to": [
+      {
+        "name": "Brønnøy",
+        "id": "1813"
+      }
+    ],
+    "notes": "Innlemmet i Brønnøy",
+    "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
+  },
+  {
+    "id": "change-municipality-egersund-1965-129",
+    "entityType": "municipality",
+    "changeYear": 1965,
+    "changeType": "incorporated",
+    "from": [
+      {
+        "name": "Egersund",
+        "number": "1101",
+        "id": "hist-mun-1101-egersund"
+      }
+    ],
+    "to": [
+      {
+        "name": "Eigersund",
+        "id": "1101"
+      }
+    ],
+    "notes": "Innlemmet i Eigersund",
+    "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
+  },
+  {
+    "id": "change-municipality-erfjord-1965-130",
+    "entityType": "municipality",
+    "changeYear": 1965,
+    "changeType": "incorporated",
+    "from": [
+      {
+        "name": "Erfjord",
+        "number": "1137",
+        "id": "hist-mun-1137-erfjord"
+      }
+    ],
+    "to": [
+      {
+        "name": "Suldal",
+        "id": "1134"
+      }
+    ],
+    "notes": "Innlemmet i Suldal",
+    "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
+  },
+  {
+    "id": "change-municipality-finnoy-2020-131",
+    "entityType": "municipality",
+    "changeYear": 2020,
+    "changeType": "incorporated",
+    "from": [
+      {
+        "name": "Finnøy",
+        "number": "1141",
+        "id": "hist-mun-1141-finnoy"
+      }
+    ],
+    "to": [
+      {
+        "name": "Stavanger",
+        "id": "1103"
+      }
+    ],
+    "notes": "Innlemmet i Stavanger",
+    "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
+  },
+  {
+    "id": "change-municipality-forsand-2020-132",
+    "entityType": "municipality",
+    "changeYear": 2020,
+    "changeType": "incorporated",
+    "from": [
+      {
+        "name": "Forsand",
+        "number": "1129",
+        "id": "hist-mun-1129-forsand"
+      }
+    ],
+    "to": [
+      {
+        "name": "Sandnes",
+        "id": "1108"
+      }
+    ],
+    "notes": "Innlemmet i Sandnes",
+    "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
+  },
+  {
+    "id": "change-municipality-gjesdal-1965-133",
+    "entityType": "municipality",
+    "changeYear": 1965,
+    "changeType": "merged",
+    "from": [
+      {
+        "name": "Gjesdal",
+        "number": "1122",
+        "id": "hist-mun-1122-gjesdal"
+      }
+    ],
+    "to": [
+      {
+        "name": "Gjesdal",
+        "id": "1122"
+      }
+    ],
+    "notes": "Slått sammen med deler av Forsand , Bjerkreim og Høle",
+    "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
+  },
+  {
+    "id": "change-municipality-helleland-1965-134",
+    "entityType": "municipality",
+    "changeYear": 1965,
+    "changeType": "incorporated",
+    "from": [
+      {
+        "name": "Helleland",
+        "number": "1115",
+        "id": "hist-mun-1115-helleland"
+      }
+    ],
+    "to": [
+      {
+        "name": "Eigersund",
+        "id": "1101"
+      }
+    ],
+    "notes": "Innlemmet i Eigersund",
+    "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
+  },
+  {
+    "id": "change-municipality-hjelmeland-og-fister-1884-135",
+    "entityType": "municipality",
+    "changeYear": 1884,
+    "changeType": "split",
+    "from": [
+      {
+        "name": "Hjelmeland og Fister",
+        "number": "1133",
+        "id": "hist-mun-1133-hjelmeland-og-fister"
+      }
+    ],
+    "to": [
+      {
+        "name": "Fister",
+        "id": "hist-mun-1132-fister"
+      },
+      {
+        "name": "Hjelmeland",
+        "id": "1133"
+      }
+    ],
+    "notes": "Delt i to",
+    "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
+  },
+  {
+    "id": "change-municipality-hole-1965-136",
+    "entityType": "municipality",
+    "changeYear": 1965,
+    "changeType": "incorporated",
+    "from": [
+      {
+        "name": "Høle",
+        "number": "1128",
+        "id": "hist-mun-1128-hole"
+      }
+    ],
+    "to": [
+      {
+        "name": "Sandnes",
+        "id": "1108"
+      }
+    ],
+    "notes": "Innlemmet i Sandnes",
+    "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
+  },
+  {
+    "id": "change-municipality-hoyland-1965-137",
+    "entityType": "municipality",
+    "changeYear": 1965,
+    "changeType": "incorporated",
+    "from": [
+      {
+        "name": "Høyland",
+        "number": "1123",
+        "id": "hist-mun-1123-hoyland"
+      }
+    ],
+    "to": [
+      {
+        "name": "Sandnes",
+        "id": "1108"
+      }
+    ],
+    "notes": "Innlemmet i Sandnes",
+    "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
+  },
+  {
+    "id": "change-municipality-haland-1930-138",
+    "entityType": "municipality",
+    "changeYear": 1930,
+    "changeType": "split",
+    "from": [
+      {
+        "name": "Håland",
+        "number": "1124",
+        "id": "hist-mun-1124-haland"
+      }
+    ],
+    "to": [
+      {
+        "name": "Madla",
+        "id": "hist-mun-1125-madla"
+      },
+      {
+        "name": "Sola",
+        "id": "1124"
+      }
+    ],
+    "notes": "Delt i to",
+    "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
+  },
+  {
+    "id": "change-municipality-imsland-1965-139",
+    "entityType": "municipality",
+    "changeYear": 1965,
+    "changeType": "merged",
+    "from": [
+      {
+        "name": "Imsland",
+        "number": "1156",
+        "id": "hist-mun-1156-imsland"
+      }
+    ],
+    "to": [
+      {
+        "name": "Vindafjord",
+        "id": "1160"
+      }
+    ],
+    "notes": "Slått sammen med Sandeid , Vikedal , Vats og deler av Skjold",
+    "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
+  },
+  {
+    "id": "change-municipality-jelsa-1965-140",
+    "entityType": "municipality",
+    "changeYear": 1965,
+    "changeType": "incorporated",
+    "from": [
+      {
+        "name": "Jelsa",
+        "number": "1138",
+        "id": "hist-mun-1138-jelsa"
+      }
+    ],
+    "to": [
+      {
+        "name": "Suldal",
+        "id": "1134"
+      }
+    ],
+    "notes": "Innlemmet i Suldal",
+    "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
+  },
+  {
+    "id": "change-municipality-kopervik-1965-141",
+    "entityType": "municipality",
+    "changeYear": 1965,
+    "changeType": "merged",
+    "from": [
+      {
+        "name": "Kopervik",
+        "number": "1105",
+        "id": "hist-mun-1105-kopervik"
+      }
+    ],
+    "to": [
+      {
+        "name": "Karmøy",
+        "id": "1149"
+      }
+    ],
+    "notes": "Slått sammen med Avaldsnes , Skudenes , Skudeneshavn , Stangaland , Torvastad og Åkra",
+    "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
+  },
+  {
+    "id": "change-municipality-madla-1965-142",
+    "entityType": "municipality",
+    "changeYear": 1965,
+    "changeType": "incorporated",
+    "from": [
+      {
+        "name": "Madla",
+        "number": "1125",
+        "id": "hist-mun-1125-madla"
+      }
+    ],
+    "to": [
+      {
+        "name": "Stavanger",
+        "id": "1103"
+      }
+    ],
+    "notes": "Innlemmet i Stavanger",
+    "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
+  },
+  {
+    "id": "change-municipality-mosteroy-1965-143",
+    "entityType": "municipality",
+    "changeYear": 1965,
+    "changeType": "incorporated",
+    "from": [
+      {
+        "name": "Mosterøy",
+        "number": "1143",
+        "id": "hist-mun-1143-mosteroy"
+      }
+    ],
+    "to": [
+      {
+        "name": "Rennesøy",
+        "id": "hist-mun-1142-rennesoy"
+      }
+    ],
+    "notes": "Innlemmet i Rennesøy",
+    "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
+  },
+  {
+    "id": "change-municipality-nedstrand-1965-144",
+    "entityType": "municipality",
+    "changeYear": 1965,
+    "changeType": "incorporated",
+    "from": [
+      {
+        "name": "Nedstrand",
+        "number": "1139",
+        "id": "hist-mun-1139-nedstrand"
+      }
+    ],
+    "to": [
+      {
+        "name": "Tysvær",
+        "id": "1146"
+      }
+    ],
+    "notes": "Innlemmet i Tysvær",
+    "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
+  },
+  {
+    "id": "change-municipality-naerbo-1964-145",
+    "entityType": "municipality",
+    "changeYear": 1964,
+    "changeType": "merged",
+    "from": [
+      {
+        "name": "Nærbø",
+        "number": "1119",
+        "id": "hist-mun-1119-naerbo"
+      }
+    ],
+    "to": [
+      {
+        "name": "Hå",
+        "id": "1119"
+      }
+    ],
+    "notes": "Slått sammen med Ogna og Varhaug",
+    "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
+  },
+  {
+    "id": "change-municipality-ogna-1964-146",
+    "entityType": "municipality",
+    "changeYear": 1964,
+    "changeType": "merged",
+    "from": [
+      {
+        "name": "Ogna",
+        "number": "1117",
+        "id": "hist-mun-1117-ogna"
+      }
+    ],
+    "to": [
+      {
+        "name": "Hå",
+        "id": "1119"
+      }
+    ],
+    "notes": "Slått sammen med Nærbø og Varhaug",
+    "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
+  },
+  {
+    "id": "change-municipality-rennesoy-2020-147",
+    "entityType": "municipality",
+    "changeYear": 2020,
+    "changeType": "incorporated",
+    "from": [
+      {
+        "name": "Rennesøy",
+        "number": "1142",
+        "id": "hist-mun-1142-rennesoy"
+      }
+    ],
+    "to": [
+      {
+        "name": "Stavanger",
+        "id": "1103"
+      }
+    ],
+    "notes": "Innlemmet i Stavanger",
+    "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
+  },
+  {
+    "id": "change-municipality-sand-1965-148",
+    "entityType": "municipality",
+    "changeYear": 1965,
+    "changeType": "incorporated",
+    "from": [
+      {
+        "name": "Sand",
+        "number": "1136",
+        "id": "hist-mun-1136-sand"
+      }
+    ],
+    "to": [
+      {
+        "name": "Suldal",
+        "id": "1134"
+      }
+    ],
+    "notes": "Innlemmet i Suldal",
+    "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
+  },
+  {
+    "id": "change-municipality-sandeid-1965-149",
+    "entityType": "municipality",
+    "changeYear": 1965,
+    "changeType": "merged",
+    "from": [
+      {
+        "name": "Sandeid",
+        "number": "1158",
+        "id": "hist-mun-1158-sandeid"
+      }
+    ],
+    "to": [
+      {
+        "name": "Vindafjord",
+        "id": "1160"
+      }
+    ],
+    "notes": "Slått sammen med Imsland , Vikedal , Vats og deler av Skjold",
+    "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
+  },
+  {
+    "id": "change-municipality-sjernaroy-1965-150",
+    "entityType": "municipality",
+    "changeYear": 1965,
+    "changeType": "incorporated",
+    "from": [
+      {
+        "name": "Sjernarøy",
+        "number": "1140",
+        "id": "hist-mun-1140-sjernaroy"
+      }
+    ],
+    "to": [
+      {
+        "name": "Finnøy",
+        "id": "hist-mun-1141-finnoy"
+      }
+    ],
+    "notes": "Innlemmet i Finnøy",
+    "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
+  },
+  {
+    "id": "change-municipality-skudenes-1965-151",
+    "entityType": "municipality",
+    "changeYear": 1965,
+    "changeType": "merged",
+    "from": [
+      {
+        "name": "Skudenes",
+        "number": "1150",
+        "id": "hist-mun-1150-skudenes"
+      }
+    ],
+    "to": [
+      {
+        "name": "Karmøy",
+        "id": "1149"
+      }
+    ],
+    "notes": "Slått sammen med Avaldsnes , Kopervik , Skudeneshavn , Stangaland , Torvastad og Åkra",
+    "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
+  },
+  {
+    "id": "change-municipality-skudeneshavn-1965-152",
+    "entityType": "municipality",
+    "changeYear": 1965,
+    "changeType": "merged",
+    "from": [
+      {
+        "name": "Skudeneshavn",
+        "number": "1104",
+        "id": "hist-mun-1104-skudeneshavn"
+      }
+    ],
+    "to": [
+      {
+        "name": "Karmøy",
+        "id": "1149"
+      }
+    ],
+    "notes": "Slått sammen med Avaldsnes , Kopervik , Skudenes , Stangaland , Torvastad og Åkra",
+    "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
+  },
+  {
+    "id": "change-municipality-skare-1958-153",
+    "entityType": "municipality",
+    "changeYear": 1958,
+    "changeType": "incorporated",
+    "from": [
+      {
+        "name": "Skåre",
+        "number": "1153",
+        "id": "hist-mun-1153-skare"
+      }
+    ],
+    "to": [
+      {
+        "name": "Haugesund",
+        "id": "1106"
+      }
+    ],
+    "notes": "Innlemmet i Haugesund",
+    "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
+  },
+  {
+    "id": "change-municipality-sogndal-1944-154",
+    "entityType": "municipality",
+    "changeYear": 1944,
+    "changeType": "incorporated",
+    "from": [
+      {
+        "name": "Sogndal",
+        "number": "1107",
+        "id": "hist-mun-1107-sogndal"
+      }
+    ],
+    "to": [
+      {
+        "name": "Sokndal",
+        "id": "1111"
+      }
+    ],
+    "notes": "Innlemmet i Sokndal",
+    "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
+  },
+  {
+    "id": "change-municipality-stangaland-1965-155",
+    "entityType": "municipality",
+    "changeYear": 1965,
+    "changeType": "merged",
+    "from": [
+      {
+        "name": "Stangaland",
+        "number": "1148",
+        "id": "hist-mun-1148-stangaland"
+      }
+    ],
+    "to": [
+      {
+        "name": "Karmøy",
+        "id": "1149"
+      }
+    ],
+    "notes": "Slått sammen med Avaldsnes , Kopervik , Skudenes , Skudeneshavn , Torvastad og Åkra",
+    "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
+  },
+  {
+    "id": "change-municipality-torvastad-1965-156",
+    "entityType": "municipality",
+    "changeYear": 1965,
+    "changeType": "merged",
+    "from": [
+      {
+        "name": "Torvastad",
+        "number": "1152",
+        "id": "hist-mun-1152-torvastad"
+      }
+    ],
+    "to": [
+      {
+        "name": "Karmøy",
+        "id": "1149"
+      }
+    ],
+    "notes": "Slått sammen med Avaldsnes , Kopervik , Skudenes , Skudeneshavn , Stangaland og Åkra",
+    "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
+  },
+  {
+    "id": "change-municipality-vats-1965-157",
+    "entityType": "municipality",
+    "changeYear": 1965,
+    "changeType": "merged",
+    "from": [
+      {
+        "name": "Vats",
+        "number": "1155",
+        "id": "hist-mun-1155-vats"
+      }
+    ],
+    "to": [
+      {
+        "name": "Vindafjord",
+        "id": "1160"
+      }
+    ],
+    "notes": "Slått sammen med Imsland , Sandeid , Vikedal og deler av Skjold",
+    "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
+  },
+  {
+    "id": "change-municipality-varhaug-1964-158",
+    "entityType": "municipality",
+    "changeYear": 1964,
+    "changeType": "merged",
+    "from": [
+      {
+        "name": "Varhaug",
+        "number": "1118",
+        "id": "hist-mun-1118-varhaug"
+      }
+    ],
+    "to": [
+      {
+        "name": "Hå",
+        "id": "1119"
+      }
+    ],
+    "notes": "Slått sammen med Nærbø og Ogna",
+    "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
+  },
+  {
+    "id": "change-municipality-vikedal-1965-159",
+    "entityType": "municipality",
+    "changeYear": 1965,
+    "changeType": "merged",
+    "from": [
+      {
+        "name": "Vikedal",
+        "number": "1157",
+        "id": "hist-mun-1157-vikedal"
+      }
+    ],
+    "to": [
+      {
+        "name": "Vindafjord",
+        "id": "1160"
+      }
+    ],
+    "notes": "Slått sammen med Imsland , Sandeid , Vats og deler av Skjold",
+    "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
+  },
+  {
+    "id": "change-municipality-olen-2006-160",
+    "entityType": "municipality",
+    "changeYear": 2006,
+    "changeType": "incorporated",
+    "from": [
+      {
+        "name": "Ølen",
+        "number": "1214",
+        "id": "hist-mun-1214-olen"
+      }
+    ],
+    "to": [
+      {
+        "name": "Vindafjord",
+        "id": "1160"
+      }
+    ],
+    "notes": "Innlemmet i Vindafjord",
+    "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
+  },
+  {
+    "id": "change-municipality-akra-1965-161",
+    "entityType": "municipality",
+    "changeYear": 1965,
+    "changeType": "merged",
+    "from": [
+      {
+        "name": "Åkra",
+        "number": "1149",
+        "id": "hist-mun-1149-akra"
+      }
+    ],
+    "to": [
+      {
+        "name": "Karmøy",
+        "id": "1149"
+      }
+    ],
+    "notes": "Slått sammen med Avaldsnes , Kopervik , Skudenes , Skudeneshavn , Stangaland og Torvastad",
+    "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
+  },
+  {
+    "id": "change-municipality-andorja-1964-162",
+    "entityType": "municipality",
+    "changeYear": 1964,
+    "changeType": "incorporated",
+    "from": [
+      {
+        "name": "Andørja",
+        "number": "1916",
+        "id": "hist-mun-1916-andorja"
+      }
+    ],
+    "to": [
+      {
+        "name": "Ibestad",
+        "id": "5514"
+      }
+    ],
+    "notes": "Innlemmet i Ibestad",
+    "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
+  },
+  {
+    "id": "change-municipality-astafjord-1964-163",
+    "entityType": "municipality",
+    "changeYear": 1964,
+    "changeType": "incorporated",
+    "from": [
+      {
+        "name": "Astafjord",
+        "number": "1918",
+        "id": "hist-mun-1918-astafjord"
+      }
+    ],
+    "to": [
+      {
+        "name": "Skånland",
+        "id": "hist-mun-1913-skanland"
+      }
+    ],
+    "notes": "Innlemmet i Skånland",
+    "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
+  },
+  {
+    "id": "change-municipality-bjarkoy-2013-164",
+    "entityType": "municipality",
+    "changeYear": 2013,
+    "changeType": "incorporated",
+    "from": [
+      {
+        "name": "Bjarkøy",
+        "number": "1915",
+        "id": "hist-mun-1915-bjarkoy"
+      }
+    ],
+    "to": [
+      {
+        "name": "Harstad",
+        "id": "5503"
+      }
+    ],
+    "notes": "Innlemmet i Harstad",
+    "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
+  },
+  {
+    "id": "change-municipality-helgoy-1964-165",
+    "entityType": "municipality",
+    "changeYear": 1964,
+    "changeType": "incorporated",
+    "from": [
+      {
+        "name": "Helgøy",
+        "number": "1935",
+        "id": "hist-mun-1935-helgoy"
+      }
+    ],
+    "to": [
+      {
+        "name": "Karlsøy",
+        "id": "5534"
+      }
+    ],
+    "notes": "Innlemmet i Karlsøy",
+    "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
+  },
+  {
+    "id": "change-municipality-malangen-1964-166",
+    "entityType": "municipality",
+    "changeYear": 1964,
+    "changeType": "incorporated",
+    "from": [
+      {
+        "name": "Malangen",
+        "number": "1932",
+        "id": "hist-mun-1932-malangen"
+      }
+    ],
+    "to": [
+      {
+        "name": "Balsfjord",
+        "id": "5532"
+      }
+    ],
+    "notes": "Innlemmet i Balsfjord",
+    "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
+  },
+  {
+    "id": "change-municipality-sandtorg-1964-167",
+    "entityType": "municipality",
+    "changeYear": 1964,
+    "changeType": "incorporated",
+    "from": [
+      {
+        "name": "Sandtorg",
+        "number": "1912",
+        "id": "hist-mun-1912-sandtorg"
+      }
+    ],
+    "to": [
+      {
+        "name": "Harstad",
+        "id": "5503"
+      }
+    ],
+    "notes": "Innlemmet i Harstad",
+    "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
+  },
+  {
+    "id": "change-municipality-skanland-2020-168",
+    "entityType": "municipality",
+    "changeYear": 2020,
+    "changeType": "merged",
+    "from": [
+      {
+        "name": "Skånland",
+        "number": "1913",
+        "id": "hist-mun-1913-skanland"
+      }
+    ],
+    "to": [
+      {
+        "name": "Tjeldsund",
+        "id": "5512"
+      }
+    ],
+    "notes": "Slått sammen med Tjeldsund",
+    "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
+  },
+  {
+    "id": "change-municipality-tromsoysund-1964-169",
+    "entityType": "municipality",
+    "changeYear": 1964,
+    "changeType": "incorporated",
+    "from": [
+      {
+        "name": "Tromsøysund",
+        "number": "1934",
+        "id": "hist-mun-1934-tromsoysund"
+      }
+    ],
+    "to": [
+      {
+        "name": "Tromsø",
+        "id": "5501"
+      }
+    ],
+    "notes": "Innlemmet i Tromsø",
+    "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
+  },
+  {
+    "id": "change-municipality-trondenes-1964-170",
+    "entityType": "municipality",
+    "changeYear": 1964,
+    "changeType": "incorporated",
+    "from": [
+      {
+        "name": "Trondenes",
+        "number": "1914",
+        "id": "hist-mun-1914-trondenes"
+      }
+    ],
+    "to": [
+      {
+        "name": "Harstad",
+        "id": "5503"
+      }
+    ],
+    "notes": "Innlemmet i Harstad",
+    "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
+  },
+  {
+    "id": "change-municipality-ullsfjord-1964-171",
+    "entityType": "municipality",
+    "changeYear": 1964,
+    "changeType": "incorporated",
+    "from": [
+      {
+        "name": "Ullsfjord",
+        "number": "1937",
+        "id": "hist-mun-1937-ullsfjord"
+      }
+    ],
+    "to": [
+      {
+        "name": "Tromsø",
+        "id": "5501"
+      }
+    ],
+    "notes": "Innlemmet i Tromsø",
+    "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
+  },
+  {
+    "id": "change-municipality-overbygd-1964-172",
+    "entityType": "municipality",
+    "changeYear": 1964,
+    "changeType": "incorporated",
+    "from": [
+      {
+        "name": "Øverbygd",
+        "number": "1923",
+        "id": "hist-mun-1923-overbygd"
+      }
+    ],
+    "to": [
+      {
+        "name": "Målselv",
+        "id": "5524"
+      }
+    ],
+    "notes": "Innlemmet i Målselv",
+    "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
+  },
+  {
+    "id": "change-municipality-alta-talvik-1863-173",
+    "entityType": "municipality",
+    "changeYear": 1863,
+    "changeType": "split",
+    "from": [
+      {
+        "name": "Alta-Talvik",
+        "number": "2012",
+        "id": "hist-mun-2012-alta-talvik"
+      }
+    ],
+    "to": [
+      {
+        "name": "Alta",
+        "id": "5601"
+      },
+      {
+        "name": "Talvik",
+        "id": "hist-mun-2013-talvik"
+      }
+    ],
+    "notes": "Delt i to",
+    "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
+  },
+  {
+    "id": "change-municipality-kvalsund-2020-174",
+    "entityType": "municipality",
+    "changeYear": 2020,
+    "changeType": "incorporated",
+    "from": [
+      {
+        "name": "Kvalsund",
+        "number": "2017",
+        "id": "hist-mun-2017-kvalsund"
+      }
+    ],
+    "to": [
+      {
+        "name": "Hammerfest",
+        "id": "5603"
+      }
+    ],
+    "notes": "Innlemmet i Hammerfest",
+    "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
+  },
+  {
+    "id": "change-municipality-nord-varanger-1964-175",
+    "entityType": "municipality",
+    "changeYear": 1964,
+    "changeType": "incorporated",
+    "from": [
+      {
+        "name": "Nord-Varanger",
+        "number": "2029",
+        "id": "hist-mun-2029-nord-varanger"
+      }
+    ],
+    "to": [
+      {
+        "name": "Vadsø",
+        "id": "5607"
+      }
+    ],
+    "notes": "Innlemmet i Vadsø",
+    "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
+  },
+  {
+    "id": "change-municipality-polmak-1964-176",
+    "entityType": "municipality",
+    "changeYear": 1964,
+    "changeType": "incorporated",
+    "from": [
+      {
+        "name": "Polmak",
+        "number": "2026",
+        "id": "hist-mun-2026-polmak"
+      }
+    ],
+    "to": [
+      {
+        "name": "Tana",
+        "id": "5628"
+      }
+    ],
+    "notes": "Innlemmet i Tana",
+    "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
+  },
+  {
+    "id": "change-municipality-talvik-1964-177",
+    "entityType": "municipality",
+    "changeYear": 1964,
+    "changeType": "incorporated",
+    "from": [
+      {
+        "name": "Talvik",
+        "number": "2013",
+        "id": "hist-mun-2013-talvik"
+      }
+    ],
+    "to": [
+      {
+        "name": "Alta",
+        "id": "5601"
+      }
+    ],
+    "notes": "Innlemmet i Alta",
+    "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
+  },
+  {
+    "id": "change-municipality-andebu-2017-178",
+    "entityType": "municipality",
+    "changeYear": 2017,
+    "changeType": "merged",
+    "from": [
+      {
+        "name": "Andebu",
+        "number": "0719",
+        "id": "hist-mun-0719-andebu"
+      }
+    ],
+    "to": [
+      {
+        "name": "Sandefjord",
+        "id": "3907"
+      }
+    ],
+    "notes": "Slått sammen med Stokke og Sandefjord",
+    "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
+  },
+  {
+    "id": "change-municipality-borre-2002-179",
+    "entityType": "municipality",
+    "changeYear": 2002,
+    "changeType": "renamed",
+    "from": [
+      {
+        "name": "Borre",
+        "number": "0717",
+        "id": "hist-mun-0717-borre"
+      }
+    ],
+    "to": [
+      {
+        "name": "Horten",
+        "id": "3901"
+      }
+    ],
+    "notes": "Slått sammen med Horten til Borre , ble senere i 2002 endret tilbake til Horten",
+    "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
+  },
+  {
+    "id": "change-municipality-botne-1964-180",
+    "entityType": "municipality",
+    "changeYear": 1964,
+    "changeType": "incorporated",
+    "from": [
+      {
+        "name": "Botne",
+        "number": "0715",
+        "id": "hist-mun-0715-botne"
+      }
+    ],
+    "to": [
+      {
+        "name": "Holmestrand",
+        "id": "3903"
+      }
+    ],
+    "notes": "Innlemmet i Holmestrand",
+    "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
+  },
+  {
+    "id": "change-municipality-brunlanes-1988-181",
+    "entityType": "municipality",
+    "changeYear": 1988,
+    "changeType": "incorporated",
+    "from": [
+      {
+        "name": "Brunlanes",
+        "number": "0726",
+        "id": "hist-mun-0726-brunlanes"
+      }
+    ],
+    "to": [
+      {
+        "name": "Larvik",
+        "id": "3909"
+      }
+    ],
+    "notes": "Innlemmet i Larvik",
+    "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
+  },
+  {
+    "id": "change-municipality-hedrum-1988-182",
+    "entityType": "municipality",
+    "changeYear": 1988,
+    "changeType": "incorporated",
+    "from": [
+      {
+        "name": "Hedrum",
+        "number": "0727",
+        "id": "hist-mun-0727-hedrum"
+      }
+    ],
+    "to": [
+      {
+        "name": "Larvik",
+        "id": "3909"
+      }
+    ],
+    "notes": "Innlemmet i Larvik",
+    "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
+  },
+  {
+    "id": "change-municipality-hof-2018-183",
+    "entityType": "municipality",
+    "changeYear": 2018,
+    "changeType": "merged",
+    "from": [
+      {
+        "name": "Hof",
+        "number": "0714",
+        "id": "hist-mun-0714-hof"
+      }
+    ],
+    "to": [
+      {
+        "name": "Holmestrand",
+        "id": "3903"
+      }
+    ],
+    "notes": "Slått sammen med Holmestrand",
+    "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
+  },
+  {
+    "id": "change-municipality-lardal-2018-184",
+    "entityType": "municipality",
+    "changeYear": 2018,
+    "changeType": "incorporated",
+    "from": [
+      {
+        "name": "Lardal",
+        "number": "0728",
+        "id": "hist-mun-0728-lardal"
+      }
+    ],
+    "to": [
+      {
+        "name": "Larvik",
+        "id": "3909"
+      }
+    ],
+    "notes": "Innlemmet i Larvik",
+    "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
+  },
+  {
+    "id": "change-municipality-notteroy-2018-185",
+    "entityType": "municipality",
+    "changeYear": 2018,
+    "changeType": "merged",
+    "from": [
+      {
+        "name": "Nøtterøy",
+        "number": "0722",
+        "id": "hist-mun-0722-notteroy"
+      }
+    ],
+    "to": [
+      {
+        "name": "Færder",
+        "id": "3911"
+      }
+    ],
+    "notes": "Slått sammen med Tjøme",
+    "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
+  },
+  {
+    "id": "change-municipality-ramnes-2002-186",
+    "entityType": "municipality",
+    "changeYear": 2002,
+    "changeType": "merged",
+    "from": [
+      {
+        "name": "Ramnes",
+        "number": "0718",
+        "id": "hist-mun-0718-ramnes"
+      }
+    ],
+    "to": [
+      {
+        "name": "Re",
+        "id": "hist-mun-0716-re"
+      }
+    ],
+    "notes": "Slått sammen med Våle",
+    "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
+  },
+  {
+    "id": "change-municipality-re-2020-187",
+    "entityType": "municipality",
+    "changeYear": 2020,
+    "changeType": "incorporated",
+    "from": [
+      {
+        "name": "Re",
+        "number": "0716",
+        "id": "hist-mun-0716-re"
+      }
+    ],
+    "to": [
+      {
+        "name": "Tønsberg",
+        "id": "3905"
+      }
+    ],
+    "notes": "Innlemmet i Tønsberg",
+    "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
+  },
+  {
+    "id": "change-municipality-sandar-1968-188",
+    "entityType": "municipality",
+    "changeYear": 1968,
+    "changeType": "incorporated",
+    "from": [
+      {
+        "name": "Sandar",
+        "number": "0724",
+        "id": "hist-mun-0724-sandar"
+      }
+    ],
+    "to": [
+      {
+        "name": "Sandefjord",
+        "id": "3907"
+      }
+    ],
+    "notes": "Innlemmet i Sandefjord",
+    "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
+  },
+  {
+    "id": "change-municipality-sande-2020-189",
+    "entityType": "municipality",
+    "changeYear": 2020,
+    "changeType": "incorporated",
+    "from": [
+      {
+        "name": "Sande",
+        "number": "0713",
+        "id": "hist-mun-0713-sande"
+      }
+    ],
+    "to": [
+      {
+        "name": "Holmestrand",
+        "id": "3903"
+      }
+    ],
+    "notes": "Innlemmet i Holmestrand",
+    "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
+  },
+  {
+    "id": "change-municipality-sem-1988-190",
+    "entityType": "municipality",
+    "changeYear": 1988,
+    "changeType": "incorporated",
+    "from": [
+      {
+        "name": "Sem",
+        "number": "0721",
+        "id": "hist-mun-0721-sem"
+      }
+    ],
+    "to": [
+      {
+        "name": "Tønsberg",
+        "id": "3905"
+      }
+    ],
+    "notes": "Innlemmet i Tønsberg",
+    "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
+  },
+  {
+    "id": "change-municipality-skoger-1964-191",
+    "entityType": "municipality",
+    "changeYear": 1964,
+    "changeType": "incorporated",
+    "from": [
+      {
+        "name": "Skoger",
+        "number": "0712",
+        "id": "hist-mun-0712-skoger"
+      }
+    ],
+    "to": [
+      {
+        "name": "Drammen",
+        "id": "3301"
+      }
+    ],
+    "notes": "Innlemmet i Drammen",
+    "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
+  },
+  {
+    "id": "change-municipality-stavern-1988-192",
+    "entityType": "municipality",
+    "changeYear": 1988,
+    "changeType": "incorporated",
+    "from": [
+      {
+        "name": "Stavern",
+        "number": "0708",
+        "id": "hist-mun-0708-stavern"
+      }
+    ],
+    "to": [
+      {
+        "name": "Larvik",
+        "id": "3909"
+      }
+    ],
+    "notes": "Innlemmet i Larvik",
+    "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
+  },
+  {
+    "id": "change-municipality-stokke-2017-193",
+    "entityType": "municipality",
+    "changeYear": 2017,
+    "changeType": "merged",
+    "from": [
+      {
+        "name": "Stokke",
+        "number": "0720",
+        "id": "hist-mun-0720-stokke"
+      }
+    ],
+    "to": [
+      {
+        "name": "Sandefjord",
+        "id": "3907"
+      }
+    ],
+    "notes": "Slått sammen med Andebu og Sandefjord",
+    "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
+  },
+  {
+    "id": "change-municipality-stromm-1964-194",
+    "entityType": "municipality",
+    "changeYear": 1964,
+    "changeType": "incorporated",
+    "from": [
+      {
+        "name": "Strømm",
+        "number": "0711",
+        "id": "hist-mun-0711-stromm"
+      }
+    ],
+    "to": [
+      {
+        "name": "Svelvik",
+        "id": "hist-mun-0711-svelvik"
+      }
+    ],
+    "notes": "Innlemmet i Svelvik",
+    "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
+  },
+  {
+    "id": "change-municipality-svelvik-2020-195",
+    "entityType": "municipality",
+    "changeYear": 2020,
+    "changeType": "merged",
+    "from": [
+      {
+        "name": "Svelvik",
+        "number": "0711",
+        "id": "hist-mun-0711-svelvik"
+      }
+    ],
+    "to": [
+      {
+        "name": "Drammen",
+        "id": "3301"
+      }
+    ],
+    "notes": "Slått sammen med Nedre Eiker og Drammen",
+    "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
+  },
+  {
+    "id": "change-municipality-tjolling-1988-196",
+    "entityType": "municipality",
+    "changeYear": 1988,
+    "changeType": "incorporated",
+    "from": [
+      {
+        "name": "Tjølling",
+        "number": "0725",
+        "id": "hist-mun-0725-tjolling"
+      }
+    ],
+    "to": [
+      {
+        "name": "Larvik",
+        "id": "3909"
+      }
+    ],
+    "notes": "Innlemmet i Larvik",
+    "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
+  },
+  {
+    "id": "change-municipality-tjome-2018-197",
+    "entityType": "municipality",
+    "changeYear": 2018,
+    "changeType": "merged",
+    "from": [
+      {
+        "name": "Tjøme",
+        "number": "0723",
+        "id": "hist-mun-0723-tjome"
+      }
+    ],
+    "to": [
+      {
+        "name": "Færder",
+        "id": "3911"
+      }
+    ],
+    "notes": "Slått sammen med Nøtterøy",
+    "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
+  },
+  {
+    "id": "change-municipality-vale-2002-198",
+    "entityType": "municipality",
+    "changeYear": 2002,
+    "changeType": "merged",
+    "from": [
+      {
+        "name": "Våle",
+        "number": "0716",
+        "id": "hist-mun-0716-vale"
+      }
+    ],
+    "to": [
+      {
+        "name": "Re",
+        "id": "hist-mun-0716-re"
+      }
+    ],
+    "notes": "Slått sammen med Ramnes",
+    "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
+  },
+  {
+    "id": "change-municipality-asgardstrand-1965-199",
+    "entityType": "municipality",
+    "changeYear": 1965,
+    "changeType": "incorporated",
+    "from": [
+      {
+        "name": "Åsgårdstrand",
+        "number": "0704",
+        "id": "hist-mun-0704-asgardstrand"
+      }
+    ],
+    "to": [
+      {
+        "name": "Borre",
+        "id": "hist-mun-0717-borre"
+      }
+    ],
+    "notes": "Innlemmet i Borre",
+    "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
+  },
+  {
+    "id": "change-municipality-brevik-1964-200",
+    "entityType": "municipality",
+    "changeYear": 1964,
+    "changeType": "incorporated",
+    "from": [
+      {
+        "name": "Brevik",
+        "number": "0804",
+        "id": "hist-mun-0804-brevik"
+      }
+    ],
+    "to": [
+      {
+        "name": "Porsgrunn",
+        "id": "4001"
+      }
+    ],
+    "notes": "Innlemmet i Porsgrunn",
+    "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
+  },
+  {
+    "id": "change-municipality-bo-i-telemark-2020-201",
+    "entityType": "municipality",
+    "changeYear": 2020,
+    "changeType": "merged",
+    "from": [
+      {
+        "name": "Bø i Telemark",
+        "number": "0821",
+        "id": "hist-mun-0821-bo-i-telemark"
+      }
+    ],
+    "to": [
+      {
+        "name": "Midt-Telemark kommune"
+      }
+    ],
+    "notes": "Slått sammen med Sauherad",
+    "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
+  },
+  {
+    "id": "change-municipality-eidanger-1964-202",
+    "entityType": "municipality",
+    "changeYear": 1964,
+    "changeType": "incorporated",
+    "from": [
+      {
+        "name": "Eidanger",
+        "number": "0813",
+        "id": "hist-mun-0813-eidanger"
+      }
+    ],
+    "to": [
+      {
+        "name": "Porsgrunn",
+        "id": "4001"
+      }
+    ],
+    "notes": "Innlemmet i Porsgrunn",
+    "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
+  },
+  {
+    "id": "change-municipality-gjerpen-1964-203",
+    "entityType": "municipality",
+    "changeYear": 1964,
+    "changeType": "incorporated",
+    "from": [
+      {
+        "name": "Gjerpen",
+        "number": "0812",
+        "id": "hist-mun-0812-gjerpen"
+      }
+    ],
+    "to": [
+      {
+        "name": "Skien",
+        "id": "4003"
+      }
+    ],
+    "notes": "Innlemmet i Skien",
+    "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
+  },
+  {
+    "id": "change-municipality-gransherad-1964-204",
+    "entityType": "municipality",
+    "changeYear": 1964,
+    "changeType": "incorporated",
+    "from": [
+      {
+        "name": "Gransherad",
+        "number": "0824",
+        "id": "hist-mun-0824-gransherad"
+      }
+    ],
+    "to": [
+      {
+        "name": "Notodden",
+        "id": "4005"
+      }
+    ],
+    "notes": "Innlemmet i Notodden",
+    "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
+  },
+  {
+    "id": "change-municipality-heddal-1964-205",
+    "entityType": "municipality",
+    "changeYear": 1964,
+    "changeType": "incorporated",
+    "from": [
+      {
+        "name": "Heddal",
+        "number": "0823",
+        "id": "hist-mun-0823-heddal"
+      }
+    ],
+    "to": [
+      {
+        "name": "Notodden",
+        "id": "4005"
+      }
+    ],
+    "notes": "Innlemmet i Notodden",
+    "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
+  },
+  {
+    "id": "change-municipality-holla-1964-206",
+    "entityType": "municipality",
+    "changeYear": 1964,
+    "changeType": "merged",
+    "from": [
+      {
+        "name": "Holla",
+        "number": "0819",
+        "id": "hist-mun-0819-holla"
+      }
+    ],
+    "to": [
+      {
+        "name": "Nome",
+        "id": "4018"
+      }
+    ],
+    "notes": "Slått sammen med Lunde",
+    "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
+  },
+  {
+    "id": "change-municipality-hovin-1964-207",
+    "entityType": "municipality",
+    "changeYear": 1964,
+    "changeType": "incorporated",
+    "from": [
+      {
+        "name": "Hovin",
+        "number": "0825",
+        "id": "hist-mun-0825-hovin"
+      }
+    ],
+    "to": [
+      {
+        "name": "Tinn",
+        "id": "4026"
+      }
+    ],
+    "notes": "Innlemmet i Tinn",
+    "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
+  },
+  {
+    "id": "change-municipality-langesund-1964-208",
+    "entityType": "municipality",
+    "changeYear": 1964,
+    "changeType": "incorporated",
+    "from": [
+      {
+        "name": "Langesund",
+        "number": "0802",
+        "id": "hist-mun-0802-langesund"
+      }
+    ],
+    "to": [
+      {
+        "name": "Bamble",
+        "id": "4012"
+      }
+    ],
+    "notes": "Innlemmet i Bamble",
+    "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
+  },
+  {
+    "id": "change-municipality-lunde-1964-209",
+    "entityType": "municipality",
+    "changeYear": 1964,
+    "changeType": "merged",
+    "from": [
+      {
+        "name": "Lunde",
+        "number": "0820",
+        "id": "hist-mun-0820-lunde"
+      }
+    ],
+    "to": [
+      {
+        "name": "Nome",
+        "id": "4018"
+      }
+    ],
+    "notes": "Slått sammen med Holla",
+    "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
+  },
+  {
+    "id": "change-municipality-lardal-1964-210",
+    "entityType": "municipality",
+    "changeYear": 1964,
+    "changeType": "merged",
+    "from": [
+      {
+        "name": "Lårdal",
+        "number": "0833",
+        "id": "hist-mun-0833-lardal"
+      }
+    ],
+    "to": [
+      {
+        "name": "Tokke",
+        "id": "4034"
+      }
+    ],
+    "notes": "Slått sammen med Mo",
+    "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
+  },
+  {
+    "id": "change-municipality-mo-1964-211",
+    "entityType": "municipality",
+    "changeYear": 1964,
+    "changeType": "merged",
+    "from": [
+      {
+        "name": "Mo",
+        "number": "0832",
+        "id": "hist-mun-0832-mo"
+      }
+    ],
+    "to": [
+      {
+        "name": "Tokke",
+        "id": "4034"
+      }
+    ],
+    "notes": "Slått sammen med Lårdal",
+    "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
+  },
+  {
+    "id": "change-municipality-rauland-1964-212",
+    "entityType": "municipality",
+    "changeYear": 1964,
+    "changeType": "incorporated",
+    "from": [
+      {
+        "name": "Rauland",
+        "number": "0835",
+        "id": "hist-mun-0835-rauland"
+      }
+    ],
+    "to": [
+      {
+        "name": "Vinje",
+        "id": "4036"
+      }
+    ],
+    "notes": "Innlemmet i Vinje",
+    "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
+  },
+  {
+    "id": "change-municipality-sannidal-1960-213",
+    "entityType": "municipality",
+    "changeYear": 1960,
+    "changeType": "incorporated",
+    "from": [
+      {
+        "name": "Sannidal",
+        "number": "0816",
+        "id": "hist-mun-0816-sannidal"
+      }
+    ],
+    "to": [
+      {
+        "name": "Kragerø",
+        "id": "4014"
+      }
+    ],
+    "notes": "Innlemmet i Kragerø",
+    "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
+  },
+  {
+    "id": "change-municipality-sauherad-2020-214",
+    "entityType": "municipality",
+    "changeYear": 2020,
+    "changeType": "merged",
+    "from": [
+      {
+        "name": "Sauherad",
+        "number": "0822",
+        "id": "hist-mun-0822-sauherad"
+      }
+    ],
+    "to": [
+      {
+        "name": "Midt-Telemark kommune"
+      }
+    ],
+    "notes": "Slått sammen med Bø i Telemark",
+    "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
+  },
+  {
+    "id": "change-municipality-skatoy-1960-215",
+    "entityType": "municipality",
+    "changeYear": 1960,
+    "changeType": "incorporated",
+    "from": [
+      {
+        "name": "Skåtøy",
+        "number": "0815",
+        "id": "hist-mun-0815-skatoy"
+      }
+    ],
+    "to": [
+      {
+        "name": "Kragerø",
+        "id": "4014"
+      }
+    ],
+    "notes": "Innlemmet i Kragerø",
+    "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
+  },
+  {
+    "id": "change-municipality-solum-1964-216",
+    "entityType": "municipality",
+    "changeYear": 1964,
+    "changeType": "incorporated",
+    "from": [
+      {
+        "name": "Solum",
+        "number": "0818",
+        "id": "hist-mun-0818-solum"
+      }
+    ],
+    "to": [
+      {
+        "name": "Skien",
+        "id": "4003"
+      }
+    ],
+    "notes": "Innlemmet i Skien",
+    "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
+  },
+  {
+    "id": "change-municipality-stathelle-1964-217",
+    "entityType": "municipality",
+    "changeYear": 1964,
+    "changeType": "incorporated",
+    "from": [
+      {
+        "name": "Stathelle",
+        "number": "0803",
+        "id": "hist-mun-0803-stathelle"
+      }
+    ],
+    "to": [
+      {
+        "name": "Bamble",
+        "id": "4012"
+      }
+    ],
+    "notes": "Innlemmet i Bamble",
+    "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
+  },
+  {
+    "id": "change-municipality-alversund-1964-218",
+    "entityType": "municipality",
+    "changeYear": 1964,
+    "changeType": "incorporated",
+    "from": [
+      {
+        "name": "Alversund",
+        "number": "1257",
+        "id": "hist-mun-1257-alversund"
+      }
+    ],
+    "to": [
+      {
+        "name": "Lindås",
+        "id": "hist-mun-1263-lindas"
+      }
+    ],
+    "notes": "Innlemmet i Lindås",
+    "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
+  },
+  {
+    "id": "change-municipality-arna-1972-219",
+    "entityType": "municipality",
+    "changeYear": 1972,
+    "changeType": "incorporated",
+    "from": [
+      {
+        "name": "Arna",
+        "number": "1250",
+        "id": "hist-mun-1250-arna"
+      }
+    ],
+    "to": [
+      {
+        "name": "Bergen",
+        "id": "4601"
+      }
+    ],
+    "notes": "Innlemmet i Bergen",
+    "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
+  },
+  {
+    "id": "change-municipality-bergen-landdistrikt-1877-220",
+    "entityType": "municipality",
+    "changeYear": 1877,
+    "changeType": "incorporated",
+    "from": [
+      {
+        "name": "Bergen landdistrikt",
+        "number": "1281",
+        "id": "hist-mun-1281-bergen-landdistrikt"
+      }
+    ],
+    "to": [
+      {
+        "name": "Bergen",
+        "id": "4601"
+      }
+    ],
+    "notes": "Innlemmet i Bergen",
+    "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
+  },
+  {
+    "id": "change-municipality-bremnes-1964-221",
+    "entityType": "municipality",
+    "changeYear": 1964,
+    "changeType": "incorporated",
+    "from": [
+      {
+        "name": "Bremnes",
+        "number": "1220",
+        "id": "hist-mun-1220-bremnes"
+      }
+    ],
+    "to": [
+      {
+        "name": "Bømlo",
+        "id": "4613"
+      }
+    ],
+    "notes": "Innlemmet i Bømlo",
+    "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
+  },
+  {
+    "id": "change-municipality-eid-1855-222",
+    "entityType": "municipality",
+    "changeYear": 1855,
+    "changeType": "incorporated",
+    "from": [
+      {
+        "name": "Eid",
+        "number": "1282",
+        "id": "hist-mun-1282-eid"
+      }
+    ],
+    "to": [
+      {
+        "name": "Fjelberg",
+        "id": "hist-mun-1213-fjelberg"
+      }
+    ],
+    "notes": "Innlemmet i Fjelberg",
+    "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
+  },
+  {
+    "id": "change-municipality-fana-1972-223",
+    "entityType": "municipality",
+    "changeYear": 1972,
+    "changeType": "incorporated",
+    "from": [
+      {
+        "name": "Fana",
+        "number": "1249",
+        "id": "hist-mun-1249-fana"
+      }
+    ],
+    "to": [
+      {
+        "name": "Bergen",
+        "id": "4601"
+      }
+    ],
+    "notes": "Innlemmet i Bergen",
+    "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
+  },
+  {
+    "id": "change-municipality-finnas-1916-224",
+    "entityType": "municipality",
+    "changeYear": 1916,
+    "changeType": "split",
+    "from": [
+      {
+        "name": "Finnås",
+        "number": "1218",
+        "id": "hist-mun-1218-finnas"
+      }
+    ],
+    "to": [
+      {
+        "name": "Bremnes",
+        "id": "hist-mun-1220-bremnes"
+      },
+      {
+        "name": "Bømlo",
+        "id": "4613"
+      },
+      {
+        "name": "Moster",
+        "id": "hist-mun-1218-moster"
+      }
+    ],
+    "notes": "Delt i tre",
+    "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
+  },
+  {
+    "id": "change-municipality-fjelberg-1965-225",
+    "entityType": "municipality",
+    "changeYear": 1965,
+    "changeType": "incorporated",
+    "from": [
+      {
+        "name": "Fjelberg",
+        "number": "1213",
+        "id": "hist-mun-1213-fjelberg"
+      }
+    ],
+    "to": [
+      {
+        "name": "Kvinnherad",
+        "id": "4617"
+      }
+    ],
+    "notes": "Innlemmet i Kvinnherad",
+    "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
+  },
+  {
+    "id": "change-municipality-fjell-2020-226",
+    "entityType": "municipality",
+    "changeYear": 2020,
+    "changeType": "merged",
+    "from": [
+      {
+        "name": "Fjell",
+        "number": "1246",
+        "id": "hist-mun-1246-fjell"
+      }
+    ],
+    "to": [
+      {
+        "name": "Øygarden",
+        "id": "4626"
+      }
+    ],
+    "notes": "Slått sammen med Sund og Øygarden",
+    "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
+  },
+  {
+    "id": "change-municipality-fusa-2020-227",
+    "entityType": "municipality",
+    "changeYear": 2020,
+    "changeType": "merged",
+    "from": [
+      {
+        "name": "Fusa",
+        "number": "1241",
+        "id": "hist-mun-1241-fusa"
+      }
+    ],
+    "to": [
+      {
+        "name": "Bjørnafjorden",
+        "id": "4624"
+      }
+    ],
+    "notes": "Slått sammen med Os",
+    "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
+  },
+  {
+    "id": "change-municipality-granvin-2020-228",
+    "entityType": "municipality",
+    "changeYear": 2020,
+    "changeType": "merged",
+    "from": [
+      {
+        "name": "Granvin",
+        "number": "1234",
+        "id": "hist-mun-1234-granvin"
+      }
+    ],
+    "to": [
+      {
+        "name": "Voss",
+        "id": "4621"
+      }
+    ],
+    "notes": "Slått sammen med Voss",
+    "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
+  },
+  {
+    "id": "change-municipality-hjelme-1964-229",
+    "entityType": "municipality",
+    "changeYear": 1964,
+    "changeType": "merged",
+    "from": [
+      {
+        "name": "Hjelme",
+        "number": "1259",
+        "id": "hist-mun-1259-hjelme"
+      }
+    ],
+    "to": [
+      {
+        "name": "Øygarden",
+        "id": "4626"
+      }
+    ],
+    "notes": "Slått sammen med Herdla",
+    "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
+  },
+  {
+    "id": "change-municipality-hordabo-1964-230",
+    "entityType": "municipality",
+    "changeYear": 1964,
+    "changeType": "merged",
+    "from": [
+      {
+        "name": "Hordabø",
+        "number": "1260",
+        "id": "hist-mun-1260-hordabo"
+      }
+    ],
+    "to": [
+      {
+        "name": "Radøy",
+        "id": "hist-mun-1260-radoy"
+      }
+    ],
+    "notes": "Slått sammen med Manger , Sæbø og deler av Austrheim , Herdla og Lindås",
+    "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
+  },
+  {
+    "id": "change-municipality-halandsdal-1964-231",
+    "entityType": "municipality",
+    "changeYear": 1964,
+    "changeType": "incorporated",
+    "from": [
+      {
+        "name": "Hålandsdal",
+        "number": "1239",
+        "id": "hist-mun-1239-halandsdal"
+      }
+    ],
+    "to": [
+      {
+        "name": "Fusa",
+        "id": "hist-mun-1241-fusa"
+      }
+    ],
+    "notes": "Innlemmet i Fusa",
+    "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
+  },
+  {
+    "id": "change-municipality-jondal-2020-232",
+    "entityType": "municipality",
+    "changeYear": 2020,
+    "changeType": "merged",
+    "from": [
+      {
+        "name": "Jondal",
+        "number": "1227",
+        "id": "hist-mun-1227-jondal"
+      }
+    ],
+    "to": [
+      {
+        "name": "Ullensvang",
+        "id": "4618"
+      }
+    ],
+    "notes": "Slått sammen med Ullensvang og Odda",
+    "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
+  },
+  {
+    "id": "change-municipality-kinsarvik-1964-233",
+    "entityType": "municipality",
+    "changeYear": 1964,
+    "changeType": "incorporated",
+    "from": [
+      {
+        "name": "Kinsarvik",
+        "number": "1231",
+        "id": "hist-mun-1231-kinsarvik"
+      }
+    ],
+    "to": [
+      {
+        "name": "Ullensvang",
+        "id": "4618"
+      }
+    ],
+    "notes": "Innlemmet i Ullensvang",
+    "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
+  },
+  {
+    "id": "change-municipality-laksevag-1972-234",
+    "entityType": "municipality",
+    "changeYear": 1972,
+    "changeType": "incorporated",
+    "from": [
+      {
+        "name": "Laksevåg",
+        "number": "1248",
+        "id": "hist-mun-1248-laksevag"
+      }
+    ],
+    "to": [
+      {
+        "name": "Bergen",
+        "id": "4601"
+      }
+    ],
+    "notes": "Innlemmet i Bergen",
+    "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
+  },
+  {
+    "id": "change-municipality-lindas-2020-235",
+    "entityType": "municipality",
+    "changeYear": 2020,
+    "changeType": "merged",
+    "from": [
+      {
+        "name": "Lindås",
+        "number": "1263",
+        "id": "hist-mun-1263-lindas"
+      }
+    ],
+    "to": [
+      {
+        "name": "Alver",
+        "id": "4631"
+      }
+    ],
+    "notes": "Slått sammen med Meland og Radøy",
+    "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
+  },
+  {
+    "id": "change-municipality-manger-1964-236",
+    "entityType": "municipality",
+    "changeYear": 1964,
+    "changeType": "merged",
+    "from": [
+      {
+        "name": "Manger",
+        "number": "1261",
+        "id": "hist-mun-1261-manger"
+      }
+    ],
+    "to": [
+      {
+        "name": "Radøy",
+        "id": "hist-mun-1260-radoy"
+      }
+    ],
+    "notes": "Slått sammen med Hordabø , Sæbø og deler av Austrheim , Herdla og Lindås",
+    "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
+  },
+  {
+    "id": "change-municipality-meland-2020-237",
+    "entityType": "municipality",
+    "changeYear": 2020,
+    "changeType": "merged",
+    "from": [
+      {
+        "name": "Meland",
+        "number": "1256",
+        "id": "hist-mun-1256-meland"
+      }
+    ],
+    "to": [
+      {
+        "name": "Alver",
+        "id": "4631"
+      }
+    ],
+    "notes": "Slått sammen med Lindås og Radøy",
+    "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
+  },
+  {
+    "id": "change-municipality-moster-1964-238",
+    "entityType": "municipality",
+    "changeYear": 1964,
+    "changeType": "incorporated",
+    "from": [
+      {
+        "name": "Moster",
+        "number": "1218",
+        "id": "hist-mun-1218-moster"
+      }
+    ],
+    "to": [
+      {
+        "name": "Bømlo",
+        "id": "4613"
+      }
+    ],
+    "notes": "Innlemmet i Bømlo",
+    "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
+  },
+  {
+    "id": "change-municipality-odda-2020-239",
+    "entityType": "municipality",
+    "changeYear": 2020,
+    "changeType": "merged",
+    "from": [
+      {
+        "name": "Odda",
+        "number": "1228",
+        "id": "hist-mun-1228-odda"
+      }
+    ],
+    "to": [
+      {
+        "name": "Ullensvang",
+        "id": "4618"
+      }
+    ],
+    "notes": "Slått sammen med Ullensvang og Jondal",
+    "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
+  },
+  {
+    "id": "change-municipality-os-2020-240",
+    "entityType": "municipality",
+    "changeYear": 2020,
+    "changeType": "merged",
+    "from": [
+      {
+        "name": "Os",
+        "number": "1243",
+        "id": "hist-mun-1243-os"
+      }
+    ],
+    "to": [
+      {
+        "name": "Bjørnafjorden",
+        "id": "4624"
+      }
+    ],
+    "notes": "Slått sammen med Fusa",
+    "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
+  },
+  {
+    "id": "change-municipality-radoy-2020-241",
+    "entityType": "municipality",
+    "changeYear": 2020,
+    "changeType": "merged",
+    "from": [
+      {
+        "name": "Radøy",
+        "number": "1260",
+        "id": "hist-mun-1260-radoy"
+      }
+    ],
+    "to": [
+      {
+        "name": "Alver",
+        "id": "4631"
+      }
+    ],
+    "notes": "Slått sammen med Lindås og Meland",
+    "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
+  },
+  {
+    "id": "change-municipality-roldal-1964-242",
+    "entityType": "municipality",
+    "changeYear": 1964,
+    "changeType": "incorporated",
+    "from": [
+      {
+        "name": "Røldal",
+        "number": "1229",
+        "id": "hist-mun-1229-roldal"
+      }
+    ],
+    "to": [
+      {
+        "name": "Odda",
+        "id": "hist-mun-1228-odda"
+      }
+    ],
+    "notes": "Innlemmet i Odda",
+    "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
+  },
+  {
+    "id": "change-municipality-strandebarm-1965-243",
+    "entityType": "municipality",
+    "changeYear": 1965,
+    "changeType": "incorporated",
+    "from": [
+      {
+        "name": "Strandebarm",
+        "number": "1226",
+        "id": "hist-mun-1226-strandebarm"
+      }
+    ],
+    "to": [
+      {
+        "name": "Kvam",
+        "id": "4622"
+      }
+    ],
+    "notes": "Innlemmet i Kvam",
+    "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
+  },
+  {
+    "id": "change-municipality-strandvik-1964-244",
+    "entityType": "municipality",
+    "changeYear": 1964,
+    "changeType": "incorporated",
+    "from": [
+      {
+        "name": "Strandvik",
+        "number": "1240",
+        "id": "hist-mun-1240-strandvik"
+      }
+    ],
+    "to": [
+      {
+        "name": "Fusa",
+        "id": "hist-mun-1241-fusa"
+      }
+    ],
+    "notes": "Innlemmet i Fusa",
+    "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
+  },
+  {
+    "id": "change-municipality-sund-2020-245",
+    "entityType": "municipality",
+    "changeYear": 2020,
+    "changeType": "merged",
+    "from": [
+      {
+        "name": "Sund",
+        "number": "1245",
+        "id": "hist-mun-1245-sund"
+      }
+    ],
+    "to": [
+      {
+        "name": "Øygarden",
+        "id": "4626"
+      }
+    ],
+    "notes": "Slått sammen med Fjell og Øygarden (kommune 1964–2019)",
+    "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
+  },
+  {
+    "id": "change-municipality-saebo-1964-246",
+    "entityType": "municipality",
+    "changeYear": 1964,
+    "changeType": "merged",
+    "from": [
+      {
+        "name": "Sæbø",
+        "number": "1262",
+        "id": "hist-mun-1262-saebo"
+      }
+    ],
+    "to": [
+      {
+        "name": "Radøy",
+        "id": "hist-mun-1260-radoy"
+      }
+    ],
+    "notes": "Slått sammen med Hordabø , Manger og deler av Austrheim , Herdla og Lindås",
+    "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
+  },
+  {
+    "id": "change-municipality-valestrand-1964-247",
+    "entityType": "municipality",
+    "changeYear": 1964,
+    "changeType": "incorporated",
+    "from": [
+      {
+        "name": "Valestrand",
+        "number": "1217",
+        "id": "hist-mun-1217-valestrand"
+      }
+    ],
+    "to": [
+      {
+        "name": "Sveio",
+        "id": "4612"
+      }
+    ],
+    "notes": "Innlemmet i Sveio",
+    "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
+  },
+  {
+    "id": "change-municipality-vossestrand-1964-248",
+    "entityType": "municipality",
+    "changeYear": 1964,
+    "changeType": "incorporated",
+    "from": [
+      {
+        "name": "Vossestrand",
+        "number": "1236",
+        "id": "hist-mun-1236-vossestrand"
+      }
+    ],
+    "to": [
+      {
+        "name": "Voss",
+        "id": "4621"
+      }
+    ],
+    "notes": "Innlemmet i Voss",
+    "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
+  },
+  {
+    "id": "change-municipality-arstad-1915-249",
+    "entityType": "municipality",
+    "changeYear": 1915,
+    "changeType": "incorporated",
+    "from": [
+      {
+        "name": "Årstad",
+        "number": "1280",
+        "id": "hist-mun-1280-arstad"
+      }
+    ],
+    "to": [
+      {
+        "name": "Bergen",
+        "id": "4601"
+      }
+    ],
+    "notes": "Innlemmet i Bergen",
+    "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
+  },
+  {
+    "id": "change-municipality-asane-1972-250",
+    "entityType": "municipality",
+    "changeYear": 1972,
+    "changeType": "incorporated",
+    "from": [
+      {
+        "name": "Åsane",
+        "number": "1255",
+        "id": "hist-mun-1255-asane"
+      }
+    ],
+    "to": [
+      {
+        "name": "Bergen",
+        "id": "4601"
+      }
+    ],
+    "notes": "Innlemmet i Bergen",
+    "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
+  },
+  {
+    "id": "change-municipality-balestrand-2020-251",
+    "entityType": "municipality",
+    "changeYear": 2020,
+    "changeType": "incorporated",
+    "from": [
+      {
+        "name": "Balestrand",
+        "number": "1418",
+        "id": "hist-mun-1418-balestrand"
+      }
+    ],
+    "to": [
+      {
+        "name": "Sogndal",
+        "id": "4640"
+      }
+    ],
+    "notes": "Innlemmet i Sogndal",
+    "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
+  },
+  {
+    "id": "change-municipality-borgund-1964-252",
+    "entityType": "municipality",
+    "changeYear": 1964,
+    "changeType": "incorporated",
+    "from": [
+      {
+        "name": "Borgund",
+        "number": "1423",
+        "id": "hist-mun-1423-borgund"
+      }
+    ],
+    "to": [
+      {
+        "name": "Lærdal",
+        "id": "4642"
+      }
+    ],
+    "notes": "Innlemmet i Lærdal",
+    "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
+  },
+  {
+    "id": "change-municipality-breim-1964-253",
+    "entityType": "municipality",
+    "changeYear": 1964,
+    "changeType": "incorporated",
+    "from": [
+      {
+        "name": "Breim",
+        "number": "1446",
+        "id": "hist-mun-1446-breim"
+      }
+    ],
+    "to": [
+      {
+        "name": "Gloppen",
+        "id": "4650"
+      }
+    ],
+    "notes": "Innlemmet i Gloppen",
+    "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
+  },
+  {
+    "id": "change-municipality-brekke-1964-254",
+    "entityType": "municipality",
+    "changeYear": 1964,
+    "changeType": "incorporated",
+    "from": [
+      {
+        "name": "Brekke",
+        "number": "1414",
+        "id": "hist-mun-1414-brekke"
+      }
+    ],
+    "to": [
+      {
+        "name": "Gulen",
+        "id": "4635"
+      }
+    ],
+    "notes": "Innlemmet i Gulen",
+    "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
+  },
+  {
+    "id": "change-municipality-bru-1964-255",
+    "entityType": "municipality",
+    "changeYear": 1964,
+    "changeType": "merged",
+    "from": [
+      {
+        "name": "Bru",
+        "number": "1436",
+        "id": "hist-mun-1436-bru"
+      }
+    ],
+    "to": [
+      {
+        "name": "Flora",
+        "id": "hist-mun-1401-flora"
+      }
+    ],
+    "notes": "Slått sammen med Eikefjord , Florø og Kinn",
+    "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
+  },
+  {
+    "id": "change-municipality-eid-2020-256",
+    "entityType": "municipality",
+    "changeYear": 2020,
+    "changeType": "merged",
+    "from": [
+      {
+        "name": "Eid",
+        "number": "1443",
+        "id": "hist-mun-1443-eid"
+      }
+    ],
+    "to": [
+      {
+        "name": "Stad",
+        "id": "4649"
+      }
+    ],
+    "notes": "Slått sammen med Selje",
+    "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
+  },
+  {
+    "id": "change-municipality-eikefjord-1964-257",
+    "entityType": "municipality",
+    "changeYear": 1964,
+    "changeType": "merged",
+    "from": [
+      {
+        "name": "Eikefjord",
+        "number": "1423",
+        "id": "hist-mun-1423-eikefjord"
+      }
+    ],
+    "to": [
+      {
+        "name": "Flora",
+        "id": "hist-mun-1401-flora"
+      }
+    ],
+    "notes": "Slått sammen med Bru , Florø og Kinn",
+    "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
+  },
+  {
+    "id": "change-municipality-flora-2020-258",
+    "entityType": "municipality",
+    "changeYear": 2020,
+    "changeType": "merged",
+    "from": [
+      {
+        "name": "Flora",
+        "number": "1401",
+        "id": "hist-mun-1401-flora"
+      }
+    ],
+    "to": [
+      {
+        "name": "Kinn",
+        "id": "4602"
+      }
+    ],
+    "notes": "Slått sammen med Vågsøy",
+    "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
+  },
+  {
+    "id": "change-municipality-forde-2020-259",
+    "entityType": "municipality",
+    "changeYear": 2020,
+    "changeType": "merged",
+    "from": [
+      {
+        "name": "Førde",
+        "number": "1432",
+        "id": "hist-mun-1432-forde"
+      }
+    ],
+    "to": [
+      {
+        "name": "Sunnfjord",
+        "id": "4647"
+      }
+    ],
+    "notes": "Slått sammen med Jølster , Gaular og Naustdal",
+    "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
+  },
+  {
+    "id": "change-municipality-gaular-2020-260",
+    "entityType": "municipality",
+    "changeYear": 2020,
+    "changeType": "merged",
+    "from": [
+      {
+        "name": "Gaular",
+        "number": "1430",
+        "id": "hist-mun-1430-gaular"
+      }
+    ],
+    "to": [
+      {
+        "name": "Sunnfjord",
+        "id": "4647"
+      }
+    ],
+    "notes": "Slått sammen med Førde , Jølster og Naustdal",
+    "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
+  },
+  {
+    "id": "change-municipality-hafslo-1963-261",
+    "entityType": "municipality",
+    "changeYear": 1963,
+    "changeType": "incorporated",
+    "from": [
+      {
+        "name": "Hafslo",
+        "number": "1425",
+        "id": "hist-mun-1425-hafslo"
+      }
+    ],
+    "to": [
+      {
+        "name": "Luster",
+        "id": "4644"
+      }
+    ],
+    "notes": "Innlemmet i Luster",
+    "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
+  },
+  {
+    "id": "change-municipality-innvik-1965-262",
+    "entityType": "municipality",
+    "changeYear": 1965,
+    "changeType": "incorporated",
+    "from": [
+      {
+        "name": "Innvik",
+        "number": "1447",
+        "id": "hist-mun-1447-innvik"
+      }
+    ],
+    "to": [
+      {
+        "name": "Stryn",
+        "id": "4651"
+      }
+    ],
+    "notes": "Innlemmet i Stryn",
+    "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
+  },
+  {
+    "id": "change-municipality-jostedal-1963-263",
+    "entityType": "municipality",
+    "changeYear": 1963,
+    "changeType": "incorporated",
+    "from": [
+      {
+        "name": "Jostedal",
+        "number": "1427",
+        "id": "hist-mun-1427-jostedal"
+      }
+    ],
+    "to": [
+      {
+        "name": "Luster",
+        "id": "4644"
+      }
+    ],
+    "notes": "Innlemmet i Luster",
+    "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
+  },
+  {
+    "id": "change-municipality-jolster-2020-264",
+    "entityType": "municipality",
+    "changeYear": 2020,
+    "changeType": "merged",
+    "from": [
+      {
+        "name": "Jølster",
+        "number": "1431",
+        "id": "hist-mun-1431-jolster"
+      }
+    ],
+    "to": [
+      {
+        "name": "Sunnfjord",
+        "id": "4647"
+      }
+    ],
+    "notes": "Slått sammen med Førde , Gaular og Naustdal",
+    "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
+  },
+  {
+    "id": "change-municipality-kinn-1964-265",
+    "entityType": "municipality",
+    "changeYear": 1964,
+    "changeType": "merged",
+    "from": [
+      {
+        "name": "Kinn",
+        "number": "1437",
+        "id": "hist-mun-1437-kinn"
+      }
+    ],
+    "to": [
+      {
+        "name": "Flora",
+        "id": "hist-mun-1401-flora"
+      }
+    ],
+    "notes": "Slått sammen med Bru , Eikefjord og Florø",
+    "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
+  },
+  {
+    "id": "change-municipality-kyrkjebo-1964-266",
+    "entityType": "municipality",
+    "changeYear": 1964,
+    "changeType": "merged",
+    "from": [
+      {
+        "name": "Kyrkjebø",
+        "number": "1416",
+        "id": "hist-mun-1416-kyrkjebo"
+      }
+    ],
+    "to": [
+      {
+        "name": "Høyanger",
+        "id": "4638"
+      }
+    ],
+    "notes": "Slått sammen med Lavik",
+    "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
+  },
+  {
+    "id": "change-municipality-lavik-1964-267",
+    "entityType": "municipality",
+    "changeYear": 1964,
+    "changeType": "merged",
+    "from": [
+      {
+        "name": "Lavik",
+        "number": "1415",
+        "id": "hist-mun-1415-lavik"
+      }
+    ],
+    "to": [
+      {
+        "name": "Høyanger",
+        "id": "4638"
+      }
+    ],
+    "notes": "Slått sammen med Kyrkjebø",
+    "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
+  },
+  {
+    "id": "change-municipality-lavik-og-brekke-1905-268",
+    "entityType": "municipality",
+    "changeYear": 1905,
+    "changeType": "split",
+    "from": [
+      {
+        "name": "Lavik og Brekke",
+        "number": "1415",
+        "id": "hist-mun-1415-lavik-og-brekke"
+      }
+    ],
+    "to": [
+      {
+        "name": "Lavik",
+        "id": "hist-mun-1415-lavik"
+      },
+      {
+        "name": "Brekke",
+        "id": "hist-mun-1414-brekke"
+      }
+    ],
+    "notes": "Delt i to",
+    "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
+  },
+  {
+    "id": "change-municipality-leikanger-2020-269",
+    "entityType": "municipality",
+    "changeYear": 2020,
+    "changeType": "incorporated",
+    "from": [
+      {
+        "name": "Leikanger",
+        "number": "1419",
+        "id": "hist-mun-1419-leikanger"
+      }
+    ],
+    "to": [
+      {
+        "name": "Sogndal",
+        "id": "4640"
+      }
+    ],
+    "notes": "Innlemmet i Sogndal",
+    "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
+  },
+  {
+    "id": "change-municipality-naustdal-2020-270",
+    "entityType": "municipality",
+    "changeYear": 2020,
+    "changeType": "merged",
+    "from": [
+      {
+        "name": "Naustdal",
+        "number": "1433",
+        "id": "hist-mun-1433-naustdal"
+      }
+    ],
+    "to": [
+      {
+        "name": "Sunnfjord",
+        "id": "4647"
+      }
+    ],
+    "notes": "Slått sammen med Førde , Jølster og Gaular",
+    "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
+  },
+  {
+    "id": "change-municipality-nord-vagsoy-1964-271",
+    "entityType": "municipality",
+    "changeYear": 1964,
+    "changeType": "merged",
+    "from": [
+      {
+        "name": "Nord-Vågsøy",
+        "number": "1440",
+        "id": "hist-mun-1440-nord-vagsoy"
+      }
+    ],
+    "to": [
+      {
+        "name": "Kinn",
+        "id": "4602"
+      }
+    ],
+    "notes": "Slått sammen med Sør-Vågsøy",
+    "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
+  },
+  {
+    "id": "change-municipality-selje-2020-272",
+    "entityType": "municipality",
+    "changeYear": 2020,
+    "changeType": "merged",
+    "from": [
+      {
+        "name": "Selje",
+        "number": "1441",
+        "id": "hist-mun-1441-selje"
+      }
+    ],
+    "to": [
+      {
+        "name": "Stad",
+        "id": "4649"
+      }
+    ],
+    "notes": "Slått sammen med Eid",
+    "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
+  },
+  {
+    "id": "change-municipality-sor-vagsoy-1964-273",
+    "entityType": "municipality",
+    "changeYear": 1964,
+    "changeType": "merged",
+    "from": [
+      {
+        "name": "Sør-Vågsøy",
+        "number": "1439",
+        "id": "hist-mun-1439-sor-vagsoy"
+      }
+    ],
+    "to": [
+      {
+        "name": "Vågsøy",
+        "id": "hist-mun-1439-vagsoy"
+      }
+    ],
+    "notes": "Slått sammen med Nord-Vågsøy",
+    "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
+  },
+  {
+    "id": "change-municipality-vagsoy-2020-274",
+    "entityType": "municipality",
+    "changeYear": 2020,
+    "changeType": "merged",
+    "from": [
+      {
+        "name": "Vågsøy",
+        "number": "1439",
+        "id": "hist-mun-1439-vagsoy"
+      }
+    ],
+    "to": [
+      {
+        "name": "Kinn",
+        "id": "4602"
+      }
+    ],
+    "notes": "Slått sammen med Flora",
+    "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
+  },
+  {
+    "id": "change-municipality-berg-1967-275",
+    "entityType": "municipality",
+    "changeYear": 1967,
+    "changeType": "incorporated",
+    "from": [
+      {
+        "name": "Berg",
+        "number": "0116",
+        "id": "hist-mun-0116-berg"
+      }
+    ],
+    "to": [
+      {
+        "name": "Halden",
+        "id": "3101"
+      }
+    ],
+    "notes": "Innlemmet i Halden",
+    "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
+  },
+  {
+    "id": "change-municipality-borge-1994-276",
+    "entityType": "municipality",
+    "changeYear": 1994,
+    "changeType": "incorporated",
+    "from": [
+      {
+        "name": "Borge",
+        "number": "0113",
+        "id": "hist-mun-0113-borge"
+      }
+    ],
+    "to": [
+      {
+        "name": "Fredrikstad",
+        "id": "3107"
+      }
+    ],
+    "notes": "Innlemmet i Fredrikstad",
+    "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
+  },
+  {
+    "id": "change-municipality-degernes-1964-277",
+    "entityType": "municipality",
+    "changeYear": 1964,
+    "changeType": "incorporated",
+    "from": [
+      {
+        "name": "Degernes",
+        "number": "0129",
+        "id": "hist-mun-0129-degernes"
+      }
+    ],
+    "to": [
+      {
+        "name": "Rakkestad",
+        "id": "3120"
+      }
+    ],
+    "notes": "Innlemmet i Rakkestad",
+    "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
+  },
+  {
+    "id": "change-municipality-glemmen-1964-278",
+    "entityType": "municipality",
+    "changeYear": 1964,
+    "changeType": "incorporated",
+    "from": [
+      {
+        "name": "Glemmen",
+        "number": "0132",
+        "id": "hist-mun-0132-glemmen"
+      }
+    ],
+    "to": [
+      {
+        "name": "Fredrikstad",
+        "id": "3107"
+      }
+    ],
+    "notes": "Innlemmet i Fredrikstad",
+    "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
+  },
+  {
+    "id": "change-municipality-idd-1967-279",
+    "entityType": "municipality",
+    "changeYear": 1967,
+    "changeType": "incorporated",
+    "from": [
+      {
+        "name": "Idd",
+        "number": "0117",
+        "id": "hist-mun-0117-idd"
+      }
+    ],
+    "to": [
+      {
+        "name": "Halden",
+        "id": "3101"
+      }
+    ],
+    "notes": "Innlemmet i Halden",
+    "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
+  },
+  {
+    "id": "change-municipality-jeloy-1943-280",
+    "entityType": "municipality",
+    "changeYear": 1943,
+    "changeType": "incorporated",
+    "from": [
+      {
+        "name": "Jeløy",
+        "number": "0194",
+        "id": "hist-mun-0194-jeloy"
+      }
+    ],
+    "to": [
+      {
+        "name": "Moss",
+        "id": "3103"
+      }
+    ],
+    "notes": "Innlemmet i Moss",
+    "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
+  },
+  {
+    "id": "change-municipality-krakeroy-1994-281",
+    "entityType": "municipality",
+    "changeYear": 1994,
+    "changeType": "incorporated",
+    "from": [
+      {
+        "name": "Kråkerøy",
+        "number": "0133",
+        "id": "hist-mun-0133-krakeroy"
+      }
+    ],
+    "to": [
+      {
+        "name": "Fredrikstad",
+        "id": "3107"
+      }
+    ],
+    "notes": "Innlemmet i Fredrikstad",
+    "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
+  },
+  {
+    "id": "change-municipality-mysen-1961-282",
+    "entityType": "municipality",
+    "changeYear": 1961,
+    "changeType": "incorporated",
+    "from": [
+      {
+        "name": "Mysen",
+        "number": "0126",
+        "id": "hist-mun-0126-mysen"
+      }
+    ],
+    "to": [
+      {
+        "name": "Eidsberg",
+        "id": "hist-mun-0125-eidsberg"
+      }
+    ],
+    "notes": "Innlemmet i Eidsberg",
+    "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
+  },
+  {
+    "id": "change-municipality-onsoy-1994-283",
+    "entityType": "municipality",
+    "changeYear": 1994,
+    "changeType": "incorporated",
+    "from": [
+      {
+        "name": "Onsøy",
+        "number": "0134",
+        "id": "hist-mun-0134-onsoy"
+      }
+    ],
+    "to": [
+      {
+        "name": "Fredrikstad",
+        "id": "3107"
+      }
+    ],
+    "notes": "Innlemmet i Fredrikstad",
+    "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
+  },
+  {
+    "id": "change-municipality-rolvsoy-1994-284",
+    "entityType": "municipality",
+    "changeYear": 1994,
+    "changeType": "incorporated",
+    "from": [
+      {
+        "name": "Rolvsøy",
+        "number": "0131",
+        "id": "hist-mun-0131-rolvsoy"
+      }
+    ],
+    "to": [
+      {
+        "name": "Fredrikstad",
+        "id": "3107"
+      }
+    ],
+    "notes": "Innlemmet i Fredrikstad",
+    "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
+  },
+  {
+    "id": "change-municipality-rygge-2020-285",
+    "entityType": "municipality",
+    "changeYear": 2020,
+    "changeType": "incorporated",
+    "from": [
+      {
+        "name": "Rygge",
+        "number": "0136",
+        "id": "hist-mun-0136-rygge"
+      }
+    ],
+    "to": [
+      {
+        "name": "Moss",
+        "id": "3103"
+      }
+    ],
+    "notes": "Innlemmet i Moss",
+    "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
+  },
+  {
+    "id": "change-municipality-rodenes-1964-286",
+    "entityType": "municipality",
+    "changeYear": 1964,
+    "changeType": "merged",
+    "from": [
+      {
+        "name": "Rødenes",
+        "number": "0120",
+        "id": "hist-mun-0120-rodenes"
+      }
+    ],
+    "to": [
+      {
+        "name": "Marker",
+        "id": "3122"
+      }
+    ],
+    "notes": "Slått sammen med Øymark",
+    "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
+  },
+  {
+    "id": "change-municipality-romskog-2020-287",
+    "entityType": "municipality",
+    "changeYear": 2020,
+    "changeType": "incorporated",
+    "from": [
+      {
+        "name": "Rømskog",
+        "number": "0121",
+        "id": "hist-mun-0121-romskog"
+      }
+    ],
+    "to": [
+      {
+        "name": "Aurskog-Høland",
+        "id": "3226"
+      }
+    ],
+    "notes": "Innlemmet i Aurskog-Høland",
+    "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
+  },
+  {
+    "id": "change-municipality-skjeberg-1992-288",
+    "entityType": "municipality",
+    "changeYear": 1992,
+    "changeType": "incorporated",
+    "from": [
+      {
+        "name": "Skjeberg",
+        "number": "0115",
+        "id": "hist-mun-0115-skjeberg"
+      }
+    ],
+    "to": [
+      {
+        "name": "Sarpsborg",
+        "id": "3105"
+      }
+    ],
+    "notes": "Innlemmet i Sarpsborg",
+    "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
+  },
+  {
+    "id": "change-municipality-torsnes-1964-289",
+    "entityType": "municipality",
+    "changeYear": 1964,
+    "changeType": "incorporated",
+    "from": [
+      {
+        "name": "Torsnes",
+        "number": "0112",
+        "id": "hist-mun-0112-torsnes"
+      }
+    ],
+    "to": [
+      {
+        "name": "Borge"
+      }
+    ],
+    "notes": "Innlemmet i Borge",
+    "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
+  },
+  {
+    "id": "change-municipality-tune-1992-290",
+    "entityType": "municipality",
+    "changeYear": 1992,
+    "changeType": "incorporated",
+    "from": [
+      {
+        "name": "Tune",
+        "number": "0130",
+        "id": "hist-mun-0130-tune"
+      }
+    ],
+    "to": [
+      {
+        "name": "Sarpsborg",
+        "id": "3105"
+      }
+    ],
+    "notes": "Innlemmet i Sarpsborg",
+    "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
+  },
+  {
+    "id": "change-municipality-varteig-1992-291",
+    "entityType": "municipality",
+    "changeYear": 1992,
+    "changeType": "incorporated",
+    "from": [
+      {
+        "name": "Varteig",
+        "number": "0114",
+        "id": "hist-mun-0114-varteig"
+      }
+    ],
+    "to": [
+      {
+        "name": "Sarpsborg",
+        "id": "3105"
+      }
+    ],
+    "notes": "Innlemmet i Sarpsborg",
+    "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
+  },
+  {
+    "id": "change-municipality-oymark-1964-292",
+    "entityType": "municipality",
+    "changeYear": 1964,
+    "changeType": "merged",
+    "from": [
+      {
+        "name": "Øymark",
+        "number": "0119",
+        "id": "hist-mun-0119-oymark"
+      }
+    ],
+    "to": [
+      {
+        "name": "Marker",
+        "id": "3122"
+      }
+    ],
+    "notes": "Slått sammen med Rødenes",
+    "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
+  },
+  {
+    "id": "change-municipality-aker-1948-293",
+    "entityType": "municipality",
+    "changeYear": 1948,
+    "changeType": "incorporated",
+    "from": [
+      {
+        "name": "Aker",
+        "number": "0218",
+        "id": "hist-mun-0218-aker"
+      }
+    ],
+    "to": [
+      {
+        "name": "Oslo",
+        "id": "0301"
+      }
+    ],
+    "notes": "Innlemmet i Oslo",
+    "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
+  },
+  {
+    "id": "change-municipality-aurskog-1966-294",
+    "entityType": "municipality",
+    "changeYear": 1966,
+    "changeType": "merged",
+    "from": [
+      {
+        "name": "Aurskog",
+        "number": "0224",
+        "id": "hist-mun-0224-aurskog"
+      }
+    ],
+    "to": [
+      {
+        "name": "Aurskog-Høland",
+        "id": "3226"
+      }
+    ],
+    "notes": "Slått sammen med Nordre Høland , Setskog og Søndre Høland",
+    "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
+  },
+  {
+    "id": "change-municipality-blaker-1962-295",
+    "entityType": "municipality",
+    "changeYear": 1962,
+    "changeType": "incorporated",
+    "from": [
+      {
+        "name": "Blaker",
+        "number": "0225",
+        "id": "hist-mun-0225-blaker"
+      }
+    ],
+    "to": [
+      {
+        "name": "Sørum",
+        "id": "hist-mun-0226-sorum"
+      }
+    ],
+    "notes": "Innlemmet i Sørum",
+    "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
+  },
+  {
+    "id": "change-municipality-drobak-1962-296",
+    "entityType": "municipality",
+    "changeYear": 1962,
+    "changeType": "incorporated",
+    "from": [
+      {
+        "name": "Drøbak",
+        "number": "0203",
+        "id": "hist-mun-0203-drobak"
+      }
+    ],
+    "to": [
+      {
+        "name": "Frogn",
+        "id": "3214"
+      }
+    ],
+    "notes": "Innlemmet i Frogn",
+    "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
+  },
+  {
+    "id": "change-municipality-feiring-1964-297",
+    "entityType": "municipality",
+    "changeYear": 1964,
+    "changeType": "incorporated",
+    "from": [
+      {
+        "name": "Feiring",
+        "number": "0240",
+        "id": "hist-mun-0240-feiring"
+      }
+    ],
+    "to": [
+      {
+        "name": "Eidsvoll",
+        "id": "3240"
+      }
+    ],
+    "notes": "Innlemmet i Eidsvoll",
+    "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
+  },
+  {
+    "id": "change-municipality-holand-1924-298",
+    "entityType": "municipality",
+    "changeYear": 1924,
+    "changeType": "split",
+    "from": [
+      {
+        "name": "Høland",
+        "number": "0221",
+        "id": "hist-mun-0221-holand"
+      }
+    ],
+    "to": [
+      {
+        "name": "Nordre Høland",
+        "id": "hist-mun-0222-nordre-holand"
+      },
+      {
+        "name": "Søndre Høland",
+        "id": "hist-mun-0221-sondre-holand"
+      }
+    ],
+    "notes": "Delt i to",
+    "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
+  },
+  {
+    "id": "change-municipality-holen-1943-299",
+    "entityType": "municipality",
+    "changeYear": 1943,
+    "changeType": "incorporated",
+    "from": [
+      {
+        "name": "Hølen",
+        "number": "0204",
+        "id": "hist-mun-0204-holen"
+      }
+    ],
+    "to": [
+      {
+        "name": "Vestby",
+        "id": "3216"
+      }
+    ],
+    "notes": "Innlemmet i Vestby",
+    "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
+  },
+  {
+    "id": "change-municipality-krakstad-1964-300",
+    "entityType": "municipality",
+    "changeYear": 1964,
+    "changeType": "incorporated",
+    "from": [
+      {
+        "name": "Kråkstad",
+        "number": "0212",
+        "id": "hist-mun-0212-krakstad"
+      }
+    ],
+    "to": [
+      {
+        "name": "Ski",
+        "id": "hist-mun-0213-ski"
+      }
+    ],
+    "notes": "Innlemmet i Ski",
+    "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
+  },
+  {
+    "id": "change-municipality-lillestrom-1962-301",
+    "entityType": "municipality",
+    "changeYear": 1962,
+    "changeType": "incorporated",
+    "from": [
+      {
+        "name": "Lillestrøm",
+        "number": "0238",
+        "id": "hist-mun-0238-lillestrom"
+      }
+    ],
+    "to": [
+      {
+        "name": "Skedsmo",
+        "id": "hist-mun-0231-skedsmo"
+      }
+    ],
+    "notes": "Innlemmet i Skedsmo",
+    "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
+  },
+  {
+    "id": "change-municipality-nordre-holand-1966-302",
+    "entityType": "municipality",
+    "changeYear": 1966,
+    "changeType": "merged",
+    "from": [
+      {
+        "name": "Nordre Høland",
+        "number": "0222",
+        "id": "hist-mun-0222-nordre-holand"
+      }
+    ],
+    "to": [
+      {
+        "name": "Aurskog-Høland",
+        "id": "3226"
+      }
+    ],
+    "notes": "Slått sammen med Aurskog , Setskog og Søndre Høland",
+    "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
+  },
+  {
+    "id": "change-municipality-oppegard-2020-303",
+    "entityType": "municipality",
+    "changeYear": 2020,
+    "changeType": "merged",
+    "from": [
+      {
+        "name": "Oppegård",
+        "number": "0217",
+        "id": "hist-mun-0217-oppegard"
+      }
+    ],
+    "to": [
+      {
+        "name": "Nordre Follo",
+        "id": "3207"
+      }
+    ],
+    "notes": "Slått sammen med Ski",
+    "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
+  },
+  {
+    "id": "change-municipality-setskog-1966-304",
+    "entityType": "municipality",
+    "changeYear": 1966,
+    "changeType": "merged",
+    "from": [
+      {
+        "name": "Setskog",
+        "number": "0223",
+        "id": "hist-mun-0223-setskog"
+      }
+    ],
+    "to": [
+      {
+        "name": "Aurskog-Høland",
+        "id": "3226"
+      }
+    ],
+    "notes": "Slått sammen med Aurskog , Nordre Høland og Søndre Høland",
+    "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
+  },
+  {
+    "id": "change-municipality-ski-2020-305",
+    "entityType": "municipality",
+    "changeYear": 2020,
+    "changeType": "merged",
+    "from": [
+      {
+        "name": "Ski",
+        "number": "0213",
+        "id": "hist-mun-0213-ski"
+      }
+    ],
+    "to": [
+      {
+        "name": "Nordre Follo",
+        "id": "3207"
+      }
+    ],
+    "notes": "Slått sammen med Oppegård",
+    "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
+  },
+  {
+    "id": "change-municipality-son-1964-306",
+    "entityType": "municipality",
+    "changeYear": 1964,
+    "changeType": "incorporated",
+    "from": [
+      {
+        "name": "Son",
+        "number": "0201",
+        "id": "hist-mun-0201-son"
+      }
+    ],
+    "to": [
+      {
+        "name": "Vestby",
+        "id": "3216"
+      }
+    ],
+    "notes": "Innlemmet i Vestby",
+    "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
+  },
+  {
+    "id": "change-municipality-son-holen-1847-307",
+    "entityType": "municipality",
+    "changeYear": 1847,
+    "changeType": "split",
+    "from": [
+      {
+        "name": "Son/Hølen",
+        "number": "0201",
+        "id": "hist-mun-0201-son-holen"
+      }
+    ],
+    "to": [
+      {
+        "name": "Son",
+        "id": "hist-mun-0201-son"
+      },
+      {
+        "name": "Hølen",
+        "id": "hist-mun-0204-holen"
+      }
+    ],
+    "notes": "Delt i to",
+    "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
+  },
+  {
+    "id": "change-municipality-sondre-holand-1966-308",
+    "entityType": "municipality",
+    "changeYear": 1966,
+    "changeType": "merged",
+    "from": [
+      {
+        "name": "Søndre Høland",
+        "number": "0221",
+        "id": "hist-mun-0221-sondre-holand"
+      }
+    ],
+    "to": [
+      {
+        "name": "Aurskog-Høland",
+        "id": "3226"
+      }
+    ],
+    "notes": "Slått sammen med Aurskog , Nordre Høland og Setskog",
+    "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
+  },
+  {
+    "id": "change-municipality-eiker-1885-309",
+    "entityType": "municipality",
+    "changeYear": 1885,
+    "changeType": "split",
+    "from": [
+      {
+        "name": "Eiker",
+        "number": "0624",
+        "id": "hist-mun-0624-eiker"
+      }
+    ],
+    "to": [
+      {
+        "name": "Nedre Eiker",
+        "id": "hist-mun-0625-nedre-eiker"
+      },
+      {
+        "name": "Øvre Eiker",
+        "id": "3314"
+      }
+    ],
+    "notes": "Delt i to",
+    "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
+  },
+  {
+    "id": "change-municipality-gol-og-hemsedal-1897-310",
+    "entityType": "municipality",
+    "changeYear": 1897,
+    "changeType": "split",
+    "from": [
+      {
+        "name": "Gol og Hemsedal",
+        "number": "0617",
+        "id": "hist-mun-0617-gol-og-hemsedal"
+      }
+    ],
+    "to": [
+      {
+        "name": "Gol",
+        "id": "3324"
+      },
+      {
+        "name": "Hemsedal",
+        "id": "3326"
+      }
+    ],
+    "notes": "Delt i to",
+    "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
+  },
+  {
+    "id": "change-municipality-hurum-2020-311",
+    "entityType": "municipality",
+    "changeYear": 2020,
+    "changeType": "merged",
+    "from": [
+      {
+        "name": "Hurum",
+        "number": "0628",
+        "id": "hist-mun-0628-hurum"
+      }
+    ],
+    "to": [
+      {
+        "name": "Asker",
+        "id": "3203"
+      }
+    ],
+    "notes": "Slått sammen med Asker og Røyken",
+    "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
+  },
+  {
+    "id": "change-municipality-honefoss-1964-312",
+    "entityType": "municipality",
+    "changeYear": 1964,
+    "changeType": "merged",
+    "from": [
+      {
+        "name": "Hønefoss",
+        "number": "0601",
+        "id": "hist-mun-0601-honefoss"
+      }
+    ],
+    "to": [
+      {
+        "name": "Ringerike",
+        "id": "3305"
+      }
+    ],
+    "notes": "Slått sammen med Hole , Norderhov , Tyristrand og Ådal",
+    "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
+  },
+  {
+    "id": "change-municipality-nedre-eiker-2020-313",
+    "entityType": "municipality",
+    "changeYear": 2020,
+    "changeType": "merged",
+    "from": [
+      {
+        "name": "Nedre Eiker",
+        "number": "0625",
+        "id": "hist-mun-0625-nedre-eiker"
+      }
+    ],
+    "to": [
+      {
+        "name": "Drammen",
+        "id": "3301"
+      }
+    ],
+    "notes": "Slått sammen med Svelvik og Drammen",
+    "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
+  },
+  {
+    "id": "change-municipality-norderhov-1964-314",
+    "entityType": "municipality",
+    "changeYear": 1964,
+    "changeType": "merged",
+    "from": [
+      {
+        "name": "Norderhov",
+        "number": "0613",
+        "id": "hist-mun-0613-norderhov"
+      }
+    ],
+    "to": [
+      {
+        "name": "Ringerike",
+        "id": "3305"
+      }
+    ],
+    "notes": "Slått sammen med Hole , Hønefoss , Tyristrand og Ådal",
+    "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
+  },
+  {
+    "id": "change-municipality-nore-1962-315",
+    "entityType": "municipality",
+    "changeYear": 1962,
+    "changeType": "merged",
+    "from": [
+      {
+        "name": "Nore",
+        "number": "0633",
+        "id": "hist-mun-0633-nore"
+      }
+    ],
+    "to": [
+      {
+        "name": "Nore og Uvdal",
+        "id": "3338"
+      }
+    ],
+    "notes": "Slått sammen med Uvdal",
+    "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
+  },
+  {
+    "id": "change-municipality-royken-2020-316",
+    "entityType": "municipality",
+    "changeYear": 2020,
+    "changeType": "merged",
+    "from": [
+      {
+        "name": "Røyken",
+        "number": "0627",
+        "id": "hist-mun-0627-royken"
+      }
+    ],
+    "to": [
+      {
+        "name": "Asker",
+        "id": "3203"
+      }
+    ],
+    "notes": "Slått sammen med Asker og Hurum",
+    "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
+  },
+  {
+    "id": "change-municipality-sandsvaer-1908-317",
+    "entityType": "municipality",
+    "changeYear": 1908,
+    "changeType": "split",
+    "from": [
+      {
+        "name": "Sandsvær",
+        "number": "0629",
+        "id": "hist-mun-0629-sandsvaer"
+      }
+    ],
+    "to": [
+      {
+        "name": "Ytre Sandsvær",
+        "id": "hist-mun-0629-ytre-sandsvaer"
+      },
+      {
+        "name": "Øvre Sandsvær",
+        "id": "hist-mun-0630-ovre-sandsvaer"
+      }
+    ],
+    "notes": "Delt i to",
+    "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
+  },
+  {
+    "id": "change-municipality-stromsgodset-1843-318",
+    "entityType": "municipality",
+    "changeYear": 1843,
+    "changeType": "incorporated",
+    "from": [
+      {
+        "name": "Strømsgodset",
+        "number": "0681",
+        "id": "hist-mun-0681-stromsgodset"
+      }
+    ],
+    "to": [
+      {
+        "name": "Skoger",
+        "id": "hist-mun-0712-skoger"
+      }
+    ],
+    "notes": "Innlemmet i Skoger",
+    "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
+  },
+  {
+    "id": "change-municipality-tyristrand-1964-319",
+    "entityType": "municipality",
+    "changeYear": 1964,
+    "changeType": "merged",
+    "from": [
+      {
+        "name": "Tyristrand",
+        "number": "0611",
+        "id": "hist-mun-0611-tyristrand"
+      }
+    ],
+    "to": [
+      {
+        "name": "Ringerike",
+        "id": "3305"
+      }
+    ],
+    "notes": "Slått sammen med Hole , Hønefoss , Norderhov og Ådal",
+    "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
+  },
+  {
+    "id": "change-municipality-uvdal-1962-320",
+    "entityType": "municipality",
+    "changeYear": 1962,
+    "changeType": "merged",
+    "from": [
+      {
+        "name": "Uvdal",
+        "number": "0634",
+        "id": "hist-mun-0634-uvdal"
+      }
+    ],
+    "to": [
+      {
+        "name": "Nore og Uvdal",
+        "id": "3338"
+      }
+    ],
+    "notes": "Slått sammen med Nore",
+    "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
+  },
+  {
+    "id": "change-municipality-ytre-sandsvaer-1964-321",
+    "entityType": "municipality",
+    "changeYear": 1964,
+    "changeType": "incorporated",
+    "from": [
+      {
+        "name": "Ytre Sandsvær",
+        "number": "0629",
+        "id": "hist-mun-0629-ytre-sandsvaer"
+      }
+    ],
+    "to": [
+      {
+        "name": "Kongsberg",
+        "id": "3303"
+      }
+    ],
+    "notes": "Innlemmet i Kongsberg",
+    "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
+  },
+  {
+    "id": "change-municipality-ovre-sandsvaer-1964-322",
+    "entityType": "municipality",
+    "changeYear": 1964,
+    "changeType": "incorporated",
+    "from": [
+      {
+        "name": "Øvre Sandsvær",
+        "number": "0630",
+        "id": "hist-mun-0630-ovre-sandsvaer"
+      }
+    ],
+    "to": [
+      {
+        "name": "Kongsberg",
+        "id": "3303"
+      }
+    ],
+    "notes": "Innlemmet i Kongsberg",
+    "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
+  },
+  {
+    "id": "change-municipality-adal-1964-323",
+    "entityType": "municipality",
+    "changeYear": 1964,
+    "changeType": "merged",
+    "from": [
+      {
+        "name": "Ådal",
+        "number": "0614",
+        "id": "hist-mun-0614-adal"
+      }
+    ],
+    "to": [
+      {
+        "name": "Ringerike",
+        "id": "3305"
+      }
+    ],
+    "notes": "Slått sammen med Hole , Hønefoss , Norderhov og Tyristrand",
+    "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
+  },
+  {
+    "id": "change-county-hedmark-2020-324",
+    "entityType": "county",
+    "changeYear": 2020,
+    "changeType": "merged",
+    "from": [
+      {
+        "name": "Hedmark",
+        "number": "04",
+        "id": "hist-county-04-hedmark"
+      }
+    ],
+    "to": [
+      {
+        "name": "Innlandet",
+        "id": "34"
+      }
+    ],
+    "notes": "Innlandet",
+    "sourceUrl": "https://no.wikipedia.org/wiki/Norges_fylker"
+  },
+  {
+    "id": "change-county-oppland-2020-325",
+    "entityType": "county",
+    "changeYear": 2020,
+    "changeType": "merged",
+    "from": [
+      {
+        "name": "Oppland",
+        "number": "05",
+        "id": "hist-county-05-oppland"
+      }
+    ],
+    "to": [
+      {
+        "name": "Innlandet",
+        "id": "34"
+      }
+    ],
+    "notes": "Innlandet",
+    "sourceUrl": "https://no.wikipedia.org/wiki/Norges_fylker"
+  },
+  {
+    "id": "change-county-aust-agder-2020-326",
+    "entityType": "county",
+    "changeYear": 2020,
+    "changeType": "merged",
+    "from": [
+      {
+        "name": "Aust-Agder",
+        "number": "09",
+        "id": "hist-county-09-aust-agder"
+      }
+    ],
+    "to": [
+      {
+        "name": "Agder",
+        "id": "42"
+      }
+    ],
+    "notes": "Agder",
+    "sourceUrl": "https://no.wikipedia.org/wiki/Norges_fylker"
+  },
+  {
+    "id": "change-county-vest-agder-2020-327",
+    "entityType": "county",
+    "changeYear": 2020,
+    "changeType": "merged",
+    "from": [
+      {
+        "name": "Vest-Agder",
+        "number": "10",
+        "id": "hist-county-10-vest-agder"
+      }
+    ],
+    "to": [
+      {
+        "name": "Agder",
+        "id": "42"
+      }
+    ],
+    "notes": "Agder",
+    "sourceUrl": "https://no.wikipedia.org/wiki/Norges_fylker"
+  },
+  {
+    "id": "change-county-hordaland-2020-328",
+    "entityType": "county",
+    "changeYear": 2020,
+    "changeType": "merged",
+    "from": [
+      {
+        "name": "Hordaland",
+        "number": "12",
+        "id": "hist-county-12-hordaland"
+      }
+    ],
+    "to": [
+      {
+        "name": "Vestland",
+        "id": "46"
+      }
+    ],
+    "notes": "Vestland",
+    "sourceUrl": "https://no.wikipedia.org/wiki/Norges_fylker"
+  },
+  {
+    "id": "change-county-bergen-1972-329",
+    "entityType": "county",
+    "changeYear": 1972,
+    "changeType": "merged",
+    "from": [
+      {
+        "name": "Bergen",
+        "number": "13",
+        "id": "hist-county-13-bergen"
+      }
+    ],
+    "to": [
+      {
+        "name": "Vestland",
+        "id": "46"
+      }
+    ],
+    "notes": "Vestland",
+    "sourceUrl": "https://no.wikipedia.org/wiki/Norges_fylker"
+  },
+  {
+    "id": "change-county-sogn-og-fjordane-2020-330",
+    "entityType": "county",
+    "changeYear": 2020,
+    "changeType": "merged",
+    "from": [
+      {
+        "name": "Sogn og Fjordane",
+        "number": "14",
+        "id": "hist-county-14-sogn-og-fjordane"
+      }
+    ],
+    "to": [
+      {
+        "name": "Vestland",
+        "id": "46"
+      }
+    ],
+    "notes": "Vestland",
+    "sourceUrl": "https://no.wikipedia.org/wiki/Norges_fylker"
+  },
+  {
+    "id": "change-county-sor-trondelag-2018-331",
+    "entityType": "county",
+    "changeYear": 2018,
+    "changeType": "merged",
+    "from": [
+      {
+        "name": "Sør-Trøndelag",
+        "number": "16",
+        "id": "hist-county-16-sor-trondelag"
+      }
+    ],
+    "to": [
+      {
+        "name": "Trøndelag",
+        "id": "50"
+      }
+    ],
+    "notes": "Trøndelag",
+    "sourceUrl": "https://no.wikipedia.org/wiki/Norges_fylker"
+  },
+  {
+    "id": "change-county-nord-trondelag-2018-332",
+    "entityType": "county",
+    "changeYear": 2018,
+    "changeType": "merged",
+    "from": [
+      {
+        "name": "Nord-Trøndelag",
+        "number": "17",
+        "id": "hist-county-17-nord-trondelag"
+      }
+    ],
+    "to": [
+      {
+        "name": "Trøndelag",
+        "id": "50"
+      }
+    ],
+    "notes": "Trøndelag",
+    "sourceUrl": "https://no.wikipedia.org/wiki/Norges_fylker"
+  },
+  {
+    "id": "change-county-viken-2023-333",
+    "entityType": "county",
+    "changeYear": 2023,
+    "changeType": "split",
+    "from": [
+      {
+        "name": "Viken",
+        "number": "30",
+        "id": "hist-county-30-viken"
+      }
+    ],
+    "to": [
+      {
+        "name": "Buskerud",
+        "id": "33"
+      },
+      {
+        "name": "Akershus",
+        "id": "32"
+      },
+      {
+        "name": "Østfold",
+        "id": "31"
+      }
+    ],
+    "notes": "Buskerud, Akershus, Østfold",
+    "sourceUrl": "https://no.wikipedia.org/wiki/Norges_fylker"
+  },
+  {
+    "id": "change-county-vestfold-og-telemark-2023-334",
+    "entityType": "county",
+    "changeYear": 2023,
+    "changeType": "split",
+    "from": [
+      {
+        "name": "Vestfold og Telemark",
+        "number": "38",
+        "id": "hist-county-38-vestfold-og-telemark"
+      }
+    ],
+    "to": [
+      {
+        "name": "Vestfold",
+        "id": "39"
+      },
+      {
+        "name": "Telemark",
+        "id": "40"
+      }
+    ],
+    "notes": "Vestfold, Telemark",
+    "sourceUrl": "https://no.wikipedia.org/wiki/Norges_fylker"
+  },
+  {
+    "id": "change-county-troms-og-finnmark-2023-335",
+    "entityType": "county",
+    "changeYear": 2023,
+    "changeType": "split",
+    "from": [
+      {
+        "name": "Troms og Finnmark",
+        "number": "54",
+        "id": "hist-county-54-troms-og-finnmark"
+      }
+    ],
+    "to": [
+      {
+        "name": "Troms",
+        "id": "55"
+      },
+      {
+        "name": "Finnmark",
+        "id": "56"
+      }
+    ],
+    "notes": "Troms, Finnmark",
+    "sourceUrl": "https://no.wikipedia.org/wiki/Norges_fylker"
+  },
+  {
+    "id": "change-county-ostfold-2020-336",
+    "entityType": "county",
+    "changeYear": 2020,
+    "changeType": "merged",
+    "from": [
+      {
+        "name": "Østfold",
+        "number": "01",
+        "id": "hist-county-01-ostfold"
+      }
+    ],
+    "to": [
+      {
+        "name": "Viken",
+        "number": "30",
+        "id": "hist-county-30-viken"
+      }
+    ],
+    "notes": "Sammenslåing til Viken (2020-reformen)",
+    "sourceUrl": "https://no.wikipedia.org/wiki/Norges_fylker"
+  },
+  {
+    "id": "change-county-akershus-2020-337",
+    "entityType": "county",
+    "changeYear": 2020,
+    "changeType": "merged",
+    "from": [
+      {
+        "name": "Akershus",
+        "number": "02",
+        "id": "hist-county-02-akershus"
+      }
+    ],
+    "to": [
+      {
+        "name": "Viken",
+        "number": "30",
+        "id": "hist-county-30-viken"
+      }
+    ],
+    "notes": "Sammenslåing til Viken (2020-reformen)",
+    "sourceUrl": "https://no.wikipedia.org/wiki/Norges_fylker"
+  },
+  {
+    "id": "change-county-buskerud-2020-338",
+    "entityType": "county",
+    "changeYear": 2020,
+    "changeType": "merged",
+    "from": [
+      {
+        "name": "Buskerud",
+        "number": "06",
+        "id": "hist-county-06-buskerud"
+      }
+    ],
+    "to": [
+      {
+        "name": "Viken",
+        "number": "30",
+        "id": "hist-county-30-viken"
+      }
+    ],
+    "notes": "Sammenslåing til Viken (2020-reformen)",
+    "sourceUrl": "https://no.wikipedia.org/wiki/Norges_fylker"
+  },
+  {
+    "id": "change-county-vestfold-2020-339",
+    "entityType": "county",
+    "changeYear": 2020,
+    "changeType": "merged",
+    "from": [
+      {
+        "name": "Vestfold",
+        "number": "07",
+        "id": "hist-county-07-vestfold"
+      }
+    ],
+    "to": [
+      {
+        "name": "Vestfold og Telemark",
+        "number": "38",
+        "id": "hist-county-38-vestfold-og-telemark"
+      }
+    ],
+    "notes": "Sammenslåing til Vestfold og Telemark (2020-reformen)",
+    "sourceUrl": "https://no.wikipedia.org/wiki/Norges_fylker"
+  },
+  {
+    "id": "change-county-telemark-2020-340",
+    "entityType": "county",
+    "changeYear": 2020,
+    "changeType": "merged",
+    "from": [
+      {
+        "name": "Telemark",
+        "number": "08",
+        "id": "hist-county-08-telemark"
+      }
+    ],
+    "to": [
+      {
+        "name": "Vestfold og Telemark",
+        "number": "38",
+        "id": "hist-county-38-vestfold-og-telemark"
+      }
+    ],
+    "notes": "Sammenslåing til Vestfold og Telemark (2020-reformen)",
+    "sourceUrl": "https://no.wikipedia.org/wiki/Norges_fylker"
+  },
+  {
+    "id": "change-county-troms-2020-341",
+    "entityType": "county",
+    "changeYear": 2020,
+    "changeType": "merged",
+    "from": [
+      {
+        "name": "Troms",
+        "number": "19",
+        "id": "hist-county-19-troms"
+      }
+    ],
+    "to": [
+      {
+        "name": "Troms og Finnmark",
+        "number": "54",
+        "id": "hist-county-54-troms-og-finnmark"
+      }
+    ],
+    "notes": "Sammenslåing til Troms og Finnmark (2020-reformen)",
+    "sourceUrl": "https://no.wikipedia.org/wiki/Norges_fylker"
+  },
+  {
+    "id": "change-county-finnmark-2020-342",
+    "entityType": "county",
+    "changeYear": 2020,
+    "changeType": "merged",
+    "from": [
+      {
+        "name": "Finnmark",
+        "number": "20",
+        "id": "hist-county-20-finnmark"
+      }
+    ],
+    "to": [
+      {
+        "name": "Troms og Finnmark",
+        "number": "54",
+        "id": "hist-county-54-troms-og-finnmark"
+      }
+    ],
+    "notes": "Sammenslåing til Troms og Finnmark (2020-reformen)",
+    "sourceUrl": "https://no.wikipedia.org/wiki/Norges_fylker"
+  }
+]

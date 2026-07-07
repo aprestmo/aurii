@@ -99,7 +99,7 @@ describe("geo demo site routes", () => {
   });
 
   it("data files exist at expected path", async () => {
-    const path = resolve(ROOT, "demo/norwegian-geo/data/counties.json");
+    const path = resolve(ROOT, "demo/norwegian-geo/core/data/counties.json");
     const { readFile } = await import("node:fs/promises");
     const text = await readFile(path, "utf-8");
     expect(JSON.parse(text).length).toBeGreaterThan(0);

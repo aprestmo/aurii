@@ -32,9 +32,9 @@ const USER_AGENT =
 const FORMER_MUNICIPALITIES_SOURCE =
   "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner";
 
-const ROOT = resolve(import.meta.dir, "../../..");
-const DATA_DIR = resolve(ROOT, "data/historical");
-const CURRENT_DATA = resolve(ROOT, "demo/norwegian-geo/data");
+const ROOT = resolve(import.meta.dir, "../../../..");
+const DATA_DIR = resolve(import.meta.dir, "data");
+const CURRENT_DATA = resolve(import.meta.dir, "../data");
 
 async function fetchWikipediaHtml(page: string): Promise<string> {
   const params = new URLSearchParams({

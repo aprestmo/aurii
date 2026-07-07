@@ -12,14 +12,14 @@ Datasett med tidligere norske kommuner og fylker, importert fra Wikipedia og kob
 | Tidligere fylker | Wikipedia | [Norges fylker — «Tidligere fylker»](https://no.wikipedia.org/wiki/Norges_fylker#Tidligere_fylker) |
 | Dagens fylker (2024–) | Wikipedia | [Norges fylker — «Norges fylker 2024–»](https://no.wikipedia.org/wiki/Norges_fylker#Norges_fylker_2024–) |
 | Våpenskjold | Wikimedia Commons | Hentes via Commons API fra lenker i Wikipedia-tabellene |
-| Dagens sannhet | Kartverket (eksisterende) | `demo/norwegian-geo/data/` |
+| Dagens sannhet | Kartverket (eksisterende) | `demo/norwegian-geo/core/data/` |
 
 **Viktig:** Historiske data utvider — overskriver ikke — dagens kommuner og fylker.
 
 ## Output
 
 ```
-data/historical/
+demo/norwegian-geo/core/historical/data/
   municipalities.json
   counties.json              # tidligere + mellomliggende (Viken, V-T, T-F)
   current-counties.json      # dagens 15 fylker fra Wikipedia 2024–

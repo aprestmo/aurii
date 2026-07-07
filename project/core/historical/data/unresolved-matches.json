@@ -1,0 +1,182 @@
+[
+  {
+    "entityType": "municipality",
+    "historicalId": "hist-mun-1024-bjelland-og-grindheim",
+    "historicalName": "Bjelland og Grindheim",
+    "historicalNumber": "1024",
+    "targetName": "Grindum",
+    "reason": "No matching current or historical municipality found",
+    "countyNameAtSource": "Agder"
+  },
+  {
+    "entityType": "municipality",
+    "historicalId": "hist-mun-1042-nes-og-hidra",
+    "historicalName": "Nes og Hidra",
+    "historicalNumber": "1042",
+    "targetName": "Hitterø",
+    "reason": "No matching current or historical municipality found",
+    "countyNameAtSource": "Agder"
+  },
+  {
+    "entityType": "municipality",
+    "historicalId": "hist-mun-1027-undal",
+    "historicalName": "Undal",
+    "historicalNumber": "1027",
+    "targetName": "Nord-Undal",
+    "reason": "No matching current or historical municipality found",
+    "countyNameAtSource": "Agder"
+  },
+  {
+    "entityType": "municipality",
+    "historicalId": "hist-mun-1027-undal",
+    "historicalName": "Undal",
+    "historicalNumber": "1027",
+    "targetName": "Sør-Undal",
+    "reason": "No matching current or historical municipality found",
+    "countyNameAtSource": "Agder"
+  },
+  {
+    "entityType": "municipality",
+    "historicalId": "hist-mun-0425-asnes-og-valer",
+    "historicalName": "Åsnes og Våler",
+    "historicalNumber": "0425",
+    "targetName": "Våler",
+    "reason": "Ambiguous name: 2 current municipalities named \"Våler\"",
+    "countyNameAtSource": "Innlandet"
+  },
+  {
+    "entityType": "municipality",
+    "historicalId": "hist-mun-1853-ofoten",
+    "historicalName": "Ofoten",
+    "historicalNumber": "1853",
+    "targetName": "Evindnæs",
+    "reason": "No matching current or historical municipality found",
+    "countyNameAtSource": "Nordland"
+  },
+  {
+    "entityType": "municipality",
+    "historicalId": "hist-mun-0821-bo-i-telemark",
+    "historicalName": "Bø i Telemark",
+    "historicalNumber": "0821",
+    "targetName": "Midt-Telemark kommune",
+    "reason": "No matching current or historical municipality found",
+    "countyNameAtSource": "Vestfold og Telemark"
+  },
+  {
+    "entityType": "municipality",
+    "historicalId": "hist-mun-0822-sauherad",
+    "historicalName": "Sauherad",
+    "historicalNumber": "0822",
+    "targetName": "Midt-Telemark kommune",
+    "reason": "No matching current or historical municipality found",
+    "countyNameAtSource": "Vestfold og Telemark"
+  },
+  {
+    "entityType": "municipality",
+    "historicalId": "hist-mun-1442-davik",
+    "historicalName": "Davik",
+    "historicalNumber": "1442",
+    "targetName": "Eid",
+    "reason": "Ambiguous historical name: 2 matches",
+    "countyNameAtSource": "Vestland"
+  },
+  {
+    "entityType": "municipality",
+    "historicalId": "hist-mun-1444-hornindal",
+    "historicalName": "Hornindal",
+    "historicalNumber": "1444",
+    "targetName": "Eid",
+    "reason": "Ambiguous historical name: 2 matches",
+    "countyNameAtSource": "Vestland"
+  },
+  {
+    "entityType": "municipality",
+    "historicalId": "hist-mun-0112-torsnes",
+    "historicalName": "Torsnes",
+    "historicalNumber": "0112",
+    "targetName": "Borge",
+    "reason": "Ambiguous historical name: 2 matches",
+    "countyNameAtSource": "Viken"
+  },
+  {
+    "entityType": "municipality",
+    "historicalId": "hist-mun-1024-bjelland-og-grindheim",
+    "historicalName": "Bjelland og Grindheim",
+    "historicalNumber": "1024",
+    "targetName": "Grindum",
+    "reason": "No matching current or historical municipality found",
+    "countyNameAtSource": "Agder"
+  },
+  {
+    "entityType": "municipality",
+    "historicalId": "hist-mun-1042-nes-og-hidra",
+    "historicalName": "Nes og Hidra",
+    "historicalNumber": "1042",
+    "targetName": "Hitterø",
+    "reason": "No matching current or historical municipality found",
+    "countyNameAtSource": "Agder"
+  },
+  {
+    "entityType": "municipality",
+    "historicalId": "hist-mun-1027-undal",
+    "historicalName": "Undal",
+    "historicalNumber": "1027",
+    "targetName": "Nord-Undal",
+    "reason": "No matching current or historical municipality found",
+    "countyNameAtSource": "Agder"
+  },
+  {
+    "entityType": "municipality",
+    "historicalId": "hist-mun-1027-undal",
+    "historicalName": "Undal",
+    "historicalNumber": "1027",
+    "targetName": "Sør-Undal",
+    "reason": "No matching current or historical municipality found",
+    "countyNameAtSource": "Agder"
+  },
+  {
+    "entityType": "municipality",
+    "historicalId": "hist-mun-0425-asnes-og-valer",
+    "historicalName": "Åsnes og Våler",
+    "historicalNumber": "0425",
+    "targetName": "Våler",
+    "reason": "Ambiguous name: 2 current municipalities named \"Våler\"",
+    "countyNameAtSource": "Innlandet"
+  },
+  {
+    "entityType": "municipality",
+    "historicalId": "hist-mun-1853-ofoten",
+    "historicalName": "Ofoten",
+    "historicalNumber": "1853",
+    "targetName": "Evindnæs",
+    "reason": "No matching current or historical municipality found",
+    "countyNameAtSource": "Nordland"
+  },
+  {
+    "entityType": "municipality",
+    "historicalId": "hist-mun-0821-bo-i-telemark",
+    "historicalName": "Bø i Telemark",
+    "historicalNumber": "0821",
+    "targetName": "Midt-Telemark kommune",
+    "reason": "No matching current or historical municipality found",
+    "countyNameAtSource": "Vestfold og Telemark"
+  },
+  {
+    "entityType": "municipality",
+    "historicalId": "hist-mun-0822-sauherad",
+    "historicalName": "Sauherad",
+    "historicalNumber": "0822",
+    "targetName": "Midt-Telemark kommune",
+    "reason": "No matching current or historical municipality found",
+    "countyNameAtSource": "Vestfold og Telemark"
+  },
+  {
+    "entityType": "municipality",
+    "historicalId": "hist-mun-0112-torsnes",
+    "historicalName": "Torsnes",
+    "historicalNumber": "0112",
+    "targetName": "Borge",
+    "reason": "Ambiguous historical name: 2 matches",
+    "countyNameAtSource": "Viken"
+  }
+]

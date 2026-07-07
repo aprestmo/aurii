@@ -1,0 +1,16 @@
+id: calendar
+name: Calendar
+description: Norwegian public holidays (national calendar)
+dependsOn: []
+
+schemas:
+  - public-holiday
+
+imports:
+  - public-holidays
+
+sources:
+  - id: nager-date
+    url: https://date.nager.at/api/v3/PublicHolidays
+    entity: public-holiday
+    years: [2024, 2025, 2026, 2027, 2028, 2029, 2030]

@@ -1,7 +1,8 @@
 /**
  * Data access for the geo demo site.
  *
- * Reads bundled snapshots from demo/norwegian-geo/data/ (same data imported into Core).
+ * Reads bundled snapshots from Norwegian Geo Core and dataset modules
+ * (same data imported into Core via `bun run import:norwegian-geo`).
  * Uses Node fs so Astro's static build works outside the Bun runtime.
  */
 
@@ -12,7 +13,11 @@ import { resolve } from "node:path";
 // import.meta.dirname, since the build output nests compiled chunks at
 // varying depths (e.g. dist/.prerender/chunks/) across Astro versions.
 const ROOT = resolve(process.cwd(), "../..");
-const DATA = resolve(ROOT, "demo/norwegian-geo/data");
+const PRODUCT = resolve(ROOT, "demo/norwegian-geo");
+const CORE_DATA = resolve(PRODUCT, "core/data");
+const EDUCATION_DATA = resolve(PRODUCT, "modules/education/data");
+const HEALTH_DATA = resolve(PRODUCT, "modules/health/data");
+const CALENDAR_DATA = resolve(PRODUCT, "modules/calendar/data");
 
 export interface County {
   id: string;
@@ -95,37 +100,37 @@ export interface DatasetSummary {
   childIds?: string[];
 }
 
-async function readJson<T>(file: string): Promise<T> {
-  const text = await readFile(resolve(DATA, file), "utf-8");
+async function readJson<T>(dir: string, file: string): Promise<T> {
+  const text = await readFile(resolve(dir, file), "utf-8");
   return JSON.parse(text) as T;
 }
 
 export async function loadCounties(): Promise<County[]> {
-  return readJson<County[]>("counties.json");
+  return readJson<County[]>(CORE_DATA, "counties.json");
 }
 
 export async function loadMunicipalities(): Promise<Municipality[]> {
-  return readJson<Municipality[]>("municipalities.json");
+  return readJson<Municipality[]>(CORE_DATA, "municipalities.json");
 }
 
 export async function loadPostalCodes(): Promise<PostalCode[]> {
-  return readJson<PostalCode[]>("postal-codes.json");
+  return readJson<PostalCode[]>(CORE_DATA, "postal-codes.json");
 }
 
 export async function loadSchools(): Promise<School[]> {
-  return readJson<School[]>("schools.json");
+  return readJson<School[]>(EDUCATION_DATA, "schools.json");
 }
 
 export async function loadKindergartens(): Promise<Kindergarten[]> {
-  return readJson<Kindergarten[]>("kindergartens.json");
+  return readJson<Kindergarten[]>(EDUCATION_DATA, "kindergartens.json");
 }
 
 export async function loadHospitals(): Promise<Hospital[]> {
-  return readJson<Hospital[]>("hospitals.json");
+  return readJson<Hospital[]>(HEALTH_DATA, "hospitals.json");
 }
 
 export async function loadPublicHolidays(): Promise<PublicHoliday[]> {
-  return readJson<PublicHoliday[]>("public-holidays.json");
+  return readJson<PublicHoliday[]>(CALENDAR_DATA, "public-holidays.json");
 }
 
 export async function getCounty(id: string): Promise<County | undefined> {

@@ -1,5 +1,7 @@
 ---
 import Layout from "../../layouts/Layout.astro";
+import { Card, CardContent, CardDescription } from "@/components/starwind/card";
+import { Input } from "@/components/starwind/input";
 import { url } from "../../lib/base";
 import { loadSchools } from "../../lib/data";
 
@@ -9,38 +11,51 @@ const schools = (await loadSchools()).sort((a, b) =>
 ---
 
 <Layout title="Skoler">
-  <p class="muted"><a href={url("")}>← Referansedata</a></p>
-  <h1>Skoler</h1>
-  <p class="muted">{schools.length.toLocaleString("nb-NO")} skoler fra UDIR Nasjonalt skoleregister</p>
+  <p class="mb-3 text-sm">
+    <a href={url("")} class="text-muted-foreground hover:text-foreground">← Referansedata</a>
+  </p>
+  <div class="mb-6">
+    <h1 class="text-3xl font-semibold tracking-tight">Skoler</h1>
+    <p class="mt-2 text-muted-foreground">
+      {schools.length.toLocaleString("nb-NO")} skoler fra UDIR Nasjonalt skoleregister
+    </p>
+  </div>
 
-  <label for="search" class="muted">Søk</label>
-  <input
-    id="search"
-    type="search"
-    placeholder="Skolenavn eller org.nr."
-    style="width: 100%; margin: 0.5rem 0 1rem; padding: 0.5rem; border-radius: 4px; border: 1px solid var(--border); background: var(--surface); color: var(--text);"
-  />
+  <div class="mb-4">
+    <label for="search" class="mb-1.5 block text-sm text-muted-foreground">Søk</label>
+    <Input id="search" type="search" placeholder="Skolenavn eller org.nr." />
+  </div>
 
-  <ul id="school-list">
-    {schools.slice(0, 100).map((school) => (
-      <li data-name={school.name.toLowerCase()} data-id={school.id}>
-        <a href={url(`skoler/${school.id}`)}>
-          <span>{school.name}</span>
-          <span class="mono">{school.id}</span>
-        </a>
-      </li>
-    ))}
-  </ul>
-  <p id="more-note" class="muted">Viser de første 100. Bruk søk for å finne en bestemt skole.</p>
+  <Card>
+    <CardContent class="p-0">
+      <ul id="school-list" class="divide-y divide-border">
+        {schools.slice(0, 100).map((school) => (
+          <li data-name={school.name.toLowerCase()} data-id={school.id}>
+            <a
+              href={url(`skoler/${school.id}`)}
+              class="flex items-center justify-between px-4 py-3 transition hover:bg-accent/30 focus:outline-none focus-visible:ring-2 focus-visible:ring-outline"
+            >
+              <span class="font-medium">{school.name}</span>
+              <span class="font-mono text-xs text-muted-foreground">{school.id}</span>
+            </a>
+          </li>
+        ))}
+      </ul>
+    </CardContent>
+    <CardDescription id="more-note" class="px-4 py-3">
+      Viser de første 100. Bruk søk for å finne en bestemt skole.
+    </CardDescription>
+  </Card>
 </Layout>
 
-<script define:vars={{ schools }}>
+<script is:inline define:vars={{ schools, base: import.meta.env.BASE_URL }}>
   const input = document.getElementById("search");
   const list = document.getElementById("school-list");
   const note = document.getElementById("more-note");
 
   input?.addEventListener("input", () => {
     const q = input.value.trim().toLowerCase();
+    if (!list) return;
     list.innerHTML = "";
     const matches = q
       ? schools.filter(
@@ -52,11 +67,14 @@ const schools = (await loadSchools()).sort((a, b) =>
     for (const school of matches.slice(0, 200)) {
       const li = document.createElement("li");
       const a = document.createElement("a");
-      a.href = `${import.meta.env.BASE_URL}skoler/${school.id}`;
+      a.href = `${base}skoler/${school.id}`;
+      a.className =
+        "flex items-center justify-between px-4 py-3 transition hover:bg-accent/30 focus:outline-none focus-visible:ring-2 focus-visible:ring-outline";
       const name = document.createElement("span");
+      name.className = "font-medium";
       name.textContent = school.name;
       const id = document.createElement("span");
-      id.className = "mono";
+      id.className = "font-mono text-xs text-muted-foreground";
       id.textContent = school.id;
       a.append(name, id);
       li.append(a);

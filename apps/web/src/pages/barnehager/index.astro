@@ -1,5 +1,7 @@
 ---
 import Layout from "../../layouts/Layout.astro";
+import { Card, CardContent, CardDescription } from "@/components/starwind/card";
+import { Input } from "@/components/starwind/input";
 import { url } from "../../lib/base";
 import { loadKindergartens } from "../../lib/data";
 
@@ -9,38 +11,51 @@ const kindergartens = (await loadKindergartens()).sort((a, b) =>
 ---
 
 <Layout title="Barnehager">
-  <p class="muted"><a href={url("")}>← Referansedata</a></p>
-  <h1>Barnehager</h1>
-  <p class="muted">{kindergartens.length.toLocaleString("nb-NO")} barnehager fra UDIR Nasjonalt barnehageregister</p>
+  <p class="mb-3 text-sm">
+    <a href={url("")} class="text-muted-foreground hover:text-foreground">← Referansedata</a>
+  </p>
+  <div class="mb-6">
+    <h1 class="text-3xl font-semibold tracking-tight">Barnehager</h1>
+    <p class="mt-2 text-muted-foreground">
+      {kindergartens.length.toLocaleString("nb-NO")} barnehager fra UDIR Nasjonalt barnehageregister
+    </p>
+  </div>
 
-  <label for="search" class="muted">Søk</label>
-  <input
-    id="search"
-    type="search"
-    placeholder="Barnehagenavn eller org.nr."
-    style="width: 100%; margin: 0.5rem 0 1rem; padding: 0.5rem; border-radius: 4px; border: 1px solid var(--border); background: var(--surface); color: var(--text);"
-  />
+  <div class="mb-4">
+    <label for="search" class="mb-1.5 block text-sm text-muted-foreground">Søk</label>
+    <Input id="search" type="search" placeholder="Barnehagenavn eller org.nr." />
+  </div>
 
-  <ul id="kindergarten-list">
-    {kindergartens.slice(0, 100).map((kg) => (
-      <li>
-        <a href={url(`barnehager/${kg.id}`)}>
-          <span>{kg.name}</span>
-          <span class="mono">{kg.id}</span>
-        </a>
-      </li>
-    ))}
-  </ul>
-  <p id="more-note" class="muted">Viser de første 100. Bruk søk for å finne en bestemt barnehage.</p>
+  <Card>
+    <CardContent class="p-0">
+      <ul id="kindergarten-list" class="divide-y divide-border">
+        {kindergartens.slice(0, 100).map((kg) => (
+          <li>
+            <a
+              href={url(`barnehager/${kg.id}`)}
+              class="flex items-center justify-between px-4 py-3 transition hover:bg-accent/30 focus:outline-none focus-visible:ring-2 focus-visible:ring-outline"
+            >
+              <span class="font-medium">{kg.name}</span>
+              <span class="font-mono text-xs text-muted-foreground">{kg.id}</span>
+            </a>
+          </li>
+        ))}
+      </ul>
+    </CardContent>
+    <CardDescription id="more-note" class="px-4 py-3">
+      Viser de første 100. Bruk søk for å finne en bestemt barnehage.
+    </CardDescription>
+  </Card>
 </Layout>
 
-<script define:vars={{ kindergartens }}>
+<script is:inline define:vars={{ kindergartens, base: import.meta.env.BASE_URL }}>
   const input = document.getElementById("search");
   const list = document.getElementById("kindergarten-list");
   const note = document.getElementById("more-note");
 
   input?.addEventListener("input", () => {
     const q = input.value.trim().toLowerCase();
+    if (!list) return;
     list.innerHTML = "";
     const matches = q
       ? kindergartens.filter(
@@ -52,11 +67,14 @@ const kindergartens = (await loadKindergartens()).sort((a, b) =>
     for (const kg of matches.slice(0, 200)) {
       const li = document.createElement("li");
       const a = document.createElement("a");
-      a.href = `${import.meta.env.BASE_URL}barnehager/${kg.id}`;
+      a.href = `${base}barnehager/${kg.id}`;
+      a.className =
+        "flex items-center justify-between px-4 py-3 transition hover:bg-accent/30 focus:outline-none focus-visible:ring-2 focus-visible:ring-outline";
       const name = document.createElement("span");
+      name.className = "font-medium";
       name.textContent = kg.name;
       const id = document.createElement("span");
-      id.className = "mono";
+      id.className = "font-mono text-xs text-muted-foreground";
       id.textContent = kg.id;
       a.append(name, id);
       li.append(a);

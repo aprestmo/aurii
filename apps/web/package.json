@@ -1,8 +1,19 @@
 {
   "name": "@aurii/geo",
   "version": "0.1.0",
+  "dependencies": {
+    "@astrojs/check": "^0.9.9",
+    "@aurii/sdk": "workspace:*",
+    "@tabler/icons": "^3",
+    "@tailwindcss/forms": "^0.5",
+    "@tailwindcss/vite": "^4",
+    "astro": "^6",
+    "tailwind-merge": "^3",
+    "tailwind-variants": "^3",
+    "tailwindcss": "^4",
+    "tw-animate-css": "^1"
+  },
   "description": "Norwegian counties and municipalities — Aurii API consumer demo",
-  "type": "module",
   "scripts": {
     "dev": "astro dev",
     "build": "astro build",
@@ -10,8 +21,9 @@
     "test": "bun test src/__tests__",
     "typecheck": "astro check"
   },
-  "dependencies": {
-    "@aurii/sdk": "workspace:*",
-    "astro": "^5.0.0"
+  "type": "module",
+  "devDependencies": {
+    "@types/bun": "^1.3.14",
+    "typescript": "^6.0.3"
   }
 }

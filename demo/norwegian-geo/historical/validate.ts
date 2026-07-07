@@ -92,6 +92,25 @@ function validateDataset(
     }
   }
 
+  const currentMunicipalitiesPath = resolve(DATA_DIR, "current-municipalities.json");
+  if (existsSync(currentMunicipalitiesPath)) {
+    const currentMunicipalities = JSON.parse(
+      await Bun.file(currentMunicipalitiesPath).text(),
+    ) as import("./types").WikiCurrentMunicipality[];
+
+    for (const mun of currentMunicipalities) {
+      if (!mun.name?.trim()) {
+        errors.push(`Current municipality ${mun.id} missing name`);
+      }
+      if (mun.coatOfArms?.localPath) {
+        const filePath = resolve(PUBLIC_ROOT, mun.coatOfArms.localPath.replace(/^\//, ""));
+        if (!existsSync(filePath)) {
+          errors.push(`${mun.name}: missing coat file ${mun.coatOfArms.localPath}`);
+        }
+      }
+    }
+  }
+
   for (const change of changes) {
     if (change.from.length === 0) {
       errors.push(`Change ${change.id} has empty from`);

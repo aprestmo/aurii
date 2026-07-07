@@ -18,9 +18,7 @@
     "coatOfArms": {
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Østfold_våpen.svg",
       "localPath": "/assets/heraldry/counties/county-01-ostfold.svg",
-      "mimeType": "image/svg+xml",
-      "attribution": "Hallvard Trætteberg, SKvalen",
-      "license": "Public domain"
+      "mimeType": "image/svg+xml"
     }
   },
   {
@@ -42,9 +40,7 @@
     "coatOfArms": {
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Akershus_våpen.svg",
       "localPath": "/assets/heraldry/counties/county-02-akershus.svg",
-      "mimeType": "image/svg+xml",
-      "attribution": "Own work",
-      "license": "Public domain"
+      "mimeType": "image/svg+xml"
     }
   },
   {
@@ -68,9 +64,7 @@
     "coatOfArms": {
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Hedmark_våpen.svg",
       "localPath": "/assets/heraldry/counties/county-04-hedmark.svg",
-      "mimeType": "image/svg+xml",
-      "attribution": "SKvalen",
-      "license": "Public domain"
+      "mimeType": "image/svg+xml"
     }
   },
   {
@@ -94,9 +88,7 @@
     "coatOfArms": {
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Oppland_våpen.svg",
       "localPath": "/assets/heraldry/counties/county-05-oppland.svg",
-      "mimeType": "image/svg+xml",
-      "attribution": "Arvid Sveen, SKvalen",
-      "license": "Public domain"
+      "mimeType": "image/svg+xml"
     }
   },
   {
@@ -118,9 +110,7 @@
     "coatOfArms": {
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Buskerud_våpen.svg",
       "localPath": "/assets/heraldry/counties/county-06-buskerud.svg",
-      "mimeType": "image/svg+xml",
-      "attribution": "Hallvard Trætteberg, SKvalen",
-      "license": "Public domain"
+      "mimeType": "image/svg+xml"
     }
   },
   {
@@ -142,9 +132,7 @@
     "coatOfArms": {
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Vestfold_våpen.svg",
       "localPath": "/assets/heraldry/counties/county-07-vestfold.svg",
-      "mimeType": "image/svg+xml",
-      "attribution": "Hallvard Trætteberg, SKvalen",
-      "license": "Public domain"
+      "mimeType": "image/svg+xml"
     }
   },
   {
@@ -166,9 +154,7 @@
     "coatOfArms": {
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Telemark_våpen.svg",
       "localPath": "/assets/heraldry/counties/county-08-telemark.svg",
-      "mimeType": "image/svg+xml",
-      "attribution": "Own work This W3C-unspecified vector image was created with Inkscape .",
-      "license": "Public domain"
+      "mimeType": "image/svg+xml"
     }
   },
   {
@@ -192,9 +178,7 @@
     "coatOfArms": {
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Aust-Agder_våpen.svg",
       "localPath": "/assets/heraldry/counties/county-09-aust-agder.svg",
-      "mimeType": "image/svg+xml",
-      "attribution": "User:Chris-martin",
-      "license": "Public domain"
+      "mimeType": "image/svg+xml"
     }
   },
   {
@@ -218,9 +202,7 @@
     "coatOfArms": {
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Vest-Agder_våpen.svg",
       "localPath": "/assets/heraldry/counties/county-10-vest-agder.svg",
-      "mimeType": "image/svg+xml",
-      "attribution": "Hallvard Trætteberg, SKvalen",
-      "license": "Public domain"
+      "mimeType": "image/svg+xml"
     }
   },
   {
@@ -244,9 +226,7 @@
     "coatOfArms": {
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Hordaland_våpen.svg",
       "localPath": "/assets/heraldry/counties/county-12-hordaland.svg",
-      "mimeType": "image/svg+xml",
-      "attribution": "Silje",
-      "license": "Public domain"
+      "mimeType": "image/svg+xml"
     }
   },
   {
@@ -270,9 +250,7 @@
     "coatOfArms": {
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Bergen_våpen.svg",
       "localPath": "/assets/heraldry/counties/county-13-bergen.svg",
-      "mimeType": "image/svg+xml",
-      "attribution": "Unknown authorUnknown author",
-      "license": "Public domain"
+      "mimeType": "image/svg+xml"
     }
   },
   {
@@ -296,9 +274,7 @@
     "coatOfArms": {
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Sogn_og_Fjordane_våpen.svg",
       "localPath": "/assets/heraldry/counties/county-14-sogn-og-fjordane.svg",
-      "mimeType": "image/svg+xml",
-      "attribution": "SKvalen  This W3C-unspecified vector image was created with Inkscape .",
-      "license": "Public domain"
+      "mimeType": "image/svg+xml"
     }
   },
   {
@@ -322,9 +298,7 @@
     "coatOfArms": {
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Sør-Trøndelag_våpen.svg",
       "localPath": "/assets/heraldry/counties/county-16-sor-trondelag.svg",
-      "mimeType": "image/svg+xml",
-      "attribution": "SKvalen",
-      "license": "Public domain"
+      "mimeType": "image/svg+xml"
     }
   },
   {
@@ -348,9 +322,7 @@
     "coatOfArms": {
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Nord-Trøndelag_våpen.svg",
       "localPath": "/assets/heraldry/counties/county-17-nord-trondelag.svg",
-      "mimeType": "image/svg+xml",
-      "attribution": "Hallvard Tretteberg, SKvalen",
-      "license": "Public domain"
+      "mimeType": "image/svg+xml"
     }
   },
   {
@@ -372,9 +344,7 @@
     "coatOfArms": {
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Troms_våpen.svg",
       "localPath": "/assets/heraldry/counties/county-19-troms.svg",
-      "mimeType": "image/svg+xml",
-      "attribution": "Own work  This W3C-unspecified vector image was created with Inkscape .",
-      "license": "Public domain"
+      "mimeType": "image/svg+xml"
     }
   },
   {
@@ -396,9 +366,7 @@
     "coatOfArms": {
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Finnmark_våpen.svg",
       "localPath": "/assets/heraldry/counties/county-20-finnmark.svg",
-      "mimeType": "image/svg+xml",
-      "attribution": "Own work  This W3C-unspecified vector image was created with Inkscape .",
-      "license": "Public domain"
+      "mimeType": "image/svg+xml"
     }
   },
   {
@@ -426,9 +394,7 @@
     "coatOfArms": {
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Viken_våpen.svg",
       "localPath": "/assets/heraldry/counties/county-30-viken.svg",
-      "mimeType": "image/svg+xml",
-      "attribution": "Viken fylkeskommune",
-      "license": "Public domain"
+      "mimeType": "image/svg+xml"
     }
   },
   {
@@ -454,9 +420,7 @@
     "coatOfArms": {
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Vestfold_og_Telemark_våpen.svg",
       "localPath": "/assets/heraldry/counties/county-38-vestfold-og-telemark.svg",
-      "mimeType": "image/svg+xml",
-      "attribution": "Original idea by Toralf Blomhaugen, design refined by a \"graphical bureau\"",
-      "license": "Public domain"
+      "mimeType": "image/svg+xml"
     }
   },
   {
@@ -482,9 +446,7 @@
     "coatOfArms": {
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Troms_og_Finnmark_våpen.svg",
       "localPath": "/assets/heraldry/counties/county-54-troms-og-finnmark.svg",
-      "mimeType": "image/svg+xml",
-      "attribution": "Troms og Finnmark fylkeskommune",
-      "license": "Public domain"
+      "mimeType": "image/svg+xml"
     }
   }
 ]

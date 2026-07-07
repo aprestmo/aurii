@@ -286,15 +286,17 @@ function buildAdministrativeChanges(
       mun.resultNames.length > 0 ? mun.resultNames : relatedFromNotes;
     if (toNames.length === 0) continue;
 
-    const toEntities = toNames.map((name) => ({
-      name,
-      id: matchMunicipalityName(matchCtx, name, {
-        historicalId: mun.id,
-        historicalName: mun.name,
-        historicalNumber: mun.municipalityNumber,
-        countyNameAtSource: mun.countyNameAtSource,
-      }),
-    }));
+    const toEntities = toNames
+      .map((name) => ({
+        name,
+        id: matchMunicipalityName(matchCtx, name, {
+          historicalId: mun.id,
+          historicalName: mun.name,
+          historicalNumber: mun.municipalityNumber,
+          countyNameAtSource: mun.countyNameAtSource,
+        }),
+      }))
+      .filter((entity) => entity.id !== mun.id);
 
     changes.push({
       id: makeChangeId("municipality", mun.name, mun.validTo, changeIndex++),
@@ -374,7 +376,7 @@ function resolveResultIds(
           countyNameAtSource: mun.countyNameAtSource,
         }),
       )
-      .filter((id): id is string => id !== undefined);
+      .filter((id): id is string => id !== undefined && id !== mun.id);
   }
 
   for (const county of [] as HistoricalCounty[]) {

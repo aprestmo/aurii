@@ -212,6 +212,7 @@ function assignLayers(
   const outgoing = new Map<string, Set<string>>();
 
   for (const edge of edges) {
+    if (edge.from === edge.to) continue;
     if (!incoming.has(edge.to)) incoming.set(edge.to, new Set());
     if (!outgoing.has(edge.from)) outgoing.set(edge.from, new Set());
     incoming.get(edge.to)!.add(edge.from);
@@ -288,6 +289,7 @@ async function buildFromChanges(
     to: string,
     change: (typeof changes)[number],
   ): void {
+    if (from === to) return;
     const edgeId = `${from}->${to}:${change.id}`;
     if (edgeIds.has(edgeId)) return;
     edgeIds.add(edgeId);
@@ -329,6 +331,7 @@ async function buildFromChanges(
         await resolveNode(fromEntity, entityType, depth, nodeCache);
       }
       for (const toEntity of toEntities) {
+        if (entityKey(toEntity) === key) continue;
         const toNode = await resolveNode(toEntity, entityType, depth + 1, nodeCache);
         for (const fromEntity of fromEntities) {
           addEdge(entityKey(fromEntity), toNode.id, change);
@@ -343,7 +346,7 @@ async function buildFromChanges(
       const municipalities = await loadHistoricalMunicipalities();
       const historical = municipalities.find((m) => m.id === entity.id);
       const nextId = historical?.resultIds?.[0];
-      if (nextId) {
+      if (nextId && nextId !== entity.id) {
         const nextHistorical = municipalities.find((m) => m.id === nextId);
         if (nextHistorical) {
           const toNode = await resolveNode(

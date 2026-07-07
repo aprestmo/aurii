@@ -99,6 +99,17 @@ function validateDataset(
     if (change.to.length === 0) {
       errors.push(`Change ${change.id} has empty to`);
     }
+    for (const from of change.from) {
+      if (from.id && change.to.some((to) => to.id === from.id)) {
+        errors.push(`Change ${change.id} has self-referential entity ${from.id}`);
+      }
+    }
+  }
+
+  for (const mun of municipalities) {
+    if (mun.resultIds?.includes(mun.id)) {
+      errors.push(`${mun.name}: resultIds includes its own id (${mun.id})`);
+    }
   }
 
   if (municipalities.length < 300) {

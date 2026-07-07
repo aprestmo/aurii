@@ -1,0 +1,219 @@
+---
+import SectionHeading from "@/components/SectionHeading.astro";
+import { Card, CardContent } from "@/components/starwind/card";
+import { url } from "@/lib/base";
+
+interface Props {
+  entityType: "county" | "municipality";
+  entityId: string;
+  entityName: string;
+  countyId?: string;
+  title?: string;
+  description?: string;
+}
+
+const {
+  entityType,
+  entityId,
+  entityName,
+  countyId,
+  title = "Kart",
+  description = "Offisielle grenser fra Kartverket, bakgrunnskart fra OpenStreetMap.",
+} = Astro.props;
+
+const mapId = `boundary-map-${entityType}-${entityId}`;
+const assetBase = url("");
+---
+
+<section class="mb-10" aria-labelledby={`${mapId}-heading`}>
+  <SectionHeading id={`${mapId}-heading`} title={title} description={description} />
+  <Card class="overflow-hidden border-border/80">
+    <CardContent class="p-0">
+      <div
+        id={mapId}
+        class="boundary-map h-[min(28rem,70vh)] w-full bg-muted/20"
+        role="img"
+        aria-label={`Kart over ${entityName}`}
+        data-boundary-map
+        data-entity-type={entityType}
+        data-entity-id={entityId}
+        data-entity-name={entityName}
+        data-county-id={countyId ?? ""}
+        data-asset-base={assetBase}
+      ></div>
+      <p class="border-t border-border/80 px-4 py-2 text-xs text-muted-foreground">
+        Grenser: © <a
+          href="https://kartverket.no"
+          class="underline-offset-4 hover:underline"
+          rel="noopener noreferrer"
+          target="_blank">Kartverket</a
+        >
+        · Bakgrunn: © <a
+          href="https://www.openstreetmap.org/copyright"
+          class="underline-offset-4 hover:underline"
+          rel="noopener noreferrer"
+          target="_blank">OpenStreetMap</a
+        >
+      </p>
+    </CardContent>
+  </Card>
+</section>
+
+<style is:global>
+  .boundary-map .leaflet-container {
+    font: inherit;
+    background: color-mix(in oklab, var(--muted) 35%, transparent);
+  }
+
+  .boundary-map .leaflet-control-attribution {
+    display: none;
+  }
+</style>
+
+<script>
+  import L from "leaflet";
+  import "leaflet/dist/leaflet.css";
+
+  interface BoundaryDataset {
+    type: "FeatureCollection";
+    features: Array<{
+      type: "Feature";
+      properties: { id: string; name: string; countyId?: string };
+      geometry: GeoJSON.Geometry;
+    }>;
+  }
+
+  const countyOutlineStyle: L.PathOptions = {
+    color: "#1d4ed8",
+    weight: 2,
+    fillOpacity: 0,
+  };
+
+  const countyFillStyle: L.PathOptions = {
+    color: "#1d4ed8",
+    weight: 2,
+    fillColor: "#3b82f6",
+    fillOpacity: 0.18,
+  };
+
+  const municipalityStyle: L.PathOptions = {
+    color: "#64748b",
+    weight: 1,
+    fillColor: "#94a3b8",
+    fillOpacity: 0.12,
+  };
+
+  const highlightStyle: L.PathOptions = {
+    color: "#1d4ed8",
+    weight: 3,
+    fillColor: "#2563eb",
+    fillOpacity: 0.32,
+  };
+
+  const contextStyle: L.PathOptions = {
+    color: "#94a3b8",
+    weight: 1,
+    fillColor: "#cbd5e1",
+    fillOpacity: 0.06,
+  };
+
+  async function loadDataset(base: string, fileName: string): Promise<BoundaryDataset> {
+    const response = await fetch(`${base}${fileName}`);
+    if (!response.ok) {
+      throw new Error(`Failed to load ${fileName}: HTTP ${response.status}`);
+    }
+    return (await response.json()) as BoundaryDataset;
+  }
+
+  function initBoundaryMap(container: HTMLElement) {
+    const entityType = container.dataset.entityType;
+    const entityId = container.dataset.entityId ?? "";
+    const countyId = container.dataset.countyId || entityId.slice(0, 2);
+    const assetBase = container.dataset.assetBase ?? "/";
+
+    const map = L.map(container, {
+      scrollWheelZoom: false,
+      attributionControl: false,
+    });
+
+    L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
+      maxZoom: 18,
+    }).addTo(map);
+
+    const init = async () => {
+      const [counties, municipalities] = await Promise.all([
+        loadDataset(assetBase, "assets/geodata/counties.geojson"),
+        loadDataset(assetBase, "assets/geodata/municipalities.geojson"),
+      ]);
+
+      const layers: L.Layer[] = [];
+
+      if (entityType === "county") {
+        const countyBoundary = counties.features.find(
+          (feature) => feature.properties.id === entityId,
+        );
+        const municipalityFeatures = municipalities.features.filter(
+          (feature) => feature.properties.countyId === entityId,
+        );
+
+        if (countyBoundary) {
+          layers.push(
+            L.geoJSON(countyBoundary, {
+              style: municipalityFeatures.length > 1 ? countyOutlineStyle : countyFillStyle,
+            }),
+          );
+        }
+
+        for (const feature of municipalityFeatures) {
+          const style =
+            municipalityFeatures.length === 1 ? highlightStyle : municipalityStyle;
+          layers.push(L.geoJSON(feature, { style }));
+        }
+      } else {
+        const municipalityFeature = municipalities.features.find(
+          (feature) => feature.properties.id === entityId,
+        );
+        const countyBoundary = counties.features.find(
+          (feature) => feature.properties.id === countyId,
+        );
+
+        if (countyBoundary) {
+          layers.push(L.geoJSON(countyBoundary, { style: contextStyle }));
+        }
+        if (municipalityFeature) {
+          layers.push(L.geoJSON(municipalityFeature, { style: highlightStyle }));
+        }
+      }
+
+      const group = L.featureGroup(layers);
+      group.addTo(map);
+
+      if (group.getLayers().length > 0) {
+        map.fitBounds(group.getBounds().pad(0.08));
+      } else {
+        map.setView([64.5, 16.5], 4);
+      }
+    };
+
+    init().catch((error) => {
+      console.error("Boundary map failed to load", error);
+      container.innerHTML =
+        '<p class="flex h-full items-center justify-center px-4 text-sm text-muted-foreground">Kartet kunne ikke lastes.</p>';
+    });
+
+    container.addEventListener(
+      "click",
+      () => {
+        map.scrollWheelZoom.enable();
+      },
+      { once: true },
+    );
+    container.addEventListener("mouseleave", () => {
+      map.scrollWheelZoom.disable();
+    });
+  }
+
+  for (const container of document.querySelectorAll<HTMLElement>("[data-boundary-map]")) {
+    initBoundaryMap(container);
+  }
+</script>

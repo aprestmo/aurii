@@ -12,9 +12,9 @@
     "lint": "bunx @biomejs/biome lint src/"
   },
   "dependencies": {
+    "@astrojs/check": "^0.9.9",
     "@aurii/sdk": "workspace:*",
-    "@astrojs/check": "^0.9.0",
-    "astro": "^5.0.0",
+    "astro": "^6",
     "typescript": "^6.0.3"
   }
 }

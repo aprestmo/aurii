@@ -264,6 +264,20 @@ function groupMergeChanges(
   );
 }
 
+/** Year of the edge into the next layer (merge/renumber), for chronological ordering. */
+function changeYearTowardLayer(
+  nodeId: string,
+  edges: FlowEdge[],
+  nextLayerIds: Set<string>,
+): number | undefined {
+  const years = edges
+    .filter((e) => e.from === nodeId && nextLayerIds.has(e.to))
+    .map((e) => e.changeYear)
+    .filter((y): y is number => y !== undefined);
+  if (years.length === 0) return undefined;
+  return Math.min(...years);
+}
+
 function assignLayers(
   nodes: Map<string, FlowNode>,
   edges: FlowEdge[],
@@ -317,10 +331,21 @@ function assignLayers(
     layers[layer]!.push(id);
   }
 
-  for (const layer of layers) {
+  for (let layerIndex = 0; layerIndex < layers.length; layerIndex++) {
+    const layer = layers[layerIndex]!;
+    const nextLayerIds =
+      layerIndex < layers.length - 1
+        ? new Set(layers[layerIndex + 1])
+        : new Set<string>();
+
     layer.sort((a, b) => {
       const nodeA = nodes.get(a)!;
       const nodeB = nodes.get(b)!;
+      const yearA =
+        changeYearTowardLayer(a, edges, nextLayerIds) ?? nodeA.validFrom ?? 0;
+      const yearB =
+        changeYearTowardLayer(b, edges, nextLayerIds) ?? nodeB.validFrom ?? 0;
+      if (yearA !== yearB) return yearA - yearB;
       return nodeA.name.localeCompare(nodeB.name, "nb");
     });
   }
@@ -542,13 +567,13 @@ async function injectRenumberEdges(
     if (!isRenumberChange(change, numericChanges)) continue;
 
     const fromNode = await resolveNode(
-      { name: change.oldName, number: change.oldCode },
+      { id: change.oldCode, name: change.oldName, number: change.oldCode },
       "municipality",
       0,
       nodeCache,
     );
     const toNode = await resolveNode(
-      { name: change.newName, number: change.newCode },
+      { id: change.newCode, name: change.newName, number: change.newCode },
       "municipality",
       1,
       nodeCache,

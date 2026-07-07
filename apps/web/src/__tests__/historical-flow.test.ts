@@ -6,12 +6,39 @@ import {
 } from "../lib/historical-flow";
 
 describe("historical administrative flow diagrams", () => {
-  it("Trondheim ancestry includes Klæbu (2018)", async () => {
+  it("Trondheim ancestry includes Klæbu (2020)", async () => {
     const flow = await buildAncestryFlow("5001", "municipality");
     expect(hasFlowContent(flow)).toBe(true);
     const names = flow.nodes.map((n) => n.name);
     expect(names).toContain("Trondheim");
     expect(names).toContain("Klæbu");
+  });
+
+  it("Trondheim ancestry has no duplicate current-number nodes", async () => {
+    const flow = await buildAncestryFlow("5001", "municipality");
+    const currentNodes = flow.nodes.filter((n) => n.isCurrent);
+    expect(currentNodes).toHaveLength(1);
+    expect(currentNodes[0]?.id).toBe("5001");
+    expect(flow.layers.at(-1)).toEqual(["5001"]);
+  });
+
+  it("Skaun ancestry has no duplicate current-number nodes", async () => {
+    const flow = await buildAncestryFlow("5029", "municipality");
+    const currentNodes = flow.nodes.filter((n) => n.isCurrent);
+    expect(currentNodes).toHaveLength(1);
+    expect(currentNodes[0]?.id).toBe("5029");
+    expect(flow.layers.at(-1)).toEqual(["5029"]);
+  });
+
+  it("Trondheim merge predecessors are ordered by merge year", async () => {
+    const flow = await buildAncestryFlow("5001", "municipality");
+    const firstLayer = flow.layers[0] ?? [];
+    const mergeIds = firstLayer.filter((id) => id.startsWith("hist-mun-"));
+    const mergeNames = mergeIds.map(
+      (id) => flow.nodes.find((n) => n.id === id)!.name,
+    );
+    expect(mergeNames).toContain("Klæbu");
+    expect(mergeNames.indexOf("Klæbu")).toBe(mergeNames.length - 1);
   });
 
   it("Trøndelag ancestry includes Nord-Trøndelag and Sør-Trøndelag", async () => {

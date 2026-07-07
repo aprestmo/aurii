@@ -17,6 +17,7 @@ describe("historical norwegian geo dataset", () => {
     for (const file of [
       "municipalities.json",
       "counties.json",
+      "current-counties.json",
       "administrative-changes.json",
       "unresolved-matches.json",
       "heraldry-manifest.json",

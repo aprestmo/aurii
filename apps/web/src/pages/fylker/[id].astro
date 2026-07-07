@@ -1,5 +1,6 @@
 ---
 import Breadcrumb from "@/components/Breadcrumb.astro";
+import AdminFlowDiagram from "@/components/AdminFlowDiagram.astro";
 import EntityNav from "@/components/EntityNav.astro";
 import ExploreLinks from "@/components/ExploreLinks.astro";
 import FactGrid from "@/components/FactGrid.astro";
@@ -30,6 +31,7 @@ import {
   getMunicipalitiesByCounty,
   loadCounties,
 } from "../../lib/data";
+import { buildAncestryFlow, hasFlowContent } from "../../lib/historical-flow";
 
 export async function getStaticPaths() {
   const counties = await loadCounties();
@@ -48,6 +50,8 @@ const municipalities = await getMunicipalitiesByCounty(id!);
 const stats = await getCountyStats(id!);
 const populationYear = county.populationYear ?? stats.populationYear;
 const adjacent = await getAdjacentCounties(id!);
+const ancestryFlow = await buildAncestryFlow(id!, "county");
+const showAncestryFlow = hasFlowContent(ancestryFlow);
 
 const pageDescription = `${county.name} i Aurii Geo — ${stats.municipalityCount} kommuner, ${formatPopulation(stats.population)} innbyggere, og koblede skoler og barnehager.`;
 
@@ -127,6 +131,13 @@ const exploreLinks = [
         : []),
     ]}
   />
+
+  {showAncestryFlow && (
+    <AdminFlowDiagram
+      flow={ancestryFlow}
+      title="Historisk utvikling"
+    />
+  )}
 
   <section aria-labelledby="municipalities-heading">
     <SectionHeading

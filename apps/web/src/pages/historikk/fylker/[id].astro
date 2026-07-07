@@ -1,5 +1,6 @@
 ---
 import Breadcrumb from "@/components/Breadcrumb.astro";
+import AdminFlowDiagram from "@/components/AdminFlowDiagram.astro";
 import PageHeader from "@/components/PageHeader.astro";
 import SectionHeading from "@/components/SectionHeading.astro";
 import Layout from "../../../layouts/Layout.astro";
@@ -11,6 +12,7 @@ import {
   changeTypeLabel,
   loadHistoricalCounties,
 } from "../../../lib/historical-data";
+import { buildForwardFlow, hasFlowContent } from "../../../lib/historical-flow";
 
 export async function getStaticPaths() {
   const counties = await loadHistoricalCounties();
@@ -27,6 +29,8 @@ if (!county) {
 }
 
 const timeline = await buildCountyTimeline(county.id);
+const flow = await buildForwardFlow(county.id, "county");
+const showFlow = hasFlowContent(flow);
 ---
 
 <Layout
@@ -93,6 +97,13 @@ const timeline = await buildCountyTimeline(county.id);
       )}
     </dl>
   </div>
+
+  {showFlow && (
+    <AdminFlowDiagram
+      flow={flow}
+      title="Flytskjema til dagens fylke"
+    />
+  )}
 
   <SectionHeading
     title="Utviklingslinje"

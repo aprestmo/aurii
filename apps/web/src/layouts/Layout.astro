@@ -5,15 +5,30 @@ import { url } from "../lib/base";
 
 interface Props {
   title: string;
+  description?: string;
+  canonicalPath?: string;
 }
 
-const { title } = Astro.props;
+const { title, description, canonicalPath } = Astro.props;
+
+const siteName = "Aurii Geo";
+const fullTitle = `${title} — ${siteName}`;
+const defaultDescription =
+  "Aurii Geo er en demo som viser hvordan offentlig referansedata importeres, valideres, kobles og eksponeres som strukturert kunnskap i Aurii.";
+const metaDescription = description ?? defaultDescription;
+
+const siteUrl = Astro.site?.href?.replace(/\/$/, "") ?? "";
+const canonicalUrl = canonicalPath !== undefined ? `${siteUrl}${url(canonicalPath)}` : Astro.url.href;
 
 const navItems = [
   { label: "Datasett", href: url("#datasett") },
   { label: "Fylker", href: url("#fylker") },
   { label: "Spørringer", href: url("#sporringer") },
 ];
+
+const githubUrl = "https://github.com/aprestmo/aurii";
+const docsUrl = "https://github.com/aprestmo/aurii/blob/main/docs/REFERENCE_DEMO.md";
+const version = "0.1.0";
 ---
 
 <!doctype html>
@@ -21,7 +36,18 @@ const navItems = [
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>{title} — Aurii Geo</title>
+    <title>{fullTitle}</title>
+    <meta name="description" content={metaDescription} />
+    <link rel="icon" href={url("favicon.svg")} type="image/svg+xml" />
+    {siteUrl && <link rel="canonical" href={canonicalUrl} />}
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={fullTitle} />
+    <meta property="og:description" content={metaDescription} />
+    {siteUrl && <meta property="og:url" content={canonicalUrl} />}
+    <meta property="og:site_name" content={siteName} />
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content={fullTitle} />
+    <meta name="twitter:description" content={metaDescription} />
     <script is:inline>
       function initTheme() {
         const colorTheme = localStorage.getItem("colorTheme");
@@ -53,7 +79,7 @@ const navItems = [
     <header class="sticky top-0 z-50 border-b border-border bg-background/80 backdrop-blur supports-[backdrop-filter]:bg-background/60">
       <div class="mx-auto max-w-6xl px-4 sm:px-6">
         <div class="flex items-center justify-between gap-6 py-4 sm:py-5">
-          <a href={url("")} class="group flex min-w-0 items-center gap-3 focus:outline-none focus-visible:ring-2 focus-visible:ring-outline rounded-md">
+          <a href={url("")} class="group flex min-w-0 items-center gap-3 rounded-md focus:outline-none focus-visible:ring-2 focus-visible:ring-outline">
             <span class="inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-md bg-primary text-sm font-bold text-primary-foreground">
               A
             </span>
@@ -96,7 +122,7 @@ const navItems = [
 
     <footer class="border-t border-border bg-muted/30">
       <div class="mx-auto max-w-6xl px-4 py-10 sm:px-6">
-        <div class="grid gap-8 sm:grid-cols-2">
+        <div class="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
           <div>
             <p class="font-medium">Datakilder</p>
             <p class="mt-2 text-sm leading-relaxed text-muted-foreground">
@@ -111,10 +137,36 @@ const navItems = [
               strukturert kunnskap. Sider, tabeller og relasjoner bygges fra importert offentlig data.
             </p>
           </div>
+          <div>
+            <p class="font-medium">Lenker</p>
+            <ul class="mt-2 space-y-1.5 text-sm">
+              <li>
+                <a
+                  href={githubUrl}
+                  class="text-muted-foreground transition-colors hover:text-foreground focus:outline-none focus-visible:ring-2 focus-visible:ring-outline rounded-sm"
+                  rel="noopener noreferrer"
+                  target="_blank"
+                >
+                  GitHub
+                </a>
+              </li>
+              <li>
+                <a
+                  href={docsUrl}
+                  class="text-muted-foreground transition-colors hover:text-foreground focus:outline-none focus-visible:ring-2 focus-visible:ring-outline rounded-sm"
+                  rel="noopener noreferrer"
+                  target="_blank"
+                >
+                  Referansedemo-dokumentasjon
+                </a>
+              </li>
+            </ul>
+          </div>
         </div>
-        <p class="mt-8 border-t border-border pt-6 text-xs text-muted-foreground">
-          Aurii Geo · Norsk offentlig referansedata
-        </p>
+        <div class="mt-8 flex flex-col gap-2 border-t border-border pt-6 text-xs text-muted-foreground sm:flex-row sm:items-center sm:justify-between">
+          <p>Aurii Geo · Norsk offentlig referansedata</p>
+          <p>v{version} · Bygget fra importert referansedata</p>
+        </div>
       </div>
     </footer>
 
@@ -144,18 +196,21 @@ const navItems = [
 
       document.addEventListener("click", (event) => {
         const button = (event.target as HTMLElement).closest<HTMLButtonElement>(".copy-query-btn");
-        if (!button) return;
+        if (!button || button.dataset.copyState === "success") return;
 
         const query = button.getAttribute("data-query");
         if (!query) return;
 
         navigator.clipboard.writeText(query).then(() => {
-          const original = button.textContent;
-          button.textContent = "Kopiert!";
+          const label = button.querySelector<HTMLElement>(".copy-query-label");
+          const original = label?.textContent ?? "Kopier";
+          button.dataset.copyState = "success";
           button.setAttribute("aria-label", "Spørring kopiert");
-          setTimeout(() => {
-            button.textContent = original;
+          if (label) label.textContent = "Kopiert!";
+          window.setTimeout(() => {
+            delete button.dataset.copyState;
             button.setAttribute("aria-label", "Kopier spørring");
+            if (label) label.textContent = original;
           }, 2000);
         });
       });
@@ -166,6 +221,19 @@ const navItems = [
           return Number.isFinite(parsed) ? parsed : 0;
         }
         return value.toLocaleLowerCase("nb");
+      }
+
+      function updateSortIndicators(table: HTMLTableElement) {
+        const headers = table.tHead?.rows[0]?.cells;
+        if (!headers) return;
+
+        Array.from(headers).forEach((header) => {
+          const indicator = header.querySelector<HTMLElement>("[data-sort-indicator]");
+          if (!indicator) return;
+          const sort = header.getAttribute("aria-sort");
+          indicator.textContent = sort === "ascending" ? "↑" : sort === "descending" ? "↓" : "↕";
+          indicator.classList.toggle("opacity-40", sort === "none" || !sort);
+        });
       }
 
       function sortTable(table: HTMLTableElement, columnIndex: number, type: string, ascending: boolean) {
@@ -189,6 +257,7 @@ const navItems = [
         });
 
         rows.forEach((row) => tbody.appendChild(row));
+        updateSortIndicators(table);
       }
 
       function initSortableTables(root: ParentNode = document) {
@@ -203,17 +272,45 @@ const navItems = [
             const type = header.dataset.sortType ?? "text";
             if (type === "none") return;
 
-            header.classList.add("cursor-pointer", "select-none", "hover:text-foreground");
+            header.classList.add("cursor-pointer", "select-none", "hover:text-foreground", "group");
             header.setAttribute("aria-sort", "none");
-            header.addEventListener("click", () => {
+            header.setAttribute("tabindex", "0");
+            header.setAttribute("role", "columnheader");
+
+            if (!header.querySelector("[data-sort-indicator]")) {
+              const label = header.textContent?.trim() ?? "";
+              header.textContent = "";
+              const wrapper = document.createElement("span");
+              wrapper.className = "inline-flex items-center gap-1.5";
+              wrapper.textContent = label;
+              const indicator = document.createElement("span");
+              indicator.dataset.sortIndicator = "true";
+              indicator.className = "text-xs opacity-40 transition-opacity group-hover:opacity-70";
+              indicator.setAttribute("aria-hidden", "true");
+              indicator.textContent = "↕";
+              wrapper.append(indicator);
+              header.append(wrapper);
+            }
+
+            const activateSort = () => {
               const ascending = header.getAttribute("aria-sort") !== "ascending";
               Array.from(headers).forEach((h) => {
                 if (h !== header) h.setAttribute("aria-sort", "none");
               });
               header.setAttribute("aria-sort", ascending ? "ascending" : "descending");
               sortTable(table, index, type, ascending);
+            };
+
+            header.addEventListener("click", activateSort);
+            header.addEventListener("keydown", (event) => {
+              if (event.key === "Enter" || event.key === " ") {
+                event.preventDefault();
+                activateSort();
+              }
             });
           });
+
+          updateSortIndicators(table);
         });
       }
 
@@ -239,6 +336,7 @@ const navItems = [
               const text = row.textContent?.toLocaleLowerCase("nb") ?? "";
               const match = query === "" || text.includes(query);
               row.classList.toggle("hidden", !match);
+              row.classList.toggle("bg-primary/5", match && query !== "");
               if (match) visible++;
             });
 

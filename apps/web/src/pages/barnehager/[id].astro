@@ -1,4 +1,6 @@
 ---
+import Breadcrumb from "@/components/Breadcrumb.astro";
+import SectionHeading from "@/components/SectionHeading.astro";
 import Layout from "../../layouts/Layout.astro";
 import { Badge } from "@/components/starwind/badge";
 import { Card, CardContent } from "@/components/starwind/card";
@@ -26,52 +28,73 @@ if (!kindergarten) {
 
 const municipality = await getMunicipality(kindergarten.municipalityId);
 const county = await getCounty(kindergarten.countyId);
+
+const pageDescription = `${kindergarten.name} — barnehage i ${municipality?.name ?? "Norge"}, importert fra UDIR og koblet i Aurii.`;
 ---
 
-<Layout title={kindergarten.name}>
-  <p class="mb-3 text-sm">
-    <a href={url("")} class="text-muted-foreground hover:text-foreground">← Referansedata</a>
-    {" · "}
-    <a href={url("barnehager")} class="text-muted-foreground hover:text-foreground">Barnehager</a>
-  </p>
-  <div class="mb-8">
-    <h1 class="text-3xl font-semibold tracking-tight">{kindergarten.name}</h1>
-    <p class="mt-2 flex flex-wrap items-center gap-2 text-muted-foreground">
+<Layout title={kindergarten.name} description={pageDescription} canonicalPath={`barnehager/${kindergarten.id}`}>
+  <Breadcrumb
+    items={[
+      { label: "Forside", href: url("") },
+      { label: "Barnehager", href: url("barnehager") },
+      { label: kindergarten.name },
+    ]}
+  />
+
+  <header class="mb-10">
+    <h1 class="text-3xl font-semibold tracking-tight sm:text-4xl">{kindergarten.name}</h1>
+    <p class="mt-3 flex flex-wrap items-center gap-2 text-sm text-muted-foreground">
       Org.nr. <Badge variant="outline">{kindergarten.id}</Badge>
       {municipality && (
         <>
-          {" · "}
-          <a href={url(`kommuner/${municipality.id}`)} class="hover:text-foreground">{municipality.name}</a>
+          ·{" "}
+          <a
+            href={url(`kommuner/${municipality.id}`)}
+            class="rounded-sm transition-colors hover:text-foreground focus:outline-none focus-visible:ring-2 focus-visible:ring-outline"
+          >
+            {municipality.name}
+          </a>
         </>
       )}
       {county && (
         <>
-          {" · "}
-          <a href={url(`fylker/${county.id}`)} class="hover:text-foreground">{county.name}</a>
+          ·{" "}
+          <a
+            href={url(`fylker/${county.id}`)}
+            class="rounded-sm transition-colors hover:text-foreground focus:outline-none focus-visible:ring-2 focus-visible:ring-outline"
+          >
+            {county.name}
+          </a>
         </>
       )}
     </p>
-  </div>
+  </header>
 
-  <h2 class="mb-3 text-sm font-medium uppercase tracking-wide text-muted-foreground">Egenskaper</h2>
-  <Card>
-    <CardContent class="p-0">
-      <Table>
-        <TableBody>
-          <TableRow>
-            <TableCell class="text-muted-foreground">Eierform</TableCell>
-            <TableCell class="text-right font-medium">{kindergarten.isPublic ? "Offentlig" : "Privat"}</TableCell>
-          </TableRow>
-          <TableRow>
-            <TableCell class="text-muted-foreground">Aktiv</TableCell>
-            <TableCell class="text-right font-medium">{kindergarten.isActive ? "Ja" : "Nei"}</TableCell>
-          </TableRow>
-          <TableRow>
-            <TableCell class="text-muted-foreground">Kilde</TableCell>
-            <TableCell class="text-right font-mono text-xs">{kindergarten.source}</TableCell>
-          </TableRow>
-        </TableBody>
-      </Table>
-    </CardContent>
-  </Card>
+  <section aria-labelledby="properties-heading">
+    <SectionHeading
+      id="properties-heading"
+      title="Egenskaper"
+      description="Strukturerte egenskaper importert fra UDIR og validert mot Aurii-skjemaet for barnehager."
+    />
+    <Card class="border-border/80">
+      <CardContent class="p-0">
+        <Table>
+          <TableBody>
+            <TableRow class="transition-colors hover:bg-muted/50">
+              <TableCell class="text-muted-foreground">Eierform</TableCell>
+              <TableCell class="text-right font-medium">{kindergarten.isPublic ? "Offentlig" : "Privat"}</TableCell>
+            </TableRow>
+            <TableRow class="transition-colors hover:bg-muted/50">
+              <TableCell class="text-muted-foreground">Aktiv</TableCell>
+              <TableCell class="text-right font-medium">{kindergarten.isActive ? "Ja" : "Nei"}</TableCell>
+            </TableRow>
+            <TableRow class="transition-colors hover:bg-muted/50">
+              <TableCell class="text-muted-foreground">Kilde</TableCell>
+              <TableCell class="text-right font-mono text-xs">{kindergarten.source}</TableCell>
+            </TableRow>
+          </TableBody>
+        </Table>
+      </CardContent>
+    </Card>
+  </section>
 </Layout>

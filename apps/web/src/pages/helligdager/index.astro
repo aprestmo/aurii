@@ -1,4 +1,6 @@
 ---
+import Breadcrumb from "@/components/Breadcrumb.astro";
+import SectionHeading from "@/components/SectionHeading.astro";
 import Layout from "../../layouts/Layout.astro";
 import { Badge } from "@/components/starwind/badge";
 import { Card, CardContent } from "@/components/starwind/card";
@@ -12,33 +14,42 @@ const holidays = (await loadPublicHolidays()).sort((a, b) =>
 const years = [...new Set(holidays.map((h) => h.year))].sort();
 ---
 
-<Layout title="Helligdager">
-  <p class="mb-3 text-sm">
-    <a href={url("")} class="text-muted-foreground hover:text-foreground">← Referansedata</a>
-  </p>
-  <div class="mb-8">
-    <h1 class="text-3xl font-semibold tracking-tight">Helligdager</h1>
-    <p class="mt-2 text-muted-foreground">
-      {holidays.length} helligdager ({years[0]}–{years[years.length - 1]}) · avledet fra Helligdagsloven via Nager.Date
-    </p>
-  </div>
+<Layout
+  title="Helligdager"
+  description={`${holidays.length} norske helligdager (${years[0]}–${years[years.length - 1]}) importert og strukturert i Aurii.`}
+  canonicalPath="helligdager"
+>
+  <Breadcrumb
+    items={[
+      { label: "Forside", href: url("") },
+      { label: "Helligdager" },
+    ]}
+  />
 
-  <div class="space-y-8">
+  <header class="mb-10">
+    <h1 class="text-3xl font-semibold tracking-tight sm:text-4xl">Helligdager</h1>
+    <p class="mt-3 max-w-2xl text-sm leading-relaxed text-muted-foreground">
+      {holidays.length} helligdager ({years[0]}–{years[years.length - 1]}) avledet fra Helligdagsloven
+      via Nager.Date og importert som strukturerte entiteter i Aurii.
+    </p>
+  </header>
+
+  <div class="space-y-10">
     {years.map((year) => (
-      <section>
-        <h2 class="mb-3 text-sm font-medium uppercase tracking-wide text-muted-foreground">{year}</h2>
-        <Card>
+      <section aria-labelledby={`year-${year}`}>
+        <SectionHeading id={`year-${year}`} title={String(year)} />
+        <Card class="border-border/80">
           <CardContent class="p-0">
             <Table>
               <TableBody>
                 {holidays
                   .filter((h) => h.year === year)
                   .map((holiday) => (
-                    <TableRow>
-                      <TableCell class="font-mono text-xs text-muted-foreground">{holiday.date}</TableCell>
+                    <TableRow class="transition-colors hover:bg-muted/50">
+                      <TableCell class="w-28 font-mono text-xs text-muted-foreground">{holiday.date}</TableCell>
                       <TableCell class="font-medium">{holiday.localName}</TableCell>
                       <TableCell class="text-right">
-                        <Badge variant="outline">{holiday.holidayType}</Badge>
+                        {holiday.holidayType && <Badge variant="outline">{holiday.holidayType}</Badge>}
                       </TableCell>
                     </TableRow>
                   ))}

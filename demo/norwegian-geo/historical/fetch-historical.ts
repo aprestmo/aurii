@@ -4,6 +4,7 @@ import type {
   AdministrativeChange,
   HistoricalCounty,
   HistoricalMunicipality,
+  WikiCurrentCounty,
 } from "./types";
 import {
   createMatchContext,
@@ -26,6 +27,11 @@ import {
   stripTags,
 } from "./parse-html";
 import { downloadHeraldryBatch, type HeraldryTarget } from "./heraldry";
+import {
+  filterSkippedReestablishmentChanges,
+  inferCountyReformChanges,
+  normalizeSplitChangeTypes,
+} from "./infer-county-changes";
 
 const USER_AGENT =
   "AuriiHistoricalGeoBot/1.0 (https://github.com/aprestmo/aurii; research)";
@@ -128,7 +134,7 @@ function parseMunicipalityPage(html: string): HistoricalMunicipality[] {
   return municipalities;
 }
 
-function parseCountyPage(html: string): HistoricalCounty[] {
+function parseHistoricalCountiesPage(html: string): HistoricalCounty[] {
   const sectionIdx = html.indexOf("Tidligere fylker");
   if (sectionIdx === -1) throw new Error("Could not find 'Tidligere fylker' section");
 
@@ -179,6 +185,7 @@ function parseCountyPage(html: string): HistoricalCounty[] {
             : [],
       newCountyNumber,
       changeType,
+      status: "historical",
       sourceUrl: COUNTY_SOURCE,
       wikipediaUrl,
       ...(coatSource
@@ -190,6 +197,68 @@ function parseCountyPage(html: string): HistoricalCounty[] {
   return counties;
 }
 
+function parseCurrentCountiesPage(html: string): WikiCurrentCounty[] {
+  const sectionIdx = html.indexOf("Norges_fylker_2024");
+  if (sectionIdx === -1) {
+    throw new Error("Could not find 'Norges fylker 2024–' section");
+  }
+
+  const endIdx = html.indexOf("Tidligere_fylker", sectionIdx);
+  const sectionHtml = html.slice(sectionIdx, endIdx > 0 ? endIdx : undefined);
+  const tableMatch = sectionHtml.match(
+    /<table class="sortable wikitable">([\s\S]*?)<\/table>/i,
+  );
+  if (!tableMatch) throw new Error("Could not find current counties table");
+
+  const counties: WikiCurrentCounty[] = [];
+  const rows = extractTableRows(tableMatch[1]!);
+
+  for (const row of rows) {
+    if (row.cells.length < 3) continue;
+
+    const numberCell = stripTags(row.cells[0]!);
+    if (!/^\d{1,2}$/.test(numberCell)) continue;
+
+    const nameCell = row.cells[1]!;
+    const name =
+      extractLinkTexts(nameCell).find((n) => !n.includes("våpen")) ??
+      stripTags(nameCell);
+    if (!name) continue;
+
+    const coatSource = extractCoatOfArmsSource(nameCell);
+    const administrativeCenter =
+      extractLinkTexts(row.cells[2]!)[0] ?? stripTags(row.cells[2]!);
+    const wikipediaUrl = extractWikipediaUrl(nameCell);
+    const padded = numberCell.padStart(2, "0");
+
+    counties.push({
+      id: padded,
+      type: "county",
+      name,
+      countyNumber: padded,
+      administrativeCenter: administrativeCenter || undefined,
+      validFrom: 2024,
+      status: "current",
+      sourceUrl: COUNTY_SOURCE,
+      wikipediaUrl,
+      ...(coatSource
+        ? { _coatSource: coatSource }
+        : ({} as { _coatSource?: string })),
+    } as WikiCurrentCounty & { _coatSource?: string });
+  }
+
+  return counties;
+}
+
+function markIntermediateCounties(counties: HistoricalCounty[]): void {
+  const intermediateNumbers = new Set(["30", "38", "54"]);
+  for (const county of counties) {
+    if (intermediateNumbers.has(county.countyNumber ?? "")) {
+      county.status = "intermediate";
+      county.validFrom = 2020;
+    }
+  }
+}
 function buildAdministrativeChanges(
   municipalities: HistoricalMunicipality[],
   counties: HistoricalCounty[],
@@ -241,6 +310,11 @@ function buildAdministrativeChanges(
 
   for (const county of counties) {
     if (!county.changeType || county.changeType === "unknown") continue;
+
+    // Re-establishments via 2020 intermediate units are modelled separately.
+    if (county.todayPartOfNames.some((n) => /gjenopprettet/i.test(n))) {
+      continue;
+    }
 
     const fromEntities = [
       {
@@ -340,8 +414,14 @@ async function main(): Promise<void> {
   console.log(`  Found ${rawMunicipalities.length} historical municipalities`);
 
   console.log("Parsing counties…");
-  const rawCounties = parseCountyPage(countyHtml);
-  console.log(`  Found ${rawCounties.length} historical counties`);
+  const rawHistoricalCounties = parseHistoricalCountiesPage(countyHtml);
+  markIntermediateCounties(rawHistoricalCounties);
+  console.log(`  Found ${rawHistoricalCounties.length} historical/intermediate counties`);
+
+  const rawCurrentCountiesWiki = parseCurrentCountiesPage(countyHtml);
+  console.log(`  Found ${rawCurrentCountiesWiki.length} current counties (Wikipedia 2024–)`);
+
+  const rawCounties = rawHistoricalCounties;
 
   const currentMunicipalities = JSON.parse(
     await readFile(resolve(CURRENT_DATA, "municipalities.json"), "utf-8"),
@@ -367,14 +447,50 @@ async function main(): Promise<void> {
   resolveResultIds(rawMunicipalities, matchCtx);
   resolveCountyPartOfIds(rawCounties, matchCtx);
 
-  const changes = buildAdministrativeChanges(
+  const baseChanges = buildAdministrativeChanges(
     rawMunicipalities,
     rawCounties,
     matchCtx,
   );
+  const filteredChanges = filterSkippedReestablishmentChanges(baseChanges);
+  const inferredChanges = inferCountyReformChanges(
+    rawCounties,
+    filteredChanges,
+    filteredChanges.length,
+  );
+  const changes = normalizeSplitChangeTypes([
+    ...filteredChanges,
+    ...inferredChanges,
+  ]);
 
   console.log("Downloading heraldry…");
   const heraldryTargets: HeraldryTarget[] = [];
+
+  // Counties first — avoids Commons rate limits after large municipality batches.
+  for (const county of rawCounties) {
+    const coatSource = (county as HistoricalCounty & { _coatSource?: string })
+      ._coatSource;
+    if (coatSource) {
+      heraldryTargets.push({
+        entityType: "county",
+        name: county.name,
+        number: county.countyNumber,
+        sourceUrl: coatSource,
+      });
+    }
+  }
+  for (const county of rawCurrentCountiesWiki) {
+    const coatSource = (county as WikiCurrentCounty & { _coatSource?: string })
+      ._coatSource;
+    if (coatSource) {
+      heraldryTargets.push({
+        entityType: "county",
+        name: county.name,
+        number: county.countyNumber,
+        sourceUrl: coatSource,
+      });
+    }
+  }
 
   for (const mun of rawMunicipalities) {
     const coatSource = (mun as HistoricalMunicipality & { _coatSource?: string })
@@ -384,18 +500,6 @@ async function main(): Promise<void> {
         entityType: "municipality",
         name: mun.name,
         number: mun.municipalityNumber,
-        sourceUrl: coatSource,
-      });
-    }
-  }
-  for (const county of rawCounties) {
-    const coatSource = (county as HistoricalCounty & { _coatSource?: string })
-      ._coatSource;
-    if (coatSource) {
-      heraldryTargets.push({
-        entityType: "county",
-        name: county.name,
-        number: county.countyNumber,
         sourceUrl: coatSource,
       });
     }
@@ -429,6 +533,19 @@ async function main(): Promise<void> {
     return { ...rest, coatOfArms };
   });
 
+  const currentCountiesWiki: WikiCurrentCounty[] = rawCurrentCountiesWiki.map(
+    (county) => {
+      const coatSource = (county as WikiCurrentCounty & { _coatSource?: string })
+        ._coatSource;
+      const coatKey = `county:${county.countyNumber}:${county.name}`;
+      const coatOfArms = coatSource ? coats.get(coatKey) : undefined;
+      const { _coatSource: _, ...rest } = county as WikiCurrentCounty & {
+        _coatSource?: string;
+      };
+      return { ...rest, coatOfArms };
+    },
+  );
+
   const unresolvedMatches = matchCtx.unresolved;
 
   await mkdir(DATA_DIR, { recursive: true });
@@ -440,6 +557,10 @@ async function main(): Promise<void> {
   await writeFile(
     resolve(DATA_DIR, "counties.json"),
     JSON.stringify(counties, null, 2) + "\n",
+  );
+  await writeFile(
+    resolve(DATA_DIR, "current-counties.json"),
+    JSON.stringify(currentCountiesWiki, null, 2) + "\n",
   );
   await writeFile(
     resolve(DATA_DIR, "administrative-changes.json"),
@@ -456,7 +577,8 @@ async function main(): Promise<void> {
 
   console.log("\nDone!");
   console.log(`  Municipalities: ${municipalities.length}`);
-  console.log(`  Counties: ${counties.length}`);
+  console.log(`  Counties (historical): ${counties.length}`);
+  console.log(`  Counties (current wiki): ${currentCountiesWiki.length}`);
   console.log(`  Administrative changes: ${changes.length}`);
   console.log(`  Unresolved matches: ${unresolvedMatches.length}`);
   console.log(`  Heraldry assets: ${manifest.length}`);

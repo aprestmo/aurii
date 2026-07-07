@@ -54,11 +54,26 @@ export interface HistoricalCounty {
   name: string;
   countyNumber?: string;
   administrativeCenter?: string;
+  validFrom?: number;
   validTo?: number;
   todayPartOfNames: string[];
   todayPartOfIds?: string[];
   newCountyNumber?: string;
   changeType?: ChangeType;
+  status?: "historical" | "intermediate" | "current";
+  sourceUrl: string;
+  wikipediaUrl?: string;
+  coatOfArms?: CoatOfArms;
+}
+
+export interface WikiCurrentCounty {
+  id: string;
+  type: "county";
+  name: string;
+  countyNumber: string;
+  administrativeCenter?: string;
+  validFrom: number;
+  status: "current";
   sourceUrl: string;
   wikipediaUrl?: string;
   coatOfArms?: CoatOfArms;
@@ -111,6 +126,17 @@ export async function loadHistoricalMunicipalities(): Promise<
   HistoricalMunicipality[]
 > {
   return readHistoricalJson<HistoricalMunicipality[]>("municipalities.json");
+}
+
+export async function loadCurrentCountiesWiki(): Promise<WikiCurrentCounty[]> {
+  return readHistoricalJson<WikiCurrentCounty[]>("current-counties.json");
+}
+
+export async function getWikiCurrentCounty(
+  id: string,
+): Promise<WikiCurrentCounty | undefined> {
+  const counties = await loadCurrentCountiesWiki();
+  return counties.find((c) => c.id === id || c.countyNumber === id);
 }
 
 export async function loadHistoricalCounties(): Promise<HistoricalCounty[]> {
@@ -318,3 +344,4 @@ export async function loadHistoricalSummary(): Promise<{
 }
 
 export type { County, Municipality };
+export { getCounty, getMunicipality } from "./data";

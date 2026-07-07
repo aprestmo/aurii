@@ -49,18 +49,30 @@ export function extractWikipediaUrl(html: string): string | undefined {
 export function extractCoatOfArmsSource(html: string): string | undefined {
   if (/Blank_shield/i.test(html)) return undefined;
 
-  const svgInSrc = html.match(
-    /\/\/upload\.wikimedia\.org\/wikipedia\/commons\/[^"'\s]+\.svg/i,
+  const fileLink = html.match(
+    /href="(?:\/wiki\/|https:\/\/commons\.wikimedia\.org\/wiki\/)(Fil:[^"]+\.(?:svg|png|jpe?g))"/i,
   );
-  if (svgInSrc) return `https:${svgInSrc[0]}`;
+  if (fileLink) {
+    return `https://commons.wikimedia.org/wiki/${fileLink[1]}`;
+  }
 
-  const fileLink = html.match(/href="\/wiki\/(Fil:[^"]+\.svg)"/i);
-  if (fileLink) return `https://commons.wikimedia.org/wiki/${fileLink[1]}`;
-
-  const pngInSrc = html.match(
-    /\/\/upload\.wikimedia\.org\/wikipedia\/commons\/[^"'\s]+\.(png|jpe?g)/i,
+  // Wikipedia viser ofte våpen som miniatyr: .../thumb/HASH/FILENAME.svg/NNpx-...
+  const thumbMatch = html.match(
+    /\/commons\/thumb\/[a-f0-9]\/[a-f0-9]{2}\/([^/]+\.(?:svg|png|jpe?g))\//i,
   );
-  if (pngInSrc) return `https:${pngInSrc[0]}`;
+  if (thumbMatch) {
+    const filename = decodeURIComponent(thumbMatch[1]!);
+    return `https://commons.wikimedia.org/wiki/File:${filename}`;
+  }
+
+  // Direkte SVG-lenke uten /thumb/
+  const directSvg = html.match(
+    /\/commons\/([a-f0-9]\/[a-f0-9]{2}\/[^"'\s]+\.svg)/i,
+  );
+  if (directSvg) {
+    const filename = decodeURIComponent(directSvg[1]!.split("/").pop()!);
+    return `https://commons.wikimedia.org/wiki/File:${filename}`;
+  }
 
   return undefined;
 }

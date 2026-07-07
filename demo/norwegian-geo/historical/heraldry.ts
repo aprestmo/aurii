@@ -39,17 +39,30 @@ async function resolveCommonsFileUrl(sourceUrl: string): Promise<{
 } | null> {
   let fileTitle: string | undefined;
 
-  const commonsWikiMatch = sourceUrl.match(/commons\.wikimedia\.org\/wiki\/(Fil:.+)/i);
+  const commonsWikiMatch = sourceUrl.match(
+    /commons\.wikimedia\.org\/wiki\/((?:Fil|File):.+)/i,
+  );
   if (commonsWikiMatch) {
-    fileTitle = decodeURIComponent(commonsWikiMatch[1]!);
+    let title = decodeURIComponent(commonsWikiMatch[1]!);
+    if (title.startsWith("Fil:")) {
+      title = `File:${title.slice(4)}`;
+    }
+    fileTitle = title;
   }
 
-  const uploadMatch = sourceUrl.match(
-    /upload\.wikimedia\.org\/wikipedia\/commons\/(?:thumb\/)?([a-f0-9]\/[a-f0-9]{2}\/)([^/]+)\.(svg|png|jpe?g)/i,
+  const thumbMatch = sourceUrl.match(
+    /upload\.wikimedia\.org\/wikipedia\/commons\/thumb\/[a-f0-9]\/[a-f0-9]{2}\/([^/]+\.(?:svg|png|jpe?g))\//i,
   );
-  if (!fileTitle && uploadMatch) {
-    const filename = decodeURIComponent(uploadMatch[2]!);
-    fileTitle = `File:${filename}.${uploadMatch[3]}`;
+  if (!fileTitle && thumbMatch) {
+    fileTitle = `File:${decodeURIComponent(thumbMatch[1]!)}`;
+  }
+
+  const directMatch = sourceUrl.match(
+    /upload\.wikimedia\.org\/wikipedia\/commons\/([a-f0-9]\/[a-f0-9]{2}\/[^"'\s]+\.(?:svg|png|jpe?g))/i,
+  );
+  if (!fileTitle && directMatch) {
+    const filename = decodeURIComponent(directMatch[1]!.split("/").pop()!);
+    fileTitle = `File:${filename}`;
   }
 
   if (!fileTitle) return null;
@@ -72,6 +85,7 @@ async function resolveCommonsFileUrl(sourceUrl: string): Promise<{
       pages?: Record<
         string,
         {
+          missing?: string;
           imageinfo?: Array<{
             url: string;
             mime?: string;
@@ -84,12 +98,16 @@ async function resolveCommonsFileUrl(sourceUrl: string): Promise<{
 
   const pages = data.query?.pages ?? {};
   const page = Object.values(pages)[0];
-  const info = page?.imageinfo?.[0];
+  if (!page || page.missing !== undefined) return null;
+
+  const info = page.imageinfo?.[0];
   if (!info?.url) return null;
 
   const ext = info.url.split(".").pop()?.toLowerCase() ?? "svg";
   const license = info.extmetadata?.LicenseShortName?.value;
-  const attribution = info.extmetadata?.Artist?.value?.replace(/<[^>]+>/g, "").trim();
+  const attribution = info.extmetadata?.Artist?.value
+    ?.replace(/<[^>]+>/g, "")
+    .trim();
 
   return { downloadUrl: info.url, extension: ext, attribution, license };
 }
@@ -154,6 +172,8 @@ export async function downloadHeraldryBatch(
     const result = await downloadHeraldry(target, publicAssetsRoot);
     if (result.coatOfArms) {
       coats.set(key, result.coatOfArms);
+      // Del samme fil for samme nummer+navn på tvers av kilder
+      coats.set(`${target.entityType}::${target.name}`, result.coatOfArms);
     }
     if (result.manifest) {
       manifest.push(result.manifest);

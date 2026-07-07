@@ -1522,7 +1522,7 @@
     "id": "change-municipality-kvikne-1966-71",
     "entityType": "municipality",
     "changeYear": 1966,
-    "changeType": "split_between",
+    "changeType": "split",
     "from": [
       {
         "name": "Kvikne",
@@ -3844,7 +3844,7 @@
     "id": "change-municipality-borre-2002-179",
     "entityType": "municipality",
     "changeYear": 2002,
-    "changeType": "merged",
+    "changeType": "split",
     "from": [
       {
         "name": "Borre",
@@ -6919,51 +6919,7 @@
     "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
   },
   {
-    "id": "change-county-ostfold-2020-324",
-    "entityType": "county",
-    "changeYear": 2020,
-    "changeType": "reestablished",
-    "from": [
-      {
-        "name": "Østfold",
-        "number": "01",
-        "id": "hist-county-01-ostfold"
-      }
-    ],
-    "to": [
-      {
-        "name": "Østfold",
-        "number": "31",
-        "id": "31"
-      }
-    ],
-    "notes": "Gjenopprettet 2024",
-    "sourceUrl": "https://no.wikipedia.org/wiki/Norges_fylker"
-  },
-  {
-    "id": "change-county-akershus-2020-325",
-    "entityType": "county",
-    "changeYear": 2020,
-    "changeType": "reestablished",
-    "from": [
-      {
-        "name": "Akershus",
-        "number": "02",
-        "id": "hist-county-02-akershus"
-      }
-    ],
-    "to": [
-      {
-        "name": "Akershus",
-        "number": "32",
-        "id": "32"
-      }
-    ],
-    "notes": "Gjenopprettet 2024",
-    "sourceUrl": "https://no.wikipedia.org/wiki/Norges_fylker"
-  },
-  {
-    "id": "change-county-hedmark-2020-326",
+    "id": "change-county-hedmark-2020-324",
     "entityType": "county",
     "changeYear": 2020,
     "changeType": "merged",
@@ -6984,7 +6940,7 @@
     "sourceUrl": "https://no.wikipedia.org/wiki/Norges_fylker"
   },
   {
-    "id": "change-county-oppland-2020-327",
+    "id": "change-county-oppland-2020-325",
     "entityType": "county",
     "changeYear": 2020,
     "changeType": "merged",
@@ -7005,73 +6961,7 @@
     "sourceUrl": "https://no.wikipedia.org/wiki/Norges_fylker"
   },
   {
-    "id": "change-county-buskerud-2020-328",
-    "entityType": "county",
-    "changeYear": 2020,
-    "changeType": "reestablished",
-    "from": [
-      {
-        "name": "Buskerud",
-        "number": "06",
-        "id": "hist-county-06-buskerud"
-      }
-    ],
-    "to": [
-      {
-        "name": "Buskerud",
-        "number": "33",
-        "id": "33"
-      }
-    ],
-    "notes": "Gjenopprettet 2024",
-    "sourceUrl": "https://no.wikipedia.org/wiki/Norges_fylker"
-  },
-  {
-    "id": "change-county-vestfold-2020-329",
-    "entityType": "county",
-    "changeYear": 2020,
-    "changeType": "reestablished",
-    "from": [
-      {
-        "name": "Vestfold",
-        "number": "07",
-        "id": "hist-county-07-vestfold"
-      }
-    ],
-    "to": [
-      {
-        "name": "Vestfold",
-        "number": "39",
-        "id": "39"
-      }
-    ],
-    "notes": "Gjenopprettet 2024",
-    "sourceUrl": "https://no.wikipedia.org/wiki/Norges_fylker"
-  },
-  {
-    "id": "change-county-telemark-2020-330",
-    "entityType": "county",
-    "changeYear": 2020,
-    "changeType": "reestablished",
-    "from": [
-      {
-        "name": "Telemark",
-        "number": "08",
-        "id": "hist-county-08-telemark"
-      }
-    ],
-    "to": [
-      {
-        "name": "Telemark",
-        "number": "40",
-        "id": "40"
-      }
-    ],
-    "notes": "Gjenopprettet 2024",
-    "sourceUrl": "https://no.wikipedia.org/wiki/Norges_fylker"
-  },
-  {
-    "id": "change-county-aust-agder-2020-331",
+    "id": "change-county-aust-agder-2020-326",
     "entityType": "county",
     "changeYear": 2020,
     "changeType": "merged",
@@ -7092,7 +6982,7 @@
     "sourceUrl": "https://no.wikipedia.org/wiki/Norges_fylker"
   },
   {
-    "id": "change-county-vest-agder-2020-332",
+    "id": "change-county-vest-agder-2020-327",
     "entityType": "county",
     "changeYear": 2020,
     "changeType": "merged",
@@ -7113,7 +7003,7 @@
     "sourceUrl": "https://no.wikipedia.org/wiki/Norges_fylker"
   },
   {
-    "id": "change-county-hordaland-2020-333",
+    "id": "change-county-hordaland-2020-328",
     "entityType": "county",
     "changeYear": 2020,
     "changeType": "merged",
@@ -7134,7 +7024,7 @@
     "sourceUrl": "https://no.wikipedia.org/wiki/Norges_fylker"
   },
   {
-    "id": "change-county-bergen-1972-334",
+    "id": "change-county-bergen-1972-329",
     "entityType": "county",
     "changeYear": 1972,
     "changeType": "merged",
@@ -7155,7 +7045,7 @@
     "sourceUrl": "https://no.wikipedia.org/wiki/Norges_fylker"
   },
   {
-    "id": "change-county-sogn-og-fjordane-2020-335",
+    "id": "change-county-sogn-og-fjordane-2020-330",
     "entityType": "county",
     "changeYear": 2020,
     "changeType": "merged",
@@ -7176,7 +7066,7 @@
     "sourceUrl": "https://no.wikipedia.org/wiki/Norges_fylker"
   },
   {
-    "id": "change-county-sor-trondelag-2018-336",
+    "id": "change-county-sor-trondelag-2018-331",
     "entityType": "county",
     "changeYear": 2018,
     "changeType": "merged",
@@ -7197,7 +7087,7 @@
     "sourceUrl": "https://no.wikipedia.org/wiki/Norges_fylker"
   },
   {
-    "id": "change-county-nord-trondelag-2018-337",
+    "id": "change-county-nord-trondelag-2018-332",
     "entityType": "county",
     "changeYear": 2018,
     "changeType": "merged",
@@ -7218,54 +7108,10 @@
     "sourceUrl": "https://no.wikipedia.org/wiki/Norges_fylker"
   },
   {
-    "id": "change-county-troms-2020-338",
-    "entityType": "county",
-    "changeYear": 2020,
-    "changeType": "reestablished",
-    "from": [
-      {
-        "name": "Troms",
-        "number": "19",
-        "id": "hist-county-19-troms"
-      }
-    ],
-    "to": [
-      {
-        "name": "Troms",
-        "number": "55",
-        "id": "55"
-      }
-    ],
-    "notes": "Gjenopprettet 2024",
-    "sourceUrl": "https://no.wikipedia.org/wiki/Norges_fylker"
-  },
-  {
-    "id": "change-county-finnmark-2020-339",
-    "entityType": "county",
-    "changeYear": 2020,
-    "changeType": "reestablished",
-    "from": [
-      {
-        "name": "Finnmark",
-        "number": "20",
-        "id": "hist-county-20-finnmark"
-      }
-    ],
-    "to": [
-      {
-        "name": "Finnmark",
-        "number": "56",
-        "id": "56"
-      }
-    ],
-    "notes": "Gjenopprettet 2024",
-    "sourceUrl": "https://no.wikipedia.org/wiki/Norges_fylker"
-  },
-  {
-    "id": "change-county-viken-2023-340",
+    "id": "change-county-viken-2023-333",
     "entityType": "county",
     "changeYear": 2023,
-    "changeType": "merged",
+    "changeType": "split",
     "from": [
       {
         "name": "Viken",
@@ -7291,10 +7137,10 @@
     "sourceUrl": "https://no.wikipedia.org/wiki/Norges_fylker"
   },
   {
-    "id": "change-county-vestfold-og-telemark-2023-341",
+    "id": "change-county-vestfold-og-telemark-2023-334",
     "entityType": "county",
     "changeYear": 2023,
-    "changeType": "merged",
+    "changeType": "split",
     "from": [
       {
         "name": "Vestfold og Telemark",
@@ -7316,10 +7162,10 @@
     "sourceUrl": "https://no.wikipedia.org/wiki/Norges_fylker"
   },
   {
-    "id": "change-county-troms-og-finnmark-2023-342",
+    "id": "change-county-troms-og-finnmark-2023-335",
     "entityType": "county",
     "changeYear": 2023,
-    "changeType": "merged",
+    "changeType": "split",
     "from": [
       {
         "name": "Troms og Finnmark",
@@ -7338,6 +7184,160 @@
       }
     ],
     "notes": "Troms, Finnmark",
+    "sourceUrl": "https://no.wikipedia.org/wiki/Norges_fylker"
+  },
+  {
+    "id": "change-county-ostfold-2020-336",
+    "entityType": "county",
+    "changeYear": 2020,
+    "changeType": "merged",
+    "from": [
+      {
+        "name": "Østfold",
+        "number": "01",
+        "id": "hist-county-01-ostfold"
+      }
+    ],
+    "to": [
+      {
+        "name": "Viken",
+        "number": "30",
+        "id": "hist-county-30-viken"
+      }
+    ],
+    "notes": "Sammenslåing til Viken (2020-reformen)",
+    "sourceUrl": "https://no.wikipedia.org/wiki/Norges_fylker"
+  },
+  {
+    "id": "change-county-akershus-2020-337",
+    "entityType": "county",
+    "changeYear": 2020,
+    "changeType": "merged",
+    "from": [
+      {
+        "name": "Akershus",
+        "number": "02",
+        "id": "hist-county-02-akershus"
+      }
+    ],
+    "to": [
+      {
+        "name": "Viken",
+        "number": "30",
+        "id": "hist-county-30-viken"
+      }
+    ],
+    "notes": "Sammenslåing til Viken (2020-reformen)",
+    "sourceUrl": "https://no.wikipedia.org/wiki/Norges_fylker"
+  },
+  {
+    "id": "change-county-buskerud-2020-338",
+    "entityType": "county",
+    "changeYear": 2020,
+    "changeType": "merged",
+    "from": [
+      {
+        "name": "Buskerud",
+        "number": "06",
+        "id": "hist-county-06-buskerud"
+      }
+    ],
+    "to": [
+      {
+        "name": "Viken",
+        "number": "30",
+        "id": "hist-county-30-viken"
+      }
+    ],
+    "notes": "Sammenslåing til Viken (2020-reformen)",
+    "sourceUrl": "https://no.wikipedia.org/wiki/Norges_fylker"
+  },
+  {
+    "id": "change-county-vestfold-2020-339",
+    "entityType": "county",
+    "changeYear": 2020,
+    "changeType": "merged",
+    "from": [
+      {
+        "name": "Vestfold",
+        "number": "07",
+        "id": "hist-county-07-vestfold"
+      }
+    ],
+    "to": [
+      {
+        "name": "Vestfold og Telemark",
+        "number": "38",
+        "id": "hist-county-38-vestfold-og-telemark"
+      }
+    ],
+    "notes": "Sammenslåing til Vestfold og Telemark (2020-reformen)",
+    "sourceUrl": "https://no.wikipedia.org/wiki/Norges_fylker"
+  },
+  {
+    "id": "change-county-telemark-2020-340",
+    "entityType": "county",
+    "changeYear": 2020,
+    "changeType": "merged",
+    "from": [
+      {
+        "name": "Telemark",
+        "number": "08",
+        "id": "hist-county-08-telemark"
+      }
+    ],
+    "to": [
+      {
+        "name": "Vestfold og Telemark",
+        "number": "38",
+        "id": "hist-county-38-vestfold-og-telemark"
+      }
+    ],
+    "notes": "Sammenslåing til Vestfold og Telemark (2020-reformen)",
+    "sourceUrl": "https://no.wikipedia.org/wiki/Norges_fylker"
+  },
+  {
+    "id": "change-county-troms-2020-341",
+    "entityType": "county",
+    "changeYear": 2020,
+    "changeType": "merged",
+    "from": [
+      {
+        "name": "Troms",
+        "number": "19",
+        "id": "hist-county-19-troms"
+      }
+    ],
+    "to": [
+      {
+        "name": "Troms og Finnmark",
+        "number": "54",
+        "id": "hist-county-54-troms-og-finnmark"
+      }
+    ],
+    "notes": "Sammenslåing til Troms og Finnmark (2020-reformen)",
+    "sourceUrl": "https://no.wikipedia.org/wiki/Norges_fylker"
+  },
+  {
+    "id": "change-county-finnmark-2020-342",
+    "entityType": "county",
+    "changeYear": 2020,
+    "changeType": "merged",
+    "from": [
+      {
+        "name": "Finnmark",
+        "number": "20",
+        "id": "hist-county-20-finnmark"
+      }
+    ],
+    "to": [
+      {
+        "name": "Troms og Finnmark",
+        "number": "54",
+        "id": "hist-county-54-troms-og-finnmark"
+      }
+    ],
+    "notes": "Sammenslåing til Troms og Finnmark (2020-reformen)",
     "sourceUrl": "https://no.wikipedia.org/wiki/Norges_fylker"
   }
 ]

@@ -39,13 +39,30 @@ export interface HistoricalCounty {
   name: string;
   countyNumber?: string;
   administrativeCenter?: string;
+  validFrom?: number;
   validTo?: number;
   todayPartOfNames: string[];
   todayPartOfIds?: string[];
   newCountyNumber?: string;
   changeType?: ChangeType;
+  /** historical = opphørt, intermediate = midlertidig enhet (f.eks. Viken), current = dagens */
+  status?: "historical" | "intermediate" | "current";
   sourceUrl: string;
   wikidataId?: string;
+  wikipediaUrl?: string;
+  coatOfArms?: CoatOfArms;
+}
+
+/** Dagens fylker fra Wikipedia-tabellen «Norges fylker 2024–». */
+export interface WikiCurrentCounty {
+  id: string;
+  type: "county";
+  name: string;
+  countyNumber: string;
+  administrativeCenter?: string;
+  validFrom: number;
+  status: "current";
+  sourceUrl: string;
   wikipediaUrl?: string;
   coatOfArms?: CoatOfArms;
 }

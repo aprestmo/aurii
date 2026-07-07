@@ -1,9 +1,315 @@
 [
   {
+    "entityType": "county",
+    "name": "Østfold",
+    "number": "01",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Østfold_våpen.svg",
+    "localPath": "/assets/heraldry/counties/county-01-ostfold.svg",
+    "license": "Public domain",
+    "attribution": "Hallvard Trætteberg, SKvalen"
+  },
+  {
+    "entityType": "county",
+    "name": "Akershus",
+    "number": "02",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Akershus_våpen.svg",
+    "localPath": "/assets/heraldry/counties/county-02-akershus.svg",
+    "license": "Public domain",
+    "attribution": "Own work"
+  },
+  {
+    "entityType": "county",
+    "name": "Hedmark",
+    "number": "04",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Hedmark_våpen.svg",
+    "localPath": "/assets/heraldry/counties/county-04-hedmark.svg",
+    "license": "Public domain",
+    "attribution": "SKvalen"
+  },
+  {
+    "entityType": "county",
+    "name": "Oppland",
+    "number": "05",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Oppland_våpen.svg",
+    "localPath": "/assets/heraldry/counties/county-05-oppland.svg",
+    "license": "Public domain",
+    "attribution": "Arvid Sveen, SKvalen"
+  },
+  {
+    "entityType": "county",
+    "name": "Buskerud",
+    "number": "06",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Buskerud_våpen.svg",
+    "localPath": "/assets/heraldry/counties/county-06-buskerud.svg",
+    "license": "Public domain",
+    "attribution": "Hallvard Trætteberg, SKvalen"
+  },
+  {
+    "entityType": "county",
+    "name": "Vestfold",
+    "number": "07",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Vestfold_våpen.svg",
+    "localPath": "/assets/heraldry/counties/county-07-vestfold.svg",
+    "license": "Public domain",
+    "attribution": "Hallvard Trætteberg, SKvalen"
+  },
+  {
+    "entityType": "county",
+    "name": "Telemark",
+    "number": "08",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Telemark_våpen.svg",
+    "localPath": "/assets/heraldry/counties/county-08-telemark.svg",
+    "license": "Public domain",
+    "attribution": "Own work This W3C-unspecified vector image was created with Inkscape ."
+  },
+  {
+    "entityType": "county",
+    "name": "Aust-Agder",
+    "number": "09",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Aust-Agder_våpen.svg",
+    "localPath": "/assets/heraldry/counties/county-09-aust-agder.svg",
+    "license": "Public domain",
+    "attribution": "User:Chris-martin"
+  },
+  {
+    "entityType": "county",
+    "name": "Vest-Agder",
+    "number": "10",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Vest-Agder_våpen.svg",
+    "localPath": "/assets/heraldry/counties/county-10-vest-agder.svg",
+    "license": "Public domain",
+    "attribution": "Hallvard Trætteberg, SKvalen"
+  },
+  {
+    "entityType": "county",
+    "name": "Hordaland",
+    "number": "12",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Hordaland_våpen.svg",
+    "localPath": "/assets/heraldry/counties/county-12-hordaland.svg",
+    "license": "Public domain",
+    "attribution": "Silje"
+  },
+  {
+    "entityType": "county",
+    "name": "Bergen",
+    "number": "13",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Bergen_våpen.svg",
+    "localPath": "/assets/heraldry/counties/county-13-bergen.svg",
+    "license": "Public domain",
+    "attribution": "Unknown authorUnknown author"
+  },
+  {
+    "entityType": "county",
+    "name": "Sogn og Fjordane",
+    "number": "14",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Sogn_og_Fjordane_våpen.svg",
+    "localPath": "/assets/heraldry/counties/county-14-sogn-og-fjordane.svg",
+    "license": "Public domain",
+    "attribution": "SKvalen  This W3C-unspecified vector image was created with Inkscape ."
+  },
+  {
+    "entityType": "county",
+    "name": "Sør-Trøndelag",
+    "number": "16",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Sør-Trøndelag_våpen.svg",
+    "localPath": "/assets/heraldry/counties/county-16-sor-trondelag.svg",
+    "license": "Public domain",
+    "attribution": "SKvalen"
+  },
+  {
+    "entityType": "county",
+    "name": "Nord-Trøndelag",
+    "number": "17",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Nord-Trøndelag_våpen.svg",
+    "localPath": "/assets/heraldry/counties/county-17-nord-trondelag.svg",
+    "license": "Public domain",
+    "attribution": "Hallvard Tretteberg, SKvalen"
+  },
+  {
+    "entityType": "county",
+    "name": "Troms",
+    "number": "19",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Troms_våpen.svg",
+    "localPath": "/assets/heraldry/counties/county-19-troms.svg",
+    "license": "Public domain",
+    "attribution": "Own work  This W3C-unspecified vector image was created with Inkscape ."
+  },
+  {
+    "entityType": "county",
+    "name": "Finnmark",
+    "number": "20",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Finnmark_våpen.svg",
+    "localPath": "/assets/heraldry/counties/county-20-finnmark.svg",
+    "license": "Public domain",
+    "attribution": "Own work  This W3C-unspecified vector image was created with Inkscape ."
+  },
+  {
+    "entityType": "county",
+    "name": "Viken",
+    "number": "30",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Viken_våpen.svg",
+    "localPath": "/assets/heraldry/counties/county-30-viken.svg",
+    "license": "Public domain",
+    "attribution": "Viken fylkeskommune"
+  },
+  {
+    "entityType": "county",
+    "name": "Vestfold og Telemark",
+    "number": "38",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Vestfold_og_Telemark_våpen.svg",
+    "localPath": "/assets/heraldry/counties/county-38-vestfold-og-telemark.svg",
+    "license": "Public domain",
+    "attribution": "Original idea by Toralf Blomhaugen, design refined by a \"graphical bureau\""
+  },
+  {
+    "entityType": "county",
+    "name": "Troms og Finnmark",
+    "number": "54",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Troms_og_Finnmark_våpen.svg",
+    "localPath": "/assets/heraldry/counties/county-54-troms-og-finnmark.svg",
+    "license": "Public domain",
+    "attribution": "Troms og Finnmark fylkeskommune"
+  },
+  {
+    "entityType": "county",
+    "name": "Akershus",
+    "number": "32",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Akershus_våpen.svg",
+    "localPath": "/assets/heraldry/counties/county-32-akershus.svg",
+    "license": "Public domain",
+    "attribution": "Own work"
+  },
+  {
+    "entityType": "county",
+    "name": "Oslo",
+    "number": "03",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Oslo_komm.svg",
+    "localPath": "/assets/heraldry/counties/county-03-oslo.svg",
+    "license": "Public domain",
+    "attribution": "Unknown authorUnknown author"
+  },
+  {
+    "entityType": "county",
+    "name": "Vestland",
+    "number": "46",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Vestland_våpen.svg",
+    "localPath": "/assets/heraldry/counties/county-46-vestland.svg",
+    "license": "Public domain",
+    "attribution": "Unknown authorUnknown author"
+  },
+  {
+    "entityType": "county",
+    "name": "Rogaland",
+    "number": "11",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Rogaland_våpen.svg",
+    "localPath": "/assets/heraldry/counties/county-11-rogaland.svg",
+    "license": "Public domain",
+    "attribution": "Hallvard Trætteberg, SKvalen"
+  },
+  {
+    "entityType": "county",
+    "name": "Trøndelag",
+    "number": "50",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Trøndelag_våpen.svg",
+    "localPath": "/assets/heraldry/counties/county-50-trondelag.svg",
+    "license": "Public domain",
+    "attribution": "Spider"
+  },
+  {
+    "entityType": "county",
+    "name": "Innlandet",
+    "number": "34",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Innlandet_våpen.svg",
+    "localPath": "/assets/heraldry/counties/county-34-innlandet.svg",
+    "license": "Public domain",
+    "attribution": "Unknown authorUnknown author"
+  },
+  {
+    "entityType": "county",
+    "name": "Agder",
+    "number": "42",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Agder_våpen.svg",
+    "localPath": "/assets/heraldry/counties/county-42-agder.svg",
+    "license": "Public domain",
+    "attribution": "Agder fylkeskommune"
+  },
+  {
+    "entityType": "county",
+    "name": "Østfold",
+    "number": "31",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Østfold_våpen.svg",
+    "localPath": "/assets/heraldry/counties/county-31-ostfold.svg",
+    "license": "Public domain",
+    "attribution": "Hallvard Trætteberg, SKvalen"
+  },
+  {
+    "entityType": "county",
+    "name": "Møre og Romsdal",
+    "number": "15",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Møre_og_Romsdal_våpen.svg",
+    "localPath": "/assets/heraldry/counties/county-15-more-og-romsdal.svg",
+    "license": "Public domain",
+    "attribution": "Knowledgeisfree"
+  },
+  {
+    "entityType": "county",
+    "name": "Buskerud",
+    "number": "33",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/Fil:Buskerud_v%C3%A5pen.svg",
+    "localPath": "/assets/heraldry/counties/county-33-buskerud.svg",
+    "license": "Public domain",
+    "attribution": "Hallvard Trætteberg, SKvalen"
+  },
+  {
+    "entityType": "county",
+    "name": "Vestfold",
+    "number": "39",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/Fil:Vestfold_v%C3%A5pen_2024.svg",
+    "localPath": "/assets/heraldry/counties/county-39-vestfold.svg",
+    "license": "Public domain",
+    "attribution": "Vestfold og Telemark fylkeskommune"
+  },
+  {
+    "entityType": "county",
+    "name": "Nordland",
+    "number": "18",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Nordland_våpen.svg",
+    "localPath": "/assets/heraldry/counties/county-18-nordland.svg",
+    "license": "Public domain",
+    "attribution": "SKvalen"
+  },
+  {
+    "entityType": "county",
+    "name": "Telemark",
+    "number": "40",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/Fil:Telemark_v%C3%A5pen_2024.svg",
+    "localPath": "/assets/heraldry/counties/county-40-telemark.svg",
+    "license": "Public domain",
+    "attribution": "Telemark fylkeskommune"
+  },
+  {
+    "entityType": "county",
+    "name": "Troms",
+    "number": "55",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Troms_våpen.svg",
+    "localPath": "/assets/heraldry/counties/county-55-troms.svg",
+    "license": "Public domain",
+    "attribution": "Own work  This W3C-unspecified vector image was created with Inkscape ."
+  },
+  {
+    "entityType": "county",
+    "name": "Finnmark",
+    "number": "56",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Finnmark_våpen.svg",
+    "localPath": "/assets/heraldry/counties/county-56-finnmark.svg",
+    "license": "Public domain",
+    "attribution": "Own work  This W3C-unspecified vector image was created with Inkscape ."
+  },
+  {
     "entityType": "municipality",
     "name": "Austre Moland",
     "number": "0918",
-    "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ee/Moland_komm.svg/40px-Moland_komm.svg",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/Fil:Moland_komm.svg",
     "localPath": "/assets/heraldry/municipalities/municipality-0918-austre-moland.svg",
     "license": "CC BY-SA 4.0",
     "attribution": "Bjarkan"
@@ -12,7 +318,7 @@
     "entityType": "municipality",
     "name": "Barbu",
     "number": "0990",
-    "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3f/Arendal_komm.svg/40px-Arendal_komm.svg",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/Fil:Arendal_komm.svg",
     "localPath": "/assets/heraldry/municipalities/municipality-0990-barbu.svg",
     "license": "Public domain",
     "attribution": "Original by caplex.no"
@@ -21,7 +327,7 @@
     "entityType": "municipality",
     "name": "Dypvåg",
     "number": "0915",
-    "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5b/Tvedestrand_komm.svg/40px-Tvedestrand_komm.svg",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/Fil:Tvedestrand_komm.svg",
     "localPath": "/assets/heraldry/municipalities/municipality-0915-dypvag.svg",
     "license": "Public domain",
     "attribution": "Own work  This W3C-unspecified vector image was created with Inkscape ."
@@ -30,7 +336,7 @@
     "entityType": "municipality",
     "name": "Evje",
     "number": "0937",
-    "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e6/Evje_og_Hornnes_komm.svg/40px-Evje_og_Hornnes_komm.svg",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/Fil:Evje_og_Hornnes_komm.svg",
     "localPath": "/assets/heraldry/municipalities/municipality-0937-evje.svg",
     "license": "Public domain",
     "attribution": "Own work  This W3C-unspecified vector image was created with Inkscape ."
@@ -39,7 +345,7 @@
     "entityType": "municipality",
     "name": "Fjære",
     "number": "0923",
-    "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Grimstad_komm.svg/40px-Grimstad_komm.svg",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/Fil:Grimstad_komm.svg",
     "localPath": "/assets/heraldry/municipalities/municipality-0923-fjaere.svg",
     "license": "Public domain",
     "attribution": "Original by caplex.no"
@@ -48,7 +354,7 @@
     "entityType": "municipality",
     "name": "Flosta",
     "number": "0916",
-    "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ee/Moland_komm.svg/40px-Moland_komm.svg",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/Fil:Moland_komm.svg",
     "localPath": "/assets/heraldry/municipalities/municipality-0916-flosta.svg",
     "license": "CC BY-SA 4.0",
     "attribution": "Bjarkan"
@@ -57,7 +363,7 @@
     "entityType": "municipality",
     "name": "Gjøvdal",
     "number": "0930",
-    "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/19/%C3%85mli_komm.svg/40px-%C3%85mli_komm.svg",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/Fil:%C3%85mli_komm.svg",
     "localPath": "/assets/heraldry/municipalities/municipality-0930-gjovdal.svg",
     "license": "Public domain",
     "attribution": "Own work  This W3C-unspecified vector image was created with Inkscape ."
@@ -66,7 +372,7 @@
     "entityType": "municipality",
     "name": "Herefoss",
     "number": "0933",
-    "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/07/Birkenes_komm.svg/40px-Birkenes_komm.svg",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/Fil:Birkenes_komm.svg",
     "localPath": "/assets/heraldry/municipalities/municipality-0933-herefoss.svg",
     "license": "Public domain"
   },
@@ -74,251 +380,99 @@
     "entityType": "municipality",
     "name": "Hisøy",
     "number": "0922",
-    "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3f/Arendal_komm.svg/40px-Arendal_komm.svg",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/Fil:Arendal_komm.svg",
     "localPath": "/assets/heraldry/municipalities/municipality-0922-hisoy.svg",
     "license": "Public domain",
     "attribution": "Original by caplex.no"
   },
   {
     "entityType": "municipality",
-    "name": "Holt",
-    "number": "0914",
-    "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5b/Tvedestrand_komm.svg/40px-Tvedestrand_komm.svg",
-    "localPath": "/assets/heraldry/municipalities/municipality-0914-holt.svg",
-    "license": "Public domain",
-    "attribution": "Own work  This W3C-unspecified vector image was created with Inkscape ."
-  },
-  {
-    "entityType": "municipality",
-    "name": "Hornnes",
-    "number": "0936",
-    "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e6/Evje_og_Hornnes_komm.svg/40px-Evje_og_Hornnes_komm.svg",
-    "localPath": "/assets/heraldry/municipalities/municipality-0936-hornnes.svg",
-    "license": "Public domain",
-    "attribution": "Own work  This W3C-unspecified vector image was created with Inkscape ."
-  },
-  {
-    "entityType": "municipality",
-    "name": "Hylestad",
-    "number": "0939",
-    "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/52/Valle_komm.svg/40px-Valle_komm.svg",
-    "localPath": "/assets/heraldry/municipalities/municipality-0939-hylestad.svg",
-    "license": "Public domain",
-    "attribution": "Own work  /"
-  },
-  {
-    "entityType": "municipality",
-    "name": "Høvåg",
-    "number": "0927",
-    "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2d/Lillesand_komm.svg/40px-Lillesand_komm.svg",
-    "localPath": "/assets/heraldry/municipalities/municipality-0927-hovag.svg",
-    "license": "Public domain",
-    "attribution": "Original by caplex.no"
-  },
-  {
-    "entityType": "municipality",
-    "name": "Landvik",
-    "number": "0924",
-    "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Grimstad_komm.svg/40px-Grimstad_komm.svg",
-    "localPath": "/assets/heraldry/municipalities/municipality-0924-landvik.svg",
-    "license": "Public domain",
-    "attribution": "Original by caplex.no"
-  },
-  {
-    "entityType": "municipality",
-    "name": "Moland",
-    "number": "0918",
-    "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3f/Arendal_komm.svg/40px-Arendal_komm.svg",
-    "localPath": "/assets/heraldry/municipalities/municipality-0918-moland.svg",
-    "license": "Public domain",
-    "attribution": "Original by caplex.no"
-  },
-  {
-    "entityType": "municipality",
-    "name": "Mykland",
-    "number": "0932",
-    "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d4/Froland_komm.svg/40px-Froland_komm.svg",
-    "localPath": "/assets/heraldry/municipalities/municipality-0932-mykland.svg",
-    "license": "Public domain",
-    "attribution": "Original by caplex.no"
-  },
-  {
-    "entityType": "municipality",
-    "name": "Stokken",
-    "number": "0917",
-    "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ee/Moland_komm.svg/40px-Moland_komm.svg",
-    "localPath": "/assets/heraldry/municipalities/municipality-0917-stokken.svg",
-    "license": "CC BY-SA 4.0",
-    "attribution": "Bjarkan"
-  },
-  {
-    "entityType": "municipality",
-    "name": "Tovdal",
-    "number": "0931",
-    "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/19/%C3%85mli_komm.svg/40px-%C3%85mli_komm.svg",
-    "localPath": "/assets/heraldry/municipalities/municipality-0931-tovdal.svg",
-    "license": "Public domain",
-    "attribution": "Own work  This W3C-unspecified vector image was created with Inkscape ."
-  },
-  {
-    "entityType": "municipality",
-    "name": "Tromøy",
-    "number": "0921",
-    "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3f/Arendal_komm.svg/40px-Arendal_komm.svg",
-    "localPath": "/assets/heraldry/municipalities/municipality-0921-tromoy.svg",
-    "license": "Public domain",
-    "attribution": "Original by caplex.no"
-  },
-  {
-    "entityType": "municipality",
-    "name": "Vegusdal",
-    "number": "0934",
-    "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/07/Birkenes_komm.svg/40px-Birkenes_komm.svg",
-    "localPath": "/assets/heraldry/municipalities/municipality-0934-vegusdal.svg",
-    "license": "Public domain"
-  },
-  {
-    "entityType": "municipality",
-    "name": "Vestre Moland",
-    "number": "0926",
-    "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2d/Lillesand_komm.svg/40px-Lillesand_komm.svg",
-    "localPath": "/assets/heraldry/municipalities/municipality-0926-vestre-moland.svg",
-    "license": "Public domain",
-    "attribution": "Original by caplex.no"
-  },
-  {
-    "entityType": "municipality",
-    "name": "Øyestad",
-    "number": "0920",
-    "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3f/Arendal_komm.svg/40px-Arendal_komm.svg",
-    "localPath": "/assets/heraldry/municipalities/municipality-0920-oyestad.svg",
-    "license": "Public domain",
-    "attribution": "Original by caplex.no"
-  },
-  {
-    "entityType": "municipality",
-    "name": "Romedal",
-    "number": "0416",
-    "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/32/Stange_komm.svg/40px-Stange_komm.svg",
-    "localPath": "/assets/heraldry/municipalities/municipality-0416-romedal.svg",
-    "license": "Public domain",
-    "attribution": "Own work This W3C-unspecified vector image was created with Inkscape ."
-  },
-  {
-    "entityType": "municipality",
     "name": "Vang",
     "number": "0414",
-    "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/71/Hamar_komm.svg/40px-Hamar_komm.svg",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/Fil:Hamar_komm.svg",
     "localPath": "/assets/heraldry/municipalities/municipality-0414-vang.svg",
     "license": "Public domain",
     "attribution": "Own work This W3C-unspecified vector image was created with Inkscape ."
   },
   {
     "entityType": "municipality",
-    "name": "Avaldsnes",
-    "number": "1147",
-    "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/75/Karm%C3%B8y_komm.svg/40px-Karm%C3%B8y_komm.svg",
-    "localPath": "/assets/heraldry/municipalities/municipality-1147-avaldsnes.svg",
+    "name": "Ytre Rendal",
+    "number": "0432",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/Fil:Rendalen_komm.svg",
+    "localPath": "/assets/heraldry/municipalities/municipality-0432-ytre-rendal.svg",
+    "license": "Public domain",
+    "attribution": "Own work This W3C-unspecified vector image was created with Inkscape ."
+  },
+  {
+    "entityType": "municipality",
+    "name": "Åsnes og Våler",
+    "number": "0425",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/Fil:V%C3%A5ler_Innlandet_komm.svg",
+    "localPath": "/assets/heraldry/municipalities/municipality-0425-asnes-og-valer.svg",
     "license": "Public domain",
     "attribution": "Original by caplex.no"
   },
   {
     "entityType": "municipality",
-    "name": "Kopervik",
-    "number": "1105",
-    "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/75/Karm%C3%B8y_komm.svg/40px-Karm%C3%B8y_komm.svg",
-    "localPath": "/assets/heraldry/municipalities/municipality-1105-kopervik.svg",
+    "name": "Biri",
+    "number": "0525",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/Fil:Gj%C3%B8vik_komm.svg",
+    "localPath": "/assets/heraldry/municipalities/municipality-0525-biri.svg",
     "license": "Public domain",
     "attribution": "Original by caplex.no"
   },
   {
     "entityType": "municipality",
-    "name": "Skudenes",
-    "number": "1150",
-    "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/75/Karm%C3%B8y_komm.svg/40px-Karm%C3%B8y_komm.svg",
-    "localPath": "/assets/heraldry/municipalities/municipality-1150-skudenes.svg",
+    "name": "Brandbu",
+    "number": "0535",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/Fil:Gran_komm.svg",
+    "localPath": "/assets/heraldry/municipalities/municipality-0535-brandbu.svg",
     "license": "Public domain",
     "attribution": "Original by caplex.no"
   },
   {
     "entityType": "municipality",
-    "name": "Skudeneshavn",
-    "number": "1104",
-    "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/75/Karm%C3%B8y_komm.svg/40px-Karm%C3%B8y_komm.svg",
-    "localPath": "/assets/heraldry/municipalities/municipality-1104-skudeneshavn.svg",
+    "name": "Eina",
+    "number": "0530",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/Fil:Vestre_Toten_komm.svg",
+    "localPath": "/assets/heraldry/municipalities/municipality-0530-eina.svg",
     "license": "Public domain",
     "attribution": "Original by caplex.no"
   },
   {
     "entityType": "municipality",
-    "name": "Stangaland",
-    "number": "1148",
-    "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/75/Karm%C3%B8y_komm.svg/40px-Karm%C3%B8y_komm.svg",
-    "localPath": "/assets/heraldry/municipalities/municipality-1148-stangaland.svg",
+    "name": "Fluberg",
+    "number": "0537",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/Fil:S%C3%B8ndre_Land_komm.svg",
+    "localPath": "/assets/heraldry/municipalities/municipality-0537-fluberg.svg",
+    "license": "Public domain",
+    "attribution": "Own work  This W3C-unspecified vector image was created with Inkscape ."
+  },
+  {
+    "entityType": "municipality",
+    "name": "Fron",
+    "number": "0518",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/Fil:Nord-Fron_komm.svg",
+    "localPath": "/assets/heraldry/municipalities/municipality-0518-fron.svg",
     "license": "Public domain",
     "attribution": "Original by caplex.no"
   },
   {
     "entityType": "municipality",
-    "name": "Torvastad",
-    "number": "1152",
-    "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/75/Karm%C3%B8y_komm.svg/40px-Karm%C3%B8y_komm.svg",
-    "localPath": "/assets/heraldry/municipalities/municipality-1152-torvastad.svg",
+    "name": "Fåberg",
+    "number": "0524",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/Fil:Lillehammer_komm.svg",
+    "localPath": "/assets/heraldry/municipalities/municipality-0524-faberg.svg",
+    "license": "Public domain",
+    "attribution": "Own work This W3C-unspecified vector image was created with Inkscape ."
+  },
+  {
+    "entityType": "municipality",
+    "name": "Heidal",
+    "number": "0516",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/Fil:Sel_komm.svg",
+    "localPath": "/assets/heraldry/municipalities/municipality-0516-heidal.svg",
     "license": "Public domain",
     "attribution": "Original by caplex.no"
-  },
-  {
-    "entityType": "municipality",
-    "name": "Åkra",
-    "number": "1149",
-    "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/75/Karm%C3%B8y_komm.svg/40px-Karm%C3%B8y_komm.svg",
-    "localPath": "/assets/heraldry/municipalities/municipality-1149-akra.svg",
-    "license": "Public domain",
-    "attribution": "Original by caplex.no"
-  },
-  {
-    "entityType": "municipality",
-    "name": "Tromsøysund",
-    "number": "1934",
-    "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Troms%C3%B8_komm.svg/40px-Troms%C3%B8_komm.svg",
-    "localPath": "/assets/heraldry/municipalities/municipality-1934-tromsoysund.svg",
-    "license": "Public domain",
-    "attribution": "Own work"
-  },
-  {
-    "entityType": "municipality",
-    "name": "Ullsfjord",
-    "number": "1937",
-    "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Troms%C3%B8_komm.svg/40px-Troms%C3%B8_komm.svg",
-    "localPath": "/assets/heraldry/municipalities/municipality-1937-ullsfjord.svg",
-    "license": "Public domain",
-    "attribution": "Own work"
-  },
-  {
-    "entityType": "municipality",
-    "name": "Andebu",
-    "number": "0719",
-    "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/Sandefjord_komm_2017.svg/40px-Sandefjord_komm_2017.svg",
-    "localPath": "/assets/heraldry/municipalities/municipality-0719-andebu.svg",
-    "license": "Public domain",
-    "attribution": "Sandefjord kommune"
-  },
-  {
-    "entityType": "municipality",
-    "name": "Sandar",
-    "number": "0724",
-    "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/Sandefjord_komm_2017.svg/40px-Sandefjord_komm_2017.svg",
-    "localPath": "/assets/heraldry/municipalities/municipality-0724-sandar.svg",
-    "license": "Public domain",
-    "attribution": "Sandefjord kommune"
-  },
-  {
-    "entityType": "municipality",
-    "name": "Stokke",
-    "number": "0720",
-    "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/Sandefjord_komm_2017.svg/40px-Sandefjord_komm_2017.svg",
-    "localPath": "/assets/heraldry/municipalities/municipality-0720-stokke.svg",
-    "license": "Public domain",
-    "attribution": "Sandefjord kommune"
   }
 ]

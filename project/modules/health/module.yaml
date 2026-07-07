@@ -1,0 +1,16 @@
+id: health
+name: Health
+description: Norwegian hospitals from Brønnøysundregistrene
+dependsOn: [norwegian-geo-core]
+
+schemas:
+  - hospital
+
+imports:
+  - hospitals
+
+sources:
+  - id: brreg
+    url: https://data.brreg.no/enhetsregisteret/api/enheter
+    entity: hospital
+    filter: "naeringskode=86.10"

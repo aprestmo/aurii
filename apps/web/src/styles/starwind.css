@@ -164,3 +164,18 @@
   }
 }
 
+@layer components {
+  table[data-sortable] thead {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+  }
+
+  .copy-query-btn[data-copy-state="success"] {
+    @apply border-success/40 bg-success/10 text-success;
+  }
+
+  .copy-query-btn[data-copy-state="success"] .copy-query-label::before {
+    content: "✓ ";
+  }
+}

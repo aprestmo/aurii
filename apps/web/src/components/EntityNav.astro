@@ -1,0 +1,50 @@
+---
+import { url } from "@/lib/base";
+import type { AdjacentEntity } from "@/lib/navigation";
+
+interface Props {
+  previous?: AdjacentEntity;
+  next?: AdjacentEntity;
+  basePath: string;
+  label: string;
+}
+
+const { previous, next, basePath, label } = Astro.props;
+const hasNav = previous || next;
+---
+
+{
+  hasNav && (
+    <nav
+      aria-label={`${label} navigasjon`}
+      class="mt-12 flex flex-col gap-3 border-t border-border/60 pt-8 sm:flex-row sm:items-stretch sm:justify-between"
+    >
+      {previous ? (
+        <a
+          href={url(`${basePath}/${previous.id}`)}
+          class="group flex min-w-0 flex-1 flex-col rounded-lg border border-border/80 px-4 py-3 transition-colors hover:border-outline/60 hover:bg-accent/20 focus:outline-none focus-visible:ring-2 focus-visible:ring-outline sm:max-w-[48%]"
+        >
+          <span class="text-xs font-medium uppercase tracking-wide text-muted-foreground">
+            ← Forrige {label.toLowerCase()}
+          </span>
+          <span class="mt-1 truncate font-medium group-hover:text-primary">{previous.name}</span>
+        </a>
+      ) : (
+        <div class="hidden flex-1 sm:block" aria-hidden="true" />
+      )}
+      {next ? (
+        <a
+          href={url(`${basePath}/${next.id}`)}
+          class="group flex min-w-0 flex-1 flex-col rounded-lg border border-border/80 px-4 py-3 text-left transition-colors hover:border-outline/60 hover:bg-accent/20 focus:outline-none focus-visible:ring-2 focus-visible:ring-outline sm:max-w-[48%] sm:text-right"
+        >
+          <span class="text-xs font-medium uppercase tracking-wide text-muted-foreground">
+            Neste {label.toLowerCase()} →
+          </span>
+          <span class="mt-1 truncate font-medium group-hover:text-primary">{next.name}</span>
+        </a>
+      ) : (
+        <div class="hidden flex-1 sm:block" aria-hidden="true" />
+      )}
+    </nav>
+  )
+}

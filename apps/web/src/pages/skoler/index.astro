@@ -1,8 +1,9 @@
 ---
+import Breadcrumb from "@/components/Breadcrumb.astro";
+import SearchField from "@/components/SearchField.astro";
 import ShowMoreFooter from "@/components/ShowMoreFooter.astro";
 import Layout from "../../layouts/Layout.astro";
 import { Card, CardContent, CardDescription } from "@/components/starwind/card";
-import { Input } from "@/components/starwind/input";
 import { url } from "../../lib/base";
 import { INITIAL_SEARCH_LIST_SIZE } from "@/lib/show-more";
 import { loadSchools } from "../../lib/data";
@@ -12,23 +13,35 @@ const schools = (await loadSchools()).sort((a, b) =>
 );
 ---
 
-<Layout title="Skoler">
-  <p class="mb-3 text-sm">
-    <a href={url("")} class="text-muted-foreground hover:text-foreground">← Referansedata</a>
-  </p>
-  <div class="mb-6">
-    <h1 class="text-3xl font-semibold tracking-tight">Skoler</h1>
-    <p class="mt-2 text-muted-foreground">
-      {schools.length.toLocaleString("nb-NO")} skoler fra UDIR Nasjonalt skoleregister
+<Layout
+  title="Skoler"
+  description={`${schools.length.toLocaleString("nb-NO")} skoler fra UDIR Nasjonalt skoleregister, importert og koblet i Aurii.`}
+  canonicalPath="skoler"
+>
+  <Breadcrumb
+    items={[
+      { label: "Forside", href: url("") },
+      { label: "Skoler" },
+    ]}
+  />
+
+  <header class="mb-8">
+    <h1 class="text-3xl font-semibold tracking-tight sm:text-4xl">Skoler</h1>
+    <p class="mt-3 max-w-2xl text-sm leading-relaxed text-muted-foreground">
+      {schools.length.toLocaleString("nb-NO")} skoler fra UDIR Nasjonalt skoleregister, importert som
+      strukturerte entiteter i Aurii.
     </p>
+  </header>
+
+  <div class="mb-6">
+    <SearchField
+      id="search"
+      label="Søk etter skole"
+      placeholder="Skolenavn eller org.nr.…"
+    />
   </div>
 
-  <div class="mb-4">
-    <label for="search" class="mb-1.5 block text-sm text-muted-foreground">Søk</label>
-    <Input id="search" type="search" placeholder="Skolenavn eller org.nr." />
-  </div>
-
-  <Card>
+  <Card class="border-border/80">
     <CardContent class="p-0">
       <ul id="school-list" class="divide-y divide-border" data-show-more-list="school-list">
         {schools.map((school, index) => (
@@ -40,10 +53,10 @@ const schools = (await loadSchools()).sort((a, b) =>
           >
             <a
               href={url(`skoler/${school.id}`)}
-              class="flex items-center justify-between px-4 py-3 transition hover:bg-accent/30 focus:outline-none focus-visible:ring-2 focus-visible:ring-outline"
+              class="flex items-center justify-between gap-4 px-4 py-3.5 transition-colors hover:bg-muted/50 focus:outline-none focus-visible:ring-2 focus-visible:ring-outline"
             >
-              <span class="font-medium">{school.name}</span>
-              <span class="font-mono text-xs text-muted-foreground">{school.id}</span>
+              <span class="min-w-0 font-medium">{school.name}</span>
+              <span class="shrink-0 font-mono text-xs text-muted-foreground">{school.id}</span>
             </a>
           </li>
         ))}
@@ -55,7 +68,7 @@ const schools = (await loadSchools()).sort((a, b) =>
       initial={INITIAL_SEARCH_LIST_SIZE}
       noun="skoler"
     />
-    <CardDescription id="more-note" class="px-4 py-3">
+    <CardDescription id="more-note" class="border-t border-border/60 px-4 py-3 text-sm">
       Viser de første {INITIAL_SEARCH_LIST_SIZE.toLocaleString("nb-NO")}. Bruk søk for å finne en bestemt skole.
     </CardDescription>
   </Card>
@@ -81,12 +94,12 @@ const schools = (await loadSchools()).sort((a, b) =>
     const a = document.createElement("a");
     a.href = `${base}skoler/${school.id}`;
     a.className =
-      "flex items-center justify-between px-4 py-3 transition hover:bg-accent/30 focus:outline-none focus-visible:ring-2 focus-visible:ring-outline";
+      "flex items-center justify-between gap-4 px-4 py-3.5 transition-colors hover:bg-muted/50 focus:outline-none focus-visible:ring-2 focus-visible:ring-outline";
     const name = document.createElement("span");
-    name.className = "font-medium";
+    name.className = "min-w-0 font-medium";
     name.textContent = school.name;
     const id = document.createElement("span");
-    id.className = "font-mono text-xs text-muted-foreground";
+    id.className = "shrink-0 font-mono text-xs text-muted-foreground";
     id.textContent = school.id;
     a.append(name, id);
     li.append(a);
@@ -121,7 +134,10 @@ const schools = (await loadSchools()).sort((a, b) =>
     }
 
     if (note) {
-      note.textContent = `${matches.length.toLocaleString("nb-NO")} treff`;
+      note.textContent =
+        matches.length === 0
+          ? "Ingen skoler matcher søket."
+          : `${matches.length.toLocaleString("nb-NO")} treff`;
     }
   });
 </script>

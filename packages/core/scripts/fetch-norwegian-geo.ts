@@ -24,6 +24,8 @@ const HOLIDAY_API_URL = "https://date.nager.at/api/v3/PublicHolidays";
 
 const HOLIDAY_YEARS = [2024, 2025, 2026, 2027, 2028, 2029, 2030];
 const HOSPITAL_INDUSTRY_CODE = "86.10";
+const SSB_POPULATION_URL =
+	"https://data.ssb.no/api/pxwebapi/v2/tables/07459/data?lang=no&valueCodes[Region]=*&valueCodes[ContentsCode]=Personer1&valueCodes[Tid]=top(1)&outputFormat=csv";
 
 interface KartverketCounty {
 	fylkesnummer: string;
@@ -275,6 +277,99 @@ async function writeJson(file: string, data: unknown) {
 	await Bun.write(resolve(DATA_DIR, file), JSON.stringify(data, null, 2));
 }
 
+function parseSsbPopulationCsv(
+	csv: string,
+): Map<string, { population: number; year: number }> {
+	const lines = csv.trim().split("\n");
+	if (lines.length < 2) {
+		throw new Error("SSB CSV response was empty");
+	}
+
+	const header = lines[0]!.split(",");
+	const regionIdx = header.findIndex((h) => h.trim() === "region");
+	const yearIdx = header.findIndex((h) => h.trim() === "Tid");
+	const valueIdx = header.findIndex((h) => h.trim() === "Personer1");
+
+	if (regionIdx < 0 || yearIdx < 0 || valueIdx < 0) {
+		throw new Error(`Unexpected SSB CSV header: ${lines[0]}`);
+	}
+
+	const result = new Map<string, { population: number; year: number }>();
+
+	for (const line of lines.slice(1)) {
+		const cols = line.split(",");
+		const region = cols[regionIdx]?.trim() ?? "";
+		const year = Number.parseInt(cols[yearIdx]?.trim() ?? "", 10);
+		const population = Number.parseInt(cols[valueIdx]?.trim() ?? "", 10);
+
+		if (!/^\d{4}$/.test(region) || !Number.isFinite(population)) continue;
+
+		result.set(region, { population, year });
+	}
+
+	return result;
+}
+
+async function fetchPopulationFromSsb() {
+	const res = await fetch(SSB_POPULATION_URL, {
+		headers: { Accept: "text/csv", "User-Agent": "Aurii/1.0" },
+	});
+	if (!res.ok) throw new Error(`SSB population API: HTTP ${res.status}`);
+
+	const csv = await res.text();
+	if (csv.includes("feilkode")) {
+		throw new Error("SSB population API returned an error page");
+	}
+
+	return parseSsbPopulationCsv(csv);
+}
+
+function enrichWithPopulation<
+	T extends { id: string; countyId?: string; population?: number; populationYear?: number },
+>(
+	rows: T[],
+	populationByMunicipality: Map<string, { population: number; year: number }>,
+): T[] {
+	let populationYear: number | undefined;
+
+	const enriched = rows.map((row) => {
+		const stats = populationByMunicipality.get(row.id);
+		if (!stats) return row;
+		populationYear = stats.year;
+		return {
+			...row,
+			population: stats.population,
+			populationYear: stats.year,
+		};
+	});
+
+	return enriched;
+}
+
+function aggregateCountyPopulation(
+	counties: Array<{ id: string; name: string; source?: string }>,
+	municipalities: Array<{
+		countyId: string;
+		population?: number;
+		populationYear?: number;
+	}>,
+) {
+	const totals = new Map<string, number>();
+	let populationYear: number | undefined;
+
+	for (const mun of municipalities) {
+		if (mun.population === undefined) continue;
+		populationYear = mun.populationYear ?? populationYear;
+		totals.set(mun.countyId, (totals.get(mun.countyId) ?? 0) + mun.population);
+	}
+
+	return counties.map((county) => ({
+		...county,
+		population: totals.get(county.id),
+		populationYear,
+	}));
+}
+
 const [counties, municipalities, postalCodes, hospitals, publicHolidays] =
 	await Promise.all([
 		fetchCounties(),
@@ -285,18 +380,25 @@ const [counties, municipalities, postalCodes, hospitals, publicHolidays] =
 	]);
 
 const validMunicipalityIds = new Set(municipalities.map((m) => m.id));
-const [schools, kindergartens] = await Promise.all([
+const [schools, kindergartens, populationByMunicipality] = await Promise.all([
 	fetchSchools().then((rows) =>
 		filterByKnownMunicipalities(rows as { municipalityId: string }[], validMunicipalityIds),
 	),
 	fetchKindergartens().then((rows) =>
 		filterByKnownMunicipalities(rows as { municipalityId: string }[], validMunicipalityIds),
 	),
+	fetchPopulationFromSsb(),
 ]);
 
+const enrichedMunicipalities = enrichWithPopulation(
+	municipalities,
+	populationByMunicipality,
+);
+const enrichedCounties = aggregateCountyPopulation(counties, enrichedMunicipalities);
+
 await Promise.all([
-	writeJson("counties.json", counties),
-	writeJson("municipalities.json", municipalities),
+	writeJson("counties.json", enrichedCounties),
+	writeJson("municipalities.json", enrichedMunicipalities),
 	writeJson("postal-codes.json", postalCodes),
 	writeJson("schools.json", schools),
 	writeJson("kindergartens.json", kindergartens),
@@ -304,8 +406,8 @@ await Promise.all([
 	writeJson("public-holidays.json", publicHolidays),
 ]);
 
-console.log(`Wrote ${counties.length} counties`);
-console.log(`Wrote ${municipalities.length} municipalities`);
+console.log(`Wrote ${enrichedCounties.length} counties`);
+console.log(`Wrote ${enrichedMunicipalities.length} municipalities`);
 console.log(`Wrote ${postalCodes.length} postal codes`);
 console.log(`Wrote ${schools.length} schools`);
 console.log(`Wrote ${kindergartens.length} kindergartens`);

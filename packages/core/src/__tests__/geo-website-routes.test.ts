@@ -32,6 +32,8 @@ const COUNTY_SCHEMA: SchemaDefinition = {
 	fields: [
 		{ name: "id", type: "string", required: true },
 		{ name: "name", type: "string", required: true },
+		{ name: "population", type: "number" },
+		{ name: "populationYear", type: "number" },
 		{ name: "source", type: "string" },
 	],
 };
@@ -43,6 +45,8 @@ const MUNICIPALITY_SCHEMA: SchemaDefinition = {
 		{ name: "id", type: "string", required: true },
 		{ name: "name", type: "string", required: true },
 		{ name: "countyId", type: "string", required: true },
+		{ name: "population", type: "number" },
+		{ name: "populationYear", type: "number" },
 		{ name: "source", type: "string" },
 	],
 };

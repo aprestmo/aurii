@@ -1,7 +1,7 @@
 id: county
 name: County
 description: Norwegian administrative county (fylke) from Kartverket/GeoNorge
-version: 1
+version: 2
 fields:
   - name: id
     type: string
@@ -13,6 +13,16 @@ fields:
     type: string
     required: true
     label: County name (fylkesnavn)
+
+  - name: population
+    type: number
+    label: Population (innbyggere)
+    description: Sum of municipality populations in the county (SSB Statbank table 07459)
+
+  - name: populationYear
+    type: number
+    label: Population reference year
+    description: Year of the population figures from SSB
 
   - name: source
     type: string

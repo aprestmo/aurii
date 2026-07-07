@@ -14,6 +14,8 @@ pipeline:
         id: id
         name: name
         countyId: countyId
+        population: population
+        populationYear: populationYear
         source: source
     - type: validate
     - type: persist

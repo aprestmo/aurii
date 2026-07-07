@@ -78,6 +78,26 @@ describe("geo demo site routes", () => {
     expect(holidays.length).toBeGreaterThan(80);
   });
 
+  it("every municipality has population from SSB", async () => {
+    const municipalities = await loadMunicipalities();
+    const withPopulation = municipalities.filter((m) => m.population !== undefined);
+    expect(withPopulation).toHaveLength(357);
+    expect(withPopulation[0]?.populationYear).toBeGreaterThan(2020);
+
+    const oslo = municipalities.find((m) => m.id === "0301");
+    expect(oslo?.population).toBeGreaterThan(600_000);
+  });
+
+  it("every county has aggregated population", async () => {
+    const counties = await loadCounties();
+    for (const county of counties) {
+      expect(county.population).toBeGreaterThan(0);
+      const muns = await getMunicipalitiesByCounty(county.id);
+      const sum = muns.reduce((total, m) => total + (m.population ?? 0), 0);
+      expect(county.population).toBe(sum);
+    }
+  });
+
   it("data files exist at expected path", async () => {
     const path = resolve(ROOT, "demo/norwegian-geo/data/counties.json");
     const { readFile } = await import("node:fs/promises");

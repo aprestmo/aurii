@@ -13,6 +13,8 @@ pipeline:
       mapping:
         id: id
         name: name
+        population: population
+        populationYear: populationYear
         source: source
     - type: validate
     - type: persist

@@ -2,76 +2,106 @@
   {
     "id": "55",
     "name": "Troms",
-    "source": "kartverket"
+    "source": "kartverket",
+    "population": 169610,
+    "populationYear": 2025
   },
   {
     "id": "56",
     "name": "Finnmark",
-    "source": "kartverket"
+    "source": "kartverket",
+    "population": 75053,
+    "populationYear": 2025
   },
   {
     "id": "33",
     "name": "Buskerud",
-    "source": "kartverket"
+    "source": "kartverket",
+    "population": 269819,
+    "populationYear": 2025
   },
   {
     "id": "40",
     "name": "Telemark",
-    "source": "kartverket"
+    "source": "kartverket",
+    "population": 177093,
+    "populationYear": 2025
   },
   {
     "id": "39",
     "name": "Vestfold",
-    "source": "kartverket"
+    "source": "kartverket",
+    "population": 256432,
+    "populationYear": 2025
   },
   {
     "id": "42",
     "name": "Agder",
-    "source": "kartverket"
+    "source": "kartverket",
+    "population": 319850,
+    "populationYear": 2025
   },
   {
     "id": "11",
     "name": "Rogaland",
-    "source": "kartverket"
+    "source": "kartverket",
+    "population": 499417,
+    "populationYear": 2025
   },
   {
     "id": "18",
     "name": "Nordland",
-    "source": "kartverket"
+    "source": "kartverket",
+    "population": 243081,
+    "populationYear": 2025
   },
   {
     "id": "50",
     "name": "Trøndelag",
-    "source": "kartverket"
+    "source": "kartverket",
+    "population": 482956,
+    "populationYear": 2025
   },
   {
     "id": "34",
     "name": "Innlandet",
-    "source": "kartverket"
+    "source": "kartverket",
+    "population": 376304,
+    "populationYear": 2025
   },
   {
     "id": "31",
     "name": "Østfold",
-    "source": "kartverket"
+    "source": "kartverket",
+    "population": 312152,
+    "populationYear": 2025
   },
   {
     "id": "32",
     "name": "Akershus",
-    "source": "kartverket"
+    "source": "kartverket",
+    "population": 728803,
+    "populationYear": 2025
   },
   {
     "id": "03",
     "name": "Oslo",
-    "source": "kartverket"
+    "source": "kartverket",
+    "population": 717710,
+    "populationYear": 2025
   },
   {
     "id": "15",
     "name": "Møre og Romsdal",
-    "source": "kartverket"
+    "source": "kartverket",
+    "population": 270624,
+    "populationYear": 2025
   },
   {
     "id": "46",
     "name": "Vestland",
-    "source": "kartverket"
+    "source": "kartverket",
+    "population": 651299,
+    "populationYear": 2025
   }
 ]

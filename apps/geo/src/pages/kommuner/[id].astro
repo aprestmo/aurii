@@ -1,4 +1,6 @@
 ---
+import Breadcrumb from "@/components/Breadcrumb.astro";
+import FactGrid from "@/components/FactGrid.astro";
 import ShowMoreFooter from "@/components/ShowMoreFooter.astro";
 import Layout from "../../layouts/Layout.astro";
 import { Badge } from "@/components/starwind/badge";
@@ -12,11 +14,14 @@ import {
   TableRow,
 } from "@/components/starwind/table";
 import { url } from "../../lib/base";
+import { formatPercent, formatPopulation } from "@/lib/format";
 import { INITIAL_LIST_SIZE } from "@/lib/show-more";
 import {
   getCounty,
+  getCountyStats,
   getKindergartensByMunicipality,
   getMunicipality,
+  getMunicipalityStats,
   getPostalCodesByMunicipality,
   getSchoolsByMunicipality,
   loadMunicipalities,
@@ -36,32 +41,57 @@ if (!municipality) {
 }
 
 const county = await getCounty(municipality.countyId);
+const countyStats = county ? await getCountyStats(county.id) : undefined;
+const stats = await getMunicipalityStats(id!, countyStats?.population);
 const postalCodes = await getPostalCodesByMunicipality(id!);
 const schools = await getSchoolsByMunicipality(id!);
 const kindergartens = await getKindergartensByMunicipality(id!);
+const populationYear = municipality.populationYear ?? county?.populationYear;
 ---
 
 <Layout title={municipality.name}>
-  <p class="mb-3 text-sm">
-    <a href={url("")} class="text-muted-foreground hover:text-foreground">← Alle fylker</a>
-    {county && (
-      <>
-        {" · "}
-        <a href={url(`fylker/${county.id}`)} class="text-muted-foreground hover:text-foreground">{county.name}</a>
-      </>
-    )}
-  </p>
+  <Breadcrumb
+    items={[
+      { label: "Forside", href: url("") },
+      ...(county ? [{ label: county.name, href: url(`fylker/${county.id}`) }] : []),
+      { label: municipality.name },
+    ]}
+  />
+
   <div class="mb-8">
     <h1 class="text-3xl font-semibold tracking-tight">{municipality.name}</h1>
-    <p class="mt-2 flex items-center gap-2 text-muted-foreground">
+    <p class="mt-2 flex flex-wrap items-center gap-2 text-muted-foreground">
       Kommunenummer <Badge variant="outline">{municipality.id}</Badge>
       {county && (
         <>
-          · Fylke <Badge variant="outline">{county.name}</Badge>
+          · Fylke{" "}
+          <a href={url(`fylker/${county.id}`)}>
+            <Badge variant="outline">{county.name}</Badge>
+          </a>
+        </>
+      )}
+      {populationYear && (
+        <>
+          · Innbyggertall per 1.1.{populationYear} (SSB)
         </>
       )}
     </p>
   </div>
+
+  <FactGrid
+    facts={[
+      { label: "Innbyggere", value: formatPopulation(municipality.population) },
+      {
+        label: "Andel av fylket",
+        value: formatPercent(stats.populationShareOfCounty),
+      },
+      { label: "Postnummer", value: String(stats.postalCodeCount) },
+      { label: "Skoler", value: String(stats.schoolCount) },
+      { label: "Barnehager", value: String(stats.kindergartenCount) },
+      { label: "Offentlige skoler", value: String(stats.publicSchoolCount) },
+      { label: "Offentlige barnehager", value: String(stats.publicKindergartenCount) },
+    ]}
+  />
 
   <div class="space-y-8">
     {schools.length > 0 && (
@@ -71,13 +101,23 @@ const kindergartens = await getKindergartensByMunicipality(id!);
             <CardTitle class="text-base">Skoler ({schools.length})</CardTitle>
           </CardHeader>
           <CardContent class="p-0">
-            <Table>
+            <Table data-sortable>
+              <TableHeader>
+                <TableRow>
+                  <TableHead data-sort-type="text" class="w-28">Org.nr.</TableHead>
+                  <TableHead data-sort-type="text">Navn</TableHead>
+                  <TableHead data-sort-type="text" class="text-right">Type</TableHead>
+                </TableRow>
+              </TableHeader>
               <TableBody data-show-more-list="school-list">
                 {schools.map((school, index) => (
                   <TableRow
                     class:list={[{ hidden: index >= INITIAL_LIST_SIZE }]}
                     data-show-more-hidden={index >= INITIAL_LIST_SIZE ? "" : undefined}
                   >
+                    <TableCell class="font-mono text-xs text-muted-foreground" data-sort-value={school.id}>
+                      {school.id}
+                    </TableCell>
                     <TableCell>
                       <a href={url(`skoler/${school.id}`)} class="font-medium hover:text-primary">
                         {school.name}
@@ -103,13 +143,23 @@ const kindergartens = await getKindergartensByMunicipality(id!);
             <CardTitle class="text-base">Barnehager ({kindergartens.length})</CardTitle>
           </CardHeader>
           <CardContent class="p-0">
-            <Table>
+            <Table data-sortable>
+              <TableHeader>
+                <TableRow>
+                  <TableHead data-sort-type="text" class="w-28">Org.nr.</TableHead>
+                  <TableHead data-sort-type="text">Navn</TableHead>
+                  <TableHead data-sort-type="text" class="text-right">Type</TableHead>
+                </TableRow>
+              </TableHeader>
               <TableBody data-show-more-list="kindergarten-list">
                 {kindergartens.map((kg, index) => (
                   <TableRow
                     class:list={[{ hidden: index >= INITIAL_LIST_SIZE }]}
                     data-show-more-hidden={index >= INITIAL_LIST_SIZE ? "" : undefined}
                   >
+                    <TableCell class="font-mono text-xs text-muted-foreground" data-sort-value={kg.id}>
+                      {kg.id}
+                    </TableCell>
                     <TableCell>
                       <a href={url(`barnehager/${kg.id}`)} class="font-medium hover:text-primary">
                         {kg.name}
@@ -135,12 +185,12 @@ const kindergartens = await getKindergartensByMunicipality(id!);
             <CardTitle class="text-base">Postnummer ({postalCodes.length})</CardTitle>
           </CardHeader>
           <CardContent class="p-0">
-            <Table>
+            <Table data-sortable>
               <TableHeader>
                 <TableRow>
-                  <TableHead>Postnummer</TableHead>
-                  <TableHead>Poststed</TableHead>
-                  <TableHead class="text-right">Type</TableHead>
+                  <TableHead data-sort-type="text" class="w-28">Postnr.</TableHead>
+                  <TableHead data-sort-type="text">Poststed</TableHead>
+                  <TableHead data-sort-type="text" class="text-right">Type</TableHead>
                 </TableRow>
               </TableHeader>
               <TableBody data-show-more-list="postal-list">
@@ -149,7 +199,9 @@ const kindergartens = await getKindergartensByMunicipality(id!);
                     class:list={[{ hidden: index >= INITIAL_LIST_SIZE }]}
                     data-show-more-hidden={index >= INITIAL_LIST_SIZE ? "" : undefined}
                   >
-                    <TableCell class="font-mono text-xs">{pc.code}</TableCell>
+                    <TableCell class="font-mono text-xs" data-sort-value={pc.code}>
+                      {pc.code}
+                    </TableCell>
                     <TableCell>{pc.city}</TableCell>
                     <TableCell class="text-right">
                       {pc.postalCodeType && <Badge variant="outline">{pc.postalCodeType}</Badge>}

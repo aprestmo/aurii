@@ -2,8 +2,9 @@
 import Layout from "../layouts/Layout.astro";
 import { Badge } from "@/components/starwind/badge";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/starwind/card";
-import { Table, TableBody, TableCell, TableRow } from "@/components/starwind/table";
+import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/starwind/table";
 import { url } from "../lib/base";
+import { formatPopulation } from "@/lib/format";
 import { loadCounties, loadDatasetSummaries, loadMunicipalities, SAMPLE_QUERIES } from "../lib/data";
 
 const counties = (await loadCounties()).sort((a, b) =>
@@ -11,13 +12,16 @@ const counties = (await loadCounties()).sort((a, b) =>
 );
 const municipalities = await loadMunicipalities();
 const datasets = await loadDatasetSummaries();
+const totalPopulation = municipalities.reduce((sum, m) => sum + (m.population ?? 0), 0);
+const populationYear = municipalities.find((m) => m.populationYear)?.populationYear;
 ---
 
 <Layout title="Offentlig referansedata">
   <div class="mb-10">
     <h1 class="text-3xl font-semibold tracking-tight">Norsk offentlig referansedata</h1>
     <p class="mt-2 text-muted-foreground">
-      {datasets.length} datasett · {municipalities.length} kommuner · importert via Aurii
+      {datasets.length} datasett · {municipalities.length} kommuner · {formatPopulation(totalPopulation)} innbyggere
+      {populationYear ? ` (per 1.1.${populationYear}, SSB)` : ""} · importert via Aurii
     </p>
   </div>
 
@@ -54,17 +58,39 @@ const datasets = await loadDatasetSummaries();
 
   <section class="mb-12">
     <h2 class="mb-4 text-sm font-medium uppercase tracking-wide text-muted-foreground">Fylker</h2>
-    <div class="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
-      {counties.map((county) => (
-        <a
-          href={url(`fylker/${county.id}`)}
-          class="group flex items-center justify-between rounded-lg border border-border bg-card px-4 py-3 transition hover:bg-accent/30 focus:outline-none focus-visible:ring-2 focus-visible:ring-outline"
-        >
-          <span class="font-medium">{county.name}</span>
-          <span class="font-mono text-xs text-muted-foreground">{county.id}</span>
-        </a>
-      ))}
-    </div>
+    <Card>
+      <CardContent class="p-0">
+        <Table data-sortable>
+          <TableHeader>
+            <TableRow>
+              <TableHead data-sort-type="text" class="w-20">Nr.</TableHead>
+              <TableHead data-sort-type="text">Navn</TableHead>
+              <TableHead data-sort-type="number" class="text-right">Innbyggere</TableHead>
+            </TableRow>
+          </TableHeader>
+          <TableBody>
+            {counties.map((county) => (
+              <TableRow>
+                <TableCell class="font-mono text-xs text-muted-foreground" data-sort-value={county.id}>
+                  {county.id}
+                </TableCell>
+                <TableCell>
+                  <a href={url(`fylker/${county.id}`)} class="font-medium hover:text-primary">
+                    {county.name}
+                  </a>
+                </TableCell>
+                <TableCell
+                  class="text-right tabular-nums"
+                  data-sort-value={String(county.population ?? 0)}
+                >
+                  {formatPopulation(county.population)}
+                </TableCell>
+              </TableRow>
+            ))}
+          </TableBody>
+        </Table>
+      </CardContent>
+    </Card>
   </section>
 
   <section>

@@ -1,16 +1,32 @@
 ---
+import { Button } from "@/components/starwind/button";
+
 interface Props {
+  title?: string;
+  actionLabel?: string;
+  actionHref?: string;
   class?: string;
 }
 
-const { class: className } = Astro.props;
+const { title = "Ingen data", actionLabel, actionHref, class: className } = Astro.props;
 ---
 
-<p
+<div
   class:list={[
-    "rounded-lg border border-dashed border-border/70 bg-muted/20 px-5 py-8 text-center text-sm leading-relaxed text-muted-foreground",
+    "rounded-lg border border-dashed border-border/70 bg-muted/20 px-5 py-8 text-center",
     className,
   ]}
+  role="status"
 >
-  <slot />
-</p>
+  <p class="text-sm font-medium text-foreground">{title}</p>
+  <p class="mt-2 text-sm leading-relaxed text-muted-foreground">
+    <slot />
+  </p>
+  {actionLabel && actionHref && (
+    <div class="mt-4">
+      <Button href={actionHref} variant="outline" size="sm">
+        {actionLabel}
+      </Button>
+    </div>
+  )}
+</div>

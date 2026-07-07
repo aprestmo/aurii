@@ -21,6 +21,7 @@ const completeText = `Viser alle ${total} ${noun}.`;
     <CardFooter class="flex flex-col items-start gap-3 border-t border-border/60 px-6 py-4 sm:flex-row sm:items-center sm:justify-between">
       <p
         class="text-sm text-muted-foreground"
+        id={`show-more-status-${listId}`}
         data-show-more-status={listId}
         data-show-more-complete={completeText}
       >
@@ -32,6 +33,7 @@ const completeText = `Viser alle ${total} ${noun}.`;
         size="sm"
         class="show-more-btn shrink-0"
         data-show-more-for={listId}
+        aria-describedby={`show-more-status-${listId}`}
       >
         Vis alle {total} {noun}
       </Button>

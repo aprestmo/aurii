@@ -1,7 +1,7 @@
 ---
 import "@/styles/starwind.css";
 import { ThemeToggle } from "@/components/starwind/theme-toggle";
-import { url } from "../lib/base";
+import { isHomePage, url } from "../lib/base";
 
 interface Props {
   title: string;
@@ -20,11 +20,24 @@ const metaDescription = description ?? defaultDescription;
 const siteUrl = Astro.site?.href?.replace(/\/$/, "") ?? "";
 const canonicalUrl = canonicalPath !== undefined ? `${siteUrl}${url(canonicalPath)}` : Astro.url.href;
 
-const navItems = [
+const onHome = isHomePage(Astro.url.pathname);
+
+const homeNavItems = [
+  { label: "Kom i gang", href: url("#kom-i-gang") },
   { label: "Datasett", href: url("#datasett") },
   { label: "Fylker", href: url("#fylker") },
   { label: "Spørringer", href: url("#sporringer") },
 ];
+
+const siteNavItems = [
+  { label: "Forside", href: url("") },
+  { label: "Skoler", href: url("skoler") },
+  { label: "Barnehager", href: url("barnehager") },
+  { label: "Sykehus", href: url("sykehus") },
+  { label: "Helligdager", href: url("helligdager") },
+];
+
+const navItems = onHome ? homeNavItems : siteNavItems;
 
 const githubUrl = "https://github.com/aprestmo/aurii";
 const docsUrl = "https://github.com/aprestmo/aurii/blob/main/docs/REFERENCE_DEMO.md";
@@ -76,6 +89,12 @@ const version = "0.1.0";
     </script>
   </head>
   <body class="min-h-screen bg-background text-foreground">
+    <a
+      href="#main-content"
+      class="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-[100] focus:rounded-md focus:bg-background focus:px-4 focus:py-2 focus:text-sm focus:font-medium focus:shadow-md focus:ring-2 focus:ring-outline"
+    >
+      Hopp til hovedinnhold
+    </a>
     <header class="sticky top-0 z-50 border-b border-border bg-background/80 backdrop-blur supports-[backdrop-filter]:bg-background/60">
       <div class="mx-auto max-w-6xl px-4 sm:px-6">
         <div class="flex items-center justify-between gap-6 py-4 sm:py-5">
@@ -116,7 +135,7 @@ const version = "0.1.0";
       </div>
     </header>
 
-    <main class="mx-auto max-w-6xl px-4 py-10 sm:px-6 sm:py-12">
+    <main id="main-content" class="mx-auto max-w-6xl px-4 py-10 sm:px-6 sm:py-12">
       <slot />
     </main>
 

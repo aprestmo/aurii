@@ -87,6 +87,12 @@ export interface DatasetSummary {
   count: number;
   path: string;
   source: string;
+  description: string;
+  exploreLabel: string;
+  /** Parent dataset in the geographic hierarchy, if any. */
+  parentId?: string;
+  /** Child datasets linked through Aurii relations. */
+  childIds?: string[];
 }
 
 async function readJson<T>(file: string): Promise<T> {
@@ -296,22 +302,32 @@ export async function loadDatasetSummaries(): Promise<DatasetSummary[]> {
       id: "county",
       title: "Fylker",
       count: counties.length,
-      path: "",
+      path: "#fylker",
       source: "Kartverket, SSB",
+      description: "Administrative regioner — inngangspunkt for å bla i kommuner og koblede data.",
+      exploreLabel: "Bla i fylker",
+      childIds: ["municipality"],
     },
     {
       id: "municipality",
       title: "Kommuner",
       count: municipalities.length,
-      path: "",
+      path: "#fylker",
       source: "Kartverket, SSB",
+      description: "Kommuner kobles til fylker. Hver kommuneside viser postnummer, skoler og barnehager.",
+      exploreLabel: "Velg fylke først",
+      parentId: "county",
+      childIds: ["postal-code", "school", "kindergarten", "hospital"],
     },
     {
       id: "postal-code",
       title: "Postnummer",
       count: postalCodes.length,
-      path: "",
+      path: "kommuner/0301#postal-heading",
       source: "Bring",
+      description: "Postnummer kobles til kommuner. Eksempel: Oslo viser alle postnummer i hovedstaden.",
+      exploreLabel: "Se eksempel i Oslo",
+      parentId: "municipality",
     },
     {
       id: "school",
@@ -319,6 +335,9 @@ export async function loadDatasetSummaries(): Promise<DatasetSummary[]> {
       count: schools.length,
       path: "skoler",
       source: "UDIR NSR",
+      description: "Skoler fra Nasjonalt skoleregister, koblet til kommune og fylke.",
+      exploreLabel: "Søk i skoler",
+      parentId: "municipality",
     },
     {
       id: "kindergarten",
@@ -326,6 +345,9 @@ export async function loadDatasetSummaries(): Promise<DatasetSummary[]> {
       count: kindergartens.length,
       path: "barnehager",
       source: "UDIR NBR",
+      description: "Barnehager fra Nasjonalt barnehageregister, koblet til kommune og fylke.",
+      exploreLabel: "Søk i barnehager",
+      parentId: "municipality",
     },
     {
       id: "hospital",
@@ -333,6 +355,9 @@ export async function loadDatasetSummaries(): Promise<DatasetSummary[]> {
       count: hospitals.length,
       path: "sykehus",
       source: "Brønnøysundregistrene",
+      description: "Sykehus fra Enhetsregisteret (næringskode 86.10), koblet til kommune.",
+      exploreLabel: "Se sykehusliste",
+      parentId: "municipality",
     },
     {
       id: "public-holiday",
@@ -340,6 +365,8 @@ export async function loadDatasetSummaries(): Promise<DatasetSummary[]> {
       count: holidays.length,
       path: "helligdager",
       source: "Nager.Date",
+      description: "Nasjonale helligdager uten geografisk kobling — viser at Aurii også håndterer kalenderdata.",
+      exploreLabel: "Se helligdagskalender",
     },
   ];
 }

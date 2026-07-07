@@ -1,16 +1,20 @@
 ---
 import Breadcrumb from "@/components/Breadcrumb.astro";
 import EntityNav from "@/components/EntityNav.astro";
+import ExploreLinks from "@/components/ExploreLinks.astro";
 import FactGrid from "@/components/FactGrid.astro";
 import PageHeader from "@/components/PageHeader.astro";
+import SearchField from "@/components/SearchField.astro";
 import SectionHeading from "@/components/SectionHeading.astro";
 import ShowMoreFooter from "@/components/ShowMoreFooter.astro";
+import TableScroll from "@/components/TableScroll.astro";
 import Layout from "../../layouts/Layout.astro";
 import { Badge } from "@/components/starwind/badge";
 import { Card, CardContent } from "@/components/starwind/card";
 import {
   Table,
   TableBody,
+  TableCaption,
   TableCell,
   TableHead,
   TableHeader,
@@ -46,6 +50,28 @@ const populationYear = county.populationYear ?? stats.populationYear;
 const adjacent = await getAdjacentCounties(id!);
 
 const pageDescription = `${county.name} i Aurii Geo — ${stats.municipalityCount} kommuner, ${formatPopulation(stats.population)} innbyggere, og koblede skoler og barnehager.`;
+
+const exploreLinks = [
+  ...(stats.largestMunicipality
+    ? [
+        {
+          title: stats.largestMunicipality.name,
+          description: `Største kommune i ${county.name} med ${formatPopulation(stats.largestMunicipality.population)} innbyggere.`,
+          href: url(`kommuner/${stats.largestMunicipality.id}`),
+        },
+      ]
+    : []),
+  {
+    title: "Skoler i fylket",
+    description: `${stats.schoolCount.toLocaleString("nb-NO")} skoler er koblet til kommuner i ${county.name}.`,
+    href: url("skoler"),
+  },
+  {
+    title: "Barnehager i fylket",
+    description: `${stats.kindergartenCount.toLocaleString("nb-NO")} barnehager er koblet til kommuner i ${county.name}.`,
+    href: url("barnehager"),
+  },
+];
 ---
 
 <Layout title={county.name} description={pageDescription} canonicalPath={`fylker/${county.id}`}>
@@ -72,8 +98,16 @@ const pageDescription = `${county.name} i Aurii Geo — ${stats.municipalityCoun
     facts={[
       { label: "Innbyggere", value: formatPopulation(stats.population) },
       { label: "Kommuner", value: String(stats.municipalityCount) },
-      { label: "Skoler", value: String(stats.schoolCount) },
-      { label: "Barnehager", value: String(stats.kindergartenCount) },
+      {
+        label: "Skoler",
+        value: String(stats.schoolCount),
+        description: "Koblet via kommuner i fylket",
+      },
+      {
+        label: "Barnehager",
+        value: String(stats.kindergartenCount),
+        description: "Koblet via kommuner i fylket",
+      },
       ...(stats.largestMunicipality
         ? [
             {
@@ -98,49 +132,74 @@ const pageDescription = `${county.name} i Aurii Geo — ${stats.municipalityCoun
     <SectionHeading
       id="municipalities-heading"
       title="Kommuner"
-      description="Alle kommuner knyttet til dette fylket gjennom Aurii-relasjoner. Klikk på en kommune for å se skoler, barnehager og postnummer."
+      description="Alle kommuner i fylket, koblet gjennom Aurii-relasjoner. Velg en kommune for postnummer, skoler og barnehager."
     />
+    <div class="mb-4 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+      <SearchField
+        id="municipality-filter"
+        label="Søk i kommuner"
+        placeholder="Søk etter navn eller kommunenummer…"
+        class="max-w-sm"
+        data-table-filter="municipality-table"
+      />
+      <p
+        class="text-sm text-muted-foreground"
+        data-filter-status="municipality-table"
+        data-filter-default={`Viser ${municipalities.length} kommuner`}
+        role="status"
+        aria-live="polite"
+      >
+        Viser {municipalities.length} kommuner
+      </p>
+    </div>
     <Card class="border-border/80">
       <CardContent class="p-0">
-        <Table data-sortable>
-          <TableHeader>
-            <TableRow class="hover:bg-transparent">
-              <TableHead data-sort-type="text" class="w-24">Nr.</TableHead>
-              <TableHead data-sort-type="text">Navn</TableHead>
-              <TableHead data-sort-type="number" class="text-right">Innbyggere</TableHead>
-            </TableRow>
-          </TableHeader>
-          <TableBody data-show-more-list="municipality-list">
-            {municipalities.map((mun, index) => (
-              <TableRow
-                class:list={["transition-colors hover:bg-muted/50", { hidden: index >= INITIAL_LIST_SIZE }]}
-                data-show-more-hidden={index >= INITIAL_LIST_SIZE ? "" : undefined}
-              >
-                <TableCell class="font-mono text-xs text-muted-foreground" data-sort-value={mun.id}>
-                  {mun.id}
-                </TableCell>
-                <TableCell>
-                  <a
-                    href={url(`kommuner/${mun.id}`)}
-                    class="font-medium text-foreground underline-offset-4 hover:text-primary hover:underline focus:outline-none focus-visible:ring-2 focus-visible:ring-outline rounded-sm"
-                  >
-                    {mun.name}
-                  </a>
-                </TableCell>
-                <TableCell
-                  class="text-right tabular-nums"
-                  data-sort-value={String(mun.population ?? 0)}
-                >
-                  {formatPopulation(mun.population)}
-                </TableCell>
+        <TableScroll>
+          <Table id="municipality-table" data-sortable>
+            <TableCaption class="sr-only">
+              Kommuner i {county.name}. Klikk på kolonneoverskrifter for å sortere.
+            </TableCaption>
+            <TableHeader>
+              <TableRow class="hover:bg-transparent">
+                <TableHead data-sort-type="text" class="w-24">Nr.</TableHead>
+                <TableHead data-sort-type="text">Navn</TableHead>
+                <TableHead data-sort-type="number" class="text-right">Innbyggere</TableHead>
               </TableRow>
-            ))}
-          </TableBody>
-        </Table>
+            </TableHeader>
+            <TableBody data-show-more-list="municipality-list">
+              {municipalities.map((mun, index) => (
+                <TableRow
+                  class:list={["transition-colors hover:bg-muted/50", { hidden: index >= INITIAL_LIST_SIZE }]}
+                  data-show-more-hidden={index >= INITIAL_LIST_SIZE ? "" : undefined}
+                >
+                  <TableCell class="font-mono text-xs text-muted-foreground" data-sort-value={mun.id}>
+                    {mun.id}
+                  </TableCell>
+                  <TableCell>
+                    <a
+                      href={url(`kommuner/${mun.id}`)}
+                      class="font-medium text-foreground underline-offset-4 hover:text-primary hover:underline focus:outline-none focus-visible:ring-2 focus-visible:ring-outline rounded-sm"
+                    >
+                      {mun.name}
+                    </a>
+                  </TableCell>
+                  <TableCell
+                    class="text-right tabular-nums"
+                    data-sort-value={String(mun.population ?? 0)}
+                  >
+                    {formatPopulation(mun.population)}
+                  </TableCell>
+                </TableRow>
+              ))}
+            </TableBody>
+          </Table>
+        </TableScroll>
       </CardContent>
       <ShowMoreFooter listId="municipality-list" total={municipalities.length} noun="kommuner" />
     </Card>
   </section>
+
+  <ExploreLinks links={exploreLinks} />
 
   <EntityNav previous={adjacent.previous} next={adjacent.next} basePath="fylker" label="Fylke" />
 </Layout>

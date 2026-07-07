@@ -103,18 +103,18 @@ import Layout from "../layouts/Layout.astro";
   <script>
     import { getClient } from "../lib/client";
     import { getDataset } from "../lib/api";
-    import type { AnalyzeResponse, StoredSchema } from "@aurii/sdk";
+    import type { AnalyzeResponse, FieldType } from "@aurii/sdk";
 
     type Analysis = AnalyzeResponse & {
       suggestedSchema: {
         id: string;
         name: string;
-        fields: { name: string; type: string; label?: string }[];
+        fields: { name: string; type: FieldType; label?: string }[];
       };
       suggestedMapping: Record<string, string>;
       suggestedTransforms: { field: string; fn: string }[];
       preview: Record<string, unknown>[];
-      inferredTypes: Record<string, string>;
+      inferredTypes: Record<string, FieldType>;
     };
 
     const TRANSFORMS = ["", "toBoolean", "toNumber", "toDate", "toSlug", "trim", "toLowerCase", "toUpperCase"];
@@ -122,7 +122,7 @@ import Layout from "../layouts/Layout.astro";
     const client = getClient();
 
     let analysis: Analysis | null = null;
-    let activeSchema: { id: string; fields: { name: string; type: string }[] } | null = null;
+    let activeSchema: { id: string; fields: { name: string; type: FieldType }[] } | null = null;
     let isNewSchema = true;
 
     function goTo(step: number) {

@@ -27,7 +27,7 @@ import Layout from "../layouts/Layout.astro";
           <div class="card">
             <div class="flex" style="margin-bottom: 8px;">
               <strong>${s.name}</strong>
-              <span class="badge info right">v${s.version}</span>
+              <span class="badge info right">${new Date(s.updatedAt).toLocaleDateString()}</span>
             </div>
             <p class="muted mono" style="margin-bottom: 12px;">${s.id}</p>
             ${s.description ? `<p class="muted" style="margin-bottom: 12px;">${s.description}</p>` : ""}

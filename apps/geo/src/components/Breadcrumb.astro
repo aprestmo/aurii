@@ -13,18 +13,34 @@ interface Props {
 const { items } = Astro.props;
 ---
 
-<nav aria-label="Brødsmulesti" class="mb-4 text-sm text-muted-foreground">
-  <ol class="flex flex-wrap items-center gap-1">
+<nav aria-label="Brødsmulesti" class="mb-6 text-sm text-muted-foreground">
+  <ol class="flex flex-wrap items-center gap-x-1.5 gap-y-1">
     {
       items.map((item, index) => (
-        <li class="flex items-center gap-1">
-          {index > 0 && <span aria-hidden="true">/</span>}
+        <li class="flex items-center gap-x-1.5">
+          {index > 0 && (
+            <svg
+              aria-hidden="true"
+              class="size-3.5 shrink-0 text-muted-foreground/50"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+              stroke-width="2"
+            >
+              <path stroke-linecap="round" stroke-linejoin="round" d="M9 6l6 6-6 6" />
+            </svg>
+          )}
           {item.href ? (
-            <a href={item.href} class="hover:text-foreground">
+            <a
+              href={item.href}
+              class="rounded-sm transition-colors hover:text-foreground focus:outline-none focus-visible:ring-2 focus-visible:ring-outline"
+            >
               {item.label}
             </a>
           ) : (
-            <span class="text-foreground">{item.label}</span>
+            <span class="font-medium text-foreground" aria-current="page">
+              {item.label}
+            </span>
           )}
         </li>
       ))

@@ -13,7 +13,7 @@ export const tableCaption = tv({
 });
 
 export const tableCell = tv({
-  base: "p-2 align-middle whitespace-nowrap [&:has([role=checkbox])]:pr-0 [&>[role=checkbox]]:translate-y-[2px]",
+  base: "px-3 py-2.5 align-middle whitespace-nowrap [&:has([role=checkbox])]:pr-0 [&>[role=checkbox]]:translate-y-[2px]",
 });
 
 export const tableFoot = tv({
@@ -21,11 +21,11 @@ export const tableFoot = tv({
 });
 
 export const tableHead = tv({
-  base: "text-muted-foreground h-10 px-2 text-left align-middle font-medium whitespace-nowrap [&:has([role=checkbox])]:pr-0 [&>[role=checkbox]]:translate-y-[2px]",
+  base: "text-muted-foreground h-10 px-3 text-left align-middle font-medium whitespace-nowrap [&:has([role=checkbox])]:pr-0 [&>[role=checkbox]]:translate-y-[2px]",
 });
 
 export const tableHeader = tv({
-  base: "[&_tr]:border-b",
+  base: "[&_tr]:border-b [&_th]:bg-card [&_th]:shadow-[0_1px_0_0_var(--border)]",
 });
 
 export const tableRow = tv({

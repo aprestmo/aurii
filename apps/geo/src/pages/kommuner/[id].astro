@@ -1,5 +1,7 @@
 ---
 import Breadcrumb from "@/components/Breadcrumb.astro";
+import EmptyState from "@/components/EmptyState.astro";
+import EntityNav from "@/components/EntityNav.astro";
 import FactGrid from "@/components/FactGrid.astro";
 import PageHeader from "@/components/PageHeader.astro";
 import SectionHeading from "@/components/SectionHeading.astro";
@@ -17,6 +19,7 @@ import {
 } from "@/components/starwind/table";
 import { url } from "../../lib/base";
 import { formatPercent, formatPopulation } from "@/lib/format";
+import { getAdjacentMunicipalities, getRelatedMunicipalities } from "@/lib/navigation";
 import { INITIAL_LIST_SIZE } from "@/lib/show-more";
 import {
   getCounty,
@@ -49,9 +52,13 @@ const postalCodes = await getPostalCodesByMunicipality(id!);
 const schools = await getSchoolsByMunicipality(id!);
 const kindergartens = await getKindergartensByMunicipality(id!);
 const populationYear = municipality.populationYear ?? county?.populationYear;
+const adjacent = county ? await getAdjacentMunicipalities(id!, county.id) : {};
+const relatedMunicipalities = county ? await getRelatedMunicipalities(id!, county.id) : [];
+
+const pageDescription = `${municipality.name} i Aurii Geo — ${stats.schoolCount} skoler, ${stats.kindergartenCount} barnehager og ${stats.postalCodeCount} postnummer koblet gjennom Aurii-relasjoner.`;
 ---
 
-<Layout title={municipality.name}>
+<Layout title={municipality.name} description={pageDescription} canonicalPath={`kommuner/${municipality.id}`}>
   <Breadcrumb
     items={[
       { label: "Forside", href: url("") },
@@ -66,7 +73,7 @@ const populationYear = municipality.populationYear ?? county?.populationYear;
       {county && (
         <>
           · Fylke{" "}
-          <a href={url(`fylker/${county.id}`)} class="focus:outline-none focus-visible:ring-2 focus-visible:ring-outline rounded-sm">
+          <a href={url(`fylker/${county.id}`)} class="rounded-sm focus:outline-none focus-visible:ring-2 focus-visible:ring-outline">
             <Badge variant="outline">{county.name}</Badge>
           </a>
         </>
@@ -95,13 +102,13 @@ const populationYear = municipality.populationYear ?? county?.populationYear;
   />
 
   <div class="space-y-12">
-    {schools.length > 0 && (
-      <section aria-labelledby="schools-heading">
-        <SectionHeading
-          id="schools-heading"
-          title={`Skoler (${schools.length})`}
-          description="Skoler registrert i kommunen via UDIR NSR. Klikk på et navn for detaljer."
-        />
+    <section aria-labelledby="schools-heading">
+      <SectionHeading
+        id="schools-heading"
+        title={`Skoler (${schools.length})`}
+        description="Skoler registrert i kommunen via UDIR NSR og koblet til kommunen i Aurii."
+      />
+      {schools.length > 0 ? (
         <Card class="border-border/80">
           <CardContent class="p-0">
             <Table data-sortable>
@@ -139,16 +146,18 @@ const populationYear = municipality.populationYear ?? county?.populationYear;
           </CardContent>
           <ShowMoreFooter listId="school-list" total={schools.length} noun="skoler" />
         </Card>
-      </section>
-    )}
+      ) : (
+        <EmptyState>Ingen registrerte skoler ble funnet for denne kommunen.</EmptyState>
+      )}
+    </section>
 
-    {kindergartens.length > 0 && (
-      <section aria-labelledby="kindergartens-heading">
-        <SectionHeading
-          id="kindergartens-heading"
-          title={`Barnehager (${kindergartens.length})`}
-          description="Barnehager registrert i kommunen via UDIR NBR. Klikk på et navn for detaljer."
-        />
+    <section aria-labelledby="kindergartens-heading">
+      <SectionHeading
+        id="kindergartens-heading"
+        title={`Barnehager (${kindergartens.length})`}
+        description="Barnehager registrert i kommunen via UDIR NBR og koblet til kommunen i Aurii."
+      />
+      {kindergartens.length > 0 ? (
         <Card class="border-border/80">
           <CardContent class="p-0">
             <Table data-sortable>
@@ -186,16 +195,18 @@ const populationYear = municipality.populationYear ?? county?.populationYear;
           </CardContent>
           <ShowMoreFooter listId="kindergarten-list" total={kindergartens.length} noun="barnehager" />
         </Card>
-      </section>
-    )}
+      ) : (
+        <EmptyState>Ingen registrerte barnehager ble funnet for denne kommunen.</EmptyState>
+      )}
+    </section>
 
-    {postalCodes.length > 0 && (
-      <section aria-labelledby="postal-heading">
-        <SectionHeading
-          id="postal-heading"
-          title={`Postnummer (${postalCodes.length})`}
-          description="Postnummer koblet til kommunen via Bring. Sorter etter kolonne for å utforske."
-        />
+    <section aria-labelledby="postal-heading">
+      <SectionHeading
+        id="postal-heading"
+        title={`Postnummer (${postalCodes.length})`}
+        description="Postnummer koblet til kommunen via Bring og Aurii-relasjoner."
+      />
+      {postalCodes.length > 0 ? (
         <Card class="border-border/80">
           <CardContent class="p-0">
             <Table data-sortable>
@@ -226,7 +237,33 @@ const populationYear = municipality.populationYear ?? county?.populationYear;
           </CardContent>
           <ShowMoreFooter listId="postal-list" total={postalCodes.length} noun="postnummer" />
         </Card>
-      </section>
-    )}
+      ) : (
+        <EmptyState>Ingen postnummer er koblet til denne kommunen.</EmptyState>
+      )}
+    </section>
   </div>
+
+  {county && relatedMunicipalities.length > 0 && (
+    <section class="mt-12 border-t border-border/60 pt-8" aria-labelledby="related-heading">
+      <SectionHeading
+        id="related-heading"
+        title={`Andre kommuner i ${county.name}`}
+        description="Denne kommunen tilhører fylket gjennom en Aurii-relasjon. Utforsk nærliggende kommuner i samme fylke."
+      />
+      <ul class="flex flex-wrap gap-2">
+        {relatedMunicipalities.map((mun) => (
+          <li>
+            <a
+              href={url(`kommuner/${mun.id}`)}
+              class="inline-flex rounded-md border border-border/80 px-3 py-1.5 text-sm transition-colors hover:border-outline/60 hover:bg-accent/20 focus:outline-none focus-visible:ring-2 focus-visible:ring-outline"
+            >
+              {mun.name}
+            </a>
+          </li>
+        ))}
+      </ul>
+    </section>
+  )}
+
+  <EntityNav previous={adjacent.previous} next={adjacent.next} basePath="kommuner" label="Kommune" />
 </Layout>

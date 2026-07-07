@@ -1,8 +1,9 @@
 ---
+import Breadcrumb from "@/components/Breadcrumb.astro";
+import SearchField from "@/components/SearchField.astro";
 import ShowMoreFooter from "@/components/ShowMoreFooter.astro";
 import Layout from "../../layouts/Layout.astro";
 import { Card, CardContent, CardDescription } from "@/components/starwind/card";
-import { Input } from "@/components/starwind/input";
 import { url } from "../../lib/base";
 import { INITIAL_SEARCH_LIST_SIZE } from "@/lib/show-more";
 import { loadKindergartens } from "../../lib/data";
@@ -12,23 +13,35 @@ const kindergartens = (await loadKindergartens()).sort((a, b) =>
 );
 ---
 
-<Layout title="Barnehager">
-  <p class="mb-3 text-sm">
-    <a href={url("")} class="text-muted-foreground hover:text-foreground">← Referansedata</a>
-  </p>
-  <div class="mb-6">
-    <h1 class="text-3xl font-semibold tracking-tight">Barnehager</h1>
-    <p class="mt-2 text-muted-foreground">
-      {kindergartens.length.toLocaleString("nb-NO")} barnehager fra UDIR Nasjonalt barnehageregister
+<Layout
+  title="Barnehager"
+  description={`${kindergartens.length.toLocaleString("nb-NO")} barnehager fra UDIR Nasjonalt barnehageregister, importert og koblet i Aurii.`}
+  canonicalPath="barnehager"
+>
+  <Breadcrumb
+    items={[
+      { label: "Forside", href: url("") },
+      { label: "Barnehager" },
+    ]}
+  />
+
+  <header class="mb-8">
+    <h1 class="text-3xl font-semibold tracking-tight sm:text-4xl">Barnehager</h1>
+    <p class="mt-3 max-w-2xl text-sm leading-relaxed text-muted-foreground">
+      {kindergartens.length.toLocaleString("nb-NO")} barnehager fra UDIR Nasjonalt barnehageregister,
+      importert som strukturerte entiteter i Aurii.
     </p>
+  </header>
+
+  <div class="mb-6">
+    <SearchField
+      id="search"
+      label="Søk etter barnehage"
+      placeholder="Barnehagenavn eller org.nr.…"
+    />
   </div>
 
-  <div class="mb-4">
-    <label for="search" class="mb-1.5 block text-sm text-muted-foreground">Søk</label>
-    <Input id="search" type="search" placeholder="Barnehagenavn eller org.nr." />
-  </div>
-
-  <Card>
+  <Card class="border-border/80">
     <CardContent class="p-0">
       <ul id="kindergarten-list" class="divide-y divide-border" data-show-more-list="kindergarten-list">
         {kindergartens.map((kg, index) => (
@@ -38,10 +51,10 @@ const kindergartens = (await loadKindergartens()).sort((a, b) =>
           >
             <a
               href={url(`barnehager/${kg.id}`)}
-              class="flex items-center justify-between px-4 py-3 transition hover:bg-accent/30 focus:outline-none focus-visible:ring-2 focus-visible:ring-outline"
+              class="flex items-center justify-between gap-4 px-4 py-3.5 transition-colors hover:bg-muted/50 focus:outline-none focus-visible:ring-2 focus-visible:ring-outline"
             >
-              <span class="font-medium">{kg.name}</span>
-              <span class="font-mono text-xs text-muted-foreground">{kg.id}</span>
+              <span class="min-w-0 font-medium">{kg.name}</span>
+              <span class="shrink-0 font-mono text-xs text-muted-foreground">{kg.id}</span>
             </a>
           </li>
         ))}
@@ -53,7 +66,7 @@ const kindergartens = (await loadKindergartens()).sort((a, b) =>
       initial={INITIAL_SEARCH_LIST_SIZE}
       noun="barnehager"
     />
-    <CardDescription id="more-note" class="px-4 py-3">
+    <CardDescription id="more-note" class="border-t border-border/60 px-4 py-3 text-sm">
       Viser de første {INITIAL_SEARCH_LIST_SIZE.toLocaleString("nb-NO")}. Bruk søk for å finne en bestemt barnehage.
     </CardDescription>
   </Card>
@@ -77,12 +90,12 @@ const kindergartens = (await loadKindergartens()).sort((a, b) =>
     const a = document.createElement("a");
     a.href = `${base}barnehager/${kg.id}`;
     a.className =
-      "flex items-center justify-between px-4 py-3 transition hover:bg-accent/30 focus:outline-none focus-visible:ring-2 focus-visible:ring-outline";
+      "flex items-center justify-between gap-4 px-4 py-3.5 transition-colors hover:bg-muted/50 focus:outline-none focus-visible:ring-2 focus-visible:ring-outline";
     const name = document.createElement("span");
-    name.className = "font-medium";
+    name.className = "min-w-0 font-medium";
     name.textContent = kg.name;
     const id = document.createElement("span");
-    id.className = "font-mono text-xs text-muted-foreground";
+    id.className = "shrink-0 font-mono text-xs text-muted-foreground";
     id.textContent = kg.id;
     a.append(name, id);
     li.append(a);
@@ -117,7 +130,10 @@ const kindergartens = (await loadKindergartens()).sort((a, b) =>
     }
 
     if (note) {
-      note.textContent = `${matches.length.toLocaleString("nb-NO")} treff`;
+      note.textContent =
+        matches.length === 0
+          ? "Ingen barnehager matcher søket."
+          : `${matches.length.toLocaleString("nb-NO")} treff`;
     }
   });
 </script>

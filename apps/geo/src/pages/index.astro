@@ -1,5 +1,6 @@
 ---
 import Layout from "../layouts/Layout.astro";
+import SearchField from "@/components/SearchField.astro";
 import SectionHeading from "@/components/SectionHeading.astro";
 import { Badge } from "@/components/starwind/badge";
 import { Button } from "@/components/starwind/button";
@@ -10,7 +11,6 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/starwind/card";
-import { Input } from "@/components/starwind/input";
 import {
   Table,
   TableBody,
@@ -51,17 +51,22 @@ const pipelineSteps = [
 ];
 ---
 
-<Layout title="Offentlig referansedata">
+<Layout
+  title="Offentlig referansedata"
+  description="Aurii Geo importerer, validerer og kobler norsk offentlig referansedata — og eksponerer den som strukturert kunnskap du kan utforske og spørre mot."
+  canonicalPath=""
+>
   <section class="mb-16" aria-labelledby="hero-heading">
     <div class="grid gap-10 lg:grid-cols-[1fr_280px] lg:items-start">
       <div>
         <p class="mb-3 text-sm font-medium uppercase tracking-wide text-muted-foreground">Aurii Demo</p>
         <h1 id="hero-heading" class="text-3xl font-semibold tracking-tight sm:text-4xl lg:text-[2.5rem] lg:leading-tight">
-          Norsk offentlig referansedata
+          Strukturert offentlig data bygget med Aurii
         </h1>
         <p class="mt-4 max-w-xl text-base leading-relaxed text-muted-foreground">
-          Utforsk norske fylker, kommuner, skoler, barnehager og postnummer importert fra offentlige kilder
-          og koblet sammen gjennom Aurii.
+          Aurii importerer offentlige kilder, validerer dem mot felles skjemaer, kobler fylker, kommuner,
+          skoler og postnummer gjennom relasjoner, og eksponerer resultatet som strukturert data du kan
+          utforske og spørre mot.
         </p>
         <div class="mt-8 flex flex-wrap gap-3">
           <Button href={url("#fylker")} size="default">
@@ -161,14 +166,12 @@ const pipelineSteps = [
       description="Bla gjennom norske fylker. Klikk på en kolonneoverskrift for å sortere, eller søk etter navn eller nummer."
     />
     <div class="mb-4 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
-      <label class="sr-only" for="county-filter">Søk i fylker</label>
-      <Input
+      <SearchField
         id="county-filter"
-        type="search"
-        placeholder="Søk etter fylke…"
+        label="Søk i fylker"
+        placeholder="Søk etter navn eller fylkesnummer…"
         class="max-w-sm"
         data-table-filter="county-table"
-        autocomplete="off"
       />
       <p class="text-sm text-muted-foreground" data-filter-status="county-table" data-filter-default="">
         {counties.length} fylker
@@ -227,11 +230,11 @@ const pipelineSteps = [
               type="button"
               variant="outline"
               size="sm"
-              class="copy-query-btn shrink-0"
+              class="copy-query-btn shrink-0 transition-colors duration-200"
               data-query={query}
               aria-label="Kopier spørring"
             >
-              Kopier
+              <span class="copy-query-label">Kopier</span>
             </Button>
           </CardContent>
         </Card>

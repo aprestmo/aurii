@@ -1,0 +1,39 @@
+---
+import { Input } from "@/components/starwind/input";
+
+interface Props {
+  id: string;
+  label: string;
+  placeholder?: string;
+  class?: string;
+  [key: string]: unknown;
+}
+
+const { id, label, placeholder, class: className, ...inputProps } = Astro.props;
+---
+
+<div class:list={["relative", className]}>
+  <label class="sr-only" for={id}>{label}</label>
+  <svg
+    aria-hidden="true"
+    class="pointer-events-none absolute left-3 top-1/2 size-4 -translate-y-1/2 text-muted-foreground"
+    fill="none"
+    viewBox="0 0 24 24"
+    stroke="currentColor"
+    stroke-width="2"
+  >
+    <path
+      stroke-linecap="round"
+      stroke-linejoin="round"
+      d="M21 21l-4.35-4.35M11 18a7 7 0 100-14 7 7 0 000 14z"
+    />
+  </svg>
+  <Input
+    id={id}
+    type="search"
+    placeholder={placeholder}
+    class="pl-9"
+    autocomplete="off"
+    {...inputProps}
+  />
+</div>

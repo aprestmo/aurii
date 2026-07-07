@@ -22,7 +22,7 @@ import {
   TableRow,
 } from "@/components/starwind/table";
 import { url } from "../../lib/base";
-import { formatPercent, formatPopulation } from "@/lib/format";
+import { formatOrgNumber, formatPercent, formatPopulation } from "@/lib/format";
 import { getAdjacentMunicipalities, getRelatedMunicipalities } from "@/lib/navigation";
 import { INITIAL_LIST_SIZE } from "@/lib/show-more";
 import {
@@ -184,7 +184,7 @@ const exploreLinks = [
                     data-show-more-hidden={index >= INITIAL_LIST_SIZE ? "" : undefined}
                   >
                     <TableCell class="font-mono text-xs text-muted-foreground" data-sort-value={school.id}>
-                      {school.id}
+                      {formatOrgNumber(school.id)}
                     </TableCell>
                     <TableCell>
                       <a
@@ -244,7 +244,7 @@ const exploreLinks = [
                     data-show-more-hidden={index >= INITIAL_LIST_SIZE ? "" : undefined}
                   >
                     <TableCell class="font-mono text-xs text-muted-foreground" data-sort-value={kg.id}>
-                      {kg.id}
+                      {formatOrgNumber(kg.id)}
                     </TableCell>
                     <TableCell>
                       <a

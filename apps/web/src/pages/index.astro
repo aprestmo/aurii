@@ -24,12 +24,10 @@ import {
   TableRow,
 } from "@/components/starwind/table";
 import { url } from "../lib/base";
-import { formatPopulation } from "@/lib/format";
+import { compareGeoIds, formatPopulation } from "@/lib/format";
 import { loadCounties, loadDatasetSummaries, loadMunicipalities, SAMPLE_QUERIES } from "../lib/data";
 
-const counties = (await loadCounties()).sort((a, b) =>
-  a.name.localeCompare(b.name, "nb"),
-);
+const counties = (await loadCounties()).sort((a, b) => compareGeoIds(a.id, b.id));
 const municipalities = await loadMunicipalities();
 const datasets = await loadDatasetSummaries();
 const totalPopulation = municipalities.reduce((sum, m) => sum + (m.population ?? 0), 0);
@@ -201,13 +199,13 @@ const pipelineSteps = [
     <Card class="border-border/80">
       <CardContent class="p-0">
         <TableScroll>
-          <Table id="county-table" data-sortable>
+          <Table id="county-table" data-sortable data-default-sort="0:asc">
             <TableCaption class="sr-only">
               Tabell over norske fylker med nummer, navn og innbyggertall. Klikk på kolonneoverskrifter for å sortere.
             </TableCaption>
             <TableHeader>
               <TableRow class="hover:bg-transparent">
-                <TableHead data-sort-type="text" class="w-20">Nr.</TableHead>
+                <TableHead data-sort-type="number" class="w-20">Nr.</TableHead>
                 <TableHead data-sort-type="text">Navn</TableHead>
                 <TableHead data-sort-type="number" class="text-right">Innbyggere</TableHead>
               </TableRow>

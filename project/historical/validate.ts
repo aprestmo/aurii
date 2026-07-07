@@ -35,6 +35,7 @@ function validateDataset(
   municipalities: HistoricalMunicipality[],
   counties: HistoricalCounty[],
   changes: AdministrativeChange[],
+  currentCounties: import("./types").WikiCurrentCounty[],
 ): ValidationResult {
   const errors: string[] = [];
   const warnings: string[] = [];
@@ -79,6 +80,18 @@ function validateDataset(
     }
   }
 
+  for (const county of currentCounties) {
+    if (!county.name?.trim()) {
+      errors.push(`Current county ${county.id} missing name`);
+    }
+    if (county.coatOfArms?.localPath) {
+      const filePath = resolve(PUBLIC_ROOT, county.coatOfArms.localPath.replace(/^\//, ""));
+      if (!existsSync(filePath)) {
+        errors.push(`${county.name}: missing coat file ${county.coatOfArms.localPath}`);
+      }
+    }
+  }
+
   for (const change of changes) {
     if (change.from.length === 0) {
       errors.push(`Change ${change.id} has empty from`);
@@ -102,7 +115,8 @@ function validateDataset(
       changes: changes.length,
       withCoats:
         municipalities.filter((m) => m.coatOfArms).length +
-        counties.filter((c) => c.coatOfArms).length,
+        counties.filter((c) => c.coatOfArms).length +
+        currentCounties.filter((c) => c.coatOfArms).length,
     },
   };
 }

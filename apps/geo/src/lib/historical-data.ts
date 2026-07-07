@@ -79,6 +79,25 @@ export interface WikiCurrentCounty {
   status: "current";
   sourceUrl: string;
   wikipediaUrl?: string;
+  websiteUrl?: string;
+  coatOfArms?: CoatOfArms;
+}
+
+export interface WikiCurrentMunicipality {
+  id: string;
+  type: "municipality";
+  name: string;
+  countyName?: string;
+  administrativeCenter?: string;
+  population?: number;
+  areaKm2?: number;
+  languageForm?: string;
+  languageArea?: string;
+  validFrom: number;
+  status: "current";
+  sourceUrl: string;
+  wikipediaUrl?: string;
+  websiteUrl?: string;
   coatOfArms?: CoatOfArms;
 }
 
@@ -101,6 +120,7 @@ export interface MunicipalityEnrichment {
   languageForm?: string;
   languageArea?: string;
   wikipediaUrl?: string;
+  websiteUrl?: string;
   established?: string;
   establishedYear?: number;
   prehistory?: string;
@@ -168,11 +188,26 @@ export async function loadCurrentCountiesWiki(): Promise<WikiCurrentCounty[]> {
   return readHistoricalJson<WikiCurrentCounty[]>("current-counties.json");
 }
 
+export async function loadCurrentMunicipalitiesWiki(): Promise<
+  WikiCurrentMunicipality[]
+> {
+  return readHistoricalJson<WikiCurrentMunicipality[]>(
+    "current-municipalities.json",
+  );
+}
+
 export async function getWikiCurrentCounty(
   id: string,
 ): Promise<WikiCurrentCounty | undefined> {
   const counties = await loadCurrentCountiesWiki();
   return counties.find((c) => c.id === id || c.countyNumber === id);
+}
+
+export async function getWikiCurrentMunicipality(
+  id: string,
+): Promise<WikiCurrentMunicipality | undefined> {
+  const municipalities = await loadCurrentMunicipalitiesWiki();
+  return municipalities.find((m) => m.id === id);
 }
 
 export async function loadHistoricalCounties(): Promise<HistoricalCounty[]> {

@@ -19,6 +19,7 @@ describe("historical norwegian geo dataset", () => {
       "municipalities.json",
       "counties.json",
       "current-counties.json",
+      "current-municipalities.json",
       "administrative-changes.json",
       "municipality-enrichment.json",
       "unresolved-matches.json",
@@ -118,6 +119,25 @@ describe("historical norwegian geo dataset", () => {
     expect(historical.every((c) => c.coatOfArms?.localPath)).toBe(true);
     expect(current.every((c) => c.coatOfArms?.localPath)).toBe(true);
     expect(current).toHaveLength(15);
+  });
+
+  it("current municipalities dataset exists with optional coats and websites", async () => {
+    const { loadCurrentMunicipalitiesWiki } = await import("../lib/historical-data");
+    const current = await loadCurrentMunicipalitiesWiki();
+    expect(current).toHaveLength(357);
+    expect(current.filter((m) => m.websiteUrl).length).toBeGreaterThan(200);
+    // Coat downloads are best-effort (Commons rate limits); show when available.
+    expect(current.filter((m) => m.coatOfArms?.localPath).length).toBeGreaterThan(0);
+  });
+
+  it("Trondheim enrichment lists Klæbu as direct predecessor", async () => {
+    const enrichments = await loadMunicipalityEnrichment();
+    const trondheim = enrichments.find((e) => e.id === "5001");
+    expect(trondheim?.directPredecessors?.some((p) => p.name === "Klæbu")).toBe(
+      true,
+    );
+    expect(trondheim?.predecessors?.some((p) => p.name === "Klæbu")).toBe(true);
+    expect(trondheim?.websiteUrl).toMatch(/^https?:\/\//);
   });
 
   it("municipality enrichment covers all current municipalities", async () => {

@@ -6,6 +6,14 @@ import {
 } from "../lib/historical-flow";
 
 describe("historical administrative flow diagrams", () => {
+  it("Trondheim ancestry includes Klæbu (2018)", async () => {
+    const flow = await buildAncestryFlow("5001", "municipality");
+    expect(hasFlowContent(flow)).toBe(true);
+    const names = flow.nodes.map((n) => n.name);
+    expect(names).toContain("Trondheim");
+    expect(names).toContain("Klæbu");
+  });
+
   it("Trøndelag ancestry includes Nord-Trøndelag and Sør-Trøndelag", async () => {
     const flow = await buildAncestryFlow("50", "county");
     expect(hasFlowContent(flow)).toBe(true);

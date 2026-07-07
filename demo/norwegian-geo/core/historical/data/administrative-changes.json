@@ -2067,7 +2067,879 @@
     "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
   },
   {
-    "id": "change-municipality-andenes-1964-96",
+    "id": "change-municipality-bolsoy-1964-96",
+    "entityType": "municipality",
+    "changeYear": 1964,
+    "changeType": "incorporated",
+    "from": [
+      {
+        "name": "Bolsøy",
+        "number": "1544",
+        "id": "hist-mun-1544-bolsoy"
+      }
+    ],
+    "to": [
+      {
+        "name": "Molde",
+        "id": "1506"
+      }
+    ],
+    "notes": "Innlemmet i Molde",
+    "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
+  },
+  {
+    "id": "change-municipality-borgund-1968-97",
+    "entityType": "municipality",
+    "changeYear": 1968,
+    "changeType": "split",
+    "from": [
+      {
+        "name": "Borgund",
+        "number": "1531",
+        "id": "hist-mun-1531-borgund"
+      }
+    ],
+    "to": [
+      {
+        "name": "Ålesund",
+        "id": "1508"
+      },
+      {
+        "name": "Haram",
+        "id": "1580"
+      },
+      {
+        "name": "Sula",
+        "id": "1531"
+      }
+    ],
+    "notes": "Innlemmet i Ålesund og Haram , deler utskilt som ny kommune Sula",
+    "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
+  },
+  {
+    "id": "change-municipality-brattvaer-1960-98",
+    "entityType": "municipality",
+    "changeYear": 1960,
+    "changeType": "merged",
+    "from": [
+      {
+        "name": "Brattvær",
+        "number": "1574",
+        "id": "hist-mun-1574-brattvaer"
+      }
+    ],
+    "to": [
+      {
+        "name": "Smøla",
+        "id": "1573"
+      }
+    ],
+    "notes": "Slått sammen med Edøy og Hopen",
+    "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
+  },
+  {
+    "id": "change-municipality-bud-1964-99",
+    "entityType": "municipality",
+    "changeYear": 1964,
+    "changeType": "incorporated",
+    "from": [
+      {
+        "name": "Bud",
+        "number": "1549",
+        "id": "hist-mun-1549-bud"
+      }
+    ],
+    "to": [
+      {
+        "name": "Fræna",
+        "id": "hist-mun-1548-fraena"
+      }
+    ],
+    "notes": "Innlemmet i Fræna",
+    "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
+  },
+  {
+    "id": "change-municipality-dalsfjord-1964-100",
+    "entityType": "municipality",
+    "changeYear": 1964,
+    "changeType": "incorporated",
+    "from": [
+      {
+        "name": "Dalsfjord",
+        "number": "1518",
+        "id": "hist-mun-1518-dalsfjord"
+      }
+    ],
+    "to": [
+      {
+        "name": "Volda",
+        "id": "1577"
+      }
+    ],
+    "notes": "Innlemmet i Volda",
+    "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
+  },
+  {
+    "id": "change-municipality-edoy-1960-101",
+    "entityType": "municipality",
+    "changeYear": 1960,
+    "changeType": "merged",
+    "from": [
+      {
+        "name": "Edøy",
+        "number": "1573",
+        "id": "hist-mun-1573-edoy"
+      }
+    ],
+    "to": [
+      {
+        "name": "Smøla",
+        "id": "1573"
+      }
+    ],
+    "notes": "Slått sammen med Brattvær og Hopen",
+    "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
+  },
+  {
+    "id": "change-municipality-eid-1964-102",
+    "entityType": "municipality",
+    "changeYear": 1964,
+    "changeType": "merged",
+    "from": [
+      {
+        "name": "Eid",
+        "number": "1538",
+        "id": "hist-mun-1538-eid"
+      }
+    ],
+    "to": [
+      {
+        "name": "Rauma",
+        "id": "1539"
+      }
+    ],
+    "notes": "Slått sammen med Grytten , Hen , Voll og deler av Veøy",
+    "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
+  },
+  {
+    "id": "change-municipality-eid-og-voll-1874-103",
+    "entityType": "municipality",
+    "changeYear": 1874,
+    "changeType": "split",
+    "from": [
+      {
+        "name": "Eid og Voll",
+        "number": "1537",
+        "id": "hist-mun-1537-eid-og-voll"
+      }
+    ],
+    "to": [
+      {
+        "name": "Eid"
+      },
+      {
+        "name": "Voll",
+        "id": "hist-mun-1537-voll"
+      }
+    ],
+    "notes": "Delt i to",
+    "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
+  },
+  {
+    "id": "change-municipality-eide-2020-104",
+    "entityType": "municipality",
+    "changeYear": 2020,
+    "changeType": "merged",
+    "from": [
+      {
+        "name": "Eide",
+        "number": "1551",
+        "id": "hist-mun-1551-eide"
+      }
+    ],
+    "to": [
+      {
+        "name": "Hustadvika",
+        "id": "1579"
+      }
+    ],
+    "notes": "Slått sammen med Fræna",
+    "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
+  },
+  {
+    "id": "change-municipality-eresfjord-og-vistdal-1964-105",
+    "entityType": "municipality",
+    "changeYear": 1964,
+    "changeType": "incorporated",
+    "from": [
+      {
+        "name": "Eresfjord og Vistdal",
+        "number": "1542",
+        "id": "hist-mun-1542-eresfjord-og-vistdal"
+      }
+    ],
+    "to": [
+      {
+        "name": "Nesset",
+        "id": "hist-mun-1543-nesset"
+      }
+    ],
+    "notes": "Innlemmet i Nesset",
+    "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
+  },
+  {
+    "id": "change-municipality-frei-2008-106",
+    "entityType": "municipality",
+    "changeYear": 2008,
+    "changeType": "incorporated",
+    "from": [
+      {
+        "name": "Frei",
+        "number": "1556",
+        "id": "hist-mun-1556-frei"
+      }
+    ],
+    "to": [
+      {
+        "name": "Kristiansund",
+        "id": "1505"
+      }
+    ],
+    "notes": "Innlemmet i Kristiansund",
+    "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
+  },
+  {
+    "id": "change-municipality-fraena-2020-107",
+    "entityType": "municipality",
+    "changeYear": 2020,
+    "changeType": "merged",
+    "from": [
+      {
+        "name": "Fræna",
+        "number": "1548",
+        "id": "hist-mun-1548-fraena"
+      }
+    ],
+    "to": [
+      {
+        "name": "Hustadvika",
+        "id": "1579"
+      }
+    ],
+    "notes": "Slått sammen med Eide",
+    "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
+  },
+  {
+    "id": "change-municipality-grip-1964-108",
+    "entityType": "municipality",
+    "changeYear": 1964,
+    "changeType": "incorporated",
+    "from": [
+      {
+        "name": "Grip",
+        "number": "1555",
+        "id": "hist-mun-1555-grip"
+      }
+    ],
+    "to": [
+      {
+        "name": "Kristiansund",
+        "id": "1505"
+      }
+    ],
+    "notes": "Innlemmet i Kristiansund",
+    "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
+  },
+  {
+    "id": "change-municipality-grytten-1964-109",
+    "entityType": "municipality",
+    "changeYear": 1964,
+    "changeType": "merged",
+    "from": [
+      {
+        "name": "Grytten",
+        "number": "1539",
+        "id": "hist-mun-1539-grytten"
+      }
+    ],
+    "to": [
+      {
+        "name": "Rauma",
+        "id": "1539"
+      }
+    ],
+    "notes": "Slått sammen med Eid , Hen , Voll og deler av Veøy",
+    "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
+  },
+  {
+    "id": "change-municipality-halsa-2020-110",
+    "entityType": "municipality",
+    "changeYear": 2020,
+    "changeType": "merged",
+    "from": [
+      {
+        "name": "Halsa",
+        "number": "1571",
+        "id": "hist-mun-1571-halsa"
+      }
+    ],
+    "to": [
+      {
+        "name": "Heim",
+        "id": "5055"
+      }
+    ],
+    "notes": "Slått sammen med Hemne og deler av Snillfjord",
+    "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
+  },
+  {
+    "id": "change-municipality-hen-1964-111",
+    "entityType": "municipality",
+    "changeYear": 1964,
+    "changeType": "merged",
+    "from": [
+      {
+        "name": "Hen",
+        "number": "1540",
+        "id": "hist-mun-1540-hen"
+      }
+    ],
+    "to": [
+      {
+        "name": "Rauma",
+        "id": "1539"
+      }
+    ],
+    "notes": "Slått sammen med Eid , Grytten , Voll og deler av Veøy",
+    "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
+  },
+  {
+    "id": "change-municipality-hjorundfjord-1964-112",
+    "entityType": "municipality",
+    "changeYear": 1964,
+    "changeType": "incorporated",
+    "from": [
+      {
+        "name": "Hjørundfjord",
+        "number": "1522",
+        "id": "hist-mun-1522-hjorundfjord"
+      }
+    ],
+    "to": [
+      {
+        "name": "Ørsta",
+        "id": "1520"
+      }
+    ],
+    "notes": "Innlemmet i Ørsta",
+    "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
+  },
+  {
+    "id": "change-municipality-hopen-1960-113",
+    "entityType": "municipality",
+    "changeYear": 1960,
+    "changeType": "merged",
+    "from": [
+      {
+        "name": "Hopen",
+        "number": "1575",
+        "id": "hist-mun-1575-hopen"
+      }
+    ],
+    "to": [
+      {
+        "name": "Smøla",
+        "id": "1573"
+      }
+    ],
+    "notes": "Slått sammen med Brattvær og Edøy",
+    "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
+  },
+  {
+    "id": "change-municipality-hustad-1964-114",
+    "entityType": "municipality",
+    "changeYear": 1964,
+    "changeType": "incorporated",
+    "from": [
+      {
+        "name": "Hustad",
+        "number": "1550",
+        "id": "hist-mun-1550-hustad"
+      }
+    ],
+    "to": [
+      {
+        "name": "Fræna",
+        "id": "hist-mun-1548-fraena"
+      }
+    ],
+    "notes": "Innlemmet i Fræna",
+    "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
+  },
+  {
+    "id": "change-municipality-kvernes-1964-115",
+    "entityType": "municipality",
+    "changeYear": 1964,
+    "changeType": "merged",
+    "from": [
+      {
+        "name": "Kvernes",
+        "number": "1553",
+        "id": "hist-mun-1553-kvernes"
+      }
+    ],
+    "to": [
+      {
+        "name": "Averøy",
+        "id": "1554"
+      }
+    ],
+    "notes": "Slått sammen med mesteparten av Bremsnes og Kornstad",
+    "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
+  },
+  {
+    "id": "change-municipality-midsund-2020-116",
+    "entityType": "municipality",
+    "changeYear": 2020,
+    "changeType": "incorporated",
+    "from": [
+      {
+        "name": "Midsund",
+        "number": "1545",
+        "id": "hist-mun-1545-midsund"
+      }
+    ],
+    "to": [
+      {
+        "name": "Molde",
+        "id": "1506"
+      }
+    ],
+    "notes": "Innlemmet i Molde",
+    "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
+  },
+  {
+    "id": "change-municipality-nesset-2020-117",
+    "entityType": "municipality",
+    "changeYear": 2020,
+    "changeType": "incorporated",
+    "from": [
+      {
+        "name": "Nesset",
+        "number": "1543",
+        "id": "hist-mun-1543-nesset"
+      }
+    ],
+    "to": [
+      {
+        "name": "Molde",
+        "id": "1506"
+      }
+    ],
+    "notes": "Innlemmet i Molde",
+    "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
+  },
+  {
+    "id": "change-municipality-norddal-2020-118",
+    "entityType": "municipality",
+    "changeYear": 2020,
+    "changeType": "merged",
+    "from": [
+      {
+        "name": "Norddal",
+        "number": "1524",
+        "id": "hist-mun-1524-norddal"
+      }
+    ],
+    "to": [
+      {
+        "name": "Fjord",
+        "id": "1578"
+      }
+    ],
+    "notes": "Slått sammen med Stordal",
+    "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
+  },
+  {
+    "id": "change-municipality-sandoy-2020-119",
+    "entityType": "municipality",
+    "changeYear": 2020,
+    "changeType": "incorporated",
+    "from": [
+      {
+        "name": "Sandøy",
+        "number": "1546",
+        "id": "hist-mun-1546-sandoy"
+      }
+    ],
+    "to": [
+      {
+        "name": "Ålesund",
+        "id": "1508"
+      }
+    ],
+    "notes": "Innlemmet i Ålesund",
+    "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
+  },
+  {
+    "id": "change-municipality-skodje-2020-120",
+    "entityType": "municipality",
+    "changeYear": 2020,
+    "changeType": "incorporated",
+    "from": [
+      {
+        "name": "Skodje",
+        "number": "1529",
+        "id": "hist-mun-1529-skodje"
+      }
+    ],
+    "to": [
+      {
+        "name": "Ålesund",
+        "id": "1508"
+      }
+    ],
+    "notes": "Innlemmet i Ålesund",
+    "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
+  },
+  {
+    "id": "change-municipality-stemshaug-1965-121",
+    "entityType": "municipality",
+    "changeYear": 1965,
+    "changeType": "incorporated",
+    "from": [
+      {
+        "name": "Stemshaug",
+        "number": "1568",
+        "id": "hist-mun-1568-stemshaug"
+      }
+    ],
+    "to": [
+      {
+        "name": "Aure",
+        "id": "1576"
+      }
+    ],
+    "notes": "Innlemmet i Aure",
+    "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
+  },
+  {
+    "id": "change-municipality-stordal-2020-122",
+    "entityType": "municipality",
+    "changeYear": 2020,
+    "changeType": "merged",
+    "from": [
+      {
+        "name": "Stordal",
+        "number": "1526",
+        "id": "hist-mun-1526-stordal"
+      }
+    ],
+    "to": [
+      {
+        "name": "Fjord",
+        "id": "1578"
+      }
+    ],
+    "notes": "Slått sammen med Norddal",
+    "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
+  },
+  {
+    "id": "change-municipality-straumsnes-1964-123",
+    "entityType": "municipality",
+    "changeYear": 1964,
+    "changeType": "incorporated",
+    "from": [
+      {
+        "name": "Straumsnes",
+        "number": "1559",
+        "id": "hist-mun-1559-straumsnes"
+      }
+    ],
+    "to": [
+      {
+        "name": "Tingvoll",
+        "id": "1560"
+      }
+    ],
+    "notes": "Innlemmet i Tingvoll",
+    "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
+  },
+  {
+    "id": "change-municipality-sunnylven-1965-124",
+    "entityType": "municipality",
+    "changeYear": 1965,
+    "changeType": "incorporated",
+    "from": [
+      {
+        "name": "Sunnylven",
+        "number": "1523",
+        "id": "hist-mun-1523-sunnylven"
+      }
+    ],
+    "to": [
+      {
+        "name": "Stranda",
+        "id": "1525"
+      }
+    ],
+    "notes": "Innlemmet i Stranda",
+    "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
+  },
+  {
+    "id": "change-municipality-syvde-1964-125",
+    "entityType": "municipality",
+    "changeYear": 1964,
+    "changeType": "incorporated",
+    "from": [
+      {
+        "name": "Syvde",
+        "number": "1512",
+        "id": "hist-mun-1512-syvde"
+      }
+    ],
+    "to": [
+      {
+        "name": "Vanylven",
+        "id": "1511"
+      }
+    ],
+    "notes": "Innlemmet i Vanylven",
+    "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
+  },
+  {
+    "id": "change-municipality-sor-aukra-1965-126",
+    "entityType": "municipality",
+    "changeYear": 1965,
+    "changeType": "merged",
+    "from": [
+      {
+        "name": "Sør-Aukra",
+        "number": "1545",
+        "id": "hist-mun-1545-sor-aukra"
+      }
+    ],
+    "to": [
+      {
+        "name": "Midsund",
+        "id": "hist-mun-1545-midsund"
+      }
+    ],
+    "notes": "Slått sammen med deler av Vatne",
+    "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
+  },
+  {
+    "id": "change-municipality-tresfjord-1964-127",
+    "entityType": "municipality",
+    "changeYear": 1964,
+    "changeType": "incorporated",
+    "from": [
+      {
+        "name": "Tresfjord",
+        "number": "1536",
+        "id": "hist-mun-1536-tresfjord"
+      }
+    ],
+    "to": [
+      {
+        "name": "Vestnes",
+        "id": "1535"
+      }
+    ],
+    "notes": "Innlemmet i Vestnes",
+    "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
+  },
+  {
+    "id": "change-municipality-tustna-2006-128",
+    "entityType": "municipality",
+    "changeYear": 2006,
+    "changeType": "incorporated",
+    "from": [
+      {
+        "name": "Tustna",
+        "number": "1572",
+        "id": "hist-mun-1572-tustna"
+      }
+    ],
+    "to": [
+      {
+        "name": "Aure",
+        "id": "1576"
+      }
+    ],
+    "notes": "Innlemmet i Aure",
+    "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
+  },
+  {
+    "id": "change-municipality-vartdal-1964-129",
+    "entityType": "municipality",
+    "changeYear": 1964,
+    "changeType": "incorporated",
+    "from": [
+      {
+        "name": "Vartdal",
+        "number": "1521",
+        "id": "hist-mun-1521-vartdal"
+      }
+    ],
+    "to": [
+      {
+        "name": "Ørsta",
+        "id": "1520"
+      }
+    ],
+    "notes": "Innlemmet i Ørsta",
+    "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
+  },
+  {
+    "id": "change-municipality-vigra-1964-130",
+    "entityType": "municipality",
+    "changeYear": 1964,
+    "changeType": "incorporated",
+    "from": [
+      {
+        "name": "Vigra",
+        "number": "1533",
+        "id": "hist-mun-1533-vigra"
+      }
+    ],
+    "to": [
+      {
+        "name": "Giske",
+        "id": "1532"
+      }
+    ],
+    "notes": "Innlemmet i Giske",
+    "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
+  },
+  {
+    "id": "change-municipality-voll-1964-131",
+    "entityType": "municipality",
+    "changeYear": 1964,
+    "changeType": "merged",
+    "from": [
+      {
+        "name": "Voll",
+        "number": "1537",
+        "id": "hist-mun-1537-voll"
+      }
+    ],
+    "to": [
+      {
+        "name": "Rauma",
+        "id": "1539"
+      }
+    ],
+    "notes": "Slått sammen med Eid , Grytten , Hen og deler av Veøy",
+    "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
+  },
+  {
+    "id": "change-municipality-oksendal-1960-132",
+    "entityType": "municipality",
+    "changeYear": 1960,
+    "changeType": "incorporated",
+    "from": [
+      {
+        "name": "Øksendal",
+        "number": "1561",
+        "id": "hist-mun-1561-oksendal"
+      }
+    ],
+    "to": [
+      {
+        "name": "Sunndal",
+        "id": "1563"
+      }
+    ],
+    "notes": "Innlemmet i Sunndal",
+    "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
+  },
+  {
+    "id": "change-municipality-ore-1965-133",
+    "entityType": "municipality",
+    "changeYear": 1965,
+    "changeType": "incorporated",
+    "from": [
+      {
+        "name": "Øre",
+        "number": "1558",
+        "id": "hist-mun-1558-ore"
+      }
+    ],
+    "to": [
+      {
+        "name": "Gjemnes",
+        "id": "1557"
+      }
+    ],
+    "notes": "Innlemmet i Gjemnes",
+    "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
+  },
+  {
+    "id": "change-municipality-orskog-2020-134",
+    "entityType": "municipality",
+    "changeYear": 2020,
+    "changeType": "incorporated",
+    "from": [
+      {
+        "name": "Ørskog",
+        "number": "1523",
+        "id": "hist-mun-1523-orskog"
+      }
+    ],
+    "to": [
+      {
+        "name": "Ålesund",
+        "id": "1508"
+      }
+    ],
+    "notes": "Innlemmet i Ålesund",
+    "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
+  },
+  {
+    "id": "change-municipality-alvundeid-1960-135",
+    "entityType": "municipality",
+    "changeYear": 1960,
+    "changeType": "incorporated",
+    "from": [
+      {
+        "name": "Ålvundeid",
+        "number": "1562",
+        "id": "hist-mun-1562-alvundeid"
+      }
+    ],
+    "to": [
+      {
+        "name": "Sunndal",
+        "id": "1563"
+      }
+    ],
+    "notes": "Innlemmet i Sunndal",
+    "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
+  },
+  {
+    "id": "change-municipality-asskard-1965-136",
+    "entityType": "municipality",
+    "changeYear": 1965,
+    "changeType": "incorporated",
+    "from": [
+      {
+        "name": "Åsskard",
+        "number": "1565",
+        "id": "hist-mun-1565-asskard"
+      }
+    ],
+    "to": [
+      {
+        "name": "Surnadal",
+        "id": "1566"
+      }
+    ],
+    "notes": "Innlemmet i Surnadal",
+    "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
+  },
+  {
+    "id": "change-municipality-andenes-1964-137",
     "entityType": "municipality",
     "changeYear": 1964,
     "changeType": "merged",
@@ -2088,7 +2960,7 @@
     "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
   },
   {
-    "id": "change-municipality-andoya-1924-97",
+    "id": "change-municipality-andoya-1924-138",
     "entityType": "municipality",
     "changeYear": 1924,
     "changeType": "split",
@@ -2117,7 +2989,7 @@
     "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
   },
   {
-    "id": "change-municipality-ankenes-1974-98",
+    "id": "change-municipality-ankenes-1974-139",
     "entityType": "municipality",
     "changeYear": 1974,
     "changeType": "incorporated",
@@ -2138,7 +3010,7 @@
     "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
   },
   {
-    "id": "change-municipality-ballangen-2020-99",
+    "id": "change-municipality-ballangen-2020-140",
     "entityType": "municipality",
     "changeYear": 2020,
     "changeType": "incorporated",
@@ -2159,7 +3031,7 @@
     "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
   },
   {
-    "id": "change-municipality-bjornskinn-1964-100",
+    "id": "change-municipality-bjornskinn-1964-141",
     "entityType": "municipality",
     "changeYear": 1964,
     "changeType": "merged",
@@ -2180,7 +3052,7 @@
     "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
   },
   {
-    "id": "change-municipality-bodin-1968-101",
+    "id": "change-municipality-bodin-1968-142",
     "entityType": "municipality",
     "changeYear": 1968,
     "changeType": "incorporated",
@@ -2201,7 +3073,7 @@
     "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
   },
   {
-    "id": "change-municipality-borge-1963-102",
+    "id": "change-municipality-borge-1963-143",
     "entityType": "municipality",
     "changeYear": 1963,
     "changeType": "merged",
@@ -2222,7 +3094,7 @@
     "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
   },
   {
-    "id": "change-municipality-bronnoysund-1964-103",
+    "id": "change-municipality-bronnoysund-1964-144",
     "entityType": "municipality",
     "changeYear": 1964,
     "changeType": "incorporated",
@@ -2243,7 +3115,7 @@
     "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
   },
   {
-    "id": "change-municipality-buksnes-1963-104",
+    "id": "change-municipality-buksnes-1963-145",
     "entityType": "municipality",
     "changeYear": 1963,
     "changeType": "merged",
@@ -2264,7 +3136,7 @@
     "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
   },
   {
-    "id": "change-municipality-drevja-1962-105",
+    "id": "change-municipality-drevja-1962-146",
     "entityType": "municipality",
     "changeYear": 1962,
     "changeType": "incorporated",
@@ -2285,7 +3157,7 @@
     "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
   },
   {
-    "id": "change-municipality-dverberg-1964-106",
+    "id": "change-municipality-dverberg-1964-147",
     "entityType": "municipality",
     "changeYear": 1964,
     "changeType": "merged",
@@ -2306,7 +3178,7 @@
     "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
   },
   {
-    "id": "change-municipality-donnes-1962-107",
+    "id": "change-municipality-donnes-1962-148",
     "entityType": "municipality",
     "changeYear": 1962,
     "changeType": "merged",
@@ -2327,7 +3199,7 @@
     "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
   },
   {
-    "id": "change-municipality-elsfjord-1962-108",
+    "id": "change-municipality-elsfjord-1962-149",
     "entityType": "municipality",
     "changeYear": 1962,
     "changeType": "incorporated",
@@ -2348,7 +3220,7 @@
     "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
   },
   {
-    "id": "change-municipality-folden-1887-109",
+    "id": "change-municipality-folden-1887-150",
     "entityType": "municipality",
     "changeYear": 1887,
     "changeType": "split",
@@ -2373,7 +3245,7 @@
     "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
   },
   {
-    "id": "change-municipality-gimsoy-1964-110",
+    "id": "change-municipality-gimsoy-1964-151",
     "entityType": "municipality",
     "changeYear": 1964,
     "changeType": "incorporated",
@@ -2394,7 +3266,7 @@
     "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
   },
   {
-    "id": "change-municipality-hol-1963-111",
+    "id": "change-municipality-hol-1963-152",
     "entityType": "municipality",
     "changeYear": 1963,
     "changeType": "merged",
@@ -2415,7 +3287,7 @@
     "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
   },
   {
-    "id": "change-municipality-kjerringoy-1964-112",
+    "id": "change-municipality-kjerringoy-1964-153",
     "entityType": "municipality",
     "changeYear": 1964,
     "changeType": "incorporated",
@@ -2436,7 +3308,7 @@
     "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
   },
   {
-    "id": "change-municipality-korgen-1964-113",
+    "id": "change-municipality-korgen-1964-154",
     "entityType": "municipality",
     "changeYear": 1964,
     "changeType": "incorporated",
@@ -2457,7 +3329,7 @@
     "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
   },
   {
-    "id": "change-municipality-langenes-1964-114",
+    "id": "change-municipality-langenes-1964-155",
     "entityType": "municipality",
     "changeYear": 1964,
     "changeType": "incorporated",
@@ -2478,7 +3350,7 @@
     "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
   },
   {
-    "id": "change-municipality-leiranger-1964-115",
+    "id": "change-municipality-leiranger-1964-156",
     "entityType": "municipality",
     "changeYear": 1964,
     "changeType": "incorporated",
@@ -2499,7 +3371,7 @@
     "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
   },
   {
-    "id": "change-municipality-mo-1964-116",
+    "id": "change-municipality-mo-1964-157",
     "entityType": "municipality",
     "changeYear": 1964,
     "changeType": "merged",
@@ -2520,7 +3392,7 @@
     "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
   },
   {
-    "id": "change-municipality-mosjoen-1962-117",
+    "id": "change-municipality-mosjoen-1962-158",
     "entityType": "municipality",
     "changeYear": 1962,
     "changeType": "incorporated",
@@ -2541,7 +3413,7 @@
     "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
   },
   {
-    "id": "change-municipality-nord-rana-1964-118",
+    "id": "change-municipality-nord-rana-1964-159",
     "entityType": "municipality",
     "changeYear": 1964,
     "changeType": "merged",
@@ -2562,7 +3434,7 @@
     "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
   },
   {
-    "id": "change-municipality-nordfold-1964-119",
+    "id": "change-municipality-nordfold-1964-160",
     "entityType": "municipality",
     "changeYear": 1964,
     "changeType": "incorporated",
@@ -2583,7 +3455,7 @@
     "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
   },
   {
-    "id": "change-municipality-nordfold-kjerringoy-1906-120",
+    "id": "change-municipality-nordfold-kjerringoy-1906-161",
     "entityType": "municipality",
     "changeYear": 1906,
     "changeType": "split",
@@ -2608,7 +3480,7 @@
     "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
   },
   {
-    "id": "change-municipality-nordvik-1962-121",
+    "id": "change-municipality-nordvik-1962-162",
     "entityType": "municipality",
     "changeYear": 1962,
     "changeType": "merged",
@@ -2629,7 +3501,7 @@
     "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
   },
   {
-    "id": "change-municipality-ofoten-1884-122",
+    "id": "change-municipality-ofoten-1884-163",
     "entityType": "municipality",
     "changeYear": 1884,
     "changeType": "split",
@@ -2653,7 +3525,7 @@
     "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
   },
   {
-    "id": "change-municipality-sandnessjoen-1965-123",
+    "id": "change-municipality-sandnessjoen-1965-164",
     "entityType": "municipality",
     "changeYear": 1965,
     "changeType": "incorporated",
@@ -2674,7 +3546,7 @@
     "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
   },
   {
-    "id": "change-municipality-skjerstad-2005-124",
+    "id": "change-municipality-skjerstad-2005-165",
     "entityType": "municipality",
     "changeYear": 2005,
     "changeType": "incorporated",
@@ -2695,7 +3567,7 @@
     "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
   },
   {
-    "id": "change-municipality-svolvaer-1964-125",
+    "id": "change-municipality-svolvaer-1964-166",
     "entityType": "municipality",
     "changeYear": 1964,
     "changeType": "incorporated",
@@ -2716,7 +3588,7 @@
     "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
   },
   {
-    "id": "change-municipality-tjotta-1965-126",
+    "id": "change-municipality-tjotta-1965-167",
     "entityType": "municipality",
     "changeYear": 1965,
     "changeType": "incorporated",
@@ -2737,7 +3609,7 @@
     "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
   },
   {
-    "id": "change-municipality-valberg-1963-127",
+    "id": "change-municipality-valberg-1963-168",
     "entityType": "municipality",
     "changeYear": 1963,
     "changeType": "merged",
@@ -2758,7 +3630,7 @@
     "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
   },
   {
-    "id": "change-municipality-velfjord-1964-128",
+    "id": "change-municipality-velfjord-1964-169",
     "entityType": "municipality",
     "changeYear": 1964,
     "changeType": "incorporated",
@@ -2779,7 +3651,7 @@
     "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
   },
   {
-    "id": "change-municipality-egersund-1965-129",
+    "id": "change-municipality-egersund-1965-170",
     "entityType": "municipality",
     "changeYear": 1965,
     "changeType": "incorporated",
@@ -2800,7 +3672,7 @@
     "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
   },
   {
-    "id": "change-municipality-erfjord-1965-130",
+    "id": "change-municipality-erfjord-1965-171",
     "entityType": "municipality",
     "changeYear": 1965,
     "changeType": "incorporated",
@@ -2821,7 +3693,7 @@
     "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
   },
   {
-    "id": "change-municipality-finnoy-2020-131",
+    "id": "change-municipality-finnoy-2020-172",
     "entityType": "municipality",
     "changeYear": 2020,
     "changeType": "incorporated",
@@ -2842,7 +3714,7 @@
     "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
   },
   {
-    "id": "change-municipality-forsand-2020-132",
+    "id": "change-municipality-forsand-2020-173",
     "entityType": "municipality",
     "changeYear": 2020,
     "changeType": "incorporated",
@@ -2863,7 +3735,7 @@
     "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
   },
   {
-    "id": "change-municipality-gjesdal-1965-133",
+    "id": "change-municipality-gjesdal-1965-174",
     "entityType": "municipality",
     "changeYear": 1965,
     "changeType": "merged",
@@ -2884,7 +3756,7 @@
     "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
   },
   {
-    "id": "change-municipality-helleland-1965-134",
+    "id": "change-municipality-helleland-1965-175",
     "entityType": "municipality",
     "changeYear": 1965,
     "changeType": "incorporated",
@@ -2905,7 +3777,7 @@
     "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
   },
   {
-    "id": "change-municipality-hjelmeland-og-fister-1884-135",
+    "id": "change-municipality-hjelmeland-og-fister-1884-176",
     "entityType": "municipality",
     "changeYear": 1884,
     "changeType": "split",
@@ -2930,7 +3802,7 @@
     "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
   },
   {
-    "id": "change-municipality-hole-1965-136",
+    "id": "change-municipality-hole-1965-177",
     "entityType": "municipality",
     "changeYear": 1965,
     "changeType": "incorporated",
@@ -2951,7 +3823,7 @@
     "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
   },
   {
-    "id": "change-municipality-hoyland-1965-137",
+    "id": "change-municipality-hoyland-1965-178",
     "entityType": "municipality",
     "changeYear": 1965,
     "changeType": "incorporated",
@@ -2972,7 +3844,7 @@
     "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
   },
   {
-    "id": "change-municipality-haland-1930-138",
+    "id": "change-municipality-haland-1930-179",
     "entityType": "municipality",
     "changeYear": 1930,
     "changeType": "split",
@@ -2997,7 +3869,7 @@
     "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
   },
   {
-    "id": "change-municipality-imsland-1965-139",
+    "id": "change-municipality-imsland-1965-180",
     "entityType": "municipality",
     "changeYear": 1965,
     "changeType": "merged",
@@ -3018,7 +3890,7 @@
     "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
   },
   {
-    "id": "change-municipality-jelsa-1965-140",
+    "id": "change-municipality-jelsa-1965-181",
     "entityType": "municipality",
     "changeYear": 1965,
     "changeType": "incorporated",
@@ -3039,7 +3911,7 @@
     "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
   },
   {
-    "id": "change-municipality-kopervik-1965-141",
+    "id": "change-municipality-kopervik-1965-182",
     "entityType": "municipality",
     "changeYear": 1965,
     "changeType": "merged",
@@ -3060,7 +3932,7 @@
     "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
   },
   {
-    "id": "change-municipality-madla-1965-142",
+    "id": "change-municipality-madla-1965-183",
     "entityType": "municipality",
     "changeYear": 1965,
     "changeType": "incorporated",
@@ -3081,7 +3953,7 @@
     "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
   },
   {
-    "id": "change-municipality-mosteroy-1965-143",
+    "id": "change-municipality-mosteroy-1965-184",
     "entityType": "municipality",
     "changeYear": 1965,
     "changeType": "incorporated",
@@ -3102,7 +3974,7 @@
     "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
   },
   {
-    "id": "change-municipality-nedstrand-1965-144",
+    "id": "change-municipality-nedstrand-1965-185",
     "entityType": "municipality",
     "changeYear": 1965,
     "changeType": "incorporated",
@@ -3123,7 +3995,7 @@
     "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
   },
   {
-    "id": "change-municipality-naerbo-1964-145",
+    "id": "change-municipality-naerbo-1964-186",
     "entityType": "municipality",
     "changeYear": 1964,
     "changeType": "merged",
@@ -3144,7 +4016,7 @@
     "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
   },
   {
-    "id": "change-municipality-ogna-1964-146",
+    "id": "change-municipality-ogna-1964-187",
     "entityType": "municipality",
     "changeYear": 1964,
     "changeType": "merged",
@@ -3165,7 +4037,7 @@
     "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
   },
   {
-    "id": "change-municipality-rennesoy-2020-147",
+    "id": "change-municipality-rennesoy-2020-188",
     "entityType": "municipality",
     "changeYear": 2020,
     "changeType": "incorporated",
@@ -3186,7 +4058,7 @@
     "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
   },
   {
-    "id": "change-municipality-sand-1965-148",
+    "id": "change-municipality-sand-1965-189",
     "entityType": "municipality",
     "changeYear": 1965,
     "changeType": "incorporated",
@@ -3207,7 +4079,7 @@
     "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
   },
   {
-    "id": "change-municipality-sandeid-1965-149",
+    "id": "change-municipality-sandeid-1965-190",
     "entityType": "municipality",
     "changeYear": 1965,
     "changeType": "merged",
@@ -3228,7 +4100,7 @@
     "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
   },
   {
-    "id": "change-municipality-sjernaroy-1965-150",
+    "id": "change-municipality-sjernaroy-1965-191",
     "entityType": "municipality",
     "changeYear": 1965,
     "changeType": "incorporated",
@@ -3249,7 +4121,7 @@
     "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
   },
   {
-    "id": "change-municipality-skudenes-1965-151",
+    "id": "change-municipality-skudenes-1965-192",
     "entityType": "municipality",
     "changeYear": 1965,
     "changeType": "merged",
@@ -3270,7 +4142,7 @@
     "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
   },
   {
-    "id": "change-municipality-skudeneshavn-1965-152",
+    "id": "change-municipality-skudeneshavn-1965-193",
     "entityType": "municipality",
     "changeYear": 1965,
     "changeType": "merged",
@@ -3291,7 +4163,7 @@
     "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
   },
   {
-    "id": "change-municipality-skare-1958-153",
+    "id": "change-municipality-skare-1958-194",
     "entityType": "municipality",
     "changeYear": 1958,
     "changeType": "incorporated",
@@ -3312,7 +4184,7 @@
     "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
   },
   {
-    "id": "change-municipality-sogndal-1944-154",
+    "id": "change-municipality-sogndal-1944-195",
     "entityType": "municipality",
     "changeYear": 1944,
     "changeType": "incorporated",
@@ -3333,7 +4205,7 @@
     "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
   },
   {
-    "id": "change-municipality-stangaland-1965-155",
+    "id": "change-municipality-stangaland-1965-196",
     "entityType": "municipality",
     "changeYear": 1965,
     "changeType": "merged",
@@ -3354,7 +4226,7 @@
     "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
   },
   {
-    "id": "change-municipality-torvastad-1965-156",
+    "id": "change-municipality-torvastad-1965-197",
     "entityType": "municipality",
     "changeYear": 1965,
     "changeType": "merged",
@@ -3375,7 +4247,7 @@
     "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
   },
   {
-    "id": "change-municipality-vats-1965-157",
+    "id": "change-municipality-vats-1965-198",
     "entityType": "municipality",
     "changeYear": 1965,
     "changeType": "merged",
@@ -3396,7 +4268,7 @@
     "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
   },
   {
-    "id": "change-municipality-varhaug-1964-158",
+    "id": "change-municipality-varhaug-1964-199",
     "entityType": "municipality",
     "changeYear": 1964,
     "changeType": "merged",
@@ -3417,7 +4289,7 @@
     "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
   },
   {
-    "id": "change-municipality-vikedal-1965-159",
+    "id": "change-municipality-vikedal-1965-200",
     "entityType": "municipality",
     "changeYear": 1965,
     "changeType": "merged",
@@ -3438,7 +4310,7 @@
     "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
   },
   {
-    "id": "change-municipality-olen-2006-160",
+    "id": "change-municipality-olen-2006-201",
     "entityType": "municipality",
     "changeYear": 2006,
     "changeType": "incorporated",
@@ -3459,7 +4331,7 @@
     "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
   },
   {
-    "id": "change-municipality-akra-1965-161",
+    "id": "change-municipality-akra-1965-202",
     "entityType": "municipality",
     "changeYear": 1965,
     "changeType": "merged",
@@ -3480,7 +4352,7 @@
     "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
   },
   {
-    "id": "change-municipality-andorja-1964-162",
+    "id": "change-municipality-andorja-1964-203",
     "entityType": "municipality",
     "changeYear": 1964,
     "changeType": "incorporated",
@@ -3501,7 +4373,7 @@
     "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
   },
   {
-    "id": "change-municipality-astafjord-1964-163",
+    "id": "change-municipality-astafjord-1964-204",
     "entityType": "municipality",
     "changeYear": 1964,
     "changeType": "incorporated",
@@ -3522,7 +4394,7 @@
     "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
   },
   {
-    "id": "change-municipality-bjarkoy-2013-164",
+    "id": "change-municipality-bjarkoy-2013-205",
     "entityType": "municipality",
     "changeYear": 2013,
     "changeType": "incorporated",
@@ -3543,7 +4415,7 @@
     "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
   },
   {
-    "id": "change-municipality-helgoy-1964-165",
+    "id": "change-municipality-helgoy-1964-206",
     "entityType": "municipality",
     "changeYear": 1964,
     "changeType": "incorporated",
@@ -3564,7 +4436,7 @@
     "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
   },
   {
-    "id": "change-municipality-malangen-1964-166",
+    "id": "change-municipality-malangen-1964-207",
     "entityType": "municipality",
     "changeYear": 1964,
     "changeType": "incorporated",
@@ -3585,7 +4457,7 @@
     "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
   },
   {
-    "id": "change-municipality-sandtorg-1964-167",
+    "id": "change-municipality-sandtorg-1964-208",
     "entityType": "municipality",
     "changeYear": 1964,
     "changeType": "incorporated",
@@ -3606,7 +4478,7 @@
     "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
   },
   {
-    "id": "change-municipality-skanland-2020-168",
+    "id": "change-municipality-skanland-2020-209",
     "entityType": "municipality",
     "changeYear": 2020,
     "changeType": "merged",
@@ -3627,7 +4499,7 @@
     "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
   },
   {
-    "id": "change-municipality-tromsoysund-1964-169",
+    "id": "change-municipality-tromsoysund-1964-210",
     "entityType": "municipality",
     "changeYear": 1964,
     "changeType": "incorporated",
@@ -3648,7 +4520,7 @@
     "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
   },
   {
-    "id": "change-municipality-trondenes-1964-170",
+    "id": "change-municipality-trondenes-1964-211",
     "entityType": "municipality",
     "changeYear": 1964,
     "changeType": "incorporated",
@@ -3669,7 +4541,7 @@
     "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
   },
   {
-    "id": "change-municipality-ullsfjord-1964-171",
+    "id": "change-municipality-ullsfjord-1964-212",
     "entityType": "municipality",
     "changeYear": 1964,
     "changeType": "incorporated",
@@ -3690,7 +4562,7 @@
     "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
   },
   {
-    "id": "change-municipality-overbygd-1964-172",
+    "id": "change-municipality-overbygd-1964-213",
     "entityType": "municipality",
     "changeYear": 1964,
     "changeType": "incorporated",
@@ -3711,7 +4583,7 @@
     "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
   },
   {
-    "id": "change-municipality-alta-talvik-1863-173",
+    "id": "change-municipality-alta-talvik-1863-214",
     "entityType": "municipality",
     "changeYear": 1863,
     "changeType": "split",
@@ -3736,7 +4608,7 @@
     "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
   },
   {
-    "id": "change-municipality-kvalsund-2020-174",
+    "id": "change-municipality-kvalsund-2020-215",
     "entityType": "municipality",
     "changeYear": 2020,
     "changeType": "incorporated",
@@ -3757,7 +4629,7 @@
     "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
   },
   {
-    "id": "change-municipality-nord-varanger-1964-175",
+    "id": "change-municipality-nord-varanger-1964-216",
     "entityType": "municipality",
     "changeYear": 1964,
     "changeType": "incorporated",
@@ -3778,7 +4650,7 @@
     "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
   },
   {
-    "id": "change-municipality-polmak-1964-176",
+    "id": "change-municipality-polmak-1964-217",
     "entityType": "municipality",
     "changeYear": 1964,
     "changeType": "incorporated",
@@ -3799,7 +4671,7 @@
     "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
   },
   {
-    "id": "change-municipality-talvik-1964-177",
+    "id": "change-municipality-talvik-1964-218",
     "entityType": "municipality",
     "changeYear": 1964,
     "changeType": "incorporated",
@@ -3820,7 +4692,1106 @@
     "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
   },
   {
-    "id": "change-municipality-andebu-2017-178",
+    "id": "change-municipality-agdenes-2020-219",
+    "entityType": "municipality",
+    "changeYear": 2020,
+    "changeType": "merged",
+    "from": [
+      {
+        "name": "Agdenes",
+        "number": "5016",
+        "id": "hist-mun-5016-agdenes"
+      }
+    ],
+    "to": [
+      {
+        "name": "Orkland",
+        "id": "5059"
+      }
+    ],
+    "notes": "Slått sammen med Orkdal , Meldal og deler av Snillfjord",
+    "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
+  },
+  {
+    "id": "change-municipality-beitstad-1964-220",
+    "entityType": "municipality",
+    "changeYear": 1964,
+    "changeType": "merged",
+    "from": [
+      {
+        "name": "Beitstad",
+        "number": "1727",
+        "id": "hist-mun-1727-beitstad"
+      }
+    ],
+    "to": [
+      {
+        "name": "Steinkjer",
+        "id": "5006"
+      }
+    ],
+    "notes": "Slått sammen med Egge , Kvam , Sparbu , Steinkjer , Stod og Ogndal .",
+    "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
+  },
+  {
+    "id": "change-municipality-bjugn-2020-221",
+    "entityType": "municipality",
+    "changeYear": 2020,
+    "changeType": "incorporated",
+    "from": [
+      {
+        "name": "Bjugn",
+        "number": "5017",
+        "id": "hist-mun-5017-bjugn"
+      }
+    ],
+    "to": [
+      {
+        "name": "Ørland",
+        "id": "5057"
+      }
+    ],
+    "notes": "Innlemmet i Ørland",
+    "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
+  },
+  {
+    "id": "change-municipality-bjornor-1892-222",
+    "entityType": "municipality",
+    "changeYear": 1892,
+    "changeType": "split",
+    "from": [
+      {
+        "name": "Bjørnør",
+        "number": "1632",
+        "id": "hist-mun-1632-bjornor"
+      }
+    ],
+    "to": [
+      {
+        "name": "Osen",
+        "id": "5020"
+      },
+      {
+        "name": "Roan",
+        "id": "hist-mun-5019-roan"
+      },
+      {
+        "name": "Stoksund",
+        "id": "hist-mun-1631-stoksund"
+      }
+    ],
+    "notes": "Delt i tre",
+    "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
+  },
+  {
+    "id": "change-municipality-byneset-1964-223",
+    "entityType": "municipality",
+    "changeYear": 1964,
+    "changeType": "merged",
+    "from": [
+      {
+        "name": "Byneset",
+        "number": "1655",
+        "id": "hist-mun-1655-byneset"
+      }
+    ],
+    "to": [
+      {
+        "name": "Trondheim",
+        "id": "5001"
+      }
+    ],
+    "notes": "Slått sammen med Leinstrand , Tiller , Trondheim og Strinda .",
+    "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
+  },
+  {
+    "id": "change-municipality-borsa-1965-224",
+    "entityType": "municipality",
+    "changeYear": 1965,
+    "changeType": "merged",
+    "from": [
+      {
+        "name": "Børsa",
+        "number": "1658",
+        "id": "hist-mun-1658-borsa"
+      }
+    ],
+    "to": [
+      {
+        "name": "Skaun",
+        "id": "5029"
+      }
+    ],
+    "notes": "Slått sammen med Skaun og Buvik .",
+    "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
+  },
+  {
+    "id": "change-municipality-fosnes-2020-225",
+    "entityType": "municipality",
+    "changeYear": 2020,
+    "changeType": "incorporated",
+    "from": [
+      {
+        "name": "Fosnes",
+        "number": "5048",
+        "id": "hist-mun-5048-fosnes"
+      }
+    ],
+    "to": [
+      {
+        "name": "Namsos",
+        "id": "5007"
+      }
+    ],
+    "notes": "Innlemmet i Namsos",
+    "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
+  },
+  {
+    "id": "change-municipality-frol-1962-226",
+    "entityType": "municipality",
+    "changeYear": 1962,
+    "changeType": "incorporated",
+    "from": [
+      {
+        "name": "Frol",
+        "number": "1720",
+        "id": "hist-mun-1720-frol"
+      }
+    ],
+    "to": [
+      {
+        "name": "Levanger",
+        "id": "5037"
+      }
+    ],
+    "notes": "Innlemmet i Levanger",
+    "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
+  },
+  {
+    "id": "change-municipality-gravvik-1964-227",
+    "entityType": "municipality",
+    "changeYear": 1964,
+    "changeType": "incorporated",
+    "from": [
+      {
+        "name": "Gravvik",
+        "number": "1754",
+        "id": "hist-mun-1754-gravvik"
+      }
+    ],
+    "to": [
+      {
+        "name": "Nærøy",
+        "id": "hist-mun-5051-naeroy"
+      }
+    ],
+    "notes": "Innlemmet i Nærøy",
+    "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
+  },
+  {
+    "id": "change-municipality-harran-1964-228",
+    "entityType": "municipality",
+    "changeYear": 1964,
+    "changeType": "incorporated",
+    "from": [
+      {
+        "name": "Harran",
+        "number": "1741",
+        "id": "hist-mun-1741-harran"
+      }
+    ],
+    "to": [
+      {
+        "name": "Grong",
+        "id": "5045"
+      }
+    ],
+    "notes": "Innlemmet i Grong",
+    "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
+  },
+  {
+    "id": "change-municipality-hegra-1962-229",
+    "entityType": "municipality",
+    "changeYear": 1962,
+    "changeType": "incorporated",
+    "from": [
+      {
+        "name": "Hegra",
+        "number": "1712",
+        "id": "hist-mun-1712-hegra"
+      }
+    ],
+    "to": [
+      {
+        "name": "Stjørdal",
+        "id": "5035"
+      }
+    ],
+    "notes": "Innlemmet i Stjørdal",
+    "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
+  },
+  {
+    "id": "change-municipality-hemne-2020-230",
+    "entityType": "municipality",
+    "changeYear": 2020,
+    "changeType": "merged",
+    "from": [
+      {
+        "name": "Hemne",
+        "number": "5011",
+        "id": "hist-mun-5011-hemne"
+      }
+    ],
+    "to": [
+      {
+        "name": "Heim",
+        "id": "5055"
+      }
+    ],
+    "notes": "Slått sammen med Halsa og deler av Snillfjord",
+    "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
+  },
+  {
+    "id": "change-municipality-hitra-1964-231",
+    "entityType": "municipality",
+    "changeYear": 1964,
+    "changeType": "merged",
+    "from": [
+      {
+        "name": "Hitra",
+        "number": "1617",
+        "id": "hist-mun-1617-hitra"
+      }
+    ],
+    "to": [
+      {
+        "name": "Hitra",
+        "id": "5056"
+      }
+    ],
+    "notes": "Slått sammen med Kvenvær , Sandstad og Fillan",
+    "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
+  },
+  {
+    "id": "change-municipality-klaebu-2020-232",
+    "entityType": "municipality",
+    "changeYear": 2020,
+    "changeType": "merged",
+    "from": [
+      {
+        "name": "Klæbu",
+        "number": "5030",
+        "id": "hist-mun-5030-klaebu"
+      }
+    ],
+    "to": [
+      {
+        "name": "Trondheim",
+        "id": "5001"
+      }
+    ],
+    "notes": "Slått sammen med Trondheim",
+    "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
+  },
+  {
+    "id": "change-municipality-klinga-1964-233",
+    "entityType": "municipality",
+    "changeYear": 1964,
+    "changeType": "incorporated",
+    "from": [
+      {
+        "name": "Klinga",
+        "number": "1746",
+        "id": "hist-mun-1746-klinga"
+      }
+    ],
+    "to": [
+      {
+        "name": "Namsos",
+        "id": "5007"
+      }
+    ],
+    "notes": "Innlemmet i Namsos",
+    "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
+  },
+  {
+    "id": "change-municipality-kolvereid-1964-234",
+    "entityType": "municipality",
+    "changeYear": 1964,
+    "changeType": "incorporated",
+    "from": [
+      {
+        "name": "Kolvereid",
+        "number": "1752",
+        "id": "hist-mun-1752-kolvereid"
+      }
+    ],
+    "to": [
+      {
+        "name": "Nærøy",
+        "id": "hist-mun-5051-naeroy"
+      }
+    ],
+    "notes": "Innlemmet i Nærøy",
+    "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
+  },
+  {
+    "id": "change-municipality-kvenvaer-1964-235",
+    "entityType": "municipality",
+    "changeYear": 1964,
+    "changeType": "merged",
+    "from": [
+      {
+        "name": "Kvenvær",
+        "number": "1618",
+        "id": "hist-mun-1618-kvenvaer"
+      }
+    ],
+    "to": [
+      {
+        "name": "Hitra",
+        "id": "5056"
+      }
+    ],
+    "notes": "Slått sammen med Hitra , Sandstad og Fillan",
+    "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
+  },
+  {
+    "id": "change-municipality-leinstrand-1964-236",
+    "entityType": "municipality",
+    "changeYear": 1964,
+    "changeType": "merged",
+    "from": [
+      {
+        "name": "Leinstrand",
+        "number": "1654",
+        "id": "hist-mun-1654-leinstrand"
+      }
+    ],
+    "to": [
+      {
+        "name": "Trondheim",
+        "id": "5001"
+      }
+    ],
+    "notes": "Slått sammen med Byneset , Tiller , Trondheim og Strinda .",
+    "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
+  },
+  {
+    "id": "change-municipality-leksvik-2018-237",
+    "entityType": "municipality",
+    "changeYear": 2018,
+    "changeType": "merged",
+    "from": [
+      {
+        "name": "Leksvik",
+        "number": "1718",
+        "id": "hist-mun-1718-leksvik"
+      }
+    ],
+    "to": [
+      {
+        "name": "Indre Fosen",
+        "id": "5054"
+      }
+    ],
+    "notes": "Slått sammen med Rissa",
+    "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
+  },
+  {
+    "id": "change-municipality-lensvik-1964-238",
+    "entityType": "municipality",
+    "changeYear": 1964,
+    "changeType": "incorporated",
+    "from": [
+      {
+        "name": "Lensvik",
+        "number": "1623",
+        "id": "hist-mun-1623-lensvik"
+      }
+    ],
+    "to": [
+      {
+        "name": "Agdenes",
+        "id": "hist-mun-5016-agdenes"
+      }
+    ],
+    "notes": "Innlemmet i Agdenes",
+    "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
+  },
+  {
+    "id": "change-municipality-lanke-1962-239",
+    "entityType": "municipality",
+    "changeYear": 1962,
+    "changeType": "incorporated",
+    "from": [
+      {
+        "name": "Lånke",
+        "number": "1713",
+        "id": "hist-mun-1713-lanke"
+      }
+    ],
+    "to": [
+      {
+        "name": "Stjørdal",
+        "id": "5035"
+      }
+    ],
+    "notes": "Innlemmet i Stjørdal",
+    "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
+  },
+  {
+    "id": "change-municipality-malm-1964-240",
+    "entityType": "municipality",
+    "changeYear": 1964,
+    "changeType": "incorporated",
+    "from": [
+      {
+        "name": "Malm",
+        "number": "1726",
+        "id": "hist-mun-1726-malm"
+      }
+    ],
+    "to": [
+      {
+        "name": "Verran",
+        "id": "hist-mun-5039-verran"
+      }
+    ],
+    "notes": "Innlemmet i Verran",
+    "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
+  },
+  {
+    "id": "change-municipality-mosvik-2012-241",
+    "entityType": "municipality",
+    "changeYear": 2012,
+    "changeType": "incorporated",
+    "from": [
+      {
+        "name": "Mosvik",
+        "number": "1723",
+        "id": "hist-mun-1723-mosvik"
+      }
+    ],
+    "to": [
+      {
+        "name": "Inderøy",
+        "id": "5053"
+      }
+    ],
+    "notes": "Innlemmet i Inderøy",
+    "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
+  },
+  {
+    "id": "change-municipality-mosvik-og-verran-1901-242",
+    "entityType": "municipality",
+    "changeYear": 1901,
+    "changeType": "split",
+    "from": [
+      {
+        "name": "Mosvik og Verran",
+        "number": "1723",
+        "id": "hist-mun-1723-mosvik-og-verran"
+      }
+    ],
+    "to": [
+      {
+        "name": "Mosvik",
+        "id": "hist-mun-1723-mosvik"
+      },
+      {
+        "name": "Verran",
+        "id": "hist-mun-5039-verran"
+      }
+    ],
+    "notes": "Delt i to",
+    "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
+  },
+  {
+    "id": "change-municipality-namdalseid-2020-243",
+    "entityType": "municipality",
+    "changeYear": 2020,
+    "changeType": "incorporated",
+    "from": [
+      {
+        "name": "Namdalseid",
+        "number": "5040",
+        "id": "hist-mun-5040-namdalseid"
+      }
+    ],
+    "to": [
+      {
+        "name": "Namsos",
+        "id": "5007"
+      }
+    ],
+    "notes": "Innlemmet i Namsos",
+    "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
+  },
+  {
+    "id": "change-municipality-nedre-stjordal-1902-244",
+    "entityType": "municipality",
+    "changeYear": 1902,
+    "changeType": "split",
+    "from": [
+      {
+        "name": "Nedre Stjørdal",
+        "number": "1714",
+        "id": "hist-mun-1714-nedre-stjordal"
+      }
+    ],
+    "to": [
+      {
+        "name": "Lånke",
+        "id": "hist-mun-1713-lanke"
+      },
+      {
+        "name": "Skatval",
+        "id": "hist-mun-1715-skatval"
+      },
+      {
+        "name": "Stjørdal",
+        "id": "5035"
+      }
+    ],
+    "notes": "Delt i tre",
+    "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
+  },
+  {
+    "id": "change-municipality-nord-froya-1964-245",
+    "entityType": "municipality",
+    "changeYear": 1964,
+    "changeType": "merged",
+    "from": [
+      {
+        "name": "Nord-Frøya",
+        "number": "1620",
+        "id": "hist-mun-1620-nord-froya"
+      }
+    ],
+    "to": [
+      {
+        "name": "Frøya",
+        "id": "5014"
+      }
+    ],
+    "notes": "Slått sammen med Sør-Frøya",
+    "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
+  },
+  {
+    "id": "change-municipality-nordli-1964-246",
+    "entityType": "municipality",
+    "changeYear": 1964,
+    "changeType": "merged",
+    "from": [
+      {
+        "name": "Nordli",
+        "number": "1738",
+        "id": "hist-mun-1738-nordli"
+      }
+    ],
+    "to": [
+      {
+        "name": "Lierne",
+        "id": "5042"
+      }
+    ],
+    "notes": "Slått sammen med Sørli",
+    "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
+  },
+  {
+    "id": "change-municipality-naeroy-2020-247",
+    "entityType": "municipality",
+    "changeYear": 2020,
+    "changeType": "merged",
+    "from": [
+      {
+        "name": "Nærøy",
+        "number": "5051",
+        "id": "hist-mun-5051-naeroy"
+      }
+    ],
+    "to": [
+      {
+        "name": "Nærøysund",
+        "id": "5060"
+      }
+    ],
+    "notes": "Slått sammen med Vikna",
+    "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
+  },
+  {
+    "id": "change-municipality-orkdal-2020-248",
+    "entityType": "municipality",
+    "changeYear": 2020,
+    "changeType": "merged",
+    "from": [
+      {
+        "name": "Orkdal",
+        "number": "5024",
+        "id": "hist-mun-5024-orkdal"
+      }
+    ],
+    "to": [
+      {
+        "name": "Orkland",
+        "id": "5059"
+      }
+    ],
+    "notes": "Slått sammen med Agdenes , Meldal og deler av Snillfjord",
+    "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
+  },
+  {
+    "id": "change-municipality-rissa-2017-249",
+    "entityType": "municipality",
+    "changeYear": 2017,
+    "changeType": "merged",
+    "from": [
+      {
+        "name": "Rissa",
+        "number": "1624",
+        "id": "hist-mun-1624-rissa"
+      }
+    ],
+    "to": [
+      {
+        "name": "Indre Fosen",
+        "id": "5054"
+      }
+    ],
+    "notes": "Slått sammen med Leksvik",
+    "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
+  },
+  {
+    "id": "change-municipality-rora-1962-250",
+    "entityType": "municipality",
+    "changeYear": 1962,
+    "changeType": "incorporated",
+    "from": [
+      {
+        "name": "Røra",
+        "number": "1730",
+        "id": "hist-mun-1730-rora"
+      }
+    ],
+    "to": [
+      {
+        "name": "Inderøy",
+        "id": "5053"
+      }
+    ],
+    "notes": "Innlemmet i Inderøy",
+    "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
+  },
+  {
+    "id": "change-municipality-sandstad-1964-251",
+    "entityType": "municipality",
+    "changeYear": 1964,
+    "changeType": "merged",
+    "from": [
+      {
+        "name": "Sandstad",
+        "number": "1615",
+        "id": "hist-mun-1615-sandstad"
+      }
+    ],
+    "to": [
+      {
+        "name": "Hitra",
+        "id": "5056"
+      }
+    ],
+    "notes": "Slått sammen med Hitra , Kvenvær og Fillan",
+    "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
+  },
+  {
+    "id": "change-municipality-sandvollan-1962-252",
+    "entityType": "municipality",
+    "changeYear": 1962,
+    "changeType": "incorporated",
+    "from": [
+      {
+        "name": "Sandvollan",
+        "number": "1728",
+        "id": "hist-mun-1728-sandvollan"
+      }
+    ],
+    "to": [
+      {
+        "name": "Inderøy",
+        "id": "5053"
+      }
+    ],
+    "notes": "Innlemmet i Inderøy",
+    "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
+  },
+  {
+    "id": "change-municipality-singsas-1964-253",
+    "entityType": "municipality",
+    "changeYear": 1964,
+    "changeType": "merged",
+    "from": [
+      {
+        "name": "Singsås",
+        "number": "1646",
+        "id": "hist-mun-1646-singsas"
+      }
+    ],
+    "to": [
+      {
+        "name": "Midtre Gauldal",
+        "id": "5027"
+      }
+    ],
+    "notes": "Slått sammen med Budal , Soknedal og Støren",
+    "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
+  },
+  {
+    "id": "change-municipality-skatval-1962-254",
+    "entityType": "municipality",
+    "changeYear": 1962,
+    "changeType": "incorporated",
+    "from": [
+      {
+        "name": "Skatval",
+        "number": "1715",
+        "id": "hist-mun-1715-skatval"
+      }
+    ],
+    "to": [
+      {
+        "name": "Stjørdal",
+        "id": "5035"
+      }
+    ],
+    "notes": "Innlemmet i Stjørdal",
+    "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
+  },
+  {
+    "id": "change-municipality-skogn-1962-255",
+    "entityType": "municipality",
+    "changeYear": 1962,
+    "changeType": "incorporated",
+    "from": [
+      {
+        "name": "Skogn",
+        "number": "1719",
+        "id": "hist-mun-1719-skogn"
+      }
+    ],
+    "to": [
+      {
+        "name": "Levanger",
+        "id": "5037"
+      }
+    ],
+    "notes": "Innlemmet i Levanger",
+    "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
+  },
+  {
+    "id": "change-municipality-sparbu-1964-256",
+    "entityType": "municipality",
+    "changeYear": 1964,
+    "changeType": "merged",
+    "from": [
+      {
+        "name": "Sparbu",
+        "number": "1731",
+        "id": "hist-mun-1731-sparbu"
+      }
+    ],
+    "to": [
+      {
+        "name": "Steinkjer",
+        "id": "5006"
+      }
+    ],
+    "notes": "Slått sammen med Beitstad , Egge , Kvam , Steinkjer , Stod og Ogndal .",
+    "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
+  },
+  {
+    "id": "change-municipality-stjordalen-1850-257",
+    "entityType": "municipality",
+    "changeYear": 1850,
+    "changeType": "split",
+    "from": [
+      {
+        "name": "Stjørdalen",
+        "number": "1714",
+        "id": "hist-mun-1714-stjordalen"
+      }
+    ],
+    "to": [
+      {
+        "name": "Nedre Stjørdal",
+        "id": "hist-mun-1714-nedre-stjordal"
+      },
+      {
+        "name": "Øvre Stjørdal",
+        "id": "hist-mun-1711-ovre-stjordal"
+      }
+    ],
+    "notes": "Delt i to",
+    "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
+  },
+  {
+    "id": "change-municipality-stod-1964-258",
+    "entityType": "municipality",
+    "changeYear": 1964,
+    "changeType": "merged",
+    "from": [
+      {
+        "name": "Stod",
+        "number": "1734",
+        "id": "hist-mun-1734-stod"
+      }
+    ],
+    "to": [
+      {
+        "name": "Steinkjer",
+        "id": "5006"
+      }
+    ],
+    "notes": "Slått sammen med Beitstad , Egge , Kvam , Sparbu , Steinkjer og Ogndal .",
+    "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
+  },
+  {
+    "id": "change-municipality-stoksund-1964-259",
+    "entityType": "municipality",
+    "changeYear": 1964,
+    "changeType": "incorporated",
+    "from": [
+      {
+        "name": "Stoksund",
+        "number": "1631",
+        "id": "hist-mun-1631-stoksund"
+      }
+    ],
+    "to": [
+      {
+        "name": "Åfjord",
+        "id": "5058"
+      }
+    ],
+    "notes": "Innlemmet i Åfjord",
+    "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
+  },
+  {
+    "id": "change-municipality-strinda-1964-260",
+    "entityType": "municipality",
+    "changeYear": 1964,
+    "changeType": "merged",
+    "from": [
+      {
+        "name": "Strinda",
+        "number": "1660",
+        "id": "hist-mun-1660-strinda"
+      }
+    ],
+    "to": [
+      {
+        "name": "Trondheim",
+        "id": "5001"
+      }
+    ],
+    "notes": "Slått sammen med Leinstrand , Tiller , Trondheim og Byneset .",
+    "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
+  },
+  {
+    "id": "change-municipality-storen-1964-261",
+    "entityType": "municipality",
+    "changeYear": 1964,
+    "changeType": "merged",
+    "from": [
+      {
+        "name": "Støren",
+        "number": "1648",
+        "id": "hist-mun-1648-storen"
+      }
+    ],
+    "to": [
+      {
+        "name": "Midtre Gauldal",
+        "id": "5027"
+      }
+    ],
+    "notes": "Slått sammen med Budal , Singsås og Soknedal",
+    "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
+  },
+  {
+    "id": "change-municipality-sor-froya-1964-262",
+    "entityType": "municipality",
+    "changeYear": 1964,
+    "changeType": "merged",
+    "from": [
+      {
+        "name": "Sør-Frøya",
+        "number": "1619",
+        "id": "hist-mun-1619-sor-froya"
+      }
+    ],
+    "to": [
+      {
+        "name": "Frøya",
+        "id": "5014"
+      }
+    ],
+    "notes": "Slått sammen med Nord-Frøya",
+    "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
+  },
+  {
+    "id": "change-municipality-sorli-1964-263",
+    "entityType": "municipality",
+    "changeYear": 1964,
+    "changeType": "merged",
+    "from": [
+      {
+        "name": "Sørli",
+        "number": "1737",
+        "id": "hist-mun-1737-sorli"
+      }
+    ],
+    "to": [
+      {
+        "name": "Lierne",
+        "id": "5042"
+      }
+    ],
+    "notes": "Slått sammen med Nordli",
+    "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
+  },
+  {
+    "id": "change-municipality-vemundvik-1964-264",
+    "entityType": "municipality",
+    "changeYear": 1964,
+    "changeType": "incorporated",
+    "from": [
+      {
+        "name": "Vemundvik",
+        "number": "1745",
+        "id": "hist-mun-1745-vemundvik"
+      }
+    ],
+    "to": [
+      {
+        "name": "Namsos",
+        "id": "5007"
+      }
+    ],
+    "notes": "Innlemmet i Namsos",
+    "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
+  },
+  {
+    "id": "change-municipality-verran-2020-265",
+    "entityType": "municipality",
+    "changeYear": 2020,
+    "changeType": "incorporated",
+    "from": [
+      {
+        "name": "Verran",
+        "number": "5039",
+        "id": "hist-mun-5039-verran"
+      }
+    ],
+    "to": [
+      {
+        "name": "Steinkjer",
+        "id": "5006"
+      }
+    ],
+    "notes": "Innlemmet i Steinkjer",
+    "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
+  },
+  {
+    "id": "change-municipality-vikna-2019-266",
+    "entityType": "municipality",
+    "changeYear": 2019,
+    "changeType": "merged",
+    "from": [
+      {
+        "name": "Vikna",
+        "number": "5050",
+        "id": "hist-mun-5050-vikna"
+      }
+    ],
+    "to": [
+      {
+        "name": "Nærøysund",
+        "id": "5060"
+      }
+    ],
+    "notes": "Slått sammen med Nærøy",
+    "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
+  },
+  {
+    "id": "change-municipality-vinje-1964-267",
+    "entityType": "municipality",
+    "changeYear": 1964,
+    "changeType": "incorporated",
+    "from": [
+      {
+        "name": "Vinje",
+        "number": "1611",
+        "id": "hist-mun-1611-vinje"
+      }
+    ],
+    "to": [
+      {
+        "name": "Hemne",
+        "id": "hist-mun-5011-hemne"
+      }
+    ],
+    "notes": "Innlemmet i Hemne",
+    "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
+  },
+  {
+    "id": "change-municipality-ovre-stjordal-1874-268",
+    "entityType": "municipality",
+    "changeYear": 1874,
+    "changeType": "split",
+    "from": [
+      {
+        "name": "Øvre Stjørdal",
+        "number": "1711",
+        "id": "hist-mun-1711-ovre-stjordal"
+      }
+    ],
+    "to": [
+      {
+        "name": "Hegra",
+        "id": "hist-mun-1712-hegra"
+      },
+      {
+        "name": "Meråker",
+        "id": "5034"
+      }
+    ],
+    "notes": "Delt i to",
+    "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
+  },
+  {
+    "id": "change-municipality-asen-1962-269",
+    "entityType": "municipality",
+    "changeYear": 1962,
+    "changeType": "incorporated",
+    "from": [
+      {
+        "name": "Åsen",
+        "number": "1716",
+        "id": "hist-mun-1716-asen"
+      }
+    ],
+    "to": [
+      {
+        "name": "Levanger",
+        "id": "5037"
+      }
+    ],
+    "notes": "Innlemmet i Levanger",
+    "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
+  },
+  {
+    "id": "change-municipality-andebu-2017-270",
     "entityType": "municipality",
     "changeYear": 2017,
     "changeType": "merged",
@@ -3841,10 +5812,10 @@
     "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
   },
   {
-    "id": "change-municipality-borre-2002-179",
+    "id": "change-municipality-borre-2002-271",
     "entityType": "municipality",
     "changeYear": 2002,
-    "changeType": "renamed",
+    "changeType": "split",
     "from": [
       {
         "name": "Borre",
@@ -3854,6 +5825,9 @@
     ],
     "to": [
       {
+        "name": "Borre"
+      },
+      {
         "name": "Horten",
         "id": "3901"
       }
@@ -3862,7 +5836,7 @@
     "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
   },
   {
-    "id": "change-municipality-botne-1964-180",
+    "id": "change-municipality-botne-1964-272",
     "entityType": "municipality",
     "changeYear": 1964,
     "changeType": "incorporated",
@@ -3883,7 +5857,7 @@
     "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
   },
   {
-    "id": "change-municipality-brunlanes-1988-181",
+    "id": "change-municipality-brunlanes-1988-273",
     "entityType": "municipality",
     "changeYear": 1988,
     "changeType": "incorporated",
@@ -3904,7 +5878,7 @@
     "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
   },
   {
-    "id": "change-municipality-hedrum-1988-182",
+    "id": "change-municipality-hedrum-1988-274",
     "entityType": "municipality",
     "changeYear": 1988,
     "changeType": "incorporated",
@@ -3925,7 +5899,7 @@
     "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
   },
   {
-    "id": "change-municipality-hof-2018-183",
+    "id": "change-municipality-hof-2018-275",
     "entityType": "municipality",
     "changeYear": 2018,
     "changeType": "merged",
@@ -3946,7 +5920,7 @@
     "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
   },
   {
-    "id": "change-municipality-lardal-2018-184",
+    "id": "change-municipality-lardal-2018-276",
     "entityType": "municipality",
     "changeYear": 2018,
     "changeType": "incorporated",
@@ -3967,7 +5941,7 @@
     "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
   },
   {
-    "id": "change-municipality-notteroy-2018-185",
+    "id": "change-municipality-notteroy-2018-277",
     "entityType": "municipality",
     "changeYear": 2018,
     "changeType": "merged",
@@ -3988,7 +5962,7 @@
     "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
   },
   {
-    "id": "change-municipality-ramnes-2002-186",
+    "id": "change-municipality-ramnes-2002-278",
     "entityType": "municipality",
     "changeYear": 2002,
     "changeType": "merged",
@@ -4009,7 +5983,7 @@
     "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
   },
   {
-    "id": "change-municipality-re-2020-187",
+    "id": "change-municipality-re-2020-279",
     "entityType": "municipality",
     "changeYear": 2020,
     "changeType": "incorporated",
@@ -4030,7 +6004,7 @@
     "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
   },
   {
-    "id": "change-municipality-sandar-1968-188",
+    "id": "change-municipality-sandar-1968-280",
     "entityType": "municipality",
     "changeYear": 1968,
     "changeType": "incorporated",
@@ -4051,7 +6025,7 @@
     "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
   },
   {
-    "id": "change-municipality-sande-2020-189",
+    "id": "change-municipality-sande-2020-281",
     "entityType": "municipality",
     "changeYear": 2020,
     "changeType": "incorporated",
@@ -4072,7 +6046,7 @@
     "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
   },
   {
-    "id": "change-municipality-sem-1988-190",
+    "id": "change-municipality-sem-1988-282",
     "entityType": "municipality",
     "changeYear": 1988,
     "changeType": "incorporated",
@@ -4093,7 +6067,7 @@
     "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
   },
   {
-    "id": "change-municipality-skoger-1964-191",
+    "id": "change-municipality-skoger-1964-283",
     "entityType": "municipality",
     "changeYear": 1964,
     "changeType": "incorporated",
@@ -4114,7 +6088,7 @@
     "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
   },
   {
-    "id": "change-municipality-stavern-1988-192",
+    "id": "change-municipality-stavern-1988-284",
     "entityType": "municipality",
     "changeYear": 1988,
     "changeType": "incorporated",
@@ -4135,7 +6109,7 @@
     "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
   },
   {
-    "id": "change-municipality-stokke-2017-193",
+    "id": "change-municipality-stokke-2017-285",
     "entityType": "municipality",
     "changeYear": 2017,
     "changeType": "merged",
@@ -4156,7 +6130,7 @@
     "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
   },
   {
-    "id": "change-municipality-stromm-1964-194",
+    "id": "change-municipality-stromm-1964-286",
     "entityType": "municipality",
     "changeYear": 1964,
     "changeType": "incorporated",
@@ -4177,7 +6151,7 @@
     "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
   },
   {
-    "id": "change-municipality-svelvik-2020-195",
+    "id": "change-municipality-svelvik-2020-287",
     "entityType": "municipality",
     "changeYear": 2020,
     "changeType": "merged",
@@ -4198,7 +6172,7 @@
     "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
   },
   {
-    "id": "change-municipality-tjolling-1988-196",
+    "id": "change-municipality-tjolling-1988-288",
     "entityType": "municipality",
     "changeYear": 1988,
     "changeType": "incorporated",
@@ -4219,7 +6193,7 @@
     "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
   },
   {
-    "id": "change-municipality-tjome-2018-197",
+    "id": "change-municipality-tjome-2018-289",
     "entityType": "municipality",
     "changeYear": 2018,
     "changeType": "merged",
@@ -4240,7 +6214,7 @@
     "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
   },
   {
-    "id": "change-municipality-vale-2002-198",
+    "id": "change-municipality-vale-2002-290",
     "entityType": "municipality",
     "changeYear": 2002,
     "changeType": "merged",
@@ -4261,7 +6235,7 @@
     "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
   },
   {
-    "id": "change-municipality-asgardstrand-1965-199",
+    "id": "change-municipality-asgardstrand-1965-291",
     "entityType": "municipality",
     "changeYear": 1965,
     "changeType": "incorporated",
@@ -4282,7 +6256,7 @@
     "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
   },
   {
-    "id": "change-municipality-brevik-1964-200",
+    "id": "change-municipality-brevik-1964-292",
     "entityType": "municipality",
     "changeYear": 1964,
     "changeType": "incorporated",
@@ -4303,7 +6277,7 @@
     "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
   },
   {
-    "id": "change-municipality-bo-i-telemark-2020-201",
+    "id": "change-municipality-bo-i-telemark-2020-293",
     "entityType": "municipality",
     "changeYear": 2020,
     "changeType": "merged",
@@ -4323,7 +6297,7 @@
     "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
   },
   {
-    "id": "change-municipality-eidanger-1964-202",
+    "id": "change-municipality-eidanger-1964-294",
     "entityType": "municipality",
     "changeYear": 1964,
     "changeType": "incorporated",
@@ -4344,7 +6318,7 @@
     "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
   },
   {
-    "id": "change-municipality-gjerpen-1964-203",
+    "id": "change-municipality-gjerpen-1964-295",
     "entityType": "municipality",
     "changeYear": 1964,
     "changeType": "incorporated",
@@ -4365,7 +6339,7 @@
     "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
   },
   {
-    "id": "change-municipality-gransherad-1964-204",
+    "id": "change-municipality-gransherad-1964-296",
     "entityType": "municipality",
     "changeYear": 1964,
     "changeType": "incorporated",
@@ -4386,7 +6360,7 @@
     "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
   },
   {
-    "id": "change-municipality-heddal-1964-205",
+    "id": "change-municipality-heddal-1964-297",
     "entityType": "municipality",
     "changeYear": 1964,
     "changeType": "incorporated",
@@ -4407,7 +6381,7 @@
     "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
   },
   {
-    "id": "change-municipality-holla-1964-206",
+    "id": "change-municipality-holla-1964-298",
     "entityType": "municipality",
     "changeYear": 1964,
     "changeType": "merged",
@@ -4428,7 +6402,7 @@
     "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
   },
   {
-    "id": "change-municipality-hovin-1964-207",
+    "id": "change-municipality-hovin-1964-299",
     "entityType": "municipality",
     "changeYear": 1964,
     "changeType": "incorporated",
@@ -4449,7 +6423,7 @@
     "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
   },
   {
-    "id": "change-municipality-langesund-1964-208",
+    "id": "change-municipality-langesund-1964-300",
     "entityType": "municipality",
     "changeYear": 1964,
     "changeType": "incorporated",
@@ -4470,7 +6444,7 @@
     "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
   },
   {
-    "id": "change-municipality-lunde-1964-209",
+    "id": "change-municipality-lunde-1964-301",
     "entityType": "municipality",
     "changeYear": 1964,
     "changeType": "merged",
@@ -4491,7 +6465,7 @@
     "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
   },
   {
-    "id": "change-municipality-lardal-1964-210",
+    "id": "change-municipality-lardal-1964-302",
     "entityType": "municipality",
     "changeYear": 1964,
     "changeType": "merged",
@@ -4512,7 +6486,7 @@
     "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
   },
   {
-    "id": "change-municipality-mo-1964-211",
+    "id": "change-municipality-mo-1964-303",
     "entityType": "municipality",
     "changeYear": 1964,
     "changeType": "merged",
@@ -4533,7 +6507,7 @@
     "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
   },
   {
-    "id": "change-municipality-rauland-1964-212",
+    "id": "change-municipality-rauland-1964-304",
     "entityType": "municipality",
     "changeYear": 1964,
     "changeType": "incorporated",
@@ -4554,7 +6528,7 @@
     "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
   },
   {
-    "id": "change-municipality-sannidal-1960-213",
+    "id": "change-municipality-sannidal-1960-305",
     "entityType": "municipality",
     "changeYear": 1960,
     "changeType": "incorporated",
@@ -4575,7 +6549,7 @@
     "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
   },
   {
-    "id": "change-municipality-sauherad-2020-214",
+    "id": "change-municipality-sauherad-2020-306",
     "entityType": "municipality",
     "changeYear": 2020,
     "changeType": "merged",
@@ -4595,7 +6569,7 @@
     "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
   },
   {
-    "id": "change-municipality-skatoy-1960-215",
+    "id": "change-municipality-skatoy-1960-307",
     "entityType": "municipality",
     "changeYear": 1960,
     "changeType": "incorporated",
@@ -4616,7 +6590,7 @@
     "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
   },
   {
-    "id": "change-municipality-solum-1964-216",
+    "id": "change-municipality-solum-1964-308",
     "entityType": "municipality",
     "changeYear": 1964,
     "changeType": "incorporated",
@@ -4637,7 +6611,7 @@
     "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
   },
   {
-    "id": "change-municipality-stathelle-1964-217",
+    "id": "change-municipality-stathelle-1964-309",
     "entityType": "municipality",
     "changeYear": 1964,
     "changeType": "incorporated",
@@ -4658,7 +6632,7 @@
     "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
   },
   {
-    "id": "change-municipality-alversund-1964-218",
+    "id": "change-municipality-alversund-1964-310",
     "entityType": "municipality",
     "changeYear": 1964,
     "changeType": "incorporated",
@@ -4679,7 +6653,7 @@
     "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
   },
   {
-    "id": "change-municipality-arna-1972-219",
+    "id": "change-municipality-arna-1972-311",
     "entityType": "municipality",
     "changeYear": 1972,
     "changeType": "incorporated",
@@ -4700,7 +6674,7 @@
     "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
   },
   {
-    "id": "change-municipality-bergen-landdistrikt-1877-220",
+    "id": "change-municipality-bergen-landdistrikt-1877-312",
     "entityType": "municipality",
     "changeYear": 1877,
     "changeType": "incorporated",
@@ -4721,7 +6695,7 @@
     "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
   },
   {
-    "id": "change-municipality-bremnes-1964-221",
+    "id": "change-municipality-bremnes-1964-313",
     "entityType": "municipality",
     "changeYear": 1964,
     "changeType": "incorporated",
@@ -4742,7 +6716,7 @@
     "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
   },
   {
-    "id": "change-municipality-eid-1855-222",
+    "id": "change-municipality-eid-1855-314",
     "entityType": "municipality",
     "changeYear": 1855,
     "changeType": "incorporated",
@@ -4763,7 +6737,7 @@
     "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
   },
   {
-    "id": "change-municipality-fana-1972-223",
+    "id": "change-municipality-fana-1972-315",
     "entityType": "municipality",
     "changeYear": 1972,
     "changeType": "incorporated",
@@ -4784,7 +6758,7 @@
     "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
   },
   {
-    "id": "change-municipality-finnas-1916-224",
+    "id": "change-municipality-finnas-1916-316",
     "entityType": "municipality",
     "changeYear": 1916,
     "changeType": "split",
@@ -4813,7 +6787,7 @@
     "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
   },
   {
-    "id": "change-municipality-fjelberg-1965-225",
+    "id": "change-municipality-fjelberg-1965-317",
     "entityType": "municipality",
     "changeYear": 1965,
     "changeType": "incorporated",
@@ -4834,7 +6808,7 @@
     "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
   },
   {
-    "id": "change-municipality-fjell-2020-226",
+    "id": "change-municipality-fjell-2020-318",
     "entityType": "municipality",
     "changeYear": 2020,
     "changeType": "merged",
@@ -4855,7 +6829,7 @@
     "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
   },
   {
-    "id": "change-municipality-fusa-2020-227",
+    "id": "change-municipality-fusa-2020-319",
     "entityType": "municipality",
     "changeYear": 2020,
     "changeType": "merged",
@@ -4876,7 +6850,7 @@
     "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
   },
   {
-    "id": "change-municipality-granvin-2020-228",
+    "id": "change-municipality-granvin-2020-320",
     "entityType": "municipality",
     "changeYear": 2020,
     "changeType": "merged",
@@ -4897,7 +6871,7 @@
     "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
   },
   {
-    "id": "change-municipality-hjelme-1964-229",
+    "id": "change-municipality-hjelme-1964-321",
     "entityType": "municipality",
     "changeYear": 1964,
     "changeType": "merged",
@@ -4918,7 +6892,7 @@
     "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
   },
   {
-    "id": "change-municipality-hordabo-1964-230",
+    "id": "change-municipality-hordabo-1964-322",
     "entityType": "municipality",
     "changeYear": 1964,
     "changeType": "merged",
@@ -4939,7 +6913,7 @@
     "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
   },
   {
-    "id": "change-municipality-halandsdal-1964-231",
+    "id": "change-municipality-halandsdal-1964-323",
     "entityType": "municipality",
     "changeYear": 1964,
     "changeType": "incorporated",
@@ -4960,7 +6934,7 @@
     "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
   },
   {
-    "id": "change-municipality-jondal-2020-232",
+    "id": "change-municipality-jondal-2020-324",
     "entityType": "municipality",
     "changeYear": 2020,
     "changeType": "merged",
@@ -4981,7 +6955,7 @@
     "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
   },
   {
-    "id": "change-municipality-kinsarvik-1964-233",
+    "id": "change-municipality-kinsarvik-1964-325",
     "entityType": "municipality",
     "changeYear": 1964,
     "changeType": "incorporated",
@@ -5002,7 +6976,7 @@
     "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
   },
   {
-    "id": "change-municipality-laksevag-1972-234",
+    "id": "change-municipality-laksevag-1972-326",
     "entityType": "municipality",
     "changeYear": 1972,
     "changeType": "incorporated",
@@ -5023,7 +6997,7 @@
     "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
   },
   {
-    "id": "change-municipality-lindas-2020-235",
+    "id": "change-municipality-lindas-2020-327",
     "entityType": "municipality",
     "changeYear": 2020,
     "changeType": "merged",
@@ -5044,7 +7018,7 @@
     "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
   },
   {
-    "id": "change-municipality-manger-1964-236",
+    "id": "change-municipality-manger-1964-328",
     "entityType": "municipality",
     "changeYear": 1964,
     "changeType": "merged",
@@ -5065,7 +7039,7 @@
     "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
   },
   {
-    "id": "change-municipality-meland-2020-237",
+    "id": "change-municipality-meland-2020-329",
     "entityType": "municipality",
     "changeYear": 2020,
     "changeType": "merged",
@@ -5086,7 +7060,7 @@
     "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
   },
   {
-    "id": "change-municipality-moster-1964-238",
+    "id": "change-municipality-moster-1964-330",
     "entityType": "municipality",
     "changeYear": 1964,
     "changeType": "incorporated",
@@ -5107,7 +7081,7 @@
     "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
   },
   {
-    "id": "change-municipality-odda-2020-239",
+    "id": "change-municipality-odda-2020-331",
     "entityType": "municipality",
     "changeYear": 2020,
     "changeType": "merged",
@@ -5128,7 +7102,7 @@
     "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
   },
   {
-    "id": "change-municipality-os-2020-240",
+    "id": "change-municipality-os-2020-332",
     "entityType": "municipality",
     "changeYear": 2020,
     "changeType": "merged",
@@ -5149,7 +7123,7 @@
     "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
   },
   {
-    "id": "change-municipality-radoy-2020-241",
+    "id": "change-municipality-radoy-2020-333",
     "entityType": "municipality",
     "changeYear": 2020,
     "changeType": "merged",
@@ -5170,7 +7144,7 @@
     "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
   },
   {
-    "id": "change-municipality-roldal-1964-242",
+    "id": "change-municipality-roldal-1964-334",
     "entityType": "municipality",
     "changeYear": 1964,
     "changeType": "incorporated",
@@ -5191,7 +7165,7 @@
     "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
   },
   {
-    "id": "change-municipality-strandebarm-1965-243",
+    "id": "change-municipality-strandebarm-1965-335",
     "entityType": "municipality",
     "changeYear": 1965,
     "changeType": "incorporated",
@@ -5212,7 +7186,7 @@
     "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
   },
   {
-    "id": "change-municipality-strandvik-1964-244",
+    "id": "change-municipality-strandvik-1964-336",
     "entityType": "municipality",
     "changeYear": 1964,
     "changeType": "incorporated",
@@ -5233,7 +7207,7 @@
     "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
   },
   {
-    "id": "change-municipality-sund-2020-245",
+    "id": "change-municipality-sund-2020-337",
     "entityType": "municipality",
     "changeYear": 2020,
     "changeType": "merged",
@@ -5254,7 +7228,7 @@
     "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
   },
   {
-    "id": "change-municipality-saebo-1964-246",
+    "id": "change-municipality-saebo-1964-338",
     "entityType": "municipality",
     "changeYear": 1964,
     "changeType": "merged",
@@ -5275,7 +7249,7 @@
     "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
   },
   {
-    "id": "change-municipality-valestrand-1964-247",
+    "id": "change-municipality-valestrand-1964-339",
     "entityType": "municipality",
     "changeYear": 1964,
     "changeType": "incorporated",
@@ -5296,7 +7270,7 @@
     "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
   },
   {
-    "id": "change-municipality-vossestrand-1964-248",
+    "id": "change-municipality-vossestrand-1964-340",
     "entityType": "municipality",
     "changeYear": 1964,
     "changeType": "incorporated",
@@ -5317,7 +7291,7 @@
     "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
   },
   {
-    "id": "change-municipality-arstad-1915-249",
+    "id": "change-municipality-arstad-1915-341",
     "entityType": "municipality",
     "changeYear": 1915,
     "changeType": "incorporated",
@@ -5338,7 +7312,7 @@
     "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
   },
   {
-    "id": "change-municipality-asane-1972-250",
+    "id": "change-municipality-asane-1972-342",
     "entityType": "municipality",
     "changeYear": 1972,
     "changeType": "incorporated",
@@ -5359,7 +7333,7 @@
     "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
   },
   {
-    "id": "change-municipality-balestrand-2020-251",
+    "id": "change-municipality-balestrand-2020-343",
     "entityType": "municipality",
     "changeYear": 2020,
     "changeType": "incorporated",
@@ -5380,7 +7354,7 @@
     "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
   },
   {
-    "id": "change-municipality-borgund-1964-252",
+    "id": "change-municipality-borgund-1964-344",
     "entityType": "municipality",
     "changeYear": 1964,
     "changeType": "incorporated",
@@ -5401,7 +7375,7 @@
     "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
   },
   {
-    "id": "change-municipality-breim-1964-253",
+    "id": "change-municipality-breim-1964-345",
     "entityType": "municipality",
     "changeYear": 1964,
     "changeType": "incorporated",
@@ -5422,7 +7396,7 @@
     "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
   },
   {
-    "id": "change-municipality-brekke-1964-254",
+    "id": "change-municipality-brekke-1964-346",
     "entityType": "municipality",
     "changeYear": 1964,
     "changeType": "incorporated",
@@ -5443,7 +7417,7 @@
     "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
   },
   {
-    "id": "change-municipality-bru-1964-255",
+    "id": "change-municipality-bru-1964-347",
     "entityType": "municipality",
     "changeYear": 1964,
     "changeType": "merged",
@@ -5464,7 +7438,7 @@
     "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
   },
   {
-    "id": "change-municipality-eid-2020-256",
+    "id": "change-municipality-eid-2020-348",
     "entityType": "municipality",
     "changeYear": 2020,
     "changeType": "merged",
@@ -5485,7 +7459,7 @@
     "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
   },
   {
-    "id": "change-municipality-eikefjord-1964-257",
+    "id": "change-municipality-eikefjord-1964-349",
     "entityType": "municipality",
     "changeYear": 1964,
     "changeType": "merged",
@@ -5506,7 +7480,7 @@
     "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
   },
   {
-    "id": "change-municipality-flora-2020-258",
+    "id": "change-municipality-flora-2020-350",
     "entityType": "municipality",
     "changeYear": 2020,
     "changeType": "merged",
@@ -5527,7 +7501,7 @@
     "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
   },
   {
-    "id": "change-municipality-forde-2020-259",
+    "id": "change-municipality-forde-2020-351",
     "entityType": "municipality",
     "changeYear": 2020,
     "changeType": "merged",
@@ -5548,7 +7522,7 @@
     "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
   },
   {
-    "id": "change-municipality-gaular-2020-260",
+    "id": "change-municipality-gaular-2020-352",
     "entityType": "municipality",
     "changeYear": 2020,
     "changeType": "merged",
@@ -5569,7 +7543,7 @@
     "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
   },
   {
-    "id": "change-municipality-hafslo-1963-261",
+    "id": "change-municipality-hafslo-1963-353",
     "entityType": "municipality",
     "changeYear": 1963,
     "changeType": "incorporated",
@@ -5590,7 +7564,7 @@
     "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
   },
   {
-    "id": "change-municipality-innvik-1965-262",
+    "id": "change-municipality-innvik-1965-354",
     "entityType": "municipality",
     "changeYear": 1965,
     "changeType": "incorporated",
@@ -5611,7 +7585,7 @@
     "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
   },
   {
-    "id": "change-municipality-jostedal-1963-263",
+    "id": "change-municipality-jostedal-1963-355",
     "entityType": "municipality",
     "changeYear": 1963,
     "changeType": "incorporated",
@@ -5632,7 +7606,7 @@
     "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
   },
   {
-    "id": "change-municipality-jolster-2020-264",
+    "id": "change-municipality-jolster-2020-356",
     "entityType": "municipality",
     "changeYear": 2020,
     "changeType": "merged",
@@ -5653,7 +7627,7 @@
     "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
   },
   {
-    "id": "change-municipality-kinn-1964-265",
+    "id": "change-municipality-kinn-1964-357",
     "entityType": "municipality",
     "changeYear": 1964,
     "changeType": "merged",
@@ -5674,7 +7648,7 @@
     "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
   },
   {
-    "id": "change-municipality-kyrkjebo-1964-266",
+    "id": "change-municipality-kyrkjebo-1964-358",
     "entityType": "municipality",
     "changeYear": 1964,
     "changeType": "merged",
@@ -5695,7 +7669,7 @@
     "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
   },
   {
-    "id": "change-municipality-lavik-1964-267",
+    "id": "change-municipality-lavik-1964-359",
     "entityType": "municipality",
     "changeYear": 1964,
     "changeType": "merged",
@@ -5716,7 +7690,7 @@
     "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
   },
   {
-    "id": "change-municipality-lavik-og-brekke-1905-268",
+    "id": "change-municipality-lavik-og-brekke-1905-360",
     "entityType": "municipality",
     "changeYear": 1905,
     "changeType": "split",
@@ -5741,7 +7715,7 @@
     "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
   },
   {
-    "id": "change-municipality-leikanger-2020-269",
+    "id": "change-municipality-leikanger-2020-361",
     "entityType": "municipality",
     "changeYear": 2020,
     "changeType": "incorporated",
@@ -5762,7 +7736,7 @@
     "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
   },
   {
-    "id": "change-municipality-naustdal-2020-270",
+    "id": "change-municipality-naustdal-2020-362",
     "entityType": "municipality",
     "changeYear": 2020,
     "changeType": "merged",
@@ -5783,7 +7757,7 @@
     "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
   },
   {
-    "id": "change-municipality-nord-vagsoy-1964-271",
+    "id": "change-municipality-nord-vagsoy-1964-363",
     "entityType": "municipality",
     "changeYear": 1964,
     "changeType": "merged",
@@ -5804,7 +7778,7 @@
     "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
   },
   {
-    "id": "change-municipality-selje-2020-272",
+    "id": "change-municipality-selje-2020-364",
     "entityType": "municipality",
     "changeYear": 2020,
     "changeType": "merged",
@@ -5825,7 +7799,7 @@
     "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
   },
   {
-    "id": "change-municipality-sor-vagsoy-1964-273",
+    "id": "change-municipality-sor-vagsoy-1964-365",
     "entityType": "municipality",
     "changeYear": 1964,
     "changeType": "merged",
@@ -5846,7 +7820,7 @@
     "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
   },
   {
-    "id": "change-municipality-vagsoy-2020-274",
+    "id": "change-municipality-vagsoy-2020-366",
     "entityType": "municipality",
     "changeYear": 2020,
     "changeType": "merged",
@@ -5867,7 +7841,7 @@
     "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
   },
   {
-    "id": "change-municipality-berg-1967-275",
+    "id": "change-municipality-berg-1967-367",
     "entityType": "municipality",
     "changeYear": 1967,
     "changeType": "incorporated",
@@ -5888,7 +7862,7 @@
     "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
   },
   {
-    "id": "change-municipality-borge-1994-276",
+    "id": "change-municipality-borge-1994-368",
     "entityType": "municipality",
     "changeYear": 1994,
     "changeType": "incorporated",
@@ -5909,7 +7883,7 @@
     "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
   },
   {
-    "id": "change-municipality-degernes-1964-277",
+    "id": "change-municipality-degernes-1964-369",
     "entityType": "municipality",
     "changeYear": 1964,
     "changeType": "incorporated",
@@ -5930,7 +7904,7 @@
     "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
   },
   {
-    "id": "change-municipality-glemmen-1964-278",
+    "id": "change-municipality-glemmen-1964-370",
     "entityType": "municipality",
     "changeYear": 1964,
     "changeType": "incorporated",
@@ -5951,7 +7925,7 @@
     "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
   },
   {
-    "id": "change-municipality-idd-1967-279",
+    "id": "change-municipality-idd-1967-371",
     "entityType": "municipality",
     "changeYear": 1967,
     "changeType": "incorporated",
@@ -5972,7 +7946,7 @@
     "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
   },
   {
-    "id": "change-municipality-jeloy-1943-280",
+    "id": "change-municipality-jeloy-1943-372",
     "entityType": "municipality",
     "changeYear": 1943,
     "changeType": "incorporated",
@@ -5993,7 +7967,7 @@
     "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
   },
   {
-    "id": "change-municipality-krakeroy-1994-281",
+    "id": "change-municipality-krakeroy-1994-373",
     "entityType": "municipality",
     "changeYear": 1994,
     "changeType": "incorporated",
@@ -6014,7 +7988,7 @@
     "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
   },
   {
-    "id": "change-municipality-mysen-1961-282",
+    "id": "change-municipality-mysen-1961-374",
     "entityType": "municipality",
     "changeYear": 1961,
     "changeType": "incorporated",
@@ -6035,7 +8009,7 @@
     "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
   },
   {
-    "id": "change-municipality-onsoy-1994-283",
+    "id": "change-municipality-onsoy-1994-375",
     "entityType": "municipality",
     "changeYear": 1994,
     "changeType": "incorporated",
@@ -6056,7 +8030,7 @@
     "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
   },
   {
-    "id": "change-municipality-rolvsoy-1994-284",
+    "id": "change-municipality-rolvsoy-1994-376",
     "entityType": "municipality",
     "changeYear": 1994,
     "changeType": "incorporated",
@@ -6077,7 +8051,7 @@
     "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
   },
   {
-    "id": "change-municipality-rygge-2020-285",
+    "id": "change-municipality-rygge-2020-377",
     "entityType": "municipality",
     "changeYear": 2020,
     "changeType": "incorporated",
@@ -6098,7 +8072,7 @@
     "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
   },
   {
-    "id": "change-municipality-rodenes-1964-286",
+    "id": "change-municipality-rodenes-1964-378",
     "entityType": "municipality",
     "changeYear": 1964,
     "changeType": "merged",
@@ -6119,7 +8093,7 @@
     "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
   },
   {
-    "id": "change-municipality-romskog-2020-287",
+    "id": "change-municipality-romskog-2020-379",
     "entityType": "municipality",
     "changeYear": 2020,
     "changeType": "incorporated",
@@ -6140,7 +8114,7 @@
     "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
   },
   {
-    "id": "change-municipality-skjeberg-1992-288",
+    "id": "change-municipality-skjeberg-1992-380",
     "entityType": "municipality",
     "changeYear": 1992,
     "changeType": "incorporated",
@@ -6161,7 +8135,7 @@
     "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
   },
   {
-    "id": "change-municipality-torsnes-1964-289",
+    "id": "change-municipality-torsnes-1964-381",
     "entityType": "municipality",
     "changeYear": 1964,
     "changeType": "incorporated",
@@ -6181,7 +8155,7 @@
     "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
   },
   {
-    "id": "change-municipality-tune-1992-290",
+    "id": "change-municipality-tune-1992-382",
     "entityType": "municipality",
     "changeYear": 1992,
     "changeType": "incorporated",
@@ -6202,7 +8176,7 @@
     "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
   },
   {
-    "id": "change-municipality-varteig-1992-291",
+    "id": "change-municipality-varteig-1992-383",
     "entityType": "municipality",
     "changeYear": 1992,
     "changeType": "incorporated",
@@ -6223,7 +8197,7 @@
     "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
   },
   {
-    "id": "change-municipality-oymark-1964-292",
+    "id": "change-municipality-oymark-1964-384",
     "entityType": "municipality",
     "changeYear": 1964,
     "changeType": "merged",
@@ -6244,7 +8218,7 @@
     "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
   },
   {
-    "id": "change-municipality-aker-1948-293",
+    "id": "change-municipality-aker-1948-385",
     "entityType": "municipality",
     "changeYear": 1948,
     "changeType": "incorporated",
@@ -6265,7 +8239,7 @@
     "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
   },
   {
-    "id": "change-municipality-aurskog-1966-294",
+    "id": "change-municipality-aurskog-1966-386",
     "entityType": "municipality",
     "changeYear": 1966,
     "changeType": "merged",
@@ -6286,7 +8260,7 @@
     "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
   },
   {
-    "id": "change-municipality-blaker-1962-295",
+    "id": "change-municipality-blaker-1962-387",
     "entityType": "municipality",
     "changeYear": 1962,
     "changeType": "incorporated",
@@ -6307,7 +8281,7 @@
     "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
   },
   {
-    "id": "change-municipality-drobak-1962-296",
+    "id": "change-municipality-drobak-1962-388",
     "entityType": "municipality",
     "changeYear": 1962,
     "changeType": "incorporated",
@@ -6328,7 +8302,7 @@
     "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
   },
   {
-    "id": "change-municipality-feiring-1964-297",
+    "id": "change-municipality-feiring-1964-389",
     "entityType": "municipality",
     "changeYear": 1964,
     "changeType": "incorporated",
@@ -6349,7 +8323,7 @@
     "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
   },
   {
-    "id": "change-municipality-holand-1924-298",
+    "id": "change-municipality-holand-1924-390",
     "entityType": "municipality",
     "changeYear": 1924,
     "changeType": "split",
@@ -6374,7 +8348,7 @@
     "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
   },
   {
-    "id": "change-municipality-holen-1943-299",
+    "id": "change-municipality-holen-1943-391",
     "entityType": "municipality",
     "changeYear": 1943,
     "changeType": "incorporated",
@@ -6395,7 +8369,7 @@
     "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
   },
   {
-    "id": "change-municipality-krakstad-1964-300",
+    "id": "change-municipality-krakstad-1964-392",
     "entityType": "municipality",
     "changeYear": 1964,
     "changeType": "incorporated",
@@ -6416,7 +8390,7 @@
     "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
   },
   {
-    "id": "change-municipality-lillestrom-1962-301",
+    "id": "change-municipality-lillestrom-1962-393",
     "entityType": "municipality",
     "changeYear": 1962,
     "changeType": "incorporated",
@@ -6437,7 +8411,7 @@
     "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
   },
   {
-    "id": "change-municipality-nordre-holand-1966-302",
+    "id": "change-municipality-nordre-holand-1966-394",
     "entityType": "municipality",
     "changeYear": 1966,
     "changeType": "merged",
@@ -6458,7 +8432,7 @@
     "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
   },
   {
-    "id": "change-municipality-oppegard-2020-303",
+    "id": "change-municipality-oppegard-2020-395",
     "entityType": "municipality",
     "changeYear": 2020,
     "changeType": "merged",
@@ -6479,7 +8453,7 @@
     "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
   },
   {
-    "id": "change-municipality-setskog-1966-304",
+    "id": "change-municipality-setskog-1966-396",
     "entityType": "municipality",
     "changeYear": 1966,
     "changeType": "merged",
@@ -6500,7 +8474,7 @@
     "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
   },
   {
-    "id": "change-municipality-ski-2020-305",
+    "id": "change-municipality-ski-2020-397",
     "entityType": "municipality",
     "changeYear": 2020,
     "changeType": "merged",
@@ -6521,7 +8495,7 @@
     "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
   },
   {
-    "id": "change-municipality-son-1964-306",
+    "id": "change-municipality-son-1964-398",
     "entityType": "municipality",
     "changeYear": 1964,
     "changeType": "incorporated",
@@ -6542,7 +8516,7 @@
     "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
   },
   {
-    "id": "change-municipality-son-holen-1847-307",
+    "id": "change-municipality-son-holen-1847-399",
     "entityType": "municipality",
     "changeYear": 1847,
     "changeType": "split",
@@ -6567,7 +8541,7 @@
     "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
   },
   {
-    "id": "change-municipality-sondre-holand-1966-308",
+    "id": "change-municipality-sondre-holand-1966-400",
     "entityType": "municipality",
     "changeYear": 1966,
     "changeType": "merged",
@@ -6588,7 +8562,7 @@
     "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
   },
   {
-    "id": "change-municipality-eiker-1885-309",
+    "id": "change-municipality-eiker-1885-401",
     "entityType": "municipality",
     "changeYear": 1885,
     "changeType": "split",
@@ -6613,7 +8587,7 @@
     "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
   },
   {
-    "id": "change-municipality-gol-og-hemsedal-1897-310",
+    "id": "change-municipality-gol-og-hemsedal-1897-402",
     "entityType": "municipality",
     "changeYear": 1897,
     "changeType": "split",
@@ -6638,7 +8612,7 @@
     "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
   },
   {
-    "id": "change-municipality-hurum-2020-311",
+    "id": "change-municipality-hurum-2020-403",
     "entityType": "municipality",
     "changeYear": 2020,
     "changeType": "merged",
@@ -6659,7 +8633,7 @@
     "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
   },
   {
-    "id": "change-municipality-honefoss-1964-312",
+    "id": "change-municipality-honefoss-1964-404",
     "entityType": "municipality",
     "changeYear": 1964,
     "changeType": "merged",
@@ -6680,7 +8654,7 @@
     "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
   },
   {
-    "id": "change-municipality-nedre-eiker-2020-313",
+    "id": "change-municipality-nedre-eiker-2020-405",
     "entityType": "municipality",
     "changeYear": 2020,
     "changeType": "merged",
@@ -6701,7 +8675,7 @@
     "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
   },
   {
-    "id": "change-municipality-norderhov-1964-314",
+    "id": "change-municipality-norderhov-1964-406",
     "entityType": "municipality",
     "changeYear": 1964,
     "changeType": "merged",
@@ -6722,7 +8696,7 @@
     "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
   },
   {
-    "id": "change-municipality-nore-1962-315",
+    "id": "change-municipality-nore-1962-407",
     "entityType": "municipality",
     "changeYear": 1962,
     "changeType": "merged",
@@ -6743,7 +8717,7 @@
     "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
   },
   {
-    "id": "change-municipality-royken-2020-316",
+    "id": "change-municipality-royken-2020-408",
     "entityType": "municipality",
     "changeYear": 2020,
     "changeType": "merged",
@@ -6764,7 +8738,7 @@
     "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
   },
   {
-    "id": "change-municipality-sandsvaer-1908-317",
+    "id": "change-municipality-sandsvaer-1908-409",
     "entityType": "municipality",
     "changeYear": 1908,
     "changeType": "split",
@@ -6789,7 +8763,7 @@
     "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
   },
   {
-    "id": "change-municipality-stromsgodset-1843-318",
+    "id": "change-municipality-stromsgodset-1843-410",
     "entityType": "municipality",
     "changeYear": 1843,
     "changeType": "incorporated",
@@ -6810,7 +8784,7 @@
     "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
   },
   {
-    "id": "change-municipality-tyristrand-1964-319",
+    "id": "change-municipality-tyristrand-1964-411",
     "entityType": "municipality",
     "changeYear": 1964,
     "changeType": "merged",
@@ -6831,7 +8805,7 @@
     "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
   },
   {
-    "id": "change-municipality-uvdal-1962-320",
+    "id": "change-municipality-uvdal-1962-412",
     "entityType": "municipality",
     "changeYear": 1962,
     "changeType": "merged",
@@ -6852,7 +8826,7 @@
     "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
   },
   {
-    "id": "change-municipality-ytre-sandsvaer-1964-321",
+    "id": "change-municipality-ytre-sandsvaer-1964-413",
     "entityType": "municipality",
     "changeYear": 1964,
     "changeType": "incorporated",
@@ -6873,7 +8847,7 @@
     "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
   },
   {
-    "id": "change-municipality-ovre-sandsvaer-1964-322",
+    "id": "change-municipality-ovre-sandsvaer-1964-414",
     "entityType": "municipality",
     "changeYear": 1964,
     "changeType": "incorporated",
@@ -6894,7 +8868,7 @@
     "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
   },
   {
-    "id": "change-municipality-adal-1964-323",
+    "id": "change-municipality-adal-1964-415",
     "entityType": "municipality",
     "changeYear": 1964,
     "changeType": "merged",
@@ -6915,7 +8889,7 @@
     "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner"
   },
   {
-    "id": "change-county-hedmark-2020-324",
+    "id": "change-county-hedmark-2020-416",
     "entityType": "county",
     "changeYear": 2020,
     "changeType": "merged",
@@ -6936,7 +8910,7 @@
     "sourceUrl": "https://no.wikipedia.org/wiki/Norges_fylker"
   },
   {
-    "id": "change-county-oppland-2020-325",
+    "id": "change-county-oppland-2020-417",
     "entityType": "county",
     "changeYear": 2020,
     "changeType": "merged",
@@ -6957,7 +8931,7 @@
     "sourceUrl": "https://no.wikipedia.org/wiki/Norges_fylker"
   },
   {
-    "id": "change-county-aust-agder-2020-326",
+    "id": "change-county-aust-agder-2020-418",
     "entityType": "county",
     "changeYear": 2020,
     "changeType": "merged",
@@ -6978,7 +8952,7 @@
     "sourceUrl": "https://no.wikipedia.org/wiki/Norges_fylker"
   },
   {
-    "id": "change-county-vest-agder-2020-327",
+    "id": "change-county-vest-agder-2020-419",
     "entityType": "county",
     "changeYear": 2020,
     "changeType": "merged",
@@ -6999,7 +8973,7 @@
     "sourceUrl": "https://no.wikipedia.org/wiki/Norges_fylker"
   },
   {
-    "id": "change-county-hordaland-2020-328",
+    "id": "change-county-hordaland-2020-420",
     "entityType": "county",
     "changeYear": 2020,
     "changeType": "merged",
@@ -7020,7 +8994,7 @@
     "sourceUrl": "https://no.wikipedia.org/wiki/Norges_fylker"
   },
   {
-    "id": "change-county-bergen-1972-329",
+    "id": "change-county-bergen-1972-421",
     "entityType": "county",
     "changeYear": 1972,
     "changeType": "merged",
@@ -7041,7 +9015,7 @@
     "sourceUrl": "https://no.wikipedia.org/wiki/Norges_fylker"
   },
   {
-    "id": "change-county-sogn-og-fjordane-2020-330",
+    "id": "change-county-sogn-og-fjordane-2020-422",
     "entityType": "county",
     "changeYear": 2020,
     "changeType": "merged",
@@ -7062,7 +9036,7 @@
     "sourceUrl": "https://no.wikipedia.org/wiki/Norges_fylker"
   },
   {
-    "id": "change-county-sor-trondelag-2018-331",
+    "id": "change-county-sor-trondelag-2018-423",
     "entityType": "county",
     "changeYear": 2018,
     "changeType": "merged",
@@ -7083,7 +9057,7 @@
     "sourceUrl": "https://no.wikipedia.org/wiki/Norges_fylker"
   },
   {
-    "id": "change-county-nord-trondelag-2018-332",
+    "id": "change-county-nord-trondelag-2018-424",
     "entityType": "county",
     "changeYear": 2018,
     "changeType": "merged",
@@ -7104,7 +9078,7 @@
     "sourceUrl": "https://no.wikipedia.org/wiki/Norges_fylker"
   },
   {
-    "id": "change-county-viken-2023-333",
+    "id": "change-county-viken-2023-425",
     "entityType": "county",
     "changeYear": 2023,
     "changeType": "split",
@@ -7133,7 +9107,7 @@
     "sourceUrl": "https://no.wikipedia.org/wiki/Norges_fylker"
   },
   {
-    "id": "change-county-vestfold-og-telemark-2023-334",
+    "id": "change-county-vestfold-og-telemark-2023-426",
     "entityType": "county",
     "changeYear": 2023,
     "changeType": "split",
@@ -7158,7 +9132,7 @@
     "sourceUrl": "https://no.wikipedia.org/wiki/Norges_fylker"
   },
   {
-    "id": "change-county-troms-og-finnmark-2023-335",
+    "id": "change-county-troms-og-finnmark-2023-427",
     "entityType": "county",
     "changeYear": 2023,
     "changeType": "split",
@@ -7183,7 +9157,7 @@
     "sourceUrl": "https://no.wikipedia.org/wiki/Norges_fylker"
   },
   {
-    "id": "change-county-ostfold-2020-336",
+    "id": "change-county-ostfold-2020-428",
     "entityType": "county",
     "changeYear": 2020,
     "changeType": "merged",
@@ -7205,7 +9179,7 @@
     "sourceUrl": "https://no.wikipedia.org/wiki/Norges_fylker"
   },
   {
-    "id": "change-county-akershus-2020-337",
+    "id": "change-county-akershus-2020-429",
     "entityType": "county",
     "changeYear": 2020,
     "changeType": "merged",
@@ -7227,7 +9201,7 @@
     "sourceUrl": "https://no.wikipedia.org/wiki/Norges_fylker"
   },
   {
-    "id": "change-county-buskerud-2020-338",
+    "id": "change-county-buskerud-2020-430",
     "entityType": "county",
     "changeYear": 2020,
     "changeType": "merged",
@@ -7249,7 +9223,7 @@
     "sourceUrl": "https://no.wikipedia.org/wiki/Norges_fylker"
   },
   {
-    "id": "change-county-vestfold-2020-339",
+    "id": "change-county-vestfold-2020-431",
     "entityType": "county",
     "changeYear": 2020,
     "changeType": "merged",
@@ -7271,7 +9245,7 @@
     "sourceUrl": "https://no.wikipedia.org/wiki/Norges_fylker"
   },
   {
-    "id": "change-county-telemark-2020-340",
+    "id": "change-county-telemark-2020-432",
     "entityType": "county",
     "changeYear": 2020,
     "changeType": "merged",
@@ -7293,7 +9267,7 @@
     "sourceUrl": "https://no.wikipedia.org/wiki/Norges_fylker"
   },
   {
-    "id": "change-county-troms-2020-341",
+    "id": "change-county-troms-2020-433",
     "entityType": "county",
     "changeYear": 2020,
     "changeType": "merged",
@@ -7315,7 +9289,7 @@
     "sourceUrl": "https://no.wikipedia.org/wiki/Norges_fylker"
   },
   {
-    "id": "change-county-finnmark-2020-342",
+    "id": "change-county-finnmark-2020-434",
     "entityType": "county",
     "changeYear": 2020,
     "changeType": "merged",

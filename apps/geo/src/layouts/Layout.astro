@@ -243,6 +243,13 @@ const version = "0.1.0";
         return value.toLocaleLowerCase("nb");
       }
 
+      const SORT_ICON_UP =
+        '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="size-3.5 shrink-0"><path d="M12 5l0 14"/><path d="M18 11l-6 -6"/><path d="M6 11l6 -6"/></svg>';
+      const SORT_ICON_DOWN =
+        '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="size-3.5 shrink-0"><path d="M12 5l0 14"/><path d="M18 13l-6 6"/><path d="M6 13l6 6"/></svg>';
+      const SORT_ICON_NEUTRAL =
+        '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="size-3.5 shrink-0 opacity-0 transition-opacity group-hover:opacity-50"><path d="M8 9l4 -4l4 4"/><path d="M16 15l-4 4l-4 -4"/></svg>';
+
       function updateSortIndicators(table: HTMLTableElement) {
         const headers = table.tHead?.rows[0]?.cells;
         if (!headers) return;
@@ -251,8 +258,16 @@ const version = "0.1.0";
           const indicator = header.querySelector<HTMLElement>("[data-sort-indicator]");
           if (!indicator) return;
           const sort = header.getAttribute("aria-sort");
-          indicator.textContent = sort === "ascending" ? "↑" : sort === "descending" ? "↓" : "↕";
-          indicator.classList.toggle("opacity-40", sort === "none" || !sort);
+          if (sort === "ascending") {
+            indicator.innerHTML = SORT_ICON_UP;
+            indicator.className = "inline-flex text-muted-foreground";
+          } else if (sort === "descending") {
+            indicator.innerHTML = SORT_ICON_DOWN;
+            indicator.className = "inline-flex text-muted-foreground";
+          } else {
+            indicator.innerHTML = SORT_ICON_NEUTRAL;
+            indicator.className = "inline-flex text-muted-foreground";
+          }
         });
       }
 
@@ -302,13 +317,12 @@ const version = "0.1.0";
               header.textContent = "";
               const wrapper = document.createElement("span");
               wrapper.className = "inline-flex items-center gap-1.5";
-              wrapper.textContent = label;
+              const labelSpan = document.createElement("span");
+              labelSpan.textContent = label;
               const indicator = document.createElement("span");
               indicator.dataset.sortIndicator = "true";
-              indicator.className = "text-xs opacity-40 transition-opacity group-hover:opacity-70";
               indicator.setAttribute("aria-hidden", "true");
-              indicator.textContent = "↕";
-              wrapper.append(indicator);
+              wrapper.append(labelSpan, indicator);
               header.append(wrapper);
             }
 
@@ -330,7 +344,21 @@ const version = "0.1.0";
             });
           });
 
-          updateSortIndicators(table);
+          const defaultSort = table.dataset.defaultSort;
+          if (defaultSort) {
+            const [columnIndex, direction] = defaultSort.split(":");
+            const index = Number(columnIndex);
+            const header = headers[index];
+            if (header && header.dataset.sortType !== "none") {
+              const ascending = direction !== "desc";
+              Array.from(headers).forEach((h, i) => {
+                h.setAttribute("aria-sort", i === index ? (ascending ? "ascending" : "descending") : "none");
+              });
+              sortTable(table, index, header.dataset.sortType ?? "text", ascending);
+            }
+          } else {
+            updateSortIndicators(table);
+          }
         });
       }
 

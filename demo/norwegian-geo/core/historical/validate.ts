@@ -1,7 +1,7 @@
 #!/usr/bin/env bun
 /**
  * Validates the historical Norwegian geo dataset.
- * Run: bun run demo/norwegian-geo/historical/validate.ts
+ * Run: bun run validate:historical-norwegian-geo
  */
 
 import { existsSync } from "node:fs";
@@ -88,6 +88,25 @@ function validateDataset(
       const filePath = resolve(PUBLIC_ROOT, county.coatOfArms.localPath.replace(/^\//, ""));
       if (!existsSync(filePath)) {
         errors.push(`${county.name}: missing coat file ${county.coatOfArms.localPath}`);
+      }
+    }
+  }
+
+  const currentMunicipalitiesPath = resolve(DATA_DIR, "current-municipalities.json");
+  if (existsSync(currentMunicipalitiesPath)) {
+    const currentMunicipalities = JSON.parse(
+      await Bun.file(currentMunicipalitiesPath).text(),
+    ) as import("./types").WikiCurrentMunicipality[];
+
+    for (const mun of currentMunicipalities) {
+      if (!mun.name?.trim()) {
+        errors.push(`Current municipality ${mun.id} missing name`);
+      }
+      if (mun.coatOfArms?.localPath) {
+        const filePath = resolve(PUBLIC_ROOT, mun.coatOfArms.localPath.replace(/^\//, ""));
+        if (!existsSync(filePath)) {
+          errors.push(`${mun.name}: missing coat file ${mun.coatOfArms.localPath}`);
+        }
       }
     }
   }

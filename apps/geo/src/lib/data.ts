@@ -9,6 +9,8 @@
 import { readFile } from "node:fs/promises";
 import { resolve } from "node:path";
 
+import { compareGeoIds } from "./format";
+
 // Resolved from the current working directory (apps/geo) rather than
 // import.meta.dirname, since the build output nests compiled chunks at
 // varying depths (e.g. dist/.prerender/chunks/) across Astro versions.
@@ -168,7 +170,7 @@ export async function getMunicipalitiesByCounty(
   const municipalities = await loadMunicipalities();
   return municipalities
     .filter((m) => m.countyId === countyId)
-    .sort((a, b) => a.name.localeCompare(b.name, "nb"));
+    .sort((a, b) => compareGeoIds(a.id, b.id));
 }
 
 export interface CountyStats {

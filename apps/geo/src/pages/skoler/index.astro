@@ -5,6 +5,7 @@ import SearchField from "@/components/SearchField.astro";
 import ShowMoreFooter from "@/components/ShowMoreFooter.astro";
 import Layout from "../../layouts/Layout.astro";
 import { Card, CardContent, CardDescription } from "@/components/starwind/card";
+import { formatOrgNumber } from "@/lib/format";
 import { url } from "../../lib/base";
 import { INITIAL_SEARCH_LIST_SIZE } from "@/lib/show-more";
 import { loadSchools } from "../../lib/data";
@@ -55,7 +56,7 @@ const schools = (await loadSchools()).sort((a, b) =>
               class="flex items-center justify-between gap-4 px-4 py-3.5 transition-colors hover:bg-muted/50 focus:outline-none focus-visible:ring-2 focus-visible:ring-outline"
             >
               <span class="min-w-0 font-medium">{school.name}</span>
-              <span class="shrink-0 font-mono text-xs text-muted-foreground">{school.id}</span>
+              <span class="shrink-0 font-mono text-xs text-muted-foreground">{formatOrgNumber(school.id)}</span>
             </a>
           </li>
         ))}
@@ -74,6 +75,13 @@ const schools = (await loadSchools()).sort((a, b) =>
 </Layout>
 
 <script is:inline define:vars={{ schools, base: import.meta.env.BASE_URL, initialCount: INITIAL_SEARCH_LIST_SIZE }}>
+  function formatOrgNumber(value) {
+    if (!value) return "—";
+    const digits = String(value).replace(/\D/g, "");
+    if (digits.length !== 9) return value;
+    return `${digits.slice(0, 3)} ${digits.slice(3, 6)} ${digits.slice(6, 9)}`;
+  }
+
   const input = document.getElementById("search");
   const list = document.getElementById("school-list");
   const note = document.getElementById("more-note");
@@ -99,7 +107,7 @@ const schools = (await loadSchools()).sort((a, b) =>
     name.textContent = school.name;
     const id = document.createElement("span");
     id.className = "shrink-0 font-mono text-xs text-muted-foreground";
-    id.textContent = school.id;
+    id.textContent = formatOrgNumber(school.id);
     a.append(name, id);
     li.append(a);
     return li;

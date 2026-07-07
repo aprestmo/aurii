@@ -4,6 +4,7 @@ import {
   getMunicipality,
   loadAdministrativeChanges,
   loadCurrentCountiesWiki,
+  loadCurrentMunicipalitiesWiki,
   loadHistoricalCounties,
   loadHistoricalMunicipalities,
   type ChangeType,
@@ -76,6 +77,32 @@ async function lookupCountyCoat(
   return undefined;
 }
 
+async function lookupMunicipalityCoat(
+  name: string,
+  number?: string,
+  isCurrent?: boolean,
+): Promise<CoatOfArms | undefined> {
+  const historical = await loadHistoricalMunicipalities();
+  const hist = historical.find(
+    (m) =>
+      m.name === name &&
+      (!number || m.municipalityNumber === number.padStart(4, "0").slice(-4)),
+  );
+  if (hist?.coatOfArms) return hist.coatOfArms;
+
+  if (isCurrent || number) {
+    const currentWiki = await loadCurrentMunicipalitiesWiki();
+    const wiki = currentWiki.find(
+      (m) =>
+        m.name === name ||
+        (number && m.id === number.padStart(4, "0").slice(-4)),
+    );
+    if (wiki?.coatOfArms) return wiki.coatOfArms;
+  }
+
+  return undefined;
+}
+
 function edgeLabel(changeType: ChangeType, year?: number): string {
   const type = changeTypeLabel(changeType);
   return year ? `${type} (${year})` : type;
@@ -118,8 +145,14 @@ async function resolveNode(
         validTo: historical.validTo,
         layer,
         link: `historikk/kommuner/${historical.id}`,
+        coatOfArms: historical.coatOfArms,
       };
     } else if (current) {
+      const coatOfArms = await lookupMunicipalityCoat(
+        current.name,
+        current.id,
+        true,
+      );
       node = {
         id: key,
         name: current.name,
@@ -127,6 +160,7 @@ async function resolveNode(
         isCurrent: true,
         layer,
         link: `kommuner/${current.id}`,
+        coatOfArms,
       };
     } else {
       node = {

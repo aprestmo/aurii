@@ -1,3 +1,4 @@
+import { existsSync } from "node:fs";
 import { mkdir, writeFile } from "node:fs/promises";
 import { dirname, resolve } from "node:path";
 import type { CoatOfArms, HeraldryManifestEntry } from "./types";
@@ -29,6 +30,29 @@ function mimeForExtension(ext: string): CoatOfArms["mimeType"] {
   if (ext === "svg") return "image/svg+xml";
   if (ext === "png") return "image/png";
   return "image/jpeg";
+}
+
+async function fetchWithRetry(
+  url: string,
+  retries = 5,
+): Promise<Response | null> {
+  for (let attempt = 0; attempt <= retries; attempt++) {
+    const response = await fetch(url, { headers: { "User-Agent": USER_AGENT } });
+    if (response.ok) return response;
+    if ((response.status === 429 || response.status >= 500) && attempt < retries) {
+      const retryAfter = Number.parseInt(
+        response.headers.get("retry-after") ?? "",
+        10,
+      );
+      const delayMs = Number.isFinite(retryAfter)
+        ? retryAfter * 1000
+        : 1000 * 2 ** attempt;
+      await new Promise((resolve) => setTimeout(resolve, delayMs));
+      continue;
+    }
+    return null;
+  }
+  return null;
 }
 
 async function resolveCommonsFileUrl(sourceUrl: string): Promise<{
@@ -75,10 +99,8 @@ async function resolveCommonsFileUrl(sourceUrl: string): Promise<{
     format: "json",
   });
 
-  const response = await fetch(`${COMMONS_API}?${params}`, {
-    headers: { "User-Agent": USER_AGENT },
-  });
-  if (!response.ok) return null;
+  const response = await fetchWithRetry(`${COMMONS_API}?${params}`);
+  if (!response) return null;
 
   const data = (await response.json()) as {
     query?: {
@@ -113,8 +135,8 @@ async function resolveCommonsFileUrl(sourceUrl: string): Promise<{
 }
 
 async function downloadBinary(url: string): Promise<ArrayBuffer | null> {
-  const response = await fetch(url, { headers: { "User-Agent": USER_AGENT } });
-  if (!response.ok) return null;
+  const response = await fetchWithRetry(url);
+  if (!response) return null;
   return response.arrayBuffer();
 }
 
@@ -122,6 +144,26 @@ export async function downloadHeraldry(
   target: HeraldryTarget,
   publicAssetsRoot: string,
 ): Promise<{ coatOfArms?: CoatOfArms; manifest?: HeraldryManifestEntry }> {
+  for (const extension of ["svg", "png", "jpg", "jpeg"] as const) {
+    const localPath = localPathFor(target, extension);
+    const absolutePath = resolve(publicAssetsRoot, localPath.replace(/^\//, ""));
+    if (!existsSync(absolutePath)) continue;
+
+    const coatOfArms: CoatOfArms = {
+      sourceUrl: target.sourceUrl,
+      localPath,
+      mimeType: mimeForExtension(extension),
+    };
+    const manifest: HeraldryManifestEntry = {
+      entityType: target.entityType,
+      name: target.name,
+      number: target.number,
+      sourceUrl: target.sourceUrl,
+      localPath,
+    };
+    return { coatOfArms, manifest };
+  }
+
   const resolved = await resolveCommonsFileUrl(target.sourceUrl);
   if (!resolved) return {};
 
@@ -163,7 +205,7 @@ export async function downloadHeraldryBatch(
 ): Promise<{ coats: Map<string, CoatOfArms>; manifest: HeraldryManifestEntry[] }> {
   const coats = new Map<string, CoatOfArms>();
   const manifest: HeraldryManifestEntry[] = [];
-  const delayMs = options?.delayMs ?? 100;
+  const delayMs = options?.delayMs ?? 150;
 
   for (const target of targets) {
     const key = `${target.entityType}:${target.number ?? ""}:${target.name}`;

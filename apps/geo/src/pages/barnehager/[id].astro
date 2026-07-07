@@ -82,11 +82,15 @@ const pageDescription = `${kindergarten.name} — barnehage i ${municipality?.na
           <TableBody>
             <TableRow class="transition-colors hover:bg-muted/50">
               <TableCell class="text-muted-foreground">Eierform</TableCell>
-              <TableCell class="text-right font-medium">{kindergarten.isPublic ? "Offentlig" : "Privat"}</TableCell>
+              <TableCell class="text-right">
+                <Badge variant="outline" size="sm">{kindergarten.isPublic ? "Offentlig" : "Privat"}</Badge>
+              </TableCell>
             </TableRow>
             <TableRow class="transition-colors hover:bg-muted/50">
-              <TableCell class="text-muted-foreground">Aktiv</TableCell>
-              <TableCell class="text-right font-medium">{kindergarten.isActive ? "Ja" : "Nei"}</TableCell>
+              <TableCell class="text-muted-foreground">Status</TableCell>
+              <TableCell class="text-right">
+                <Badge variant="outline" size="sm">{kindergarten.isActive ? "Aktiv" : "Inaktiv"}</Badge>
+              </TableCell>
             </TableRow>
             <TableRow class="transition-colors hover:bg-muted/50">
               <TableCell class="text-muted-foreground">Kilde</TableCell>

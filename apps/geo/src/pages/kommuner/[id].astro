@@ -2,7 +2,7 @@
 import Breadcrumb from "@/components/Breadcrumb.astro";
 import EmptyState from "@/components/EmptyState.astro";
 import EntityNav from "@/components/EntityNav.astro";
-import FactGrid from "@/components/FactGrid.astro";
+import GroupedFactsCard from "@/components/GroupedFactsCard.astro";
 import PageHeader from "@/components/PageHeader.astro";
 import SectionHeading from "@/components/SectionHeading.astro";
 import ShowMoreFooter from "@/components/ShowMoreFooter.astro";
@@ -86,20 +86,35 @@ const pageDescription = `${municipality.name} i Aurii Geo — ${stats.schoolCoun
     </Fragment>
   </PageHeader>
 
-  <FactGrid
-    facts={[
-      { label: "Innbyggere", value: formatPopulation(municipality.population) },
-      {
-        label: "Andel av fylket",
-        value: formatPercent(stats.populationShareOfCounty),
-      },
-      { label: "Postnummer", value: String(stats.postalCodeCount) },
-      { label: "Skoler", value: String(stats.schoolCount) },
-      { label: "Barnehager", value: String(stats.kindergartenCount) },
-      { label: "Offentlige skoler", value: String(stats.publicSchoolCount) },
-      { label: "Offentlige barnehager", value: String(stats.publicKindergartenCount) },
-    ]}
-  />
+  <section class="mb-10" aria-labelledby="key-stats-heading">
+    <SectionHeading id="key-stats-heading" title="Nøkkeltall" />
+    <GroupedFactsCard
+      groups={[
+        {
+          title: "Befolkning",
+          facts: [
+            { label: "Innbyggere", value: formatPopulation(municipality.population) },
+            { label: "Andel av fylket", value: formatPercent(stats.populationShareOfCounty) },
+          ],
+        },
+        {
+          title: "Tilknyttede datasett",
+          facts: [
+            { label: "Postnummer", value: String(stats.postalCodeCount) },
+            { label: "Skoler", value: String(stats.schoolCount) },
+            { label: "Barnehager", value: String(stats.kindergartenCount) },
+          ],
+        },
+        {
+          title: "Offentlige enheter",
+          facts: [
+            { label: "Offentlige skoler", value: String(stats.publicSchoolCount) },
+            { label: "Offentlige barnehager", value: String(stats.publicKindergartenCount) },
+          ],
+        },
+      ]}
+    />
+  </section>
 
   <div class="space-y-12">
     <section aria-labelledby="schools-heading">
@@ -136,8 +151,10 @@ const pageDescription = `${municipality.name} i Aurii Geo — ${stats.schoolCoun
                         {school.name}
                       </a>
                     </TableCell>
-                    <TableCell class="text-right text-xs text-muted-foreground">
-                      {school.isPublic ? "Offentlig" : "Privat"}
+                    <TableCell class="text-right">
+                      <Badge variant="outline" size="sm">
+                        {school.isPublic ? "Offentlig" : "Privat"}
+                      </Badge>
                     </TableCell>
                   </TableRow>
                 ))}
@@ -185,8 +202,10 @@ const pageDescription = `${municipality.name} i Aurii Geo — ${stats.schoolCoun
                         {kg.name}
                       </a>
                     </TableCell>
-                    <TableCell class="text-right text-xs text-muted-foreground">
-                      {kg.isPublic ? "Offentlig" : "Privat"}
+                    <TableCell class="text-right">
+                      <Badge variant="outline" size="sm">
+                        {kg.isPublic ? "Offentlig" : "Privat"}
+                      </Badge>
                     </TableCell>
                   </TableRow>
                 ))}

@@ -6,6 +6,7 @@ import {
   loadAdministrativeChanges,
   loadHistoricalCounties,
   loadHistoricalMunicipalities,
+  loadMunicipalityEnrichment,
 } from "../lib/historical-data";
 
 const ROOT = resolve(import.meta.dir, "../../../..");
@@ -19,6 +20,7 @@ describe("historical norwegian geo dataset", () => {
       "counties.json",
       "current-counties.json",
       "administrative-changes.json",
+      "municipality-enrichment.json",
       "unresolved-matches.json",
       "heraldry-manifest.json",
     ]) {
@@ -116,5 +118,18 @@ describe("historical norwegian geo dataset", () => {
     expect(historical.every((c) => c.coatOfArms?.localPath)).toBe(true);
     expect(current.every((c) => c.coatOfArms?.localPath)).toBe(true);
     expect(current).toHaveLength(15);
+  });
+
+  it("municipality enrichment covers all current municipalities", async () => {
+    const enrichments = await loadMunicipalityEnrichment();
+    expect(enrichments).toHaveLength(357);
+    expect(enrichments.every((e) => e.id.length === 4 && e.name.length > 0)).toBe(
+      true,
+    );
+
+    const arendal = enrichments.find((e) => e.id === "4203");
+    expect(arendal?.predecessors?.length).toBeGreaterThanOrEqual(5);
+    expect(arendal?.formedFrom?.some((p) => p.name === "Tromøy")).toBe(true);
+    expect(arendal?.timeline?.some((t) => t.year === 2020)).toBe(true);
   });
 });

@@ -7,6 +7,8 @@ Datasett med tidligere norske kommuner og fylker, importert fra Wikipedia og kob
 | Datasett | Kilde | URL |
 |----------|-------|-----|
 | Tidligere kommuner | Wikipedia | [Liste over tidligere norske kommuner](https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner) |
+| Dagens kommuner | Wikipedia | [Norges kommuner](https://no.wikipedia.org/wiki/Norges_kommuner) |
+| Kommunenummer | Wikipedia | [Norske kommunenummer — 1946-nummerserien](https://no.wikipedia.org/wiki/Norske_kommunenummer#1946-nummerserien) |
 | Tidligere fylker | Wikipedia | [Norges fylker — «Tidligere fylker»](https://no.wikipedia.org/wiki/Norges_fylker#Tidligere_fylker) |
 | Dagens fylker (2024–) | Wikipedia | [Norges fylker — «Norges fylker 2024–»](https://no.wikipedia.org/wiki/Norges_fylker#Norges_fylker_2024–) |
 | Våpenskjold | Wikimedia Commons | Hentes via Commons API fra lenker i Wikipedia-tabellene |
@@ -22,6 +24,7 @@ data/historical/
   counties.json              # tidligere + mellomliggende (Viken, V-T, T-F)
   current-counties.json      # dagens 15 fylker fra Wikipedia 2024–
   administrative-changes.json
+  municipality-enrichment.json  # berikelse for dagens 357 kommuner
   unresolved-matches.json
   heraldry-manifest.json
 
@@ -34,9 +37,13 @@ apps/geo/public/assets/heraldry/
 
 ```bash
 bun run fetch:historical-norwegian-geo
+bun run build:municipality-enrichment
 ```
 
-Skriptet:
+`fetch:historical-norwegian-geo` henter tidligere kommuner og fylker.
+`build:municipality-enrichment` kombinerer alle tre kommunekildene til `municipality-enrichment.json` for dagens 357 kommuner.
+
+Skriptet for historiske enheter:
 
 1. Henter Wikipedia-tabellene via MediaWiki API
 2. Parser kommuner per fylkesseksjon (`countyNameAtSource`)
@@ -60,6 +67,16 @@ Tidligere fylke med `validTo`, `todayPartOfNames`, `newCountyNumber` og valgfrit
 ### `administrative_change`
 
 Relasjon med `from`/`to`-entiteter og `changeType` — ikke bare fritekst.
+
+### `municipality_enrichment`
+
+Berikelsesdata for dagens kommuner (`municipality-enrichment.json`), kombinert fra:
+
+- **Norges kommuner** — administrasjonssenter, areal, målform
+- **Norske kommunenummer** — opprettelsesår, forhistorie, historiske navn, dannelseskjede
+- **Tidligere kommuner** — utgåtte forgjengere og sammenslåingshendelser
+
+Felter: `administrativeCenter`, `areaKm2`, `languageForm`, `established`, `prehistory`, `historicalNames`, `directPredecessors`, `formedFrom`, `predecessors`, `timeline`.
 
 Endringstyper:
 

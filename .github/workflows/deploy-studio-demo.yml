@@ -1,0 +1,62 @@
+name: Deploy Studio Demo
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "apps/studio/**"
+      - "packages/sdk/**"
+      - ".github/workflows/deploy-studio-demo.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages-studio-demo
+  cancel-in-progress: true
+
+jobs:
+  build:
+    name: Build demo (static)
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: oven-sh/setup-bun@v2
+        with:
+          bun-version: latest
+
+      - name: Install dependencies
+        run: bun install --frozen-lockfile
+
+      - name: Build Studio demo
+        env:
+          ASTRO_SITE: https://aprestmo.github.io
+          ASTRO_BASE: /aurii/
+          GITHUB_PAGES: "true"
+          PUBLIC_AURII_DEPLOY: pages
+        run: bun run --filter="@aurii/studio" build
+
+      - name: Disable Jekyll
+        run: touch apps/studio/dist/client/.nojekyll
+
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: apps/studio/dist/client
+
+  deploy:
+    name: Deploy to GitHub Pages
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy
+        id: deployment
+        uses: actions/deploy-pages@v4
+

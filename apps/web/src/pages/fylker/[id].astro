@@ -96,6 +96,32 @@ const exploreLinks = [
         {populationYear && (
           <>· Innbyggertall per 1.1.{populationYear} (SSB)</>
         )}
+        {wikiCounty?.websiteUrl && (
+          <>
+            ·{" "}
+            <a
+              href={wikiCounty.websiteUrl}
+              class="underline-offset-4 hover:underline focus:outline-none focus-visible:ring-2 focus-visible:ring-outline rounded-sm"
+              rel="noopener noreferrer"
+              target="_blank"
+            >
+              Fylkets nettside
+            </a>
+          </>
+        )}
+        {wikiCounty?.wikipediaUrl && (
+          <>
+            ·{" "}
+            <a
+              href={wikiCounty.wikipediaUrl}
+              class="underline-offset-4 hover:underline focus:outline-none focus-visible:ring-2 focus-visible:ring-outline rounded-sm"
+              rel="noopener noreferrer"
+              target="_blank"
+            >
+              Wikipedia
+            </a>
+          </>
+        )}
       </div>
     </div>
     {wikiCounty?.coatOfArms && (

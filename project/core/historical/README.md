@@ -6,6 +6,8 @@ Datasett med tidligere norske kommuner og fylker, importert fra Wikipedia og kob
 
 | Datasett | Kilde | URL |
 |----------|-------|-----|
+| Kommunenummer over tid | SSB Klass | [Kommuneinndeling (131)](https://data.ssb.no/api/klass/v1/classifications/131) |
+| Fylkesnummer over tid | SSB Klass | [Fylkesinndeling (104)](https://data.ssb.no/api/klass/v1/classifications/104) |
 | Tidligere kommuner | Wikipedia | [Liste over tidligere norske kommuner](https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner) |
 | Dagens kommuner | Wikipedia | [Norges kommuner](https://no.wikipedia.org/wiki/Norges_kommuner) |
 | Kommunenummer | Wikipedia | [Norske kommunenummer — 1946-nummerserien](https://no.wikipedia.org/wiki/Norske_kommunenummer#1946-nummerserien) |
@@ -25,6 +27,10 @@ demo/norwegian-geo/core/historical/data/
   current-counties.json      # dagens 15 fylker fra Wikipedia 2024–
   administrative-changes.json
   municipality-enrichment.json  # berikelse for dagens 357 kommuner
+  municipality-identifier-periods.json  # SSB: nummer + gyldighetsperiode
+  municipality-code-changes.json      # SSB: alle nummeroverganger
+  county-identifier-periods.json
+  county-code-changes.json
   unresolved-matches.json
   heraldry-manifest.json
 
@@ -37,10 +43,12 @@ apps/geo/public/assets/heraldry/
 
 ```bash
 bun run fetch:historical-norwegian-geo
+bun run fetch:ssb-identifiers-norwegian-geo
 bun run build:municipality-enrichment
 ```
 
 `fetch:historical-norwegian-geo` henter tidligere kommuner og fylker.
+`fetch:ssb-identifiers-norwegian-geo` henter offisielle nummerperioder og endringslogg fra SSB Klass (standard fra 2008).
 `build:municipality-enrichment` kombinerer alle tre kommunekildene til `municipality-enrichment.json` for dagens 357 kommuner.
 
 Skriptet for historiske enheter:
@@ -88,6 +96,7 @@ Endringstyper:
 | `split_between` | Delt mellom | «Delt mellom …» |
 | `reestablished` | Gjenopprettet | «Gjenopprettet 2024» (fylker) |
 | `renamed` | Navneendring | Navneendring i merknad |
+| `renumbered` | Nummerendring | SSB Klass — rent nummerbytte |
 | `unknown` | Ukjent | Alt annet |
 
 ## Visning

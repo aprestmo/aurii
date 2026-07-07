@@ -5,7 +5,35 @@ export type ChangeType =
   | "split_between"
   | "reestablished"
   | "renamed"
+  | "renumbered"
   | "unknown";
+
+/** Raw code transition from SSB Klass `/changes`. */
+export interface SsbCodeChange {
+  oldCode: string;
+  oldName: string;
+  newCode: string;
+  newName: string;
+  changeOccurred: string;
+}
+
+/**
+ * A municipality or county number valid for a date range.
+ * `geographicId` links periods that refer to the same geographic unit over time.
+ */
+export interface IdentifierPeriod {
+  id: string;
+  entityType: "municipality" | "county";
+  number: string;
+  name: string;
+  countyNumber: string;
+  validFrom: string;
+  validTo: string | null;
+  geographicId: string;
+  currentMunicipalityId?: string;
+  currentCountyId?: string;
+  sourceUrl: string;
+}
 
 export interface CoatOfArms {
   sourceUrl: string;

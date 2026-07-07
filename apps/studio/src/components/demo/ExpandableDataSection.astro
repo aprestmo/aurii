@@ -8,6 +8,7 @@ import {
   CardTitle,
 } from "@/components/starwind/card";
 import { Button } from "@/components/starwind/button";
+import { Table, TableBody, TableHeader } from "@/components/starwind/table";
 
 interface Props {
   id: string;
@@ -36,13 +37,13 @@ const contentId = `${id}-content`;
       data-expandable-viewport
       style={`max-height: 0px;`}
     >
-      <div class="overflow-x-auto" id={contentId} data-expandable-content>
-        <table class="w-full text-sm">
-          <thead>
+      <div id={contentId} data-expandable-content>
+        <Table>
+          <TableHeader>
             <slot name="head" />
-          </thead>
-          <tbody data-expandable-body />
-        </table>
+          </TableHeader>
+          <TableBody data-expandable-body />
+        </Table>
       </div>
     </div>
   </CardContent>

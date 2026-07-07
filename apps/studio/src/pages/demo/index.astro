@@ -7,26 +7,28 @@ import { Input } from "@/components/starwind/input";
 
 <DemoLayout title="Demo">
   <section class="grid gap-6">
-    <div class="rounded-2xl border bg-card p-8">
-      <div class="max-w-2xl space-y-4">
-        <p class="text-sm font-medium text-muted-foreground">Aurii</p>
-        <h1 class="text-3xl font-semibold tracking-tight sm:text-4xl">
-          Declarative Runtime for Structured Knowledge
-        </h1>
-        <p class="text-base text-muted-foreground">
-          Aurii unifies multiple structured datasets into a single navigable knowledge graph — with schemas, relationships,
-          and queries as first-class concepts.
-        </p>
-        <div class="flex flex-col gap-3 sm:flex-row sm:items-center">
-          <a href="/demo/municipalities">
-            <Button size="lg">Browse municipalities</Button>
-          </a>
-          <a href="/demo/municipalities">
-            <Button size="lg" variant="secondary">Explore relationships</Button>
-          </a>
+    <Card class="overflow-hidden">
+      <CardContent class="p-8">
+        <div class="max-w-2xl space-y-4">
+          <p class="text-sm font-medium text-muted-foreground">Aurii</p>
+          <h1 class="text-3xl font-semibold tracking-tight sm:text-4xl">
+            Declarative Runtime for Structured Knowledge
+          </h1>
+          <p class="text-base text-muted-foreground">
+            Aurii unifies multiple structured datasets into a single navigable knowledge graph — with schemas,
+            relationships, and queries as first-class concepts.
+          </p>
+          <div class="flex flex-col gap-3 sm:flex-row sm:items-center">
+            <a href="/demo/municipalities">
+              <Button size="lg">Browse municipalities</Button>
+            </a>
+            <a href="/demo/municipalities">
+              <Button size="lg" variant="secondary">Explore relationships</Button>
+            </a>
+          </div>
         </div>
-      </div>
-    </div>
+      </CardContent>
+    </Card>
 
     <div>
       <h2 class="text-lg font-semibold tracking-tight">Featured datasets</h2>
@@ -70,19 +72,23 @@ import { Input } from "@/components/starwind/input";
       </div>
     </div>
 
-    <div class="rounded-2xl border bg-card p-6">
-      <h2 class="text-lg font-semibold tracking-tight">Search</h2>
-      <p class="mt-1 text-sm text-muted-foreground">Quickly jump to a municipality.</p>
-      <div class="mt-4 flex flex-col gap-3 sm:flex-row sm:items-center">
-        <div class="flex-1">
-          <Input id="demo-search" placeholder="Search municipalities (name or number)…" />
+    <Card>
+      <CardHeader>
+        <CardTitle class="text-lg">Search</CardTitle>
+        <CardDescription>Quickly jump to a municipality.</CardDescription>
+      </CardHeader>
+      <CardContent>
+        <div class="flex flex-col gap-3 sm:flex-row sm:items-center">
+          <div class="flex-1">
+            <Input id="demo-search" placeholder="Search municipalities (name or number)…" />
+          </div>
+          <a href="/demo/municipalities">
+            <Button variant="secondary">Open list</Button>
+          </a>
         </div>
-        <a href="/demo/municipalities">
-          <Button variant="secondary">Open list</Button>
-        </a>
-      </div>
-      <div class="mt-3 text-sm text-muted-foreground" id="demo-search-hint"></div>
-    </div>
+        <div class="mt-3 text-sm text-muted-foreground" id="demo-search-hint"></div>
+      </CardContent>
+    </Card>
   </section>
 
   <script>

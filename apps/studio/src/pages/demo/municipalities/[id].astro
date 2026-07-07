@@ -3,6 +3,8 @@ export const prerender = false;
 
 import DemoLayout from "@/layouts/DemoLayout.astro";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/starwind/card";
+import { Badge } from "@/components/starwind/badge";
+import { Table, TableBody, TableHead, TableRow } from "@/components/starwind/table";
 import ExpandableDataSection from "@/components/demo/ExpandableDataSection.astro";
 
 const { id } = Astro.params;
@@ -26,10 +28,10 @@ const { id } = Astro.params;
             <div class="text-sm text-muted-foreground" id="m-subtitle"></div>
           </div>
           <div class="flex flex-wrap gap-2 text-xs">
-            <span class="rounded-md border px-2 py-1 font-mono" id="m-dataset">dataset: —</span>
-            <span class="rounded-md border px-2 py-1 font-mono" id="m-source">source: —</span>
-            <span class="rounded-md border px-2 py-1 font-mono" id="m-imported">imported: —</span>
-            <span class="rounded-md border px-2 py-1 font-mono" id="m-status">status: —</span>
+            <Badge variant="ghost" size="sm" class="font-mono" id="m-dataset">dataset: —</Badge>
+            <Badge variant="ghost" size="sm" class="font-mono" id="m-source">source: —</Badge>
+            <Badge variant="ghost" size="sm" class="font-mono" id="m-imported">imported: —</Badge>
+            <Badge variant="ghost" size="sm" class="font-mono" id="m-status">status: —</Badge>
           </div>
         </div>
       </CardHeader>
@@ -43,41 +45,39 @@ const { id } = Astro.params;
         <CardTitle class="text-base">Municipality information</CardTitle>
       </CardHeader>
       <CardContent>
-        <div class="overflow-x-auto">
-          <table class="w-full text-sm" id="meta-table">
-            <tbody></tbody>
-          </table>
-        </div>
+        <Table id="meta-table">
+          <TableBody></TableBody>
+        </Table>
       </CardContent>
     </Card>
 
     <ExpandableDataSection id="postal-codes" title="Postal codes" description="Postal places linked to this municipality." initialRows={20}>
-      <tr slot="head">
-        <th class="px-3 py-2 text-left text-xs font-medium text-muted-foreground">Postal code</th>
-        <th class="px-3 py-2 text-left text-xs font-medium text-muted-foreground">Place</th>
-        <th class="px-3 py-2 text-left text-xs font-medium text-muted-foreground">Category</th>
-        <th class="px-3 py-2 text-left text-xs font-medium text-muted-foreground">Municipality</th>
-      </tr>
+      <TableRow slot="head">
+        <TableHead>Postal code</TableHead>
+        <TableHead>Place</TableHead>
+        <TableHead>Category</TableHead>
+        <TableHead>Municipality</TableHead>
+      </TableRow>
     </ExpandableDataSection>
 
     <ExpandableDataSection id="schools" title="Schools" description="Schools related to this municipality." initialRows={10}>
-      <tr slot="head">
-        <th class="px-3 py-2 text-left text-xs font-medium text-muted-foreground">Name</th>
-        <th class="px-3 py-2 text-left text-xs font-medium text-muted-foreground">Type</th>
-        <th class="px-3 py-2 text-left text-xs font-medium text-muted-foreground">Organisation</th>
-        <th class="px-3 py-2 text-left text-xs font-medium text-muted-foreground">Address</th>
-        <th class="px-3 py-2 text-left text-xs font-medium text-muted-foreground">Municipality</th>
-      </tr>
+      <TableRow slot="head">
+        <TableHead>Name</TableHead>
+        <TableHead>Type</TableHead>
+        <TableHead>Organisation</TableHead>
+        <TableHead>Address</TableHead>
+        <TableHead>Municipality</TableHead>
+      </TableRow>
     </ExpandableDataSection>
 
     <ExpandableDataSection id="kindergartens" title="Kindergartens" description="Kindergartens related to this municipality." initialRows={10}>
-      <tr slot="head">
-        <th class="px-3 py-2 text-left text-xs font-medium text-muted-foreground">Name</th>
-        <th class="px-3 py-2 text-left text-xs font-medium text-muted-foreground">Organisation</th>
-        <th class="px-3 py-2 text-left text-xs font-medium text-muted-foreground">Owner</th>
-        <th class="px-3 py-2 text-left text-xs font-medium text-muted-foreground">Type</th>
-        <th class="px-3 py-2 text-left text-xs font-medium text-muted-foreground">Address</th>
-      </tr>
+      <TableRow slot="head">
+        <TableHead>Name</TableHead>
+        <TableHead>Organisation</TableHead>
+        <TableHead>Owner</TableHead>
+        <TableHead>Type</TableHead>
+        <TableHead>Address</TableHead>
+      </TableRow>
     </ExpandableDataSection>
   </div>
 
@@ -161,14 +161,14 @@ const { id } = Astro.params;
     }
 
     function renderMetadataTable(m: { data: Record<string, unknown> }) {
-      const tbody = document.querySelector("#meta-table tbody");
+      const tbody = document.querySelector("#meta-table [data-slot=\"table-body\"]");
       if (!tbody) return;
       const entries = Object.entries(m.data ?? {}).sort(([a], [b]) => a.localeCompare(b));
       tbody.innerHTML = entries
         .map(([k, v]) => `
-          <tr class="border-b last:border-b-0">
-            <td class="w-64 whitespace-nowrap px-3 py-2 text-xs font-medium text-muted-foreground">${escapeHtml(k)}</td>
-            <td class="px-3 py-2 font-mono text-xs">${escapeHtml(asText(v))}</td>
+          <tr data-slot="table-row">
+            <td data-slot="table-cell" class="w-64 whitespace-nowrap text-xs font-medium text-muted-foreground">${escapeHtml(k)}</td>
+            <td data-slot="table-cell" class="font-mono text-xs">${escapeHtml(asText(v))}</td>
           </tr>
         `)
         .join("");

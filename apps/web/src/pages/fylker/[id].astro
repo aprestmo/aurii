@@ -96,6 +96,32 @@ const exploreLinks = [
         {populationYear && (
           <>· Innbyggertall per 1.1.{populationYear} (SSB)</>
         )}
+        {wikiCounty?.websiteUrl && (
+          <>
+            ·{" "}
+            <a
+              href={wikiCounty.websiteUrl}
+              class="underline-offset-4 hover:underline focus:outline-none focus-visible:ring-2 focus-visible:ring-outline rounded-sm"
+              rel="noopener noreferrer"
+              target="_blank"
+            >
+              Fylkets nettside
+            </a>
+          </>
+        )}
+        {wikiCounty?.wikipediaUrl && (
+          <>
+            ·{" "}
+            <a
+              href={wikiCounty.wikipediaUrl}
+              class="underline-offset-4 hover:underline focus:outline-none focus-visible:ring-2 focus-visible:ring-outline rounded-sm"
+              rel="noopener noreferrer"
+              target="_blank"
+            >
+              Wikipedia
+            </a>
+          </>
+        )}
       </div>
     </div>
     {wikiCounty?.coatOfArms && (
@@ -178,13 +204,13 @@ const exploreLinks = [
     <Card class="border-border/80">
       <CardContent class="p-0">
         <TableScroll>
-          <Table id="municipality-table" data-sortable>
+          <Table id="municipality-table" data-sortable data-default-sort="0:asc">
             <TableCaption class="sr-only">
               Kommuner i {county.name}. Klikk på kolonneoverskrifter for å sortere.
             </TableCaption>
             <TableHeader>
               <TableRow class="hover:bg-transparent">
-                <TableHead data-sort-type="text" class="w-24">Nr.</TableHead>
+                <TableHead data-sort-type="number" class="w-24">Nr.</TableHead>
                 <TableHead data-sort-type="text">Navn</TableHead>
                 <TableHead data-sort-type="number" class="text-right">Innbyggere</TableHead>
               </TableRow>

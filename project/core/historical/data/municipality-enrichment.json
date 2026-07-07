@@ -6,6 +6,7 @@
     "areaKm2": 454.12,
     "languageForm": "nøytral",
     "wikipediaUrl": "https://no.wikipedia.org/wiki/Oslo",
+    "websiteUrl": "https://www.oslo.kommune.no/",
     "established": "1. jan. 1838",
     "establishedYear": 1838,
     "prehistory": "Ager ‡ i 1837 Ager tinglag Formannskap II.10",
@@ -67,6 +68,7 @@
     "areaKm2": 432.49,
     "languageForm": "nøytral",
     "wikipediaUrl": "https://no.wikipedia.org/wiki/Eigersund",
+    "websiteUrl": "https://www.eigersund.kommune.no/",
     "established": "1. jan. 1838",
     "establishedYear": 1838,
     "prehistory": "Egersund ‡ i 1837 Ladested 17. juli 1798 Formannskap XI.1 Kjøpstad 1. jan. 1868",
@@ -138,6 +140,7 @@
     "areaKm2": 262.3,
     "languageForm": "nøytral",
     "wikipediaUrl": "https://no.wikipedia.org/wiki/Stavanger",
+    "websiteUrl": "https://www.stavanger.kommune.no/",
     "established": "6. april 1861",
     "establishedYear": 1861,
     "historicalNames": [
@@ -242,6 +245,7 @@
     "areaKm2": 72.68,
     "languageForm": "bokmål",
     "wikipediaUrl": "https://no.wikipedia.org/wiki/Haugesund",
+    "websiteUrl": "https://www.haugesund.kommune.no",
     "established": "1. feb. 1855",
     "establishedYear": 1855,
     "historicalNames": [
@@ -309,6 +313,7 @@
     "areaKm2": 1040.6,
     "languageForm": "nøytral",
     "wikipediaUrl": "https://no.wikipedia.org/wiki/Sandnes",
+    "websiteUrl": "https://www.sandnes.kommune.no/",
     "established": "1. jan. 2020",
     "establishedYear": 2020,
     "formedFrom": [
@@ -403,6 +408,7 @@
     "areaKm2": 294.98,
     "languageForm": "nøytral",
     "wikipediaUrl": "https://no.wikipedia.org/wiki/Sokndal",
+    "websiteUrl": "https://www.sokndal.kommune.no/",
     "established": "1. jan. 1838",
     "establishedYear": 1838,
     "prehistory": "Soggendal ‡ i 1837 Soggendal tinglag Formannskap XI.3",
@@ -513,6 +519,7 @@
     "areaKm2": 650.55,
     "languageForm": "nynorsk",
     "wikipediaUrl": "https://no.wikipedia.org/wiki/Bjerkreim",
+    "websiteUrl": "https://www.bjerkreim.kommune.no/",
     "established": "1. jan. 1838",
     "establishedYear": 1838,
     "prehistory": "Annekssogn † til Helleland Birkrem tinglag Formannskap XI.7",
@@ -556,6 +563,7 @@
     "areaKm2": 258,
     "languageForm": "nøytral",
     "wikipediaUrl": "https://no.wikipedia.org/wiki/H%C3%A5",
+    "websiteUrl": "https://www.ha.no/",
     "established": "1. jan. 1838",
     "establishedYear": 1838,
     "prehistory": "Haae ‡ i 1837 Kvide tinglag Formannskap XI.9",
@@ -662,6 +670,7 @@
     "areaKm2": 113.48,
     "languageForm": "nynorsk",
     "wikipediaUrl": "https://no.wikipedia.org/wiki/Klepp",
+    "websiteUrl": "https://www.klepp.kommune.no",
     "established": "1. jan. 1838",
     "establishedYear": 1838,
     "prehistory": "Klep ‡ i 1837 Klep tinglag Formannskap XI.10",
@@ -727,6 +736,7 @@
     "areaKm2": 617.98,
     "languageForm": "nøytral",
     "wikipediaUrl": "https://no.wikipedia.org/wiki/Gjesdal",
+    "websiteUrl": "https://www.gjesdal.kommune.no/",
     "established": "1. jan. 1838",
     "establishedYear": 1838,
     "prehistory": "Gjesdal † utskilt fra Lye 1927 Gjesdal tinglag Formannskap XI.12",
@@ -789,6 +799,7 @@
     "areaKm2": 69.04,
     "languageForm": "nøytral",
     "wikipediaUrl": "https://no.wikipedia.org/wiki/Sola",
+    "websiteUrl": "https://www.sola.kommune.no/",
     "established": "1. jan. 1838",
     "establishedYear": 1838,
     "prehistory": "Haaland ‡ i 1837 Jaaten tinglag Formannskap XI.14",
@@ -855,6 +866,7 @@
     "areaKm2": 24.72,
     "languageForm": "nøytral",
     "wikipediaUrl": "https://no.wikipedia.org/wiki/Randaberg",
+    "websiteUrl": "https://www.randaberg.kommune.no/",
     "established": "1. juli 1922",
     "establishedYear": 1922,
     "historicalNames": [
@@ -934,6 +946,7 @@
     "areaKm2": 1068.08,
     "languageForm": "nynorsk",
     "wikipediaUrl": "https://no.wikipedia.org/wiki/Hjelmeland",
+    "websiteUrl": "https://www.hjelmeland.kommune.no/",
     "established": "1. jan. 1838",
     "establishedYear": 1838,
     "prehistory": "Hjelmeland ‡ i 1837 Hjælmeland tinglag Formannskap XI.19",
@@ -1008,6 +1021,7 @@
     "areaKm2": 1736.27,
     "languageForm": "nynorsk",
     "wikipediaUrl": "https://no.wikipedia.org/wiki/Suldal",
+    "websiteUrl": "https://www.suldal.kommune.no/",
     "established": "1. jan. 1838",
     "establishedYear": 1838,
     "prehistory": "Suldal ‡ i 1837 Soledal tinglag Formannskap XI.21",
@@ -1092,6 +1106,7 @@
     "areaKm2": 546.56,
     "languageForm": "nynorsk",
     "wikipediaUrl": "https://no.wikipedia.org/wiki/Sauda",
+    "websiteUrl": "https://www.sauda.kommune.no/",
     "established": "1. jan. 1842",
     "establishedYear": 1842,
     "historicalNames": [
@@ -1127,6 +1142,7 @@
     "areaKm2": 6.28,
     "languageForm": "nøytral",
     "wikipediaUrl": "https://no.wikipedia.org/wiki/Kvits%C3%B8y",
+    "websiteUrl": "https://www.kvitsoy.kommune.no/",
     "established": "1. jan. 1923",
     "establishedYear": 1923,
     "historicalNames": [
@@ -1161,6 +1177,7 @@
     "areaKm2": 47.15,
     "languageForm": "nynorsk",
     "wikipediaUrl": "https://no.wikipedia.org/wiki/Bokn",
+    "websiteUrl": "https://bokn.kommune.no",
     "established": "1. jan. 1850",
     "establishedYear": 1850,
     "historicalNames": [
@@ -1196,6 +1213,7 @@
     "areaKm2": 425.48,
     "languageForm": "nøytral",
     "wikipediaUrl": "https://no.wikipedia.org/wiki/Tysv%C3%A6r",
+    "websiteUrl": "https://www.tysver.kommune.no/",
     "established": "1. jan. 1849",
     "establishedYear": 1849,
     "historicalNames": [
@@ -1283,6 +1301,7 @@
     "areaKm2": 230.01,
     "languageForm": "nøytral",
     "wikipediaUrl": "https://no.wikipedia.org/wiki/Karm%C3%B8y",
+    "websiteUrl": "https://www.karmoy.kommune.no/",
     "established": "1. jan. 1892",
     "establishedYear": 1892,
     "historicalNames": [
@@ -1450,6 +1469,7 @@
     "areaKm2": 6.29,
     "languageForm": "nøytral",
     "wikipediaUrl": "https://no.wikipedia.org/wiki/Utsira",
+    "websiteUrl": "http://www.utsira.kommune.no/",
     "established": "1. juli 1924",
     "establishedYear": 1924,
     "historicalNames": [
@@ -1484,6 +1504,7 @@
     "areaKm2": 620.59,
     "languageForm": "nynorsk",
     "wikipediaUrl": "https://no.wikipedia.org/wiki/Vindafjord",
+    "websiteUrl": "https://www.vindafjord.kommune.no/",
     "established": "1. jan. 2002",
     "establishedYear": 2002,
     "formedFrom": [
@@ -1625,6 +1646,7 @@
     "areaKm2": 87.44,
     "languageForm": "nøytral",
     "wikipediaUrl": "https://no.wikipedia.org/wiki/Kristiansund",
+    "websiteUrl": "https://www.kristiansund.kommune.no/",
     "established": "1. jan. 2008",
     "establishedYear": 2008,
     "formedFrom": [
@@ -1637,12 +1659,54 @@
         "name": "Frei"
       }
     ],
+    "predecessors": [
+      {
+        "id": "hist-mun-1555-grip",
+        "name": "Grip",
+        "number": "1555",
+        "validFrom": 1897,
+        "validTo": 1964,
+        "changeType": "incorporated",
+        "notes": "Innlemmet i Kristiansund"
+      },
+      {
+        "id": "hist-mun-1556-frei",
+        "name": "Frei",
+        "number": "1556",
+        "validFrom": 1838,
+        "validTo": 2008,
+        "changeType": "incorporated",
+        "notes": "Innlemmet i Kristiansund"
+      }
+    ],
     "timeline": [
+      {
+        "year": 1964,
+        "type": "incorporated",
+        "description": "Innlemmet i Kristiansund",
+        "entities": [
+          {
+            "number": "1555",
+            "name": "Grip"
+          }
+        ]
+      },
       {
         "year": 2008,
         "date": "1. jan. 2008",
         "type": "established",
         "description": "Kristiansund opprettet 1. jan. 2008"
+      },
+      {
+        "year": 2008,
+        "type": "incorporated",
+        "description": "Innlemmet i Kristiansund",
+        "entities": [
+          {
+            "number": "1556",
+            "name": "Frei"
+          }
+        ]
       }
     ],
     "sources": [
@@ -1658,6 +1722,7 @@
     "areaKm2": 1503.37,
     "languageForm": "nøytral",
     "wikipediaUrl": "https://no.wikipedia.org/wiki/Molde",
+    "websiteUrl": "https://www.molde.kommune.no/",
     "established": "1. jan. 2020",
     "establishedYear": 2020,
     "formedFrom": [
@@ -1674,12 +1739,63 @@
         "name": "Midsund"
       }
     ],
+    "predecessors": [
+      {
+        "id": "hist-mun-1544-bolsoy",
+        "name": "Bolsøy",
+        "number": "1544",
+        "validFrom": 1838,
+        "validTo": 1964,
+        "changeType": "incorporated",
+        "notes": "Innlemmet i Molde"
+      },
+      {
+        "id": "hist-mun-1545-midsund",
+        "name": "Midsund",
+        "number": "1545",
+        "validFrom": 1965,
+        "validTo": 2020,
+        "changeType": "incorporated",
+        "notes": "Innlemmet i Molde"
+      },
+      {
+        "id": "hist-mun-1543-nesset",
+        "name": "Nesset",
+        "number": "1543",
+        "validFrom": 1838,
+        "validTo": 2020,
+        "changeType": "incorporated",
+        "notes": "Innlemmet i Molde"
+      }
+    ],
     "timeline": [
+      {
+        "year": 1964,
+        "type": "incorporated",
+        "description": "Innlemmet i Molde",
+        "entities": [
+          {
+            "number": "1544",
+            "name": "Bolsøy"
+          }
+        ]
+      },
       {
         "year": 2020,
         "date": "1. jan. 2020",
         "type": "established",
         "description": "Molde opprettet 1. jan. 2020"
+      },
+      {
+        "year": 2020,
+        "type": "incorporated",
+        "description": "Innlemmet i Molde",
+        "entities": [
+          {
+            "number": "1545",
+            "name": "Midsund"
+          }
+        ]
       }
     ],
     "sources": [
@@ -1695,6 +1811,7 @@
     "areaKm2": 371.34,
     "languageForm": "nøytral",
     "wikipediaUrl": "https://no.wikipedia.org/wiki/%C3%85lesund",
+    "websiteUrl": "https://alesund.kommune.no/",
     "established": "1. jan. 2020",
     "establishedYear": 2020,
     "formedFrom": [
@@ -1719,12 +1836,72 @@
         "name": "Sandøy"
       }
     ],
+    "predecessors": [
+      {
+        "id": "hist-mun-1531-borgund",
+        "name": "Borgund",
+        "number": "1531",
+        "validFrom": 1908,
+        "validTo": 1968,
+        "changeType": "split",
+        "notes": "Innlemmet i Ålesund og Haram , deler utskilt som ny kommune Sula"
+      },
+      {
+        "id": "hist-mun-1546-sandoy",
+        "name": "Sandøy",
+        "number": "1546",
+        "validFrom": 1867,
+        "validTo": 2020,
+        "changeType": "incorporated",
+        "notes": "Innlemmet i Ålesund"
+      },
+      {
+        "id": "hist-mun-1529-skodje",
+        "name": "Skodje",
+        "number": "1529",
+        "validFrom": 1849,
+        "validTo": 2020,
+        "changeType": "incorporated",
+        "notes": "Innlemmet i Ålesund"
+      },
+      {
+        "id": "hist-mun-1523-orskog",
+        "name": "Ørskog",
+        "number": "1523",
+        "validFrom": 1838,
+        "validTo": 2020,
+        "changeType": "incorporated",
+        "notes": "Innlemmet i Ålesund"
+      }
+    ],
     "timeline": [
+      {
+        "year": 1968,
+        "type": "split",
+        "description": "Innlemmet i Ålesund og Haram , deler utskilt som ny kommune Sula",
+        "entities": [
+          {
+            "number": "1531",
+            "name": "Borgund"
+          }
+        ]
+      },
       {
         "year": 2020,
         "date": "1. jan. 2020",
         "type": "established",
         "description": "Ålesund opprettet 1. jan. 2020"
+      },
+      {
+        "year": 2020,
+        "type": "incorporated",
+        "description": "Innlemmet i Ålesund",
+        "entities": [
+          {
+            "number": "1546",
+            "name": "Sandøy"
+          }
+        ]
       },
       {
         "type": "continued",
@@ -1754,6 +1931,7 @@
     "areaKm2": 385.11,
     "languageForm": "nynorsk",
     "wikipediaUrl": "https://no.wikipedia.org/wiki/Vanylven",
+    "websiteUrl": "https://www.vanylven.kommune.no/",
     "established": "1. jan. 1838",
     "establishedYear": 1838,
     "historicalNames": [
@@ -1768,12 +1946,34 @@
         "name": "Vandelven † i"
       }
     ],
+    "predecessors": [
+      {
+        "id": "hist-mun-1512-syvde",
+        "name": "Syvde",
+        "number": "1512",
+        "validFrom": 1918,
+        "validTo": 1964,
+        "changeType": "incorporated",
+        "notes": "Innlemmet i Vanylven"
+      }
+    ],
     "timeline": [
       {
         "year": 1838,
         "date": "1. jan. 1838",
         "type": "established",
         "description": "Vanylven opprettet 1. jan. 1838"
+      },
+      {
+        "year": 1964,
+        "type": "incorporated",
+        "description": "Innlemmet i Vanylven",
+        "entities": [
+          {
+            "number": "1512",
+            "name": "Syvde"
+          }
+        ]
       },
       {
         "type": "continued",
@@ -1897,6 +2097,7 @@
     "areaKm2": 97.2,
     "languageForm": "nynorsk",
     "wikipediaUrl": "https://no.wikipedia.org/wiki/Ulstein",
+    "websiteUrl": "https://www.ulstein.kommune.no/",
     "established": "1. jan. 1838",
     "establishedYear": 1838,
     "historicalNames": [
@@ -1946,6 +2147,7 @@
     "areaKm2": 82.27,
     "languageForm": "nynorsk",
     "wikipediaUrl": "https://no.wikipedia.org/wiki/Hareid",
+    "websiteUrl": "https://www.hareid.kommune.no/",
     "established": "1. jan. 1917",
     "establishedYear": 1917,
     "historicalNames": [
@@ -1981,6 +2183,7 @@
     "areaKm2": 661.58,
     "languageForm": "nynorsk",
     "wikipediaUrl": "https://no.wikipedia.org/wiki/%C3%98rsta",
+    "websiteUrl": "https://www.orsta.kommune.no/",
     "established": "1. aug. 1883",
     "establishedYear": 1883,
     "historicalNames": [
@@ -1995,12 +2198,43 @@
         "name": "Volden"
       }
     ],
+    "predecessors": [
+      {
+        "id": "hist-mun-1522-hjorundfjord",
+        "name": "Hjørundfjord",
+        "number": "1522",
+        "validFrom": 1838,
+        "validTo": 1964,
+        "changeType": "incorporated",
+        "notes": "Innlemmet i Ørsta"
+      },
+      {
+        "id": "hist-mun-1521-vartdal",
+        "name": "Vartdal",
+        "number": "1521",
+        "validFrom": 1895,
+        "validTo": 1964,
+        "changeType": "incorporated",
+        "notes": "Innlemmet i Ørsta"
+      }
+    ],
     "timeline": [
       {
         "year": 1883,
         "date": "1. aug. 1883",
         "type": "established",
         "description": "Ørsta opprettet 1. aug. 1883"
+      },
+      {
+        "year": 1964,
+        "type": "incorporated",
+        "description": "Innlemmet i Ørsta",
+        "entities": [
+          {
+            "number": "1522",
+            "name": "Hjørundfjord"
+          }
+        ]
       },
       {
         "type": "continued",
@@ -2034,6 +2268,7 @@
     "areaKm2": 865.86,
     "languageForm": "nynorsk",
     "wikipediaUrl": "https://no.wikipedia.org/wiki/Stranda",
+    "websiteUrl": "https://www.stranda.kommune.no/",
     "established": "1. jan. 1838",
     "establishedYear": 1838,
     "historicalNames": [
@@ -2048,12 +2283,34 @@
         "name": "Stranden † i"
       }
     ],
+    "predecessors": [
+      {
+        "id": "hist-mun-1523-sunnylven",
+        "name": "Sunnylven",
+        "number": "1523",
+        "validFrom": 1838,
+        "validTo": 1965,
+        "changeType": "incorporated",
+        "notes": "Innlemmet i Stranda"
+      }
+    ],
     "timeline": [
       {
         "year": 1838,
         "date": "1. jan. 1838",
         "type": "established",
         "description": "Stranda opprettet 1. jan. 1838"
+      },
+      {
+        "year": 1965,
+        "type": "incorporated",
+        "description": "Innlemmet i Stranda",
+        "entities": [
+          {
+            "number": "1523",
+            "name": "Sunnylven"
+          }
+        ]
       },
       {
         "type": "continued",
@@ -2083,6 +2340,7 @@
     "areaKm2": 337.8,
     "languageForm": "nynorsk",
     "wikipediaUrl": "https://no.wikipedia.org/wiki/Sykkylven",
+    "websiteUrl": "https://www.sykkylven.kommune.no/",
     "established": "1. aug. 1883",
     "establishedYear": 1883,
     "historicalNames": [
@@ -2132,6 +2390,7 @@
     "areaKm2": 58.51,
     "languageForm": "nynorsk",
     "wikipediaUrl": "https://no.wikipedia.org/wiki/Sula",
+    "websiteUrl": "https://www.sula.kommune.no/",
     "established": "1. jan. 1838",
     "establishedYear": 1838,
     "prehistory": "Aalesund utskilt fra Borgund 1858 Ladested 11. sep. 1793 Kjøpstad 13. april 1848 1531 Borgund Formannskap XV.1",
@@ -2141,12 +2400,34 @@
         "until": "til 1918"
       }
     ],
+    "predecessors": [
+      {
+        "id": "hist-mun-1531-borgund",
+        "name": "Borgund",
+        "number": "1531",
+        "validFrom": 1908,
+        "validTo": 1968,
+        "changeType": "split",
+        "notes": "Innlemmet i Ålesund og Haram , deler utskilt som ny kommune Sula"
+      }
+    ],
     "timeline": [
       {
         "year": 1838,
         "date": "1. jan. 1838",
         "type": "established",
         "description": "Ålesund opprettet 1. jan. 1838"
+      },
+      {
+        "year": 1968,
+        "type": "split",
+        "description": "Innlemmet i Ålesund og Haram , deler utskilt som ny kommune Sula",
+        "entities": [
+          {
+            "number": "1531",
+            "name": "Borgund"
+          }
+        ]
       },
       {
         "type": "continued",
@@ -2176,6 +2457,7 @@
     "areaKm2": 40.58,
     "languageForm": "nynorsk",
     "wikipediaUrl": "https://no.wikipedia.org/wiki/Giske",
+    "websiteUrl": "https://www.giske.kommune.no/",
     "established": "1. jan. 1908",
     "establishedYear": 1908,
     "historicalNames": [
@@ -2190,12 +2472,34 @@
         "name": "Borgund"
       }
     ],
+    "predecessors": [
+      {
+        "id": "hist-mun-1533-vigra",
+        "name": "Vigra",
+        "number": "1533",
+        "validFrom": 1890,
+        "validTo": 1964,
+        "changeType": "incorporated",
+        "notes": "Innlemmet i Giske"
+      }
+    ],
     "timeline": [
       {
         "year": 1908,
         "date": "1. jan. 1908",
         "type": "established",
         "description": "Giske opprettet 1. jan. 1908"
+      },
+      {
+        "year": 1964,
+        "type": "incorporated",
+        "description": "Innlemmet i Giske",
+        "entities": [
+          {
+            "number": "1533",
+            "name": "Vigra"
+          }
+        ]
       },
       {
         "type": "continued",
@@ -2225,6 +2529,7 @@
     "areaKm2": 404.59,
     "languageForm": "nynorsk",
     "wikipediaUrl": "https://no.wikipedia.org/wiki/Vestnes",
+    "websiteUrl": "https://www.vestnes.kommune.no/",
     "established": "1. jan. 1838",
     "establishedYear": 1838,
     "prehistory": "Væstnes † utskilt fra Vedøe 1847 Væstnes tinglag Formannskap XV.16",
@@ -2234,12 +2539,34 @@
         "until": "til 1900"
       }
     ],
+    "predecessors": [
+      {
+        "id": "hist-mun-1536-tresfjord",
+        "name": "Tresfjord",
+        "number": "1536",
+        "validFrom": 1899,
+        "validTo": 1964,
+        "changeType": "incorporated",
+        "notes": "Innlemmet i Vestnes"
+      }
+    ],
     "timeline": [
       {
         "year": 1838,
         "date": "1. jan. 1838",
         "type": "established",
         "description": "Vestnes opprettet 1. jan. 1838"
+      },
+      {
+        "year": 1964,
+        "type": "incorporated",
+        "description": "Innlemmet i Vestnes",
+        "entities": [
+          {
+            "number": "1536",
+            "name": "Tresfjord"
+          }
+        ]
       },
       {
         "type": "continued",
@@ -2269,6 +2596,7 @@
     "areaKm2": 1449.26,
     "languageForm": "nøytral",
     "wikipediaUrl": "https://no.wikipedia.org/wiki/Rauma",
+    "websiteUrl": "https://www.rauma.kommune.no/",
     "established": "1. jan. 1838",
     "establishedYear": 1838,
     "prehistory": "Gryten ‡ i 1837 Romsdal tinglag Formannskap XV.17",
@@ -2278,12 +2606,94 @@
         "until": "til 1884"
       }
     ],
+    "predecessors": [
+      {
+        "id": "hist-mun-1538-eid",
+        "name": "Eid",
+        "number": "1538",
+        "validFrom": 1874,
+        "validTo": 1964,
+        "changeType": "merged",
+        "notes": "Slått sammen med Grytten , Hen , Voll og deler av Veøy"
+      },
+      {
+        "id": "hist-mun-1539-grytten",
+        "name": "Grytten",
+        "number": "1539",
+        "validFrom": 1902,
+        "validTo": 1964,
+        "changeType": "merged",
+        "notes": "Slått sammen med Eid , Hen , Voll og deler av Veøy"
+      },
+      {
+        "id": "hist-mun-1540-hen",
+        "name": "Hen",
+        "number": "1540",
+        "validFrom": 1902,
+        "validTo": 1964,
+        "changeType": "merged",
+        "notes": "Slått sammen med Eid , Grytten , Voll og deler av Veøy"
+      },
+      {
+        "id": "hist-mun-1537-voll",
+        "name": "Voll",
+        "number": "1537",
+        "validFrom": 1874,
+        "validTo": 1964,
+        "changeType": "merged",
+        "notes": "Slått sammen med Eid , Grytten , Hen og deler av Veøy"
+      }
+    ],
     "timeline": [
       {
         "year": 1838,
         "date": "1. jan. 1838",
         "type": "established",
         "description": "Grytten opprettet 1. jan. 1838"
+      },
+      {
+        "year": 1964,
+        "type": "merged",
+        "description": "Slått sammen med Grytten , Hen , Voll og deler av Veøy",
+        "entities": [
+          {
+            "number": "1538",
+            "name": "Eid"
+          }
+        ]
+      },
+      {
+        "year": 1964,
+        "type": "merged",
+        "description": "Slått sammen med Eid , Hen , Voll og deler av Veøy",
+        "entities": [
+          {
+            "number": "1539",
+            "name": "Grytten"
+          }
+        ]
+      },
+      {
+        "year": 1964,
+        "type": "merged",
+        "description": "Slått sammen med Eid , Grytten , Voll og deler av Veøy",
+        "entities": [
+          {
+            "number": "1540",
+            "name": "Hen"
+          }
+        ]
+      },
+      {
+        "year": 1964,
+        "type": "merged",
+        "description": "Slått sammen med Eid , Grytten , Hen og deler av Veøy",
+        "entities": [
+          {
+            "number": "1537",
+            "name": "Voll"
+          }
+        ]
       },
       {
         "type": "continued",
@@ -2309,6 +2719,7 @@
     "areaKm2": 60.66,
     "languageForm": "nynorsk",
     "wikipediaUrl": "https://no.wikipedia.org/wiki/Aukra",
+    "websiteUrl": "https://www.aukra.kommune.no/",
     "established": "1. jan. 1838",
     "establishedYear": 1838,
     "historicalNames": [
@@ -2370,6 +2781,7 @@
     "areaKm2": 175.7,
     "languageForm": "nøytral",
     "wikipediaUrl": "https://no.wikipedia.org/wiki/Aver%C3%B8y",
+    "websiteUrl": "https://www.averoy.kommune.no/",
     "established": "1. jan. 1897",
     "establishedYear": 1897,
     "historicalNames": [
@@ -2384,12 +2796,34 @@
         "name": "Kvernes"
       }
     ],
+    "predecessors": [
+      {
+        "id": "hist-mun-1553-kvernes",
+        "name": "Kvernes",
+        "number": "1553",
+        "validFrom": 1897,
+        "validTo": 1964,
+        "changeType": "merged",
+        "notes": "Slått sammen med mesteparten av Bremsnes og Kornstad"
+      }
+    ],
     "timeline": [
       {
         "year": 1897,
         "date": "1. jan. 1897",
         "type": "established",
         "description": "Bremsnes opprettet 1. jan. 1897"
+      },
+      {
+        "year": 1964,
+        "type": "merged",
+        "description": "Slått sammen med mesteparten av Bremsnes og Kornstad",
+        "entities": [
+          {
+            "number": "1553",
+            "name": "Kvernes"
+          }
+        ]
       },
       {
         "type": "continued",
@@ -2423,6 +2857,7 @@
     "areaKm2": 381.63,
     "languageForm": "nøytral",
     "wikipediaUrl": "https://no.wikipedia.org/wiki/Gjemnes",
+    "websiteUrl": "https://www.gjemnes.kommune.no/",
     "established": "1. sep. 1893",
     "establishedYear": 1893,
     "historicalNames": [
@@ -2445,12 +2880,34 @@
         "name": "Øre (del av)"
       }
     ],
+    "predecessors": [
+      {
+        "id": "hist-mun-1558-ore",
+        "name": "Øre",
+        "number": "1558",
+        "validFrom": 1838,
+        "validTo": 1965,
+        "changeType": "incorporated",
+        "notes": "Innlemmet i Gjemnes"
+      }
+    ],
     "timeline": [
       {
         "year": 1893,
         "date": "1. sep. 1893",
         "type": "established",
         "description": "Gjemnes opprettet 1. sep. 1893"
+      },
+      {
+        "year": 1965,
+        "type": "incorporated",
+        "description": "Innlemmet i Gjemnes",
+        "entities": [
+          {
+            "number": "1558",
+            "name": "Øre"
+          }
+        ]
       },
       {
         "type": "continued",
@@ -2484,6 +2941,7 @@
     "areaKm2": 336.81,
     "languageForm": "nøytral",
     "wikipediaUrl": "https://no.wikipedia.org/wiki/Tingvoll",
+    "websiteUrl": "https://www.tingvoll.kommune.no/",
     "established": "1. sep. 1893",
     "establishedYear": 1893,
     "historicalNames": [
@@ -2506,12 +2964,34 @@
         "name": "Øre (del av)"
       }
     ],
+    "predecessors": [
+      {
+        "id": "hist-mun-1559-straumsnes",
+        "name": "Straumsnes",
+        "number": "1559",
+        "validFrom": 1866,
+        "validTo": 1964,
+        "changeType": "incorporated",
+        "notes": "Innlemmet i Tingvoll"
+      }
+    ],
     "timeline": [
       {
         "year": 1893,
         "date": "1. sep. 1893",
         "type": "established",
         "description": "Gjemnes opprettet 1. sep. 1893"
+      },
+      {
+        "year": 1964,
+        "type": "incorporated",
+        "description": "Innlemmet i Tingvoll",
+        "entities": [
+          {
+            "number": "1559",
+            "name": "Straumsnes"
+          }
+        ]
       },
       {
         "type": "continued",
@@ -2545,6 +3025,7 @@
     "areaKm2": 1713.37,
     "languageForm": "nøytral",
     "wikipediaUrl": "https://no.wikipedia.org/wiki/Sunndal",
+    "websiteUrl": "https://www.sunndal.kommune.no/",
     "established": "1. jan. 1838",
     "establishedYear": 1838,
     "prehistory": "Sunddalen ‡ i 1837 Sunddalen tinglag Formannskap XV.28",
@@ -2554,12 +3035,43 @@
         "until": "til 1917"
       }
     ],
+    "predecessors": [
+      {
+        "id": "hist-mun-1561-oksendal",
+        "name": "Øksendal",
+        "number": "1561",
+        "validFrom": 1854,
+        "validTo": 1960,
+        "changeType": "incorporated",
+        "notes": "Innlemmet i Sunndal"
+      },
+      {
+        "id": "hist-mun-1562-alvundeid",
+        "name": "Ålvundeid",
+        "number": "1562",
+        "validFrom": 1899,
+        "validTo": 1960,
+        "changeType": "incorporated",
+        "notes": "Innlemmet i Sunndal"
+      }
+    ],
     "timeline": [
       {
         "year": 1838,
         "date": "1. jan. 1838",
         "type": "established",
         "description": "Sunndal opprettet 1. jan. 1838"
+      },
+      {
+        "year": 1960,
+        "type": "incorporated",
+        "description": "Innlemmet i Sunndal",
+        "entities": [
+          {
+            "number": "1561",
+            "name": "Øksendal"
+          }
+        ]
       }
     ],
     "sources": [
@@ -2575,6 +3087,7 @@
     "areaKm2": 1366.03,
     "languageForm": "nynorsk",
     "wikipediaUrl": "https://no.wikipedia.org/wiki/Surnadal",
+    "websiteUrl": "https://www.surnadal.kommune.no/",
     "established": "1. jan. 1838",
     "establishedYear": 1838,
     "historicalNames": [
@@ -2589,12 +3102,34 @@
         "name": "Surendalen † i"
       }
     ],
+    "predecessors": [
+      {
+        "id": "hist-mun-1565-asskard",
+        "name": "Åsskard",
+        "number": "1565",
+        "validFrom": 1895,
+        "validTo": 1965,
+        "changeType": "incorporated",
+        "notes": "Innlemmet i Surnadal"
+      }
+    ],
     "timeline": [
       {
         "year": 1838,
         "date": "1. jan. 1838",
         "type": "established",
         "description": "Surnadal opprettet 1. jan. 1838"
+      },
+      {
+        "year": 1965,
+        "type": "incorporated",
+        "description": "Innlemmet i Surnadal",
+        "entities": [
+          {
+            "number": "1565",
+            "name": "Åsskard"
+          }
+        ]
       },
       {
         "type": "continued",
@@ -2628,6 +3163,7 @@
     "areaKm2": 271.91,
     "languageForm": "nøytral",
     "wikipediaUrl": "https://no.wikipedia.org/wiki/Sm%C3%B8la",
+    "websiteUrl": "https://www.smola.kommune.no/",
     "established": "1. jan. 1838",
     "establishedYear": 1838,
     "historicalNames": [
@@ -2642,12 +3178,74 @@
         "name": "Edø † i"
       }
     ],
+    "predecessors": [
+      {
+        "id": "hist-mun-1574-brattvaer",
+        "name": "Brattvær",
+        "number": "1574",
+        "validFrom": 1915,
+        "validTo": 1960,
+        "changeType": "merged",
+        "notes": "Slått sammen med Edøy og Hopen"
+      },
+      {
+        "id": "hist-mun-1573-edoy",
+        "name": "Edøy",
+        "number": "1573",
+        "validFrom": 1838,
+        "validTo": 1960,
+        "changeType": "merged",
+        "notes": "Slått sammen med Brattvær og Hopen"
+      },
+      {
+        "id": "hist-mun-1575-hopen",
+        "name": "Hopen",
+        "number": "1575",
+        "validFrom": 1915,
+        "validTo": 1960,
+        "changeType": "merged",
+        "notes": "Slått sammen med Brattvær og Edøy"
+      }
+    ],
     "timeline": [
       {
         "year": 1838,
         "date": "1. jan. 1838",
         "type": "established",
         "description": "Edøy opprettet 1. jan. 1838"
+      },
+      {
+        "year": 1960,
+        "type": "merged",
+        "description": "Slått sammen med Edøy og Hopen",
+        "entities": [
+          {
+            "number": "1574",
+            "name": "Brattvær"
+          }
+        ]
+      },
+      {
+        "year": 1960,
+        "type": "merged",
+        "description": "Slått sammen med Brattvær og Hopen",
+        "entities": [
+          {
+            "number": "1573",
+            "name": "Edøy"
+          }
+        ]
+      },
+      {
+        "year": 1960,
+        "type": "merged",
+        "description": "Slått sammen med Brattvær og Edøy",
+        "entities": [
+          {
+            "number": "1575",
+            "name": "Hopen"
+          }
+        ]
       },
       {
         "type": "continued",
@@ -2677,6 +3275,7 @@
     "areaKm2": 641.28,
     "languageForm": "nøytral",
     "wikipediaUrl": "https://no.wikipedia.org/wiki/Aure",
+    "websiteUrl": "https://www.aure.kommune.no/",
     "established": "1. jan. 2006",
     "establishedYear": 2006,
     "formedFrom": [
@@ -2689,12 +3288,54 @@
         "name": "Tustna"
       }
     ],
+    "predecessors": [
+      {
+        "id": "hist-mun-1568-stemshaug",
+        "name": "Stemshaug",
+        "number": "1568",
+        "validFrom": 1914,
+        "validTo": 1965,
+        "changeType": "incorporated",
+        "notes": "Innlemmet i Aure"
+      },
+      {
+        "id": "hist-mun-1572-tustna",
+        "name": "Tustna",
+        "number": "1572",
+        "validFrom": 1838,
+        "validTo": 2006,
+        "changeType": "incorporated",
+        "notes": "Innlemmet i Aure"
+      }
+    ],
     "timeline": [
+      {
+        "year": 1965,
+        "type": "incorporated",
+        "description": "Innlemmet i Aure",
+        "entities": [
+          {
+            "number": "1568",
+            "name": "Stemshaug"
+          }
+        ]
+      },
       {
         "year": 2006,
         "date": "1. jan. 2006",
         "type": "established",
         "description": "Aure opprettet 1. jan. 2006"
+      },
+      {
+        "year": 2006,
+        "type": "incorporated",
+        "description": "Innlemmet i Aure",
+        "entities": [
+          {
+            "number": "1572",
+            "name": "Tustna"
+          }
+        ]
       }
     ],
     "sources": [
@@ -2710,6 +3351,7 @@
     "areaKm2": 876.87,
     "languageForm": "nynorsk",
     "wikipediaUrl": "https://no.wikipedia.org/wiki/Volda",
+    "websiteUrl": "https://www.volda.kommune.no/",
     "established": "1. jan. 2020",
     "establishedYear": 2020,
     "formedFrom": [
@@ -2722,7 +3364,29 @@
         "name": "Volda"
       }
     ],
+    "predecessors": [
+      {
+        "id": "hist-mun-1518-dalsfjord",
+        "name": "Dalsfjord",
+        "number": "1518",
+        "validFrom": 1924,
+        "validTo": 1964,
+        "changeType": "incorporated",
+        "notes": "Innlemmet i Volda"
+      }
+    ],
     "timeline": [
+      {
+        "year": 1964,
+        "type": "incorporated",
+        "description": "Innlemmet i Volda",
+        "entities": [
+          {
+            "number": "1518",
+            "name": "Dalsfjord"
+          }
+        ]
+      },
       {
         "year": 2020,
         "date": "1. jan. 2020",
@@ -2765,12 +3429,54 @@
         "name": "Stordal"
       }
     ],
+    "predecessors": [
+      {
+        "id": "hist-mun-1524-norddal",
+        "name": "Norddal",
+        "number": "1524",
+        "validFrom": 1838,
+        "validTo": 2020,
+        "changeType": "merged",
+        "notes": "Slått sammen med Stordal"
+      },
+      {
+        "id": "hist-mun-1526-stordal",
+        "name": "Stordal",
+        "number": "1526",
+        "validFrom": 1838,
+        "validTo": 2020,
+        "changeType": "merged",
+        "notes": "Slått sammen med Norddal"
+      }
+    ],
     "timeline": [
       {
         "year": 2020,
         "date": "1. jan. 2020",
         "type": "established",
         "description": "Fjord opprettet 1. jan. 2020"
+      },
+      {
+        "year": 2020,
+        "type": "merged",
+        "description": "Slått sammen med Stordal",
+        "entities": [
+          {
+            "number": "1524",
+            "name": "Norddal"
+          }
+        ]
+      },
+      {
+        "year": 2020,
+        "type": "merged",
+        "description": "Slått sammen med Norddal",
+        "entities": [
+          {
+            "number": "1526",
+            "name": "Stordal"
+          }
+        ]
       }
     ],
     "sources": [
@@ -2786,6 +3492,7 @@
     "areaKm2": 521.93,
     "languageForm": "nøytral",
     "wikipediaUrl": "https://no.wikipedia.org/wiki/Hustadvika",
+    "websiteUrl": "https://hustadvika.kommune.no/",
     "established": "1. jan. 2020",
     "establishedYear": 2020,
     "formedFrom": [
@@ -2798,12 +3505,54 @@
         "name": "Eide"
       }
     ],
+    "predecessors": [
+      {
+        "id": "hist-mun-1551-eide",
+        "name": "Eide",
+        "number": "1551",
+        "validFrom": 1897,
+        "validTo": 2020,
+        "changeType": "merged",
+        "notes": "Slått sammen med Fræna"
+      },
+      {
+        "id": "hist-mun-1548-fraena",
+        "name": "Fræna",
+        "number": "1548",
+        "validFrom": 1838,
+        "validTo": 2020,
+        "changeType": "merged",
+        "notes": "Slått sammen med Eide"
+      }
+    ],
     "timeline": [
       {
         "year": 2020,
         "date": "1. jan. 2020",
         "type": "established",
         "description": "Hustadvika opprettet 1. jan. 2020"
+      },
+      {
+        "year": 2020,
+        "type": "merged",
+        "description": "Slått sammen med Fræna",
+        "entities": [
+          {
+            "number": "1551",
+            "name": "Eide"
+          }
+        ]
+      },
+      {
+        "year": 2020,
+        "type": "merged",
+        "description": "Slått sammen med Eide",
+        "entities": [
+          {
+            "number": "1548",
+            "name": "Fræna"
+          }
+        ]
       }
     ],
     "sources": [
@@ -2819,6 +3568,7 @@
     "areaKm2": 261.19,
     "languageForm": "nøytral",
     "wikipediaUrl": "https://no.wikipedia.org/wiki/Haram",
+    "websiteUrl": "http://haram.kommune.no/",
     "established": "1. jan. 2024",
     "establishedYear": 2024,
     "formedFrom": [
@@ -2827,7 +3577,29 @@
         "name": "Ålesund (deler av)"
       }
     ],
+    "predecessors": [
+      {
+        "id": "hist-mun-1531-borgund",
+        "name": "Borgund",
+        "number": "1531",
+        "validFrom": 1908,
+        "validTo": 1968,
+        "changeType": "split",
+        "notes": "Innlemmet i Ålesund og Haram , deler utskilt som ny kommune Sula"
+      }
+    ],
     "timeline": [
+      {
+        "year": 1968,
+        "type": "split",
+        "description": "Innlemmet i Ålesund og Haram , deler utskilt som ny kommune Sula",
+        "entities": [
+          {
+            "number": "1531",
+            "name": "Borgund"
+          }
+        ]
+      },
       {
         "year": 2024,
         "date": "1. jan. 2024",
@@ -2848,6 +3620,7 @@
     "areaKm2": 1395.3,
     "languageForm": "nøytral",
     "wikipediaUrl": "https://no.wikipedia.org/wiki/Bod%C3%B8",
+    "websiteUrl": "https://bodo.kommune.no/",
     "established": "1. jan. 1838",
     "establishedYear": 1838,
     "historicalNames": [
@@ -3026,6 +3799,7 @@
     "areaKm2": 1266.07,
     "languageForm": "bokmål",
     "wikipediaUrl": "https://no.wikipedia.org/wiki/Bindal",
+    "websiteUrl": "https://www.bindal.kommune.no/",
     "established": "1. jan. 1853",
     "establishedYear": 1853,
     "historicalNames": [
@@ -3065,6 +3839,7 @@
     "areaKm2": 195.19,
     "languageForm": "bokmål",
     "wikipediaUrl": "https://no.wikipedia.org/wiki/S%C3%B8mna",
+    "websiteUrl": "https://www.somna.kommune.no/",
     "established": "1. jan. 1901",
     "establishedYear": 1901,
     "historicalNames": [
@@ -3110,6 +3885,7 @@
     "areaKm2": 1046.03,
     "languageForm": "nøytral",
     "wikipediaUrl": "https://no.wikipedia.org/wiki/Br%C3%B8nn%C3%B8y",
+    "websiteUrl": "http://www.bronnoy.kommune.no",
     "established": "1. okt. 1875",
     "establishedYear": 1875,
     "historicalNames": [
@@ -3202,6 +3978,7 @@
     "areaKm2": 164.79,
     "languageForm": "bokmål",
     "wikipediaUrl": "https://no.wikipedia.org/wiki/Vega",
+    "websiteUrl": "http://www.vega.kommune.no/",
     "established": "1. jan. 1838",
     "establishedYear": 1838,
     "historicalNames": [
@@ -3251,6 +4028,7 @@
     "areaKm2": 539.04,
     "languageForm": "bokmål",
     "wikipediaUrl": "https://no.wikipedia.org/wiki/Vevelstad",
+    "websiteUrl": "http://www.vevelstad.kommune.no",
     "established": "1. juli 1916",
     "establishedYear": 1916,
     "historicalNames": [
@@ -3335,6 +4113,7 @@
     "areaKm2": 188.16,
     "languageForm": "nøytral",
     "wikipediaUrl": "https://no.wikipedia.org/wiki/Alstahaug",
+    "websiteUrl": "https://www.alstahaug.kommune.no/",
     "established": "1. mai 1862",
     "establishedYear": 1862,
     "historicalNames": [
@@ -3415,6 +4194,7 @@
     "areaKm2": 465.26,
     "languageForm": "nøytral",
     "wikipediaUrl": "https://no.wikipedia.org/wiki/Leirfjord",
+    "websiteUrl": "https://www.leirfjord.kommune.no/",
     "established": "1. juli 1915",
     "establishedYear": 1915,
     "historicalNames": [
@@ -3468,6 +4248,7 @@
     "areaKm2": 1929.4,
     "languageForm": "nøytral",
     "wikipediaUrl": "https://no.wikipedia.org/wiki/Vefsn",
+    "websiteUrl": "https://www.vefsn.kommune.no/",
     "established": "1. jan. 1838",
     "establishedYear": 1838,
     "historicalNames": [
@@ -3565,6 +4346,7 @@
     "areaKm2": 2004.11,
     "languageForm": "nøytral",
     "wikipediaUrl": "https://no.wikipedia.org/wiki/Grane",
+    "websiteUrl": "https://www.grane.kommune.no/",
     "established": "1. juli 1927",
     "establishedYear": 1927,
     "historicalNames": [
@@ -3600,6 +4382,7 @@
     "areaKm2": 2684.35,
     "languageForm": "nøytral",
     "wikipediaUrl": "https://no.wikipedia.org/wiki/Hattfjelldal",
+    "websiteUrl": "https://hattfjelldal.kommune.no/",
     "established": "1. jan. 1862",
     "establishedYear": 1862,
     "historicalNames": [
@@ -3635,6 +4418,7 @@
     "areaKm2": 192.57,
     "languageForm": "bokmål",
     "wikipediaUrl": "https://no.wikipedia.org/wiki/D%C3%B8nna",
+    "websiteUrl": "https://www.donna.kommune.no/",
     "established": "1. juli 1888",
     "establishedYear": 1888,
     "historicalNames": [
@@ -3730,6 +4514,7 @@
     "areaKm2": 183.19,
     "languageForm": "bokmål",
     "wikipediaUrl": "https://no.wikipedia.org/wiki/Nesna",
+    "websiteUrl": "https://www.nesna.kommune.no/",
     "established": "1. jan. 1838",
     "establishedYear": 1838,
     "historicalNames": [
@@ -3775,6 +4560,7 @@
     "areaKm2": 1589.5,
     "languageForm": "nøytral",
     "wikipediaUrl": "https://no.wikipedia.org/wiki/Hemnes",
+    "websiteUrl": "https://www.hemnes.kommune.no/",
     "established": "1. juli 1918",
     "establishedYear": 1918,
     "historicalNames": [
@@ -3842,6 +4628,7 @@
     "areaKm2": 4460.19,
     "languageForm": "nøytral",
     "wikipediaUrl": "https://no.wikipedia.org/wiki/Rana",
+    "websiteUrl": "https://www.rana.kommune.no/",
     "established": "1. jan. 1923",
     "establishedYear": 1923,
     "historicalNames": [
@@ -3929,6 +4716,7 @@
     "areaKm2": 265.16,
     "languageForm": "bokmål",
     "wikipediaUrl": "https://no.wikipedia.org/wiki/Lur%C3%B8y",
+    "websiteUrl": "https://www.luroy.kommune.no/",
     "established": "1. jan. 1838",
     "establishedYear": 1838,
     "historicalNames": [
@@ -3978,6 +4766,7 @@
     "areaKm2": 16.54,
     "languageForm": "bokmål",
     "wikipediaUrl": "https://no.wikipedia.org/wiki/Tr%C3%A6na",
+    "websiteUrl": "https://www.trana.kommune.no/",
     "established": "1. jan. 1872",
     "establishedYear": 1872,
     "historicalNames": [
@@ -4013,6 +4802,7 @@
     "areaKm2": 711.29,
     "languageForm": "nøytral",
     "wikipediaUrl": "https://no.wikipedia.org/wiki/R%C3%B8d%C3%B8y",
+    "websiteUrl": "https://www.rodoy.kommune.no/",
     "sources": [
       "https://no.wikipedia.org/wiki/Norges_kommuner",
       "https://no.wikipedia.org/wiki/Norske_kommunenummer",
@@ -4026,6 +4816,7 @@
     "areaKm2": 873.83,
     "languageForm": "bokmål",
     "wikipediaUrl": "https://no.wikipedia.org/wiki/Mel%C3%B8y",
+    "websiteUrl": "https://www.meloy.kommune.no/",
     "established": "1. jan. 1884",
     "establishedYear": 1884,
     "historicalNames": [
@@ -4061,6 +4852,7 @@
     "areaKm2": 664.7,
     "languageForm": "nøytral",
     "wikipediaUrl": "https://no.wikipedia.org/wiki/Gildesk%C3%A5l",
+    "websiteUrl": "https://www.gildeskal.kommune.no/",
     "established": "1. jan. 1838",
     "establishedYear": 1838,
     "prehistory": "Gildeskaal ‡ i 1837 Gildeskaal og Beieren tinglag Formannskap XVIII.11",
@@ -4105,6 +4897,7 @@
     "areaKm2": 1222.31,
     "languageForm": "bokmål",
     "wikipediaUrl": "https://no.wikipedia.org/wiki/Beiarn",
+    "websiteUrl": "https://www.beiarn.kommune.no/",
     "established": "1. jan. 1853",
     "establishedYear": 1853,
     "historicalNames": [
@@ -4140,6 +4933,7 @@
     "areaKm2": 2216.19,
     "languageForm": "bokmål",
     "wikipediaUrl": "https://no.wikipedia.org/wiki/Saltdal",
+    "websiteUrl": "https://www.saltdal.kommune.no/",
     "established": "1. jan. 1838",
     "establishedYear": 1838,
     "historicalNames": [
@@ -4175,6 +4969,7 @@
     "areaKm2": 1196.98,
     "languageForm": "bokmål",
     "wikipediaUrl": "https://no.wikipedia.org/wiki/Fauske",
+    "websiteUrl": "https://www.fauske.kommune.no/",
     "established": "1. jan. 1905",
     "establishedYear": 1905,
     "historicalNames": [
@@ -4210,6 +5005,7 @@
     "areaKm2": 1637.41,
     "languageForm": "bokmål",
     "wikipediaUrl": "https://no.wikipedia.org/wiki/S%C3%B8rfold",
+    "websiteUrl": "https://www.sorfold.kommune.no/",
     "established": "1. jan. 1838",
     "establishedYear": 1838,
     "historicalNames": [
@@ -4281,6 +5077,7 @@
     "areaKm2": 1009.26,
     "languageForm": "bokmål",
     "wikipediaUrl": "https://no.wikipedia.org/wiki/Steigen",
+    "websiteUrl": "https://www.steigen.kommune.no/",
     "established": "1. jan. 1906",
     "establishedYear": 1906,
     "historicalNames": [
@@ -4365,6 +5162,7 @@
     "areaKm2": 527.41,
     "languageForm": "bokmål",
     "wikipediaUrl": "https://no.wikipedia.org/wiki/L%C3%B8dingen",
+    "websiteUrl": "https://www.lodingen.kommune.no/",
     "established": "1. jan. 1909",
     "establishedYear": 1909,
     "historicalNames": [
@@ -4414,6 +5212,7 @@
     "areaKm2": 252.79,
     "languageForm": "bokmål",
     "wikipediaUrl": "https://no.wikipedia.org/wiki/Evenes",
+    "websiteUrl": "https://www.evenes.kommune.no/",
     "established": "1. jan. 1838",
     "establishedYear": 1838,
     "historicalNames": [
@@ -4463,6 +5262,7 @@
     "areaKm2": 10.11,
     "languageForm": "bokmål",
     "wikipediaUrl": "https://no.wikipedia.org/wiki/R%C3%B8st",
+    "websiteUrl": "https://rost.kommune.no/",
     "established": "1. juli 1928",
     "establishedYear": 1928,
     "historicalNames": [
@@ -4498,6 +5298,7 @@
     "areaKm2": 18.64,
     "languageForm": "bokmål",
     "wikipediaUrl": "https://no.wikipedia.org/wiki/V%C3%A6r%C3%B8y",
+    "websiteUrl": "https://varoy.kommune.no/",
     "established": "1. jan. 1838",
     "establishedYear": 1838,
     "prehistory": "Værøy ‡ i 1837 Flakstad, Værø og Røst tinglag Formannskap XVIII.20",
@@ -4542,6 +5343,7 @@
     "areaKm2": 178.54,
     "languageForm": "nøytral",
     "wikipediaUrl": "https://no.wikipedia.org/wiki/Flakstad",
+    "websiteUrl": "https://flakstad.kommune.no/",
     "established": "1. jan. 1838",
     "establishedYear": 1838,
     "historicalNames": [
@@ -4577,6 +5379,7 @@
     "areaKm2": 424.29,
     "languageForm": "nøytral",
     "wikipediaUrl": "https://no.wikipedia.org/wiki/Vestv%C3%A5g%C3%B8y",
+    "websiteUrl": "https://www.vestvagoy.kommune.no/",
     "established": "1. jan. 1838",
     "establishedYear": 1838,
     "historicalNames": [
@@ -4708,6 +5511,7 @@
     "areaKm2": 479.18,
     "languageForm": "nøytral",
     "wikipediaUrl": "https://no.wikipedia.org/wiki/V%C3%A5gan",
+    "websiteUrl": "https://vagan.kommune.no/",
     "established": "1. jan. 1838",
     "establishedYear": 1838,
     "historicalNames": [
@@ -4791,6 +5595,7 @@
     "areaKm2": 566.61,
     "languageForm": "bokmål",
     "wikipediaUrl": "https://no.wikipedia.org/wiki/Hadsel",
+    "websiteUrl": "https://www.hadsel.kommune.no/",
     "established": "1. jan. 1838",
     "establishedYear": 1838,
     "historicalNames": [
@@ -4892,6 +5697,7 @@
     "areaKm2": 319.6,
     "languageForm": "nøytral",
     "wikipediaUrl": "https://no.wikipedia.org/wiki/%C3%98ksnes",
+    "websiteUrl": "https://www.oksnes.kommune.no/",
     "established": "1. jan. 1838",
     "establishedYear": 1838,
     "historicalNames": [
@@ -4963,6 +5769,7 @@
     "areaKm2": 721.94,
     "languageForm": "nøytral",
     "wikipediaUrl": "https://no.wikipedia.org/wiki/Sortland",
+    "websiteUrl": "https://www.sortland.kommune.no/",
     "established": "27. juli 1841",
     "establishedYear": 1841,
     "historicalNames": [
@@ -5016,6 +5823,7 @@
     "areaKm2": 656.18,
     "languageForm": "nøytral",
     "wikipediaUrl": "https://no.wikipedia.org/wiki/And%C3%B8y",
+    "websiteUrl": "http://www.andoy.kommune.no/",
     "established": "1. jan. 1924",
     "establishedYear": 1924,
     "historicalNames": [
@@ -5120,6 +5928,7 @@
     "areaKm2": 118.78,
     "languageForm": "nøytral",
     "wikipediaUrl": "https://no.wikipedia.org/wiki/Moskenes",
+    "websiteUrl": "https://moskenes.kommune.no/",
     "established": "1. jan. 1976",
     "establishedYear": 1976,
     "formedFrom": [
@@ -5159,6 +5968,7 @@
     "areaKm2": 2020.44,
     "languageForm": "nøytral",
     "wikipediaUrl": "https://no.wikipedia.org/wiki/Hamar%C3%B8y",
+    "websiteUrl": "https://www.hamaroy.kommune.no/",
     "established": "1. jan. 2020",
     "establishedYear": 2020,
     "formedFrom": [
@@ -5192,6 +6002,7 @@
     "areaKm2": 642.48,
     "languageForm": "bokmål",
     "wikipediaUrl": "https://no.wikipedia.org/wiki/Halden",
+    "websiteUrl": "https://www.halden.kommune.no/",
     "established": "1. jan. 2024",
     "establishedYear": 2024,
     "historicalNames": [
@@ -5285,6 +6096,7 @@
     "areaKm2": 137.77,
     "languageForm": "nøytral",
     "wikipediaUrl": "https://no.wikipedia.org/wiki/Moss",
+    "websiteUrl": "https://www.moss.kommune.no/",
     "established": "1. jan. 2024",
     "establishedYear": 2024,
     "directPredecessors": [
@@ -5362,6 +6174,7 @@
     "areaKm2": 405.6,
     "languageForm": "bokmål",
     "wikipediaUrl": "https://no.wikipedia.org/wiki/Sarpsborg",
+    "websiteUrl": "https://www.sarpsborg.com/",
     "established": "1. jan. 2024",
     "establishedYear": 2024,
     "directPredecessors": [
@@ -5437,6 +6250,7 @@
     "areaKm2": 292.55,
     "languageForm": "bokmål",
     "wikipediaUrl": "https://no.wikipedia.org/wiki/Fredrikstad",
+    "websiteUrl": "https://www.fredrikstad.kommune.no/",
     "established": "1. jan. 2024",
     "establishedYear": 2024,
     "directPredecessors": [
@@ -5603,6 +6417,7 @@
     "areaKm2": 118.76,
     "languageForm": "bokmål",
     "wikipediaUrl": "https://no.wikipedia.org/wiki/R%C3%A5de",
+    "websiteUrl": "https://www.rade.kommune.no/",
     "established": "1. jan. 2024",
     "establishedYear": 2024,
     "directPredecessors": [
@@ -5673,6 +6488,7 @@
     "areaKm2": 101.2,
     "languageForm": "bokmål",
     "wikipediaUrl": "https://no.wikipedia.org/wiki/Skiptvet",
+    "websiteUrl": "https://www.skiptvet.kommune.no/",
     "established": "1. jan. 2024",
     "establishedYear": 2024,
     "directPredecessors": [
@@ -5743,6 +6559,7 @@
     "areaKm2": 434.87,
     "languageForm": "bokmål",
     "wikipediaUrl": "https://no.wikipedia.org/wiki/Rakkestad",
+    "websiteUrl": "https://www.rakkestad.kommune.no/",
     "established": "1. jan. 2024",
     "establishedYear": 2024,
     "directPredecessors": [
@@ -5800,6 +6617,7 @@
     "areaKm2": 412.9,
     "languageForm": "bokmål",
     "wikipediaUrl": "https://no.wikipedia.org/wiki/Marker",
+    "websiteUrl": "https://www.marker.kommune.no/",
     "established": "1. jan. 2024",
     "establishedYear": 2024,
     "directPredecessors": [
@@ -5877,6 +6695,7 @@
     "areaKm2": 319.26,
     "languageForm": "bokmål",
     "wikipediaUrl": "https://no.wikipedia.org/wiki/Aremark",
+    "websiteUrl": "https://www.aremark.kommune.no/",
     "established": "1. jan. 2024",
     "establishedYear": 2024,
     "directPredecessors": [
@@ -5912,6 +6731,7 @@
     "areaKm2": 192.28,
     "languageForm": "bokmål",
     "wikipediaUrl": "https://no.wikipedia.org/wiki/B%C3%A6rum",
+    "websiteUrl": "https://baerum.kommune.no",
     "established": "1. jan. 2024",
     "establishedYear": 2024,
     "directPredecessors": [
@@ -5947,6 +6767,7 @@
     "areaKm2": 376.61,
     "languageForm": "nøytral",
     "wikipediaUrl": "https://no.wikipedia.org/wiki/Asker",
+    "websiteUrl": "https://www.asker.kommune.no/",
     "established": "1. jan. 2024",
     "establishedYear": 2024,
     "directPredecessors": [
@@ -6024,6 +6845,7 @@
     "areaKm2": 456.6,
     "languageForm": "nøytral",
     "wikipediaUrl": "https://no.wikipedia.org/wiki/Lillestr%C3%B8m",
+    "websiteUrl": "https://www.lillestrom.kommune.no/",
     "established": "1. jan. 2024",
     "establishedYear": 2024,
     "directPredecessors": [
@@ -6136,6 +6958,7 @@
     "areaKm2": 252.44,
     "languageForm": "bokmål",
     "wikipediaUrl": "https://no.wikipedia.org/wiki/Ullensaker",
+    "websiteUrl": "https://www.ullensaker.kommune.no/",
     "established": "1. jan. 2024",
     "establishedYear": 2024,
     "directPredecessors": [
@@ -6171,6 +6994,7 @@
     "areaKm2": 61.46,
     "languageForm": "bokmål",
     "wikipediaUrl": "https://no.wikipedia.org/wiki/Nesodden",
+    "websiteUrl": "https://www.nesodden.kommune.no/",
     "established": "1. jan. 2024",
     "establishedYear": 2024,
     "directPredecessors": [
@@ -6206,6 +7030,7 @@
     "areaKm2": 85.69,
     "languageForm": "bokmål",
     "wikipediaUrl": "https://no.wikipedia.org/wiki/Frogn",
+    "websiteUrl": "https://www.frogn.kommune.no/",
     "established": "1. jan. 2024",
     "establishedYear": 2024,
     "directPredecessors": [
@@ -6263,6 +7088,7 @@
     "areaKm2": 133.97,
     "languageForm": "bokmål",
     "wikipediaUrl": "https://no.wikipedia.org/wiki/Vestby",
+    "websiteUrl": "https://www.vestby.kommune.no/",
     "established": "1. jan. 2024",
     "establishedYear": 2024,
     "historicalNames": [
@@ -6402,6 +7228,7 @@
     "areaKm2": 232.58,
     "languageForm": "bokmål",
     "wikipediaUrl": "https://no.wikipedia.org/wiki/Enebakk",
+    "websiteUrl": "https://www.enebakk.kommune.no/",
     "established": "1. jan. 2024",
     "establishedYear": 2024,
     "directPredecessors": [
@@ -6437,6 +7264,7 @@
     "areaKm2": 70.54,
     "languageForm": "nøytral",
     "wikipediaUrl": "https://no.wikipedia.org/wiki/L%C3%B8renskog",
+    "websiteUrl": "https://www.lorenskog.kommune.no//",
     "established": "1. jan. 2024",
     "establishedYear": 2024,
     "directPredecessors": [
@@ -6472,6 +7300,7 @@
     "areaKm2": 71.68,
     "languageForm": "nøytral",
     "wikipediaUrl": "https://no.wikipedia.org/wiki/R%C3%A6lingen",
+    "websiteUrl": "https://www.ralingen.kommune.no/",
     "established": "1. jan. 2024",
     "establishedYear": 2024,
     "directPredecessors": [
@@ -6507,6 +7336,7 @@
     "areaKm2": 1144.8,
     "languageForm": "nøytral",
     "wikipediaUrl": "https://no.wikipedia.org/wiki/Aurskog-H%C3%B8land",
+    "websiteUrl": "https://www.aurskog-holand.kommune.no/",
     "established": "1. jan. 2024",
     "establishedYear": 2024,
     "directPredecessors": [
@@ -6701,6 +7531,7 @@
     "areaKm2": 83.19,
     "languageForm": "bokmål",
     "wikipediaUrl": "https://no.wikipedia.org/wiki/Gjerdrum",
+    "websiteUrl": "https://www.gjerdrum.kommune.no/",
     "established": "1. jan. 2024",
     "establishedYear": 2024,
     "directPredecessors": [
@@ -6736,6 +7567,7 @@
     "areaKm2": 186.22,
     "languageForm": "bokmål",
     "wikipediaUrl": "https://no.wikipedia.org/wiki/Nittedal",
+    "websiteUrl": "https://www.nittedal.kommune.no/",
     "established": "1. jan. 2024",
     "establishedYear": 2024,
     "directPredecessors": [
@@ -6771,6 +7603,7 @@
     "areaKm2": 291.83,
     "languageForm": "bokmål",
     "wikipediaUrl": "https://no.wikipedia.org/wiki/Lunner",
+    "websiteUrl": "https://www.lunner.kommune.no/",
     "established": "1. jan. 2024",
     "establishedYear": 2024,
     "directPredecessors": [
@@ -6806,6 +7639,7 @@
     "areaKm2": 225.71,
     "languageForm": "bokmål",
     "wikipediaUrl": "https://no.wikipedia.org/wiki/Jevnaker",
+    "websiteUrl": "https://www.jevnaker.kommune.no/",
     "established": "1. jan. 2024",
     "establishedYear": 2024,
     "historicalNames": [
@@ -6868,6 +7702,7 @@
     "areaKm2": 340.98,
     "languageForm": "bokmål",
     "wikipediaUrl": "https://no.wikipedia.org/wiki/Nannestad",
+    "websiteUrl": "https://www.nannestad.kommune.no/",
     "established": "1. jan. 2024",
     "establishedYear": 2024,
     "directPredecessors": [
@@ -6903,6 +7738,7 @@
     "areaKm2": 456.49,
     "languageForm": "bokmål",
     "wikipediaUrl": "https://no.wikipedia.org/wiki/Eidsvoll",
+    "websiteUrl": "https://www.eidsvoll.kommune.no/",
     "established": "1. jan. 2024",
     "establishedYear": 2024,
     "directPredecessors": [
@@ -6960,6 +7796,7 @@
     "areaKm2": 284.95,
     "languageForm": "bokmål",
     "wikipediaUrl": "https://no.wikipedia.org/wiki/Hurdal",
+    "websiteUrl": "https://www.hurdal.kommune.no/",
     "established": "1. jan. 2024",
     "establishedYear": 2024,
     "directPredecessors": [
@@ -6995,6 +7832,7 @@
     "areaKm2": 317.61,
     "languageForm": "nøytral",
     "wikipediaUrl": "https://no.wikipedia.org/wiki/Drammen",
+    "websiteUrl": "https://www.drammen.kommune.no/",
     "established": "1. jan. 2024",
     "establishedYear": 2024,
     "historicalNames": [
@@ -7123,6 +7961,7 @@
     "areaKm2": 793.09,
     "languageForm": "bokmål",
     "wikipediaUrl": "https://no.wikipedia.org/wiki/Kongsberg",
+    "websiteUrl": "https://www.kongsberg.kommune.no/",
     "established": "1. jan. 2024",
     "establishedYear": 2024,
     "directPredecessors": [
@@ -7189,6 +8028,7 @@
     "areaKm2": 1555.1,
     "languageForm": "bokmål",
     "wikipediaUrl": "https://no.wikipedia.org/wiki/Ringerike",
+    "websiteUrl": "https://www.ringerike.kommune.no/",
     "established": "1. jan. 2024",
     "establishedYear": 2024,
     "directPredecessors": [
@@ -7306,6 +8146,7 @@
     "areaKm2": 192.68,
     "languageForm": "bokmål",
     "wikipediaUrl": "https://no.wikipedia.org/wiki/Hole",
+    "websiteUrl": "https://www.hole.kommune.no/",
     "established": "1. jan. 2024",
     "establishedYear": 2024,
     "historicalNames": [
@@ -7368,6 +8209,7 @@
     "areaKm2": 301.83,
     "languageForm": "bokmål",
     "wikipediaUrl": "https://no.wikipedia.org/wiki/Lier",
+    "websiteUrl": "https://www.lier.kommune.no/",
     "established": "1. jan. 2024",
     "establishedYear": 2024,
     "directPredecessors": [
@@ -7460,6 +8302,7 @@
     "areaKm2": 517.24,
     "languageForm": "bokmål",
     "wikipediaUrl": "https://no.wikipedia.org/wiki/Modum",
+    "websiteUrl": "https://www.modum.kommune.no/",
     "established": "1. jan. 2024",
     "establishedYear": 2024,
     "directPredecessors": [
@@ -7495,6 +8338,7 @@
     "areaKm2": 374.48,
     "languageForm": "nøytral",
     "wikipediaUrl": "https://no.wikipedia.org/wiki/Kr%C3%B8dsherad",
+    "websiteUrl": "https://www.krodsherad.kommune.no/",
     "established": "1. jan. 2024",
     "establishedYear": 2024,
     "directPredecessors": [
@@ -7530,6 +8374,7 @@
     "areaKm2": 704.27,
     "languageForm": "bokmål",
     "wikipediaUrl": "https://no.wikipedia.org/wiki/Fl%C3%A5",
+    "websiteUrl": "https://www.flaa.kommune.no/",
     "established": "1. jan. 2024",
     "establishedYear": 2024,
     "directPredecessors": [
@@ -7565,6 +8410,7 @@
     "areaKm2": 809.63,
     "languageForm": "bokmål",
     "wikipediaUrl": "https://no.wikipedia.org/wiki/Nesbyen",
+    "websiteUrl": "http://www.nes-bu.kommune.no/",
     "established": "1. jan. 2024",
     "establishedYear": 2024,
     "directPredecessors": [
@@ -7600,6 +8446,7 @@
     "areaKm2": 532.5,
     "languageForm": "nynorsk",
     "wikipediaUrl": "https://no.wikipedia.org/wiki/Gol",
+    "websiteUrl": "https://www.gol.kommune.no/",
     "established": "1. jan. 2024",
     "establishedYear": 2024,
     "directPredecessors": [
@@ -7657,6 +8504,7 @@
     "areaKm2": 753.51,
     "languageForm": "nynorsk",
     "wikipediaUrl": "https://no.wikipedia.org/wiki/Hemsedal",
+    "websiteUrl": "https://www.hemsedal.kommune.no/",
     "established": "1. jan. 2024",
     "establishedYear": 2024,
     "directPredecessors": [
@@ -7714,6 +8562,7 @@
     "areaKm2": 1174.98,
     "languageForm": "nynorsk",
     "wikipediaUrl": "https://no.wikipedia.org/wiki/%C3%85l",
+    "websiteUrl": "https://www.aal.kommune.no/",
     "established": "1. jan. 2024",
     "establishedYear": 2024,
     "directPredecessors": [
@@ -7784,6 +8633,7 @@
     "areaKm2": 842.48,
     "languageForm": "bokmål",
     "wikipediaUrl": "https://no.wikipedia.org/wiki/Sigdal",
+    "websiteUrl": "https://www.sigdal.kommune.no/",
     "established": "1. jan. 2024",
     "establishedYear": 2024,
     "directPredecessors": [
@@ -7819,6 +8669,7 @@
     "areaKm2": 561.91,
     "languageForm": "bokmål",
     "wikipediaUrl": "https://no.wikipedia.org/wiki/Flesberg",
+    "websiteUrl": "https://www.flesberg.kommune.no/",
     "established": "1. jan. 2024",
     "establishedYear": 2024,
     "directPredecessors": [
@@ -7854,6 +8705,7 @@
     "areaKm2": 449.28,
     "languageForm": "nøytral",
     "wikipediaUrl": "https://no.wikipedia.org/wiki/Rollag",
+    "websiteUrl": "https://www.rollag.kommune.no/",
     "established": "1. jan. 2024",
     "establishedYear": 2024,
     "directPredecessors": [
@@ -7966,6 +8818,7 @@
     "areaKm2": 1036.45,
     "languageForm": "bokmål",
     "wikipediaUrl": "https://no.wikipedia.org/wiki/Kongsvinger",
+    "websiteUrl": "https://www.kongsvinger.kommune.no/",
     "established": "1. jan. 2020",
     "establishedYear": 2020,
     "historicalNames": [
@@ -8060,6 +8913,7 @@
     "areaKm2": 350.93,
     "languageForm": "nøytral",
     "wikipediaUrl": "https://no.wikipedia.org/wiki/Hamar",
+    "websiteUrl": "https://www.hamar.kommune.no/",
     "established": "1. jan. 2020",
     "establishedYear": 2020,
     "directPredecessors": [
@@ -8147,6 +9001,7 @@
     "areaKm2": 477.94,
     "languageForm": "bokmål",
     "wikipediaUrl": "https://no.wikipedia.org/wiki/Lillehammer",
+    "websiteUrl": "https://www.lillehammer.kommune.no/",
     "established": "1. jan. 2020",
     "establishedYear": 2020,
     "prehistory": "Lillehammer † utskilt fra Faaberg 1903 Landhandleri 3. feb. 1753 Kjøpstadanlegg 1 7. aug. 1827 Formannskap V.1 Kjøpstad 8. sep. 1842",
@@ -8231,6 +9086,7 @@
     "areaKm2": 671.1,
     "languageForm": "bokmål",
     "wikipediaUrl": "https://no.wikipedia.org/wiki/Gj%C3%B8vik",
+    "websiteUrl": "https://www.gjovik.kommune.no/",
     "established": "1. jan. 2020",
     "establishedYear": 2020,
     "historicalNames": [
@@ -8346,6 +9202,7 @@
     "areaKm2": 1280.09,
     "languageForm": "bokmål",
     "wikipediaUrl": "https://no.wikipedia.org/wiki/Ringsaker",
+    "websiteUrl": "https://www.ringsaker.kommune.no/",
     "established": "1. jan. 2020",
     "establishedYear": 2020,
     "prehistory": "Ringsager ‡ i 1837 Ringsager tinglag Landhandleri 3. feb. 1753 Formannskap IV.10",
@@ -8447,6 +9304,7 @@
     "areaKm2": 369.44,
     "languageForm": "bokmål",
     "wikipediaUrl": "https://no.wikipedia.org/wiki/L%C3%B8ten",
+    "websiteUrl": "https://www.loten.kommune.no/",
     "established": "1. jan. 2020",
     "establishedYear": 2020,
     "prehistory": "Løiten ‡ i 1837 Løiten tinglag Landhandleri 3. feb. 1753 Formannskap IV.6",
@@ -8505,6 +9363,7 @@
     "areaKm2": 724.27,
     "languageForm": "bokmål",
     "wikipediaUrl": "https://no.wikipedia.org/wiki/Stange",
+    "websiteUrl": "https://www.stange.kommune.no/",
     "established": "1. jan. 2020",
     "establishedYear": 2020,
     "prehistory": "Stange ‡ i 1837 Stange tinglag Landhandleri 3. feb. 1753 Formannskap IV.8",
@@ -8575,6 +9434,7 @@
     "areaKm2": 508.14,
     "languageForm": "bokmål",
     "wikipediaUrl": "https://no.wikipedia.org/wiki/Nord-Odal",
+    "websiteUrl": "https://www.nord-odal.kommune.no/",
     "established": "1. jan. 2020",
     "establishedYear": 2020,
     "historicalNames": [
@@ -8641,6 +9501,7 @@
     "areaKm2": 516.74,
     "languageForm": "bokmål",
     "wikipediaUrl": "https://no.wikipedia.org/wiki/S%C3%B8r-Odal",
+    "websiteUrl": "https://www.sor-odal.kommune.no/",
     "established": "1. jan. 2020",
     "establishedYear": 2020,
     "directPredecessors": [
@@ -8676,6 +9537,7 @@
     "areaKm2": 640.39,
     "languageForm": "bokmål",
     "wikipediaUrl": "https://no.wikipedia.org/wiki/Eidskog",
+    "websiteUrl": "https://www.eidskog.kommune.no/",
     "established": "1. jan. 2020",
     "establishedYear": 2020,
     "historicalNames": [
@@ -8739,6 +9601,7 @@
     "areaKm2": 837.17,
     "languageForm": "bokmål",
     "wikipediaUrl": "https://no.wikipedia.org/wiki/Grue",
+    "websiteUrl": "https://www.grue.kommune.no/",
     "established": "1. jan. 2020",
     "establishedYear": 2020,
     "prehistory": "Grue ‡ i 1837 Grue tinglag Landhandleri 3. feb. 1753 Formannskap IV.2",
@@ -8801,6 +9664,7 @@
     "areaKm2": 1040.93,
     "languageForm": "bokmål",
     "wikipediaUrl": "https://no.wikipedia.org/wiki/%C3%85snes",
+    "websiteUrl": "https://asnes.kommune.no",
     "established": "1. jan. 2020",
     "establishedYear": 2020,
     "directPredecessors": [
@@ -8957,6 +9821,7 @@
     "areaKm2": 1229.27,
     "languageForm": "nøytral",
     "wikipediaUrl": "https://no.wikipedia.org/wiki/Elverum",
+    "websiteUrl": "https://www.elverum.kommune.no/",
     "established": "1. jan. 2020",
     "establishedYear": 2020,
     "directPredecessors": [
@@ -8992,6 +9857,7 @@
     "areaKm2": 3014.4,
     "languageForm": "bokmål",
     "wikipediaUrl": "https://no.wikipedia.org/wiki/Trysil",
+    "websiteUrl": "https://www.trysil.kommune.no/",
     "established": "1. jan. 2020",
     "establishedYear": 2020,
     "historicalNames": [
@@ -9045,6 +9911,7 @@
     "areaKm2": 1339.91,
     "languageForm": "bokmål",
     "wikipediaUrl": "https://no.wikipedia.org/wiki/%C3%85mot",
+    "websiteUrl": "https://www.amot.kommune.no/",
     "established": "1. jan. 2020",
     "establishedYear": 2020,
     "directPredecessors": [
@@ -9080,6 +9947,7 @@
     "areaKm2": 2165.77,
     "languageForm": "bokmål",
     "wikipediaUrl": "https://no.wikipedia.org/wiki/Stor-Elvdal",
+    "websiteUrl": "https://www.stor-elvdal.kommune.no/",
     "established": "1. jan. 2020",
     "establishedYear": 2020,
     "prehistory": "Store-Elvedalen † utskilt fra Åmot 1873 Store-Elvedalen tinglag Formannskap IV.16",
@@ -9164,6 +10032,7 @@
     "areaKm2": 3179.51,
     "languageForm": "bokmål",
     "wikipediaUrl": "https://no.wikipedia.org/wiki/Rendalen",
+    "websiteUrl": "https://www.rendalen.kommune.no/",
     "established": "1. jan. 2020",
     "establishedYear": 2020,
     "directPredecessors": [
@@ -9241,6 +10110,7 @@
     "areaKm2": 2196.54,
     "languageForm": "bokmål",
     "wikipediaUrl": "https://no.wikipedia.org/wiki/Engerdal",
+    "websiteUrl": "https://www.engerdal.kommune.no/",
     "established": "1. jan. 2020",
     "establishedYear": 2020,
     "historicalNames": [
@@ -9316,6 +10186,7 @@
     "areaKm2": 1122.56,
     "languageForm": "nøytral",
     "wikipediaUrl": "https://no.wikipedia.org/wiki/Tolga",
+    "websiteUrl": "https://www.tolga.kommune.no/",
     "established": "1. jan. 2020",
     "establishedYear": 2020,
     "directPredecessors": [
@@ -9373,6 +10244,7 @@
     "areaKm2": 1880.26,
     "languageForm": "nøytral",
     "wikipediaUrl": "https://no.wikipedia.org/wiki/Tynset",
+    "websiteUrl": "https://www.tynset.kommune.no/",
     "established": "1. jan. 2020",
     "establishedYear": 2020,
     "directPredecessors": [
@@ -9430,6 +10302,7 @@
     "areaKm2": 942.15,
     "languageForm": "nøytral",
     "wikipediaUrl": "https://no.wikipedia.org/wiki/Alvdal",
+    "websiteUrl": "https://www.alvdal.kommune.no/",
     "established": "1. jan. 2020",
     "establishedYear": 2020,
     "historicalNames": [
@@ -9501,6 +10374,7 @@
     "areaKm2": 1277.07,
     "languageForm": "nøytral",
     "wikipediaUrl": "https://no.wikipedia.org/wiki/Folldal",
+    "websiteUrl": "https://www.folldal.kommune.no/",
     "established": "1. jan. 2020",
     "establishedYear": 2020,
     "historicalNames": [
@@ -9643,6 +10517,7 @@
     "areaKm2": 1364.38,
     "languageForm": "nøytral",
     "wikipediaUrl": "https://no.wikipedia.org/wiki/Dovre",
+    "websiteUrl": "https://www.dovre.kommune.no/",
     "established": "1. jan. 2020",
     "establishedYear": 2020,
     "historicalNames": [
@@ -9710,6 +10585,7 @@
     "areaKm2": 2259.49,
     "languageForm": "nøytral",
     "wikipediaUrl": "https://no.wikipedia.org/wiki/Lesja",
+    "websiteUrl": "https://www.lesja.kommune.no/",
     "established": "1. jan. 2020",
     "establishedYear": 2020,
     "prehistory": "Lessøe ‡ i 1837 Lessøe tinglag Formannskap V.13",
@@ -9772,6 +10648,7 @@
     "areaKm2": 2075.51,
     "languageForm": "nynorsk",
     "wikipediaUrl": "https://no.wikipedia.org/wiki/Skj%C3%A5k",
+    "websiteUrl": "https://www.skjaak.kommune.no/",
     "established": "1. jan. 2020",
     "establishedYear": 2020,
     "historicalNames": [
@@ -9835,6 +10712,7 @@
     "areaKm2": 1968.55,
     "languageForm": "nynorsk",
     "wikipediaUrl": "https://no.wikipedia.org/wiki/Lom",
+    "websiteUrl": "https://www.lom.kommune.no/",
     "established": "1. jan. 2020",
     "establishedYear": 2020,
     "prehistory": "Lomb ‡ i 1837 Lomb tinglag Formannskap V.12",
@@ -9897,6 +10775,7 @@
     "areaKm2": 1329.99,
     "languageForm": "nynorsk",
     "wikipediaUrl": "https://no.wikipedia.org/wiki/V%C3%A5g%C3%A5",
+    "websiteUrl": "https://www.vaga.kommune.no/",
     "established": "1. jan. 2020",
     "establishedYear": 2020,
     "prehistory": "Vaage ‡ i 1837 Vaage tinglag Landhandleri 3. feb. 1753 Formannskap V.11",
@@ -9963,6 +10842,7 @@
     "areaKm2": 1141.32,
     "languageForm": "nynorsk",
     "wikipediaUrl": "https://no.wikipedia.org/wiki/Nord-Fron",
+    "websiteUrl": "https://www.nord-fron.kommune.no/",
     "established": "1. jan. 2020",
     "establishedYear": 2020,
     "historicalNames": [
@@ -10123,6 +11003,7 @@
     "areaKm2": 742.2,
     "languageForm": "nøytral",
     "wikipediaUrl": "https://no.wikipedia.org/wiki/S%C3%B8r-Fron",
+    "websiteUrl": "https://www.sor-fron.kommune.no/",
     "established": "1. jan. 2020",
     "establishedYear": 2020,
     "historicalNames": [
@@ -10186,6 +11067,7 @@
     "areaKm2": 1247.57,
     "languageForm": "nøytral",
     "wikipediaUrl": "https://no.wikipedia.org/wiki/Ringebu",
+    "websiteUrl": "https://www.ringebu.kommune.no/",
     "established": "1. jan. 2020",
     "establishedYear": 2020,
     "prehistory": "Ringebo ‡ i 1837 Ringebo tinglag Landhandleri 3. feb. 1753 Formannskap V.9",
@@ -10248,6 +11130,7 @@
     "areaKm2": 640.13,
     "languageForm": "nøytral",
     "wikipediaUrl": "https://no.wikipedia.org/wiki/%C3%98yer",
+    "websiteUrl": "https://www.oyer.kommune.no/",
     "established": "1. jan. 2020",
     "establishedYear": 2020,
     "prehistory": "Øier ‡ i 1837 Øier tinglag Formannskap V.8",
@@ -10306,6 +11189,7 @@
     "areaKm2": 1191.15,
     "languageForm": "nøytral",
     "wikipediaUrl": "https://no.wikipedia.org/wiki/Gausdal",
+    "websiteUrl": "https://www.gausdal.kommune.no/",
     "established": "1. jan. 2020",
     "establishedYear": 2020,
     "prehistory": "Gusdal ‡ i 1837 Gusdal tinglag Formannskap V.7",
@@ -10775,6 +11659,7 @@
     "areaKm2": 1109.05,
     "languageForm": "nøytral",
     "wikipediaUrl": "https://no.wikipedia.org/wiki/S%C3%B8r-Aurdal",
+    "websiteUrl": "https://www.sor-aurdal.kommune.no/",
     "established": "1. jan. 2020",
     "establishedYear": 2020,
     "historicalNames": [
@@ -10842,6 +11727,7 @@
     "areaKm2": 459.14,
     "languageForm": "nøytral",
     "wikipediaUrl": "https://no.wikipedia.org/wiki/Etnedal",
+    "websiteUrl": "https://www.etnedal.kommune.no/",
     "established": "1. jan. 2020",
     "establishedYear": 2020,
     "historicalNames": [
@@ -10912,6 +11798,7 @@
     "areaKm2": 906.47,
     "languageForm": "nøytral",
     "wikipediaUrl": "https://no.wikipedia.org/wiki/Nord-Aurdal",
+    "websiteUrl": "https://www.nord-aurdal.kommune.no/",
     "established": "1. jan. 2020",
     "establishedYear": 2020,
     "directPredecessors": [
@@ -11116,6 +12003,7 @@
     "areaKm2": 1505.49,
     "languageForm": "nynorsk",
     "wikipediaUrl": "https://no.wikipedia.org/wiki/Vang",
+    "websiteUrl": "https://www.vang.kommune.no/",
     "established": "1. jan. 2020",
     "establishedYear": 2020,
     "prehistory": "Vang ‡ i 1837 Vang tinglag Landhandleri 3. feb. 1753 Formannskap V.20",
@@ -11174,6 +12062,7 @@
     "areaKm2": 70.95,
     "languageForm": "bokmål",
     "wikipediaUrl": "https://no.wikipedia.org/wiki/Horten",
+    "websiteUrl": "https://www.horten.kommune.no/",
     "established": "1. jan. 2024",
     "establishedYear": 2024,
     "historicalNames": [
@@ -11200,14 +12089,14 @@
         "number": "0717",
         "validFrom": 1838,
         "validTo": 2002,
-        "changeType": "renamed",
+        "changeType": "split",
         "notes": "Slått sammen med Horten til Borre , ble senere i 2002 endret tilbake til Horten"
       }
     ],
     "timeline": [
       {
         "year": 2002,
-        "type": "renamed",
+        "type": "split",
         "description": "Slått sammen med Horten til Borre , ble senere i 2002 endret tilbake til Horten",
         "entities": [
           {
@@ -11258,6 +12147,7 @@
     "areaKm2": 432.35,
     "languageForm": "bokmål",
     "wikipediaUrl": "https://no.wikipedia.org/wiki/Holmestrand",
+    "websiteUrl": "http://www.holmestrand.kommune.no/",
     "established": "1. jan. 2024",
     "establishedYear": 2024,
     "directPredecessors": [
@@ -11355,6 +12245,7 @@
     "areaKm2": 329.26,
     "languageForm": "nøytral",
     "wikipediaUrl": "https://no.wikipedia.org/wiki/T%C3%B8nsberg",
+    "websiteUrl": "https://www.tonsberg.kommune.no/",
     "established": "1. jan. 2024",
     "establishedYear": 2024,
     "directPredecessors": [
@@ -11432,6 +12323,7 @@
     "areaKm2": 422.26,
     "languageForm": "bokmål",
     "wikipediaUrl": "https://no.wikipedia.org/wiki/Sandefjord",
+    "websiteUrl": "https://www.sandefjord.kommune.no/",
     "established": "1. jan. 2024",
     "establishedYear": 2024,
     "directPredecessors": [
@@ -11529,6 +12421,7 @@
     "areaKm2": 812.88,
     "languageForm": "nøytral",
     "wikipediaUrl": "https://no.wikipedia.org/wiki/Larvik",
+    "websiteUrl": "https://www.larvik.kommune.no/",
     "established": "1. jan. 2024",
     "establishedYear": 2024,
     "directPredecessors": [
@@ -11633,6 +12526,7 @@
     "areaKm2": 99.95,
     "languageForm": "nøytral",
     "wikipediaUrl": "https://no.wikipedia.org/wiki/F%C3%A6rder",
+    "websiteUrl": "https://www.faerder.kommune.no/",
     "established": "1. jan. 2024",
     "establishedYear": 2024,
     "historicalNames": [
@@ -11737,6 +12631,7 @@
     "areaKm2": 164.44,
     "languageForm": "bokmål",
     "wikipediaUrl": "https://no.wikipedia.org/wiki/Porsgrunn",
+    "websiteUrl": "https://www.porsgrunn.kommune.no/",
     "established": "1. jan. 2024",
     "establishedYear": 2024,
     "historicalNames": [
@@ -11830,6 +12725,7 @@
     "areaKm2": 779.2,
     "languageForm": "nøytral",
     "wikipediaUrl": "https://no.wikipedia.org/wiki/Skien",
+    "websiteUrl": "https://www.skien.kommune.no/",
     "established": "1. jan. 2024",
     "establishedYear": 2024,
     "directPredecessors": [
@@ -11896,6 +12792,7 @@
     "areaKm2": 983.89,
     "languageForm": "nøytral",
     "wikipediaUrl": "https://no.wikipedia.org/wiki/Notodden",
+    "websiteUrl": "https://www.notodden.kommune.no/",
     "established": "1. jan. 2024",
     "establishedYear": 2024,
     "directPredecessors": [
@@ -11962,6 +12859,7 @@
     "areaKm2": 213.95,
     "languageForm": "bokmål",
     "wikipediaUrl": "https://no.wikipedia.org/wiki/Siljan",
+    "websiteUrl": "http://www.siljan.kommune.no/",
     "established": "1. jan. 2024",
     "establishedYear": 2024,
     "historicalNames": [
@@ -12024,6 +12922,7 @@
     "areaKm2": 304.38,
     "languageForm": "nøytral",
     "wikipediaUrl": "https://no.wikipedia.org/wiki/Bamble",
+    "websiteUrl": "https://www.bamble.kommune.no/",
     "established": "1. jan. 2024",
     "establishedYear": 2024,
     "directPredecessors": [
@@ -12090,6 +12989,7 @@
     "areaKm2": 305.47,
     "languageForm": "nøytral",
     "wikipediaUrl": "https://no.wikipedia.org/wiki/Krager%C3%B8",
+    "websiteUrl": "https://www.kragero.kommune.no",
     "established": "1. jan. 2024",
     "establishedYear": 2024,
     "directPredecessors": [
@@ -12156,6 +13056,7 @@
     "areaKm2": 1062.77,
     "languageForm": "nøytral",
     "wikipediaUrl": "https://no.wikipedia.org/wiki/Drangedal",
+    "websiteUrl": "http://www.drangedal.kommune.no/",
     "established": "1. jan. 2024",
     "establishedYear": 2024,
     "directPredecessors": [
@@ -12191,6 +13092,7 @@
     "areaKm2": 429.67,
     "languageForm": "nøytral",
     "wikipediaUrl": "https://no.wikipedia.org/wiki/Nome",
+    "websiteUrl": "https://www.nome.kommune.no/",
     "established": "1. jan. 2024",
     "establishedYear": 2024,
     "directPredecessors": [
@@ -12303,6 +13205,7 @@
     "areaKm2": 715.08,
     "languageForm": "nynorsk",
     "wikipediaUrl": "https://no.wikipedia.org/wiki/Seljord",
+    "websiteUrl": "https://www.seljord.kommune.no/",
     "established": "1. jan. 2024",
     "establishedYear": 2024,
     "directPredecessors": [
@@ -12338,6 +13241,7 @@
     "areaKm2": 791.61,
     "languageForm": "nynorsk",
     "wikipediaUrl": "https://no.wikipedia.org/wiki/Hjartdal",
+    "websiteUrl": "https://www.hjartdal.kommune.no/",
     "established": "1. jan. 2024",
     "establishedYear": 2024,
     "directPredecessors": [
@@ -12430,6 +13334,7 @@
     "areaKm2": 708.47,
     "languageForm": "nynorsk",
     "wikipediaUrl": "https://no.wikipedia.org/wiki/Kviteseid",
+    "websiteUrl": "https://www.kviteseid.kommune.no/",
     "established": "1. jan. 2024",
     "establishedYear": 2024,
     "directPredecessors": [
@@ -12465,6 +13370,7 @@
     "areaKm2": 905.17,
     "languageForm": "nynorsk",
     "wikipediaUrl": "https://no.wikipedia.org/wiki/Nissedal",
+    "websiteUrl": "https://www.nissedal.kommune.no/",
     "established": "1. jan. 2024",
     "establishedYear": 2024,
     "directPredecessors": [
@@ -12500,6 +13406,7 @@
     "areaKm2": 1280.02,
     "languageForm": "nynorsk",
     "wikipediaUrl": "https://no.wikipedia.org/wiki/Fyresdal",
+    "websiteUrl": "https://www.fyresdal.kommune.no/",
     "established": "1. jan. 2024",
     "establishedYear": 2024,
     "directPredecessors": [
@@ -12535,6 +13442,7 @@
     "areaKm2": 984.58,
     "languageForm": "nynorsk",
     "wikipediaUrl": "https://no.wikipedia.org/wiki/Tokke",
+    "websiteUrl": "https://www.tokke.kommune.no/",
     "established": "1. jan. 2024",
     "establishedYear": 2024,
     "directPredecessors": [
@@ -12612,6 +13520,7 @@
     "areaKm2": 3105.84,
     "languageForm": "nynorsk",
     "wikipediaUrl": "https://no.wikipedia.org/wiki/Vinje",
+    "websiteUrl": "https://www.vinje.kommune.no/",
     "established": "1. jan. 2024",
     "establishedYear": 2024,
     "directPredecessors": [
@@ -12669,6 +13578,7 @@
     "areaKm2": 192.97,
     "languageForm": "nøytral",
     "wikipediaUrl": "https://no.wikipedia.org/wiki/Ris%C3%B8r",
+    "websiteUrl": "https://www.risor.kommune.no",
     "established": "1. jan. 2020",
     "establishedYear": 2020,
     "historicalNames": [
@@ -12758,6 +13668,7 @@
     "areaKm2": 303.58,
     "languageForm": "bokmål",
     "wikipediaUrl": "https://no.wikipedia.org/wiki/Grimstad",
+    "websiteUrl": "https://www.grimstad.kommune.no/",
     "established": "1. jan. 2020",
     "establishedYear": 2020,
     "historicalNames": [
@@ -12860,6 +13771,7 @@
     "areaKm2": 270.2,
     "languageForm": "bokmål",
     "wikipediaUrl": "https://no.wikipedia.org/wiki/Arendal",
+    "websiteUrl": "https://www.arendal.kommune.no/",
     "established": "1. jan. 2020",
     "establishedYear": 2020,
     "directPredecessors": [
@@ -12992,6 +13904,7 @@
     "areaKm2": 644.62,
     "languageForm": "nøytral",
     "wikipediaUrl": "https://no.wikipedia.org/wiki/Kristiansand",
+    "websiteUrl": "https://www.kristiansand.kommune.no/",
     "established": "1. jan. 2020",
     "establishedYear": 2020,
     "directPredecessors": [
@@ -13112,6 +14025,7 @@
     "areaKm2": 933.56,
     "languageForm": "bokmål",
     "wikipediaUrl": "https://no.wikipedia.org/wiki/Lindesnes",
+    "websiteUrl": "https://www.lindesnes.kommune.no/",
     "established": "1. jan. 2020",
     "establishedYear": 2020,
     "historicalNames": [
@@ -13297,6 +14211,7 @@
     "areaKm2": 262.56,
     "languageForm": "bokmål",
     "wikipediaUrl": "https://no.wikipedia.org/wiki/Farsund",
+    "websiteUrl": "https://www.farsund.kommune.no/",
     "established": "1. jan. 2020",
     "establishedYear": 2020,
     "prehistory": "Farsund utskilt fra Vanse 1948 Ladested 28. jan. 1795 Formannskap X.3",
@@ -13407,6 +14322,7 @@
     "areaKm2": 544.09,
     "languageForm": "bokmål",
     "wikipediaUrl": "https://no.wikipedia.org/wiki/Flekkefjord",
+    "websiteUrl": "https://www.flekkefjord.kommune.no/",
     "established": "1. jan. 2020",
     "establishedYear": 2020,
     "prehistory": "Flekkefjord † utskilt fra Lund 1820 Ladested 21. sep. 1660 Kjøpstad 8. aug. 1842 Formannskap X.4",
@@ -13530,6 +14446,7 @@
     "areaKm2": 322.13,
     "languageForm": "nøytral",
     "wikipediaUrl": "https://no.wikipedia.org/wiki/Gjerstad",
+    "websiteUrl": "https://www.gjerstad.kommune.no/",
     "established": "1. jan. 2020",
     "establishedYear": 2020,
     "directPredecessors": [
@@ -13565,6 +14482,7 @@
     "areaKm2": 355.65,
     "languageForm": "nøytral",
     "wikipediaUrl": "https://no.wikipedia.org/wiki/Veg%C3%A5rshei",
+    "websiteUrl": "https://www.vegarshei.kommune.no/",
     "established": "1. jan. 2020",
     "establishedYear": 2020,
     "prehistory": "Annekssogn † til Gierrestad 1828 Riisland tinglag Formannskap IX.17",
@@ -13623,6 +14541,7 @@
     "areaKm2": 215.04,
     "languageForm": "bokmål",
     "wikipediaUrl": "https://no.wikipedia.org/wiki/Tvedestrand",
+    "websiteUrl": "https://www.tvedestrand.kommune.no/",
     "established": "1. jan. 2020",
     "establishedYear": 2020,
     "directPredecessors": [
@@ -13689,6 +14608,7 @@
     "areaKm2": 644.54,
     "languageForm": "nøytral",
     "wikipediaUrl": "https://no.wikipedia.org/wiki/Froland",
+    "websiteUrl": "https://www.froland.kommune.no/",
     "established": "1. jan. 2020",
     "establishedYear": 2020,
     "historicalNames": [
@@ -13778,6 +14698,7 @@
     "areaKm2": 190.31,
     "languageForm": "bokmål",
     "wikipediaUrl": "https://no.wikipedia.org/wiki/Lillesand",
+    "websiteUrl": "https://www.lillesand.kommune.no/",
     "established": "1. jan. 2020",
     "establishedYear": 2020,
     "directPredecessors": [
@@ -13844,6 +14765,7 @@
     "areaKm2": 637.36,
     "languageForm": "nøytral",
     "wikipediaUrl": "https://no.wikipedia.org/wiki/Birkenes",
+    "websiteUrl": "https://www.birkenes.kommune.no/",
     "established": "1. jan. 2020",
     "establishedYear": 2020,
     "prehistory": "Birkenes † utskilt fra Tvedt i Lister og Mandal amt 1905 Sand tinglag Formannskap IX.13",
@@ -13941,6 +14863,7 @@
     "areaKm2": 1130.61,
     "languageForm": "nynorsk",
     "wikipediaUrl": "https://no.wikipedia.org/wiki/%C3%85mli",
+    "websiteUrl": "https://www.amli.kommune.no/",
     "established": "1. jan. 2020",
     "establishedYear": 2020,
     "prehistory": "Omblie ‡ i 1837 Riisland tinglag Formannskap IX.16",
@@ -14049,6 +14972,7 @@
     "areaKm2": 261.63,
     "languageForm": "nøytral",
     "wikipediaUrl": "https://no.wikipedia.org/wiki/Iveland",
+    "websiteUrl": "https://www.iveland.kommune.no/",
     "established": "1. jan. 2020",
     "establishedYear": 2020,
     "directPredecessors": [
@@ -14183,6 +15107,7 @@
     "areaKm2": 1311.74,
     "languageForm": "nynorsk",
     "wikipediaUrl": "https://no.wikipedia.org/wiki/Bygland",
+    "websiteUrl": "https://www.bygland.kommune.no/",
     "established": "1. jan. 2020",
     "establishedYear": 2020,
     "prehistory": "Bygland ‡ i 1837 Ose tinglag Formannskap IX.22",
@@ -14241,6 +15166,7 @@
     "areaKm2": 1265.26,
     "languageForm": "nynorsk",
     "wikipediaUrl": "https://no.wikipedia.org/wiki/Valle",
+    "websiteUrl": "https://www.valle.kommune.no/",
     "established": "1. jan. 2020",
     "establishedYear": 2020,
     "prehistory": "Valle ‡ i 1837 Valle tinglag Formannskap IX.23",
@@ -14325,6 +15251,7 @@
     "areaKm2": 1467.1,
     "languageForm": "nynorsk",
     "wikipediaUrl": "https://no.wikipedia.org/wiki/Bykle",
+    "websiteUrl": "https://www.bykle.kommune.no/",
     "established": "1. jan. 2020",
     "establishedYear": 2020,
     "historicalNames": [
@@ -14388,6 +15315,7 @@
     "areaKm2": 384.47,
     "languageForm": "nøytral",
     "wikipediaUrl": "https://no.wikipedia.org/wiki/Vennesla",
+    "websiteUrl": "https://www.vennesla.kommune.no/",
     "established": "1. jan. 2020",
     "establishedYear": 2020,
     "historicalNames": [
@@ -14490,6 +15418,7 @@
     "areaKm2": 887.51,
     "languageForm": "nynorsk",
     "wikipediaUrl": "https://no.wikipedia.org/wiki/%C3%85seral",
+    "websiteUrl": "https://aseral.kommune.no",
     "established": "1. jan. 2020",
     "establishedYear": 2020,
     "historicalNames": [
@@ -14553,6 +15482,7 @@
     "areaKm2": 642.79,
     "languageForm": "nøytral",
     "wikipediaUrl": "https://no.wikipedia.org/wiki/Lyngdal",
+    "websiteUrl": "https://www.lyngdal.kommune.no/",
     "established": "1. jan. 2020",
     "establishedYear": 2020,
     "prehistory": "Lyngdal ‡ i 1837 Berg tinglag Formannskap X.15",
@@ -14682,6 +15612,7 @@
     "areaKm2": 461.32,
     "languageForm": "nynorsk",
     "wikipediaUrl": "https://no.wikipedia.org/wiki/H%C3%A6gebostad",
+    "websiteUrl": "https://www.haegebostad.kommune.no/",
     "established": "1. jan. 2020",
     "establishedYear": 2020,
     "historicalNames": [
@@ -14771,6 +15702,7 @@
     "areaKm2": 963.21,
     "languageForm": "nøytral",
     "wikipediaUrl": "https://no.wikipedia.org/wiki/Kvinesdal",
+    "websiteUrl": "https://www.kvinesdal.kommune.no/",
     "established": "1. jan. 2020",
     "establishedYear": 2020,
     "historicalNames": [
@@ -14865,6 +15797,7 @@
     "areaKm2": 1554.28,
     "languageForm": "nøytral",
     "wikipediaUrl": "https://no.wikipedia.org/wiki/Sirdal",
+    "websiteUrl": "https://www.sirdal.kommune.no/",
     "established": "1. jan. 2020",
     "establishedYear": 2020,
     "historicalNames": [
@@ -15141,6 +16074,7 @@
     "areaKm2": 811.86,
     "languageForm": "nynorsk",
     "wikipediaUrl": "https://no.wikipedia.org/wiki/Kinn",
+    "websiteUrl": "https://kinn.kommune.no/",
     "established": "1. jan. 2020",
     "establishedYear": 2020,
     "historicalNames": [
@@ -15278,6 +16212,7 @@
     "areaKm2": 735.28,
     "languageForm": "nynorsk",
     "wikipediaUrl": "https://no.wikipedia.org/wiki/Etne",
+    "websiteUrl": "https://www.etne.kommune.no/",
     "established": "1. jan. 2020",
     "establishedYear": 2020,
     "prehistory": "Etne ‡ i 1837 Etne tinglag Formannskap XII.1",
@@ -15340,6 +16275,7 @@
     "areaKm2": 246.15,
     "languageForm": "nynorsk",
     "wikipediaUrl": "https://no.wikipedia.org/wiki/Sveio",
+    "websiteUrl": "https://www.sveio.kommune.no",
     "established": "1. jan. 2020",
     "establishedYear": 2020,
     "historicalNames": [
@@ -15441,6 +16377,7 @@
     "areaKm2": 246.57,
     "languageForm": "nynorsk",
     "wikipediaUrl": "https://no.wikipedia.org/wiki/B%C3%B8mlo",
+    "websiteUrl": "https://www.bomlo.kommune.no/",
     "established": "1. jan. 2020",
     "establishedYear": 2020,
     "historicalNames": [
@@ -15563,6 +16500,7 @@
     "areaKm2": 143.72,
     "languageForm": "nynorsk",
     "wikipediaUrl": "https://no.wikipedia.org/wiki/Stord",
+    "websiteUrl": "https://www.stord.kommune.no/",
     "established": "1. jan. 2020",
     "establishedYear": 2020,
     "prehistory": "Stordø ‡ i 1837 Føyen tinglag Formannskap XII.6",
@@ -15625,6 +16563,7 @@
     "areaKm2": 142.47,
     "languageForm": "nynorsk",
     "wikipediaUrl": "https://no.wikipedia.org/wiki/Fitjar",
+    "websiteUrl": "http://www.fitjar.kommune.no/",
     "established": "1. jan. 2020",
     "establishedYear": 2020,
     "historicalNames": [
@@ -15692,6 +16631,7 @@
     "areaKm2": 255.12,
     "languageForm": "nynorsk",
     "wikipediaUrl": "https://no.wikipedia.org/wiki/Tysnes",
+    "websiteUrl": "https://www.tysnes.kommune.no/",
     "established": "1. jan. 2020",
     "establishedYear": 2020,
     "prehistory": "Tysnes ‡ i 1837 Opdal tinglag Formannskap XII.7",
@@ -15750,6 +16690,7 @@
     "areaKm2": 1090.74,
     "languageForm": "nynorsk",
     "wikipediaUrl": "https://no.wikipedia.org/wiki/Kvinnherad",
+    "websiteUrl": "https://www.kvinnherad.kommune.no/",
     "established": "1. jan. 2020",
     "establishedYear": 2020,
     "prehistory": "Qvindherred ‡ i 1837 Qvindherred tinglag Formannskap XII.9",
@@ -15842,6 +16783,7 @@
     "areaKm2": 3229.89,
     "languageForm": "nynorsk",
     "wikipediaUrl": "https://no.wikipedia.org/wiki/Ullensvang",
+    "websiteUrl": "https://ullensvang.kommune.no/",
     "established": "1. jan. 2020",
     "establishedYear": 2020,
     "historicalNames": [
@@ -15987,6 +16929,7 @@
     "areaKm2": 1498.24,
     "languageForm": "nynorsk",
     "wikipediaUrl": "https://no.wikipedia.org/wiki/Eidfjord",
+    "websiteUrl": "https://www.eidfjord.kommune.no/",
     "established": "1. jan. 2020",
     "establishedYear": 2020,
     "historicalNames": [
@@ -16054,6 +16997,7 @@
     "areaKm2": 722,
     "languageForm": "nynorsk",
     "wikipediaUrl": "https://no.wikipedia.org/wiki/Ulvik",
+    "websiteUrl": "https://www.ulvik.kommune.no/",
     "established": "1. jan. 2020",
     "establishedYear": 2020,
     "prehistory": "Ulvik ‡ i 1837 Graven tinglag Formannskap XII.12",
@@ -16120,6 +17064,7 @@
     "areaKm2": 2041.96,
     "languageForm": "nynorsk",
     "wikipediaUrl": "https://no.wikipedia.org/wiki/Voss",
+    "websiteUrl": "https://voss.herad.no",
     "established": "1. jan. 2020",
     "establishedYear": 2020,
     "prehistory": "Voss ‡ i 1837 Vangen tinglag Formannskap XII.26",
@@ -16244,6 +17189,7 @@
     "areaKm2": 616.95,
     "languageForm": "nynorsk",
     "wikipediaUrl": "https://no.wikipedia.org/wiki/Kvam",
+    "websiteUrl": "https://www.kvam.no/",
     "established": "1. jan. 2020",
     "establishedYear": 2020,
     "prehistory": "Vigøer ‡ i 1837 Østensø tinglag Formannskap XII.11",
@@ -16336,6 +17282,7 @@
     "areaKm2": 269.06,
     "languageForm": "nynorsk",
     "wikipediaUrl": "https://no.wikipedia.org/wiki/Samnanger",
+    "websiteUrl": "https://www.samnanger.kommune.no/",
     "established": "1. jan. 2020",
     "establishedYear": 2020,
     "historicalNames": [
@@ -16520,6 +17467,7 @@
     "areaKm2": 117.22,
     "languageForm": "nynorsk",
     "wikipediaUrl": "https://no.wikipedia.org/wiki/Austevoll",
+    "websiteUrl": "https://www.austevoll.kommune.no/",
     "established": "1. jan. 2020",
     "establishedYear": 2020,
     "historicalNames": [
@@ -16573,6 +17521,7 @@
     "areaKm2": 314.52,
     "languageForm": "nynorsk",
     "wikipediaUrl": "https://no.wikipedia.org/wiki/%C3%98ygarden",
+    "websiteUrl": "http://www.nyeoygardenkommune.no/",
     "established": "1. jan. 2020",
     "establishedYear": 2020,
     "historicalNames": [
@@ -16714,6 +17663,7 @@
     "areaKm2": 101.1,
     "languageForm": "nøytral",
     "wikipediaUrl": "https://no.wikipedia.org/wiki/Ask%C3%B8y",
+    "websiteUrl": "https://askoy.kommune.no/",
     "established": "1. jan. 2020",
     "establishedYear": 2020,
     "historicalNames": [
@@ -16785,6 +17735,7 @@
     "areaKm2": 715.37,
     "languageForm": "nynorsk",
     "wikipediaUrl": "https://no.wikipedia.org/wiki/Vaksdal",
+    "websiteUrl": "https://www.vaksdal.kommune.no/",
     "established": "1. jan. 2020",
     "establishedYear": 2020,
     "historicalNames": [
@@ -16852,6 +17803,7 @@
     "areaKm2": 411.98,
     "languageForm": "nynorsk",
     "wikipediaUrl": "https://no.wikipedia.org/wiki/Modalen",
+    "websiteUrl": "https://www.modalen.kommune.no/",
     "established": "1. jan. 2020",
     "establishedYear": 2020,
     "historicalNames": [
@@ -16923,6 +17875,7 @@
     "areaKm2": 255.11,
     "languageForm": "nynorsk",
     "wikipediaUrl": "https://no.wikipedia.org/wiki/Oster%C3%B8y",
+    "websiteUrl": "https://www.osteroy.kommune.no/",
     "established": "1. jan. 2020",
     "establishedYear": 2020,
     "historicalNames": [
@@ -16976,6 +17929,7 @@
     "areaKm2": 679.15,
     "languageForm": "nynorsk",
     "wikipediaUrl": "https://no.wikipedia.org/wiki/Alver",
+    "websiteUrl": "https://alver.kommune.no",
     "established": "1. jan. 2020",
     "establishedYear": 2020,
     "historicalNames": [
@@ -17129,6 +18083,7 @@
     "areaKm2": 57.54,
     "languageForm": "nynorsk",
     "wikipediaUrl": "https://no.wikipedia.org/wiki/Austrheim",
+    "websiteUrl": "https://www.austrheim.kommune.no/",
     "established": "1. jan. 2020",
     "establishedYear": 2020,
     "historicalNames": [
@@ -17192,6 +18147,7 @@
     "areaKm2": 9.27,
     "languageForm": "nynorsk",
     "wikipediaUrl": "https://no.wikipedia.org/wiki/Fedje",
+    "websiteUrl": "http://www.fedje.kommune.no/",
     "established": "1. jan. 2020",
     "establishedYear": 2020,
     "directPredecessors": [
@@ -17227,6 +18183,7 @@
     "areaKm2": 556.08,
     "languageForm": "nynorsk",
     "wikipediaUrl": "https://no.wikipedia.org/wiki/Masfjorden",
+    "websiteUrl": "https://www.masfjorden.kommune.no/",
     "established": "1. jan. 2020",
     "establishedYear": 2020,
     "directPredecessors": [
@@ -17262,6 +18219,7 @@
     "areaKm2": 599.41,
     "languageForm": "nynorsk",
     "wikipediaUrl": "https://no.wikipedia.org/wiki/Gulen",
+    "websiteUrl": "https://www.gulen.kommune.no/",
     "established": "1. jan. 2020",
     "establishedYear": 2020,
     "directPredecessors": [
@@ -17319,6 +18277,7 @@
     "areaKm2": 228.21,
     "languageForm": "nynorsk",
     "wikipediaUrl": "https://no.wikipedia.org/wiki/Solund",
+    "websiteUrl": "https://www.solund.kommune.no/",
     "established": "1. jan. 2020",
     "establishedYear": 2020,
     "historicalNames": [
@@ -17386,6 +18345,7 @@
     "areaKm2": 258.9,
     "languageForm": "nynorsk",
     "wikipediaUrl": "https://no.wikipedia.org/wiki/Hyllestad",
+    "websiteUrl": "https://www.hyllestad.kommune.no/",
     "established": "1. jan. 2020",
     "establishedYear": 2020,
     "historicalNames": [
@@ -17449,6 +18409,7 @@
     "areaKm2": 1000.92,
     "languageForm": "nynorsk",
     "wikipediaUrl": "https://no.wikipedia.org/wiki/H%C3%B8yanger",
+    "websiteUrl": "https://www.hoyanger.kommune.no/",
     "established": "1. jan. 2020",
     "establishedYear": 2020,
     "historicalNames": [
@@ -17562,6 +18523,7 @@
     "areaKm2": 833.21,
     "languageForm": "nynorsk",
     "wikipediaUrl": "https://no.wikipedia.org/wiki/Vik",
+    "websiteUrl": "https://www.vik.kommune.no/",
     "established": "1. jan. 2020",
     "establishedYear": 2020,
     "prehistory": "Vig ‡ i 1837 Vig tinglag Formannskap XIV.8",
@@ -17624,6 +18586,7 @@
     "areaKm2": 1257.84,
     "languageForm": "nynorsk",
     "wikipediaUrl": "https://no.wikipedia.org/wiki/Sogndal",
+    "websiteUrl": "https://www.sogndal.kommune.no/",
     "established": "1. jan. 2020",
     "establishedYear": 2020,
     "prehistory": "Sogndal ‡ i 1837 Sogndal tinglag Formannskap XIV.5",
@@ -17733,6 +18696,7 @@
     "areaKm2": 1467.69,
     "languageForm": "nynorsk",
     "wikipediaUrl": "https://no.wikipedia.org/wiki/Aurland",
+    "websiteUrl": "https://aurland.kommune.no/",
     "established": "1. jan. 2020",
     "establishedYear": 2020,
     "prehistory": "Urland ‡ i 1837 Urland tinglag Formannskap XIV.6",
@@ -17791,6 +18755,7 @@
     "areaKm2": 1342.52,
     "languageForm": "nynorsk",
     "wikipediaUrl": "https://no.wikipedia.org/wiki/L%C3%A6rdal",
+    "websiteUrl": "https://www.laerdal.kommune.no/",
     "established": "1. jan. 2020",
     "establishedYear": 2020,
     "prehistory": "Leirdal ‡ i 1837 Leirdal tinglag Formannskap XIV.1",
@@ -17879,6 +18844,7 @@
     "areaKm2": 976.58,
     "languageForm": "nynorsk",
     "wikipediaUrl": "https://no.wikipedia.org/wiki/%C3%85rdal",
+    "websiteUrl": "https://www.ardal.kommune.no/",
     "established": "1. jan. 2020",
     "establishedYear": 2020,
     "historicalNames": [
@@ -17946,6 +18912,7 @@
     "areaKm2": 2706.35,
     "languageForm": "nynorsk",
     "wikipediaUrl": "https://no.wikipedia.org/wiki/Luster",
+    "websiteUrl": "https://www.luster.kommune.no/",
     "established": "1. jan. 2020",
     "establishedYear": 2020,
     "prehistory": "Lyster ‡ i 1837 Lyster tinglag Formannskap XIV.3",
@@ -18043,6 +19010,7 @@
     "areaKm2": 326.24,
     "languageForm": "nynorsk",
     "wikipediaUrl": "https://no.wikipedia.org/wiki/Askvoll",
+    "websiteUrl": "https://www.askvoll.kommune.no/",
     "established": "1. jan. 2020",
     "establishedYear": 2020,
     "prehistory": "Askevold ‡ i 1837 Askevold tinglag Formannskap XIV.11",
@@ -18091,6 +19059,7 @@
     "areaKm2": 416.59,
     "languageForm": "nynorsk",
     "wikipediaUrl": "https://no.wikipedia.org/wiki/Fjaler",
+    "websiteUrl": "https://www.fjaler.kommune.no/",
     "established": "1. jan. 2020",
     "establishedYear": 2020,
     "historicalNames": [
@@ -18327,6 +19296,7 @@
     "areaKm2": 833.12,
     "languageForm": "nynorsk",
     "wikipediaUrl": "https://no.wikipedia.org/wiki/Bremanger",
+    "websiteUrl": "https://bremanger.kommune.no/",
     "established": "1. jan. 2020",
     "establishedYear": 2020,
     "historicalNames": [
@@ -18519,6 +19489,7 @@
     "areaKm2": 1030.53,
     "languageForm": "nynorsk",
     "wikipediaUrl": "https://no.wikipedia.org/wiki/Gloppen",
+    "websiteUrl": "https://gloppen.kommune.no/",
     "established": "1. jan. 2020",
     "establishedYear": 2020,
     "prehistory": "Gloppen ‡ i 1837 Gloppen tinglag Formannskap XIV.21",
@@ -18599,6 +19570,7 @@
     "areaKm2": 1382.02,
     "languageForm": "nynorsk",
     "wikipediaUrl": "https://no.wikipedia.org/wiki/Stryn",
+    "websiteUrl": "https://stryn.kommune.no/",
     "established": "1. jan. 2020",
     "establishedYear": 2020,
     "directPredecessors": [
@@ -18656,6 +19628,7 @@
     "areaKm2": 528.6,
     "languageForm": "nøytral",
     "wikipediaUrl": "https://no.wikipedia.org/wiki/Trondheim",
+    "websiteUrl": "https://www.trondheim.no/",
     "established": "1. jan. 2018",
     "establishedYear": 2018,
     "historicalNames": [
@@ -18692,12 +19665,83 @@
         "name": "Bispesete"
       }
     ],
+    "predecessors": [
+      {
+        "id": "hist-mun-1655-byneset",
+        "name": "Byneset",
+        "number": "1655",
+        "validFrom": 1838,
+        "validTo": 1964,
+        "changeType": "merged",
+        "notes": "Slått sammen med Leinstrand , Tiller , Trondheim og Strinda ."
+      },
+      {
+        "id": "hist-mun-1654-leinstrand",
+        "name": "Leinstrand",
+        "number": "1654",
+        "validFrom": 1838,
+        "validTo": 1964,
+        "changeType": "merged",
+        "notes": "Slått sammen med Byneset , Tiller , Trondheim og Strinda ."
+      },
+      {
+        "id": "hist-mun-1660-strinda",
+        "name": "Strinda",
+        "number": "1660",
+        "validFrom": 1838,
+        "validTo": 1964,
+        "changeType": "merged",
+        "notes": "Slått sammen med Leinstrand , Tiller , Trondheim og Byneset ."
+      },
+      {
+        "id": "hist-mun-5030-klaebu",
+        "name": "Klæbu",
+        "number": "5030",
+        "validFrom": 1838,
+        "validTo": 2020,
+        "changeType": "merged",
+        "notes": "Slått sammen med Trondheim"
+      }
+    ],
     "timeline": [
       {
         "year": 1838,
         "date": "1. jan. 1838",
         "type": "established",
         "description": "Trondhjem  Nidaros Trondheim opprettet 1. jan. 1838"
+      },
+      {
+        "year": 1964,
+        "type": "merged",
+        "description": "Slått sammen med Leinstrand , Tiller , Trondheim og Strinda .",
+        "entities": [
+          {
+            "number": "1655",
+            "name": "Byneset"
+          }
+        ]
+      },
+      {
+        "year": 1964,
+        "type": "merged",
+        "description": "Slått sammen med Byneset , Tiller , Trondheim og Strinda .",
+        "entities": [
+          {
+            "number": "1654",
+            "name": "Leinstrand"
+          }
+        ]
+      },
+      {
+        "year": 1964,
+        "type": "merged",
+        "description": "Slått sammen med Leinstrand , Tiller , Trondheim og Byneset .",
+        "entities": [
+          {
+            "number": "1660",
+            "name": "Strinda"
+          }
+        ]
       },
       {
         "year": 2018,
@@ -18709,6 +19753,17 @@
             "number": "1601",
             "name": "Trondheim"
           },
+          {
+            "number": "5030",
+            "name": "Klæbu"
+          }
+        ]
+      },
+      {
+        "year": 2020,
+        "type": "merged",
+        "description": "Slått sammen med Trondheim",
+        "entities": [
           {
             "number": "5030",
             "name": "Klæbu"
@@ -18755,6 +19810,7 @@
     "areaKm2": 2122.06,
     "languageForm": "nøytral",
     "wikipediaUrl": "https://no.wikipedia.org/wiki/Steinkjer",
+    "websiteUrl": "https://www.steinkjer.kommune.no/",
     "established": "1. jan. 2020",
     "establishedYear": 2020,
     "historicalNames": [
@@ -18778,7 +19834,78 @@
         "name": "Steinkjer"
       }
     ],
+    "predecessors": [
+      {
+        "id": "hist-mun-1727-beitstad",
+        "name": "Beitstad",
+        "number": "1727",
+        "validFrom": 1838,
+        "validTo": 1964,
+        "changeType": "merged",
+        "notes": "Slått sammen med Egge , Kvam , Sparbu , Steinkjer , Stod og Ogndal ."
+      },
+      {
+        "id": "hist-mun-1731-sparbu",
+        "name": "Sparbu",
+        "number": "1731",
+        "validFrom": 1838,
+        "validTo": 1964,
+        "changeType": "merged",
+        "notes": "Slått sammen med Beitstad , Egge , Kvam , Steinkjer , Stod og Ogndal ."
+      },
+      {
+        "id": "hist-mun-1734-stod",
+        "name": "Stod",
+        "number": "1734",
+        "validFrom": 1838,
+        "validTo": 1964,
+        "changeType": "merged",
+        "notes": "Slått sammen med Beitstad , Egge , Kvam , Sparbu , Steinkjer og Ogndal ."
+      },
+      {
+        "id": "hist-mun-5039-verran",
+        "name": "Verran",
+        "number": "5039",
+        "validFrom": 1901,
+        "validTo": 2020,
+        "changeType": "incorporated",
+        "notes": "Innlemmet i Steinkjer"
+      }
+    ],
     "timeline": [
+      {
+        "year": 1964,
+        "type": "merged",
+        "description": "Slått sammen med Egge , Kvam , Sparbu , Steinkjer , Stod og Ogndal .",
+        "entities": [
+          {
+            "number": "1727",
+            "name": "Beitstad"
+          }
+        ]
+      },
+      {
+        "year": 1964,
+        "type": "merged",
+        "description": "Slått sammen med Beitstad , Egge , Kvam , Steinkjer , Stod og Ogndal .",
+        "entities": [
+          {
+            "number": "1731",
+            "name": "Sparbu"
+          }
+        ]
+      },
+      {
+        "year": 1964,
+        "type": "merged",
+        "description": "Slått sammen med Beitstad , Egge , Kvam , Sparbu , Steinkjer og Ogndal .",
+        "entities": [
+          {
+            "number": "1734",
+            "name": "Stod"
+          }
+        ]
+      },
       {
         "year": 2018,
         "date": "1. jan. 2018",
@@ -18798,6 +19925,17 @@
           {
             "number": "5039",
             "name": "Verran (del av)"
+          }
+        ]
+      },
+      {
+        "year": 2020,
+        "type": "incorporated",
+        "description": "Innlemmet i Steinkjer",
+        "entities": [
+          {
+            "number": "5039",
+            "name": "Verran"
           }
         ]
       },
@@ -18825,6 +19963,7 @@
     "areaKm2": 2132.36,
     "languageForm": "nøytral",
     "wikipediaUrl": "https://no.wikipedia.org/wiki/Namsos",
+    "websiteUrl": "https://namsos.kommune.no/",
     "established": "1. jan. 2020",
     "establishedYear": 2020,
     "directPredecessors": [
@@ -18841,7 +19980,56 @@
         "name": "Fosnes"
       }
     ],
+    "predecessors": [
+      {
+        "id": "hist-mun-1746-klinga",
+        "name": "Klinga",
+        "number": "1746",
+        "validFrom": 1891,
+        "validTo": 1964,
+        "changeType": "incorporated",
+        "notes": "Innlemmet i Namsos"
+      },
+      {
+        "id": "hist-mun-1745-vemundvik",
+        "name": "Vemundvik",
+        "number": "1745",
+        "validFrom": 1891,
+        "validTo": 1964,
+        "changeType": "incorporated",
+        "notes": "Innlemmet i Namsos"
+      },
+      {
+        "id": "hist-mun-5048-fosnes",
+        "name": "Fosnes",
+        "number": "5048",
+        "validFrom": 1838,
+        "validTo": 2020,
+        "changeType": "incorporated",
+        "notes": "Innlemmet i Namsos"
+      },
+      {
+        "id": "hist-mun-5040-namdalseid",
+        "name": "Namdalseid",
+        "number": "5040",
+        "validFrom": 1904,
+        "validTo": 2020,
+        "changeType": "incorporated",
+        "notes": "Innlemmet i Namsos"
+      }
+    ],
     "timeline": [
+      {
+        "year": 1964,
+        "type": "incorporated",
+        "description": "Innlemmet i Namsos",
+        "entities": [
+          {
+            "number": "1746",
+            "name": "Klinga"
+          }
+        ]
+      },
       {
         "year": 2020,
         "date": "1. jan. 2020",
@@ -18856,6 +20044,17 @@
             "number": "5040",
             "name": "Namdalseid"
           },
+          {
+            "number": "5048",
+            "name": "Fosnes"
+          }
+        ]
+      },
+      {
+        "year": 2020,
+        "type": "incorporated",
+        "description": "Innlemmet i Namsos",
+        "entities": [
           {
             "number": "5048",
             "name": "Fosnes"
@@ -18884,7 +20083,49 @@
         "name": "Frøya"
       }
     ],
+    "predecessors": [
+      {
+        "id": "hist-mun-1620-nord-froya",
+        "name": "Nord-Frøya",
+        "number": "1620",
+        "validFrom": 1906,
+        "validTo": 1964,
+        "changeType": "merged",
+        "notes": "Slått sammen med Sør-Frøya"
+      },
+      {
+        "id": "hist-mun-1619-sor-froya",
+        "name": "Sør-Frøya",
+        "number": "1619",
+        "validFrom": 1906,
+        "validTo": 1964,
+        "changeType": "merged",
+        "notes": "Slått sammen med Nord-Frøya"
+      }
+    ],
     "timeline": [
+      {
+        "year": 1964,
+        "type": "merged",
+        "description": "Slått sammen med Sør-Frøya",
+        "entities": [
+          {
+            "number": "1620",
+            "name": "Nord-Frøya"
+          }
+        ]
+      },
+      {
+        "year": 1964,
+        "type": "merged",
+        "description": "Slått sammen med Nord-Frøya",
+        "entities": [
+          {
+            "number": "1619",
+            "name": "Sør-Frøya"
+          }
+        ]
+      },
       {
         "year": 2018,
         "date": "1. jan. 2018",
@@ -18911,6 +20152,7 @@
     "areaKm2": 387.1,
     "languageForm": "bokmål",
     "wikipediaUrl": "https://no.wikipedia.org/wiki/Osen",
+    "websiteUrl": "https://www.osen.kommune.no",
     "established": "1. jan. 2018",
     "establishedYear": 2018,
     "historicalNames": [
@@ -18931,12 +20173,34 @@
         "name": "Bjørnør"
       }
     ],
+    "predecessors": [
+      {
+        "id": "hist-mun-1632-bjornor",
+        "name": "Bjørnør",
+        "number": "1632",
+        "validFrom": 1838,
+        "validTo": 1892,
+        "changeType": "split",
+        "notes": "Delt i tre"
+      }
+    ],
     "timeline": [
       {
         "year": 1892,
         "date": "1. juni 1892",
         "type": "established",
         "description": "Osen opprettet 1. juni 1892"
+      },
+      {
+        "year": 1892,
+        "type": "split",
+        "description": "Delt i tre",
+        "entities": [
+          {
+            "number": "1632",
+            "name": "Bjørnør"
+          }
+        ]
       },
       {
         "year": 2018,
@@ -18974,6 +20238,7 @@
     "areaKm2": 2274.11,
     "languageForm": "nøytral",
     "wikipediaUrl": "https://no.wikipedia.org/wiki/Oppdal",
+    "websiteUrl": "https://www.oppdal.kommune.no/",
     "established": "1. jan. 2018",
     "establishedYear": 2018,
     "prehistory": "Opdal ‡ i 1837 Opdal tinglag Formannskap XVI.8",
@@ -19032,6 +20297,7 @@
     "areaKm2": 947.95,
     "languageForm": "nøytral",
     "wikipediaUrl": "https://no.wikipedia.org/wiki/Rennebu",
+    "websiteUrl": "https://www.rennebu.kommune.no/",
     "established": "1. jan. 2018",
     "establishedYear": 2018,
     "historicalNames": [
@@ -19121,6 +20387,7 @@
     "areaKm2": 1956.53,
     "languageForm": "nøytral",
     "wikipediaUrl": "https://no.wikipedia.org/wiki/R%C3%B8ros",
+    "websiteUrl": "https://roros.kommune.no/",
     "established": "1. jan. 2018",
     "establishedYear": 2018,
     "historicalNames": [
@@ -19200,6 +20467,7 @@
     "areaKm2": 1209.58,
     "languageForm": "nøytral",
     "wikipediaUrl": "https://no.wikipedia.org/wiki/Holt%C3%A5len",
+    "websiteUrl": "https://holtalen.kommune.no",
     "established": "1. jan. 2018",
     "establishedYear": 2018,
     "historicalNames": [
@@ -19275,12 +20543,54 @@
         "name": "Midtre Gauldal"
       }
     ],
+    "predecessors": [
+      {
+        "id": "hist-mun-1646-singsas",
+        "name": "Singsås",
+        "number": "1646",
+        "validFrom": 1841,
+        "validTo": 1964,
+        "changeType": "merged",
+        "notes": "Slått sammen med Budal , Soknedal og Støren"
+      },
+      {
+        "id": "hist-mun-1648-storen",
+        "name": "Støren",
+        "number": "1648",
+        "validFrom": 1838,
+        "validTo": 1964,
+        "changeType": "merged",
+        "notes": "Slått sammen med Budal , Singsås og Soknedal"
+      }
+    ],
     "timeline": [
       {
         "year": 1838,
         "date": "1. jan. 1838",
         "type": "established",
         "description": "Støren opprettet 1. jan. 1838"
+      },
+      {
+        "year": 1964,
+        "type": "merged",
+        "description": "Slått sammen med Budal , Soknedal og Støren",
+        "entities": [
+          {
+            "number": "1646",
+            "name": "Singsås"
+          }
+        ]
+      },
+      {
+        "year": 1964,
+        "type": "merged",
+        "description": "Slått sammen med Budal , Singsås og Soknedal",
+        "entities": [
+          {
+            "number": "1648",
+            "name": "Støren"
+          }
+        ]
       },
       {
         "year": 2018,
@@ -19326,6 +20636,7 @@
     "areaKm2": 694.41,
     "languageForm": "nøytral",
     "wikipediaUrl": "https://no.wikipedia.org/wiki/Melhus",
+    "websiteUrl": "https://www.melhus.kommune.no/",
     "established": "1. jan. 2018",
     "establishedYear": 2018,
     "prehistory": "Melhus ‡ i 1837 Melhuus tinglag Formannskap XVI.14",
@@ -19399,6 +20710,7 @@
     "areaKm2": 224.2,
     "languageForm": "nøytral",
     "wikipediaUrl": "https://no.wikipedia.org/wiki/Skaun",
+    "websiteUrl": "https://www.skaun.kommune.no/",
     "established": "1. jan. 2018",
     "establishedYear": 2018,
     "historicalNames": [
@@ -19419,12 +20731,34 @@
         "name": "Børsen"
       }
     ],
+    "predecessors": [
+      {
+        "id": "hist-mun-1658-borsa",
+        "name": "Børsa",
+        "number": "1658",
+        "validFrom": 1838,
+        "validTo": 1965,
+        "changeType": "merged",
+        "notes": "Slått sammen med Skaun og Buvik ."
+      }
+    ],
     "timeline": [
       {
         "year": 1890,
         "date": "1. jan. 1890",
         "type": "established",
         "description": "Børseskognen Skaun opprettet 1. jan. 1890"
+      },
+      {
+        "year": 1965,
+        "type": "merged",
+        "description": "Slått sammen med Skaun og Buvik .",
+        "entities": [
+          {
+            "number": "1658",
+            "name": "Børsa"
+          }
+        ]
       },
       {
         "year": 2018,
@@ -19462,6 +20796,7 @@
     "areaKm2": 168.43,
     "languageForm": "bokmål",
     "wikipediaUrl": "https://no.wikipedia.org/wiki/Malvik",
+    "websiteUrl": "https://www.malvik.kommune.no/",
     "established": "1. jan. 2018",
     "establishedYear": 2018,
     "historicalNames": [
@@ -19525,6 +20860,7 @@
     "areaKm2": 1234.84,
     "languageForm": "nøytral",
     "wikipediaUrl": "https://no.wikipedia.org/wiki/Selbu",
+    "websiteUrl": "https://www.selbu.kommune.no/",
     "established": "1. jan. 2018",
     "establishedYear": 2018,
     "prehistory": "Sælboe ‡ i 1837 Sælboe tinglag Formannskap XVI.20",
@@ -19587,6 +20923,7 @@
     "areaKm2": 1328.64,
     "languageForm": "bokmål",
     "wikipediaUrl": "https://no.wikipedia.org/wiki/Tydal",
+    "websiteUrl": "https://www.tydal.kommune.no/",
     "established": "1. jan. 2018",
     "establishedYear": 2018,
     "historicalNames": [
@@ -19650,6 +20987,7 @@
     "areaKm2": 1273.94,
     "languageForm": "bokmål",
     "wikipediaUrl": "https://no.wikipedia.org/wiki/Mer%C3%A5ker",
+    "websiteUrl": "https://www.meraker.kommune.no/",
     "established": "1. jan. 2018",
     "establishedYear": 2018,
     "directPredecessors": [
@@ -19658,7 +20996,29 @@
         "name": "Meråker"
       }
     ],
+    "predecessors": [
+      {
+        "id": "hist-mun-1711-ovre-stjordal",
+        "name": "Øvre Stjørdal",
+        "number": "1711",
+        "validFrom": 1850,
+        "validTo": 1874,
+        "changeType": "split",
+        "notes": "Delt i to"
+      }
+    ],
     "timeline": [
+      {
+        "year": 1874,
+        "type": "split",
+        "description": "Delt i to",
+        "entities": [
+          {
+            "number": "1711",
+            "name": "Øvre Stjørdal"
+          }
+        ]
+      },
       {
         "year": 2018,
         "date": "1. jan. 2018",
@@ -19685,6 +21045,7 @@
     "areaKm2": 938.27,
     "languageForm": "nøytral",
     "wikipediaUrl": "https://no.wikipedia.org/wiki/Stj%C3%B8rdal",
+    "websiteUrl": "https://www.stjordal.kommune.no/",
     "established": "1. jan. 2018",
     "establishedYear": 2018,
     "prehistory": "Størdalen ‡ i 1837 Størdalen tinglag Formannskap XVII.2",
@@ -19700,12 +21061,72 @@
         "name": "Stjørdal"
       }
     ],
+    "predecessors": [
+      {
+        "id": "hist-mun-1714-nedre-stjordal",
+        "name": "Nedre Stjørdal",
+        "number": "1714",
+        "validFrom": 1850,
+        "validTo": 1902,
+        "changeType": "split",
+        "notes": "Delt i tre"
+      },
+      {
+        "id": "hist-mun-1712-hegra",
+        "name": "Hegra",
+        "number": "1712",
+        "validFrom": 1874,
+        "validTo": 1962,
+        "changeType": "incorporated",
+        "notes": "Innlemmet i Stjørdal"
+      },
+      {
+        "id": "hist-mun-1713-lanke",
+        "name": "Lånke",
+        "number": "1713",
+        "validFrom": 1902,
+        "validTo": 1962,
+        "changeType": "incorporated",
+        "notes": "Innlemmet i Stjørdal"
+      },
+      {
+        "id": "hist-mun-1715-skatval",
+        "name": "Skatval",
+        "number": "1715",
+        "validFrom": 1902,
+        "validTo": 1962,
+        "changeType": "incorporated",
+        "notes": "Innlemmet i Stjørdal"
+      }
+    ],
     "timeline": [
       {
         "year": 1838,
         "date": "1. jan. 1838",
         "type": "established",
         "description": "Størdalen opprettet 1. jan. 1838"
+      },
+      {
+        "year": 1902,
+        "type": "split",
+        "description": "Delt i tre",
+        "entities": [
+          {
+            "number": "1714",
+            "name": "Nedre Stjørdal"
+          }
+        ]
+      },
+      {
+        "year": 1962,
+        "type": "incorporated",
+        "description": "Innlemmet i Stjørdal",
+        "entities": [
+          {
+            "number": "1712",
+            "name": "Hegra"
+          }
+        ]
       },
       {
         "year": 2018,
@@ -19755,6 +21176,7 @@
     "areaKm2": 76.32,
     "languageForm": "nøytral",
     "wikipediaUrl": "https://no.wikipedia.org/wiki/Frosta",
+    "websiteUrl": "https://www.frosta.kommune.no/",
     "established": "1. jan. 2018",
     "establishedYear": 2018,
     "directPredecessors": [
@@ -19790,6 +21212,7 @@
     "areaKm2": 645.8,
     "languageForm": "nøytral",
     "wikipediaUrl": "https://no.wikipedia.org/wiki/Levanger",
+    "websiteUrl": "https://www.levanger.kommune.no/",
     "established": "1. jan. 2018",
     "establishedYear": 2018,
     "prehistory": "Skogn ‡ i 1837 Skognen tinglag Formannskap XVII.6",
@@ -19805,12 +21228,52 @@
         "name": "Levanger"
       }
     ],
+    "predecessors": [
+      {
+        "id": "hist-mun-1720-frol",
+        "name": "Frol",
+        "number": "1720",
+        "validFrom": 1856,
+        "validTo": 1962,
+        "changeType": "incorporated",
+        "notes": "Innlemmet i Levanger"
+      },
+      {
+        "id": "hist-mun-1719-skogn",
+        "name": "Skogn",
+        "number": "1719",
+        "validFrom": 1838,
+        "validTo": 1962,
+        "changeType": "incorporated",
+        "notes": "Innlemmet i Levanger"
+      },
+      {
+        "id": "hist-mun-1716-asen",
+        "name": "Åsen",
+        "number": "1716",
+        "validFrom": 1838,
+        "validTo": 1962,
+        "changeType": "incorporated",
+        "notes": "Innlemmet i Levanger"
+      }
+    ],
     "timeline": [
       {
         "year": 1838,
         "date": "1. jan. 1838",
         "type": "established",
         "description": "Skogn opprettet 1. jan. 1838"
+      },
+      {
+        "year": 1962,
+        "type": "incorporated",
+        "description": "Innlemmet i Levanger",
+        "entities": [
+          {
+            "number": "1720",
+            "name": "Frol"
+          }
+        ]
       },
       {
         "year": 2018,
@@ -19852,6 +21315,7 @@
     "areaKm2": 1547.81,
     "languageForm": "nøytral",
     "wikipediaUrl": "https://no.wikipedia.org/wiki/Verdal",
+    "websiteUrl": "https://www.verdal.kommune.no/",
     "established": "1. jan. 2018",
     "establishedYear": 2018,
     "prehistory": "Verdal ‡ i 1837 Værdalen tinglag Formannskap XVII.7",
@@ -19910,6 +21374,7 @@
     "areaKm2": 2342.66,
     "languageForm": "nøytral",
     "wikipediaUrl": "https://no.wikipedia.org/wiki/Sn%C3%A5sa",
+    "websiteUrl": "https://www.snasa.kommune.no/",
     "established": "1. jan. 2018",
     "establishedYear": 2018,
     "prehistory": "Snaasen ‡ i 1837 Snaasen tinglag Formannskap XVII.12",
@@ -19972,6 +21437,7 @@
     "areaKm2": 2961.7,
     "languageForm": "nøytral",
     "wikipediaUrl": "https://no.wikipedia.org/wiki/Lierne",
+    "websiteUrl": "https://www.lierne.kommune.no/",
     "established": "1. jan. 2018",
     "establishedYear": 2018,
     "directPredecessors": [
@@ -19980,7 +21446,49 @@
         "name": "Lierne"
       }
     ],
+    "predecessors": [
+      {
+        "id": "hist-mun-1738-nordli",
+        "name": "Nordli",
+        "number": "1738",
+        "validFrom": 1915,
+        "validTo": 1964,
+        "changeType": "merged",
+        "notes": "Slått sammen med Sørli"
+      },
+      {
+        "id": "hist-mun-1737-sorli",
+        "name": "Sørli",
+        "number": "1737",
+        "validFrom": 1915,
+        "validTo": 1964,
+        "changeType": "merged",
+        "notes": "Slått sammen med Nordli"
+      }
+    ],
     "timeline": [
+      {
+        "year": 1964,
+        "type": "merged",
+        "description": "Slått sammen med Sørli",
+        "entities": [
+          {
+            "number": "1738",
+            "name": "Nordli"
+          }
+        ]
+      },
+      {
+        "year": 1964,
+        "type": "merged",
+        "description": "Slått sammen med Nordli",
+        "entities": [
+          {
+            "number": "1737",
+            "name": "Sørli"
+          }
+        ]
+      },
       {
         "year": 2018,
         "date": "1. jan. 2018",
@@ -20007,6 +21515,7 @@
     "areaKm2": 1584.74,
     "languageForm": "nøytral",
     "wikipediaUrl": "https://no.wikipedia.org/wiki/R%C3%B8yrvik",
+    "websiteUrl": "https://www.royrvik.kommune.no/",
     "established": "1. jan. 2018",
     "establishedYear": 2018,
     "historicalNames": [
@@ -20070,6 +21579,7 @@
     "areaKm2": 1417.15,
     "languageForm": "nøytral",
     "wikipediaUrl": "https://no.wikipedia.org/wiki/Namsskogan",
+    "websiteUrl": "https://www.namsskogan.kommune.no/",
     "established": "1. jan. 2018",
     "establishedYear": 2018,
     "historicalNames": [
@@ -20133,6 +21643,7 @@
     "areaKm2": 1136.16,
     "languageForm": "nøytral",
     "wikipediaUrl": "https://no.wikipedia.org/wiki/Grong",
+    "websiteUrl": "https://www.grong.kommune.no/",
     "established": "1. jan. 2018",
     "establishedYear": 2018,
     "historicalNames": [
@@ -20153,12 +21664,34 @@
         "name": "Grong † i"
       }
     ],
+    "predecessors": [
+      {
+        "id": "hist-mun-1741-harran",
+        "name": "Harran",
+        "number": "1741",
+        "validFrom": 1923,
+        "validTo": 1964,
+        "changeType": "incorporated",
+        "notes": "Innlemmet i Grong"
+      }
+    ],
     "timeline": [
       {
         "year": 1838,
         "date": "1. jan. 1838",
         "type": "established",
         "description": "Grong opprettet 1. jan. 1838"
+      },
+      {
+        "year": 1964,
+        "type": "incorporated",
+        "description": "Innlemmet i Grong",
+        "entities": [
+          {
+            "number": "1741",
+            "name": "Harran"
+          }
+        ]
       },
       {
         "year": 2018,
@@ -20200,6 +21733,7 @@
     "areaKm2": 754.68,
     "languageForm": "nøytral",
     "wikipediaUrl": "https://no.wikipedia.org/wiki/H%C3%B8ylandet",
+    "websiteUrl": "https://www.hoylandet.kommune.no/",
     "established": "1. jan. 2018",
     "establishedYear": 2018,
     "historicalNames": [
@@ -20263,6 +21797,7 @@
     "areaKm2": 730.05,
     "languageForm": "nøytral",
     "wikipediaUrl": "https://no.wikipedia.org/wiki/Overhalla",
+    "websiteUrl": "https://www.overhalla.kommune.no/",
     "established": "1. jan. 2018",
     "establishedYear": 2018,
     "directPredecessors": [
@@ -20298,6 +21833,7 @@
     "areaKm2": 458.71,
     "languageForm": "nøytral",
     "wikipediaUrl": "https://no.wikipedia.org/wiki/Flatanger",
+    "websiteUrl": "https://www.flatanger.kommune.no/",
     "established": "1. jan. 2018",
     "establishedYear": 2018,
     "historicalNames": [
@@ -20361,6 +21897,7 @@
     "areaKm2": 110.12,
     "languageForm": "nøytral",
     "wikipediaUrl": "https://no.wikipedia.org/wiki/Leka",
+    "websiteUrl": "https://www.leka.kommune.no/",
     "established": "1. jan. 2018",
     "establishedYear": 2018,
     "historicalNames": [
@@ -20428,6 +21965,7 @@
     "areaKm2": 365.67,
     "languageForm": "nøytral",
     "wikipediaUrl": "https://no.wikipedia.org/wiki/Inder%C3%B8y",
+    "websiteUrl": "https://www.inderoy.kommune.no/",
     "established": "1. jan. 2018",
     "establishedYear": 2018,
     "directPredecessors": [
@@ -20446,12 +21984,63 @@
         "name": "Inderøy"
       }
     ],
+    "predecessors": [
+      {
+        "id": "hist-mun-1730-rora",
+        "name": "Røra",
+        "number": "1730",
+        "validFrom": 1907,
+        "validTo": 1962,
+        "changeType": "incorporated",
+        "notes": "Innlemmet i Inderøy"
+      },
+      {
+        "id": "hist-mun-1728-sandvollan",
+        "name": "Sandvollan",
+        "number": "1728",
+        "validFrom": 1907,
+        "validTo": 1962,
+        "changeType": "incorporated",
+        "notes": "Innlemmet i Inderøy"
+      },
+      {
+        "id": "hist-mun-1723-mosvik",
+        "name": "Mosvik",
+        "number": "1723",
+        "validFrom": 1901,
+        "validTo": 2012,
+        "changeType": "incorporated",
+        "notes": "Innlemmet i Inderøy"
+      }
+    ],
     "timeline": [
+      {
+        "year": 1962,
+        "type": "incorporated",
+        "description": "Innlemmet i Inderøy",
+        "entities": [
+          {
+            "number": "1730",
+            "name": "Røra"
+          }
+        ]
+      },
       {
         "year": 2012,
         "date": "1. jan. 2012",
         "type": "established",
         "description": "Inderøy opprettet 1. jan. 2012"
+      },
+      {
+        "year": 2012,
+        "type": "incorporated",
+        "description": "Innlemmet i Inderøy",
+        "entities": [
+          {
+            "number": "1723",
+            "name": "Mosvik"
+          }
+        ]
       },
       {
         "year": 2018,
@@ -20517,12 +22106,43 @@
         "name": "Stadsbygden"
       }
     ],
+    "predecessors": [
+      {
+        "id": "hist-mun-1624-rissa",
+        "name": "Rissa",
+        "number": "1624",
+        "validFrom": 1964,
+        "validTo": 2017,
+        "changeType": "merged",
+        "notes": "Slått sammen med Leksvik"
+      },
+      {
+        "id": "hist-mun-1718-leksvik",
+        "name": "Leksvik",
+        "number": "1718",
+        "validFrom": 1838,
+        "validTo": 2018,
+        "changeType": "merged",
+        "notes": "Slått sammen med Rissa"
+      }
+    ],
     "timeline": [
       {
         "year": 1852,
         "date": "1. jan. 1852",
         "type": "established",
         "description": "Rissa opprettet 1. jan. 1852"
+      },
+      {
+        "year": 2017,
+        "type": "merged",
+        "description": "Slått sammen med Leksvik",
+        "entities": [
+          {
+            "number": "1624",
+            "name": "Rissa"
+          }
+        ]
       },
       {
         "year": 2018,
@@ -20541,6 +22161,17 @@
           {
             "number": "5039",
             "name": "Verran (Verrabotn)"
+          }
+        ]
+      },
+      {
+        "year": 2018,
+        "type": "merged",
+        "description": "Slått sammen med Rissa",
+        "entities": [
+          {
+            "number": "1718",
+            "name": "Leksvik"
           }
         ]
       },
@@ -20576,6 +22207,7 @@
     "areaKm2": 1024.55,
     "languageForm": "nøytral",
     "wikipediaUrl": "https://no.wikipedia.org/wiki/Heim",
+    "websiteUrl": "https://www.heim.kommune.no/",
     "established": "1. jan. 2020",
     "establishedYear": 2020,
     "prehistory": "Halse † utskilt fra Stangvik 1876 Halse tinglag Formannskap XV.32",
@@ -20589,6 +22221,26 @@
       {
         "number": "1571",
         "name": "Halsa"
+      }
+    ],
+    "predecessors": [
+      {
+        "id": "hist-mun-1571-halsa",
+        "name": "Halsa",
+        "number": "1571",
+        "validFrom": 1838,
+        "validTo": 2020,
+        "changeType": "merged",
+        "notes": "Slått sammen med Hemne og deler av Snillfjord"
+      },
+      {
+        "id": "hist-mun-5011-hemne",
+        "name": "Hemne",
+        "number": "5011",
+        "validFrom": 1838,
+        "validTo": 2020,
+        "changeType": "merged",
+        "notes": "Slått sammen med Halsa og deler av Snillfjord"
       }
     ],
     "timeline": [
@@ -20607,6 +22259,28 @@
           {
             "number": "1571",
             "name": "Halsa"
+          }
+        ]
+      },
+      {
+        "year": 2020,
+        "type": "merged",
+        "description": "Slått sammen med Hemne og deler av Snillfjord",
+        "entities": [
+          {
+            "number": "1571",
+            "name": "Halsa"
+          }
+        ]
+      },
+      {
+        "year": 2020,
+        "type": "merged",
+        "description": "Slått sammen med Halsa og deler av Snillfjord",
+        "entities": [
+          {
+            "number": "5011",
+            "name": "Hemne"
           }
         ]
       },
@@ -20638,6 +22312,7 @@
     "areaKm2": 755.89,
     "languageForm": "nøytral",
     "wikipediaUrl": "https://no.wikipedia.org/wiki/Hitra",
+    "websiteUrl": "https://www.hitra.kommune.no/",
     "established": "1. jan. 2020",
     "establishedYear": 2020,
     "directPredecessors": [
@@ -20650,7 +22325,69 @@
         "name": "Snillfjord (Sundan/Hemnskjela)"
       }
     ],
+    "predecessors": [
+      {
+        "id": "hist-mun-1617-hitra",
+        "name": "Hitra",
+        "number": "1617",
+        "validFrom": 1838,
+        "validTo": 1964,
+        "changeType": "merged",
+        "notes": "Slått sammen med Kvenvær , Sandstad og Fillan"
+      },
+      {
+        "id": "hist-mun-1618-kvenvaer",
+        "name": "Kvenvær",
+        "number": "1618",
+        "validFrom": 1913,
+        "validTo": 1964,
+        "changeType": "merged",
+        "notes": "Slått sammen med Hitra , Sandstad og Fillan"
+      },
+      {
+        "id": "hist-mun-1615-sandstad",
+        "name": "Sandstad",
+        "number": "1615",
+        "validFrom": 1914,
+        "validTo": 1964,
+        "changeType": "merged",
+        "notes": "Slått sammen med Hitra , Kvenvær og Fillan"
+      }
+    ],
     "timeline": [
+      {
+        "year": 1964,
+        "type": "merged",
+        "description": "Slått sammen med Kvenvær , Sandstad og Fillan",
+        "entities": [
+          {
+            "number": "1617",
+            "name": "Hitra"
+          }
+        ]
+      },
+      {
+        "year": 1964,
+        "type": "merged",
+        "description": "Slått sammen med Hitra , Sandstad og Fillan",
+        "entities": [
+          {
+            "number": "1618",
+            "name": "Kvenvær"
+          }
+        ]
+      },
+      {
+        "year": 1964,
+        "type": "merged",
+        "description": "Slått sammen med Hitra , Kvenvær og Fillan",
+        "entities": [
+          {
+            "number": "1615",
+            "name": "Sandstad"
+          }
+        ]
+      },
       {
         "year": 2020,
         "date": "1. jan. 2020",
@@ -20681,6 +22418,7 @@
     "areaKm2": 457.15,
     "languageForm": "bokmål",
     "wikipediaUrl": "https://no.wikipedia.org/wiki/%C3%98rland",
+    "websiteUrl": "https://orland.kommune.no/",
     "established": "1. jan. 2020",
     "establishedYear": 2020,
     "directPredecessors": [
@@ -20691,6 +22429,17 @@
       {
         "number": "5017",
         "name": "Bjugn"
+      }
+    ],
+    "predecessors": [
+      {
+        "id": "hist-mun-5017-bjugn",
+        "name": "Bjugn",
+        "number": "5017",
+        "validFrom": 1853,
+        "validTo": 2020,
+        "changeType": "incorporated",
+        "notes": "Innlemmet i Ørland"
       }
     ],
     "timeline": [
@@ -20704,6 +22453,17 @@
             "number": "5015",
             "name": "Ørland"
           },
+          {
+            "number": "5017",
+            "name": "Bjugn"
+          }
+        ]
+      },
+      {
+        "year": 2020,
+        "type": "incorporated",
+        "description": "Innlemmet i Ørland",
+        "entities": [
           {
             "number": "5017",
             "name": "Bjugn"
@@ -20724,6 +22484,7 @@
     "areaKm2": 1329.43,
     "languageForm": "nøytral",
     "wikipediaUrl": "https://no.wikipedia.org/wiki/%C3%85fjord",
+    "websiteUrl": "https://www.afjord.kommune.no/",
     "established": "1. jan. 2020",
     "establishedYear": 2020,
     "directPredecessors": [
@@ -20736,7 +22497,29 @@
         "name": "Roan"
       }
     ],
+    "predecessors": [
+      {
+        "id": "hist-mun-1631-stoksund",
+        "name": "Stoksund",
+        "number": "1631",
+        "validFrom": 1892,
+        "validTo": 1964,
+        "changeType": "incorporated",
+        "notes": "Innlemmet i Åfjord"
+      }
+    ],
     "timeline": [
+      {
+        "year": 1964,
+        "type": "incorporated",
+        "description": "Innlemmet i Åfjord",
+        "entities": [
+          {
+            "number": "1631",
+            "name": "Stoksund"
+          }
+        ]
+      },
       {
         "year": 2020,
         "date": "1. jan. 2020",
@@ -20767,6 +22550,7 @@
     "areaKm2": 1906.28,
     "languageForm": "nøytral",
     "wikipediaUrl": "https://no.wikipedia.org/wiki/Orkland",
+    "websiteUrl": "https://www.orkland.kommune.no/",
     "established": "1. jan. 2020",
     "establishedYear": 2020,
     "directPredecessors": [
@@ -20785,6 +22569,26 @@
       {
         "number": "5024",
         "name": "Orkdal"
+      }
+    ],
+    "predecessors": [
+      {
+        "id": "hist-mun-5016-agdenes",
+        "name": "Agdenes",
+        "number": "5016",
+        "validFrom": 1964,
+        "validTo": 2020,
+        "changeType": "merged",
+        "notes": "Slått sammen med Orkdal , Meldal og deler av Snillfjord"
+      },
+      {
+        "id": "hist-mun-5024-orkdal",
+        "name": "Orkdal",
+        "number": "5024",
+        "validFrom": 1838,
+        "validTo": 2020,
+        "changeType": "merged",
+        "notes": "Slått sammen med Agdenes , Meldal og deler av Snillfjord"
       }
     ],
     "timeline": [
@@ -20811,6 +22615,28 @@
             "name": "Orkdal"
           }
         ]
+      },
+      {
+        "year": 2020,
+        "type": "merged",
+        "description": "Slått sammen med Orkdal , Meldal og deler av Snillfjord",
+        "entities": [
+          {
+            "number": "5016",
+            "name": "Agdenes"
+          }
+        ]
+      },
+      {
+        "year": 2020,
+        "type": "merged",
+        "description": "Slått sammen med Agdenes , Meldal og deler av Snillfjord",
+        "entities": [
+          {
+            "number": "5024",
+            "name": "Orkdal"
+          }
+        ]
       }
     ],
     "sources": [
@@ -20826,6 +22652,7 @@
     "areaKm2": 1346.2,
     "languageForm": "nøytral",
     "wikipediaUrl": "https://no.wikipedia.org/wiki/N%C3%A6r%C3%B8ysund",
+    "websiteUrl": "https://www.naroysund.kommune.no/",
     "established": "1. jan. 2020",
     "establishedYear": 2020,
     "directPredecessors": [
@@ -20838,7 +22665,38 @@
         "name": "Nærøy"
       }
     ],
+    "predecessors": [
+      {
+        "id": "hist-mun-5050-vikna",
+        "name": "Vikna",
+        "number": "5050",
+        "validFrom": 1869,
+        "validTo": 2019,
+        "changeType": "merged",
+        "notes": "Slått sammen med Nærøy"
+      },
+      {
+        "id": "hist-mun-5051-naeroy",
+        "name": "Nærøy",
+        "number": "5051",
+        "validFrom": 1838,
+        "validTo": 2020,
+        "changeType": "merged",
+        "notes": "Slått sammen med Vikna"
+      }
+    ],
     "timeline": [
+      {
+        "year": 2019,
+        "type": "merged",
+        "description": "Slått sammen med Nærøy",
+        "entities": [
+          {
+            "number": "5050",
+            "name": "Vikna"
+          }
+        ]
+      },
       {
         "year": 2020,
         "date": "1. jan. 2020",
@@ -20849,6 +22707,17 @@
             "number": "5050",
             "name": "Vikna"
           },
+          {
+            "number": "5051",
+            "name": "Nærøy"
+          }
+        ]
+      },
+      {
+        "year": 2020,
+        "type": "merged",
+        "description": "Slått sammen med Vikna",
+        "entities": [
           {
             "number": "5051",
             "name": "Nærøy"
@@ -20869,6 +22738,7 @@
     "areaKm2": 631.94,
     "languageForm": "nøytral",
     "wikipediaUrl": "https://no.wikipedia.org/wiki/Rindal",
+    "websiteUrl": "https://www.rindal.kommune.no/",
     "established": "1. jan. 2019",
     "establishedYear": 2019,
     "historicalNames": [
@@ -20932,6 +22802,7 @@
     "areaKm2": 2520.8,
     "languageForm": "nøytral",
     "wikipediaUrl": "https://no.wikipedia.org/wiki/Troms%C3%B8",
+    "websiteUrl": "https://tromso.kommune.no/",
     "established": "1. jan. 2024",
     "establishedYear": 2024,
     "historicalNames": [
@@ -21025,6 +22896,7 @@
     "areaKm2": 445.27,
     "languageForm": "nøytral",
     "wikipediaUrl": "https://no.wikipedia.org/wiki/Harstad",
+    "websiteUrl": "https://www.harstad.kommune.no/",
     "established": "1. jan. 2024",
     "establishedYear": 2024,
     "directPredecessors": [
@@ -21111,6 +22983,7 @@
     "areaKm2": 512.62,
     "languageForm": "nøytral",
     "wikipediaUrl": "https://no.wikipedia.org/wiki/Kv%C3%A6fjord",
+    "websiteUrl": "https://www.kvafjord.kommune.no/",
     "established": "1. jan. 2024",
     "establishedYear": 2024,
     "historicalNames": [
@@ -21173,6 +23046,7 @@
     "areaKm2": 814.41,
     "languageForm": "bokmål",
     "wikipediaUrl": "https://no.wikipedia.org/wiki/Tjeldsund",
+    "websiteUrl": "https://www.tjeldsund.kommune.no/",
     "established": "1. jan. 2024",
     "establishedYear": 2024,
     "directPredecessors": [
@@ -21230,6 +23104,7 @@
     "areaKm2": 241.15,
     "languageForm": "bokmål",
     "wikipediaUrl": "https://no.wikipedia.org/wiki/Ibestad",
+    "websiteUrl": "https://www.ibestad.kommune.no/",
     "established": "1. jan. 2024",
     "establishedYear": 2024,
     "directPredecessors": [
@@ -21287,6 +23162,7 @@
     "areaKm2": 312.76,
     "languageForm": "nøytral",
     "wikipediaUrl": "https://no.wikipedia.org/wiki/Gratangen",
+    "websiteUrl": "http://www.gratangen.kommune.no/",
     "established": "1. jan. 2024",
     "establishedYear": 2024,
     "directPredecessors": [
@@ -21322,6 +23198,7 @@
     "areaKm2": 301.62,
     "languageForm": "nøytral",
     "wikipediaUrl": "https://no.wikipedia.org/wiki/Lavangen",
+    "websiteUrl": "https://www.lavangen.kommune.no/",
     "established": "1. jan. 2024",
     "establishedYear": 2024,
     "directPredecessors": [
@@ -21357,6 +23234,7 @@
     "areaKm2": 2703.89,
     "languageForm": "nøytral",
     "wikipediaUrl": "https://no.wikipedia.org/wiki/Bardu",
+    "websiteUrl": "https://www.bardu.kommune.no/",
     "established": "1. jan. 2024",
     "establishedYear": 2024,
     "directPredecessors": [
@@ -21392,6 +23270,7 @@
     "areaKm2": 458.07,
     "languageForm": "nøytral",
     "wikipediaUrl": "https://no.wikipedia.org/wiki/Salangen",
+    "websiteUrl": "https://www.salangen.kommune.no/",
     "established": "1. jan. 2024",
     "establishedYear": 2024,
     "directPredecessors": [
@@ -21427,6 +23306,7 @@
     "areaKm2": 3324.45,
     "languageForm": "nøytral",
     "wikipediaUrl": "https://no.wikipedia.org/wiki/M%C3%A5lselv",
+    "websiteUrl": "https://www.malselv.kommune.no/",
     "established": "1. jan. 2024",
     "establishedYear": 2024,
     "directPredecessors": [
@@ -21484,6 +23364,7 @@
     "areaKm2": 362.97,
     "languageForm": "nøytral",
     "wikipediaUrl": "https://no.wikipedia.org/wiki/S%C3%B8rreisa",
+    "websiteUrl": "https://www.sorreisa.kommune.no/",
     "established": "1. jan. 2024",
     "establishedYear": 2024,
     "directPredecessors": [
@@ -21519,6 +23400,7 @@
     "areaKm2": 288.64,
     "languageForm": "bokmål",
     "wikipediaUrl": "https://no.wikipedia.org/wiki/Dyr%C3%B8y",
+    "websiteUrl": "https://www.dyroy.kommune.no/",
     "established": "1. jan. 2024",
     "establishedYear": 2024,
     "directPredecessors": [
@@ -21589,6 +23471,7 @@
     "areaKm2": 1496.99,
     "languageForm": "bokmål",
     "wikipediaUrl": "https://no.wikipedia.org/wiki/Balsfjord",
+    "websiteUrl": "https://www.balsfjord.kommune.no/",
     "established": "1. jan. 2024",
     "establishedYear": 2024,
     "directPredecessors": [
@@ -21646,6 +23529,7 @@
     "areaKm2": 1091.6,
     "languageForm": "nøytral",
     "wikipediaUrl": "https://no.wikipedia.org/wiki/Karls%C3%B8y",
+    "websiteUrl": "https://www.karlsoy.kommune.no/",
     "established": "1. jan. 2024",
     "establishedYear": 2024,
     "directPredecessors": [
@@ -21703,6 +23587,7 @@
     "areaKm2": 812.7,
     "languageForm": "nøytral",
     "wikipediaUrl": "https://no.wikipedia.org/wiki/Lyngen",
+    "websiteUrl": "https://www.lyngen.kommune.no/",
     "established": "1. jan. 2024",
     "establishedYear": 2024,
     "directPredecessors": [
@@ -21738,6 +23623,7 @@
     "areaKm2": 1542.73,
     "languageForm": "nøytral",
     "wikipediaUrl": "https://no.wikipedia.org/wiki/Storfjord",
+    "websiteUrl": "https://www.storfjord.kommune.no/",
     "established": "1. jan. 2024",
     "establishedYear": 2024,
     "directPredecessors": [
@@ -21773,6 +23659,7 @@
     "areaKm2": 991.15,
     "languageForm": "bokmål",
     "wikipediaUrl": "https://no.wikipedia.org/wiki/K%C3%A5fjord",
+    "websiteUrl": "https://www.kafjord.kommune.no/",
     "established": "1. jan. 2024",
     "establishedYear": 2024,
     "directPredecessors": [
@@ -21808,6 +23695,7 @@
     "areaKm2": 474,
     "languageForm": "bokmål",
     "wikipediaUrl": "https://no.wikipedia.org/wiki/Skjerv%C3%B8y",
+    "websiteUrl": "https://www.skjervoy.kommune.no/",
     "established": "1. jan. 2024",
     "establishedYear": 2024,
     "directPredecessors": [
@@ -21843,6 +23731,7 @@
     "areaKm2": 3437.77,
     "languageForm": "bokmål",
     "wikipediaUrl": "https://no.wikipedia.org/wiki/Nordreisa",
+    "websiteUrl": "https://www.nordreisa.kommune.no/",
     "established": "1. jan. 2024",
     "establishedYear": 2024,
     "directPredecessors": [
@@ -21878,6 +23767,7 @@
     "areaKm2": 2109.68,
     "languageForm": "nøytral",
     "wikipediaUrl": "https://no.wikipedia.org/wiki/Kv%C3%A6nangen",
+    "websiteUrl": "https://www.kvanangen.kommune.no/",
     "established": "1. jan. 2024",
     "establishedYear": 2024,
     "directPredecessors": [
@@ -21913,6 +23803,7 @@
     "areaKm2": 3848.82,
     "languageForm": "bokmål",
     "wikipediaUrl": "https://no.wikipedia.org/wiki/Alta",
+    "websiteUrl": "https://www.alta.kommune.no/",
     "established": "1. jan. 2024",
     "establishedYear": 2024,
     "historicalNames": [
@@ -22017,6 +23908,7 @@
     "areaKm2": 2692.81,
     "languageForm": "nøytral",
     "wikipediaUrl": "https://no.wikipedia.org/wiki/Hammerfest",
+    "websiteUrl": "https://hammerfest.kommune.no/",
     "established": "1. jan. 2024",
     "establishedYear": 2024,
     "directPredecessors": [
@@ -22074,6 +23966,7 @@
     "areaKm2": 3971.42,
     "languageForm": "bokmål",
     "wikipediaUrl": "https://no.wikipedia.org/wiki/S%C3%B8r-Varanger",
+    "websiteUrl": "https://www.sor-varanger.kommune.no/",
     "established": "1. jan. 2024",
     "establishedYear": 2024,
     "directPredecessors": [
@@ -22109,6 +24002,7 @@
     "areaKm2": 1258.06,
     "languageForm": "bokmål",
     "wikipediaUrl": "https://no.wikipedia.org/wiki/Vads%C3%B8",
+    "websiteUrl": "https://www.vadso.kommune.no/",
     "established": "1. jan. 2024",
     "establishedYear": 2024,
     "directPredecessors": [
@@ -22166,6 +24060,7 @@
     "areaKm2": 5452.94,
     "languageForm": "bokmål",
     "wikipediaUrl": "https://no.wikipedia.org/wiki/Karasjok",
+    "websiteUrl": "https://www.karasjok.kommune.no/",
     "established": "1. jan. 2024",
     "establishedYear": 2024,
     "directPredecessors": [
@@ -22201,6 +24096,7 @@
     "areaKm2": 9707.35,
     "languageForm": "bokmål",
     "wikipediaUrl": "https://no.wikipedia.org/wiki/Kautokeino",
+    "websiteUrl": "https://www.guovdageainnu.suohkan.no/",
     "established": "1. jan. 2024",
     "establishedYear": 2024,
     "historicalNames": [
@@ -22263,6 +24159,7 @@
     "areaKm2": 689.27,
     "languageForm": "bokmål",
     "wikipediaUrl": "https://no.wikipedia.org/wiki/Loppa",
+    "websiteUrl": "https://www.loppa.kommune.no/",
     "established": "1. jan. 2024",
     "establishedYear": 2024,
     "historicalNames": [
@@ -22325,6 +24222,7 @@
     "areaKm2": 555.43,
     "languageForm": "bokmål",
     "wikipediaUrl": "https://no.wikipedia.org/wiki/Hasvik",
+    "websiteUrl": "https://www.hasvik.kommune.no/",
     "established": "1. jan. 2024",
     "establishedYear": 2024,
     "directPredecessors": [
@@ -22360,6 +24258,7 @@
     "areaKm2": 1137.19,
     "languageForm": "bokmål",
     "wikipediaUrl": "https://no.wikipedia.org/wiki/M%C3%A5s%C3%B8y",
+    "websiteUrl": "https://www.masoy.kommune.no/",
     "established": "1. jan. 2024",
     "establishedYear": 2024,
     "directPredecessors": [
@@ -22395,6 +24294,7 @@
     "areaKm2": 926.59,
     "languageForm": "nøytral",
     "wikipediaUrl": "https://no.wikipedia.org/wiki/Nordkapp",
+    "websiteUrl": "https://www.nordkapp.kommune.no/",
     "established": "1. jan. 2024",
     "establishedYear": 2024,
     "directPredecessors": [
@@ -22430,6 +24330,7 @@
     "areaKm2": 4874.29,
     "languageForm": "bokmål",
     "wikipediaUrl": "https://no.wikipedia.org/wiki/Porsanger",
+    "websiteUrl": "https://www.porsanger.kommune.no/",
     "established": "1. jan. 2024",
     "establishedYear": 2024,
     "directPredecessors": [
@@ -22465,6 +24366,7 @@
     "areaKm2": 3460.5,
     "languageForm": "bokmål",
     "wikipediaUrl": "https://no.wikipedia.org/wiki/Lebesby",
+    "websiteUrl": "https://www.lebesby.kommune.no/",
     "established": "1. jan. 2024",
     "establishedYear": 2024,
     "directPredecessors": [
@@ -22500,6 +24402,7 @@
     "areaKm2": 1416.55,
     "languageForm": "nøytral",
     "wikipediaUrl": "https://no.wikipedia.org/wiki/Gamvik",
+    "websiteUrl": "https://www.gamvik.kommune.no/",
     "established": "1. jan. 2024",
     "establishedYear": 2024,
     "directPredecessors": [
@@ -22535,6 +24438,7 @@
     "areaKm2": 4051.28,
     "languageForm": "bokmål",
     "wikipediaUrl": "https://no.wikipedia.org/wiki/Tana",
+    "websiteUrl": "https://www.tana.kommune.no/",
     "established": "1. jan. 2024",
     "establishedYear": 2024,
     "directPredecessors": [
@@ -22592,6 +24496,7 @@
     "areaKm2": 1121.77,
     "languageForm": "bokmål",
     "wikipediaUrl": "https://no.wikipedia.org/wiki/Berlev%C3%A5g",
+    "websiteUrl": "https://www.berlevag.kommune.no/",
     "established": "1. jan. 2024",
     "establishedYear": 2024,
     "directPredecessors": [
@@ -22627,6 +24532,7 @@
     "areaKm2": 1435.12,
     "languageForm": "nøytral",
     "wikipediaUrl": "https://no.wikipedia.org/wiki/B%C3%A5tsfjord",
+    "websiteUrl": "https://www.batsfjord.kommune.no/",
     "established": "1. jan. 2024",
     "establishedYear": 2024,
     "directPredecessors": [
@@ -22662,6 +24568,7 @@
     "areaKm2": 600.85,
     "languageForm": "bokmål",
     "wikipediaUrl": "https://no.wikipedia.org/wiki/Vard%C3%B8",
+    "websiteUrl": "https://www.vardo.kommune.no/",
     "established": "1. jan. 2024",
     "establishedYear": 2024,
     "directPredecessors": [
@@ -22697,6 +24604,7 @@
     "areaKm2": 1437.07,
     "languageForm": "bokmål",
     "wikipediaUrl": "https://no.wikipedia.org/wiki/Nesseby",
+    "websiteUrl": "https://www.nesseby.kommune.no/",
     "established": "1. jan. 2024",
     "establishedYear": 2024,
     "directPredecessors": [

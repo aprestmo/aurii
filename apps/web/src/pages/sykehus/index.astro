@@ -6,6 +6,7 @@ import SearchField from "@/components/SearchField.astro";
 import ShowMoreFooter from "@/components/ShowMoreFooter.astro";
 import Layout from "../../layouts/Layout.astro";
 import { Card, CardContent, CardDescription } from "@/components/starwind/card";
+import { formatOrgNumber } from "@/lib/format";
 import { url } from "../../lib/base";
 import { INITIAL_SEARCH_LIST_SIZE } from "@/lib/show-more";
 import { loadHospitals } from "../../lib/data";
@@ -56,7 +57,7 @@ const hospitals = (await loadHospitals()).sort((a, b) =>
               class="flex items-center justify-between gap-4 px-4 py-3.5 transition-colors hover:bg-muted/50 focus:outline-none focus-visible:ring-2 focus-visible:ring-outline"
             >
               <span class="min-w-0 font-medium">{hospital.name}</span>
-              <span class="shrink-0 font-mono text-xs text-muted-foreground">{hospital.id}</span>
+              <span class="shrink-0 font-mono text-xs text-muted-foreground">{formatOrgNumber(hospital.id)}</span>
             </a>
           </li>
         ))}
@@ -93,6 +94,13 @@ const hospitals = (await loadHospitals()).sort((a, b) =>
 </Layout>
 
 <script is:inline define:vars={{ hospitals, base: import.meta.env.BASE_URL, initialCount: INITIAL_SEARCH_LIST_SIZE }}>
+  function formatOrgNumber(value) {
+    if (!value) return "—";
+    const digits = String(value).replace(/\D/g, "");
+    if (digits.length !== 9) return value;
+    return `${digits.slice(0, 3)} ${digits.slice(3, 6)} ${digits.slice(6, 9)}`;
+  }
+
   const input = document.getElementById("search");
   const list = document.getElementById("hospital-list");
   const note = document.getElementById("more-note");
@@ -118,7 +126,7 @@ const hospitals = (await loadHospitals()).sort((a, b) =>
     name.textContent = hospital.name;
     const id = document.createElement("span");
     id.className = "shrink-0 font-mono text-xs text-muted-foreground";
-    id.textContent = hospital.id;
+    id.textContent = formatOrgNumber(hospital.id);
     a.append(name, id);
     li.append(a);
     return li;

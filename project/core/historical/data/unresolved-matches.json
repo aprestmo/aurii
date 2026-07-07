@@ -46,12 +46,39 @@
   },
   {
     "entityType": "municipality",
+    "historicalId": "hist-mun-1537-eid-og-voll",
+    "historicalName": "Eid og Voll",
+    "historicalNumber": "1537",
+    "targetName": "Eid",
+    "reason": "Ambiguous historical name: 3 matches",
+    "countyNameAtSource": "Møre og Romsdal"
+  },
+  {
+    "entityType": "municipality",
+    "historicalId": "hist-mun-1552-kornstad",
+    "historicalName": "Kornstad",
+    "historicalNumber": "1552",
+    "targetName": "Eide",
+    "reason": "Ambiguous historical name: 2 matches",
+    "countyNameAtSource": "Møre og Romsdal"
+  },
+  {
+    "entityType": "municipality",
     "historicalId": "hist-mun-1853-ofoten",
     "historicalName": "Ofoten",
     "historicalNumber": "1853",
     "targetName": "Evindnæs",
     "reason": "No matching current or historical municipality found",
     "countyNameAtSource": "Nordland"
+  },
+  {
+    "entityType": "municipality",
+    "historicalId": "hist-mun-0717-borre",
+    "historicalName": "Borre",
+    "historicalNumber": "0717",
+    "targetName": "Borre",
+    "reason": "No matching current or historical municipality found",
+    "countyNameAtSource": "Vestfold og Telemark"
   },
   {
     "entityType": "municipality",
@@ -77,7 +104,7 @@
     "historicalName": "Davik",
     "historicalNumber": "1442",
     "targetName": "Eid",
-    "reason": "Ambiguous historical name: 2 matches",
+    "reason": "Ambiguous historical name: 3 matches",
     "countyNameAtSource": "Vestland"
   },
   {
@@ -86,7 +113,7 @@
     "historicalName": "Hornindal",
     "historicalNumber": "1444",
     "targetName": "Eid",
-    "reason": "Ambiguous historical name: 2 matches",
+    "reason": "Ambiguous historical name: 3 matches",
     "countyNameAtSource": "Vestland"
   },
   {
@@ -145,12 +172,30 @@
   },
   {
     "entityType": "municipality",
+    "historicalId": "hist-mun-1537-eid-og-voll",
+    "historicalName": "Eid og Voll",
+    "historicalNumber": "1537",
+    "targetName": "Eid",
+    "reason": "Ambiguous historical name: 3 matches",
+    "countyNameAtSource": "Møre og Romsdal"
+  },
+  {
+    "entityType": "municipality",
     "historicalId": "hist-mun-1853-ofoten",
     "historicalName": "Ofoten",
     "historicalNumber": "1853",
     "targetName": "Evindnæs",
     "reason": "No matching current or historical municipality found",
     "countyNameAtSource": "Nordland"
+  },
+  {
+    "entityType": "municipality",
+    "historicalId": "hist-mun-0717-borre",
+    "historicalName": "Borre",
+    "historicalNumber": "0717",
+    "targetName": "Borre",
+    "reason": "No matching current or historical municipality found",
+    "countyNameAtSource": "Vestfold og Telemark"
   },
   {
     "entityType": "municipality",

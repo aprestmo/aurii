@@ -88,11 +88,15 @@ const pageDescription = `${school.name} — skole i ${municipality?.name ?? "Nor
             </TableRow>
             <TableRow class="transition-colors hover:bg-muted/50">
               <TableCell class="text-muted-foreground">Eierform</TableCell>
-              <TableCell class="text-right font-medium">{school.isPublic ? "Offentlig" : "Privat"}</TableCell>
+              <TableCell class="text-right">
+                <Badge variant="outline" size="sm">{school.isPublic ? "Offentlig" : "Privat"}</Badge>
+              </TableCell>
             </TableRow>
             <TableRow class="transition-colors hover:bg-muted/50">
-              <TableCell class="text-muted-foreground">Aktiv</TableCell>
-              <TableCell class="text-right font-medium">{school.isActive ? "Ja" : "Nei"}</TableCell>
+              <TableCell class="text-muted-foreground">Status</TableCell>
+              <TableCell class="text-right">
+                <Badge variant="outline" size="sm">{school.isActive ? "Aktiv" : "Inaktiv"}</Badge>
+              </TableCell>
             </TableRow>
             <TableRow class="transition-colors hover:bg-muted/50">
               <TableCell class="text-muted-foreground">Kilde</TableCell>

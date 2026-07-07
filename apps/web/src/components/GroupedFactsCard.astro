@@ -1,0 +1,45 @@
+---
+import { Card, CardContent } from "@/components/starwind/card";
+
+export interface FactItem {
+  label: string;
+  value: string;
+}
+
+export interface FactGroup {
+  title: string;
+  facts: FactItem[];
+}
+
+interface Props {
+  groups: FactGroup[];
+}
+
+const { groups } = Astro.props;
+---
+
+<Card class="border-border/80">
+  <CardContent class="px-6 py-6">
+    <div class="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
+      {
+        groups.map((group) => (
+          <div>
+            <h3 class="mb-4 text-xs font-medium uppercase tracking-wide text-muted-foreground">
+              {group.title}
+            </h3>
+            <dl class="space-y-3">
+              {
+                group.facts.map((fact) => (
+                  <div>
+                    <dt class="text-sm text-muted-foreground">{fact.label}</dt>
+                    <dd class="mt-0.5 text-xl font-semibold tabular-nums tracking-tight">{fact.value}</dd>
+                  </div>
+                ))
+              }
+            </dl>
+          </div>
+        ))
+      }
+    </div>
+  </CardContent>
+</Card>

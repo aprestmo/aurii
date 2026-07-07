@@ -12,16 +12,25 @@ interface Props {
 
 const { listId, total, initial = INITIAL_LIST_SIZE, noun } = Astro.props;
 const hasMore = total > initial;
+const statusText = `Viser de første ${initial} av ${total} ${noun}.`;
+const completeText = `Viser alle ${total} ${noun}.`;
 ---
 
 {
   hasMore && (
-    <CardFooter>
+    <CardFooter class="flex flex-col items-start gap-3 border-t border-border/60 px-6 py-4 sm:flex-row sm:items-center sm:justify-between">
+      <p
+        class="text-sm text-muted-foreground"
+        data-show-more-status={listId}
+        data-show-more-complete={completeText}
+      >
+        {statusText}
+      </p>
       <Button
         type="button"
         variant="outline"
         size="sm"
-        class="show-more-btn"
+        class="show-more-btn shrink-0"
         data-show-more-for={listId}
       >
         Vis alle {total} {noun}

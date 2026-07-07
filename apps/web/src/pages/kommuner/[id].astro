@@ -1,10 +1,12 @@
 ---
 import Breadcrumb from "@/components/Breadcrumb.astro";
 import FactGrid from "@/components/FactGrid.astro";
+import PageHeader from "@/components/PageHeader.astro";
+import SectionHeading from "@/components/SectionHeading.astro";
 import ShowMoreFooter from "@/components/ShowMoreFooter.astro";
 import Layout from "../../layouts/Layout.astro";
 import { Badge } from "@/components/starwind/badge";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/starwind/card";
+import { Card, CardContent } from "@/components/starwind/card";
 import {
   Table,
   TableBody,
@@ -58,14 +60,13 @@ const populationYear = municipality.populationYear ?? county?.populationYear;
     ]}
   />
 
-  <div class="mb-8">
-    <h1 class="text-3xl font-semibold tracking-tight">{municipality.name}</h1>
-    <p class="mt-2 flex flex-wrap items-center gap-2 text-muted-foreground">
+  <PageHeader title={municipality.name}>
+    <Fragment slot="meta">
       Kommunenummer <Badge variant="outline">{municipality.id}</Badge>
       {county && (
         <>
           · Fylke{" "}
-          <a href={url(`fylker/${county.id}`)}>
+          <a href={url(`fylker/${county.id}`)} class="focus:outline-none focus-visible:ring-2 focus-visible:ring-outline rounded-sm">
             <Badge variant="outline">{county.name}</Badge>
           </a>
         </>
@@ -75,8 +76,8 @@ const populationYear = municipality.populationYear ?? county?.populationYear;
           · Innbyggertall per 1.1.{populationYear} (SSB)
         </>
       )}
-    </p>
-  </div>
+    </Fragment>
+  </PageHeader>
 
   <FactGrid
     facts={[
@@ -93,17 +94,19 @@ const populationYear = municipality.populationYear ?? county?.populationYear;
     ]}
   />
 
-  <div class="space-y-8">
+  <div class="space-y-12">
     {schools.length > 0 && (
-      <section>
-        <Card>
-          <CardHeader>
-            <CardTitle class="text-base">Skoler ({schools.length})</CardTitle>
-          </CardHeader>
+      <section aria-labelledby="schools-heading">
+        <SectionHeading
+          id="schools-heading"
+          title={`Skoler (${schools.length})`}
+          description="Skoler registrert i kommunen via UDIR NSR. Klikk på et navn for detaljer."
+        />
+        <Card class="border-border/80">
           <CardContent class="p-0">
             <Table data-sortable>
               <TableHeader>
-                <TableRow>
+                <TableRow class="hover:bg-transparent">
                   <TableHead data-sort-type="text" class="w-28">Org.nr.</TableHead>
                   <TableHead data-sort-type="text">Navn</TableHead>
                   <TableHead data-sort-type="text" class="text-right">Type</TableHead>
@@ -112,14 +115,17 @@ const populationYear = municipality.populationYear ?? county?.populationYear;
               <TableBody data-show-more-list="school-list">
                 {schools.map((school, index) => (
                   <TableRow
-                    class:list={[{ hidden: index >= INITIAL_LIST_SIZE }]}
+                    class:list={["transition-colors hover:bg-muted/50", { hidden: index >= INITIAL_LIST_SIZE }]}
                     data-show-more-hidden={index >= INITIAL_LIST_SIZE ? "" : undefined}
                   >
                     <TableCell class="font-mono text-xs text-muted-foreground" data-sort-value={school.id}>
                       {school.id}
                     </TableCell>
                     <TableCell>
-                      <a href={url(`skoler/${school.id}`)} class="font-medium hover:text-primary">
+                      <a
+                        href={url(`skoler/${school.id}`)}
+                        class="font-medium text-foreground underline-offset-4 hover:text-primary hover:underline focus:outline-none focus-visible:ring-2 focus-visible:ring-outline rounded-sm"
+                      >
                         {school.name}
                       </a>
                     </TableCell>
@@ -137,15 +143,17 @@ const populationYear = municipality.populationYear ?? county?.populationYear;
     )}
 
     {kindergartens.length > 0 && (
-      <section>
-        <Card>
-          <CardHeader>
-            <CardTitle class="text-base">Barnehager ({kindergartens.length})</CardTitle>
-          </CardHeader>
+      <section aria-labelledby="kindergartens-heading">
+        <SectionHeading
+          id="kindergartens-heading"
+          title={`Barnehager (${kindergartens.length})`}
+          description="Barnehager registrert i kommunen via UDIR NBR. Klikk på et navn for detaljer."
+        />
+        <Card class="border-border/80">
           <CardContent class="p-0">
             <Table data-sortable>
               <TableHeader>
-                <TableRow>
+                <TableRow class="hover:bg-transparent">
                   <TableHead data-sort-type="text" class="w-28">Org.nr.</TableHead>
                   <TableHead data-sort-type="text">Navn</TableHead>
                   <TableHead data-sort-type="text" class="text-right">Type</TableHead>
@@ -154,14 +162,17 @@ const populationYear = municipality.populationYear ?? county?.populationYear;
               <TableBody data-show-more-list="kindergarten-list">
                 {kindergartens.map((kg, index) => (
                   <TableRow
-                    class:list={[{ hidden: index >= INITIAL_LIST_SIZE }]}
+                    class:list={["transition-colors hover:bg-muted/50", { hidden: index >= INITIAL_LIST_SIZE }]}
                     data-show-more-hidden={index >= INITIAL_LIST_SIZE ? "" : undefined}
                   >
                     <TableCell class="font-mono text-xs text-muted-foreground" data-sort-value={kg.id}>
                       {kg.id}
                     </TableCell>
                     <TableCell>
-                      <a href={url(`barnehager/${kg.id}`)} class="font-medium hover:text-primary">
+                      <a
+                        href={url(`barnehager/${kg.id}`)}
+                        class="font-medium text-foreground underline-offset-4 hover:text-primary hover:underline focus:outline-none focus-visible:ring-2 focus-visible:ring-outline rounded-sm"
+                      >
                         {kg.name}
                       </a>
                     </TableCell>
@@ -179,15 +190,17 @@ const populationYear = municipality.populationYear ?? county?.populationYear;
     )}
 
     {postalCodes.length > 0 && (
-      <section>
-        <Card>
-          <CardHeader>
-            <CardTitle class="text-base">Postnummer ({postalCodes.length})</CardTitle>
-          </CardHeader>
+      <section aria-labelledby="postal-heading">
+        <SectionHeading
+          id="postal-heading"
+          title={`Postnummer (${postalCodes.length})`}
+          description="Postnummer koblet til kommunen via Bring. Sorter etter kolonne for å utforske."
+        />
+        <Card class="border-border/80">
           <CardContent class="p-0">
             <Table data-sortable>
               <TableHeader>
-                <TableRow>
+                <TableRow class="hover:bg-transparent">
                   <TableHead data-sort-type="text" class="w-28">Postnr.</TableHead>
                   <TableHead data-sort-type="text">Poststed</TableHead>
                   <TableHead data-sort-type="text" class="text-right">Type</TableHead>
@@ -196,7 +209,7 @@ const populationYear = municipality.populationYear ?? county?.populationYear;
               <TableBody data-show-more-list="postal-list">
                 {postalCodes.map((pc, index) => (
                   <TableRow
-                    class:list={[{ hidden: index >= INITIAL_LIST_SIZE }]}
+                    class:list={["transition-colors hover:bg-muted/50", { hidden: index >= INITIAL_LIST_SIZE }]}
                     data-show-more-hidden={index >= INITIAL_LIST_SIZE ? "" : undefined}
                   >
                     <TableCell class="font-mono text-xs" data-sort-value={pc.code}>

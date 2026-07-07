@@ -4,6 +4,7 @@ import { Card, CardContent } from "@/components/starwind/card";
 export interface FactItem {
   label: string;
   value: string;
+  description?: string;
 }
 
 interface Props {
@@ -13,15 +14,18 @@ interface Props {
 const { facts } = Astro.props;
 ---
 
-<div class="mb-8 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
+<dl class="mb-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
   {
     facts.map((fact) => (
-      <Card>
-        <CardContent class="px-4 py-3">
-          <div class="text-xs uppercase tracking-wide text-muted-foreground">{fact.label}</div>
-          <div class="mt-1 text-lg font-semibold tabular-nums">{fact.value}</div>
+      <Card class="border-border/80">
+        <CardContent class="px-5 py-4">
+          <dt class="text-xs font-medium uppercase tracking-wide text-muted-foreground">{fact.label}</dt>
+          <dd class="mt-2 text-xl font-semibold leading-tight tracking-tight tabular-nums">{fact.value}</dd>
+          {fact.description && (
+            <p class="mt-1.5 text-xs leading-relaxed text-muted-foreground">{fact.description}</p>
+          )}
         </CardContent>
       </Card>
     ))
   }
-</div>
+</dl>

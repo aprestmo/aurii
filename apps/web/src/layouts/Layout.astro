@@ -8,6 +8,12 @@ interface Props {
 }
 
 const { title } = Astro.props;
+
+const navItems = [
+  { label: "Datasett", href: url("#datasett") },
+  { label: "Fylker", href: url("#fylker") },
+  { label: "Spørringer", href: url("#sporringer") },
+];
 ---
 
 <!doctype html>
@@ -15,7 +21,7 @@ const { title } = Astro.props;
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>{title} — Norge</title>
+    <title>{title} — Aurii Geo</title>
     <script is:inline>
       function initTheme() {
         const colorTheme = localStorage.getItem("colorTheme");
@@ -44,24 +50,72 @@ const { title } = Astro.props;
     </script>
   </head>
   <body class="min-h-screen bg-background text-foreground">
-    <div class="border-b border-border bg-background/80 backdrop-blur supports-[backdrop-filter]:bg-background/60">
-      <div class="mx-auto flex max-w-4xl items-center justify-between px-4 py-3 sm:px-6">
-        <a href={url("")} class="flex items-center gap-2 font-semibold tracking-tight">
-          <span class="inline-flex h-8 w-8 items-center justify-center rounded-md bg-primary text-primary-foreground">
-            N
-          </span>
-          Norsk referansedata
-        </a>
-        <ThemeToggle size="sm" ariaLabel="Bytt mellom lys og mørk modus" />
-      </div>
-    </div>
+    <header class="sticky top-0 z-50 border-b border-border bg-background/80 backdrop-blur supports-[backdrop-filter]:bg-background/60">
+      <div class="mx-auto max-w-6xl px-4 sm:px-6">
+        <div class="flex items-center justify-between gap-6 py-4 sm:py-5">
+          <a href={url("")} class="group flex min-w-0 items-center gap-3 focus:outline-none focus-visible:ring-2 focus-visible:ring-outline rounded-md">
+            <span class="inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-md bg-primary text-sm font-bold text-primary-foreground">
+              A
+            </span>
+            <span class="min-w-0">
+              <span class="block font-semibold tracking-tight group-hover:text-primary">Aurii Geo</span>
+              <span class="block truncate text-xs text-muted-foreground">Offentlig referansedata</span>
+            </span>
+          </a>
 
-    <main class="mx-auto max-w-4xl px-4 py-10 sm:px-6">
+          <nav aria-label="Hovednavigasjon" class="hidden items-center gap-1 md:flex">
+            {navItems.map((item) => (
+              <a
+                href={item.href}
+                class="rounded-md px-3 py-1.5 text-sm text-muted-foreground transition-colors hover:bg-accent hover:text-foreground focus:outline-none focus-visible:ring-2 focus-visible:ring-outline"
+              >
+                {item.label}
+              </a>
+            ))}
+          </nav>
+
+          <ThemeToggle size="sm" ariaLabel="Bytt mellom lys og mørk modus" />
+        </div>
+
+        <nav aria-label="Seksjonsnavigasjon" class="-mx-4 flex gap-1 overflow-x-auto border-t border-border/60 px-4 py-2 md:hidden">
+          {navItems.map((item) => (
+            <a
+              href={item.href}
+              class="shrink-0 rounded-md px-3 py-1.5 text-sm text-muted-foreground transition-colors hover:bg-accent hover:text-foreground focus:outline-none focus-visible:ring-2 focus-visible:ring-outline"
+            >
+              {item.label}
+            </a>
+          ))}
+        </nav>
+      </div>
+    </header>
+
+    <main class="mx-auto max-w-6xl px-4 py-10 sm:px-6 sm:py-12">
       <slot />
     </main>
 
-    <footer class="mx-auto max-w-4xl border-t border-border px-4 py-6 text-sm text-muted-foreground sm:px-6">
-      Data: Kartverket, Bring, SSB, UDIR, Brønnøysundregistrene · Drevet av Aurii
+    <footer class="border-t border-border bg-muted/30">
+      <div class="mx-auto max-w-6xl px-4 py-10 sm:px-6">
+        <div class="grid gap-8 sm:grid-cols-2">
+          <div>
+            <p class="font-medium">Datakilder</p>
+            <p class="mt-2 text-sm leading-relaxed text-muted-foreground">
+              Kartverket, Bring, SSB, UDIR og Brønnøysundregistrene. Dataene er importert som strukturerte
+              datasett og koblet sammen i Aurii.
+            </p>
+          </div>
+          <div>
+            <p class="font-medium">Drevet av Aurii</p>
+            <p class="mt-2 text-sm leading-relaxed text-muted-foreground">
+              Dette nettstedet er generert fra strukturerte datasett i Aurii — en deklarativ runtime for
+              strukturert kunnskap. Sider, tabeller og relasjoner bygges fra importert offentlig data.
+            </p>
+          </div>
+        </div>
+        <p class="mt-8 border-t border-border pt-6 text-xs text-muted-foreground">
+          Aurii Geo · Norsk offentlig referansedata
+        </p>
+      </div>
     </footer>
 
     <script>
@@ -79,8 +133,31 @@ const { title } = Astro.props;
             row.removeAttribute("data-show-more-hidden");
           });
 
+        const status = document.querySelector<HTMLElement>(`[data-show-more-status="${listId}"]`);
+        if (status) {
+          status.textContent = status.dataset.showMoreComplete ?? status.textContent;
+        }
+
         button.remove();
         document.dispatchEvent(new CustomEvent("show-more:revealed", { detail: { listId } }));
+      });
+
+      document.addEventListener("click", (event) => {
+        const button = (event.target as HTMLElement).closest<HTMLButtonElement>(".copy-query-btn");
+        if (!button) return;
+
+        const query = button.getAttribute("data-query");
+        if (!query) return;
+
+        navigator.clipboard.writeText(query).then(() => {
+          const original = button.textContent;
+          button.textContent = "Kopiert!";
+          button.setAttribute("aria-label", "Spørring kopiert");
+          setTimeout(() => {
+            button.textContent = original;
+            button.setAttribute("aria-label", "Kopier spørring");
+          }, 2000);
+        });
       });
 
       function parseSortValue(value: string, type: string): string | number {
@@ -140,8 +217,48 @@ const { title } = Astro.props;
         });
       }
 
+      function initTableFilters(root: ParentNode = document) {
+        root.querySelectorAll<HTMLInputElement>("input[data-table-filter]").forEach((input) => {
+          if (input.dataset.filterInit === "true") return;
+          input.dataset.filterInit = "true";
+
+          const tableId = input.getAttribute("data-table-filter");
+          if (!tableId) return;
+
+          const table = document.getElementById(tableId) as HTMLTableElement | null;
+          if (!table?.tBodies[0]) return;
+
+          const rows = Array.from(table.tBodies[0].querySelectorAll<HTMLTableRowElement>("tr"));
+
+          input.addEventListener("input", () => {
+            const query = input.value.trim().toLocaleLowerCase("nb");
+            let visible = 0;
+
+            rows.forEach((row) => {
+              if (row.hasAttribute("data-show-more-hidden")) return;
+              const text = row.textContent?.toLocaleLowerCase("nb") ?? "";
+              const match = query === "" || text.includes(query);
+              row.classList.toggle("hidden", !match);
+              if (match) visible++;
+            });
+
+            const status = document.querySelector<HTMLElement>(`[data-filter-status="${tableId}"]`);
+            if (status) {
+              status.textContent =
+                query === ""
+                  ? (status.dataset.filterDefault ?? "")
+                  : `${visible} treff`;
+            }
+          });
+        });
+      }
+
       initSortableTables();
-      document.addEventListener("astro:after-swap", () => initSortableTables());
+      initTableFilters();
+      document.addEventListener("astro:after-swap", () => {
+        initSortableTables();
+        initTableFilters();
+      });
     </script>
   </body>
 </html>

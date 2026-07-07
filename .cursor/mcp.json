@@ -1,0 +1,13 @@
+{
+  "mcpServers": {
+    "starwind-ui": {
+      "type": "stdio",
+      "command": "npx",
+      "args": ["-y", "@starwind-ui/mcp"],
+      "env": {}
+    },
+    "Astro docs": {
+      "url": "https://mcp.docs.astro.build/mcp"
+    }
+  }
+}

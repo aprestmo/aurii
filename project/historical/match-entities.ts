@@ -125,8 +125,9 @@ export function matchMunicipalityName(
     return undefined;
   }
 
-  const historicalMatches =
-    ctx.historicalMunicipalitiesByName.get(normalizeName(targetName)) ?? [];
+  const historicalMatches = (
+    ctx.historicalMunicipalitiesByName.get(normalizeName(targetName)) ?? []
+  ).filter((match) => match.id !== options.historicalId);
   if (historicalMatches.length === 1) return historicalMatches[0]!.id;
 
   ctx.unresolved.push({

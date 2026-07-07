@@ -35,6 +35,14 @@ describe("historical administrative flow diagrams", () => {
     expect(names[names.length - 1]).toBe("Arendal");
   });
 
+  it("Borre forward flow reaches Horten without hanging", async () => {
+    const flow = await buildForwardFlow("hist-mun-0717-borre", "municipality");
+    expect(hasFlowContent(flow)).toBe(true);
+    const terminal = flow.nodes.find((n) => n.isCurrent);
+    expect(terminal?.name).toBe("Horten");
+    expect(flow.edges.every((edge) => edge.from !== edge.to)).toBe(true);
+  });
+
   it("Nord-Trøndelag forward flow reaches Trøndelag", async () => {
     const flow = await buildForwardFlow(
       "hist-county-17-nord-trondelag",

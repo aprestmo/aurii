@@ -1,0 +1,58 @@
+---
+import HistoricalTimelineItem, {
+  type TimelinePeriodMode,
+} from "@/components/HistoricalTimelineItem.astro";
+import SectionHeading from "@/components/SectionHeading.astro";
+import type { TimelineStep } from "@/lib/historical-data";
+
+interface Props {
+  steps: TimelineStep[];
+  title: string;
+  description?: string;
+  headingId?: string;
+  periodMode?: TimelinePeriodMode;
+  currentStatusLabel?: string;
+  showChangeType?: boolean;
+  class?: string;
+}
+
+const {
+  steps,
+  title,
+  description,
+  headingId,
+  periodMode = "range",
+  currentStatusLabel,
+  showChangeType = true,
+  class: className,
+} = Astro.props;
+
+const id = headingId ?? "historical-timeline";
+---
+
+{
+  steps.length > 0 && (
+    <section class:list={["mb-10", className]} aria-labelledby={id}>
+      <SectionHeading id={id} title={title} description={description} />
+
+      <ol class="relative ml-2 space-y-0 border-l-2 border-border/80 pl-7 sm:ml-3 sm:pl-8">
+        {steps.map((step, index) => (
+          <HistoricalTimelineItem
+            step={step}
+            index={index}
+            total={steps.length}
+            periodMode={periodMode}
+            currentStatusLabel={currentStatusLabel}
+            showChangeType={showChangeType}
+          />
+        ))}
+      </ol>
+
+      {Astro.slots.has("footer") && (
+        <div class="mt-4 text-sm text-muted-foreground">
+          <slot name="footer" />
+        </div>
+      )}
+    </section>
+  )
+}

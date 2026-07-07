@@ -1,6 +1,6 @@
 ---
 import Breadcrumb from "@/components/Breadcrumb.astro";
-import AdminFlowDiagram from "@/components/AdminFlowDiagram.astro";
+import HistoricalFlowCard from "@/components/HistoricalFlowCard.astro";
 import BoundaryMap from "@/components/BoundaryMap.astro";
 import EmptyState from "@/components/EmptyState.astro";
 import EntityNav from "@/components/EntityNav.astro";
@@ -40,6 +40,7 @@ import { buildAncestryFlow, hasFlowContent } from "../../lib/historical-flow";
 import {
   getMunicipalityEnrichment,
   getWikiCurrentMunicipality,
+  buildMunicipalityNumberTimeline,
 } from "../../lib/historical-data";
 
 export async function getStaticPaths() {
@@ -66,6 +67,9 @@ const adjacent = county ? await getAdjacentMunicipalities(id!, county.id) : {};
 const relatedMunicipalities = county ? await getRelatedMunicipalities(id!, county.id) : [];
 const ancestryFlow = await buildAncestryFlow(id!, "municipality");
 const showAncestryFlow = hasFlowContent(ancestryFlow);
+const numberTimeline = await buildMunicipalityNumberTimeline(id!);
+const showNumberTimeline = numberTimeline.length > 1;
+const showHistorySection = showAncestryFlow || showNumberTimeline;
 const wikiMunicipality = await getWikiCurrentMunicipality(id!);
 const enrichment = await getMunicipalityEnrichment(id!);
 const websiteUrl = wikiMunicipality?.websiteUrl ?? enrichment?.websiteUrl;
@@ -207,14 +211,25 @@ const exploreLinks = [
     description="Kommunegrense med fylket i bakgrunnen. Klikk på kartet for å zoome med musehjulet."
   />
 
-  {showAncestryFlow && (
-    <AdminFlowDiagram
-      flow={ancestryFlow}
-      title="Historisk utvikling"
-    />
-  )}
+  {showHistorySection && (
+    <section class="mb-10" aria-labelledby="history-heading">
+      <SectionHeading
+        id="history-heading"
+        title="Historikk og nummerendringer"
+        description="Denne kommunen har røtter i tidligere administrative enheter. Administrativ historikk viser sammenslåinger og delinger fra Wikipedia. Kommunenummer-linjen viser offisielle nummerbytter fra SSB Klass — to ulike, men relaterte perspektiver på endringer over tid."
+      />
 
-  <MunicipalityNumberTimeline municipalityId={municipality.id} />
+      {showAncestryFlow && (
+        <HistoricalFlowCard
+          flow={ancestryFlow}
+          title="Administrativ historikk"
+          description="Forgjengere som ble slått sammen med eller innlemmet i dagens kommune."
+        />
+      )}
+
+      <MunicipalityNumberTimeline municipalityId={municipality.id} embedded />
+    </section>
+  )}
 
   <div class="space-y-12">
     <section aria-labelledby="schools-heading">

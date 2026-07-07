@@ -1,6 +1,6 @@
 ---
 import Breadcrumb from "@/components/Breadcrumb.astro";
-import AdminFlowDiagram from "@/components/AdminFlowDiagram.astro";
+import HistoricalFlowCard from "@/components/HistoricalFlowCard.astro";
 import BoundaryMap from "@/components/BoundaryMap.astro";
 import EntityNav from "@/components/EntityNav.astro";
 import ExploreLinks from "@/components/ExploreLinks.astro";
@@ -180,7 +180,7 @@ const exploreLinks = [
   />
 
   {showAncestryFlow && (
-    <AdminFlowDiagram
+    <HistoricalFlowCard
       flow={ancestryFlow}
       title="Historisk utvikling"
     />

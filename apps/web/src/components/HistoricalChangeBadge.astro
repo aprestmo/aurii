@@ -1,0 +1,45 @@
+---
+import { Badge } from "@/components/starwind/badge";
+import { changeTypeLabel, type ChangeType } from "@/lib/historical-data";
+
+interface Props {
+  changeType?: ChangeType;
+  year?: number;
+  size?: "sm" | "md";
+  class?: string;
+}
+
+const { changeType, year, size = "sm", class: className } = Astro.props;
+
+function variantForType(
+  type?: ChangeType,
+): "secondary" | "warning" | "info" | "outline" | "ghost" {
+  switch (type) {
+    case "merged":
+    case "incorporated":
+      return "secondary";
+    case "split":
+    case "split_between":
+      return "warning";
+    case "reestablished":
+      return "info";
+    case "renamed":
+    case "renumbered":
+      return "outline";
+    default:
+      return "ghost";
+  }
+}
+
+const label = year
+  ? `${changeTypeLabel(changeType)} (${year})`
+  : changeTypeLabel(changeType);
+---
+
+{
+  changeType && (
+    <Badge variant={variantForType(changeType)} size={size} class={className}>
+      {label}
+    </Badge>
+  )
+}

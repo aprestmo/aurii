@@ -1,0 +1,52 @@
+---
+import SectionHeading from "@/components/SectionHeading.astro";
+import { Card, CardContent, CardDescription, CardTitle } from "@/components/starwind/card";
+
+export interface ExploreLink {
+  title: string;
+  description: string;
+  href: string;
+}
+
+interface Props {
+  title?: string;
+  description?: string;
+  links: ExploreLink[];
+  class?: string;
+}
+
+const {
+  title = "Utforsk videre",
+  description = "Relaterte datasett og naturlige neste steg i demoen.",
+  links,
+  class: className,
+} = Astro.props;
+---
+
+{
+  links.length > 0 && (
+    <section class:list={["mt-12 border-t border-border/60 pt-8", className]} aria-labelledby="explore-links-heading">
+      <SectionHeading id="explore-links-heading" title={title} description={description} />
+      <ul class="grid gap-3 sm:grid-cols-2">
+        {links.map((link) => (
+          <li>
+            <a
+              href={link.href}
+              class="group block h-full rounded-xl focus:outline-none focus-visible:ring-2 focus-visible:ring-outline"
+            >
+              <Card class="h-full border-border/80 transition-colors group-hover:border-outline/60 group-hover:bg-accent/20">
+                <CardContent class="px-5 py-4">
+                  <CardTitle class="text-base font-semibold group-hover:text-primary">{link.title}</CardTitle>
+                  <CardDescription class="mt-2 leading-relaxed">{link.description}</CardDescription>
+                  <span class="mt-3 inline-block text-sm font-medium text-primary group-hover:underline">
+                    Gå dit →
+                  </span>
+                </CardContent>
+              </Card>
+            </a>
+          </li>
+        ))}
+      </ul>
+    </section>
+  )
+}

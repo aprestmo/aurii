@@ -1,0 +1,82 @@
+---
+import { Badge } from "@/components/starwind/badge";
+import { Card, CardContent } from "@/components/starwind/card";
+import { url } from "@/lib/base";
+import type { DatasetSummary } from "@/lib/data";
+
+interface Props {
+  datasets: DatasetSummary[];
+}
+
+const { datasets } = Astro.props;
+
+const byId = Object.fromEntries(datasets.map((d) => [d.id, d]));
+const geoRoot = byId.county;
+const geoMiddle = byId.municipality;
+const geoChildren = ["postal-code", "school", "kindergarten", "hospital"]
+  .map((id) => byId[id])
+  .filter(Boolean);
+const national = byId["public-holiday"];
+---
+
+<div class="space-y-6" role="img" aria-label="Diagram som viser hvordan datasettene henger sammen">
+  <div class="rounded-xl border border-border/80 bg-muted/10 p-5 sm:p-6">
+    <p class="mb-4 text-sm font-medium text-foreground">Geografisk hierarki</p>
+    <div class="flex flex-col items-stretch gap-3 sm:flex-row sm:items-center sm:justify-center">
+      {geoRoot && (
+        <div class="flex flex-1 flex-col items-center gap-2 sm:max-w-[10rem]">
+          <Card class="w-full border-border/80">
+            <CardContent class="px-4 py-3 text-center">
+              <p class="text-sm font-semibold">{geoRoot.title}</p>
+              <Badge variant="outline" class="mt-2 tabular-nums">{geoRoot.count}</Badge>
+            </CardContent>
+          </Card>
+          <span class="text-xs text-muted-foreground" aria-hidden="true">↓ inneholder</span>
+        </div>
+      )}
+      {geoMiddle && (
+        <div class="flex flex-1 flex-col items-center gap-2 sm:max-w-[10rem]">
+          <Card class="w-full border-border/80">
+            <CardContent class="px-4 py-3 text-center">
+              <p class="text-sm font-semibold">{geoMiddle.title}</p>
+              <Badge variant="outline" class="mt-2 tabular-nums">{geoMiddle.count}</Badge>
+            </CardContent>
+          </Card>
+          <span class="text-xs text-muted-foreground" aria-hidden="true">↓ kobler til</span>
+        </div>
+      )}
+    </div>
+
+    <ul class="mt-4 grid gap-2 sm:grid-cols-2 lg:grid-cols-4">
+      {geoChildren.map((dataset) => (
+        <li>
+          <a
+            href={url(dataset.path)}
+            class="group block rounded-lg border border-border/70 bg-background px-3 py-2.5 transition-colors hover:border-outline/60 hover:bg-accent/20 focus:outline-none focus-visible:ring-2 focus-visible:ring-outline"
+          >
+            <p class="text-sm font-medium group-hover:text-primary">{dataset.title}</p>
+            <p class="mt-0.5 text-xs text-muted-foreground tabular-nums">
+              {dataset.count.toLocaleString("nb-NO")} poster
+            </p>
+          </a>
+        </li>
+      ))}
+    </ul>
+  </div>
+
+  {national && (
+    <div class="rounded-xl border border-dashed border-border/80 bg-muted/10 p-5 sm:p-6">
+      <p class="mb-2 text-sm font-medium text-foreground">Nasjonalt datasett</p>
+      <p class="mb-3 text-sm leading-relaxed text-muted-foreground">
+        {national.title} er ikke geografisk koblet, men importert i samme Aurii-modell — nyttig for kalender- og
+        planleggingsdata.
+      </p>
+      <a
+        href={url(national.path)}
+        class="inline-flex items-center gap-2 text-sm font-medium text-primary hover:underline focus:outline-none focus-visible:ring-2 focus-visible:ring-outline rounded-sm"
+      >
+        Se {national.title.toLowerCase()} ({national.count}) →
+      </a>
+    </div>
+  )}
+</div>

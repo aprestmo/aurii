@@ -1,5 +1,6 @@
 ---
 import Breadcrumb from "@/components/Breadcrumb.astro";
+import ExploreLinks from "@/components/ExploreLinks.astro";
 import SectionHeading from "@/components/SectionHeading.astro";
 import Layout from "../../layouts/Layout.astro";
 import { Badge } from "@/components/starwind/badge";
@@ -8,8 +9,9 @@ import { Table, TableBody, TableCell, TableRow } from "@/components/starwind/tab
 import { url } from "../../lib/base";
 import {
   getCounty,
-  getMunicipality,
   getKindergarten,
+  getKindergartensByMunicipality,
+  getMunicipality,
   loadKindergartens,
 } from "../../lib/data";
 
@@ -28,8 +30,39 @@ if (!kindergarten) {
 
 const municipality = await getMunicipality(kindergarten.municipalityId);
 const county = await getCounty(kindergarten.countyId);
+const relatedKindergartens = municipality
+  ? (await getKindergartensByMunicipality(kindergarten.municipalityId))
+      .filter((k) => k.id !== kindergarten.id)
+      .slice(0, 5)
+  : [];
 
 const pageDescription = `${kindergarten.name} — barnehage i ${municipality?.name ?? "Norge"}, importert fra UDIR og koblet i Aurii.`;
+
+const exploreLinks = [
+  ...(municipality
+    ? [
+        {
+          title: municipality.name,
+          description: "Se alle barnehager, skoler og postnummer i kommunen.",
+          href: url(`kommuner/${municipality.id}#kindergartens-heading`),
+        },
+      ]
+    : []),
+  ...(county
+    ? [
+        {
+          title: county.name,
+          description: "Se alle kommuner og nøkkeltall for fylket.",
+          href: url(`fylker/${county.id}`),
+        },
+      ]
+    : []),
+  {
+    title: "Søk i alle barnehager",
+    description: "Nasjonal liste med søk i Nasjonalt barnehageregister.",
+    href: url("barnehager"),
+  },
+];
 ---
 
 <Layout title={kindergarten.name} description={pageDescription} canonicalPath={`barnehager/${kindergarten.id}`}>
@@ -47,10 +80,10 @@ const pageDescription = `${kindergarten.name} — barnehage i ${municipality?.na
       Org.nr. <Badge variant="outline">{kindergarten.id}</Badge>
       {municipality && (
         <>
-          ·{" "}
+          · Kommune{" "}
           <a
             href={url(`kommuner/${municipality.id}`)}
-            class="rounded-sm transition-colors hover:text-foreground focus:outline-none focus-visible:ring-2 focus-visible:ring-outline"
+            class="rounded-sm font-medium text-foreground transition-colors hover:text-primary focus:outline-none focus-visible:ring-2 focus-visible:ring-outline"
           >
             {municipality.name}
           </a>
@@ -58,10 +91,10 @@ const pageDescription = `${kindergarten.name} — barnehage i ${municipality?.na
       )}
       {county && (
         <>
-          ·{" "}
+          · Fylke{" "}
           <a
             href={url(`fylker/${county.id}`)}
-            class="rounded-sm transition-colors hover:text-foreground focus:outline-none focus-visible:ring-2 focus-visible:ring-outline"
+            class="rounded-sm font-medium text-foreground transition-colors hover:text-primary focus:outline-none focus-visible:ring-2 focus-visible:ring-outline"
           >
             {county.name}
           </a>
@@ -101,4 +134,28 @@ const pageDescription = `${kindergarten.name} — barnehage i ${municipality?.na
       </CardContent>
     </Card>
   </section>
+
+  {relatedKindergartens.length > 0 && municipality && (
+    <section class="mt-12" aria-labelledby="related-kindergartens-heading">
+      <SectionHeading
+        id="related-kindergartens-heading"
+        title={`Flere barnehager i ${municipality.name}`}
+        description="Andre barnehager koblet til samme kommune gjennom Aurii-relasjoner."
+      />
+      <ul class="flex flex-wrap gap-2">
+        {relatedKindergartens.map((related) => (
+          <li>
+            <a
+              href={url(`barnehager/${related.id}`)}
+              class="inline-flex max-w-full rounded-md border border-border/80 px-3 py-1.5 text-sm transition-colors hover:border-outline/60 hover:bg-accent/20 focus:outline-none focus-visible:ring-2 focus-visible:ring-outline"
+            >
+              <span class="truncate">{related.name}</span>
+            </a>
+          </li>
+        ))}
+      </ul>
+    </section>
+  )}
+
+  <ExploreLinks links={exploreLinks} />
 </Layout>

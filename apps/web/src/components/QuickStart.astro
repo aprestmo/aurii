@@ -1,0 +1,55 @@
+---
+import { Card, CardContent, CardDescription, CardTitle } from "@/components/starwind/card";
+import { url } from "@/lib/base";
+
+const steps = [
+  {
+    title: "Bla geografisk",
+    description: "Start med et fylke, gå videre til kommuner og se koblede postnummer, skoler og barnehager.",
+    href: url("#fylker"),
+    action: "Velg fylke",
+  },
+  {
+    title: "Søk i registre",
+    description: "Finn en bestemt skole, barnehage eller sykehus i nasjonale lister med søk og filtrering.",
+    href: url("skoler"),
+    action: "Søk skoler",
+  },
+  {
+    title: "Spør mot data",
+    description: "Kopier eksempelspørringer og kjør dem i Studio eller CLI mot datasettet norwegian-geo.",
+    href: url("#sporringer"),
+    action: "Se spørringer",
+  },
+];
+---
+
+<section class="mb-16" aria-labelledby="quickstart-heading">
+  <h2 id="quickstart-heading" class="mb-2 text-xl font-semibold tracking-tight scroll-mt-24">
+    Hva kan du gjøre her?
+  </h2>
+  <p class="mb-6 max-w-2xl text-sm leading-relaxed text-muted-foreground">
+    Demoen er bygget for å vise hvordan koblede offentlige datasett kan utforskes — enten du navigerer
+    geografisk, søker i registre eller henter data programmatisk.
+  </p>
+  <ol class="grid gap-4 sm:grid-cols-3">
+    {steps.map((step, index) => (
+      <li>
+        <a
+          href={step.href}
+          class="group block h-full rounded-xl focus:outline-none focus-visible:ring-2 focus-visible:ring-outline"
+        >
+          <Card class="h-full border-border/80 transition-colors group-hover:border-outline/60 group-hover:bg-accent/20">
+            <CardContent class="px-5 py-5">
+              <span class="text-xs font-medium uppercase tracking-wide text-muted-foreground">
+                {index + 1}. {step.title}
+              </span>
+              <CardTitle class="mt-2 text-base font-semibold group-hover:text-primary">{step.action}</CardTitle>
+              <CardDescription class="mt-2 leading-relaxed">{step.description}</CardDescription>
+            </CardContent>
+          </Card>
+        </a>
+      </li>
+    ))}
+  </ol>
+</section>

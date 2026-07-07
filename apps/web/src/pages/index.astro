@@ -1,7 +1,10 @@
 ---
-import Layout from "../layouts/Layout.astro";
+import DatasetMap from "@/components/DatasetMap.astro";
+import QuickStart from "@/components/QuickStart.astro";
 import SearchField from "@/components/SearchField.astro";
 import SectionHeading from "@/components/SectionHeading.astro";
+import TableScroll from "@/components/TableScroll.astro";
+import Layout from "../layouts/Layout.astro";
 import { Badge } from "@/components/starwind/badge";
 import { Button } from "@/components/starwind/button";
 import {
@@ -14,6 +17,7 @@ import {
 import {
   Table,
   TableBody,
+  TableCaption,
   TableCell,
   TableHead,
   TableHeader,
@@ -34,57 +38,57 @@ const populationYear = municipalities.find((m) => m.populationYear)?.populationY
 const pipelineSteps = [
   {
     title: "Import",
-    description: "Offentlige kilder importeres som strukturerte datasett i Aurii.",
+    description: "Offentlige kilder hentes inn som strukturerte datasett i Aurii.",
   },
   {
     title: "Normaliser",
-    description: "Data valideres og normaliseres mot felles skjemaer.",
+    description: "Data valideres mot felles skjemaer og får konsistente felt.",
   },
   {
     title: "Koble",
-    description: "Fylker, kommuner, skoler og postnummer kobles gjennom relasjoner.",
+    description: "Fylker, kommuner, postnummer og registre kobles gjennom relasjoner.",
   },
   {
-    title: "Spørr",
-    description: "Utforsk data med Aurii Query Language — samme modell som dette nettstedet.",
+    title: "Eksponer",
+    description: "Samme modell brukes til nettsider, API og spørringer i Query Language.",
   },
 ];
 ---
 
 <Layout
   title="Offentlig referansedata"
-  description="Aurii Geo importerer, validerer og kobler norsk offentlig referansedata — og eksponerer den som strukturert kunnskap du kan utforske og spørre mot."
+  description="Aurii Geo viser hvordan norsk offentlig referansedata importeres, valideres, kobles og eksponeres som strukturert kunnskap du kan utforske og spørre mot."
   canonicalPath=""
 >
   <section class="mb-16" aria-labelledby="hero-heading">
     <div class="grid gap-10 lg:grid-cols-[1fr_280px] lg:items-start">
       <div>
-        <p class="mb-3 text-sm font-medium uppercase tracking-wide text-muted-foreground">Aurii Demo</p>
+        <p class="mb-3 text-sm font-medium uppercase tracking-wide text-muted-foreground">Aurii-referansedemo</p>
         <h1 id="hero-heading" class="text-3xl font-semibold tracking-tight sm:text-4xl lg:text-[2.5rem] lg:leading-tight">
-          Strukturert offentlig data bygget med Aurii
+          Koblede offentlige datasett — ikke bare en katalog
         </h1>
         <p class="mt-4 max-w-xl text-base leading-relaxed text-muted-foreground">
-          Aurii importerer offentlige kilder, validerer dem mot felles skjemaer, kobler fylker, kommuner,
-          skoler og postnummer gjennom relasjoner, og eksponerer resultatet som strukturert data du kan
-          utforske og spørre mot.
+          Dette nettstedet er en levende demo av Aurii: en deklarativ runtime for strukturert kunnskap.
+          Data fra Kartverket, Bring, UDIR og andre kilder er importert, validert og koblet sammen —
+          og presentert som sider du kan bla i, søke i og spørre mot.
         </p>
         <div class="mt-8 flex flex-wrap gap-3">
-          <Button href={url("#fylker")} size="default">
-            Utforsk fylker
+          <Button href={url("#kom-i-gang")}>
+            Kom i gang
           </Button>
-          <Button href={url("#sporringer")} variant="outline" size="default">
-            Se eksempelspørringer
+          <Button href={url("#fylker")} variant="outline">
+            Utforsk fylker
           </Button>
         </div>
       </div>
 
       <Card class="border-border/80">
         <CardHeader class="pb-3">
-          <CardTitle class="text-sm font-medium text-muted-foreground">Oversikt</CardTitle>
+          <CardTitle class="text-sm font-medium text-muted-foreground">Datasett norwegian-geo</CardTitle>
         </CardHeader>
         <CardContent class="space-y-4 pt-0">
           <div class="flex items-baseline justify-between gap-4">
-            <span class="text-sm text-muted-foreground">Datasett</span>
+            <span class="text-sm text-muted-foreground">Entitetstyper</span>
             <span class="text-lg font-semibold tabular-nums">{datasets.length}</span>
           </div>
           <div class="flex items-baseline justify-between gap-4">
@@ -109,38 +113,46 @@ const pipelineSteps = [
     </div>
   </section>
 
+  <div id="kom-i-gang" class="scroll-mt-24">
+    <QuickStart />
+  </div>
+
+  <section class="mb-16" aria-labelledby="pipeline-heading">
+    <SectionHeading
+      id="pipeline-heading"
+      title="Hva skjer i demoen?"
+      description="Aurii behandler offentlige kilder som entiteter med skjemaer og relasjoner — ikke som løse filer eller tabeller."
+    />
+    <div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+      {pipelineSteps.map((step, index) => (
+        <Card class="border-border/80">
+          <CardContent class="px-5 py-4">
+            <span class="text-xs font-medium uppercase tracking-wide text-muted-foreground">
+              {index + 1}. {step.title}
+            </span>
+            <p class="mt-2 text-sm leading-relaxed text-muted-foreground">{step.description}</p>
+          </CardContent>
+        </Card>
+      ))}
+    </div>
+  </section>
+
   <section id="datasett" class="mb-16 scroll-mt-24" aria-labelledby="datasets-heading">
     <SectionHeading
       id="datasets-heading"
-      title="Datasett"
-      description="Sju importerte datasett fra offentlige kilder. Hvert datasett er en entitetstype i Aurii med egne skjemaer og relasjoner til resten av modellen."
+      title="Sju datasett — og hvordan de henger sammen"
+      description="Geografiske data danner et hierarki. Skoler, barnehager, postnummer og sykehus kobles til kommuner. Helligdager er nasjonale."
     />
+    <div class="mb-8">
+      <DatasetMap datasets={datasets} />
+    </div>
     <div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-      {datasets.map((dataset) =>
-        dataset.path ? (
-          <a
-            href={url(dataset.path)}
-            class="group block rounded-xl focus:outline-none focus-visible:ring-2 focus-visible:ring-outline"
-          >
-            <Card class="h-full border-border/80 transition-colors group-hover:border-outline/60 group-hover:bg-accent/20">
-              <CardHeader class="pb-3">
-                <div class="flex items-start justify-between gap-3">
-                  <CardTitle class="text-base font-semibold">{dataset.title}</CardTitle>
-                  <Badge variant="outline" class="shrink-0 tabular-nums">
-                    {dataset.count.toLocaleString("nb-NO")}
-                  </Badge>
-                </div>
-                <CardDescription class="mt-2">Kilde: {dataset.source}</CardDescription>
-              </CardHeader>
-              <CardContent class="pt-0">
-                <span class="text-sm font-medium text-primary group-hover:underline">
-                  Åpne →
-                </span>
-              </CardContent>
-            </Card>
-          </a>
-        ) : (
-          <Card class="h-full border-border/80">
+      {datasets.map((dataset) => (
+        <a
+          href={url(dataset.path)}
+          class="group block rounded-xl focus:outline-none focus-visible:ring-2 focus-visible:ring-outline"
+        >
+          <Card class="h-full border-border/80 transition-colors group-hover:border-outline/60 group-hover:bg-accent/20">
             <CardHeader class="pb-3">
               <div class="flex items-start justify-between gap-3">
                 <CardTitle class="text-base font-semibold">{dataset.title}</CardTitle>
@@ -148,14 +160,17 @@ const pipelineSteps = [
                   {dataset.count.toLocaleString("nb-NO")}
                 </Badge>
               </div>
-              <CardDescription class="mt-2">Kilde: {dataset.source}</CardDescription>
+              <CardDescription class="mt-2 leading-relaxed">{dataset.description}</CardDescription>
+              <p class="mt-2 text-xs text-muted-foreground">Kilde: {dataset.source}</p>
             </CardHeader>
             <CardContent class="pt-0">
-              <span class="text-sm text-muted-foreground">Utforsk i tabellen under</span>
+              <span class="text-sm font-medium text-primary group-hover:underline">
+                {dataset.exploreLabel} →
+              </span>
             </CardContent>
           </Card>
-        ),
-      )}
+        </a>
+      ))}
     </div>
   </section>
 
@@ -163,7 +178,7 @@ const pipelineSteps = [
     <SectionHeading
       id="counties-heading"
       title="Fylker"
-      description="Bla gjennom norske fylker. Klikk på en kolonneoverskrift for å sortere, eller søk etter navn eller nummer."
+      description="Start her for geografisk navigasjon. Velg et fylke for å se kommuner og koblede datasett. Klikk på kolonneoverskrifter for å sortere."
     />
     <div class="mb-4 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
       <SearchField
@@ -173,44 +188,55 @@ const pipelineSteps = [
         class="max-w-sm"
         data-table-filter="county-table"
       />
-      <p class="text-sm text-muted-foreground" data-filter-status="county-table" data-filter-default="">
-        {counties.length} fylker
+      <p
+        class="text-sm text-muted-foreground"
+        data-filter-status="county-table"
+        data-filter-default={`Viser ${counties.length} fylker`}
+        role="status"
+        aria-live="polite"
+      >
+        Viser {counties.length} fylker
       </p>
     </div>
     <Card class="border-border/80">
       <CardContent class="p-0">
-        <Table id="county-table" data-sortable>
-          <TableHeader>
-            <TableRow class="hover:bg-transparent">
-              <TableHead data-sort-type="text" class="w-20">Nr.</TableHead>
-              <TableHead data-sort-type="text">Navn</TableHead>
-              <TableHead data-sort-type="number" class="text-right">Innbyggere</TableHead>
-            </TableRow>
-          </TableHeader>
-          <TableBody>
-            {counties.map((county) => (
-              <TableRow class="transition-colors hover:bg-muted/50">
-                <TableCell class="font-mono text-xs text-muted-foreground" data-sort-value={county.id}>
-                  {county.id}
-                </TableCell>
-                <TableCell>
-                  <a
-                    href={url(`fylker/${county.id}`)}
-                    class="font-medium text-foreground underline-offset-4 hover:text-primary hover:underline focus:outline-none focus-visible:ring-2 focus-visible:ring-outline rounded-sm"
-                  >
-                    {county.name}
-                  </a>
-                </TableCell>
-                <TableCell
-                  class="text-right tabular-nums"
-                  data-sort-value={String(county.population ?? 0)}
-                >
-                  {formatPopulation(county.population)}
-                </TableCell>
+        <TableScroll>
+          <Table id="county-table" data-sortable>
+            <TableCaption class="sr-only">
+              Tabell over norske fylker med nummer, navn og innbyggertall. Klikk på kolonneoverskrifter for å sortere.
+            </TableCaption>
+            <TableHeader>
+              <TableRow class="hover:bg-transparent">
+                <TableHead data-sort-type="text" class="w-20">Nr.</TableHead>
+                <TableHead data-sort-type="text">Navn</TableHead>
+                <TableHead data-sort-type="number" class="text-right">Innbyggere</TableHead>
               </TableRow>
-            ))}
-          </TableBody>
-        </Table>
+            </TableHeader>
+            <TableBody>
+              {counties.map((county) => (
+                <TableRow class="transition-colors hover:bg-muted/50">
+                  <TableCell class="font-mono text-xs text-muted-foreground" data-sort-value={county.id}>
+                    {county.id}
+                  </TableCell>
+                  <TableCell>
+                    <a
+                      href={url(`fylker/${county.id}`)}
+                      class="font-medium text-foreground underline-offset-4 hover:text-primary hover:underline focus:outline-none focus-visible:ring-2 focus-visible:ring-outline rounded-sm"
+                    >
+                      {county.name}
+                    </a>
+                  </TableCell>
+                  <TableCell
+                    class="text-right tabular-nums"
+                    data-sort-value={String(county.population ?? 0)}
+                  >
+                    {formatPopulation(county.population)}
+                  </TableCell>
+                </TableRow>
+              ))}
+            </TableBody>
+          </Table>
+        </TableScroll>
       </CardContent>
     </Card>
   </section>
@@ -219,7 +245,7 @@ const pipelineSteps = [
     <SectionHeading
       id="queries-heading"
       title="Eksempelspørringer"
-      description="Disse spørringene viser hvordan du henter koblede data med Aurii Query Language. Kjør dem i Studio eller via CLI med dataset norwegian-geo."
+      description="Samme data som nettstedet kan hentes med Aurii Query Language. Kopier en spørring og kjør den i Studio eller via CLI med dataset norwegian-geo."
     />
     <div class="space-y-3">
       {SAMPLE_QUERIES.map((query) => (
@@ -244,25 +270,5 @@ const pipelineSteps = [
       CLI: <code class="rounded bg-muted px-1.5 py-0.5 font-mono text-xs">bun run cli query</code> med dataset{" "}
       <code class="rounded bg-muted px-1.5 py-0.5 font-mono text-xs">norwegian-geo</code>
     </p>
-  </section>
-
-  <section class="border-t border-border/60 pt-12" aria-labelledby="pipeline-heading">
-    <SectionHeading
-      id="pipeline-heading"
-      title="Fra import til utforskning"
-      description="Aurii kobler offentlige datakilder til et sammenhengende datamodell som kan spørres og presenteres."
-    />
-    <div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-      {pipelineSteps.map((step, index) => (
-        <Card class="border-border/80">
-          <CardContent class="px-5 py-4">
-            <span class="text-xs font-medium uppercase tracking-wide text-muted-foreground">
-              {index + 1}. {step.title}
-            </span>
-            <p class="mt-2 text-sm leading-relaxed text-muted-foreground">{step.description}</p>
-          </CardContent>
-        </Card>
-      ))}
-    </div>
   </section>
 </Layout>

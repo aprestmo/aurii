@@ -2,16 +2,19 @@
 import Breadcrumb from "@/components/Breadcrumb.astro";
 import EmptyState from "@/components/EmptyState.astro";
 import EntityNav from "@/components/EntityNav.astro";
+import ExploreLinks from "@/components/ExploreLinks.astro";
 import GroupedFactsCard from "@/components/GroupedFactsCard.astro";
 import PageHeader from "@/components/PageHeader.astro";
 import SectionHeading from "@/components/SectionHeading.astro";
 import ShowMoreFooter from "@/components/ShowMoreFooter.astro";
+import TableScroll from "@/components/TableScroll.astro";
 import Layout from "../../layouts/Layout.astro";
 import { Badge } from "@/components/starwind/badge";
 import { Card, CardContent } from "@/components/starwind/card";
 import {
   Table,
   TableBody,
+  TableCaption,
   TableCell,
   TableHead,
   TableHeader,
@@ -56,6 +59,33 @@ const adjacent = county ? await getAdjacentMunicipalities(id!, county.id) : {};
 const relatedMunicipalities = county ? await getRelatedMunicipalities(id!, county.id) : [];
 
 const pageDescription = `${municipality.name} i Aurii Geo — ${stats.schoolCount} skoler, ${stats.kindergartenCount} barnehager og ${stats.postalCodeCount} postnummer koblet gjennom Aurii-relasjoner.`;
+
+const exploreLinks = [
+  ...(county
+    ? [
+        {
+          title: `Tilbake til ${county.name}`,
+          description: `Se alle kommuner i fylket og sammenlign nøkkeltall.`,
+          href: url(`fylker/${county.id}`),
+        },
+      ]
+    : []),
+  {
+    title: "Søk i alle skoler",
+    description: "Nasjonal liste med søk — nyttig når du vet skolenavn, men ikke kommunen.",
+    href: url("skoler"),
+  },
+  {
+    title: "Søk i alle barnehager",
+    description: "Nasjonal liste med søk i barnehageregisteret.",
+    href: url("barnehager"),
+  },
+  {
+    title: "Sykehus i Norge",
+    description: "Se sykehus koblet til kommuner via Brønnøysundregistrene.",
+    href: url("sykehus"),
+  },
+];
 ---
 
 <Layout title={municipality.name} description={pageDescription} canonicalPath={`kommuner/${municipality.id}`}>
@@ -126,7 +156,9 @@ const pageDescription = `${municipality.name} i Aurii Geo — ${stats.schoolCoun
       {schools.length > 0 ? (
         <Card class="border-border/80">
           <CardContent class="p-0">
-            <Table data-sortable>
+            <TableScroll>
+              <Table data-sortable>
+                <TableCaption class="sr-only">Skoler i {municipality.name}</TableCaption>
               <TableHeader>
                 <TableRow class="hover:bg-transparent">
                   <TableHead data-sort-type="text" class="w-28">Org.nr.</TableHead>
@@ -160,11 +192,18 @@ const pageDescription = `${municipality.name} i Aurii Geo — ${stats.schoolCoun
                 ))}
               </TableBody>
             </Table>
+            </TableScroll>
           </CardContent>
           <ShowMoreFooter listId="school-list" total={schools.length} noun="skoler" />
         </Card>
       ) : (
-        <EmptyState>Ingen registrerte skoler ble funnet for denne kommunen.</EmptyState>
+        <EmptyState
+          title="Ingen skoler"
+          actionLabel="Søk i alle skoler"
+          actionHref={url("skoler")}
+        >
+          Ingen registrerte skoler ble funnet for denne kommunen. Prøv den nasjonale skolelisten.
+        </EmptyState>
       )}
     </section>
 
@@ -177,15 +216,17 @@ const pageDescription = `${municipality.name} i Aurii Geo — ${stats.schoolCoun
       {kindergartens.length > 0 ? (
         <Card class="border-border/80">
           <CardContent class="p-0">
-            <Table data-sortable>
-              <TableHeader>
-                <TableRow class="hover:bg-transparent">
-                  <TableHead data-sort-type="text" class="w-28">Org.nr.</TableHead>
-                  <TableHead data-sort-type="text">Navn</TableHead>
-                  <TableHead data-sort-type="text" class="text-right">Type</TableHead>
-                </TableRow>
-              </TableHeader>
-              <TableBody data-show-more-list="kindergarten-list">
+            <TableScroll>
+              <Table data-sortable>
+                <TableCaption class="sr-only">Barnehager i {municipality.name}</TableCaption>
+                <TableHeader>
+                  <TableRow class="hover:bg-transparent">
+                    <TableHead data-sort-type="text" class="w-28">Org.nr.</TableHead>
+                    <TableHead data-sort-type="text">Navn</TableHead>
+                    <TableHead data-sort-type="text" class="text-right">Type</TableHead>
+                  </TableRow>
+                </TableHeader>
+                <TableBody data-show-more-list="kindergarten-list">
                 {kindergartens.map((kg, index) => (
                   <TableRow
                     class:list={["transition-colors hover:bg-muted/50", { hidden: index >= INITIAL_LIST_SIZE }]}
@@ -211,11 +252,18 @@ const pageDescription = `${municipality.name} i Aurii Geo — ${stats.schoolCoun
                 ))}
               </TableBody>
             </Table>
+            </TableScroll>
           </CardContent>
           <ShowMoreFooter listId="kindergarten-list" total={kindergartens.length} noun="barnehager" />
         </Card>
       ) : (
-        <EmptyState>Ingen registrerte barnehager ble funnet for denne kommunen.</EmptyState>
+        <EmptyState
+          title="Ingen barnehager"
+          actionLabel="Søk i alle barnehager"
+          actionHref={url("barnehager")}
+        >
+          Ingen registrerte barnehager ble funnet for denne kommunen.
+        </EmptyState>
       )}
     </section>
 
@@ -228,15 +276,17 @@ const pageDescription = `${municipality.name} i Aurii Geo — ${stats.schoolCoun
       {postalCodes.length > 0 ? (
         <Card class="border-border/80">
           <CardContent class="p-0">
-            <Table data-sortable>
-              <TableHeader>
-                <TableRow class="hover:bg-transparent">
-                  <TableHead data-sort-type="text" class="w-28">Postnr.</TableHead>
-                  <TableHead data-sort-type="text">Poststed</TableHead>
-                  <TableHead data-sort-type="text" class="text-right">Type</TableHead>
-                </TableRow>
-              </TableHeader>
-              <TableBody data-show-more-list="postal-list">
+            <TableScroll>
+              <Table data-sortable>
+                <TableCaption class="sr-only">Postnummer i {municipality.name}</TableCaption>
+                <TableHeader>
+                  <TableRow class="hover:bg-transparent">
+                    <TableHead data-sort-type="text" class="w-28">Postnr.</TableHead>
+                    <TableHead data-sort-type="text">Poststed</TableHead>
+                    <TableHead data-sort-type="text" class="text-right">Type</TableHead>
+                  </TableRow>
+                </TableHeader>
+                <TableBody data-show-more-list="postal-list">
                 {postalCodes.map((pc, index) => (
                   <TableRow
                     class:list={["transition-colors hover:bg-muted/50", { hidden: index >= INITIAL_LIST_SIZE }]}
@@ -253,11 +303,14 @@ const pageDescription = `${municipality.name} i Aurii Geo — ${stats.schoolCoun
                 ))}
               </TableBody>
             </Table>
+            </TableScroll>
           </CardContent>
           <ShowMoreFooter listId="postal-list" total={postalCodes.length} noun="postnummer" />
         </Card>
       ) : (
-        <EmptyState>Ingen postnummer er koblet til denne kommunen.</EmptyState>
+        <EmptyState title="Ingen postnummer">
+          Ingen postnummer er koblet til denne kommunen i Bring-datasettet.
+        </EmptyState>
       )}
     </section>
   </div>
@@ -283,6 +336,8 @@ const pageDescription = `${municipality.name} i Aurii Geo — ${stats.schoolCoun
       </ul>
     </section>
   )}
+
+  <ExploreLinks links={exploreLinks} class="mt-0" />
 
   <EntityNav previous={adjacent.previous} next={adjacent.next} basePath="kommuner" label="Kommune" />
 </Layout>

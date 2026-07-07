@@ -1,5 +1,6 @@
 ---
 import Breadcrumb from "@/components/Breadcrumb.astro";
+import ExploreLinks from "@/components/ExploreLinks.astro";
 import SectionHeading from "@/components/SectionHeading.astro";
 import Layout from "../../layouts/Layout.astro";
 import { Badge } from "@/components/starwind/badge";
@@ -7,7 +8,9 @@ import { Card, CardContent } from "@/components/starwind/card";
 import { Table, TableBody, TableCell, TableRow } from "@/components/starwind/table";
 import { url } from "../../lib/base";
 import {
+  getCounty,
   getHospital,
+  getHospitalsByMunicipality,
   getMunicipality,
   loadHospitals,
 } from "../../lib/data";
@@ -26,8 +29,40 @@ if (!hospital) {
 }
 
 const municipality = await getMunicipality(hospital.municipalityId);
+const county = municipality ? await getCounty(municipality.countyId) : undefined;
+const relatedHospitals = municipality
+  ? (await getHospitalsByMunicipality(hospital.municipalityId))
+      .filter((h) => h.id !== hospital.id)
+      .slice(0, 5)
+  : [];
 
 const pageDescription = `${hospital.name} — sykehus i ${municipality?.name ?? "Norge"}, importert fra Brønnøysundregistrene og koblet i Aurii.`;
+
+const exploreLinks = [
+  ...(municipality
+    ? [
+        {
+          title: municipality.name,
+          description: "Se skoler, barnehager og postnummer i kommunen sykehuset tilhører.",
+          href: url(`kommuner/${municipality.id}`),
+        },
+      ]
+    : []),
+  ...(county
+    ? [
+        {
+          title: county.name,
+          description: "Se alle kommuner i fylket.",
+          href: url(`fylker/${county.id}`),
+        },
+      ]
+    : []),
+  {
+    title: "Alle sykehus",
+    description: "Nasjonal liste over sykehus fra Enhetsregisteret.",
+    href: url("sykehus"),
+  },
+];
 ---
 
 <Layout title={hospital.name} description={pageDescription} canonicalPath={`sykehus/${hospital.id}`}>
@@ -45,12 +80,23 @@ const pageDescription = `${hospital.name} — sykehus i ${municipality?.name ?? 
       Org.nr. <Badge variant="outline">{hospital.id}</Badge>
       {municipality && (
         <>
-          ·{" "}
+          · Kommune{" "}
           <a
             href={url(`kommuner/${municipality.id}`)}
-            class="rounded-sm transition-colors hover:text-foreground focus:outline-none focus-visible:ring-2 focus-visible:ring-outline"
+            class="rounded-sm font-medium text-foreground transition-colors hover:text-primary focus:outline-none focus-visible:ring-2 focus-visible:ring-outline"
           >
             {municipality.name}
+          </a>
+        </>
+      )}
+      {county && (
+        <>
+          · Fylke{" "}
+          <a
+            href={url(`fylker/${county.id}`)}
+            class="rounded-sm font-medium text-foreground transition-colors hover:text-primary focus:outline-none focus-visible:ring-2 focus-visible:ring-outline"
+          >
+            {county.name}
           </a>
         </>
       )}
@@ -84,4 +130,28 @@ const pageDescription = `${hospital.name} — sykehus i ${municipality?.name ?? 
       </CardContent>
     </Card>
   </section>
+
+  {relatedHospitals.length > 0 && municipality && (
+    <section class="mt-12" aria-labelledby="related-hospitals-heading">
+      <SectionHeading
+        id="related-hospitals-heading"
+        title={`Flere sykehus i ${municipality.name}`}
+        description="Andre sykehus koblet til samme kommune."
+      />
+      <ul class="flex flex-wrap gap-2">
+        {relatedHospitals.map((related) => (
+          <li>
+            <a
+              href={url(`sykehus/${related.id}`)}
+              class="inline-flex max-w-full rounded-md border border-border/80 px-3 py-1.5 text-sm transition-colors hover:border-outline/60 hover:bg-accent/20 focus:outline-none focus-visible:ring-2 focus-visible:ring-outline"
+            >
+              <span class="truncate">{related.name}</span>
+            </a>
+          </li>
+        ))}
+      </ul>
+    </section>
+  )}
+
+  <ExploreLinks links={exploreLinks} />
 </Layout>

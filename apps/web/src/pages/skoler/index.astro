@@ -1,5 +1,6 @@
 ---
 import Breadcrumb from "@/components/Breadcrumb.astro";
+import ListPageHeader from "@/components/ListPageHeader.astro";
 import SearchField from "@/components/SearchField.astro";
 import ShowMoreFooter from "@/components/ShowMoreFooter.astro";
 import Layout from "../../layouts/Layout.astro";
@@ -25,13 +26,11 @@ const schools = (await loadSchools()).sort((a, b) =>
     ]}
   />
 
-  <header class="mb-8">
-    <h1 class="text-3xl font-semibold tracking-tight sm:text-4xl">Skoler</h1>
-    <p class="mt-3 max-w-2xl text-sm leading-relaxed text-muted-foreground">
-      {schools.length.toLocaleString("nb-NO")} skoler fra UDIR Nasjonalt skoleregister, importert som
-      strukturerte entiteter i Aurii.
-    </p>
-  </header>
+  <ListPageHeader
+    title="Skoler"
+    description={`${schools.length.toLocaleString("nb-NO")} skoler fra UDIR Nasjonalt skoleregister, importert som strukturerte entiteter og koblet til kommune og fylke.`}
+    hint="Tips: Kjenner du kommunen? Start med et fylke på forsiden og gå videre til kommunen for å se alle skoler der. Bruk søket under for å finne en bestemt skole nasjonalt."
+  />
 
   <div class="mb-6">
     <SearchField
@@ -68,7 +67,7 @@ const schools = (await loadSchools()).sort((a, b) =>
       initial={INITIAL_SEARCH_LIST_SIZE}
       noun="skoler"
     />
-    <CardDescription id="more-note" class="border-t border-border/60 px-4 py-3 text-sm">
+    <CardDescription id="more-note" class="border-t border-border/60 px-4 py-3 text-sm" role="status" aria-live="polite">
       Viser de første {INITIAL_SEARCH_LIST_SIZE.toLocaleString("nb-NO")}. Bruk søk for å finne en bestemt skole.
     </CardDescription>
   </Card>

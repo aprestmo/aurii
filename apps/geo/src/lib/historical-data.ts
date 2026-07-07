@@ -90,6 +90,39 @@ export interface AdministrativeChange {
   sourceUrl: string;
 }
 
+export interface MunicipalityEnrichment {
+  id: string;
+  name: string;
+  administrativeCenter?: string;
+  areaKm2?: number;
+  languageForm?: string;
+  languageArea?: string;
+  wikipediaUrl?: string;
+  established?: string;
+  establishedYear?: number;
+  prehistory?: string;
+  historicalNames?: Array<{ name: string; until?: string; notes?: string }>;
+  directPredecessors?: Array<{ number: string; name: string }>;
+  formedFrom?: Array<{ number: string; name: string }>;
+  predecessors?: Array<{
+    id?: string;
+    name: string;
+    number?: string;
+    validFrom?: number;
+    validTo?: number;
+    changeType?: ChangeType;
+    notes?: string;
+  }>;
+  timeline?: Array<{
+    year?: number;
+    date?: string;
+    type: string;
+    description: string;
+    entities?: Array<{ number: string; name: string }>;
+  }>;
+  sources: string[];
+}
+
 export interface TimelineStep {
   id?: string;
   name: string;
@@ -149,6 +182,21 @@ export async function loadAdministrativeChanges(): Promise<
   return readHistoricalJson<AdministrativeChange[]>(
     "administrative-changes.json",
   );
+}
+
+export async function loadMunicipalityEnrichment(): Promise<
+  MunicipalityEnrichment[]
+> {
+  return readHistoricalJson<MunicipalityEnrichment[]>(
+    "municipality-enrichment.json",
+  );
+}
+
+export async function getMunicipalityEnrichment(
+  id: string,
+): Promise<MunicipalityEnrichment | undefined> {
+  const enrichments = await loadMunicipalityEnrichment();
+  return enrichments.find((entry) => entry.id === id);
 }
 
 export async function getHistoricalMunicipality(

@@ -16,6 +16,7 @@
     "serve": "bun run --filter='@aurii/core' serve",
     "fetch:norwegian-geo": "bun run packages/core/scripts/fetch-norwegian-geo.ts",
     "fetch:historical-norwegian-geo": "bun run demo/norwegian-geo/historical/fetch-historical.ts",
+    "build:municipality-enrichment": "bun run demo/norwegian-geo/historical/build-enrichment.ts",
     "validate:historical-norwegian-geo": "bun run demo/norwegian-geo/historical/validate.ts",
     "import:norwegian-geo": "bun run packages/core/scripts/import-norwegian-geo.ts"
   }

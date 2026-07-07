@@ -48,7 +48,7 @@ const kindergartens = (await loadKindergartens()).sort((a, b) =>
   </Card>
 </Layout>
 
-<script define:vars={{ kindergartens, base: import.meta.env.BASE_URL }}>
+<script is:inline define:vars={{ kindergartens, base: import.meta.env.BASE_URL }}>
   const input = document.getElementById("search");
   const list = document.getElementById("kindergarten-list");
   const note = document.getElementById("more-note");

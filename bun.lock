@@ -20,6 +20,10 @@
         "tailwindcss": "^4",
         "tw-animate-css": "^1",
       },
+      "devDependencies": {
+        "@types/bun": "^1.3.14",
+        "typescript": "^6.0.3",
+      },
     },
     "apps/studio": {
       "name": "@aurii/studio",

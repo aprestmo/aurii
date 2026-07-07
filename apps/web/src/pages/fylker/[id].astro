@@ -1,6 +1,8 @@
 ---
 import Breadcrumb from "@/components/Breadcrumb.astro";
 import FactGrid from "@/components/FactGrid.astro";
+import PageHeader from "@/components/PageHeader.astro";
+import SectionHeading from "@/components/SectionHeading.astro";
 import ShowMoreFooter from "@/components/ShowMoreFooter.astro";
 import Layout from "../../layouts/Layout.astro";
 import { Badge } from "@/components/starwind/badge";
@@ -49,9 +51,8 @@ const populationYear = county.populationYear ?? stats.populationYear;
     ]}
   />
 
-  <div class="mb-8">
-    <h1 class="text-3xl font-semibold tracking-tight">{county.name}</h1>
-    <p class="mt-2 flex flex-wrap items-center gap-2 text-muted-foreground">
+  <PageHeader title={county.name}>
+    <Fragment slot="meta">
       Fylkesnummer <Badge variant="outline">{county.id}</Badge>
       · {stats.municipalityCount} kommune{stats.municipalityCount === 1 ? "" : "r"}
       {populationYear && (
@@ -59,8 +60,8 @@ const populationYear = county.populationYear ?? stats.populationYear;
           · Innbyggertall per 1.1.{populationYear} (SSB)
         </>
       )}
-    </p>
-  </div>
+    </Fragment>
+  </PageHeader>
 
   <FactGrid
     facts={[
@@ -88,42 +89,51 @@ const populationYear = county.populationYear ?? stats.populationYear;
     ]}
   />
 
-  <h2 class="mb-3 text-sm font-medium uppercase tracking-wide text-muted-foreground">Kommuner</h2>
-  <Card>
-    <CardContent class="p-0">
-      <Table data-sortable>
-        <TableHeader>
-          <TableRow>
-            <TableHead data-sort-type="text" class="w-24">Nr.</TableHead>
-            <TableHead data-sort-type="text">Navn</TableHead>
-            <TableHead data-sort-type="number" class="text-right">Innbyggere</TableHead>
-          </TableRow>
-        </TableHeader>
-        <TableBody data-show-more-list="municipality-list">
-          {municipalities.map((mun, index) => (
-            <TableRow
-              class:list={[{ hidden: index >= INITIAL_LIST_SIZE }]}
-              data-show-more-hidden={index >= INITIAL_LIST_SIZE ? "" : undefined}
-            >
-              <TableCell class="font-mono text-xs text-muted-foreground" data-sort-value={mun.id}>
-                {mun.id}
-              </TableCell>
-              <TableCell>
-                <a href={url(`kommuner/${mun.id}`)} class="font-medium hover:text-primary">
-                  {mun.name}
-                </a>
-              </TableCell>
-              <TableCell
-                class="text-right tabular-nums"
-                data-sort-value={String(mun.population ?? 0)}
-              >
-                {formatPopulation(mun.population)}
-              </TableCell>
+  <section aria-labelledby="municipalities-heading">
+    <SectionHeading
+      id="municipalities-heading"
+      title="Kommuner"
+      description="Alle kommuner i fylket. Klikk på en kommune for å se skoler, barnehager og postnummer koblet til kommunen."
+    />
+    <Card class="border-border/80">
+      <CardContent class="p-0">
+        <Table data-sortable>
+          <TableHeader>
+            <TableRow class="hover:bg-transparent">
+              <TableHead data-sort-type="text" class="w-24">Nr.</TableHead>
+              <TableHead data-sort-type="text">Navn</TableHead>
+              <TableHead data-sort-type="number" class="text-right">Innbyggere</TableHead>
             </TableRow>
-          ))}
-        </TableBody>
-      </Table>
-    </CardContent>
-    <ShowMoreFooter listId="municipality-list" total={municipalities.length} noun="kommuner" />
-  </Card>
+          </TableHeader>
+          <TableBody data-show-more-list="municipality-list">
+            {municipalities.map((mun, index) => (
+              <TableRow
+                class:list={["transition-colors hover:bg-muted/50", { hidden: index >= INITIAL_LIST_SIZE }]}
+                data-show-more-hidden={index >= INITIAL_LIST_SIZE ? "" : undefined}
+              >
+                <TableCell class="font-mono text-xs text-muted-foreground" data-sort-value={mun.id}>
+                  {mun.id}
+                </TableCell>
+                <TableCell>
+                  <a
+                    href={url(`kommuner/${mun.id}`)}
+                    class="font-medium text-foreground underline-offset-4 hover:text-primary hover:underline focus:outline-none focus-visible:ring-2 focus-visible:ring-outline rounded-sm"
+                  >
+                    {mun.name}
+                  </a>
+                </TableCell>
+                <TableCell
+                  class="text-right tabular-nums"
+                  data-sort-value={String(mun.population ?? 0)}
+                >
+                  {formatPopulation(mun.population)}
+                </TableCell>
+              </TableRow>
+            ))}
+          </TableBody>
+        </Table>
+      </CardContent>
+      <ShowMoreFooter listId="municipality-list" total={municipalities.length} noun="kommuner" />
+    </Card>
+  </section>
 </Layout>

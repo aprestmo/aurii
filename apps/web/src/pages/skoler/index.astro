@@ -1,8 +1,10 @@
 ---
+import ShowMoreFooter from "@/components/ShowMoreFooter.astro";
 import Layout from "../../layouts/Layout.astro";
 import { Card, CardContent, CardDescription } from "@/components/starwind/card";
 import { Input } from "@/components/starwind/input";
 import { url } from "../../lib/base";
+import { INITIAL_SEARCH_LIST_SIZE } from "@/lib/show-more";
 import { loadSchools } from "../../lib/data";
 
 const schools = (await loadSchools()).sort((a, b) =>
@@ -28,9 +30,14 @@ const schools = (await loadSchools()).sort((a, b) =>
 
   <Card>
     <CardContent class="p-0">
-      <ul id="school-list" class="divide-y divide-border">
-        {schools.slice(0, 100).map((school) => (
-          <li data-name={school.name.toLowerCase()} data-id={school.id}>
+      <ul id="school-list" class="divide-y divide-border" data-show-more-list="school-list">
+        {schools.map((school, index) => (
+          <li
+            data-name={school.name.toLowerCase()}
+            data-id={school.id}
+            class:list={[{ hidden: index >= INITIAL_SEARCH_LIST_SIZE }]}
+            data-show-more-hidden={index >= INITIAL_SEARCH_LIST_SIZE ? "" : undefined}
+          >
             <a
               href={url(`skoler/${school.id}`)}
               class="flex items-center justify-between px-4 py-3 transition hover:bg-accent/30 focus:outline-none focus-visible:ring-2 focus-visible:ring-outline"
@@ -42,49 +49,79 @@ const schools = (await loadSchools()).sort((a, b) =>
         ))}
       </ul>
     </CardContent>
+    <ShowMoreFooter
+      listId="school-list"
+      total={schools.length}
+      initial={INITIAL_SEARCH_LIST_SIZE}
+      noun="skoler"
+    />
     <CardDescription id="more-note" class="px-4 py-3">
-      Viser de første 100. Bruk søk for å finne en bestemt skole.
+      Viser de første {INITIAL_SEARCH_LIST_SIZE.toLocaleString("nb-NO")}. Bruk søk for å finne en bestemt skole.
     </CardDescription>
   </Card>
 </Layout>
 
-<script is:inline define:vars={{ schools, base: import.meta.env.BASE_URL }}>
+<script is:inline define:vars={{ schools, base: import.meta.env.BASE_URL, initialCount: INITIAL_SEARCH_LIST_SIZE }}>
   const input = document.getElementById("search");
   const list = document.getElementById("school-list");
   const note = document.getElementById("more-note");
+  let showAllRevealed = false;
+
+  document.addEventListener("show-more:revealed", (event) => {
+    if (event.detail.listId === "school-list") {
+      showAllRevealed = true;
+      if (note) note.textContent = `Viser alle ${schools.length.toLocaleString("nb-NO")} skoler.`;
+    }
+  });
+
+  function renderSchoolItem(school) {
+    const li = document.createElement("li");
+    li.dataset.name = school.name.toLowerCase();
+    li.dataset.id = school.id;
+    const a = document.createElement("a");
+    a.href = `${base}skoler/${school.id}`;
+    a.className =
+      "flex items-center justify-between px-4 py-3 transition hover:bg-accent/30 focus:outline-none focus-visible:ring-2 focus-visible:ring-outline";
+    const name = document.createElement("span");
+    name.className = "font-medium";
+    name.textContent = school.name;
+    const id = document.createElement("span");
+    id.className = "font-mono text-xs text-muted-foreground";
+    id.textContent = school.id;
+    a.append(name, id);
+    li.append(a);
+    return li;
+  }
 
   input?.addEventListener("input", () => {
     const q = input.value.trim().toLowerCase();
     if (!list) return;
+
+    if (!q) {
+      list.innerHTML = "";
+      const visible = showAllRevealed ? schools : schools.slice(0, initialCount);
+      for (const school of visible) {
+        list.append(renderSchoolItem(school));
+      }
+      if (note) {
+        note.textContent = showAllRevealed
+          ? `Viser alle ${schools.length.toLocaleString("nb-NO")} skoler.`
+          : `Viser de første ${initialCount.toLocaleString("nb-NO")}. Bruk søk for å finne en bestemt skole.`;
+      }
+      return;
+    }
+
     list.innerHTML = "";
-    const matches = q
-      ? schools.filter(
-          (s) =>
-            s.name.toLowerCase().includes(q) || s.id.toLowerCase().includes(q),
-        )
-      : schools.slice(0, 100);
+    const matches = schools.filter(
+      (s) => s.name.toLowerCase().includes(q) || s.id.toLowerCase().includes(q),
+    );
 
     for (const school of matches.slice(0, 200)) {
-      const li = document.createElement("li");
-      const a = document.createElement("a");
-      a.href = `${base}skoler/${school.id}`;
-      a.className =
-        "flex items-center justify-between px-4 py-3 transition hover:bg-accent/30 focus:outline-none focus-visible:ring-2 focus-visible:ring-outline";
-      const name = document.createElement("span");
-      name.className = "font-medium";
-      name.textContent = school.name;
-      const id = document.createElement("span");
-      id.className = "font-mono text-xs text-muted-foreground";
-      id.textContent = school.id;
-      a.append(name, id);
-      li.append(a);
-      list.append(li);
+      list.append(renderSchoolItem(school));
     }
 
     if (note) {
-      note.textContent = q
-        ? `${matches.length} treff`
-        : "Viser de første 100. Bruk søk for å finne en bestemt skole.";
+      note.textContent = `${matches.length.toLocaleString("nb-NO")} treff`;
     }
   });
 </script>

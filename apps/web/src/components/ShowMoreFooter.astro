@@ -1,0 +1,31 @@
+---
+import { Button } from "@/components/starwind/button";
+import { CardFooter } from "@/components/starwind/card";
+import { INITIAL_LIST_SIZE } from "@/lib/show-more";
+
+interface Props {
+  listId: string;
+  total: number;
+  initial?: number;
+  noun: string;
+}
+
+const { listId, total, initial = INITIAL_LIST_SIZE, noun } = Astro.props;
+const hasMore = total > initial;
+---
+
+{
+  hasMore && (
+    <CardFooter>
+      <Button
+        type="button"
+        variant="outline"
+        size="sm"
+        class="show-more-btn"
+        data-show-more-for={listId}
+      >
+        Vis alle {total} {noun}
+      </Button>
+    </CardFooter>
+  )
+}

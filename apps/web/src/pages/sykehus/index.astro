@@ -1,7 +1,9 @@
 ---
+import ShowMoreFooter from "@/components/ShowMoreFooter.astro";
 import Layout from "../../layouts/Layout.astro";
 import { Card, CardContent } from "@/components/starwind/card";
 import { url } from "../../lib/base";
+import { INITIAL_LIST_SIZE } from "@/lib/show-more";
 import { loadHospitals } from "../../lib/data";
 
 const hospitals = (await loadHospitals()).sort((a, b) =>
@@ -22,9 +24,12 @@ const hospitals = (await loadHospitals()).sort((a, b) =>
 
   <Card>
     <CardContent class="p-0">
-      <ul class="divide-y divide-border">
-        {hospitals.map((hospital) => (
-          <li>
+      <ul class="divide-y divide-border" data-show-more-list="hospital-list">
+        {hospitals.map((hospital, index) => (
+          <li
+            class:list={[{ hidden: index >= INITIAL_LIST_SIZE }]}
+            data-show-more-hidden={index >= INITIAL_LIST_SIZE ? "" : undefined}
+          >
             <a
               href={url(`sykehus/${hospital.id}`)}
               class="flex items-center justify-between px-4 py-3 transition hover:bg-accent/30 focus:outline-none focus-visible:ring-2 focus-visible:ring-outline"
@@ -36,5 +41,6 @@ const hospitals = (await loadHospitals()).sort((a, b) =>
         ))}
       </ul>
     </CardContent>
+    <ShowMoreFooter listId="hospital-list" total={hospitals.length} noun="sykehus" />
   </Card>
 </Layout>

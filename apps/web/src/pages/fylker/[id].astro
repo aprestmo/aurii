@@ -1,12 +1,24 @@
 ---
+import Breadcrumb from "@/components/Breadcrumb.astro";
+import FactGrid from "@/components/FactGrid.astro";
 import ShowMoreFooter from "@/components/ShowMoreFooter.astro";
 import Layout from "../../layouts/Layout.astro";
 import { Badge } from "@/components/starwind/badge";
 import { Card, CardContent } from "@/components/starwind/card";
+import {
+  Table,
+  TableBody,
+  TableCell,
+  TableHead,
+  TableHeader,
+  TableRow,
+} from "@/components/starwind/table";
 import { url } from "../../lib/base";
+import { formatPopulation } from "@/lib/format";
 import { INITIAL_LIST_SIZE } from "@/lib/show-more";
 import {
   getCounty,
+  getCountyStats,
   getMunicipalitiesByCounty,
   loadCounties,
 } from "../../lib/data";
@@ -25,39 +37,92 @@ if (!county) {
 }
 
 const municipalities = await getMunicipalitiesByCounty(id!);
+const stats = await getCountyStats(id!);
+const populationYear = county.populationYear ?? stats.populationYear;
 ---
 
 <Layout title={county.name}>
-  <p class="mb-3 text-sm">
-    <a href={url("")} class="text-muted-foreground hover:text-foreground">← Alle fylker</a>
-  </p>
+  <Breadcrumb
+    items={[
+      { label: "Forside", href: url("") },
+      { label: county.name },
+    ]}
+  />
+
   <div class="mb-8">
     <h1 class="text-3xl font-semibold tracking-tight">{county.name}</h1>
-    <p class="mt-2 flex items-center gap-2 text-muted-foreground">
+    <p class="mt-2 flex flex-wrap items-center gap-2 text-muted-foreground">
       Fylkesnummer <Badge variant="outline">{county.id}</Badge>
-      · {municipalities.length} kommune{municipalities.length === 1 ? "" : "r"}
+      · {stats.municipalityCount} kommune{stats.municipalityCount === 1 ? "" : "r"}
+      {populationYear && (
+        <>
+          · Innbyggertall per 1.1.{populationYear} (SSB)
+        </>
+      )}
     </p>
   </div>
+
+  <FactGrid
+    facts={[
+      { label: "Innbyggere", value: formatPopulation(stats.population) },
+      { label: "Kommuner", value: String(stats.municipalityCount) },
+      { label: "Skoler", value: String(stats.schoolCount) },
+      { label: "Barnehager", value: String(stats.kindergartenCount) },
+      ...(stats.largestMunicipality
+        ? [
+            {
+              label: "Største kommune",
+              value: `${stats.largestMunicipality.name} (${formatPopulation(stats.largestMunicipality.population)})`,
+            },
+          ]
+        : []),
+      ...(stats.smallestMunicipality &&
+      stats.smallestMunicipality.id !== stats.largestMunicipality?.id
+        ? [
+            {
+              label: "Minste kommune",
+              value: `${stats.smallestMunicipality.name} (${formatPopulation(stats.smallestMunicipality.population)})`,
+            },
+          ]
+        : []),
+    ]}
+  />
 
   <h2 class="mb-3 text-sm font-medium uppercase tracking-wide text-muted-foreground">Kommuner</h2>
   <Card>
     <CardContent class="p-0">
-      <ul class="divide-y divide-border" data-show-more-list="municipality-list">
-        {municipalities.map((mun, index) => (
-          <li
-            class:list={[{ hidden: index >= INITIAL_LIST_SIZE }]}
-            data-show-more-hidden={index >= INITIAL_LIST_SIZE ? "" : undefined}
-          >
-            <a
-              href={url(`kommuner/${mun.id}`)}
-              class="flex items-center justify-between px-4 py-3 transition hover:bg-accent/30 focus:outline-none focus-visible:ring-2 focus-visible:ring-outline"
+      <Table data-sortable>
+        <TableHeader>
+          <TableRow>
+            <TableHead data-sort-type="text" class="w-24">Nr.</TableHead>
+            <TableHead data-sort-type="text">Navn</TableHead>
+            <TableHead data-sort-type="number" class="text-right">Innbyggere</TableHead>
+          </TableRow>
+        </TableHeader>
+        <TableBody data-show-more-list="municipality-list">
+          {municipalities.map((mun, index) => (
+            <TableRow
+              class:list={[{ hidden: index >= INITIAL_LIST_SIZE }]}
+              data-show-more-hidden={index >= INITIAL_LIST_SIZE ? "" : undefined}
             >
-              <span class="font-medium">{mun.name}</span>
-              <span class="font-mono text-xs text-muted-foreground">{mun.id}</span>
-            </a>
-          </li>
-        ))}
-      </ul>
+              <TableCell class="font-mono text-xs text-muted-foreground" data-sort-value={mun.id}>
+                {mun.id}
+              </TableCell>
+              <TableCell>
+                <a href={url(`kommuner/${mun.id}`)} class="font-medium hover:text-primary">
+                  {mun.name}
+                </a>
+              </TableCell>
+              <TableCell
+                class="text-right tabular-nums"
+                data-sort-value={String(mun.population ?? 0)}
+              >
+                {formatPopulation(mun.population)}
+              </TableCell>
+            </TableRow>
+          ))}
+        </TableBody>
+      </Table>
     </CardContent>
     <ShowMoreFooter listId="municipality-list" total={municipalities.length} noun="kommuner" />
   </Card>

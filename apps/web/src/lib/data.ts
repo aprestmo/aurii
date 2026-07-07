@@ -18,6 +18,8 @@ export interface County {
   id: string;
   name: string;
   source?: string;
+  population?: number;
+  populationYear?: number;
 }
 
 export interface Municipality {
@@ -25,6 +27,8 @@ export interface Municipality {
   name: string;
   countyId: string;
   source?: string;
+  population?: number;
+  populationYear?: number;
 }
 
 export interface PostalCode {
@@ -156,6 +160,76 @@ export async function getMunicipalitiesByCounty(
     .sort((a, b) => a.name.localeCompare(b.name, "nb"));
 }
 
+export interface CountyStats {
+  municipalityCount: number;
+  population: number;
+  populationYear?: number;
+  largestMunicipality?: Municipality;
+  smallestMunicipality?: Municipality;
+  schoolCount: number;
+  kindergartenCount: number;
+}
+
+export interface MunicipalityStats {
+  postalCodeCount: number;
+  schoolCount: number;
+  kindergartenCount: number;
+  publicSchoolCount: number;
+  publicKindergartenCount: number;
+  populationShareOfCounty?: number;
+}
+
+export async function getCountyStats(countyId: string): Promise<CountyStats> {
+  const [municipalities, schools, kindergartens] = await Promise.all([
+    getMunicipalitiesByCounty(countyId),
+    loadSchools(),
+    loadKindergartens(),
+  ]);
+
+  const withPopulation = municipalities.filter((m) => m.population !== undefined);
+  const sortedByPopulation = [...withPopulation].sort(
+    (a, b) => (b.population ?? 0) - (a.population ?? 0),
+  );
+
+  return {
+    municipalityCount: municipalities.length,
+    population: municipalities.reduce((sum, m) => sum + (m.population ?? 0), 0),
+    populationYear: municipalities.find((m) => m.populationYear)?.populationYear,
+    largestMunicipality: sortedByPopulation[0],
+    smallestMunicipality: sortedByPopulation.at(-1),
+    schoolCount: schools.filter((s) => s.countyId === countyId).length,
+    kindergartenCount: kindergartens.filter((k) => k.countyId === countyId).length,
+  };
+}
+
+export async function getMunicipalityStats(
+  municipalityId: string,
+  countyPopulation?: number,
+): Promise<MunicipalityStats> {
+  const [postalCodes, schools, kindergartens, municipality] = await Promise.all([
+    getPostalCodesByMunicipality(municipalityId),
+    getSchoolsByMunicipality(municipalityId),
+    getKindergartensByMunicipality(municipalityId),
+    getMunicipality(municipalityId),
+  ]);
+
+  const populationShareOfCounty =
+    municipality?.population !== undefined &&
+    countyPopulation !== undefined &&
+    countyPopulation > 0
+      ? (municipality.population / countyPopulation) * 100
+      : undefined;
+
+  return {
+    postalCodeCount: postalCodes.length,
+    schoolCount: schools.length,
+    kindergartenCount: kindergartens.length,
+    publicSchoolCount: schools.filter((s) => s.isPublic).length,
+    publicKindergartenCount: kindergartens.filter((k) => k.isPublic).length,
+    populationShareOfCounty,
+  };
+}
+
 export async function getPostalCodesByMunicipality(
   municipalityId: string,
   limit?: number,
@@ -223,14 +297,14 @@ export async function loadDatasetSummaries(): Promise<DatasetSummary[]> {
       title: "Fylker",
       count: counties.length,
       path: "",
-      source: "Kartverket",
+      source: "Kartverket, SSB",
     },
     {
       id: "municipality",
       title: "Kommuner",
       count: municipalities.length,
       path: "",
-      source: "Kartverket",
+      source: "Kartverket, SSB",
     },
     {
       id: "postal-code",
@@ -272,7 +346,8 @@ export async function loadDatasetSummaries(): Promise<DatasetSummary[]> {
 
 export const SAMPLE_QUERIES = [
   'from county where name == "Oslo"',
-  'from municipality where countyId == "03" limit 5',
+  'from municipality where countyId == "03" order by population desc limit 5',
+  'from municipality where population > 50000 order by population desc',
   'from postal-code where municipalityId == "0301" limit 10',
   'from school where municipalityId == "0301" and isPublic == true limit 10',
   'from kindergarten where municipalityId == "0301" limit 10',

@@ -7,8 +7,10 @@ import {
   loadCurrentMunicipalitiesWiki,
   loadHistoricalCounties,
   loadHistoricalMunicipalities,
+  loadMunicipalityCodeChanges,
   type ChangeType,
   type CoatOfArms,
+  type SsbCodeChange,
 } from "./historical-data";
 
 export interface FlowNode {
@@ -106,6 +108,31 @@ async function lookupMunicipalityCoat(
 function edgeLabel(changeType: ChangeType, year?: number): string {
   const type = changeTypeLabel(changeType);
   return year ? `${type} (${year})` : type;
+}
+
+function changesOnDate(changes: SsbCodeChange[], date: string): SsbCodeChange[] {
+  return changes.filter((change) => change.changeOccurred === date);
+}
+
+function isRenumberChange(
+  change: SsbCodeChange,
+  changes: SsbCodeChange[],
+): boolean {
+  if (change.oldCode === change.newCode) return false;
+
+  const baseName = (name: string) =>
+    name.split(" - ")[0]!.split(" / ")[0]!.trim().toLowerCase();
+  if (baseName(change.oldName) !== baseName(change.newName)) return false;
+
+  const sameDate = changesOnDate(changes, change.changeOccurred);
+  const toSameNew = sameDate.filter(
+    (c) => c.newCode === change.newCode && c.oldCode !== c.newCode,
+  );
+  const fromSameOld = sameDate.filter(
+    (c) => c.oldCode === change.oldCode && c.oldCode !== c.newCode,
+  );
+  if (toSameNew.length > 1 || fromSameOld.length > 1) return false;
+  return toSameNew.length === 1 && fromSameOld.length === 1;
 }
 
 async function resolveNode(
@@ -464,6 +491,10 @@ async function buildFromChanges(
     await walkBackward(focusEntity, 0);
   }
 
+  if (entityType === "municipality") {
+    await injectRenumberEdges(focusEntity, nodeCache, addEdge);
+  }
+
   const layers = assignLayers(nodeCache, edges, focusKey);
   const terminalNodeIds = [...nodeCache.values()]
     .filter((n) => n.isCurrent)
@@ -476,6 +507,59 @@ async function buildFromChanges(
     focusNodeId: focusKey,
     terminalNodeIds,
   };
+}
+
+async function injectRenumberEdges(
+  focusEntity: EntityRef,
+  nodeCache: Map<string, FlowNode>,
+  addEdge: (
+    from: string,
+    to: string,
+    change: { id: string; changeYear?: number; changeType: ChangeType },
+  ) => void,
+): Promise<void> {
+  const codeChanges = await loadMunicipalityCodeChanges();
+  const numericChanges = codeChanges.filter((c) => c.oldCode !== c.newCode);
+  const focusNumber = (focusEntity.number ?? focusEntity.id)?.padStart(4, "0");
+  if (!focusNumber) return;
+
+  const lineage = new Set([focusNumber]);
+  let expanded = true;
+  while (expanded) {
+    expanded = false;
+    for (const change of numericChanges) {
+      if (!lineage.has(change.newCode)) continue;
+      if (!isRenumberChange(change, numericChanges)) continue;
+      if (!lineage.has(change.oldCode)) {
+        lineage.add(change.oldCode);
+        expanded = true;
+      }
+    }
+  }
+
+  for (const change of numericChanges) {
+    if (!lineage.has(change.oldCode) || !lineage.has(change.newCode)) continue;
+    if (!isRenumberChange(change, numericChanges)) continue;
+
+    const fromNode = await resolveNode(
+      { name: change.oldName, number: change.oldCode },
+      "municipality",
+      0,
+      nodeCache,
+    );
+    const toNode = await resolveNode(
+      { name: change.newName, number: change.newCode },
+      "municipality",
+      1,
+      nodeCache,
+    );
+    const year = Number.parseInt(change.changeOccurred.slice(0, 4), 10);
+    addEdge(fromNode.id, toNode.id, {
+      id: `ssb-renumber-${change.oldCode}-${change.newCode}-${change.changeOccurred}`,
+      changeYear: year,
+      changeType: "renumbered",
+    });
+  }
 }
 
 /** Flow from a historical unit forward to today's entity. */

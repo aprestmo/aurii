@@ -1,0 +1,245 @@
+[
+  {
+    "oldCode": "16",
+    "oldName": "Sør-Trøndelag",
+    "oldShortName": "",
+    "newCode": "50",
+    "newName": "Trøndelag",
+    "newShortName": "",
+    "changeOccurred": "2018-01-01"
+  },
+  {
+    "oldCode": "17",
+    "oldName": "Nord-Trøndelag",
+    "oldShortName": "",
+    "newCode": "50",
+    "newName": "Trøndelag",
+    "newShortName": "",
+    "changeOccurred": "2018-01-01"
+  },
+  {
+    "oldCode": "01",
+    "oldName": "Østfold",
+    "oldShortName": "",
+    "newCode": "30",
+    "newName": "Viken",
+    "newShortName": "",
+    "changeOccurred": "2020-01-01"
+  },
+  {
+    "oldCode": "02",
+    "oldName": "Akershus",
+    "oldShortName": "",
+    "newCode": "30",
+    "newName": "Viken",
+    "newShortName": "",
+    "changeOccurred": "2020-01-01"
+  },
+  {
+    "oldCode": "06",
+    "oldName": "Buskerud",
+    "oldShortName": "",
+    "newCode": "30",
+    "newName": "Viken",
+    "newShortName": "",
+    "changeOccurred": "2020-01-01"
+  },
+  {
+    "oldCode": "04",
+    "oldName": "Hedmark",
+    "oldShortName": "",
+    "newCode": "34",
+    "newName": "Innlandet",
+    "newShortName": "",
+    "changeOccurred": "2020-01-01"
+  },
+  {
+    "oldCode": "05",
+    "oldName": "Oppland",
+    "oldShortName": "",
+    "newCode": "34",
+    "newName": "Innlandet",
+    "newShortName": "",
+    "changeOccurred": "2020-01-01"
+  },
+  {
+    "oldCode": "07",
+    "oldName": "Vestfold",
+    "oldShortName": "",
+    "newCode": "38",
+    "newName": "Vestfold og Telemark",
+    "newShortName": "",
+    "changeOccurred": "2020-01-01"
+  },
+  {
+    "oldCode": "08",
+    "oldName": "Telemark",
+    "oldShortName": "",
+    "newCode": "38",
+    "newName": "Vestfold og Telemark",
+    "newShortName": "",
+    "changeOccurred": "2020-01-01"
+  },
+  {
+    "oldCode": "09",
+    "oldName": "Aust-Agder",
+    "oldShortName": "",
+    "newCode": "42",
+    "newName": "Agder",
+    "newShortName": "",
+    "changeOccurred": "2020-01-01"
+  },
+  {
+    "oldCode": "10",
+    "oldName": "Vest-Agder",
+    "oldShortName": "",
+    "newCode": "42",
+    "newName": "Agder",
+    "newShortName": "",
+    "changeOccurred": "2020-01-01"
+  },
+  {
+    "oldCode": "12",
+    "oldName": "Hordaland",
+    "oldShortName": "",
+    "newCode": "46",
+    "newName": "Vestland",
+    "newShortName": "",
+    "changeOccurred": "2020-01-01"
+  },
+  {
+    "oldCode": "14",
+    "oldName": "Sogn og Fjordane",
+    "oldShortName": "",
+    "newCode": "46",
+    "newName": "Vestland",
+    "newShortName": "",
+    "changeOccurred": "2020-01-01"
+  },
+  {
+    "oldCode": "50",
+    "oldName": "Trøndelag",
+    "oldShortName": "",
+    "newCode": "50",
+    "newName": "Trøndelag - Trööndelage",
+    "newShortName": "",
+    "changeOccurred": "2020-01-01"
+  },
+  {
+    "oldCode": "19",
+    "oldName": "Troms - Romsa",
+    "oldShortName": "",
+    "newCode": "54",
+    "newName": "Troms og Finnmark - Romsa ja Finnmárku - Tromssa ja Finmarkku",
+    "newShortName": "",
+    "changeOccurred": "2020-01-01"
+  },
+  {
+    "oldCode": "20",
+    "oldName": "Finnmark - Finnmárku",
+    "oldShortName": "",
+    "newCode": "54",
+    "newName": "Troms og Finnmark - Romsa ja Finnmárku - Tromssa ja Finmarkku",
+    "newShortName": "",
+    "changeOccurred": "2020-01-01"
+  },
+  {
+    "oldCode": "18",
+    "oldName": "Nordland",
+    "oldShortName": "",
+    "newCode": "18",
+    "newName": "Nordland - Nordlánnda",
+    "newShortName": "",
+    "changeOccurred": "2022-01-01"
+  },
+  {
+    "oldCode": "30",
+    "oldName": "Viken",
+    "oldShortName": "",
+    "newCode": "31",
+    "newName": "Østfold",
+    "newShortName": "",
+    "changeOccurred": "2024-01-01"
+  },
+  {
+    "oldCode": "30",
+    "oldName": "Viken",
+    "oldShortName": "",
+    "newCode": "32",
+    "newName": "Akershus",
+    "newShortName": "",
+    "changeOccurred": "2024-01-01"
+  },
+  {
+    "oldCode": "30",
+    "oldName": "Viken",
+    "oldShortName": "",
+    "newCode": "33",
+    "newName": "Buskerud",
+    "newShortName": "",
+    "changeOccurred": "2024-01-01"
+  },
+  {
+    "oldCode": "38",
+    "oldName": "Vestfold og Telemark",
+    "oldShortName": "",
+    "newCode": "39",
+    "newName": "Vestfold",
+    "newShortName": "",
+    "changeOccurred": "2024-01-01"
+  },
+  {
+    "oldCode": "38",
+    "oldName": "Vestfold og Telemark",
+    "oldShortName": "",
+    "newCode": "40",
+    "newName": "Telemark",
+    "newShortName": "",
+    "changeOccurred": "2024-01-01"
+  },
+  {
+    "oldCode": "54",
+    "oldName": "Troms og Finnmark - Romsa ja Finnmárku - Tromssa ja Finmarkku",
+    "oldShortName": "",
+    "newCode": "55",
+    "newName": "Troms - Romsa - Tromssa",
+    "newShortName": "",
+    "changeOccurred": "2024-01-01"
+  },
+  {
+    "oldCode": "54",
+    "oldName": "Troms og Finnmark - Romsa ja Finnmárku - Tromssa ja Finmarkku",
+    "oldShortName": "",
+    "newCode": "56",
+    "newName": "Finnmark - Finnmárku - Finmarkku",
+    "newShortName": "",
+    "changeOccurred": "2024-01-01"
+  },
+  {
+    "oldCode": "31",
+    "oldName": "Østfold",
+    "oldShortName": "",
+    "newCode": "31",
+    "newName": "Østfold",
+    "newShortName": "",
+    "changeOccurred": "2026-01-01"
+  },
+  {
+    "oldCode": "31",
+    "oldName": "Østfold",
+    "oldShortName": "",
+    "newCode": "32",
+    "newName": "Akershus",
+    "newShortName": "",
+    "changeOccurred": "2026-01-01"
+  },
+  {
+    "oldCode": "32",
+    "oldName": "Akershus",
+    "oldShortName": "",
+    "newCode": "32",
+    "newName": "Akershus",
+    "newShortName": "",
+    "changeOccurred": "2026-01-01"
+  }
+]

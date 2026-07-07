@@ -2,11 +2,13 @@ import { existsSync } from "node:fs";
 import { resolve } from "node:path";
 import { describe, expect, it } from "bun:test";
 import {
+  buildMunicipalityNumberTimeline,
   buildMunicipalityTimeline,
   loadAdministrativeChanges,
   loadHistoricalCounties,
   loadHistoricalMunicipalities,
   loadMunicipalityEnrichment,
+  loadMunicipalityIdentifierPeriods,
 } from "../lib/historical-data";
 
 const ROOT = resolve(import.meta.dir, "../../../..");
@@ -22,6 +24,10 @@ describe("historical norwegian geo dataset", () => {
       "current-municipalities.json",
       "administrative-changes.json",
       "municipality-enrichment.json",
+      "municipality-identifier-periods.json",
+      "municipality-code-changes.json",
+      "county-identifier-periods.json",
+      "county-code-changes.json",
       "unresolved-matches.json",
       "heraldry-manifest.json",
     ]) {
@@ -128,6 +134,22 @@ describe("historical norwegian geo dataset", () => {
     expect(current.filter((m) => m.websiteUrl).length).toBeGreaterThan(200);
     // Coat downloads are best-effort (Commons rate limits); show when available.
     expect(current.filter((m) => m.coatOfArms?.localPath).length).toBeGreaterThan(0);
+  });
+
+  it("Trondheim number timeline includes 1601 and 5001 from SSB", async () => {
+    const timeline = await buildMunicipalityNumberTimeline("5001");
+    const numbers = timeline.map((step) => step.number).filter(Boolean);
+    expect(numbers).toContain("1601");
+    expect(numbers).toContain("5001");
+    expect(timeline.some((step) => step.changeType === "renumbered")).toBe(true);
+  });
+
+  it("SSB identifier periods cover current municipalities", async () => {
+    const periods = await loadMunicipalityIdentifierPeriods();
+    expect(periods.length).toBeGreaterThan(500);
+    const trondheim = periods.filter((p) => p.currentMunicipalityId === "5001");
+    expect(trondheim.some((p) => p.number === "1601")).toBe(true);
+    expect(trondheim.some((p) => p.number === "5001")).toBe(true);
   });
 
   it("Trondheim enrichment lists Klæbu as direct predecessor", async () => {

@@ -1,0 +1,77 @@
+---
+import { Badge } from "@/components/starwind/badge";
+import { Card, CardContent } from "@/components/starwind/card";
+import SectionHeading from "@/components/SectionHeading.astro";
+import {
+  buildMunicipalityNumberTimeline,
+  changeTypeLabel,
+  formatPeriod,
+} from "@/lib/historical-data";
+
+interface Props {
+  municipalityId: string;
+}
+
+const { municipalityId } = Astro.props;
+const timeline = await buildMunicipalityNumberTimeline(municipalityId);
+const showTimeline = timeline.length > 1;
+---
+
+{
+  showTimeline && (
+    <section class="mb-10" aria-labelledby="number-timeline-heading">
+      <SectionHeading
+        id="number-timeline-heading"
+        title="Kommunenummer over tid"
+        description="Offisielle kommunenummer fra SSB Klass, inkludert rene nummerbytter ved fylkesreformer."
+      />
+
+      <ol class="relative space-y-0 border-l border-border pl-6">
+        {timeline.map((step, index) => (
+          <li class="relative pb-8 last:pb-0">
+            <span
+              class:list={[
+                "absolute -left-[1.625rem] flex h-5 w-5 items-center justify-center rounded-full border-2 text-[10px] font-bold",
+                step.isCurrent
+                  ? "border-primary bg-primary text-primary-foreground"
+                  : "border-muted-foreground bg-background text-muted-foreground",
+              ]}
+            >
+              {index + 1}
+            </span>
+            <Card class="border-border/80">
+              <CardContent class="px-5 py-4">
+                <div class="flex flex-wrap items-start justify-between gap-3">
+                  <div>
+                    <p class="text-lg font-semibold">{step.name}</p>
+                    <p class="mt-1 text-sm text-muted-foreground">
+                      {step.number && <span class="font-mono">{step.number}</span>}
+                      {step.number && (step.validFrom || step.validTo) && " · "}
+                      {formatPeriod(step.validFrom, step.validTo)}
+                      {step.isCurrent && " · Gjeldende nummer"}
+                    </p>
+                  </div>
+                  {step.changeType && (
+                    <Badge variant="outline">{changeTypeLabel(step.changeType)}</Badge>
+                  )}
+                </div>
+              </CardContent>
+            </Card>
+          </li>
+        ))}
+      </ol>
+
+      <p class="mt-4 text-sm text-muted-foreground">
+        Kilde:{" "}
+        <a
+          href="https://data.ssb.no/api/klass/v1/classifications/131"
+          class="underline-offset-4 hover:underline"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          SSB Klass — kommuneinndeling
+        </a>
+      </p>
+    </section>
+  )
+}

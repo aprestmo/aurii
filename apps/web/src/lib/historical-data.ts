@@ -24,6 +24,7 @@ export type ChangeType =
   | "split_between"
   | "reestablished"
   | "renamed"
+  | "renumbered"
   | "unknown";
 
 export interface CoatOfArms {
@@ -146,6 +147,28 @@ export interface MunicipalityEnrichment {
   sources: string[];
 }
 
+export interface IdentifierPeriod {
+  id: string;
+  entityType: "municipality" | "county";
+  number: string;
+  name: string;
+  countyNumber: string;
+  validFrom: string;
+  validTo: string | null;
+  geographicId: string;
+  currentMunicipalityId?: string;
+  currentCountyId?: string;
+  sourceUrl: string;
+}
+
+export interface SsbCodeChange {
+  oldCode: string;
+  oldName: string;
+  newCode: string;
+  newName: string;
+  changeOccurred: string;
+}
+
 export interface TimelineStep {
   id?: string;
   name: string;
@@ -166,6 +189,7 @@ const CHANGE_TYPE_LABELS: Record<ChangeType, string> = {
   split_between: "Delt mellom",
   reestablished: "Gjenopprettet",
   renamed: "Navneendring",
+  renumbered: "Nummerendring",
   unknown: "Ukjent endring",
 };
 
@@ -228,6 +252,26 @@ export async function loadMunicipalityEnrichment(): Promise<
   return readHistoricalJson<MunicipalityEnrichment[]>(
     "municipality-enrichment.json",
   );
+}
+
+export async function loadMunicipalityIdentifierPeriods(): Promise<
+  IdentifierPeriod[]
+> {
+  return readHistoricalJson<IdentifierPeriod[]>(
+    "municipality-identifier-periods.json",
+  );
+}
+
+export async function loadMunicipalityCodeChanges(): Promise<SsbCodeChange[]> {
+  return readHistoricalJson<SsbCodeChange[]>("municipality-code-changes.json");
+}
+
+export async function loadCountyIdentifierPeriods(): Promise<IdentifierPeriod[]> {
+  return readHistoricalJson<IdentifierPeriod[]>("county-identifier-periods.json");
+}
+
+export async function loadCountyCodeChanges(): Promise<SsbCodeChange[]> {
+  return readHistoricalJson<SsbCodeChange[]>("county-code-changes.json");
 }
 
 export async function getMunicipalityEnrichment(
@@ -378,6 +422,128 @@ export function formatPeriod(
   if (validFrom) return `fra ${validFrom}`;
   if (validTo) return `til ${validTo}`;
   return "—";
+}
+
+function changesOnDate(
+  changes: SsbCodeChange[],
+  date: string,
+): SsbCodeChange[] {
+  return changes.filter((change) => change.changeOccurred === date);
+}
+
+function isRenumberChange(
+  change: SsbCodeChange,
+  changes: SsbCodeChange[],
+): boolean {
+  if (change.oldCode === change.newCode) return false;
+
+  const baseName = (name: string) =>
+    name.split(" - ")[0]!.split(" / ")[0]!.trim().toLowerCase();
+  if (baseName(change.oldName) !== baseName(change.newName)) return false;
+
+  const sameDate = changesOnDate(changes, change.changeOccurred);
+  const toSameNew = sameDate.filter(
+    (c) => c.newCode === change.newCode && c.oldCode !== c.newCode,
+  );
+  const fromSameOld = sameDate.filter(
+    (c) => c.oldCode === change.oldCode && c.oldCode !== c.newCode,
+  );
+  if (toSameNew.length > 1 || fromSameOld.length > 1) return false;
+  return toSameNew.length === 1 && fromSameOld.length === 1;
+}
+
+function buildRenumberLineage(
+  currentNumber: string,
+  changes: SsbCodeChange[],
+): Set<string> {
+  const numericChanges = changes.filter((c) => c.oldCode !== c.newCode);
+  const lineage = new Set([currentNumber]);
+  let expanded = true;
+  while (expanded) {
+    expanded = false;
+    for (const change of numericChanges) {
+      if (!lineage.has(change.newCode)) continue;
+      if (!isRenumberChange(change, numericChanges)) continue;
+      if (!lineage.has(change.oldCode)) {
+        lineage.add(change.oldCode);
+        expanded = true;
+      }
+    }
+  }
+  return lineage;
+}
+
+/**
+ * Timeline of kommunenummer periods for a current municipality (SSB Klass).
+ * Includes pure number changes such as 1601 → 5001, but not merged neighbours.
+ */
+export async function buildMunicipalityNumberTimeline(
+  municipalityId: string,
+): Promise<TimelineStep[]> {
+  const [periods, changes, enrichment] = await Promise.all([
+    loadMunicipalityIdentifierPeriods(),
+    loadMunicipalityCodeChanges(),
+    getMunicipalityEnrichment(municipalityId),
+  ]);
+
+  const lineage = buildRenumberLineage(municipalityId, changes);
+  const lineagePeriods = periods
+    .filter(
+      (period) =>
+        period.entityType === "municipality" && lineage.has(period.number),
+    )
+    .sort((a, b) => a.validFrom.localeCompare(b.validFrom));
+
+  if (lineagePeriods.length === 0) return [];
+
+  const steps: TimelineStep[] = lineagePeriods.map((period, index) => {
+    const isLast = index === lineagePeriods.length - 1;
+    const validFrom = Number.parseInt(period.validFrom.slice(0, 4), 10);
+    const validTo = period.validTo
+      ? Number.parseInt(period.validTo.slice(0, 4), 10)
+      : undefined;
+    const previous = lineagePeriods[index - 1];
+    const isRenumbered =
+      previous !== undefined && previous.number !== period.number;
+
+    return {
+      name: period.name,
+      number: period.number,
+      validFrom,
+      validTo,
+      changeType: isRenumbered ? "renumbered" : undefined,
+      isCurrent: isLast,
+      entityType: "municipality",
+    };
+  });
+
+  const mergeEvents =
+    enrichment?.timeline?.filter(
+      (event) =>
+        event.type !== "renumbered" &&
+        event.type !== "established" &&
+        event.type !== "continued",
+    ) ?? [];
+
+  for (const event of mergeEvents) {
+    if (!event.year) continue;
+    const alreadyCovered = steps.some(
+      (step) => step.validFrom === event.year || step.validTo === event.year,
+    );
+    if (alreadyCovered) continue;
+    steps.push({
+      name: event.description,
+      validFrom: event.year,
+      changeType:
+        event.type === "merged" || event.type === "incorporated"
+          ? (event.type as ChangeType)
+          : "unknown",
+      isCurrent: false,
+      entityType: "municipality",
+    });
+  }
+
+  return steps.sort((a, b) => (a.validFrom ?? 0) - (b.validFrom ?? 0));
 }
 
 export function describeChange(mun: HistoricalMunicipality): string {

@@ -1,0 +1,4700 @@
+[
+  {
+    "oldCode": "1736",
+    "oldName": "Snåsa",
+    "oldShortName": "",
+    "newCode": "1736",
+    "newName": "Snåase - Snåsa",
+    "newShortName": "",
+    "changeOccurred": "2011-01-01"
+  },
+  {
+    "oldCode": "1723",
+    "oldName": "Mosvik",
+    "oldShortName": "",
+    "newCode": "1756",
+    "newName": "Inderøy",
+    "newShortName": "",
+    "changeOccurred": "2012-01-01"
+  },
+  {
+    "oldCode": "1729",
+    "oldName": "Inderøy",
+    "oldShortName": "",
+    "newCode": "1756",
+    "newName": "Inderøy",
+    "newShortName": "",
+    "changeOccurred": "2012-01-01"
+  },
+  {
+    "oldCode": "1849",
+    "oldName": "Hamarøy",
+    "oldShortName": "",
+    "newCode": "1849",
+    "newName": "Hábmer - Hamarøy",
+    "newShortName": "",
+    "changeOccurred": "2012-01-01"
+  },
+  {
+    "oldCode": "1850",
+    "oldName": "Tysfjord",
+    "oldShortName": "",
+    "newCode": "1850",
+    "newName": "Tysfjord - Divtasvuodna",
+    "newShortName": "",
+    "changeOccurred": "2012-01-01"
+  },
+  {
+    "oldCode": "1901",
+    "oldName": "Harstad",
+    "oldShortName": "",
+    "newCode": "1903",
+    "newName": "Harstad",
+    "newShortName": "",
+    "changeOccurred": "2013-01-01"
+  },
+  {
+    "oldCode": "1915",
+    "oldName": "Bjarkøy",
+    "oldShortName": "",
+    "newCode": "1903",
+    "newName": "Harstad",
+    "newShortName": "",
+    "changeOccurred": "2013-01-01"
+  },
+  {
+    "oldCode": "1739",
+    "oldName": "Røyrvik",
+    "oldShortName": "",
+    "newCode": "1739",
+    "newName": "Raarvihke - Røyrvik",
+    "newShortName": "",
+    "changeOccurred": "2015-01-01"
+  },
+  {
+    "oldCode": "1920",
+    "oldName": "Lavangen",
+    "oldShortName": "",
+    "newCode": "1920",
+    "newName": "Loabák - Lavangen",
+    "newShortName": "",
+    "changeOccurred": "2015-01-01"
+  },
+  {
+    "oldCode": "1939",
+    "oldName": "Storfjord",
+    "oldShortName": "",
+    "newCode": "1939",
+    "newName": "Storfjord - Omasvuotna - Omasvuono",
+    "newShortName": "",
+    "changeOccurred": "2015-01-01"
+  },
+  {
+    "oldCode": "0704",
+    "oldName": "Tønsberg",
+    "oldShortName": "",
+    "newCode": "0704",
+    "newName": "Tønsberg",
+    "newShortName": "",
+    "changeOccurred": "2017-01-01"
+  },
+  {
+    "oldCode": "0720",
+    "oldName": "Stokke",
+    "oldShortName": "",
+    "newCode": "0704",
+    "newName": "Tønsberg",
+    "newShortName": "",
+    "changeOccurred": "2017-01-01"
+  },
+  {
+    "oldCode": "0706",
+    "oldName": "Sandefjord",
+    "oldShortName": "",
+    "newCode": "0710",
+    "newName": "Sandefjord",
+    "newShortName": "",
+    "changeOccurred": "2017-01-01"
+  },
+  {
+    "oldCode": "0719",
+    "oldName": "Andebu",
+    "oldShortName": "",
+    "newCode": "0710",
+    "newName": "Sandefjord",
+    "newShortName": "",
+    "changeOccurred": "2017-01-01"
+  },
+  {
+    "oldCode": "0720",
+    "oldName": "Stokke",
+    "oldShortName": "",
+    "newCode": "0710",
+    "newName": "Sandefjord",
+    "newShortName": "",
+    "changeOccurred": "2017-01-01"
+  },
+  {
+    "oldCode": "1841",
+    "oldName": "Fauske",
+    "oldShortName": "",
+    "newCode": "1841",
+    "newName": "Fauske - Fuossko",
+    "newShortName": "",
+    "changeOccurred": "2017-01-01"
+  },
+  {
+    "oldCode": "0709",
+    "oldName": "Larvik",
+    "oldShortName": "",
+    "newCode": "0712",
+    "newName": "Larvik",
+    "newShortName": "",
+    "changeOccurred": "2018-01-01"
+  },
+  {
+    "oldCode": "0728",
+    "oldName": "Lardal",
+    "oldShortName": "",
+    "newCode": "0712",
+    "newName": "Larvik",
+    "newShortName": "",
+    "changeOccurred": "2018-01-01"
+  },
+  {
+    "oldCode": "0702",
+    "oldName": "Holmestrand",
+    "oldShortName": "",
+    "newCode": "0715",
+    "newName": "Holmestrand",
+    "newShortName": "",
+    "changeOccurred": "2018-01-01"
+  },
+  {
+    "oldCode": "0714",
+    "oldName": "Hof",
+    "oldShortName": "",
+    "newCode": "0715",
+    "newName": "Holmestrand",
+    "newShortName": "",
+    "changeOccurred": "2018-01-01"
+  },
+  {
+    "oldCode": "0722",
+    "oldName": "Nøtterøy",
+    "oldShortName": "",
+    "newCode": "0729",
+    "newName": "Færder",
+    "newShortName": "",
+    "changeOccurred": "2018-01-01"
+  },
+  {
+    "oldCode": "0723",
+    "oldName": "Tjøme",
+    "oldShortName": "",
+    "newCode": "0729",
+    "newName": "Færder",
+    "newShortName": "",
+    "changeOccurred": "2018-01-01"
+  },
+  {
+    "oldCode": "1852",
+    "oldName": "Tjeldsund",
+    "oldShortName": "",
+    "newCode": "1852",
+    "newName": "Dielddanuorri - Tjeldsund",
+    "newShortName": "",
+    "changeOccurred": "2018-01-01"
+  },
+  {
+    "oldCode": "1870",
+    "oldName": "Sortland",
+    "oldShortName": "",
+    "newCode": "1870",
+    "newName": "Sortland - Suortá",
+    "newShortName": "",
+    "changeOccurred": "2018-01-01"
+  },
+  {
+    "oldCode": "1903",
+    "oldName": "Harstad",
+    "oldShortName": "",
+    "newCode": "1903",
+    "newName": "Harstad - Hárstták",
+    "newShortName": "",
+    "changeOccurred": "2018-01-01"
+  },
+  {
+    "oldCode": "1940",
+    "oldName": "Gáivuotna - Kåfjord",
+    "oldShortName": "",
+    "newCode": "1940",
+    "newName": "Gáivuotna - Kåfjord - Kaivuono",
+    "newShortName": "",
+    "changeOccurred": "2018-01-01"
+  },
+  {
+    "oldCode": "1601",
+    "oldName": "Trondheim",
+    "oldShortName": "",
+    "newCode": "5001",
+    "newName": "Trondheim",
+    "newShortName": "",
+    "changeOccurred": "2018-01-01"
+  },
+  {
+    "oldCode": "1702",
+    "oldName": "Steinkjer",
+    "oldShortName": "",
+    "newCode": "5004",
+    "newName": "Steinkjer",
+    "newShortName": "",
+    "changeOccurred": "2018-01-01"
+  },
+  {
+    "oldCode": "1703",
+    "oldName": "Namsos",
+    "oldShortName": "",
+    "newCode": "5005",
+    "newName": "Namsos",
+    "newShortName": "",
+    "changeOccurred": "2018-01-01"
+  },
+  {
+    "oldCode": "1612",
+    "oldName": "Hemne",
+    "oldShortName": "",
+    "newCode": "5011",
+    "newName": "Hemne",
+    "newShortName": "",
+    "changeOccurred": "2018-01-01"
+  },
+  {
+    "oldCode": "1613",
+    "oldName": "Snillfjord",
+    "oldShortName": "",
+    "newCode": "5012",
+    "newName": "Snillfjord",
+    "newShortName": "",
+    "changeOccurred": "2018-01-01"
+  },
+  {
+    "oldCode": "1617",
+    "oldName": "Hitra",
+    "oldShortName": "",
+    "newCode": "5013",
+    "newName": "Hitra",
+    "newShortName": "",
+    "changeOccurred": "2018-01-01"
+  },
+  {
+    "oldCode": "1620",
+    "oldName": "Frøya",
+    "oldShortName": "",
+    "newCode": "5014",
+    "newName": "Frøya",
+    "newShortName": "",
+    "changeOccurred": "2018-01-01"
+  },
+  {
+    "oldCode": "1621",
+    "oldName": "Ørland",
+    "oldShortName": "",
+    "newCode": "5015",
+    "newName": "Ørland",
+    "newShortName": "",
+    "changeOccurred": "2018-01-01"
+  },
+  {
+    "oldCode": "1622",
+    "oldName": "Agdenes",
+    "oldShortName": "",
+    "newCode": "5016",
+    "newName": "Agdenes",
+    "newShortName": "",
+    "changeOccurred": "2018-01-01"
+  },
+  {
+    "oldCode": "1627",
+    "oldName": "Bjugn",
+    "oldShortName": "",
+    "newCode": "5017",
+    "newName": "Bjugn",
+    "newShortName": "",
+    "changeOccurred": "2018-01-01"
+  },
+  {
+    "oldCode": "1630",
+    "oldName": "Åfjord",
+    "oldShortName": "",
+    "newCode": "5018",
+    "newName": "Åfjord",
+    "newShortName": "",
+    "changeOccurred": "2018-01-01"
+  },
+  {
+    "oldCode": "1632",
+    "oldName": "Roan",
+    "oldShortName": "",
+    "newCode": "5019",
+    "newName": "Roan",
+    "newShortName": "",
+    "changeOccurred": "2018-01-01"
+  },
+  {
+    "oldCode": "1633",
+    "oldName": "Osen",
+    "oldShortName": "",
+    "newCode": "5020",
+    "newName": "Osen",
+    "newShortName": "",
+    "changeOccurred": "2018-01-01"
+  },
+  {
+    "oldCode": "1634",
+    "oldName": "Oppdal",
+    "oldShortName": "",
+    "newCode": "5021",
+    "newName": "Oppdal",
+    "newShortName": "",
+    "changeOccurred": "2018-01-01"
+  },
+  {
+    "oldCode": "1635",
+    "oldName": "Rennebu",
+    "oldShortName": "",
+    "newCode": "5022",
+    "newName": "Rennebu",
+    "newShortName": "",
+    "changeOccurred": "2018-01-01"
+  },
+  {
+    "oldCode": "1636",
+    "oldName": "Meldal",
+    "oldShortName": "",
+    "newCode": "5023",
+    "newName": "Meldal",
+    "newShortName": "",
+    "changeOccurred": "2018-01-01"
+  },
+  {
+    "oldCode": "1638",
+    "oldName": "Orkdal",
+    "oldShortName": "",
+    "newCode": "5024",
+    "newName": "Orkdal",
+    "newShortName": "",
+    "changeOccurred": "2018-01-01"
+  },
+  {
+    "oldCode": "1640",
+    "oldName": "Røros",
+    "oldShortName": "",
+    "newCode": "5025",
+    "newName": "Røros",
+    "newShortName": "",
+    "changeOccurred": "2018-01-01"
+  },
+  {
+    "oldCode": "1644",
+    "oldName": "Holtålen",
+    "oldShortName": "",
+    "newCode": "5026",
+    "newName": "Holtålen",
+    "newShortName": "",
+    "changeOccurred": "2018-01-01"
+  },
+  {
+    "oldCode": "1648",
+    "oldName": "Midtre Gauldal",
+    "oldShortName": "",
+    "newCode": "5027",
+    "newName": "Midtre Gauldal",
+    "newShortName": "",
+    "changeOccurred": "2018-01-01"
+  },
+  {
+    "oldCode": "1653",
+    "oldName": "Melhus",
+    "oldShortName": "",
+    "newCode": "5028",
+    "newName": "Melhus",
+    "newShortName": "",
+    "changeOccurred": "2018-01-01"
+  },
+  {
+    "oldCode": "1657",
+    "oldName": "Skaun",
+    "oldShortName": "",
+    "newCode": "5029",
+    "newName": "Skaun",
+    "newShortName": "",
+    "changeOccurred": "2018-01-01"
+  },
+  {
+    "oldCode": "1662",
+    "oldName": "Klæbu",
+    "oldShortName": "",
+    "newCode": "5030",
+    "newName": "Klæbu",
+    "newShortName": "",
+    "changeOccurred": "2018-01-01"
+  },
+  {
+    "oldCode": "1663",
+    "oldName": "Malvik",
+    "oldShortName": "",
+    "newCode": "5031",
+    "newName": "Malvik",
+    "newShortName": "",
+    "changeOccurred": "2018-01-01"
+  },
+  {
+    "oldCode": "1664",
+    "oldName": "Selbu",
+    "oldShortName": "",
+    "newCode": "5032",
+    "newName": "Selbu",
+    "newShortName": "",
+    "changeOccurred": "2018-01-01"
+  },
+  {
+    "oldCode": "1665",
+    "oldName": "Tydal",
+    "oldShortName": "",
+    "newCode": "5033",
+    "newName": "Tydal",
+    "newShortName": "",
+    "changeOccurred": "2018-01-01"
+  },
+  {
+    "oldCode": "1711",
+    "oldName": "Meråker",
+    "oldShortName": "",
+    "newCode": "5034",
+    "newName": "Meråker",
+    "newShortName": "",
+    "changeOccurred": "2018-01-01"
+  },
+  {
+    "oldCode": "1714",
+    "oldName": "Stjørdal",
+    "oldShortName": "",
+    "newCode": "5035",
+    "newName": "Stjørdal",
+    "newShortName": "",
+    "changeOccurred": "2018-01-01"
+  },
+  {
+    "oldCode": "1717",
+    "oldName": "Frosta",
+    "oldShortName": "",
+    "newCode": "5036",
+    "newName": "Frosta",
+    "newShortName": "",
+    "changeOccurred": "2018-01-01"
+  },
+  {
+    "oldCode": "1719",
+    "oldName": "Levanger",
+    "oldShortName": "",
+    "newCode": "5037",
+    "newName": "Levanger",
+    "newShortName": "",
+    "changeOccurred": "2018-01-01"
+  },
+  {
+    "oldCode": "1721",
+    "oldName": "Verdal",
+    "oldShortName": "",
+    "newCode": "5038",
+    "newName": "Verdal",
+    "newShortName": "",
+    "changeOccurred": "2018-01-01"
+  },
+  {
+    "oldCode": "1724",
+    "oldName": "Verran",
+    "oldShortName": "",
+    "newCode": "5039",
+    "newName": "Verran",
+    "newShortName": "",
+    "changeOccurred": "2018-01-01"
+  },
+  {
+    "oldCode": "1725",
+    "oldName": "Namdalseid",
+    "oldShortName": "",
+    "newCode": "5040",
+    "newName": "Namdalseid",
+    "newShortName": "",
+    "changeOccurred": "2018-01-01"
+  },
+  {
+    "oldCode": "1736",
+    "oldName": "Snåase - Snåsa",
+    "oldShortName": "",
+    "newCode": "5041",
+    "newName": "Snåase - Snåsa",
+    "newShortName": "",
+    "changeOccurred": "2018-01-01"
+  },
+  {
+    "oldCode": "1738",
+    "oldName": "Lierne",
+    "oldShortName": "",
+    "newCode": "5042",
+    "newName": "Lierne",
+    "newShortName": "",
+    "changeOccurred": "2018-01-01"
+  },
+  {
+    "oldCode": "1739",
+    "oldName": "Raarvihke - Røyrvik",
+    "oldShortName": "",
+    "newCode": "5043",
+    "newName": "Raarvihke - Røyrvik",
+    "newShortName": "",
+    "changeOccurred": "2018-01-01"
+  },
+  {
+    "oldCode": "1740",
+    "oldName": "Namsskogan",
+    "oldShortName": "",
+    "newCode": "5044",
+    "newName": "Namsskogan",
+    "newShortName": "",
+    "changeOccurred": "2018-01-01"
+  },
+  {
+    "oldCode": "1742",
+    "oldName": "Grong",
+    "oldShortName": "",
+    "newCode": "5045",
+    "newName": "Grong",
+    "newShortName": "",
+    "changeOccurred": "2018-01-01"
+  },
+  {
+    "oldCode": "1743",
+    "oldName": "Høylandet",
+    "oldShortName": "",
+    "newCode": "5046",
+    "newName": "Høylandet",
+    "newShortName": "",
+    "changeOccurred": "2018-01-01"
+  },
+  {
+    "oldCode": "1744",
+    "oldName": "Overhalla",
+    "oldShortName": "",
+    "newCode": "5047",
+    "newName": "Overhalla",
+    "newShortName": "",
+    "changeOccurred": "2018-01-01"
+  },
+  {
+    "oldCode": "1748",
+    "oldName": "Fosnes",
+    "oldShortName": "",
+    "newCode": "5048",
+    "newName": "Fosnes",
+    "newShortName": "",
+    "changeOccurred": "2018-01-01"
+  },
+  {
+    "oldCode": "1749",
+    "oldName": "Flatanger",
+    "oldShortName": "",
+    "newCode": "5049",
+    "newName": "Flatanger",
+    "newShortName": "",
+    "changeOccurred": "2018-01-01"
+  },
+  {
+    "oldCode": "1750",
+    "oldName": "Vikna",
+    "oldShortName": "",
+    "newCode": "5050",
+    "newName": "Vikna",
+    "newShortName": "",
+    "changeOccurred": "2018-01-01"
+  },
+  {
+    "oldCode": "1751",
+    "oldName": "Nærøy",
+    "oldShortName": "",
+    "newCode": "5051",
+    "newName": "Nærøy",
+    "newShortName": "",
+    "changeOccurred": "2018-01-01"
+  },
+  {
+    "oldCode": "1755",
+    "oldName": "Leka",
+    "oldShortName": "",
+    "newCode": "5052",
+    "newName": "Leka",
+    "newShortName": "",
+    "changeOccurred": "2018-01-01"
+  },
+  {
+    "oldCode": "1756",
+    "oldName": "Inderøy",
+    "oldShortName": "",
+    "newCode": "5053",
+    "newName": "Inderøy",
+    "newShortName": "",
+    "changeOccurred": "2018-01-01"
+  },
+  {
+    "oldCode": "1624",
+    "oldName": "Rissa",
+    "oldShortName": "",
+    "newCode": "5054",
+    "newName": "Indre Fosen",
+    "newShortName": "",
+    "changeOccurred": "2018-01-01"
+  },
+  {
+    "oldCode": "1718",
+    "oldName": "Leksvik",
+    "oldShortName": "",
+    "newCode": "5054",
+    "newName": "Indre Fosen",
+    "newShortName": "",
+    "changeOccurred": "2018-01-01"
+  },
+  {
+    "oldCode": "1942",
+    "oldName": "Nordreisa",
+    "oldShortName": "",
+    "newCode": "1942",
+    "newName": "Nordreisa - Ráisa - Raisi",
+    "newShortName": "",
+    "changeOccurred": "2019-01-01"
+  },
+  {
+    "oldCode": "2004",
+    "oldName": "Hammerfest",
+    "oldShortName": "",
+    "newCode": "2004",
+    "newName": "Hammerfest - Hámmerfeasta",
+    "newShortName": "",
+    "changeOccurred": "2019-01-01"
+  },
+  {
+    "oldCode": "5005",
+    "oldName": "Namsos",
+    "oldShortName": "",
+    "newCode": "5005",
+    "newName": "Namsos - Nåavmesjenjaelmie",
+    "newShortName": "",
+    "changeOccurred": "2019-01-01"
+  },
+  {
+    "oldCode": "1567",
+    "oldName": "Rindal",
+    "oldShortName": "",
+    "newCode": "5061",
+    "newName": "Rindal",
+    "newShortName": "",
+    "changeOccurred": "2019-01-01"
+  },
+  {
+    "oldCode": "1103",
+    "oldName": "Stavanger",
+    "oldShortName": "",
+    "newCode": "1103",
+    "newName": "Stavanger",
+    "newShortName": "",
+    "changeOccurred": "2020-01-01"
+  },
+  {
+    "oldCode": "1141",
+    "oldName": "Finnøy",
+    "oldShortName": "",
+    "newCode": "1103",
+    "newName": "Stavanger",
+    "newShortName": "",
+    "changeOccurred": "2020-01-01"
+  },
+  {
+    "oldCode": "1142",
+    "oldName": "Rennesøy",
+    "oldShortName": "",
+    "newCode": "1103",
+    "newName": "Stavanger",
+    "newShortName": "",
+    "changeOccurred": "2020-01-01"
+  },
+  {
+    "oldCode": "1102",
+    "oldName": "Sandnes",
+    "oldShortName": "",
+    "newCode": "1108",
+    "newName": "Sandnes",
+    "newShortName": "",
+    "changeOccurred": "2020-01-01"
+  },
+  {
+    "oldCode": "1129",
+    "oldName": "Forsand",
+    "oldShortName": "",
+    "newCode": "1108",
+    "newName": "Sandnes",
+    "newShortName": "",
+    "changeOccurred": "2020-01-01"
+  },
+  {
+    "oldCode": "1502",
+    "oldName": "Molde",
+    "oldShortName": "",
+    "newCode": "1506",
+    "newName": "Molde",
+    "newShortName": "",
+    "changeOccurred": "2020-01-01"
+  },
+  {
+    "oldCode": "1543",
+    "oldName": "Nesset",
+    "oldShortName": "",
+    "newCode": "1506",
+    "newName": "Molde",
+    "newShortName": "",
+    "changeOccurred": "2020-01-01"
+  },
+  {
+    "oldCode": "1545",
+    "oldName": "Midsund",
+    "oldShortName": "",
+    "newCode": "1506",
+    "newName": "Molde",
+    "newShortName": "",
+    "changeOccurred": "2020-01-01"
+  },
+  {
+    "oldCode": "1504",
+    "oldName": "Ålesund",
+    "oldShortName": "",
+    "newCode": "1507",
+    "newName": "Ålesund",
+    "newShortName": "",
+    "changeOccurred": "2020-01-01"
+  },
+  {
+    "oldCode": "1523",
+    "oldName": "Ørskog",
+    "oldShortName": "",
+    "newCode": "1507",
+    "newName": "Ålesund",
+    "newShortName": "",
+    "changeOccurred": "2020-01-01"
+  },
+  {
+    "oldCode": "1529",
+    "oldName": "Skodje",
+    "oldShortName": "",
+    "newCode": "1507",
+    "newName": "Ålesund",
+    "newShortName": "",
+    "changeOccurred": "2020-01-01"
+  },
+  {
+    "oldCode": "1534",
+    "oldName": "Haram",
+    "oldShortName": "",
+    "newCode": "1507",
+    "newName": "Ålesund",
+    "newShortName": "",
+    "changeOccurred": "2020-01-01"
+  },
+  {
+    "oldCode": "1546",
+    "oldName": "Sandøy",
+    "oldShortName": "",
+    "newCode": "1507",
+    "newName": "Ålesund",
+    "newShortName": "",
+    "changeOccurred": "2020-01-01"
+  },
+  {
+    "oldCode": "1514",
+    "oldName": "Sande (Møre og Romsdal)",
+    "oldShortName": "",
+    "newCode": "1514",
+    "newName": "Sande",
+    "newShortName": "",
+    "changeOccurred": "2020-01-01"
+  },
+  {
+    "oldCode": "1444",
+    "oldName": "Hornindal",
+    "oldShortName": "",
+    "newCode": "1577",
+    "newName": "Volda",
+    "newShortName": "",
+    "changeOccurred": "2020-01-01"
+  },
+  {
+    "oldCode": "1519",
+    "oldName": "Volda",
+    "oldShortName": "",
+    "newCode": "1577",
+    "newName": "Volda",
+    "newShortName": "",
+    "changeOccurred": "2020-01-01"
+  },
+  {
+    "oldCode": "1524",
+    "oldName": "Norddal",
+    "oldShortName": "",
+    "newCode": "1578",
+    "newName": "Fjord",
+    "newShortName": "",
+    "changeOccurred": "2020-01-01"
+  },
+  {
+    "oldCode": "1526",
+    "oldName": "Stordal",
+    "oldShortName": "",
+    "newCode": "1578",
+    "newName": "Fjord",
+    "newShortName": "",
+    "changeOccurred": "2020-01-01"
+  },
+  {
+    "oldCode": "1548",
+    "oldName": "Fræna",
+    "oldShortName": "",
+    "newCode": "1579",
+    "newName": "Hustadvika",
+    "newShortName": "",
+    "changeOccurred": "2020-01-01"
+  },
+  {
+    "oldCode": "1551",
+    "oldName": "Eide",
+    "oldShortName": "",
+    "newCode": "1579",
+    "newName": "Hustadvika",
+    "newShortName": "",
+    "changeOccurred": "2020-01-01"
+  },
+  {
+    "oldCode": "1805",
+    "oldName": "Narvik",
+    "oldShortName": "",
+    "newCode": "1806",
+    "newName": "Narvik",
+    "newShortName": "",
+    "changeOccurred": "2020-01-01"
+  },
+  {
+    "oldCode": "1850",
+    "oldName": "Tysfjord - Divtasvuodna",
+    "oldShortName": "",
+    "newCode": "1806",
+    "newName": "Narvik",
+    "newShortName": "",
+    "changeOccurred": "2020-01-01"
+  },
+  {
+    "oldCode": "1854",
+    "oldName": "Ballangen",
+    "oldShortName": "",
+    "newCode": "1806",
+    "newName": "Narvik",
+    "newShortName": "",
+    "changeOccurred": "2020-01-01"
+  },
+  {
+    "oldCode": "1826",
+    "oldName": "Hattfjelldal",
+    "oldShortName": "",
+    "newCode": "1826",
+    "newName": "Aarborte - Hattfjelldal",
+    "newShortName": "",
+    "changeOccurred": "2020-01-01"
+  },
+  {
+    "oldCode": "1867",
+    "oldName": "Bø (Nordland)",
+    "oldShortName": "",
+    "newCode": "1867",
+    "newName": "Bø",
+    "newShortName": "",
+    "changeOccurred": "2020-01-01"
+  },
+  {
+    "oldCode": "1849",
+    "oldName": "Hábmer - Hamarøy",
+    "oldShortName": "",
+    "newCode": "1875",
+    "newName": "Hábmer - Hamarøy",
+    "newShortName": "",
+    "changeOccurred": "2020-01-01"
+  },
+  {
+    "oldCode": "1850",
+    "oldName": "Tysfjord - Divtasvuodna",
+    "oldShortName": "",
+    "newCode": "1875",
+    "newName": "Hábmer - Hamarøy",
+    "newShortName": "",
+    "changeOccurred": "2020-01-01"
+  },
+  {
+    "oldCode": "0101",
+    "oldName": "Halden",
+    "oldShortName": "",
+    "newCode": "3001",
+    "newName": "Halden",
+    "newShortName": "",
+    "changeOccurred": "2020-01-01"
+  },
+  {
+    "oldCode": "0104",
+    "oldName": "Moss",
+    "oldShortName": "",
+    "newCode": "3002",
+    "newName": "Moss",
+    "newShortName": "",
+    "changeOccurred": "2020-01-01"
+  },
+  {
+    "oldCode": "0136",
+    "oldName": "Rygge",
+    "oldShortName": "",
+    "newCode": "3002",
+    "newName": "Moss",
+    "newShortName": "",
+    "changeOccurred": "2020-01-01"
+  },
+  {
+    "oldCode": "0105",
+    "oldName": "Sarpsborg",
+    "oldShortName": "",
+    "newCode": "3003",
+    "newName": "Sarpsborg",
+    "newShortName": "",
+    "changeOccurred": "2020-01-01"
+  },
+  {
+    "oldCode": "0106",
+    "oldName": "Fredrikstad",
+    "oldShortName": "",
+    "newCode": "3004",
+    "newName": "Fredrikstad",
+    "newShortName": "",
+    "changeOccurred": "2020-01-01"
+  },
+  {
+    "oldCode": "0602",
+    "oldName": "Drammen",
+    "oldShortName": "",
+    "newCode": "3005",
+    "newName": "Drammen",
+    "newShortName": "",
+    "changeOccurred": "2020-01-01"
+  },
+  {
+    "oldCode": "0625",
+    "oldName": "Nedre Eiker",
+    "oldShortName": "",
+    "newCode": "3005",
+    "newName": "Drammen",
+    "newShortName": "",
+    "changeOccurred": "2020-01-01"
+  },
+  {
+    "oldCode": "0711",
+    "oldName": "Svelvik",
+    "oldShortName": "",
+    "newCode": "3005",
+    "newName": "Drammen",
+    "newShortName": "",
+    "changeOccurred": "2020-01-01"
+  },
+  {
+    "oldCode": "0604",
+    "oldName": "Kongsberg",
+    "oldShortName": "",
+    "newCode": "3006",
+    "newName": "Kongsberg",
+    "newShortName": "",
+    "changeOccurred": "2020-01-01"
+  },
+  {
+    "oldCode": "0605",
+    "oldName": "Ringerike",
+    "oldShortName": "",
+    "newCode": "3007",
+    "newName": "Ringerike",
+    "newShortName": "",
+    "changeOccurred": "2020-01-01"
+  },
+  {
+    "oldCode": "0111",
+    "oldName": "Hvaler",
+    "oldShortName": "",
+    "newCode": "3011",
+    "newName": "Hvaler",
+    "newShortName": "",
+    "changeOccurred": "2020-01-01"
+  },
+  {
+    "oldCode": "0118",
+    "oldName": "Aremark",
+    "oldShortName": "",
+    "newCode": "3012",
+    "newName": "Aremark",
+    "newShortName": "",
+    "changeOccurred": "2020-01-01"
+  },
+  {
+    "oldCode": "0119",
+    "oldName": "Marker",
+    "oldShortName": "",
+    "newCode": "3013",
+    "newName": "Marker",
+    "newShortName": "",
+    "changeOccurred": "2020-01-01"
+  },
+  {
+    "oldCode": "0122",
+    "oldName": "Trøgstad",
+    "oldShortName": "",
+    "newCode": "3014",
+    "newName": "Indre Østfold",
+    "newShortName": "",
+    "changeOccurred": "2020-01-01"
+  },
+  {
+    "oldCode": "0123",
+    "oldName": "Spydeberg",
+    "oldShortName": "",
+    "newCode": "3014",
+    "newName": "Indre Østfold",
+    "newShortName": "",
+    "changeOccurred": "2020-01-01"
+  },
+  {
+    "oldCode": "0124",
+    "oldName": "Askim",
+    "oldShortName": "",
+    "newCode": "3014",
+    "newName": "Indre Østfold",
+    "newShortName": "",
+    "changeOccurred": "2020-01-01"
+  },
+  {
+    "oldCode": "0125",
+    "oldName": "Eidsberg",
+    "oldShortName": "",
+    "newCode": "3014",
+    "newName": "Indre Østfold",
+    "newShortName": "",
+    "changeOccurred": "2020-01-01"
+  },
+  {
+    "oldCode": "0138",
+    "oldName": "Hobøl",
+    "oldShortName": "",
+    "newCode": "3014",
+    "newName": "Indre Østfold",
+    "newShortName": "",
+    "changeOccurred": "2020-01-01"
+  },
+  {
+    "oldCode": "0127",
+    "oldName": "Skiptvet",
+    "oldShortName": "",
+    "newCode": "3015",
+    "newName": "Skiptvet",
+    "newShortName": "",
+    "changeOccurred": "2020-01-01"
+  },
+  {
+    "oldCode": "0128",
+    "oldName": "Rakkestad",
+    "oldShortName": "",
+    "newCode": "3016",
+    "newName": "Rakkestad",
+    "newShortName": "",
+    "changeOccurred": "2020-01-01"
+  },
+  {
+    "oldCode": "0135",
+    "oldName": "Råde",
+    "oldShortName": "",
+    "newCode": "3017",
+    "newName": "Råde",
+    "newShortName": "",
+    "changeOccurred": "2020-01-01"
+  },
+  {
+    "oldCode": "0137",
+    "oldName": "Våler (Østfold)",
+    "oldShortName": "",
+    "newCode": "3018",
+    "newName": "Våler (Viken)",
+    "newShortName": "",
+    "changeOccurred": "2020-01-01"
+  },
+  {
+    "oldCode": "0211",
+    "oldName": "Vestby",
+    "oldShortName": "",
+    "newCode": "3019",
+    "newName": "Vestby",
+    "newShortName": "",
+    "changeOccurred": "2020-01-01"
+  },
+  {
+    "oldCode": "0213",
+    "oldName": "Ski",
+    "oldShortName": "",
+    "newCode": "3020",
+    "newName": "Nordre Follo",
+    "newShortName": "",
+    "changeOccurred": "2020-01-01"
+  },
+  {
+    "oldCode": "0217",
+    "oldName": "Oppegård",
+    "oldShortName": "",
+    "newCode": "3020",
+    "newName": "Nordre Follo",
+    "newShortName": "",
+    "changeOccurred": "2020-01-01"
+  },
+  {
+    "oldCode": "0214",
+    "oldName": "Ås",
+    "oldShortName": "",
+    "newCode": "3021",
+    "newName": "Ås",
+    "newShortName": "",
+    "changeOccurred": "2020-01-01"
+  },
+  {
+    "oldCode": "0215",
+    "oldName": "Frogn",
+    "oldShortName": "",
+    "newCode": "3022",
+    "newName": "Frogn",
+    "newShortName": "",
+    "changeOccurred": "2020-01-01"
+  },
+  {
+    "oldCode": "0216",
+    "oldName": "Nesodden",
+    "oldShortName": "",
+    "newCode": "3023",
+    "newName": "Nesodden",
+    "newShortName": "",
+    "changeOccurred": "2020-01-01"
+  },
+  {
+    "oldCode": "0219",
+    "oldName": "Bærum",
+    "oldShortName": "",
+    "newCode": "3024",
+    "newName": "Bærum",
+    "newShortName": "",
+    "changeOccurred": "2020-01-01"
+  },
+  {
+    "oldCode": "0220",
+    "oldName": "Asker",
+    "oldShortName": "",
+    "newCode": "3025",
+    "newName": "Asker",
+    "newShortName": "",
+    "changeOccurred": "2020-01-01"
+  },
+  {
+    "oldCode": "0627",
+    "oldName": "Røyken",
+    "oldShortName": "",
+    "newCode": "3025",
+    "newName": "Asker",
+    "newShortName": "",
+    "changeOccurred": "2020-01-01"
+  },
+  {
+    "oldCode": "0628",
+    "oldName": "Hurum",
+    "oldShortName": "",
+    "newCode": "3025",
+    "newName": "Asker",
+    "newShortName": "",
+    "changeOccurred": "2020-01-01"
+  },
+  {
+    "oldCode": "0121",
+    "oldName": "Rømskog",
+    "oldShortName": "",
+    "newCode": "3026",
+    "newName": "Aurskog-Høland",
+    "newShortName": "",
+    "changeOccurred": "2020-01-01"
+  },
+  {
+    "oldCode": "0221",
+    "oldName": "Aurskog-Høland",
+    "oldShortName": "",
+    "newCode": "3026",
+    "newName": "Aurskog-Høland",
+    "newShortName": "",
+    "changeOccurred": "2020-01-01"
+  },
+  {
+    "oldCode": "0228",
+    "oldName": "Rælingen",
+    "oldShortName": "",
+    "newCode": "3027",
+    "newName": "Rælingen",
+    "newShortName": "",
+    "changeOccurred": "2020-01-01"
+  },
+  {
+    "oldCode": "0229",
+    "oldName": "Enebakk",
+    "oldShortName": "",
+    "newCode": "3028",
+    "newName": "Enebakk",
+    "newShortName": "",
+    "changeOccurred": "2020-01-01"
+  },
+  {
+    "oldCode": "0230",
+    "oldName": "Lørenskog",
+    "oldShortName": "",
+    "newCode": "3029",
+    "newName": "Lørenskog",
+    "newShortName": "",
+    "changeOccurred": "2020-01-01"
+  },
+  {
+    "oldCode": "0226",
+    "oldName": "Sørum",
+    "oldShortName": "",
+    "newCode": "3030",
+    "newName": "Lillestrøm",
+    "newShortName": "",
+    "changeOccurred": "2020-01-01"
+  },
+  {
+    "oldCode": "0227",
+    "oldName": "Fet",
+    "oldShortName": "",
+    "newCode": "3030",
+    "newName": "Lillestrøm",
+    "newShortName": "",
+    "changeOccurred": "2020-01-01"
+  },
+  {
+    "oldCode": "0231",
+    "oldName": "Skedsmo",
+    "oldShortName": "",
+    "newCode": "3030",
+    "newName": "Lillestrøm",
+    "newShortName": "",
+    "changeOccurred": "2020-01-01"
+  },
+  {
+    "oldCode": "0233",
+    "oldName": "Nittedal",
+    "oldShortName": "",
+    "newCode": "3031",
+    "newName": "Nittedal",
+    "newShortName": "",
+    "changeOccurred": "2020-01-01"
+  },
+  {
+    "oldCode": "0234",
+    "oldName": "Gjerdrum",
+    "oldShortName": "",
+    "newCode": "3032",
+    "newName": "Gjerdrum",
+    "newShortName": "",
+    "changeOccurred": "2020-01-01"
+  },
+  {
+    "oldCode": "0235",
+    "oldName": "Ullensaker",
+    "oldShortName": "",
+    "newCode": "3033",
+    "newName": "Ullensaker",
+    "newShortName": "",
+    "changeOccurred": "2020-01-01"
+  },
+  {
+    "oldCode": "0236",
+    "oldName": "Nes (Akershus)",
+    "oldShortName": "",
+    "newCode": "3034",
+    "newName": "Nes",
+    "newShortName": "",
+    "changeOccurred": "2020-01-01"
+  },
+  {
+    "oldCode": "0237",
+    "oldName": "Eidsvoll",
+    "oldShortName": "",
+    "newCode": "3035",
+    "newName": "Eidsvoll",
+    "newShortName": "",
+    "changeOccurred": "2020-01-01"
+  },
+  {
+    "oldCode": "0238",
+    "oldName": "Nannestad",
+    "oldShortName": "",
+    "newCode": "3036",
+    "newName": "Nannestad",
+    "newShortName": "",
+    "changeOccurred": "2020-01-01"
+  },
+  {
+    "oldCode": "0239",
+    "oldName": "Hurdal",
+    "oldShortName": "",
+    "newCode": "3037",
+    "newName": "Hurdal",
+    "newShortName": "",
+    "changeOccurred": "2020-01-01"
+  },
+  {
+    "oldCode": "0612",
+    "oldName": "Hole",
+    "oldShortName": "",
+    "newCode": "3038",
+    "newName": "Hole",
+    "newShortName": "",
+    "changeOccurred": "2020-01-01"
+  },
+  {
+    "oldCode": "0615",
+    "oldName": "Flå",
+    "oldShortName": "",
+    "newCode": "3039",
+    "newName": "Flå",
+    "newShortName": "",
+    "changeOccurred": "2020-01-01"
+  },
+  {
+    "oldCode": "0616",
+    "oldName": "Nes (Buskerud)",
+    "oldShortName": "",
+    "newCode": "3040",
+    "newName": "Nesbyen",
+    "newShortName": "",
+    "changeOccurred": "2020-01-01"
+  },
+  {
+    "oldCode": "0617",
+    "oldName": "Gol",
+    "oldShortName": "",
+    "newCode": "3041",
+    "newName": "Gol",
+    "newShortName": "",
+    "changeOccurred": "2020-01-01"
+  },
+  {
+    "oldCode": "0618",
+    "oldName": "Hemsedal",
+    "oldShortName": "",
+    "newCode": "3042",
+    "newName": "Hemsedal",
+    "newShortName": "",
+    "changeOccurred": "2020-01-01"
+  },
+  {
+    "oldCode": "0619",
+    "oldName": "Ål",
+    "oldShortName": "",
+    "newCode": "3043",
+    "newName": "Ål",
+    "newShortName": "",
+    "changeOccurred": "2020-01-01"
+  },
+  {
+    "oldCode": "0620",
+    "oldName": "Hol",
+    "oldShortName": "",
+    "newCode": "3044",
+    "newName": "Hol",
+    "newShortName": "",
+    "changeOccurred": "2020-01-01"
+  },
+  {
+    "oldCode": "0621",
+    "oldName": "Sigdal",
+    "oldShortName": "",
+    "newCode": "3045",
+    "newName": "Sigdal",
+    "newShortName": "",
+    "changeOccurred": "2020-01-01"
+  },
+  {
+    "oldCode": "0622",
+    "oldName": "Krødsherad",
+    "oldShortName": "",
+    "newCode": "3046",
+    "newName": "Krødsherad",
+    "newShortName": "",
+    "changeOccurred": "2020-01-01"
+  },
+  {
+    "oldCode": "0623",
+    "oldName": "Modum",
+    "oldShortName": "",
+    "newCode": "3047",
+    "newName": "Modum",
+    "newShortName": "",
+    "changeOccurred": "2020-01-01"
+  },
+  {
+    "oldCode": "0624",
+    "oldName": "Øvre Eiker",
+    "oldShortName": "",
+    "newCode": "3048",
+    "newName": "Øvre Eiker",
+    "newShortName": "",
+    "changeOccurred": "2020-01-01"
+  },
+  {
+    "oldCode": "0626",
+    "oldName": "Lier",
+    "oldShortName": "",
+    "newCode": "3049",
+    "newName": "Lier",
+    "newShortName": "",
+    "changeOccurred": "2020-01-01"
+  },
+  {
+    "oldCode": "0631",
+    "oldName": "Flesberg",
+    "oldShortName": "",
+    "newCode": "3050",
+    "newName": "Flesberg",
+    "newShortName": "",
+    "changeOccurred": "2020-01-01"
+  },
+  {
+    "oldCode": "0632",
+    "oldName": "Rollag",
+    "oldShortName": "",
+    "newCode": "3051",
+    "newName": "Rollag",
+    "newShortName": "",
+    "changeOccurred": "2020-01-01"
+  },
+  {
+    "oldCode": "0633",
+    "oldName": "Nore og Uvdal",
+    "oldShortName": "",
+    "newCode": "3052",
+    "newName": "Nore og Uvdal",
+    "newShortName": "",
+    "changeOccurred": "2020-01-01"
+  },
+  {
+    "oldCode": "0532",
+    "oldName": "Jevnaker",
+    "oldShortName": "",
+    "newCode": "3053",
+    "newName": "Jevnaker",
+    "newShortName": "",
+    "changeOccurred": "2020-01-01"
+  },
+  {
+    "oldCode": "0533",
+    "oldName": "Lunner",
+    "oldShortName": "",
+    "newCode": "3054",
+    "newName": "Lunner",
+    "newShortName": "",
+    "changeOccurred": "2020-01-01"
+  },
+  {
+    "oldCode": "0402",
+    "oldName": "Kongsvinger",
+    "oldShortName": "",
+    "newCode": "3401",
+    "newName": "Kongsvinger",
+    "newShortName": "",
+    "changeOccurred": "2020-01-01"
+  },
+  {
+    "oldCode": "0403",
+    "oldName": "Hamar",
+    "oldShortName": "",
+    "newCode": "3403",
+    "newName": "Hamar",
+    "newShortName": "",
+    "changeOccurred": "2020-01-01"
+  },
+  {
+    "oldCode": "0501",
+    "oldName": "Lillehammer",
+    "oldShortName": "",
+    "newCode": "3405",
+    "newName": "Lillehammer",
+    "newShortName": "",
+    "changeOccurred": "2020-01-01"
+  },
+  {
+    "oldCode": "0502",
+    "oldName": "Gjøvik",
+    "oldShortName": "",
+    "newCode": "3407",
+    "newName": "Gjøvik",
+    "newShortName": "",
+    "changeOccurred": "2020-01-01"
+  },
+  {
+    "oldCode": "0412",
+    "oldName": "Ringsaker",
+    "oldShortName": "",
+    "newCode": "3411",
+    "newName": "Ringsaker",
+    "newShortName": "",
+    "changeOccurred": "2020-01-01"
+  },
+  {
+    "oldCode": "0415",
+    "oldName": "Løten",
+    "oldShortName": "",
+    "newCode": "3412",
+    "newName": "Løten",
+    "newShortName": "",
+    "changeOccurred": "2020-01-01"
+  },
+  {
+    "oldCode": "0417",
+    "oldName": "Stange",
+    "oldShortName": "",
+    "newCode": "3413",
+    "newName": "Stange",
+    "newShortName": "",
+    "changeOccurred": "2020-01-01"
+  },
+  {
+    "oldCode": "0418",
+    "oldName": "Nord-Odal",
+    "oldShortName": "",
+    "newCode": "3414",
+    "newName": "Nord-Odal",
+    "newShortName": "",
+    "changeOccurred": "2020-01-01"
+  },
+  {
+    "oldCode": "0419",
+    "oldName": "Sør-Odal",
+    "oldShortName": "",
+    "newCode": "3415",
+    "newName": "Sør-Odal",
+    "newShortName": "",
+    "changeOccurred": "2020-01-01"
+  },
+  {
+    "oldCode": "0420",
+    "oldName": "Eidskog",
+    "oldShortName": "",
+    "newCode": "3416",
+    "newName": "Eidskog",
+    "newShortName": "",
+    "changeOccurred": "2020-01-01"
+  },
+  {
+    "oldCode": "0423",
+    "oldName": "Grue",
+    "oldShortName": "",
+    "newCode": "3417",
+    "newName": "Grue",
+    "newShortName": "",
+    "changeOccurred": "2020-01-01"
+  },
+  {
+    "oldCode": "0425",
+    "oldName": "Åsnes",
+    "oldShortName": "",
+    "newCode": "3418",
+    "newName": "Åsnes",
+    "newShortName": "",
+    "changeOccurred": "2020-01-01"
+  },
+  {
+    "oldCode": "0426",
+    "oldName": "Våler (Hedmark)",
+    "oldShortName": "",
+    "newCode": "3419",
+    "newName": "Våler (Innlandet)",
+    "newShortName": "",
+    "changeOccurred": "2020-01-01"
+  },
+  {
+    "oldCode": "0427",
+    "oldName": "Elverum",
+    "oldShortName": "",
+    "newCode": "3420",
+    "newName": "Elverum",
+    "newShortName": "",
+    "changeOccurred": "2020-01-01"
+  },
+  {
+    "oldCode": "0428",
+    "oldName": "Trysil",
+    "oldShortName": "",
+    "newCode": "3421",
+    "newName": "Trysil",
+    "newShortName": "",
+    "changeOccurred": "2020-01-01"
+  },
+  {
+    "oldCode": "0429",
+    "oldName": "Åmot",
+    "oldShortName": "",
+    "newCode": "3422",
+    "newName": "Åmot",
+    "newShortName": "",
+    "changeOccurred": "2020-01-01"
+  },
+  {
+    "oldCode": "0430",
+    "oldName": "Stor-Elvdal",
+    "oldShortName": "",
+    "newCode": "3423",
+    "newName": "Stor-Elvdal",
+    "newShortName": "",
+    "changeOccurred": "2020-01-01"
+  },
+  {
+    "oldCode": "0432",
+    "oldName": "Rendalen",
+    "oldShortName": "",
+    "newCode": "3424",
+    "newName": "Rendalen",
+    "newShortName": "",
+    "changeOccurred": "2020-01-01"
+  },
+  {
+    "oldCode": "0434",
+    "oldName": "Engerdal",
+    "oldShortName": "",
+    "newCode": "3425",
+    "newName": "Engerdal",
+    "newShortName": "",
+    "changeOccurred": "2020-01-01"
+  },
+  {
+    "oldCode": "0436",
+    "oldName": "Tolga",
+    "oldShortName": "",
+    "newCode": "3426",
+    "newName": "Tolga",
+    "newShortName": "",
+    "changeOccurred": "2020-01-01"
+  },
+  {
+    "oldCode": "0437",
+    "oldName": "Tynset",
+    "oldShortName": "",
+    "newCode": "3427",
+    "newName": "Tynset",
+    "newShortName": "",
+    "changeOccurred": "2020-01-01"
+  },
+  {
+    "oldCode": "0438",
+    "oldName": "Alvdal",
+    "oldShortName": "",
+    "newCode": "3428",
+    "newName": "Alvdal",
+    "newShortName": "",
+    "changeOccurred": "2020-01-01"
+  },
+  {
+    "oldCode": "0439",
+    "oldName": "Folldal",
+    "oldShortName": "",
+    "newCode": "3429",
+    "newName": "Folldal",
+    "newShortName": "",
+    "changeOccurred": "2020-01-01"
+  },
+  {
+    "oldCode": "0441",
+    "oldName": "Os (Hedmark)",
+    "oldShortName": "",
+    "newCode": "3430",
+    "newName": "Os",
+    "newShortName": "",
+    "changeOccurred": "2020-01-01"
+  },
+  {
+    "oldCode": "0511",
+    "oldName": "Dovre",
+    "oldShortName": "",
+    "newCode": "3431",
+    "newName": "Dovre",
+    "newShortName": "",
+    "changeOccurred": "2020-01-01"
+  },
+  {
+    "oldCode": "0512",
+    "oldName": "Lesja",
+    "oldShortName": "",
+    "newCode": "3432",
+    "newName": "Lesja",
+    "newShortName": "",
+    "changeOccurred": "2020-01-01"
+  },
+  {
+    "oldCode": "0513",
+    "oldName": "Skjåk",
+    "oldShortName": "",
+    "newCode": "3433",
+    "newName": "Skjåk",
+    "newShortName": "",
+    "changeOccurred": "2020-01-01"
+  },
+  {
+    "oldCode": "0514",
+    "oldName": "Lom",
+    "oldShortName": "",
+    "newCode": "3434",
+    "newName": "Lom",
+    "newShortName": "",
+    "changeOccurred": "2020-01-01"
+  },
+  {
+    "oldCode": "0515",
+    "oldName": "Vågå",
+    "oldShortName": "",
+    "newCode": "3435",
+    "newName": "Vågå",
+    "newShortName": "",
+    "changeOccurred": "2020-01-01"
+  },
+  {
+    "oldCode": "0516",
+    "oldName": "Nord-Fron",
+    "oldShortName": "",
+    "newCode": "3436",
+    "newName": "Nord-Fron",
+    "newShortName": "",
+    "changeOccurred": "2020-01-01"
+  },
+  {
+    "oldCode": "0517",
+    "oldName": "Sel",
+    "oldShortName": "",
+    "newCode": "3437",
+    "newName": "Sel",
+    "newShortName": "",
+    "changeOccurred": "2020-01-01"
+  },
+  {
+    "oldCode": "0519",
+    "oldName": "Sør-Fron",
+    "oldShortName": "",
+    "newCode": "3438",
+    "newName": "Sør-Fron",
+    "newShortName": "",
+    "changeOccurred": "2020-01-01"
+  },
+  {
+    "oldCode": "0520",
+    "oldName": "Ringebu",
+    "oldShortName": "",
+    "newCode": "3439",
+    "newName": "Ringebu",
+    "newShortName": "",
+    "changeOccurred": "2020-01-01"
+  },
+  {
+    "oldCode": "0521",
+    "oldName": "Øyer",
+    "oldShortName": "",
+    "newCode": "3440",
+    "newName": "Øyer",
+    "newShortName": "",
+    "changeOccurred": "2020-01-01"
+  },
+  {
+    "oldCode": "0522",
+    "oldName": "Gausdal",
+    "oldShortName": "",
+    "newCode": "3441",
+    "newName": "Gausdal",
+    "newShortName": "",
+    "changeOccurred": "2020-01-01"
+  },
+  {
+    "oldCode": "0528",
+    "oldName": "Østre Toten",
+    "oldShortName": "",
+    "newCode": "3442",
+    "newName": "Østre Toten",
+    "newShortName": "",
+    "changeOccurred": "2020-01-01"
+  },
+  {
+    "oldCode": "0529",
+    "oldName": "Vestre Toten",
+    "oldShortName": "",
+    "newCode": "3443",
+    "newName": "Vestre Toten",
+    "newShortName": "",
+    "changeOccurred": "2020-01-01"
+  },
+  {
+    "oldCode": "0534",
+    "oldName": "Gran",
+    "oldShortName": "",
+    "newCode": "3446",
+    "newName": "Gran",
+    "newShortName": "",
+    "changeOccurred": "2020-01-01"
+  },
+  {
+    "oldCode": "0536",
+    "oldName": "Søndre Land",
+    "oldShortName": "",
+    "newCode": "3447",
+    "newName": "Søndre Land",
+    "newShortName": "",
+    "changeOccurred": "2020-01-01"
+  },
+  {
+    "oldCode": "0538",
+    "oldName": "Nordre Land",
+    "oldShortName": "",
+    "newCode": "3448",
+    "newName": "Nordre Land",
+    "newShortName": "",
+    "changeOccurred": "2020-01-01"
+  },
+  {
+    "oldCode": "0540",
+    "oldName": "Sør-Aurdal",
+    "oldShortName": "",
+    "newCode": "3449",
+    "newName": "Sør-Aurdal",
+    "newShortName": "",
+    "changeOccurred": "2020-01-01"
+  },
+  {
+    "oldCode": "0541",
+    "oldName": "Etnedal",
+    "oldShortName": "",
+    "newCode": "3450",
+    "newName": "Etnedal",
+    "newShortName": "",
+    "changeOccurred": "2020-01-01"
+  },
+  {
+    "oldCode": "0542",
+    "oldName": "Nord-Aurdal",
+    "oldShortName": "",
+    "newCode": "3451",
+    "newName": "Nord-Aurdal",
+    "newShortName": "",
+    "changeOccurred": "2020-01-01"
+  },
+  {
+    "oldCode": "0543",
+    "oldName": "Vestre Slidre",
+    "oldShortName": "",
+    "newCode": "3452",
+    "newName": "Vestre Slidre",
+    "newShortName": "",
+    "changeOccurred": "2020-01-01"
+  },
+  {
+    "oldCode": "0544",
+    "oldName": "Øystre Slidre",
+    "oldShortName": "",
+    "newCode": "3453",
+    "newName": "Øystre Slidre",
+    "newShortName": "",
+    "changeOccurred": "2020-01-01"
+  },
+  {
+    "oldCode": "0545",
+    "oldName": "Vang",
+    "oldShortName": "",
+    "newCode": "3454",
+    "newName": "Vang",
+    "newShortName": "",
+    "changeOccurred": "2020-01-01"
+  },
+  {
+    "oldCode": "0701",
+    "oldName": "Horten",
+    "oldShortName": "",
+    "newCode": "3801",
+    "newName": "Horten",
+    "newShortName": "",
+    "changeOccurred": "2020-01-01"
+  },
+  {
+    "oldCode": "0713",
+    "oldName": "Sande (Vestfold)",
+    "oldShortName": "",
+    "newCode": "3802",
+    "newName": "Holmestrand",
+    "newShortName": "",
+    "changeOccurred": "2020-01-01"
+  },
+  {
+    "oldCode": "0715",
+    "oldName": "Holmestrand",
+    "oldShortName": "",
+    "newCode": "3802",
+    "newName": "Holmestrand",
+    "newShortName": "",
+    "changeOccurred": "2020-01-01"
+  },
+  {
+    "oldCode": "0704",
+    "oldName": "Tønsberg",
+    "oldShortName": "",
+    "newCode": "3803",
+    "newName": "Tønsberg",
+    "newShortName": "",
+    "changeOccurred": "2020-01-01"
+  },
+  {
+    "oldCode": "0716",
+    "oldName": "Re",
+    "oldShortName": "",
+    "newCode": "3803",
+    "newName": "Tønsberg",
+    "newShortName": "",
+    "changeOccurred": "2020-01-01"
+  },
+  {
+    "oldCode": "0710",
+    "oldName": "Sandefjord",
+    "oldShortName": "",
+    "newCode": "3804",
+    "newName": "Sandefjord",
+    "newShortName": "",
+    "changeOccurred": "2020-01-01"
+  },
+  {
+    "oldCode": "0712",
+    "oldName": "Larvik",
+    "oldShortName": "",
+    "newCode": "3805",
+    "newName": "Larvik",
+    "newShortName": "",
+    "changeOccurred": "2020-01-01"
+  },
+  {
+    "oldCode": "0805",
+    "oldName": "Porsgrunn",
+    "oldShortName": "",
+    "newCode": "3806",
+    "newName": "Porsgrunn",
+    "newShortName": "",
+    "changeOccurred": "2020-01-01"
+  },
+  {
+    "oldCode": "0806",
+    "oldName": "Skien",
+    "oldShortName": "",
+    "newCode": "3807",
+    "newName": "Skien",
+    "newShortName": "",
+    "changeOccurred": "2020-01-01"
+  },
+  {
+    "oldCode": "0807",
+    "oldName": "Notodden",
+    "oldShortName": "",
+    "newCode": "3808",
+    "newName": "Notodden",
+    "newShortName": "",
+    "changeOccurred": "2020-01-01"
+  },
+  {
+    "oldCode": "0729",
+    "oldName": "Færder",
+    "oldShortName": "",
+    "newCode": "3811",
+    "newName": "Færder",
+    "newShortName": "",
+    "changeOccurred": "2020-01-01"
+  },
+  {
+    "oldCode": "0811",
+    "oldName": "Siljan",
+    "oldShortName": "",
+    "newCode": "3812",
+    "newName": "Siljan",
+    "newShortName": "",
+    "changeOccurred": "2020-01-01"
+  },
+  {
+    "oldCode": "0814",
+    "oldName": "Bamble",
+    "oldShortName": "",
+    "newCode": "3813",
+    "newName": "Bamble",
+    "newShortName": "",
+    "changeOccurred": "2020-01-01"
+  },
+  {
+    "oldCode": "0815",
+    "oldName": "Kragerø",
+    "oldShortName": "",
+    "newCode": "3814",
+    "newName": "Kragerø",
+    "newShortName": "",
+    "changeOccurred": "2020-01-01"
+  },
+  {
+    "oldCode": "0817",
+    "oldName": "Drangedal",
+    "oldShortName": "",
+    "newCode": "3815",
+    "newName": "Drangedal",
+    "newShortName": "",
+    "changeOccurred": "2020-01-01"
+  },
+  {
+    "oldCode": "0819",
+    "oldName": "Nome",
+    "oldShortName": "",
+    "newCode": "3816",
+    "newName": "Nome",
+    "newShortName": "",
+    "changeOccurred": "2020-01-01"
+  },
+  {
+    "oldCode": "0821",
+    "oldName": "Bø (Telemark)",
+    "oldShortName": "",
+    "newCode": "3817",
+    "newName": "Midt-Telemark",
+    "newShortName": "",
+    "changeOccurred": "2020-01-01"
+  },
+  {
+    "oldCode": "0822",
+    "oldName": "Sauherad",
+    "oldShortName": "",
+    "newCode": "3817",
+    "newName": "Midt-Telemark",
+    "newShortName": "",
+    "changeOccurred": "2020-01-01"
+  },
+  {
+    "oldCode": "0826",
+    "oldName": "Tinn",
+    "oldShortName": "",
+    "newCode": "3818",
+    "newName": "Tinn",
+    "newShortName": "",
+    "changeOccurred": "2020-01-01"
+  },
+  {
+    "oldCode": "0827",
+    "oldName": "Hjartdal",
+    "oldShortName": "",
+    "newCode": "3819",
+    "newName": "Hjartdal",
+    "newShortName": "",
+    "changeOccurred": "2020-01-01"
+  },
+  {
+    "oldCode": "0828",
+    "oldName": "Seljord",
+    "oldShortName": "",
+    "newCode": "3820",
+    "newName": "Seljord",
+    "newShortName": "",
+    "changeOccurred": "2020-01-01"
+  },
+  {
+    "oldCode": "0829",
+    "oldName": "Kviteseid",
+    "oldShortName": "",
+    "newCode": "3821",
+    "newName": "Kviteseid",
+    "newShortName": "",
+    "changeOccurred": "2020-01-01"
+  },
+  {
+    "oldCode": "0830",
+    "oldName": "Nissedal",
+    "oldShortName": "",
+    "newCode": "3822",
+    "newName": "Nissedal",
+    "newShortName": "",
+    "changeOccurred": "2020-01-01"
+  },
+  {
+    "oldCode": "0831",
+    "oldName": "Fyresdal",
+    "oldShortName": "",
+    "newCode": "3823",
+    "newName": "Fyresdal",
+    "newShortName": "",
+    "changeOccurred": "2020-01-01"
+  },
+  {
+    "oldCode": "0833",
+    "oldName": "Tokke",
+    "oldShortName": "",
+    "newCode": "3824",
+    "newName": "Tokke",
+    "newShortName": "",
+    "changeOccurred": "2020-01-01"
+  },
+  {
+    "oldCode": "0834",
+    "oldName": "Vinje",
+    "oldShortName": "",
+    "newCode": "3825",
+    "newName": "Vinje",
+    "newShortName": "",
+    "changeOccurred": "2020-01-01"
+  },
+  {
+    "oldCode": "0901",
+    "oldName": "Risør",
+    "oldShortName": "",
+    "newCode": "4201",
+    "newName": "Risør",
+    "newShortName": "",
+    "changeOccurred": "2020-01-01"
+  },
+  {
+    "oldCode": "0904",
+    "oldName": "Grimstad",
+    "oldShortName": "",
+    "newCode": "4202",
+    "newName": "Grimstad",
+    "newShortName": "",
+    "changeOccurred": "2020-01-01"
+  },
+  {
+    "oldCode": "0906",
+    "oldName": "Arendal",
+    "oldShortName": "",
+    "newCode": "4203",
+    "newName": "Arendal",
+    "newShortName": "",
+    "changeOccurred": "2020-01-01"
+  },
+  {
+    "oldCode": "1001",
+    "oldName": "Kristiansand",
+    "oldShortName": "",
+    "newCode": "4204",
+    "newName": "Kristiansand",
+    "newShortName": "",
+    "changeOccurred": "2020-01-01"
+  },
+  {
+    "oldCode": "1017",
+    "oldName": "Songdalen",
+    "oldShortName": "",
+    "newCode": "4204",
+    "newName": "Kristiansand",
+    "newShortName": "",
+    "changeOccurred": "2020-01-01"
+  },
+  {
+    "oldCode": "1018",
+    "oldName": "Søgne",
+    "oldShortName": "",
+    "newCode": "4204",
+    "newName": "Kristiansand",
+    "newShortName": "",
+    "changeOccurred": "2020-01-01"
+  },
+  {
+    "oldCode": "1002",
+    "oldName": "Mandal",
+    "oldShortName": "",
+    "newCode": "4205",
+    "newName": "Lindesnes",
+    "newShortName": "",
+    "changeOccurred": "2020-01-01"
+  },
+  {
+    "oldCode": "1021",
+    "oldName": "Marnardal",
+    "oldShortName": "",
+    "newCode": "4205",
+    "newName": "Lindesnes",
+    "newShortName": "",
+    "changeOccurred": "2020-01-01"
+  },
+  {
+    "oldCode": "1029",
+    "oldName": "Lindesnes",
+    "oldShortName": "",
+    "newCode": "4205",
+    "newName": "Lindesnes",
+    "newShortName": "",
+    "changeOccurred": "2020-01-01"
+  },
+  {
+    "oldCode": "1003",
+    "oldName": "Farsund",
+    "oldShortName": "",
+    "newCode": "4206",
+    "newName": "Farsund",
+    "newShortName": "",
+    "changeOccurred": "2020-01-01"
+  },
+  {
+    "oldCode": "1004",
+    "oldName": "Flekkefjord",
+    "oldShortName": "",
+    "newCode": "4207",
+    "newName": "Flekkefjord",
+    "newShortName": "",
+    "changeOccurred": "2020-01-01"
+  },
+  {
+    "oldCode": "0911",
+    "oldName": "Gjerstad",
+    "oldShortName": "",
+    "newCode": "4211",
+    "newName": "Gjerstad",
+    "newShortName": "",
+    "changeOccurred": "2020-01-01"
+  },
+  {
+    "oldCode": "0912",
+    "oldName": "Vegårshei",
+    "oldShortName": "",
+    "newCode": "4212",
+    "newName": "Vegårshei",
+    "newShortName": "",
+    "changeOccurred": "2020-01-01"
+  },
+  {
+    "oldCode": "0914",
+    "oldName": "Tvedestrand",
+    "oldShortName": "",
+    "newCode": "4213",
+    "newName": "Tvedestrand",
+    "newShortName": "",
+    "changeOccurred": "2020-01-01"
+  },
+  {
+    "oldCode": "0919",
+    "oldName": "Froland",
+    "oldShortName": "",
+    "newCode": "4214",
+    "newName": "Froland",
+    "newShortName": "",
+    "changeOccurred": "2020-01-01"
+  },
+  {
+    "oldCode": "0926",
+    "oldName": "Lillesand",
+    "oldShortName": "",
+    "newCode": "4215",
+    "newName": "Lillesand",
+    "newShortName": "",
+    "changeOccurred": "2020-01-01"
+  },
+  {
+    "oldCode": "0928",
+    "oldName": "Birkenes",
+    "oldShortName": "",
+    "newCode": "4216",
+    "newName": "Birkenes",
+    "newShortName": "",
+    "changeOccurred": "2020-01-01"
+  },
+  {
+    "oldCode": "0929",
+    "oldName": "Åmli",
+    "oldShortName": "",
+    "newCode": "4217",
+    "newName": "Åmli",
+    "newShortName": "",
+    "changeOccurred": "2020-01-01"
+  },
+  {
+    "oldCode": "0935",
+    "oldName": "Iveland",
+    "oldShortName": "",
+    "newCode": "4218",
+    "newName": "Iveland",
+    "newShortName": "",
+    "changeOccurred": "2020-01-01"
+  },
+  {
+    "oldCode": "0937",
+    "oldName": "Evje og Hornnes",
+    "oldShortName": "",
+    "newCode": "4219",
+    "newName": "Evje og Hornnes",
+    "newShortName": "",
+    "changeOccurred": "2020-01-01"
+  },
+  {
+    "oldCode": "0938",
+    "oldName": "Bygland",
+    "oldShortName": "",
+    "newCode": "4220",
+    "newName": "Bygland",
+    "newShortName": "",
+    "changeOccurred": "2020-01-01"
+  },
+  {
+    "oldCode": "0940",
+    "oldName": "Valle",
+    "oldShortName": "",
+    "newCode": "4221",
+    "newName": "Valle",
+    "newShortName": "",
+    "changeOccurred": "2020-01-01"
+  },
+  {
+    "oldCode": "0941",
+    "oldName": "Bykle",
+    "oldShortName": "",
+    "newCode": "4222",
+    "newName": "Bykle",
+    "newShortName": "",
+    "changeOccurred": "2020-01-01"
+  },
+  {
+    "oldCode": "1014",
+    "oldName": "Vennesla",
+    "oldShortName": "",
+    "newCode": "4223",
+    "newName": "Vennesla",
+    "newShortName": "",
+    "changeOccurred": "2020-01-01"
+  },
+  {
+    "oldCode": "1026",
+    "oldName": "Åseral",
+    "oldShortName": "",
+    "newCode": "4224",
+    "newName": "Åseral",
+    "newShortName": "",
+    "changeOccurred": "2020-01-01"
+  },
+  {
+    "oldCode": "1027",
+    "oldName": "Audnedal",
+    "oldShortName": "",
+    "newCode": "4225",
+    "newName": "Lyngdal",
+    "newShortName": "",
+    "changeOccurred": "2020-01-01"
+  },
+  {
+    "oldCode": "1032",
+    "oldName": "Lyngdal",
+    "oldShortName": "",
+    "newCode": "4225",
+    "newName": "Lyngdal",
+    "newShortName": "",
+    "changeOccurred": "2020-01-01"
+  },
+  {
+    "oldCode": "1034",
+    "oldName": "Hægebostad",
+    "oldShortName": "",
+    "newCode": "4226",
+    "newName": "Hægebostad",
+    "newShortName": "",
+    "changeOccurred": "2020-01-01"
+  },
+  {
+    "oldCode": "1037",
+    "oldName": "Kvinesdal",
+    "oldShortName": "",
+    "newCode": "4227",
+    "newName": "Kvinesdal",
+    "newShortName": "",
+    "changeOccurred": "2020-01-01"
+  },
+  {
+    "oldCode": "1046",
+    "oldName": "Sirdal",
+    "oldShortName": "",
+    "newCode": "4228",
+    "newName": "Sirdal",
+    "newShortName": "",
+    "changeOccurred": "2020-01-01"
+  },
+  {
+    "oldCode": "1201",
+    "oldName": "Bergen",
+    "oldShortName": "",
+    "newCode": "4601",
+    "newName": "Bergen",
+    "newShortName": "",
+    "changeOccurred": "2020-01-01"
+  },
+  {
+    "oldCode": "1401",
+    "oldName": "Flora",
+    "oldShortName": "",
+    "newCode": "4602",
+    "newName": "Kinn",
+    "newShortName": "",
+    "changeOccurred": "2020-01-01"
+  },
+  {
+    "oldCode": "1439",
+    "oldName": "Vågsøy",
+    "oldShortName": "",
+    "newCode": "4602",
+    "newName": "Kinn",
+    "newShortName": "",
+    "changeOccurred": "2020-01-01"
+  },
+  {
+    "oldCode": "1211",
+    "oldName": "Etne",
+    "oldShortName": "",
+    "newCode": "4611",
+    "newName": "Etne",
+    "newShortName": "",
+    "changeOccurred": "2020-01-01"
+  },
+  {
+    "oldCode": "1216",
+    "oldName": "Sveio",
+    "oldShortName": "",
+    "newCode": "4612",
+    "newName": "Sveio",
+    "newShortName": "",
+    "changeOccurred": "2020-01-01"
+  },
+  {
+    "oldCode": "1219",
+    "oldName": "Bømlo",
+    "oldShortName": "",
+    "newCode": "4613",
+    "newName": "Bømlo",
+    "newShortName": "",
+    "changeOccurred": "2020-01-01"
+  },
+  {
+    "oldCode": "1221",
+    "oldName": "Stord",
+    "oldShortName": "",
+    "newCode": "4614",
+    "newName": "Stord",
+    "newShortName": "",
+    "changeOccurred": "2020-01-01"
+  },
+  {
+    "oldCode": "1222",
+    "oldName": "Fitjar",
+    "oldShortName": "",
+    "newCode": "4615",
+    "newName": "Fitjar",
+    "newShortName": "",
+    "changeOccurred": "2020-01-01"
+  },
+  {
+    "oldCode": "1223",
+    "oldName": "Tysnes",
+    "oldShortName": "",
+    "newCode": "4616",
+    "newName": "Tysnes",
+    "newShortName": "",
+    "changeOccurred": "2020-01-01"
+  },
+  {
+    "oldCode": "1224",
+    "oldName": "Kvinnherad",
+    "oldShortName": "",
+    "newCode": "4617",
+    "newName": "Kvinnherad",
+    "newShortName": "",
+    "changeOccurred": "2020-01-01"
+  },
+  {
+    "oldCode": "1227",
+    "oldName": "Jondal",
+    "oldShortName": "",
+    "newCode": "4618",
+    "newName": "Ullensvang",
+    "newShortName": "",
+    "changeOccurred": "2020-01-01"
+  },
+  {
+    "oldCode": "1228",
+    "oldName": "Odda",
+    "oldShortName": "",
+    "newCode": "4618",
+    "newName": "Ullensvang",
+    "newShortName": "",
+    "changeOccurred": "2020-01-01"
+  },
+  {
+    "oldCode": "1231",
+    "oldName": "Ullensvang",
+    "oldShortName": "",
+    "newCode": "4618",
+    "newName": "Ullensvang",
+    "newShortName": "",
+    "changeOccurred": "2020-01-01"
+  },
+  {
+    "oldCode": "1232",
+    "oldName": "Eidfjord",
+    "oldShortName": "",
+    "newCode": "4619",
+    "newName": "Eidfjord",
+    "newShortName": "",
+    "changeOccurred": "2020-01-01"
+  },
+  {
+    "oldCode": "1233",
+    "oldName": "Ulvik",
+    "oldShortName": "",
+    "newCode": "4620",
+    "newName": "Ulvik",
+    "newShortName": "",
+    "changeOccurred": "2020-01-01"
+  },
+  {
+    "oldCode": "1234",
+    "oldName": "Granvin",
+    "oldShortName": "",
+    "newCode": "4621",
+    "newName": "Voss",
+    "newShortName": "",
+    "changeOccurred": "2020-01-01"
+  },
+  {
+    "oldCode": "1235",
+    "oldName": "Voss",
+    "oldShortName": "",
+    "newCode": "4621",
+    "newName": "Voss",
+    "newShortName": "",
+    "changeOccurred": "2020-01-01"
+  },
+  {
+    "oldCode": "1238",
+    "oldName": "Kvam",
+    "oldShortName": "",
+    "newCode": "4622",
+    "newName": "Kvam",
+    "newShortName": "",
+    "changeOccurred": "2020-01-01"
+  },
+  {
+    "oldCode": "1242",
+    "oldName": "Samnanger",
+    "oldShortName": "",
+    "newCode": "4623",
+    "newName": "Samnanger",
+    "newShortName": "",
+    "changeOccurred": "2020-01-01"
+  },
+  {
+    "oldCode": "1241",
+    "oldName": "Fusa",
+    "oldShortName": "",
+    "newCode": "4624",
+    "newName": "Bjørnafjorden",
+    "newShortName": "",
+    "changeOccurred": "2020-01-01"
+  },
+  {
+    "oldCode": "1243",
+    "oldName": "Os (Hordaland)",
+    "oldShortName": "",
+    "newCode": "4624",
+    "newName": "Bjørnafjorden",
+    "newShortName": "",
+    "changeOccurred": "2020-01-01"
+  },
+  {
+    "oldCode": "1244",
+    "oldName": "Austevoll",
+    "oldShortName": "",
+    "newCode": "4625",
+    "newName": "Austevoll",
+    "newShortName": "",
+    "changeOccurred": "2020-01-01"
+  },
+  {
+    "oldCode": "1245",
+    "oldName": "Sund",
+    "oldShortName": "",
+    "newCode": "4626",
+    "newName": "Øygarden",
+    "newShortName": "",
+    "changeOccurred": "2020-01-01"
+  },
+  {
+    "oldCode": "1246",
+    "oldName": "Fjell",
+    "oldShortName": "",
+    "newCode": "4626",
+    "newName": "Øygarden",
+    "newShortName": "",
+    "changeOccurred": "2020-01-01"
+  },
+  {
+    "oldCode": "1259",
+    "oldName": "Øygarden",
+    "oldShortName": "",
+    "newCode": "4626",
+    "newName": "Øygarden",
+    "newShortName": "",
+    "changeOccurred": "2020-01-01"
+  },
+  {
+    "oldCode": "1247",
+    "oldName": "Askøy",
+    "oldShortName": "",
+    "newCode": "4627",
+    "newName": "Askøy",
+    "newShortName": "",
+    "changeOccurred": "2020-01-01"
+  },
+  {
+    "oldCode": "1251",
+    "oldName": "Vaksdal",
+    "oldShortName": "",
+    "newCode": "4628",
+    "newName": "Vaksdal",
+    "newShortName": "",
+    "changeOccurred": "2020-01-01"
+  },
+  {
+    "oldCode": "1252",
+    "oldName": "Modalen",
+    "oldShortName": "",
+    "newCode": "4629",
+    "newName": "Modalen",
+    "newShortName": "",
+    "changeOccurred": "2020-01-01"
+  },
+  {
+    "oldCode": "1253",
+    "oldName": "Osterøy",
+    "oldShortName": "",
+    "newCode": "4630",
+    "newName": "Osterøy",
+    "newShortName": "",
+    "changeOccurred": "2020-01-01"
+  },
+  {
+    "oldCode": "1256",
+    "oldName": "Meland",
+    "oldShortName": "",
+    "newCode": "4631",
+    "newName": "Alver",
+    "newShortName": "",
+    "changeOccurred": "2020-01-01"
+  },
+  {
+    "oldCode": "1260",
+    "oldName": "Radøy",
+    "oldShortName": "",
+    "newCode": "4631",
+    "newName": "Alver",
+    "newShortName": "",
+    "changeOccurred": "2020-01-01"
+  },
+  {
+    "oldCode": "1263",
+    "oldName": "Lindås",
+    "oldShortName": "",
+    "newCode": "4631",
+    "newName": "Alver",
+    "newShortName": "",
+    "changeOccurred": "2020-01-01"
+  },
+  {
+    "oldCode": "1264",
+    "oldName": "Austrheim",
+    "oldShortName": "",
+    "newCode": "4632",
+    "newName": "Austrheim",
+    "newShortName": "",
+    "changeOccurred": "2020-01-01"
+  },
+  {
+    "oldCode": "1265",
+    "oldName": "Fedje",
+    "oldShortName": "",
+    "newCode": "4633",
+    "newName": "Fedje",
+    "newShortName": "",
+    "changeOccurred": "2020-01-01"
+  },
+  {
+    "oldCode": "1266",
+    "oldName": "Masfjorden",
+    "oldShortName": "",
+    "newCode": "4634",
+    "newName": "Masfjorden",
+    "newShortName": "",
+    "changeOccurred": "2020-01-01"
+  },
+  {
+    "oldCode": "1411",
+    "oldName": "Gulen",
+    "oldShortName": "",
+    "newCode": "4635",
+    "newName": "Gulen",
+    "newShortName": "",
+    "changeOccurred": "2020-01-01"
+  },
+  {
+    "oldCode": "1412",
+    "oldName": "Solund",
+    "oldShortName": "",
+    "newCode": "4636",
+    "newName": "Solund",
+    "newShortName": "",
+    "changeOccurred": "2020-01-01"
+  },
+  {
+    "oldCode": "1413",
+    "oldName": "Hyllestad",
+    "oldShortName": "",
+    "newCode": "4637",
+    "newName": "Hyllestad",
+    "newShortName": "",
+    "changeOccurred": "2020-01-01"
+  },
+  {
+    "oldCode": "1416",
+    "oldName": "Høyanger",
+    "oldShortName": "",
+    "newCode": "4638",
+    "newName": "Høyanger",
+    "newShortName": "",
+    "changeOccurred": "2020-01-01"
+  },
+  {
+    "oldCode": "1417",
+    "oldName": "Vik",
+    "oldShortName": "",
+    "newCode": "4639",
+    "newName": "Vik",
+    "newShortName": "",
+    "changeOccurred": "2020-01-01"
+  },
+  {
+    "oldCode": "1418",
+    "oldName": "Balestrand",
+    "oldShortName": "",
+    "newCode": "4640",
+    "newName": "Sogndal",
+    "newShortName": "",
+    "changeOccurred": "2020-01-01"
+  },
+  {
+    "oldCode": "1419",
+    "oldName": "Leikanger",
+    "oldShortName": "",
+    "newCode": "4640",
+    "newName": "Sogndal",
+    "newShortName": "",
+    "changeOccurred": "2020-01-01"
+  },
+  {
+    "oldCode": "1420",
+    "oldName": "Sogndal",
+    "oldShortName": "",
+    "newCode": "4640",
+    "newName": "Sogndal",
+    "newShortName": "",
+    "changeOccurred": "2020-01-01"
+  },
+  {
+    "oldCode": "1421",
+    "oldName": "Aurland",
+    "oldShortName": "",
+    "newCode": "4641",
+    "newName": "Aurland",
+    "newShortName": "",
+    "changeOccurred": "2020-01-01"
+  },
+  {
+    "oldCode": "1422",
+    "oldName": "Lærdal",
+    "oldShortName": "",
+    "newCode": "4642",
+    "newName": "Lærdal",
+    "newShortName": "",
+    "changeOccurred": "2020-01-01"
+  },
+  {
+    "oldCode": "1424",
+    "oldName": "Årdal",
+    "oldShortName": "",
+    "newCode": "4643",
+    "newName": "Årdal",
+    "newShortName": "",
+    "changeOccurred": "2020-01-01"
+  },
+  {
+    "oldCode": "1426",
+    "oldName": "Luster",
+    "oldShortName": "",
+    "newCode": "4644",
+    "newName": "Luster",
+    "newShortName": "",
+    "changeOccurred": "2020-01-01"
+  },
+  {
+    "oldCode": "1428",
+    "oldName": "Askvoll",
+    "oldShortName": "",
+    "newCode": "4645",
+    "newName": "Askvoll",
+    "newShortName": "",
+    "changeOccurred": "2020-01-01"
+  },
+  {
+    "oldCode": "1429",
+    "oldName": "Fjaler",
+    "oldShortName": "",
+    "newCode": "4646",
+    "newName": "Fjaler",
+    "newShortName": "",
+    "changeOccurred": "2020-01-01"
+  },
+  {
+    "oldCode": "1430",
+    "oldName": "Gaular",
+    "oldShortName": "",
+    "newCode": "4647",
+    "newName": "Sunnfjord",
+    "newShortName": "",
+    "changeOccurred": "2020-01-01"
+  },
+  {
+    "oldCode": "1431",
+    "oldName": "Jølster",
+    "oldShortName": "",
+    "newCode": "4647",
+    "newName": "Sunnfjord",
+    "newShortName": "",
+    "changeOccurred": "2020-01-01"
+  },
+  {
+    "oldCode": "1432",
+    "oldName": "Førde",
+    "oldShortName": "",
+    "newCode": "4647",
+    "newName": "Sunnfjord",
+    "newShortName": "",
+    "changeOccurred": "2020-01-01"
+  },
+  {
+    "oldCode": "1433",
+    "oldName": "Naustdal",
+    "oldShortName": "",
+    "newCode": "4647",
+    "newName": "Sunnfjord",
+    "newShortName": "",
+    "changeOccurred": "2020-01-01"
+  },
+  {
+    "oldCode": "1438",
+    "oldName": "Bremanger",
+    "oldShortName": "",
+    "newCode": "4648",
+    "newName": "Bremanger",
+    "newShortName": "",
+    "changeOccurred": "2020-01-01"
+  },
+  {
+    "oldCode": "1441",
+    "oldName": "Selje",
+    "oldShortName": "",
+    "newCode": "4649",
+    "newName": "Stad",
+    "newShortName": "",
+    "changeOccurred": "2020-01-01"
+  },
+  {
+    "oldCode": "1443",
+    "oldName": "Eid",
+    "oldShortName": "",
+    "newCode": "4649",
+    "newName": "Stad",
+    "newShortName": "",
+    "changeOccurred": "2020-01-01"
+  },
+  {
+    "oldCode": "1445",
+    "oldName": "Gloppen",
+    "oldShortName": "",
+    "newCode": "4650",
+    "newName": "Gloppen",
+    "newShortName": "",
+    "changeOccurred": "2020-01-01"
+  },
+  {
+    "oldCode": "1449",
+    "oldName": "Stryn",
+    "oldShortName": "",
+    "newCode": "4651",
+    "newName": "Stryn",
+    "newShortName": "",
+    "changeOccurred": "2020-01-01"
+  },
+  {
+    "oldCode": "5001",
+    "oldName": "Trondheim",
+    "oldShortName": "",
+    "newCode": "5001",
+    "newName": "Trondheim",
+    "newShortName": "",
+    "changeOccurred": "2020-01-01"
+  },
+  {
+    "oldCode": "5030",
+    "oldName": "Klæbu",
+    "oldShortName": "",
+    "newCode": "5001",
+    "newName": "Trondheim",
+    "newShortName": "",
+    "changeOccurred": "2020-01-01"
+  },
+  {
+    "oldCode": "5004",
+    "oldName": "Steinkjer",
+    "oldShortName": "",
+    "newCode": "5006",
+    "newName": "Steinkjer",
+    "newShortName": "",
+    "changeOccurred": "2020-01-01"
+  },
+  {
+    "oldCode": "5039",
+    "oldName": "Verran",
+    "oldShortName": "",
+    "newCode": "5006",
+    "newName": "Steinkjer",
+    "newShortName": "",
+    "changeOccurred": "2020-01-01"
+  },
+  {
+    "oldCode": "5005",
+    "oldName": "Namsos - Nåavmesjenjaelmie",
+    "oldShortName": "",
+    "newCode": "5007",
+    "newName": "Namsos - Nåavmesjenjaelmie",
+    "newShortName": "",
+    "changeOccurred": "2020-01-01"
+  },
+  {
+    "oldCode": "5040",
+    "oldName": "Namdalseid",
+    "oldShortName": "",
+    "newCode": "5007",
+    "newName": "Namsos - Nåavmesjenjaelmie",
+    "newShortName": "",
+    "changeOccurred": "2020-01-01"
+  },
+  {
+    "oldCode": "5048",
+    "oldName": "Fosnes",
+    "oldShortName": "",
+    "newCode": "5007",
+    "newName": "Namsos - Nåavmesjenjaelmie",
+    "newShortName": "",
+    "changeOccurred": "2020-01-01"
+  },
+  {
+    "oldCode": "1571",
+    "oldName": "Halsa",
+    "oldShortName": "",
+    "newCode": "5055",
+    "newName": "Heim",
+    "newShortName": "",
+    "changeOccurred": "2020-01-01"
+  },
+  {
+    "oldCode": "5011",
+    "oldName": "Hemne",
+    "oldShortName": "",
+    "newCode": "5055",
+    "newName": "Heim",
+    "newShortName": "",
+    "changeOccurred": "2020-01-01"
+  },
+  {
+    "oldCode": "5012",
+    "oldName": "Snillfjord",
+    "oldShortName": "",
+    "newCode": "5055",
+    "newName": "Heim",
+    "newShortName": "",
+    "changeOccurred": "2020-01-01"
+  },
+  {
+    "oldCode": "5012",
+    "oldName": "Snillfjord",
+    "oldShortName": "",
+    "newCode": "5056",
+    "newName": "Hitra",
+    "newShortName": "",
+    "changeOccurred": "2020-01-01"
+  },
+  {
+    "oldCode": "5013",
+    "oldName": "Hitra",
+    "oldShortName": "",
+    "newCode": "5056",
+    "newName": "Hitra",
+    "newShortName": "",
+    "changeOccurred": "2020-01-01"
+  },
+  {
+    "oldCode": "5015",
+    "oldName": "Ørland",
+    "oldShortName": "",
+    "newCode": "5057",
+    "newName": "Ørland",
+    "newShortName": "",
+    "changeOccurred": "2020-01-01"
+  },
+  {
+    "oldCode": "5017",
+    "oldName": "Bjugn",
+    "oldShortName": "",
+    "newCode": "5057",
+    "newName": "Ørland",
+    "newShortName": "",
+    "changeOccurred": "2020-01-01"
+  },
+  {
+    "oldCode": "5018",
+    "oldName": "Åfjord",
+    "oldShortName": "",
+    "newCode": "5058",
+    "newName": "Åfjord",
+    "newShortName": "",
+    "changeOccurred": "2020-01-01"
+  },
+  {
+    "oldCode": "5019",
+    "oldName": "Roan",
+    "oldShortName": "",
+    "newCode": "5058",
+    "newName": "Åfjord",
+    "newShortName": "",
+    "changeOccurred": "2020-01-01"
+  },
+  {
+    "oldCode": "5012",
+    "oldName": "Snillfjord",
+    "oldShortName": "",
+    "newCode": "5059",
+    "newName": "Orkland",
+    "newShortName": "",
+    "changeOccurred": "2020-01-01"
+  },
+  {
+    "oldCode": "5016",
+    "oldName": "Agdenes",
+    "oldShortName": "",
+    "newCode": "5059",
+    "newName": "Orkland",
+    "newShortName": "",
+    "changeOccurred": "2020-01-01"
+  },
+  {
+    "oldCode": "5023",
+    "oldName": "Meldal",
+    "oldShortName": "",
+    "newCode": "5059",
+    "newName": "Orkland",
+    "newShortName": "",
+    "changeOccurred": "2020-01-01"
+  },
+  {
+    "oldCode": "5024",
+    "oldName": "Orkdal",
+    "oldShortName": "",
+    "newCode": "5059",
+    "newName": "Orkland",
+    "newShortName": "",
+    "changeOccurred": "2020-01-01"
+  },
+  {
+    "oldCode": "5050",
+    "oldName": "Vikna",
+    "oldShortName": "",
+    "newCode": "5060",
+    "newName": "Nærøysund",
+    "newShortName": "",
+    "changeOccurred": "2020-01-01"
+  },
+  {
+    "oldCode": "5051",
+    "oldName": "Nærøy",
+    "oldShortName": "",
+    "newCode": "5060",
+    "newName": "Nærøysund",
+    "newShortName": "",
+    "changeOccurred": "2020-01-01"
+  },
+  {
+    "oldCode": "1902",
+    "oldName": "Tromsø",
+    "oldShortName": "",
+    "newCode": "5401",
+    "newName": "Tromsø",
+    "newShortName": "",
+    "changeOccurred": "2020-01-01"
+  },
+  {
+    "oldCode": "1903",
+    "oldName": "Harstad - Hárstták",
+    "oldShortName": "",
+    "newCode": "5402",
+    "newName": "Harstad - Hárstták",
+    "newShortName": "",
+    "changeOccurred": "2020-01-01"
+  },
+  {
+    "oldCode": "2012",
+    "oldName": "Alta",
+    "oldShortName": "",
+    "newCode": "5403",
+    "newName": "Alta",
+    "newShortName": "",
+    "changeOccurred": "2020-01-01"
+  },
+  {
+    "oldCode": "2002",
+    "oldName": "Vardø",
+    "oldShortName": "",
+    "newCode": "5404",
+    "newName": "Vardø",
+    "newShortName": "",
+    "changeOccurred": "2020-01-01"
+  },
+  {
+    "oldCode": "2003",
+    "oldName": "Vadsø",
+    "oldShortName": "",
+    "newCode": "5405",
+    "newName": "Vadsø",
+    "newShortName": "",
+    "changeOccurred": "2020-01-01"
+  },
+  {
+    "oldCode": "2004",
+    "oldName": "Hammerfest - Hámmerfeasta",
+    "oldShortName": "",
+    "newCode": "5406",
+    "newName": "Hammerfest - Hámmerfeasta",
+    "newShortName": "",
+    "changeOccurred": "2020-01-01"
+  },
+  {
+    "oldCode": "2017",
+    "oldName": "Kvalsund",
+    "oldShortName": "",
+    "newCode": "5406",
+    "newName": "Hammerfest - Hámmerfeasta",
+    "newShortName": "",
+    "changeOccurred": "2020-01-01"
+  },
+  {
+    "oldCode": "1911",
+    "oldName": "Kvæfjord",
+    "oldShortName": "",
+    "newCode": "5411",
+    "newName": "Kvæfjord",
+    "newShortName": "",
+    "changeOccurred": "2020-01-01"
+  },
+  {
+    "oldCode": "1852",
+    "oldName": "Dielddanuorri - Tjeldsund",
+    "oldShortName": "",
+    "newCode": "5412",
+    "newName": "Dielddanuorri - Tjeldsund",
+    "newShortName": "",
+    "changeOccurred": "2020-01-01"
+  },
+  {
+    "oldCode": "1913",
+    "oldName": "Skånland",
+    "oldShortName": "",
+    "newCode": "5412",
+    "newName": "Dielddanuorri - Tjeldsund",
+    "newShortName": "",
+    "changeOccurred": "2020-01-01"
+  },
+  {
+    "oldCode": "1917",
+    "oldName": "Ibestad",
+    "oldShortName": "",
+    "newCode": "5413",
+    "newName": "Ibestad",
+    "newShortName": "",
+    "changeOccurred": "2020-01-01"
+  },
+  {
+    "oldCode": "1919",
+    "oldName": "Gratangen",
+    "oldShortName": "",
+    "newCode": "5414",
+    "newName": "Gratangen",
+    "newShortName": "",
+    "changeOccurred": "2020-01-01"
+  },
+  {
+    "oldCode": "1920",
+    "oldName": "Loabák - Lavangen",
+    "oldShortName": "",
+    "newCode": "5415",
+    "newName": "Loabák - Lavangen",
+    "newShortName": "",
+    "changeOccurred": "2020-01-01"
+  },
+  {
+    "oldCode": "1922",
+    "oldName": "Bardu",
+    "oldShortName": "",
+    "newCode": "5416",
+    "newName": "Bardu",
+    "newShortName": "",
+    "changeOccurred": "2020-01-01"
+  },
+  {
+    "oldCode": "1923",
+    "oldName": "Salangen",
+    "oldShortName": "",
+    "newCode": "5417",
+    "newName": "Salangen",
+    "newShortName": "",
+    "changeOccurred": "2020-01-01"
+  },
+  {
+    "oldCode": "1924",
+    "oldName": "Målselv",
+    "oldShortName": "",
+    "newCode": "5418",
+    "newName": "Målselv",
+    "newShortName": "",
+    "changeOccurred": "2020-01-01"
+  },
+  {
+    "oldCode": "1925",
+    "oldName": "Sørreisa",
+    "oldShortName": "",
+    "newCode": "5419",
+    "newName": "Sørreisa",
+    "newShortName": "",
+    "changeOccurred": "2020-01-01"
+  },
+  {
+    "oldCode": "1926",
+    "oldName": "Dyrøy",
+    "oldShortName": "",
+    "newCode": "5420",
+    "newName": "Dyrøy",
+    "newShortName": "",
+    "changeOccurred": "2020-01-01"
+  },
+  {
+    "oldCode": "1927",
+    "oldName": "Tranøy",
+    "oldShortName": "",
+    "newCode": "5421",
+    "newName": "Senja",
+    "newShortName": "",
+    "changeOccurred": "2020-01-01"
+  },
+  {
+    "oldCode": "1928",
+    "oldName": "Torsken",
+    "oldShortName": "",
+    "newCode": "5421",
+    "newName": "Senja",
+    "newShortName": "",
+    "changeOccurred": "2020-01-01"
+  },
+  {
+    "oldCode": "1929",
+    "oldName": "Berg",
+    "oldShortName": "",
+    "newCode": "5421",
+    "newName": "Senja",
+    "newShortName": "",
+    "changeOccurred": "2020-01-01"
+  },
+  {
+    "oldCode": "1931",
+    "oldName": "Lenvik",
+    "oldShortName": "",
+    "newCode": "5421",
+    "newName": "Senja",
+    "newShortName": "",
+    "changeOccurred": "2020-01-01"
+  },
+  {
+    "oldCode": "1933",
+    "oldName": "Balsfjord",
+    "oldShortName": "",
+    "newCode": "5422",
+    "newName": "Balsfjord",
+    "newShortName": "",
+    "changeOccurred": "2020-01-01"
+  },
+  {
+    "oldCode": "1936",
+    "oldName": "Karlsøy",
+    "oldShortName": "",
+    "newCode": "5423",
+    "newName": "Karlsøy",
+    "newShortName": "",
+    "changeOccurred": "2020-01-01"
+  },
+  {
+    "oldCode": "1938",
+    "oldName": "Lyngen",
+    "oldShortName": "",
+    "newCode": "5424",
+    "newName": "Lyngen",
+    "newShortName": "",
+    "changeOccurred": "2020-01-01"
+  },
+  {
+    "oldCode": "1939",
+    "oldName": "Storfjord - Omasvuotna - Omasvuono",
+    "oldShortName": "",
+    "newCode": "5425",
+    "newName": "Storfjord - Omasvuotna - Omasvuono",
+    "newShortName": "",
+    "changeOccurred": "2020-01-01"
+  },
+  {
+    "oldCode": "1940",
+    "oldName": "Gáivuotna - Kåfjord - Kaivuono",
+    "oldShortName": "",
+    "newCode": "5426",
+    "newName": "Gáivuotna - Kåfjord - Kaivuono",
+    "newShortName": "",
+    "changeOccurred": "2020-01-01"
+  },
+  {
+    "oldCode": "1941",
+    "oldName": "Skjervøy",
+    "oldShortName": "",
+    "newCode": "5427",
+    "newName": "Skjervøy",
+    "newShortName": "",
+    "changeOccurred": "2020-01-01"
+  },
+  {
+    "oldCode": "1942",
+    "oldName": "Nordreisa - Ráisa - Raisi",
+    "oldShortName": "",
+    "newCode": "5428",
+    "newName": "Nordreisa - Ráisa - Raisi",
+    "newShortName": "",
+    "changeOccurred": "2020-01-01"
+  },
+  {
+    "oldCode": "1943",
+    "oldName": "Kvænangen",
+    "oldShortName": "",
+    "newCode": "5429",
+    "newName": "Kvænangen",
+    "newShortName": "",
+    "changeOccurred": "2020-01-01"
+  },
+  {
+    "oldCode": "2011",
+    "oldName": "Guovdageaidnu - Kautokeino",
+    "oldShortName": "",
+    "newCode": "5430",
+    "newName": "Guovdageaidnu - Kautokeino",
+    "newShortName": "",
+    "changeOccurred": "2020-01-01"
+  },
+  {
+    "oldCode": "2014",
+    "oldName": "Loppa",
+    "oldShortName": "",
+    "newCode": "5432",
+    "newName": "Loppa",
+    "newShortName": "",
+    "changeOccurred": "2020-01-01"
+  },
+  {
+    "oldCode": "2015",
+    "oldName": "Hasvik",
+    "oldShortName": "",
+    "newCode": "5433",
+    "newName": "Hasvik",
+    "newShortName": "",
+    "changeOccurred": "2020-01-01"
+  },
+  {
+    "oldCode": "2018",
+    "oldName": "Måsøy",
+    "oldShortName": "",
+    "newCode": "5434",
+    "newName": "Måsøy",
+    "newShortName": "",
+    "changeOccurred": "2020-01-01"
+  },
+  {
+    "oldCode": "2019",
+    "oldName": "Nordkapp",
+    "oldShortName": "",
+    "newCode": "5435",
+    "newName": "Nordkapp",
+    "newShortName": "",
+    "changeOccurred": "2020-01-01"
+  },
+  {
+    "oldCode": "2020",
+    "oldName": "Porsanger - Porsángu - Porsanki",
+    "oldShortName": "",
+    "newCode": "5436",
+    "newName": "Porsanger - Porsángu - Porsanki",
+    "newShortName": "",
+    "changeOccurred": "2020-01-01"
+  },
+  {
+    "oldCode": "2021",
+    "oldName": "Kárášjohka - Karasjok",
+    "oldShortName": "",
+    "newCode": "5437",
+    "newName": "Kárášjohka - Karasjok",
+    "newShortName": "",
+    "changeOccurred": "2020-01-01"
+  },
+  {
+    "oldCode": "2022",
+    "oldName": "Lebesby",
+    "oldShortName": "",
+    "newCode": "5438",
+    "newName": "Lebesby",
+    "newShortName": "",
+    "changeOccurred": "2020-01-01"
+  },
+  {
+    "oldCode": "2023",
+    "oldName": "Gamvik",
+    "oldShortName": "",
+    "newCode": "5439",
+    "newName": "Gamvik",
+    "newShortName": "",
+    "changeOccurred": "2020-01-01"
+  },
+  {
+    "oldCode": "2024",
+    "oldName": "Berlevåg",
+    "oldShortName": "",
+    "newCode": "5440",
+    "newName": "Berlevåg",
+    "newShortName": "",
+    "changeOccurred": "2020-01-01"
+  },
+  {
+    "oldCode": "2025",
+    "oldName": "Deatnu - Tana",
+    "oldShortName": "",
+    "newCode": "5441",
+    "newName": "Deatnu - Tana",
+    "newShortName": "",
+    "changeOccurred": "2020-01-01"
+  },
+  {
+    "oldCode": "2027",
+    "oldName": "Unjárga - Nesseby",
+    "oldShortName": "",
+    "newCode": "5442",
+    "newName": "Unjárga - Nesseby",
+    "newShortName": "",
+    "changeOccurred": "2020-01-01"
+  },
+  {
+    "oldCode": "2028",
+    "oldName": "Båtsfjord",
+    "oldShortName": "",
+    "newCode": "5443",
+    "newName": "Båtsfjord",
+    "newShortName": "",
+    "changeOccurred": "2020-01-01"
+  },
+  {
+    "oldCode": "2030",
+    "oldName": "Sør-Varanger",
+    "oldShortName": "",
+    "newCode": "5444",
+    "newName": "Sør-Varanger",
+    "newShortName": "",
+    "changeOccurred": "2020-01-01"
+  },
+  {
+    "oldCode": "1853",
+    "oldName": "Evenes",
+    "oldShortName": "",
+    "newCode": "1853",
+    "newName": "Evenes - Evenášši",
+    "newShortName": "",
+    "changeOccurred": "2022-01-01"
+  },
+  {
+    "oldCode": "5001",
+    "oldName": "Trondheim",
+    "oldShortName": "",
+    "newCode": "5001",
+    "newName": "Trondheim - Tråante",
+    "newShortName": "",
+    "changeOccurred": "2023-01-01"
+  },
+  {
+    "oldCode": "5025",
+    "oldName": "Røros",
+    "oldShortName": "",
+    "newCode": "5025",
+    "newName": "Røros - Rosse",
+    "newShortName": "",
+    "changeOccurred": "2023-01-01"
+  },
+  {
+    "oldCode": "1507",
+    "oldName": "Ålesund",
+    "oldShortName": "",
+    "newCode": "1508",
+    "newName": "Ålesund",
+    "newShortName": "",
+    "changeOccurred": "2024-01-01"
+  },
+  {
+    "oldCode": "1507",
+    "oldName": "Ålesund",
+    "oldShortName": "",
+    "newCode": "1580",
+    "newName": "Haram",
+    "newShortName": "",
+    "changeOccurred": "2024-01-01"
+  },
+  {
+    "oldCode": "1833",
+    "oldName": "Rana",
+    "oldShortName": "",
+    "newCode": "1833",
+    "newName": "Rana - Raane",
+    "newShortName": "",
+    "changeOccurred": "2024-01-01"
+  },
+  {
+    "oldCode": "1845",
+    "oldName": "Sørfold",
+    "oldShortName": "",
+    "newCode": "1845",
+    "newName": "Sørfold - Fuolldá",
+    "newShortName": "",
+    "changeOccurred": "2024-01-01"
+  },
+  {
+    "oldCode": "3001",
+    "oldName": "Halden",
+    "oldShortName": "",
+    "newCode": "3101",
+    "newName": "Halden",
+    "newShortName": "",
+    "changeOccurred": "2024-01-01"
+  },
+  {
+    "oldCode": "3002",
+    "oldName": "Moss",
+    "oldShortName": "",
+    "newCode": "3103",
+    "newName": "Moss",
+    "newShortName": "",
+    "changeOccurred": "2024-01-01"
+  },
+  {
+    "oldCode": "3003",
+    "oldName": "Sarpsborg",
+    "oldShortName": "",
+    "newCode": "3105",
+    "newName": "Sarpsborg",
+    "newShortName": "",
+    "changeOccurred": "2024-01-01"
+  },
+  {
+    "oldCode": "3004",
+    "oldName": "Fredrikstad",
+    "oldShortName": "",
+    "newCode": "3107",
+    "newName": "Fredrikstad",
+    "newShortName": "",
+    "changeOccurred": "2024-01-01"
+  },
+  {
+    "oldCode": "3011",
+    "oldName": "Hvaler",
+    "oldShortName": "",
+    "newCode": "3110",
+    "newName": "Hvaler",
+    "newShortName": "",
+    "changeOccurred": "2024-01-01"
+  },
+  {
+    "oldCode": "3017",
+    "oldName": "Råde",
+    "oldShortName": "",
+    "newCode": "3112",
+    "newName": "Råde",
+    "newShortName": "",
+    "changeOccurred": "2024-01-01"
+  },
+  {
+    "oldCode": "3018",
+    "oldName": "Våler (Viken)",
+    "oldShortName": "",
+    "newCode": "3114",
+    "newName": "Våler (Østfold)",
+    "newShortName": "",
+    "changeOccurred": "2024-01-01"
+  },
+  {
+    "oldCode": "3015",
+    "oldName": "Skiptvet",
+    "oldShortName": "",
+    "newCode": "3116",
+    "newName": "Skiptvet",
+    "newShortName": "",
+    "changeOccurred": "2024-01-01"
+  },
+  {
+    "oldCode": "3014",
+    "oldName": "Indre Østfold",
+    "oldShortName": "",
+    "newCode": "3118",
+    "newName": "Indre Østfold",
+    "newShortName": "",
+    "changeOccurred": "2024-01-01"
+  },
+  {
+    "oldCode": "3016",
+    "oldName": "Rakkestad",
+    "oldShortName": "",
+    "newCode": "3120",
+    "newName": "Rakkestad",
+    "newShortName": "",
+    "changeOccurred": "2024-01-01"
+  },
+  {
+    "oldCode": "3013",
+    "oldName": "Marker",
+    "oldShortName": "",
+    "newCode": "3122",
+    "newName": "Marker",
+    "newShortName": "",
+    "changeOccurred": "2024-01-01"
+  },
+  {
+    "oldCode": "3012",
+    "oldName": "Aremark",
+    "oldShortName": "",
+    "newCode": "3124",
+    "newName": "Aremark",
+    "newShortName": "",
+    "changeOccurred": "2024-01-01"
+  },
+  {
+    "oldCode": "3024",
+    "oldName": "Bærum",
+    "oldShortName": "",
+    "newCode": "3201",
+    "newName": "Bærum",
+    "newShortName": "",
+    "changeOccurred": "2024-01-01"
+  },
+  {
+    "oldCode": "3025",
+    "oldName": "Asker",
+    "oldShortName": "",
+    "newCode": "3203",
+    "newName": "Asker",
+    "newShortName": "",
+    "changeOccurred": "2024-01-01"
+  },
+  {
+    "oldCode": "3030",
+    "oldName": "Lillestrøm",
+    "oldShortName": "",
+    "newCode": "3205",
+    "newName": "Lillestrøm",
+    "newShortName": "",
+    "changeOccurred": "2024-01-01"
+  },
+  {
+    "oldCode": "3020",
+    "oldName": "Nordre Follo",
+    "oldShortName": "",
+    "newCode": "3207",
+    "newName": "Nordre Follo",
+    "newShortName": "",
+    "changeOccurred": "2024-01-01"
+  },
+  {
+    "oldCode": "3033",
+    "oldName": "Ullensaker",
+    "oldShortName": "",
+    "newCode": "3209",
+    "newName": "Ullensaker",
+    "newShortName": "",
+    "changeOccurred": "2024-01-01"
+  },
+  {
+    "oldCode": "3023",
+    "oldName": "Nesodden",
+    "oldShortName": "",
+    "newCode": "3212",
+    "newName": "Nesodden",
+    "newShortName": "",
+    "changeOccurred": "2024-01-01"
+  },
+  {
+    "oldCode": "3022",
+    "oldName": "Frogn",
+    "oldShortName": "",
+    "newCode": "3214",
+    "newName": "Frogn",
+    "newShortName": "",
+    "changeOccurred": "2024-01-01"
+  },
+  {
+    "oldCode": "3019",
+    "oldName": "Vestby",
+    "oldShortName": "",
+    "newCode": "3216",
+    "newName": "Vestby",
+    "newShortName": "",
+    "changeOccurred": "2024-01-01"
+  },
+  {
+    "oldCode": "3021",
+    "oldName": "Ås",
+    "oldShortName": "",
+    "newCode": "3218",
+    "newName": "Ås",
+    "newShortName": "",
+    "changeOccurred": "2024-01-01"
+  },
+  {
+    "oldCode": "3028",
+    "oldName": "Enebakk",
+    "oldShortName": "",
+    "newCode": "3220",
+    "newName": "Enebakk",
+    "newShortName": "",
+    "changeOccurred": "2024-01-01"
+  },
+  {
+    "oldCode": "3029",
+    "oldName": "Lørenskog",
+    "oldShortName": "",
+    "newCode": "3222",
+    "newName": "Lørenskog",
+    "newShortName": "",
+    "changeOccurred": "2024-01-01"
+  },
+  {
+    "oldCode": "3027",
+    "oldName": "Rælingen",
+    "oldShortName": "",
+    "newCode": "3224",
+    "newName": "Rælingen",
+    "newShortName": "",
+    "changeOccurred": "2024-01-01"
+  },
+  {
+    "oldCode": "3026",
+    "oldName": "Aurskog-Høland",
+    "oldShortName": "",
+    "newCode": "3226",
+    "newName": "Aurskog-Høland",
+    "newShortName": "",
+    "changeOccurred": "2024-01-01"
+  },
+  {
+    "oldCode": "3034",
+    "oldName": "Nes",
+    "oldShortName": "",
+    "newCode": "3228",
+    "newName": "Nes",
+    "newShortName": "",
+    "changeOccurred": "2024-01-01"
+  },
+  {
+    "oldCode": "3032",
+    "oldName": "Gjerdrum",
+    "oldShortName": "",
+    "newCode": "3230",
+    "newName": "Gjerdrum",
+    "newShortName": "",
+    "changeOccurred": "2024-01-01"
+  },
+  {
+    "oldCode": "3031",
+    "oldName": "Nittedal",
+    "oldShortName": "",
+    "newCode": "3232",
+    "newName": "Nittedal",
+    "newShortName": "",
+    "changeOccurred": "2024-01-01"
+  },
+  {
+    "oldCode": "3054",
+    "oldName": "Lunner",
+    "oldShortName": "",
+    "newCode": "3234",
+    "newName": "Lunner",
+    "newShortName": "",
+    "changeOccurred": "2024-01-01"
+  },
+  {
+    "oldCode": "3053",
+    "oldName": "Jevnaker",
+    "oldShortName": "",
+    "newCode": "3236",
+    "newName": "Jevnaker",
+    "newShortName": "",
+    "changeOccurred": "2024-01-01"
+  },
+  {
+    "oldCode": "3036",
+    "oldName": "Nannestad",
+    "oldShortName": "",
+    "newCode": "3238",
+    "newName": "Nannestad",
+    "newShortName": "",
+    "changeOccurred": "2024-01-01"
+  },
+  {
+    "oldCode": "3035",
+    "oldName": "Eidsvoll",
+    "oldShortName": "",
+    "newCode": "3240",
+    "newName": "Eidsvoll",
+    "newShortName": "",
+    "changeOccurred": "2024-01-01"
+  },
+  {
+    "oldCode": "3037",
+    "oldName": "Hurdal",
+    "oldShortName": "",
+    "newCode": "3242",
+    "newName": "Hurdal",
+    "newShortName": "",
+    "changeOccurred": "2024-01-01"
+  },
+  {
+    "oldCode": "3005",
+    "oldName": "Drammen",
+    "oldShortName": "",
+    "newCode": "3301",
+    "newName": "Drammen",
+    "newShortName": "",
+    "changeOccurred": "2024-01-01"
+  },
+  {
+    "oldCode": "3006",
+    "oldName": "Kongsberg",
+    "oldShortName": "",
+    "newCode": "3303",
+    "newName": "Kongsberg",
+    "newShortName": "",
+    "changeOccurred": "2024-01-01"
+  },
+  {
+    "oldCode": "3007",
+    "oldName": "Ringerike",
+    "oldShortName": "",
+    "newCode": "3305",
+    "newName": "Ringerike",
+    "newShortName": "",
+    "changeOccurred": "2024-01-01"
+  },
+  {
+    "oldCode": "3038",
+    "oldName": "Hole",
+    "oldShortName": "",
+    "newCode": "3310",
+    "newName": "Hole",
+    "newShortName": "",
+    "changeOccurred": "2024-01-01"
+  },
+  {
+    "oldCode": "3049",
+    "oldName": "Lier",
+    "oldShortName": "",
+    "newCode": "3312",
+    "newName": "Lier",
+    "newShortName": "",
+    "changeOccurred": "2024-01-01"
+  },
+  {
+    "oldCode": "3048",
+    "oldName": "Øvre Eiker",
+    "oldShortName": "",
+    "newCode": "3314",
+    "newName": "Øvre Eiker",
+    "newShortName": "",
+    "changeOccurred": "2024-01-01"
+  },
+  {
+    "oldCode": "3047",
+    "oldName": "Modum",
+    "oldShortName": "",
+    "newCode": "3316",
+    "newName": "Modum",
+    "newShortName": "",
+    "changeOccurred": "2024-01-01"
+  },
+  {
+    "oldCode": "3046",
+    "oldName": "Krødsherad",
+    "oldShortName": "",
+    "newCode": "3318",
+    "newName": "Krødsherad",
+    "newShortName": "",
+    "changeOccurred": "2024-01-01"
+  },
+  {
+    "oldCode": "3039",
+    "oldName": "Flå",
+    "oldShortName": "",
+    "newCode": "3320",
+    "newName": "Flå",
+    "newShortName": "",
+    "changeOccurred": "2024-01-01"
+  },
+  {
+    "oldCode": "3040",
+    "oldName": "Nesbyen",
+    "oldShortName": "",
+    "newCode": "3322",
+    "newName": "Nesbyen",
+    "newShortName": "",
+    "changeOccurred": "2024-01-01"
+  },
+  {
+    "oldCode": "3041",
+    "oldName": "Gol",
+    "oldShortName": "",
+    "newCode": "3324",
+    "newName": "Gol",
+    "newShortName": "",
+    "changeOccurred": "2024-01-01"
+  },
+  {
+    "oldCode": "3042",
+    "oldName": "Hemsedal",
+    "oldShortName": "",
+    "newCode": "3326",
+    "newName": "Hemsedal",
+    "newShortName": "",
+    "changeOccurred": "2024-01-01"
+  },
+  {
+    "oldCode": "3043",
+    "oldName": "Ål",
+    "oldShortName": "",
+    "newCode": "3328",
+    "newName": "Ål",
+    "newShortName": "",
+    "changeOccurred": "2024-01-01"
+  },
+  {
+    "oldCode": "3044",
+    "oldName": "Hol",
+    "oldShortName": "",
+    "newCode": "3330",
+    "newName": "Hol",
+    "newShortName": "",
+    "changeOccurred": "2024-01-01"
+  },
+  {
+    "oldCode": "3045",
+    "oldName": "Sigdal",
+    "oldShortName": "",
+    "newCode": "3332",
+    "newName": "Sigdal",
+    "newShortName": "",
+    "changeOccurred": "2024-01-01"
+  },
+  {
+    "oldCode": "3050",
+    "oldName": "Flesberg",
+    "oldShortName": "",
+    "newCode": "3334",
+    "newName": "Flesberg",
+    "newShortName": "",
+    "changeOccurred": "2024-01-01"
+  },
+  {
+    "oldCode": "3051",
+    "oldName": "Rollag",
+    "oldShortName": "",
+    "newCode": "3336",
+    "newName": "Rollag",
+    "newShortName": "",
+    "changeOccurred": "2024-01-01"
+  },
+  {
+    "oldCode": "3052",
+    "oldName": "Nore og Uvdal",
+    "oldShortName": "",
+    "newCode": "3338",
+    "newName": "Nore og Uvdal",
+    "newShortName": "",
+    "changeOccurred": "2024-01-01"
+  },
+  {
+    "oldCode": "3801",
+    "oldName": "Horten",
+    "oldShortName": "",
+    "newCode": "3901",
+    "newName": "Horten",
+    "newShortName": "",
+    "changeOccurred": "2024-01-01"
+  },
+  {
+    "oldCode": "3802",
+    "oldName": "Holmestrand",
+    "oldShortName": "",
+    "newCode": "3903",
+    "newName": "Holmestrand",
+    "newShortName": "",
+    "changeOccurred": "2024-01-01"
+  },
+  {
+    "oldCode": "3803",
+    "oldName": "Tønsberg",
+    "oldShortName": "",
+    "newCode": "3905",
+    "newName": "Tønsberg",
+    "newShortName": "",
+    "changeOccurred": "2024-01-01"
+  },
+  {
+    "oldCode": "3804",
+    "oldName": "Sandefjord",
+    "oldShortName": "",
+    "newCode": "3907",
+    "newName": "Sandefjord",
+    "newShortName": "",
+    "changeOccurred": "2024-01-01"
+  },
+  {
+    "oldCode": "3805",
+    "oldName": "Larvik",
+    "oldShortName": "",
+    "newCode": "3909",
+    "newName": "Larvik",
+    "newShortName": "",
+    "changeOccurred": "2024-01-01"
+  },
+  {
+    "oldCode": "3811",
+    "oldName": "Færder",
+    "oldShortName": "",
+    "newCode": "3911",
+    "newName": "Færder",
+    "newShortName": "",
+    "changeOccurred": "2024-01-01"
+  },
+  {
+    "oldCode": "3806",
+    "oldName": "Porsgrunn",
+    "oldShortName": "",
+    "newCode": "4001",
+    "newName": "Porsgrunn",
+    "newShortName": "",
+    "changeOccurred": "2024-01-01"
+  },
+  {
+    "oldCode": "3807",
+    "oldName": "Skien",
+    "oldShortName": "",
+    "newCode": "4003",
+    "newName": "Skien",
+    "newShortName": "",
+    "changeOccurred": "2024-01-01"
+  },
+  {
+    "oldCode": "3808",
+    "oldName": "Notodden",
+    "oldShortName": "",
+    "newCode": "4005",
+    "newName": "Notodden",
+    "newShortName": "",
+    "changeOccurred": "2024-01-01"
+  },
+  {
+    "oldCode": "3812",
+    "oldName": "Siljan",
+    "oldShortName": "",
+    "newCode": "4010",
+    "newName": "Siljan",
+    "newShortName": "",
+    "changeOccurred": "2024-01-01"
+  },
+  {
+    "oldCode": "3813",
+    "oldName": "Bamble",
+    "oldShortName": "",
+    "newCode": "4012",
+    "newName": "Bamble",
+    "newShortName": "",
+    "changeOccurred": "2024-01-01"
+  },
+  {
+    "oldCode": "3814",
+    "oldName": "Kragerø",
+    "oldShortName": "",
+    "newCode": "4014",
+    "newName": "Kragerø",
+    "newShortName": "",
+    "changeOccurred": "2024-01-01"
+  },
+  {
+    "oldCode": "3815",
+    "oldName": "Drangedal",
+    "oldShortName": "",
+    "newCode": "4016",
+    "newName": "Drangedal",
+    "newShortName": "",
+    "changeOccurred": "2024-01-01"
+  },
+  {
+    "oldCode": "3816",
+    "oldName": "Nome",
+    "oldShortName": "",
+    "newCode": "4018",
+    "newName": "Nome",
+    "newShortName": "",
+    "changeOccurred": "2024-01-01"
+  },
+  {
+    "oldCode": "3817",
+    "oldName": "Midt-Telemark",
+    "oldShortName": "",
+    "newCode": "4020",
+    "newName": "Midt-Telemark",
+    "newShortName": "",
+    "changeOccurred": "2024-01-01"
+  },
+  {
+    "oldCode": "3820",
+    "oldName": "Seljord",
+    "oldShortName": "",
+    "newCode": "4022",
+    "newName": "Seljord",
+    "newShortName": "",
+    "changeOccurred": "2024-01-01"
+  },
+  {
+    "oldCode": "3819",
+    "oldName": "Hjartdal",
+    "oldShortName": "",
+    "newCode": "4024",
+    "newName": "Hjartdal",
+    "newShortName": "",
+    "changeOccurred": "2024-01-01"
+  },
+  {
+    "oldCode": "3818",
+    "oldName": "Tinn",
+    "oldShortName": "",
+    "newCode": "4026",
+    "newName": "Tinn",
+    "newShortName": "",
+    "changeOccurred": "2024-01-01"
+  },
+  {
+    "oldCode": "3821",
+    "oldName": "Kviteseid",
+    "oldShortName": "",
+    "newCode": "4028",
+    "newName": "Kviteseid",
+    "newShortName": "",
+    "changeOccurred": "2024-01-01"
+  },
+  {
+    "oldCode": "3822",
+    "oldName": "Nissedal",
+    "oldShortName": "",
+    "newCode": "4030",
+    "newName": "Nissedal",
+    "newShortName": "",
+    "changeOccurred": "2024-01-01"
+  },
+  {
+    "oldCode": "3823",
+    "oldName": "Fyresdal",
+    "oldShortName": "",
+    "newCode": "4032",
+    "newName": "Fyresdal",
+    "newShortName": "",
+    "changeOccurred": "2024-01-01"
+  },
+  {
+    "oldCode": "3824",
+    "oldName": "Tokke",
+    "oldShortName": "",
+    "newCode": "4034",
+    "newName": "Tokke",
+    "newShortName": "",
+    "changeOccurred": "2024-01-01"
+  },
+  {
+    "oldCode": "3825",
+    "oldName": "Vinje",
+    "oldShortName": "",
+    "newCode": "4036",
+    "newName": "Vinje",
+    "newShortName": "",
+    "changeOccurred": "2024-01-01"
+  },
+  {
+    "oldCode": "5037",
+    "oldName": "Levanger",
+    "oldShortName": "",
+    "newCode": "5037",
+    "newName": "Levanger - Levangke",
+    "newShortName": "",
+    "changeOccurred": "2024-01-01"
+  },
+  {
+    "oldCode": "5401",
+    "oldName": "Tromsø",
+    "oldShortName": "",
+    "newCode": "5501",
+    "newName": "Tromsø",
+    "newShortName": "",
+    "changeOccurred": "2024-01-01"
+  },
+  {
+    "oldCode": "5402",
+    "oldName": "Harstad - Hárstták",
+    "oldShortName": "",
+    "newCode": "5503",
+    "newName": "Harstad - Hárstták",
+    "newShortName": "",
+    "changeOccurred": "2024-01-01"
+  },
+  {
+    "oldCode": "5411",
+    "oldName": "Kvæfjord",
+    "oldShortName": "",
+    "newCode": "5510",
+    "newName": "Kvæfjord",
+    "newShortName": "",
+    "changeOccurred": "2024-01-01"
+  },
+  {
+    "oldCode": "5412",
+    "oldName": "Dielddanuorri - Tjeldsund",
+    "oldShortName": "",
+    "newCode": "5512",
+    "newName": "Dielddanuorri - Tjeldsund",
+    "newShortName": "",
+    "changeOccurred": "2024-01-01"
+  },
+  {
+    "oldCode": "5413",
+    "oldName": "Ibestad",
+    "oldShortName": "",
+    "newCode": "5514",
+    "newName": "Ibestad",
+    "newShortName": "",
+    "changeOccurred": "2024-01-01"
+  },
+  {
+    "oldCode": "5414",
+    "oldName": "Gratangen",
+    "oldShortName": "",
+    "newCode": "5516",
+    "newName": "Gratangen - Rivtták",
+    "newShortName": "",
+    "changeOccurred": "2024-01-01"
+  },
+  {
+    "oldCode": "5415",
+    "oldName": "Loabák - Lavangen",
+    "oldShortName": "",
+    "newCode": "5518",
+    "newName": "Loabák - Lavangen",
+    "newShortName": "",
+    "changeOccurred": "2024-01-01"
+  },
+  {
+    "oldCode": "5416",
+    "oldName": "Bardu",
+    "oldShortName": "",
+    "newCode": "5520",
+    "newName": "Bardu",
+    "newShortName": "",
+    "changeOccurred": "2024-01-01"
+  },
+  {
+    "oldCode": "5417",
+    "oldName": "Salangen",
+    "oldShortName": "",
+    "newCode": "5522",
+    "newName": "Salangen",
+    "newShortName": "",
+    "changeOccurred": "2024-01-01"
+  },
+  {
+    "oldCode": "5418",
+    "oldName": "Målselv",
+    "oldShortName": "",
+    "newCode": "5524",
+    "newName": "Målselv",
+    "newShortName": "",
+    "changeOccurred": "2024-01-01"
+  },
+  {
+    "oldCode": "5419",
+    "oldName": "Sørreisa",
+    "oldShortName": "",
+    "newCode": "5526",
+    "newName": "Sørreisa",
+    "newShortName": "",
+    "changeOccurred": "2024-01-01"
+  },
+  {
+    "oldCode": "5420",
+    "oldName": "Dyrøy",
+    "oldShortName": "",
+    "newCode": "5528",
+    "newName": "Dyrøy",
+    "newShortName": "",
+    "changeOccurred": "2024-01-01"
+  },
+  {
+    "oldCode": "5421",
+    "oldName": "Senja",
+    "oldShortName": "",
+    "newCode": "5530",
+    "newName": "Senja",
+    "newShortName": "",
+    "changeOccurred": "2024-01-01"
+  },
+  {
+    "oldCode": "5422",
+    "oldName": "Balsfjord",
+    "oldShortName": "",
+    "newCode": "5532",
+    "newName": "Balsfjord",
+    "newShortName": "",
+    "changeOccurred": "2024-01-01"
+  },
+  {
+    "oldCode": "5423",
+    "oldName": "Karlsøy",
+    "oldShortName": "",
+    "newCode": "5534",
+    "newName": "Karlsøy",
+    "newShortName": "",
+    "changeOccurred": "2024-01-01"
+  },
+  {
+    "oldCode": "5424",
+    "oldName": "Lyngen",
+    "oldShortName": "",
+    "newCode": "5536",
+    "newName": "Lyngen",
+    "newShortName": "",
+    "changeOccurred": "2024-01-01"
+  },
+  {
+    "oldCode": "5425",
+    "oldName": "Storfjord - Omasvuotna - Omasvuono",
+    "oldShortName": "",
+    "newCode": "5538",
+    "newName": "Storfjord - Omasvuotna - Omasvuono",
+    "newShortName": "",
+    "changeOccurred": "2024-01-01"
+  },
+  {
+    "oldCode": "5426",
+    "oldName": "Gáivuotna - Kåfjord - Kaivuono",
+    "oldShortName": "",
+    "newCode": "5540",
+    "newName": "Gáivuotna - Kåfjord - Kaivuono",
+    "newShortName": "",
+    "changeOccurred": "2024-01-01"
+  },
+  {
+    "oldCode": "5427",
+    "oldName": "Skjervøy",
+    "oldShortName": "",
+    "newCode": "5542",
+    "newName": "Skjervøy",
+    "newShortName": "",
+    "changeOccurred": "2024-01-01"
+  },
+  {
+    "oldCode": "5428",
+    "oldName": "Nordreisa - Ráisa - Raisi",
+    "oldShortName": "",
+    "newCode": "5544",
+    "newName": "Nordreisa - Ráisa - Raisi",
+    "newShortName": "",
+    "changeOccurred": "2024-01-01"
+  },
+  {
+    "oldCode": "5429",
+    "oldName": "Kvænangen",
+    "oldShortName": "",
+    "newCode": "5546",
+    "newName": "Kvænangen",
+    "newShortName": "",
+    "changeOccurred": "2024-01-01"
+  },
+  {
+    "oldCode": "5403",
+    "oldName": "Alta",
+    "oldShortName": "",
+    "newCode": "5601",
+    "newName": "Alta",
+    "newShortName": "",
+    "changeOccurred": "2024-01-01"
+  },
+  {
+    "oldCode": "5406",
+    "oldName": "Hammerfest - Hámmerfeasta",
+    "oldShortName": "",
+    "newCode": "5603",
+    "newName": "Hammerfest - Hámmerfeasta",
+    "newShortName": "",
+    "changeOccurred": "2024-01-01"
+  },
+  {
+    "oldCode": "5444",
+    "oldName": "Sør-Varanger",
+    "oldShortName": "",
+    "newCode": "5605",
+    "newName": "Sør-Varanger",
+    "newShortName": "",
+    "changeOccurred": "2024-01-01"
+  },
+  {
+    "oldCode": "5405",
+    "oldName": "Vadsø",
+    "oldShortName": "",
+    "newCode": "5607",
+    "newName": "Vadsø",
+    "newShortName": "",
+    "changeOccurred": "2024-01-01"
+  },
+  {
+    "oldCode": "5437",
+    "oldName": "Kárášjohka - Karasjok",
+    "oldShortName": "",
+    "newCode": "5610",
+    "newName": "Kárášjohka - Karasjok",
+    "newShortName": "",
+    "changeOccurred": "2024-01-01"
+  },
+  {
+    "oldCode": "5430",
+    "oldName": "Guovdageaidnu - Kautokeino",
+    "oldShortName": "",
+    "newCode": "5612",
+    "newName": "Guovdageaidnu - Kautokeino",
+    "newShortName": "",
+    "changeOccurred": "2024-01-01"
+  },
+  {
+    "oldCode": "5432",
+    "oldName": "Loppa",
+    "oldShortName": "",
+    "newCode": "5614",
+    "newName": "Loppa",
+    "newShortName": "",
+    "changeOccurred": "2024-01-01"
+  },
+  {
+    "oldCode": "5433",
+    "oldName": "Hasvik",
+    "oldShortName": "",
+    "newCode": "5616",
+    "newName": "Hasvik",
+    "newShortName": "",
+    "changeOccurred": "2024-01-01"
+  },
+  {
+    "oldCode": "5434",
+    "oldName": "Måsøy",
+    "oldShortName": "",
+    "newCode": "5618",
+    "newName": "Måsøy",
+    "newShortName": "",
+    "changeOccurred": "2024-01-01"
+  },
+  {
+    "oldCode": "5435",
+    "oldName": "Nordkapp",
+    "oldShortName": "",
+    "newCode": "5620",
+    "newName": "Nordkapp",
+    "newShortName": "",
+    "changeOccurred": "2024-01-01"
+  },
+  {
+    "oldCode": "5436",
+    "oldName": "Porsanger - Porsángu - Porsanki",
+    "oldShortName": "",
+    "newCode": "5622",
+    "newName": "Porsanger - Porsángu - Porsanki",
+    "newShortName": "",
+    "changeOccurred": "2024-01-01"
+  },
+  {
+    "oldCode": "5438",
+    "oldName": "Lebesby",
+    "oldShortName": "",
+    "newCode": "5624",
+    "newName": "Lebesby",
+    "newShortName": "",
+    "changeOccurred": "2024-01-01"
+  },
+  {
+    "oldCode": "5439",
+    "oldName": "Gamvik",
+    "oldShortName": "",
+    "newCode": "5626",
+    "newName": "Gamvik",
+    "newShortName": "",
+    "changeOccurred": "2024-01-01"
+  },
+  {
+    "oldCode": "5441",
+    "oldName": "Deatnu - Tana",
+    "oldShortName": "",
+    "newCode": "5628",
+    "newName": "Deatnu - Tana",
+    "newShortName": "",
+    "changeOccurred": "2024-01-01"
+  },
+  {
+    "oldCode": "5440",
+    "oldName": "Berlevåg",
+    "oldShortName": "",
+    "newCode": "5630",
+    "newName": "Berlevåg",
+    "newShortName": "",
+    "changeOccurred": "2024-01-01"
+  },
+  {
+    "oldCode": "5443",
+    "oldName": "Båtsfjord",
+    "oldShortName": "",
+    "newCode": "5632",
+    "newName": "Båtsfjord",
+    "newShortName": "",
+    "changeOccurred": "2024-01-01"
+  },
+  {
+    "oldCode": "5404",
+    "oldName": "Vardø",
+    "oldShortName": "",
+    "newCode": "5634",
+    "newName": "Vardø",
+    "newShortName": "",
+    "changeOccurred": "2024-01-01"
+  },
+  {
+    "oldCode": "5442",
+    "oldName": "Unjárga - Nesseby",
+    "oldShortName": "",
+    "newCode": "5636",
+    "newName": "Unjárga - Nesseby",
+    "newShortName": "",
+    "changeOccurred": "2024-01-01"
+  },
+  {
+    "oldCode": "0301",
+    "oldName": "Oslo",
+    "oldShortName": "",
+    "newCode": "0301",
+    "newName": "Oslo - Oslove",
+    "newShortName": "",
+    "changeOccurred": "2026-01-01"
+  },
+  {
+    "oldCode": "3118",
+    "oldName": "Indre Østfold",
+    "oldShortName": "",
+    "newCode": "3118",
+    "newName": "Indre Østfold",
+    "newShortName": "",
+    "changeOccurred": "2026-01-01"
+  },
+  {
+    "oldCode": "3118",
+    "oldName": "Indre Østfold",
+    "oldShortName": "",
+    "newCode": "3207",
+    "newName": "Nordre Follo",
+    "newShortName": "",
+    "changeOccurred": "2026-01-01"
+  },
+  {
+    "oldCode": "3118",
+    "oldName": "Indre Østfold",
+    "oldShortName": "",
+    "newCode": "3216",
+    "newName": "Vestby",
+    "newShortName": "",
+    "changeOccurred": "2026-01-01"
+  },
+  {
+    "oldCode": "5006",
+    "oldName": "Steinkjer",
+    "oldShortName": "",
+    "newCode": "5006",
+    "newName": "Steinkjer - Stïentje",
+    "newShortName": "",
+    "changeOccurred": "2026-01-01"
+  },
+  {
+    "oldCode": "5536",
+    "oldName": "Lyngen",
+    "oldShortName": "",
+    "newCode": "5536",
+    "newName": "Lyngen - Ivgu - Yykeä",
+    "newShortName": "",
+    "changeOccurred": "2026-01-01"
+  }
+]

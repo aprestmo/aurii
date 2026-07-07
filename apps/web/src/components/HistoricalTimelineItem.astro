@@ -1,0 +1,132 @@
+---
+import { Badge } from "@/components/starwind/badge";
+import { Card, CardDescription, CardHeader, CardTitle } from "@/components/starwind/card";
+import HistoricalChangeBadge from "@/components/HistoricalChangeBadge.astro";
+import { url } from "@/lib/base";
+import { formatPeriod, type TimelineStep } from "@/lib/historical-data";
+
+export type TimelinePeriodMode = "range" | "end-year" | "number";
+
+interface Props {
+  step: TimelineStep;
+  index: number;
+  total: number;
+  periodMode?: TimelinePeriodMode;
+  currentStatusLabel?: string;
+  showChangeType?: boolean;
+}
+
+const {
+  step,
+  index,
+  total,
+  periodMode = "range",
+  currentStatusLabel = "Dagens enhet",
+  showChangeType = true,
+} = Astro.props;
+
+const isLast = index === total - 1;
+const isFirst = index === 0;
+
+function periodText(): string {
+  if (step.isCurrent) {
+    if (periodMode === "number") return "Gjeldende nummer";
+    return currentStatusLabel;
+  }
+  if (periodMode === "end-year" && step.validTo) {
+    return `opphørte ${step.validTo}`;
+  }
+  return formatPeriod(step.validFrom, step.validTo);
+}
+
+const period = periodText();
+const metaParts = [step.number, period !== "—" ? period : null].filter(Boolean);
+---
+
+<li class="relative pb-6 last:pb-0">
+  <div
+    class:list={[
+      "absolute -left-[1.875rem] top-1 z-10 flex h-6 w-6 items-center justify-center rounded-full border-2 text-[10px] font-bold shadow-sm",
+      step.isCurrent
+        ? "border-primary bg-primary text-primary-foreground"
+        : isFirst
+          ? "border-muted-foreground/80 bg-muted text-muted-foreground"
+          : "border-border bg-card text-muted-foreground",
+    ]}
+    aria-hidden="true"
+  >
+    {index + 1}
+  </div>
+
+  {!isLast && (
+    <span
+      class="absolute -left-[1.5rem] top-7 bottom-0 w-px bg-gradient-to-b from-border via-border/60 to-transparent"
+      aria-hidden="true"
+    />
+  )}
+
+  <Card
+    class:list={[
+      "border-border/80",
+      step.isCurrent && "border-primary/50 bg-primary/[0.03]",
+    ]}
+  >
+    <CardHeader class="px-4 py-3 sm:px-5 sm:py-4">
+      <div class="flex flex-wrap items-center gap-1.5">
+        {step.isCurrent ? (
+          <Badge variant="primary" size="sm">
+            {periodMode === "number" ? "Gjeldende" : "Dagens"}
+          </Badge>
+        ) : (
+          <Badge variant="outline" size="sm">
+            Historisk
+          </Badge>
+        )}
+        {showChangeType && step.changeType && !step.isCurrent && (
+          <HistoricalChangeBadge changeType={step.changeType} size="sm" />
+        )}
+      </div>
+
+      <div class="mt-2 flex flex-wrap items-start justify-between gap-3">
+        <div class="min-w-0">
+          {step.link ? (
+            <CardTitle class="text-base sm:text-lg">
+              <a
+                href={url(step.link)}
+                class="text-foreground underline-offset-4 hover:text-primary hover:underline focus:outline-none focus-visible:ring-2 focus-visible:ring-outline rounded-sm"
+              >
+                {step.name}
+              </a>
+            </CardTitle>
+          ) : (
+            <CardTitle class="text-base sm:text-lg">{step.name}</CardTitle>
+          )}
+          {metaParts.length > 0 && (
+            <CardDescription class="mt-1.5 flex flex-wrap items-center gap-x-2 gap-y-0.5 text-sm">
+              {step.number && (
+                <span class="font-mono text-xs text-foreground/80">{step.number}</span>
+              )}
+              {step.number && period !== "—" && (
+                <span class="text-muted-foreground/50" aria-hidden="true">
+                  ·
+                </span>
+              )}
+              {period !== "—" && <span>{period}</span>}
+            </CardDescription>
+          )}
+        </div>
+        {step.coatOfArms && (
+          <img
+            src={url(step.coatOfArms.localPath.replace(/^\//, ""))}
+            alt=""
+            width="48"
+            height="60"
+            class="h-12 w-auto shrink-0"
+            loading="lazy"
+          />
+        )}
+      </div>
+    </CardHeader>
+
+  </Card>
+</li>

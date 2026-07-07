@@ -34,6 +34,11 @@ export interface FlowEdge {
   label: string;
 }
 
+type EdgeChangeInput = Pick<FlowEdge, "changeType"> & {
+  id: string;
+  changeYear?: number;
+};
+
 export interface AdministrativeFlow {
   nodes: FlowNode[];
   edges: FlowEdge[];
@@ -373,7 +378,7 @@ async function buildFromChanges(
   function addEdge(
     from: string,
     to: string,
-    change: (typeof changes)[number],
+    change: EdgeChangeInput,
   ): void {
     if (from === to) return;
     const edgeId = `${from}->${to}:${change.id}`;
@@ -537,11 +542,7 @@ async function buildFromChanges(
 async function injectRenumberEdges(
   focusEntity: EntityRef,
   nodeCache: Map<string, FlowNode>,
-  addEdge: (
-    from: string,
-    to: string,
-    change: { id: string; changeYear?: number; changeType: ChangeType },
-  ) => void,
+  addEdge: (from: string, to: string, change: EdgeChangeInput) => void,
 ): Promise<void> {
   const codeChanges = await loadMunicipalityCodeChanges();
   const numericChanges = codeChanges.filter((c) => c.oldCode !== c.newCode);

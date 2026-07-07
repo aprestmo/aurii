@@ -1,5 +1,7 @@
 ---
 import Breadcrumb from "@/components/Breadcrumb.astro";
+import EmptyState from "@/components/EmptyState.astro";
+import HistoricalChangeBadge from "@/components/HistoricalChangeBadge.astro";
 import ListPageHeader from "@/components/ListPageHeader.astro";
 import SearchField from "@/components/SearchField.astro";
 import SectionHeading from "@/components/SectionHeading.astro";
@@ -7,7 +9,14 @@ import TableScroll from "@/components/TableScroll.astro";
 import Layout from "../../layouts/Layout.astro";
 import { Badge } from "@/components/starwind/badge";
 import { Button } from "@/components/starwind/button";
-import { Card, CardContent, CardDescription } from "@/components/starwind/card";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/components/starwind/card";
+import { Input } from "@/components/starwind/input";
 import {
   Table,
   TableBody,
@@ -101,48 +110,93 @@ const changeTypes = [
     </Card>
   </div>
 
-  <div class="mb-6 flex flex-wrap gap-2" role="tablist" aria-label="Velg datasett">
-    <Button
-      type="button"
-      variant="default"
-      size="sm"
-      class="historikk-tab"
-      data-tab="municipalities"
-      role="tab"
-      aria-selected="true"
-      aria-controls="panel-municipalities"
-      id="tab-municipalities"
-    >
-      Tidligere kommuner
-    </Button>
-    <Button
-      type="button"
-      variant="outline"
-      size="sm"
-      class="historikk-tab"
-      data-tab="counties"
-      role="tab"
-      aria-selected="false"
-      aria-controls="panel-counties"
-      id="tab-counties"
-    >
-      Tidligere fylker
-    </Button>
-    <Button
-      type="button"
-      variant="outline"
-      size="sm"
-      class="historikk-tab"
-      data-tab="current-counties"
-      role="tab"
-      aria-selected="false"
-      aria-controls="panel-current-counties"
-      id="tab-current-counties"
-    >
-      Dagens fylker
-    </Button>
-  </div>
+  <Card class="mb-8 border-border/80">
+    <CardHeader class="px-5 py-5 sm:px-6">
+      <CardTitle class="text-lg">Hva er historikkdataene?</CardTitle>
+      <CardDescription class="mt-2 max-w-3xl leading-relaxed">
+        Wikipedia-lister over opphørte kommuner og fylker, modellert som relasjoner i Aurii og
+        koblet mot dagens Kartverket-data der det er mulig. Dataene utvider — ikke erstatter —
+        dagens referanse. Usikre koblinger ligger i <code class="text-xs">unresolved-matches.json</code>.
+      </CardDescription>
+      <div class="mt-4 flex flex-wrap gap-2">
+        <Button
+          type="button"
+          size="sm"
+          class="historikk-tab historikk-cta"
+          data-tab="municipalities"
+        >
+          Finn tidligere kommune
+        </Button>
+        <Button
+          type="button"
+          variant="outline"
+          size="sm"
+          class="historikk-tab historikk-cta"
+          data-tab="counties"
+        >
+          Finn tidligere fylke
+        </Button>
+        <Button href={url("kommuner")} variant="ghost" size="sm">
+          Dagens kommuner →
+        </Button>
+      </div>
+    </CardHeader>
+  </Card>
 
+  <Card class="mb-6 border-border/80">
+    <CardHeader class="border-b border-border/60 px-4 py-3 sm:px-5">
+      <div class="flex flex-wrap gap-2" role="tablist" aria-label="Velg datasett">
+        <Button
+          type="button"
+          variant="default"
+          size="sm"
+          class="historikk-tab"
+          data-tab="municipalities"
+          role="tab"
+          aria-selected="true"
+          aria-controls="panel-municipalities"
+          id="tab-municipalities"
+        >
+          Tidligere kommuner
+          <Badge variant="secondary" size="sm" class="ml-1.5 tabular-nums">
+            {summary.municipalityCount}
+          </Badge>
+        </Button>
+        <Button
+          type="button"
+          variant="outline"
+          size="sm"
+          class="historikk-tab"
+          data-tab="counties"
+          role="tab"
+          aria-selected="false"
+          aria-controls="panel-counties"
+          id="tab-counties"
+        >
+          Tidligere fylker
+          <Badge variant="outline" size="sm" class="ml-1.5 tabular-nums">
+            {summary.countyCount}
+          </Badge>
+        </Button>
+        <Button
+          type="button"
+          variant="outline"
+          size="sm"
+          class="historikk-tab"
+          data-tab="current-counties"
+          role="tab"
+          aria-selected="false"
+          aria-controls="panel-current-counties"
+          id="tab-current-counties"
+        >
+          Dagens fylker
+          <Badge variant="outline" size="sm" class="ml-1.5 tabular-nums">
+            {sortedCurrentCounties.length}
+          </Badge>
+        </Button>
+      </div>
+    </CardHeader>
+    <CardContent class="p-4 sm:p-6">
   <section
     id="panel-municipalities"
     role="tabpanel"
@@ -165,7 +219,7 @@ const changeTypes = [
         <label for="mun-county-filter" class="mb-1.5 block text-sm font-medium">Fylke i kilden</label>
         <select
           id="mun-county-filter"
-          class="w-full rounded-md border border-input bg-background px-3 py-2 text-sm"
+          class="border-input dark:bg-input/30 text-foreground h-9 w-full rounded-md border bg-transparent px-3 text-sm shadow-xs focus-visible:border-outline focus-visible:ring-outline/50 focus-visible:outline-none focus-visible:ring-3"
           data-mun-filter="county"
         >
           <option value="">Alle fylker</option>
@@ -178,7 +232,7 @@ const changeTypes = [
         <label for="mun-change-filter" class="mb-1.5 block text-sm font-medium">Endringstype</label>
         <select
           id="mun-change-filter"
-          class="w-full rounded-md border border-input bg-background px-3 py-2 text-sm"
+          class="border-input dark:bg-input/30 text-foreground h-9 w-full rounded-md border bg-transparent px-3 text-sm shadow-xs focus-visible:border-outline focus-visible:ring-outline/50 focus-visible:outline-none focus-visible:ring-3"
           data-mun-filter="change"
         >
           <option value="">Alle typer</option>
@@ -189,13 +243,13 @@ const changeTypes = [
       </div>
       <div>
         <label for="mun-year-filter" class="mb-1.5 block text-sm font-medium">Opphørte (år)</label>
-        <input
+        <Input
           id="mun-year-filter"
           type="number"
           min="1500"
           max="2100"
           placeholder="f.eks. 1962"
-          class="w-full rounded-md border border-input bg-background px-3 py-2 text-sm"
+          size="sm"
           data-mun-filter="year"
         />
       </div>
@@ -207,10 +261,16 @@ const changeTypes = [
       role="status"
       aria-live="polite"
     >
-      Viser {sortedMunicipalities.length} kommuner
+      Viser {sortedMunicipalities.length} av {sortedMunicipalities.length} kommuner
     </p>
 
-    <Card class="border-border/80">
+    <div id="mun-empty-state" class="mb-4 hidden">
+      <EmptyState title="Ingen kommuner matcher filtrene">
+        Prøv å fjerne ett eller flere filtre, eller søk på et annet navn eller kommunenummer.
+      </EmptyState>
+    </div>
+
+    <Card id="mun-table-card" class="border-border/80">
       <CardContent class="p-0">
         <TableScroll>
           <Table id="mun-table" data-sortable>
@@ -264,7 +324,7 @@ const changeTypes = [
                     {formatPeriod(mun.validFrom, mun.validTo)}
                   </TableCell>
                   <TableCell data-sort-value={mun.changeType ?? "unknown"}>
-                    <Badge variant="outline">{changeTypeLabel(mun.changeType)}</Badge>
+                    <HistoricalChangeBadge changeType={mun.changeType} size="sm" />
                   </TableCell>
                   <TableCell data-sort-value={mun.resultNames.join(", ")}>
                     {mun.resultNames.join(", ") || "—"}
@@ -432,6 +492,8 @@ const changeTypes = [
       </CardDescription>
     </Card>
   </section>
+    </CardContent>
+  </Card>
 </Layout>
 
 <script>
@@ -439,24 +501,31 @@ const changeTypes = [
     const tabs = document.querySelectorAll<HTMLButtonElement>(".historikk-tab");
     const panels = document.querySelectorAll<HTMLElement>(".historikk-panel");
 
+    const activateTab = (target: string | undefined) => {
+      if (!target) return;
+      tabs.forEach((t) => {
+        if (!t.dataset.tab) return;
+        const selected = t.dataset.tab === target;
+        if (t.getAttribute("role") === "tab") {
+          t.setAttribute("aria-selected", String(selected));
+        }
+        t.classList.toggle("bg-primary", selected && t.getAttribute("role") === "tab");
+        t.classList.toggle("text-primary-foreground", selected && t.getAttribute("role") === "tab");
+        t.classList.toggle("border-primary", selected && t.getAttribute("role") === "tab");
+      });
+      panels.forEach((panel) => {
+        const show = panel.id === `panel-${target}`;
+        panel.classList.toggle("hidden", !show);
+        panel.hidden = !show;
+      });
+    };
+
     tabs.forEach((tab) => {
       if (tab.dataset.tabInit === "true") return;
       tab.dataset.tabInit = "true";
 
       tab.addEventListener("click", () => {
-        const target = tab.dataset.tab;
-        tabs.forEach((t) => {
-          const selected = t.dataset.tab === target;
-          t.setAttribute("aria-selected", String(selected));
-          t.classList.toggle("bg-primary", selected);
-          t.classList.toggle("text-primary-foreground", selected);
-          t.classList.toggle("border-primary", selected);
-        });
-        panels.forEach((panel) => {
-          const show = panel.id === `panel-${target}`;
-          panel.classList.toggle("hidden", !show);
-          panel.hidden = !show;
-        });
+        activateTab(tab.dataset.tab);
       });
     });
   }
@@ -467,7 +536,10 @@ const changeTypes = [
     const change = document.getElementById("mun-change-filter") as HTMLSelectElement | null;
     const year = document.getElementById("mun-year-filter") as HTMLInputElement | null;
     const status = document.getElementById("mun-filter-status");
+    const emptyState = document.getElementById("mun-empty-state");
+    const tableCard = document.getElementById("mun-table-card");
     const rows = document.querySelectorAll<HTMLTableRowElement>(".historikk-mun-row");
+    const total = rows.length;
     if (!rows.length) return;
 
     const apply = () => {
@@ -487,8 +559,21 @@ const changeTypes = [
         if (show) visible++;
       });
 
+      const activeFilters: string[] = [];
+      if (query) activeFilters.push(`søk «${query}»`);
+      if (countyVal) activeFilters.push(`fylke: ${countyVal}`);
+      if (changeVal) activeFilters.push(`endring: ${change?.selectedOptions[0]?.text ?? changeVal}`);
+      if (yearVal) activeFilters.push(`år: ${yearVal}`);
+
       if (status) {
-        status.textContent = `Viser ${visible} kommuner`;
+        const filterNote =
+          activeFilters.length > 0 ? ` · Filter: ${activeFilters.join(", ")}` : "";
+        status.textContent = `Viser ${visible} av ${total} kommuner${filterNote}`;
+      }
+
+      emptyState?.classList.toggle("hidden", visible > 0);
+      if (tableCard instanceof HTMLElement) {
+        tableCard.classList.toggle("hidden", visible === 0);
       }
     };
 

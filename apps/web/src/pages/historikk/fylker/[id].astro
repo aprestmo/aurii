@@ -1,15 +1,15 @@
 ---
 import Breadcrumb from "@/components/Breadcrumb.astro";
-import AdminFlowDiagram from "@/components/AdminFlowDiagram.astro";
+import HistoricalChangeBadge from "@/components/HistoricalChangeBadge.astro";
+import HistoricalFlowCard from "@/components/HistoricalFlowCard.astro";
+import HistoricalTimeline from "@/components/HistoricalTimeline.astro";
 import PageHeader from "@/components/PageHeader.astro";
-import SectionHeading from "@/components/SectionHeading.astro";
 import Layout from "../../../layouts/Layout.astro";
 import { Badge } from "@/components/starwind/badge";
 import { Card, CardContent, CardDescription } from "@/components/starwind/card";
 import { url } from "../../../lib/base";
 import {
   buildCountyTimeline,
-  changeTypeLabel,
   loadHistoricalCounties,
 } from "../../../lib/historical-data";
 import { buildForwardFlow, hasFlowContent } from "../../../lib/historical-flow";
@@ -55,7 +55,7 @@ const showFlow = hasFlowContent(flow);
         <Badge variant="outline">Opphørte {county.validTo}</Badge>
       )}
       {county.changeType && (
-        <Badge>{changeTypeLabel(county.changeType)}</Badge>
+        <HistoricalChangeBadge changeType={county.changeType} />
       )}
     </div>
   </PageHeader>
@@ -99,64 +99,20 @@ const showFlow = hasFlowContent(flow);
   </div>
 
   {showFlow && (
-    <AdminFlowDiagram
+    <HistoricalFlowCard
       flow={flow}
-      title="Flytskjema til dagens fylke"
+      title="Veien til dagens fylke"
+      description="Administrative endringer fra dette fylket frem til dagens inndeling — inkludert gjenopprettelser og sammenslåinger."
     />
   )}
 
-  <SectionHeading
+  <HistoricalTimeline
+    steps={timeline}
     title="Utviklingslinje"
     description="Hvordan fylket endret seg — inkludert gjenopprettelser og sammenslåinger."
+    headingId="county-timeline"
+    periodMode="end-year"
+    currentStatusLabel="Dagens fylke"
+    showChangeType={false}
   />
-
-  <ol class="relative space-y-0 border-l border-border pl-6">
-    {timeline.map((step, index) => (
-      <li class="relative pb-8 last:pb-0">
-        <span
-          class:list={[
-            "absolute -left-[1.625rem] flex h-5 w-5 items-center justify-center rounded-full border-2 text-[10px] font-bold",
-            step.isCurrent
-              ? "border-primary bg-primary text-primary-foreground"
-              : "border-muted-foreground bg-background text-muted-foreground",
-          ]}
-        >
-          {index + 1}
-        </span>
-        <Card class="border-border/80">
-          <CardContent class="px-5 py-4">
-            <div class="flex flex-wrap items-start justify-between gap-3">
-              <div>
-                {step.link ? (
-                  <a
-                    href={url(step.link)}
-                    class="text-lg font-semibold text-foreground underline-offset-4 hover:text-primary hover:underline"
-                  >
-                    {step.name}
-                  </a>
-                ) : (
-                  <p class="text-lg font-semibold">{step.name}</p>
-                )}
-                <p class="mt-1 text-sm text-muted-foreground">
-                  {step.number && <span class="font-mono">{step.number}</span>}
-                  {step.validTo && ` · opphørte ${step.validTo}`}
-                  {step.isCurrent && " · Dagens fylke"}
-                </p>
-              </div>
-              {step.coatOfArms && (
-                <img
-                  src={url(step.coatOfArms.localPath.replace(/^\//, ""))}
-                  alt=""
-                  width="48"
-                  height="56"
-                  class="h-12 w-auto"
-                  loading="lazy"
-                />
-              )}
-            </div>
-          </CardContent>
-        </Card>
-      </li>
-    ))}
-  </ol>
 </Layout>

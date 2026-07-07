@@ -8,6 +8,9 @@
     "apps/*"
   ],
   "dependencies": {
+    "@turf/bbox": "^7.2.0",
+    "@turf/simplify": "^7.2.0",
+    "fflate": "^0.8.2",
     "yaml": "^2.7.1"
   },
   "scripts": {
@@ -22,6 +25,7 @@
     "fetch:ssb-identifiers-norwegian-geo": "bun run demo/norwegian-geo/core/historical/fetch-ssb-identifiers.ts",
     "build:municipality-enrichment": "bun run demo/norwegian-geo/core/historical/build-enrichment.ts",
     "validate:historical-norwegian-geo": "bun run demo/norwegian-geo/core/historical/validate.ts",
-    "import:norwegian-geo": "bun run demo/norwegian-geo/scripts/import.ts"
+    "import:norwegian-geo": "bun run demo/norwegian-geo/scripts/import.ts",
+    "build:geodata": "bun run demo/norwegian-geo/geodata/scripts/build-boundaries.ts"
   }
 }

@@ -1,6 +1,7 @@
 ---
 import Breadcrumb from "@/components/Breadcrumb.astro";
 import AdminFlowDiagram from "@/components/AdminFlowDiagram.astro";
+import BoundaryMap from "@/components/BoundaryMap.astro";
 import EntityNav from "@/components/EntityNav.astro";
 import ExploreLinks from "@/components/ExploreLinks.astro";
 import FactGrid from "@/components/FactGrid.astro";
@@ -168,6 +169,14 @@ const exploreLinks = [
           ]
         : []),
     ]}
+  />
+
+  <BoundaryMap
+    entityType="county"
+    entityId={county.id}
+    entityName={county.name}
+    title={`Kart over ${county.name}`}
+    description="Fylkesgrense og kommuner i fylket. Klikk på kartet for å zoome med musehjulet."
   />
 
   {showAncestryFlow && (

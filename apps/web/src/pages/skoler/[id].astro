@@ -1,5 +1,8 @@
 ---
 import Layout from "../../layouts/Layout.astro";
+import { Badge } from "@/components/starwind/badge";
+import { Card, CardContent } from "@/components/starwind/card";
+import { Table, TableBody, TableCell, TableRow } from "@/components/starwind/table";
 import { url } from "../../lib/base";
 import {
   getCounty,
@@ -26,35 +29,55 @@ const county = await getCounty(school.countyId);
 ---
 
 <Layout title={school.name}>
-  <p class="muted">
-    <a href={url("")}>← Referansedata</a>
+  <p class="mb-3 text-sm">
+    <a href={url("")} class="text-muted-foreground hover:text-foreground">← Referansedata</a>
     {" · "}
-    <a href={url("skoler")}>Skoler</a>
+    <a href={url("skoler")} class="text-muted-foreground hover:text-foreground">Skoler</a>
   </p>
-  <h1>{school.name}</h1>
-  <p class="muted">
-    Org.nr. <span class="badge">{school.id}</span>
-    {municipality && (
-      <>
-        {" · "}
-        <a href={url(`kommuner/${municipality.id}`)}>
-          {municipality.name}
-        </a>
-      </>
-    )}
-    {county && (
-      <>
-        {" · "}
-        <a href={url(`fylker/${county.id}`)}>{county.name}</a>
-      </>
-    )}
-  </p>
+  <div class="mb-8">
+    <h1 class="text-3xl font-semibold tracking-tight">{school.name}</h1>
+    <p class="mt-2 flex flex-wrap items-center gap-2 text-muted-foreground">
+      Org.nr. <Badge variant="outline">{school.id}</Badge>
+      {municipality && (
+        <>
+          {" · "}
+          <a href={url(`kommuner/${municipality.id}`)} class="hover:text-foreground">{municipality.name}</a>
+        </>
+      )}
+      {county && (
+        <>
+          {" · "}
+          <a href={url(`fylker/${county.id}`)} class="hover:text-foreground">{county.name}</a>
+        </>
+      )}
+    </p>
+  </div>
 
-  <h2>Egenskaper</h2>
-  <ul>
-    <li class="row"><span>Type</span><span>{school.isPrimary ? "Grunnskole" : school.isSecondary ? "Videregående" : "Annet"}</span></li>
-    <li class="row"><span>Eierform</span><span>{school.isPublic ? "Offentlig" : "Privat"}</span></li>
-    <li class="row"><span>Aktiv</span><span>{school.isActive ? "Ja" : "Nei"}</span></li>
-    <li class="row"><span>Kilde</span><span class="mono">{school.source}</span></li>
-  </ul>
+  <h2 class="mb-3 text-sm font-medium uppercase tracking-wide text-muted-foreground">Egenskaper</h2>
+  <Card>
+    <CardContent class="p-0">
+      <Table>
+        <TableBody>
+          <TableRow>
+            <TableCell class="text-muted-foreground">Type</TableCell>
+            <TableCell class="text-right font-medium">
+              {school.isPrimary ? "Grunnskole" : school.isSecondary ? "Videregående" : "Annet"}
+            </TableCell>
+          </TableRow>
+          <TableRow>
+            <TableCell class="text-muted-foreground">Eierform</TableCell>
+            <TableCell class="text-right font-medium">{school.isPublic ? "Offentlig" : "Privat"}</TableCell>
+          </TableRow>
+          <TableRow>
+            <TableCell class="text-muted-foreground">Aktiv</TableCell>
+            <TableCell class="text-right font-medium">{school.isActive ? "Ja" : "Nei"}</TableCell>
+          </TableRow>
+          <TableRow>
+            <TableCell class="text-muted-foreground">Kilde</TableCell>
+            <TableCell class="text-right font-mono text-xs">{school.source}</TableCell>
+          </TableRow>
+        </TableBody>
+      </Table>
+    </CardContent>
+  </Card>
 </Layout>

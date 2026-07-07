@@ -11,7 +11,15 @@
     "typecheck": "astro check"
   },
   "dependencies": {
+    "@astrojs/check": "^0.9.9",
     "@aurii/sdk": "workspace:*",
-    "astro": "^5.0.0"
+    "@tabler/icons": "^3",
+    "@tailwindcss/forms": "^0.5",
+    "@tailwindcss/vite": "^4",
+    "astro": "^6",
+    "tailwind-merge": "^3",
+    "tailwind-variants": "^3",
+    "tailwindcss": "^4",
+    "tw-animate-css": "^1"
   }
 }

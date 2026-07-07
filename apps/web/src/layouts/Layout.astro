@@ -1,4 +1,5 @@
 ---
+import "@/styles/starwind.css";
 import { url } from "../lib/base";
 
 interface Props {
@@ -9,101 +10,29 @@ const { title } = Astro.props;
 ---
 
 <!doctype html>
-<html lang="nb">
+<html lang="nb" class="dark">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>{title} — Norge</title>
-    <style>
-      :root {
-        --bg: #0f1419;
-        --surface: #1a2332;
-        --text: #e8edf4;
-        --link: #f0f2f5;
-        --muted: #8b9cb3;
-        --accent: #3d8bfd;
-        --border: #2a3544;
-      }
-      * { box-sizing: border-box; margin: 0; padding: 0; }
-      body {
-        font-family: system-ui, -apple-system, sans-serif;
-        background: var(--bg);
-        color: var(--text);
-        line-height: 1.5;
-        min-height: 100vh;
-      }
-      header {
-        border-bottom: 1px solid var(--border);
-        padding: 1rem 1.5rem;
-        background: var(--surface);
-      }
-      header a {
-        color: var(--text);
-        text-decoration: none;
-        font-weight: 600;
-      }
-      main { max-width: 56rem; margin: 0 auto; padding: 2rem 1.5rem; }
-      h1 { font-size: 1.75rem; margin-bottom: 0.5rem; }
-      h2 { font-size: 1.125rem; margin: 2rem 0 0.75rem; color: var(--muted); font-weight: 500; text-transform: uppercase; letter-spacing: 0.05em; }
-      p.muted { color: var(--muted); margin-bottom: 1.5rem; }
-      p.muted a { color: var(--link); text-decoration: none; }
-      p.muted a:hover { color: var(--accent); }
-      ul { list-style: none; }
-      li { border-bottom: 1px solid var(--border); }
-      li a {
-        display: flex;
-        justify-content: space-between;
-        padding: 0.75rem 0;
-        color: var(--text);
-        text-decoration: none;
-      }
-      li.row {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding: 0.75rem 0;
-      }
-      li a:hover { color: var(--accent); }
-      .btn-text {
-        display: inline-block;
-        margin-top: 0.5rem;
-        padding: 0;
-        border: none;
-        background: none;
-        color: var(--link);
-        font: inherit;
-        cursor: pointer;
-        text-decoration: underline;
-        text-underline-offset: 2px;
-      }
-      .btn-text:hover { color: var(--accent); }
-      .postal-hidden { display: none; }
-      .postal-expanded .postal-hidden { display: flex; }
-      .mono { font-family: ui-monospace, monospace; color: var(--muted); font-size: 0.875rem; }
-      .badge {
-        display: inline-block;
-        background: var(--surface);
-        border: 1px solid var(--border);
-        padding: 0.125rem 0.5rem;
-        border-radius: 4px;
-        font-size: 0.75rem;
-        color: var(--muted);
-      }
-      footer {
-        margin-top: 3rem;
-        padding-top: 1rem;
-        border-top: 1px solid var(--border);
-        color: var(--muted);
-        font-size: 0.875rem;
-      }
-    </style>
   </head>
-  <body>
-    <header><a href={url("")}>Norsk referansedata</a></header>
-    <main>
+  <body class="min-h-screen bg-background text-foreground">
+    <div class="border-b border-border bg-background/80 backdrop-blur supports-[backdrop-filter]:bg-background/60">
+      <div class="mx-auto flex max-w-4xl items-center justify-between px-4 py-3 sm:px-6">
+        <a href={url("")} class="flex items-center gap-2 font-semibold tracking-tight">
+          <span class="inline-flex h-8 w-8 items-center justify-center rounded-md bg-primary text-primary-foreground">
+            N
+          </span>
+          Norsk referansedata
+        </a>
+      </div>
+    </div>
+
+    <main class="mx-auto max-w-4xl px-4 py-10 sm:px-6">
       <slot />
     </main>
-    <footer>
+
+    <footer class="mx-auto max-w-4xl border-t border-border px-4 py-6 text-sm text-muted-foreground sm:px-6">
       Data: Kartverket, Bring, UDIR, Brønnøysundregistrene · Drevet av Aurii
     </footer>
   </body>

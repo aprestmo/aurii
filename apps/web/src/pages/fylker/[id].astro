@@ -1,5 +1,7 @@
 ---
 import Layout from "../../layouts/Layout.astro";
+import { Badge } from "@/components/starwind/badge";
+import { Card, CardContent } from "@/components/starwind/card";
 import { url } from "../../lib/base";
 import {
   getCounty,
@@ -24,22 +26,33 @@ const municipalities = await getMunicipalitiesByCounty(id!);
 ---
 
 <Layout title={county.name}>
-  <p class="muted"><a href={url("")}>← Alle fylker</a></p>
-  <h1>{county.name}</h1>
-  <p class="muted">
-    Fylkesnummer <span class="badge">{county.id}</span>
-    · {municipalities.length} kommune{municipalities.length === 1 ? "" : "r"}
+  <p class="mb-3 text-sm">
+    <a href={url("")} class="text-muted-foreground hover:text-foreground">← Alle fylker</a>
   </p>
+  <div class="mb-8">
+    <h1 class="text-3xl font-semibold tracking-tight">{county.name}</h1>
+    <p class="mt-2 flex items-center gap-2 text-muted-foreground">
+      Fylkesnummer <Badge variant="outline">{county.id}</Badge>
+      · {municipalities.length} kommune{municipalities.length === 1 ? "" : "r"}
+    </p>
+  </div>
 
-  <h2>Kommuner</h2>
-  <ul>
-    {municipalities.map((mun) => (
-      <li>
-        <a href={url(`kommuner/${mun.id}`)}>
-          <span>{mun.name}</span>
-          <span class="mono">{mun.id}</span>
-        </a>
-      </li>
-    ))}
-  </ul>
+  <h2 class="mb-3 text-sm font-medium uppercase tracking-wide text-muted-foreground">Kommuner</h2>
+  <Card>
+    <CardContent class="p-0">
+      <ul class="divide-y divide-border">
+        {municipalities.map((mun) => (
+          <li>
+            <a
+              href={url(`kommuner/${mun.id}`)}
+              class="flex items-center justify-between px-4 py-3 transition hover:bg-accent/30 focus:outline-none focus-visible:ring-2 focus-visible:ring-outline"
+            >
+              <span class="font-medium">{mun.name}</span>
+              <span class="font-mono text-xs text-muted-foreground">{mun.id}</span>
+            </a>
+          </li>
+        ))}
+      </ul>
+    </CardContent>
+  </Card>
 </Layout>

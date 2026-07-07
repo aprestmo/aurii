@@ -1,0 +1,424 @@
+---
+import Breadcrumb from "@/components/Breadcrumb.astro";
+import ListPageHeader from "@/components/ListPageHeader.astro";
+import SearchField from "@/components/SearchField.astro";
+import SectionHeading from "@/components/SectionHeading.astro";
+import TableScroll from "@/components/TableScroll.astro";
+import Layout from "../../layouts/Layout.astro";
+import { Badge } from "@/components/starwind/badge";
+import { Button } from "@/components/starwind/button";
+import { Card, CardContent, CardDescription } from "@/components/starwind/card";
+import {
+  Table,
+  TableBody,
+  TableCaption,
+  TableCell,
+  TableHead,
+  TableHeader,
+  TableRow,
+} from "@/components/starwind/table";
+import { url } from "../../lib/base";
+import {
+  changeTypeLabel,
+  formatPeriod,
+  getCountyNamesFromMunicipalities,
+  loadHistoricalCounties,
+  loadHistoricalMunicipalities,
+  loadHistoricalSummary,
+} from "../../lib/historical-data";
+
+const [municipalities, counties, summary] = await Promise.all([
+  loadHistoricalMunicipalities(),
+  loadHistoricalCounties(),
+  loadHistoricalSummary(),
+]);
+
+const sortedMunicipalities = [...municipalities].sort((a, b) =>
+  a.name.localeCompare(b.name, "nb"),
+);
+const sortedCounties = [...counties].sort((a, b) =>
+  a.name.localeCompare(b.name, "nb"),
+);
+const countyFilterOptions = getCountyNamesFromMunicipalities(municipalities);
+const changeTypes = [
+  "merged",
+  "incorporated",
+  "split",
+  "split_between",
+  "reestablished",
+  "renamed",
+  "unknown",
+] as const;
+---
+
+<Layout
+  title="Historisk administrasjon"
+  description="Tidligere norske kommuner og fylker med endringshistorikk — importert fra Wikipedia og koblet mot dagens referansedata."
+  canonicalPath="historikk"
+>
+  <Breadcrumb
+    items={[
+      { label: "Forside", href: url("") },
+      { label: "Historikk" },
+    ]}
+  />
+
+  <ListPageHeader
+    title="Historisk administrasjon"
+    description={`${summary.municipalityCount} tidligere kommuner og ${summary.countyCount} tidligere fylker fra Wikipedia, modellert som relasjoner og koblet mot dagens Kartverket-data der det er mulig.`}
+    hint="Dataene utvider — ikke erstatter — dagens kommuner og fylker. Usikre koblinger ligger i unresolved-matches.json."
+  />
+
+  <div class="mb-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+    <Card class="border-border/80">
+      <CardContent class="px-5 py-4">
+        <p class="text-sm text-muted-foreground">Tidligere kommuner</p>
+        <p class="mt-1 text-2xl font-semibold tabular-nums">{summary.municipalityCount}</p>
+      </CardContent>
+    </Card>
+    <Card class="border-border/80">
+      <CardContent class="px-5 py-4">
+        <p class="text-sm text-muted-foreground">Tidligere fylker</p>
+        <p class="mt-1 text-2xl font-semibold tabular-nums">{summary.countyCount}</p>
+      </CardContent>
+    </Card>
+    <Card class="border-border/80">
+      <CardContent class="px-5 py-4">
+        <p class="text-sm text-muted-foreground">Administrative endringer</p>
+        <p class="mt-1 text-2xl font-semibold tabular-nums">{summary.changeCount}</p>
+      </CardContent>
+    </Card>
+    <Card class="border-border/80">
+      <CardContent class="px-5 py-4">
+        <p class="text-sm text-muted-foreground">Våpenskjold</p>
+        <p class="mt-1 text-2xl font-semibold tabular-nums">{summary.heraldryCount}</p>
+      </CardContent>
+    </Card>
+  </div>
+
+  <div class="mb-6 flex flex-wrap gap-2" role="tablist" aria-label="Velg datasett">
+    <Button
+      type="button"
+      variant="default"
+      size="sm"
+      class="historikk-tab"
+      data-tab="municipalities"
+      role="tab"
+      aria-selected="true"
+      aria-controls="panel-municipalities"
+      id="tab-municipalities"
+    >
+      Tidligere kommuner
+    </Button>
+    <Button
+      type="button"
+      variant="outline"
+      size="sm"
+      class="historikk-tab"
+      data-tab="counties"
+      role="tab"
+      aria-selected="false"
+      aria-controls="panel-counties"
+      id="tab-counties"
+    >
+      Tidligere fylker
+    </Button>
+  </div>
+
+  <section
+    id="panel-municipalities"
+    role="tabpanel"
+    aria-labelledby="tab-municipalities"
+    class="historikk-panel"
+  >
+    <SectionHeading
+      title="Tidligere kommuner"
+      description="Kommuner som er slått sammen, innlemmet eller delt. Klikk på navn for historielinje."
+    />
+
+    <div class="mb-4 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
+      <SearchField
+        id="mun-search"
+        label="Søk"
+        placeholder="Navn eller kommunenummer…"
+        data-table-filter="mun-table"
+      />
+      <div>
+        <label for="mun-county-filter" class="mb-1.5 block text-sm font-medium">Fylke i kilden</label>
+        <select
+          id="mun-county-filter"
+          class="w-full rounded-md border border-input bg-background px-3 py-2 text-sm"
+          data-mun-filter="county"
+        >
+          <option value="">Alle fylker</option>
+          {countyFilterOptions.map((name) => (
+            <option value={name}>{name}</option>
+          ))}
+        </select>
+      </div>
+      <div>
+        <label for="mun-change-filter" class="mb-1.5 block text-sm font-medium">Endringstype</label>
+        <select
+          id="mun-change-filter"
+          class="w-full rounded-md border border-input bg-background px-3 py-2 text-sm"
+          data-mun-filter="change"
+        >
+          <option value="">Alle typer</option>
+          {changeTypes.map((type) => (
+            <option value={type}>{changeTypeLabel(type)}</option>
+          ))}
+        </select>
+      </div>
+      <div>
+        <label for="mun-year-filter" class="mb-1.5 block text-sm font-medium">Opphørte (år)</label>
+        <input
+          id="mun-year-filter"
+          type="number"
+          min="1500"
+          max="2100"
+          placeholder="f.eks. 1962"
+          class="w-full rounded-md border border-input bg-background px-3 py-2 text-sm"
+          data-mun-filter="year"
+        />
+      </div>
+    </div>
+
+    <p
+      class="mb-3 text-sm text-muted-foreground"
+      id="mun-filter-status"
+      role="status"
+      aria-live="polite"
+    >
+      Viser {sortedMunicipalities.length} kommuner
+    </p>
+
+    <Card class="border-border/80">
+      <CardContent class="p-0">
+        <TableScroll>
+          <Table id="mun-table" data-sortable>
+            <TableCaption class="sr-only">Tidligere norske kommuner</TableCaption>
+            <TableHeader>
+              <TableRow class="hover:bg-transparent">
+                <TableHead data-sort-type="text" class="w-20">Nr.</TableHead>
+                <TableHead data-sort-type="text">Navn</TableHead>
+                <TableHead data-sort-type="text">Fylke</TableHead>
+                <TableHead data-sort-type="number">Periode</TableHead>
+                <TableHead data-sort-type="text">Endring</TableHead>
+                <TableHead data-sort-type="text">Resultat</TableHead>
+              </TableRow>
+            </TableHeader>
+            <TableBody>
+              {sortedMunicipalities.map((mun) => (
+                <TableRow
+                  class="historikk-mun-row transition-colors hover:bg-muted/50"
+                  data-county={mun.countyNameAtSource ?? ""}
+                  data-change={mun.changeType ?? "unknown"}
+                  data-year={mun.validTo ?? ""}
+                  data-search={`${mun.name} ${mun.municipalityNumber ?? ""}`.toLowerCase()}
+                >
+                  <TableCell class="font-mono text-xs text-muted-foreground" data-sort-value={mun.municipalityNumber ?? ""}>
+                    {mun.municipalityNumber ?? "—"}
+                  </TableCell>
+                  <TableCell>
+                    <div class="flex items-center gap-3">
+                      {mun.coatOfArms && (
+                        <img
+                          src={url(mun.coatOfArms.localPath.replace(/^\//, ""))}
+                          alt=""
+                          width="32"
+                          height="40"
+                          class="h-8 w-auto shrink-0"
+                          loading="lazy"
+                        />
+                      )}
+                      <a
+                        href={url(`historikk/kommuner/${mun.id}`)}
+                        class="font-medium text-foreground underline-offset-4 hover:text-primary hover:underline"
+                      >
+                        {mun.name}
+                      </a>
+                    </div>
+                  </TableCell>
+                  <TableCell data-sort-value={mun.countyNameAtSource ?? ""}>
+                    {mun.countyNameAtSource ?? "—"}
+                  </TableCell>
+                  <TableCell data-sort-value={String(mun.validFrom ?? 0)}>
+                    {formatPeriod(mun.validFrom, mun.validTo)}
+                  </TableCell>
+                  <TableCell data-sort-value={mun.changeType ?? "unknown"}>
+                    <Badge variant="outline">{changeTypeLabel(mun.changeType)}</Badge>
+                  </TableCell>
+                  <TableCell data-sort-value={mun.resultNames.join(", ")}>
+                    {mun.resultNames.join(", ") || "—"}
+                  </TableCell>
+                </TableRow>
+              ))}
+            </TableBody>
+          </Table>
+        </TableScroll>
+      </CardContent>
+      <CardDescription class="border-t border-border/60 px-4 py-3 text-sm">
+        Kilde: <a href="https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner" class="underline" target="_blank" rel="noopener noreferrer">Wikipedia — Liste over tidligere norske kommuner</a>
+      </CardDescription>
+    </Card>
+  </section>
+
+  <section
+    id="panel-counties"
+    role="tabpanel"
+    aria-labelledby="tab-counties"
+    class="historikk-panel hidden"
+    hidden
+  >
+    <SectionHeading
+      title="Tidligere fylker"
+      description="Fylker som er slått sammen, delt eller gjenopprettet. Klikk på navn for utviklingslinje."
+    />
+
+    <div class="mb-4 flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
+      <SearchField
+        id="county-search"
+        label="Søk"
+        placeholder="Navn eller fylkesnummer…"
+        class="max-w-sm"
+        data-table-filter="county-table"
+      />
+    </div>
+
+    <Card class="border-border/80">
+      <CardContent class="p-0">
+        <TableScroll>
+          <Table id="county-table" data-sortable>
+            <TableCaption class="sr-only">Tidligere norske fylker</TableCaption>
+            <TableHeader>
+              <TableRow class="hover:bg-transparent">
+                <TableHead data-sort-type="text" class="w-16">Nr.</TableHead>
+                <TableHead data-sort-type="text">Navn</TableHead>
+                <TableHead data-sort-type="text">Adm.senter</TableHead>
+                <TableHead data-sort-type="number">Opphørte</TableHead>
+                <TableHead data-sort-type="text">I dag en del av</TableHead>
+                <TableHead data-sort-type="text">Nytt nr.</TableHead>
+              </TableRow>
+            </TableHeader>
+            <TableBody>
+              {sortedCounties.map((county) => (
+                <TableRow class="transition-colors hover:bg-muted/50">
+                  <TableCell class="font-mono text-xs text-muted-foreground" data-sort-value={county.countyNumber ?? ""}>
+                    {county.countyNumber ?? "—"}
+                  </TableCell>
+                  <TableCell>
+                    <div class="flex items-center gap-3">
+                      {county.coatOfArms && (
+                        <img
+                          src={url(county.coatOfArms.localPath.replace(/^\//, ""))}
+                          alt=""
+                          width="28"
+                          height="32"
+                          class="h-7 w-auto shrink-0"
+                          loading="lazy"
+                        />
+                      )}
+                      <a
+                        href={url(`historikk/fylker/${county.id}`)}
+                        class="font-medium text-foreground underline-offset-4 hover:text-primary hover:underline"
+                      >
+                        {county.name}
+                      </a>
+                    </div>
+                  </TableCell>
+                  <TableCell data-sort-value={county.administrativeCenter ?? ""}>
+                    {county.administrativeCenter ?? "—"}
+                  </TableCell>
+                  <TableCell data-sort-value={String(county.validTo ?? 0)}>
+                    {county.validTo ?? "—"}
+                  </TableCell>
+                  <TableCell data-sort-value={county.todayPartOfNames.join(", ")}>
+                    {county.todayPartOfNames.join(", ") || "—"}
+                  </TableCell>
+                  <TableCell class="font-mono text-xs" data-sort-value={county.newCountyNumber ?? ""}>
+                    {county.newCountyNumber ?? "—"}
+                  </TableCell>
+                </TableRow>
+              ))}
+            </TableBody>
+          </Table>
+        </TableScroll>
+      </CardContent>
+      <CardDescription class="border-t border-border/60 px-4 py-3 text-sm">
+        Kilde: <a href="https://no.wikipedia.org/wiki/Norges_fylker" class="underline" target="_blank" rel="noopener noreferrer">Wikipedia — Norges fylker (tabellen «Tidligere fylker»)</a>
+      </CardDescription>
+    </Card>
+  </section>
+</Layout>
+
+<script>
+  function initHistorikkTabs() {
+    const tabs = document.querySelectorAll<HTMLButtonElement>(".historikk-tab");
+    const panels = document.querySelectorAll<HTMLElement>(".historikk-panel");
+
+    tabs.forEach((tab) => {
+      if (tab.dataset.tabInit === "true") return;
+      tab.dataset.tabInit = "true";
+
+      tab.addEventListener("click", () => {
+        const target = tab.dataset.tab;
+        tabs.forEach((t) => {
+          const selected = t.dataset.tab === target;
+          t.setAttribute("aria-selected", String(selected));
+          t.classList.toggle("bg-primary", selected);
+          t.classList.toggle("text-primary-foreground", selected);
+          t.classList.toggle("border-primary", selected);
+        });
+        panels.forEach((panel) => {
+          const show = panel.id === `panel-${target}`;
+          panel.classList.toggle("hidden", !show);
+          panel.hidden = !show;
+        });
+      });
+    });
+  }
+
+  function initMunicipalityFilters() {
+    const search = document.getElementById("mun-search") as HTMLInputElement | null;
+    const county = document.getElementById("mun-county-filter") as HTMLSelectElement | null;
+    const change = document.getElementById("mun-change-filter") as HTMLSelectElement | null;
+    const year = document.getElementById("mun-year-filter") as HTMLInputElement | null;
+    const status = document.getElementById("mun-filter-status");
+    const rows = document.querySelectorAll<HTMLTableRowElement>(".historikk-mun-row");
+    if (!rows.length) return;
+
+    const apply = () => {
+      const query = search?.value.trim().toLowerCase() ?? "";
+      const countyVal = county?.value ?? "";
+      const changeVal = change?.value ?? "";
+      const yearVal = year?.value.trim() ?? "";
+      let visible = 0;
+
+      rows.forEach((row) => {
+        const matchSearch = !query || (row.dataset.search ?? "").includes(query);
+        const matchCounty = !countyVal || row.dataset.county === countyVal;
+        const matchChange = !changeVal || row.dataset.change === changeVal;
+        const matchYear = !yearVal || String(row.dataset.year) === yearVal;
+        const show = matchSearch && matchCounty && matchChange && matchYear;
+        row.classList.toggle("hidden", !show);
+        if (show) visible++;
+      });
+
+      if (status) {
+        status.textContent = `Viser ${visible} kommuner`;
+      }
+    };
+
+    search?.addEventListener("input", apply);
+    county?.addEventListener("change", apply);
+    change?.addEventListener("change", apply);
+    year?.addEventListener("input", apply);
+  }
+
+  initHistorikkTabs();
+  initMunicipalityFilters();
+  document.addEventListener("astro:after-swap", () => {
+    initHistorikkTabs();
+    initMunicipalityFilters();
+  });
+</script>

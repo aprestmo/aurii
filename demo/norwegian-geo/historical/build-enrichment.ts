@@ -198,7 +198,7 @@ function mergePrehistory(
 
 async function main(): Promise<void> {
   console.log("Loading existing historical data…");
-  const [changes, historicalMunicipalities, currentMunicipalities] =
+  const [changes, historicalMunicipalities, currentMunicipalities, currentMunicipalitiesWiki] =
     await Promise.all([
       readFile(resolve(DATA_DIR, "administrative-changes.json"), "utf-8").then(
         (t) => JSON.parse(t) as AdministrativeChange[],
@@ -209,6 +209,9 @@ async function main(): Promise<void> {
       readFile(resolve(CURRENT_DATA, "municipalities.json"), "utf-8").then(
         (t) => JSON.parse(t) as Array<{ id: string; name: string }>,
       ),
+      readFile(resolve(DATA_DIR, "current-municipalities.json"), "utf-8")
+        .then((t) => JSON.parse(t) as import("./types").WikiCurrentMunicipality[])
+        .catch(() => [] as import("./types").WikiCurrentMunicipality[]),
     ]);
 
   console.log("Fetching Wikipedia pages…");
@@ -220,6 +223,7 @@ async function main(): Promise<void> {
   console.log("Parsing Wikipedia tables…");
   const wikiCurrent = parseCurrentMunicipalitiesPage(currentHtml);
   const wikiById = new Map(wikiCurrent.map((m) => [m.id, m]));
+  const currentWikiById = new Map(currentMunicipalitiesWiki.map((m) => [m.id, m]));
 
   const series1946 = parseKommunenummer1946Series(numbersHtml);
   const currentSeries = parseKommunenummerCurrentSeries(numbersHtml);
@@ -234,6 +238,7 @@ async function main(): Promise<void> {
 
   for (const mun of currentMunicipalities) {
     const wiki = wikiById.get(mun.id);
+    const currentWiki = currentWikiById.get(mun.id);
     const currentEntry = currentSeriesByNumber.get(mun.id);
     const primaryEntry = primaryLineageEntry(
       mun.id,
@@ -269,7 +274,8 @@ async function main(): Promise<void> {
       areaKm2: wiki?.areaKm2,
       languageForm: wiki?.languageForm,
       languageArea: wiki?.languageArea,
-      wikipediaUrl: wiki?.wikipediaUrl,
+      wikipediaUrl: wiki?.wikipediaUrl ?? currentWiki?.wikipediaUrl,
+      websiteUrl: currentWiki?.websiteUrl,
       established,
       establishedYear,
       prehistory: mergePrehistory(primaryEntry),

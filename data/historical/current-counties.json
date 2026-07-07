@@ -12,10 +12,9 @@
     "coatOfArms": {
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Akershus_våpen.svg",
       "localPath": "/assets/heraldry/counties/county-32-akershus.svg",
-      "mimeType": "image/svg+xml",
-      "attribution": "Own work",
-      "license": "Public domain"
-    }
+      "mimeType": "image/svg+xml"
+    },
+    "websiteUrl": "https://afk.no/"
   },
   {
     "id": "03",
@@ -30,10 +29,9 @@
     "coatOfArms": {
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Oslo_komm.svg",
       "localPath": "/assets/heraldry/counties/county-03-oslo.svg",
-      "mimeType": "image/svg+xml",
-      "attribution": "Unknown authorUnknown author",
-      "license": "Public domain"
-    }
+      "mimeType": "image/svg+xml"
+    },
+    "websiteUrl": "https://www.oslo.kommune.no/"
   },
   {
     "id": "46",
@@ -48,10 +46,9 @@
     "coatOfArms": {
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Vestland_våpen.svg",
       "localPath": "/assets/heraldry/counties/county-46-vestland.svg",
-      "mimeType": "image/svg+xml",
-      "attribution": "Unknown authorUnknown author",
-      "license": "Public domain"
-    }
+      "mimeType": "image/svg+xml"
+    },
+    "websiteUrl": "https://www.vlfk.no/"
   },
   {
     "id": "11",
@@ -66,10 +63,9 @@
     "coatOfArms": {
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Rogaland_våpen.svg",
       "localPath": "/assets/heraldry/counties/county-11-rogaland.svg",
-      "mimeType": "image/svg+xml",
-      "attribution": "Hallvard Trætteberg, SKvalen",
-      "license": "Public domain"
-    }
+      "mimeType": "image/svg+xml"
+    },
+    "websiteUrl": "http://www.rogfk.no/"
   },
   {
     "id": "50",
@@ -84,10 +80,9 @@
     "coatOfArms": {
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Trøndelag_våpen.svg",
       "localPath": "/assets/heraldry/counties/county-50-trondelag.svg",
-      "mimeType": "image/svg+xml",
-      "attribution": "Spider",
-      "license": "Public domain"
-    }
+      "mimeType": "image/svg+xml"
+    },
+    "websiteUrl": "https://trondelagfylke.no"
   },
   {
     "id": "34",
@@ -102,10 +97,9 @@
     "coatOfArms": {
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Innlandet_våpen.svg",
       "localPath": "/assets/heraldry/counties/county-34-innlandet.svg",
-      "mimeType": "image/svg+xml",
-      "attribution": "Unknown authorUnknown author",
-      "license": "Public domain"
-    }
+      "mimeType": "image/svg+xml"
+    },
+    "websiteUrl": "https://www.innlandetfylke.no"
   },
   {
     "id": "42",
@@ -120,10 +114,9 @@
     "coatOfArms": {
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Agder_våpen.svg",
       "localPath": "/assets/heraldry/counties/county-42-agder.svg",
-      "mimeType": "image/svg+xml",
-      "attribution": "Agder fylkeskommune",
-      "license": "Public domain"
-    }
+      "mimeType": "image/svg+xml"
+    },
+    "websiteUrl": "https://agderfk.no"
   },
   {
     "id": "31",
@@ -138,10 +131,9 @@
     "coatOfArms": {
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Østfold_våpen.svg",
       "localPath": "/assets/heraldry/counties/county-31-ostfold.svg",
-      "mimeType": "image/svg+xml",
-      "attribution": "Hallvard Trætteberg, SKvalen",
-      "license": "Public domain"
-    }
+      "mimeType": "image/svg+xml"
+    },
+    "websiteUrl": "https://www.ostfoldfk.no/?"
   },
   {
     "id": "15",
@@ -156,9 +148,7 @@
     "coatOfArms": {
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Møre_og_Romsdal_våpen.svg",
       "localPath": "/assets/heraldry/counties/county-15-more-og-romsdal.svg",
-      "mimeType": "image/svg+xml",
-      "attribution": "Knowledgeisfree",
-      "license": "Public domain"
+      "mimeType": "image/svg+xml"
     }
   },
   {
@@ -174,9 +164,7 @@
     "coatOfArms": {
       "sourceUrl": "https://commons.wikimedia.org/wiki/Fil:Buskerud_v%C3%A5pen.svg",
       "localPath": "/assets/heraldry/counties/county-33-buskerud.svg",
-      "mimeType": "image/svg+xml",
-      "attribution": "Hallvard Trætteberg, SKvalen",
-      "license": "Public domain"
+      "mimeType": "image/svg+xml"
     }
   },
   {
@@ -192,9 +180,7 @@
     "coatOfArms": {
       "sourceUrl": "https://commons.wikimedia.org/wiki/Fil:Vestfold_v%C3%A5pen_2024.svg",
       "localPath": "/assets/heraldry/counties/county-39-vestfold.svg",
-      "mimeType": "image/svg+xml",
-      "attribution": "Vestfold og Telemark fylkeskommune",
-      "license": "Public domain"
+      "mimeType": "image/svg+xml"
     }
   },
   {
@@ -210,10 +196,9 @@
     "coatOfArms": {
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Nordland_våpen.svg",
       "localPath": "/assets/heraldry/counties/county-18-nordland.svg",
-      "mimeType": "image/svg+xml",
-      "attribution": "SKvalen",
-      "license": "Public domain"
-    }
+      "mimeType": "image/svg+xml"
+    },
+    "websiteUrl": "https://nfk.no"
   },
   {
     "id": "40",
@@ -228,9 +213,7 @@
     "coatOfArms": {
       "sourceUrl": "https://commons.wikimedia.org/wiki/Fil:Telemark_v%C3%A5pen_2024.svg",
       "localPath": "/assets/heraldry/counties/county-40-telemark.svg",
-      "mimeType": "image/svg+xml",
-      "attribution": "Telemark fylkeskommune",
-      "license": "Public domain"
+      "mimeType": "image/svg+xml"
     }
   },
   {
@@ -246,10 +229,9 @@
     "coatOfArms": {
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Troms_våpen.svg",
       "localPath": "/assets/heraldry/counties/county-55-troms.svg",
-      "mimeType": "image/svg+xml",
-      "attribution": "Own work  This W3C-unspecified vector image was created with Inkscape .",
-      "license": "Public domain"
-    }
+      "mimeType": "image/svg+xml"
+    },
+    "websiteUrl": "https://www.tromsfylke.no"
   },
   {
     "id": "56",
@@ -264,9 +246,8 @@
     "coatOfArms": {
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Finnmark_våpen.svg",
       "localPath": "/assets/heraldry/counties/county-56-finnmark.svg",
-      "mimeType": "image/svg+xml",
-      "attribution": "Own work  This W3C-unspecified vector image was created with Inkscape .",
-      "license": "Public domain"
-    }
+      "mimeType": "image/svg+xml"
+    },
+    "websiteUrl": "http://www.ffk.no/"
   }
 ]

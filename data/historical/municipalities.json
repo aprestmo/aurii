@@ -20,9 +20,7 @@
     "coatOfArms": {
       "sourceUrl": "https://commons.wikimedia.org/wiki/Fil:Moland_komm.svg",
       "localPath": "/assets/heraldry/municipalities/municipality-0918-austre-moland.svg",
-      "mimeType": "image/svg+xml",
-      "attribution": "Bjarkan",
-      "license": "CC BY-SA 4.0"
+      "mimeType": "image/svg+xml"
     }
   },
   {
@@ -46,9 +44,7 @@
     "coatOfArms": {
       "sourceUrl": "https://commons.wikimedia.org/wiki/Fil:Arendal_komm.svg",
       "localPath": "/assets/heraldry/municipalities/municipality-0990-barbu.svg",
-      "mimeType": "image/svg+xml",
-      "attribution": "Original by caplex.no",
-      "license": "Public domain"
+      "mimeType": "image/svg+xml"
     }
   },
   {
@@ -72,9 +68,7 @@
     "coatOfArms": {
       "sourceUrl": "https://commons.wikimedia.org/wiki/Fil:Tvedestrand_komm.svg",
       "localPath": "/assets/heraldry/municipalities/municipality-0915-dypvag.svg",
-      "mimeType": "image/svg+xml",
-      "attribution": "Own work  This W3C-unspecified vector image was created with Inkscape .",
-      "license": "Public domain"
+      "mimeType": "image/svg+xml"
     }
   },
   {
@@ -117,9 +111,7 @@
     "coatOfArms": {
       "sourceUrl": "https://commons.wikimedia.org/wiki/Fil:Evje_og_Hornnes_komm.svg",
       "localPath": "/assets/heraldry/municipalities/municipality-0937-evje.svg",
-      "mimeType": "image/svg+xml",
-      "attribution": "Own work  This W3C-unspecified vector image was created with Inkscape .",
-      "license": "Public domain"
+      "mimeType": "image/svg+xml"
     }
   },
   {
@@ -164,9 +156,7 @@
     "coatOfArms": {
       "sourceUrl": "https://commons.wikimedia.org/wiki/Fil:Grimstad_komm.svg",
       "localPath": "/assets/heraldry/municipalities/municipality-0923-fjaere.svg",
-      "mimeType": "image/svg+xml",
-      "attribution": "Original by caplex.no",
-      "license": "Public domain"
+      "mimeType": "image/svg+xml"
     }
   },
   {
@@ -190,9 +180,7 @@
     "coatOfArms": {
       "sourceUrl": "https://commons.wikimedia.org/wiki/Fil:Moland_komm.svg",
       "localPath": "/assets/heraldry/municipalities/municipality-0916-flosta.svg",
-      "mimeType": "image/svg+xml",
-      "attribution": "Bjarkan",
-      "license": "CC BY-SA 4.0"
+      "mimeType": "image/svg+xml"
     }
   },
   {
@@ -216,9 +204,7 @@
     "coatOfArms": {
       "sourceUrl": "https://commons.wikimedia.org/wiki/Fil:%C3%85mli_komm.svg",
       "localPath": "/assets/heraldry/municipalities/municipality-0930-gjovdal.svg",
-      "mimeType": "image/svg+xml",
-      "attribution": "Own work  This W3C-unspecified vector image was created with Inkscape .",
-      "license": "Public domain"
+      "mimeType": "image/svg+xml"
     }
   },
   {
@@ -242,8 +228,7 @@
     "coatOfArms": {
       "sourceUrl": "https://commons.wikimedia.org/wiki/Fil:Birkenes_komm.svg",
       "localPath": "/assets/heraldry/municipalities/municipality-0933-herefoss.svg",
-      "mimeType": "image/svg+xml",
-      "license": "Public domain"
+      "mimeType": "image/svg+xml"
     }
   },
   {
@@ -267,9 +252,7 @@
     "coatOfArms": {
       "sourceUrl": "https://commons.wikimedia.org/wiki/Fil:Arendal_komm.svg",
       "localPath": "/assets/heraldry/municipalities/municipality-0922-hisoy.svg",
-      "mimeType": "image/svg+xml",
-      "attribution": "Original by caplex.no",
-      "license": "Public domain"
+      "mimeType": "image/svg+xml"
     }
   },
   {
@@ -289,7 +272,12 @@
     "wikipediaUrl": "https://no.wikipedia.org/wiki/Holt_(Tvedestrand)",
     "resultIds": [
       "4213"
-    ]
+    ],
+    "coatOfArms": {
+      "sourceUrl": "https://commons.wikimedia.org/wiki/Fil:Tvedestrand_komm.svg",
+      "localPath": "/assets/heraldry/municipalities/municipality-0914-holt.svg",
+      "mimeType": "image/svg+xml"
+    }
   },
   {
     "id": "hist-mun-0936-hornnes",
@@ -308,7 +296,12 @@
     "wikipediaUrl": "https://no.wikipedia.org/wiki/Hornnes",
     "resultIds": [
       "4219"
-    ]
+    ],
+    "coatOfArms": {
+      "sourceUrl": "https://commons.wikimedia.org/wiki/Fil:Evje_og_Hornnes_komm.svg",
+      "localPath": "/assets/heraldry/municipalities/municipality-0936-hornnes.svg",
+      "mimeType": "image/svg+xml"
+    }
   },
   {
     "id": "hist-mun-0935-hornnes-og-iveland",
@@ -348,7 +341,12 @@
     "wikipediaUrl": "https://no.wikipedia.org/wiki/Hylestad",
     "resultIds": [
       "4221"
-    ]
+    ],
+    "coatOfArms": {
+      "sourceUrl": "https://commons.wikimedia.org/wiki/Fil:Valle_komm.svg",
+      "localPath": "/assets/heraldry/municipalities/municipality-0939-hylestad.svg",
+      "mimeType": "image/svg+xml"
+    }
   },
   {
     "id": "hist-mun-0927-hovag",
@@ -367,7 +365,12 @@
     "wikipediaUrl": "https://no.wikipedia.org/wiki/H%C3%B8v%C3%A5g",
     "resultIds": [
       "4215"
-    ]
+    ],
+    "coatOfArms": {
+      "sourceUrl": "https://commons.wikimedia.org/wiki/Fil:Lillesand_komm.svg",
+      "localPath": "/assets/heraldry/municipalities/municipality-0927-hovag.svg",
+      "mimeType": "image/svg+xml"
+    }
   },
   {
     "id": "hist-mun-0924-landvik",
@@ -386,7 +389,12 @@
     "wikipediaUrl": "https://no.wikipedia.org/wiki/Landvik",
     "resultIds": [
       "4202"
-    ]
+    ],
+    "coatOfArms": {
+      "sourceUrl": "https://commons.wikimedia.org/wiki/Fil:Grimstad_komm.svg",
+      "localPath": "/assets/heraldry/municipalities/municipality-0924-landvik.svg",
+      "mimeType": "image/svg+xml"
+    }
   },
   {
     "id": "hist-mun-0918-moland",
@@ -405,7 +413,12 @@
     "wikipediaUrl": "https://no.wikipedia.org/wiki/Moland",
     "resultIds": [
       "4203"
-    ]
+    ],
+    "coatOfArms": {
+      "sourceUrl": "https://commons.wikimedia.org/wiki/Fil:Arendal_komm.svg",
+      "localPath": "/assets/heraldry/municipalities/municipality-0918-moland.svg",
+      "mimeType": "image/svg+xml"
+    }
   },
   {
     "id": "hist-mun-0932-mykland",
@@ -424,7 +437,12 @@
     "wikipediaUrl": "https://no.wikipedia.org/wiki/Mykland",
     "resultIds": [
       "4214"
-    ]
+    ],
+    "coatOfArms": {
+      "sourceUrl": "https://commons.wikimedia.org/wiki/Fil:Froland_komm.svg",
+      "localPath": "/assets/heraldry/municipalities/municipality-0932-mykland.svg",
+      "mimeType": "image/svg+xml"
+    }
   },
   {
     "id": "hist-mun-0917-stokken",
@@ -443,7 +461,12 @@
     "wikipediaUrl": "https://no.wikipedia.org/wiki/Stokken",
     "resultIds": [
       "hist-mun-0918-moland"
-    ]
+    ],
+    "coatOfArms": {
+      "sourceUrl": "https://commons.wikimedia.org/wiki/Fil:Moland_komm.svg",
+      "localPath": "/assets/heraldry/municipalities/municipality-0917-stokken.svg",
+      "mimeType": "image/svg+xml"
+    }
   },
   {
     "id": "hist-mun-0913-sondeled",
@@ -462,7 +485,12 @@
     "wikipediaUrl": "https://no.wikipedia.org/wiki/S%C3%B8ndeled",
     "resultIds": [
       "4201"
-    ]
+    ],
+    "coatOfArms": {
+      "sourceUrl": "https://commons.wikimedia.org/wiki/Fil:Ris%C3%B8r_komm.svg",
+      "localPath": "/assets/heraldry/municipalities/municipality-0913-sondeled.svg",
+      "mimeType": "image/svg+xml"
+    }
   },
   {
     "id": "hist-mun-0931-tovdal",
@@ -481,7 +509,12 @@
     "wikipediaUrl": "https://no.wikipedia.org/wiki/Tovdal",
     "resultIds": [
       "4217"
-    ]
+    ],
+    "coatOfArms": {
+      "sourceUrl": "https://commons.wikimedia.org/wiki/Fil:%C3%85mli_komm.svg",
+      "localPath": "/assets/heraldry/municipalities/municipality-0931-tovdal.svg",
+      "mimeType": "image/svg+xml"
+    }
   },
   {
     "id": "hist-mun-0921-tromoy",
@@ -500,7 +533,12 @@
     "wikipediaUrl": "https://no.wikipedia.org/wiki/Trom%C3%B8y",
     "resultIds": [
       "4203"
-    ]
+    ],
+    "coatOfArms": {
+      "sourceUrl": "https://commons.wikimedia.org/wiki/Fil:Arendal_komm.svg",
+      "localPath": "/assets/heraldry/municipalities/municipality-0921-tromoy.svg",
+      "mimeType": "image/svg+xml"
+    }
   },
   {
     "id": "hist-mun-0934-vegusdal",
@@ -519,7 +557,12 @@
     "wikipediaUrl": "https://no.wikipedia.org/wiki/Vegusdal",
     "resultIds": [
       "4216"
-    ]
+    ],
+    "coatOfArms": {
+      "sourceUrl": "https://commons.wikimedia.org/wiki/Fil:Birkenes_komm.svg",
+      "localPath": "/assets/heraldry/municipalities/municipality-0934-vegusdal.svg",
+      "mimeType": "image/svg+xml"
+    }
   },
   {
     "id": "hist-mun-0926-vestre-moland",
@@ -538,7 +581,12 @@
     "wikipediaUrl": "https://no.wikipedia.org/wiki/Vestre_Moland",
     "resultIds": [
       "4215"
-    ]
+    ],
+    "coatOfArms": {
+      "sourceUrl": "https://commons.wikimedia.org/wiki/Fil:Lillesand_komm.svg",
+      "localPath": "/assets/heraldry/municipalities/municipality-0926-vestre-moland.svg",
+      "mimeType": "image/svg+xml"
+    }
   },
   {
     "id": "hist-mun-0920-oyestad",
@@ -557,7 +605,12 @@
     "wikipediaUrl": "https://no.wikipedia.org/wiki/%C3%98yestad",
     "resultIds": [
       "4203"
-    ]
+    ],
+    "coatOfArms": {
+      "sourceUrl": "https://commons.wikimedia.org/wiki/Fil:Arendal_komm.svg",
+      "localPath": "/assets/heraldry/municipalities/municipality-0920-oyestad.svg",
+      "mimeType": "image/svg+xml"
+    }
   },
   {
     "id": "hist-mun-1027-audnedal",
@@ -576,7 +629,12 @@
     "wikipediaUrl": "https://no.wikipedia.org/wiki/Audnedal",
     "resultIds": [
       "4225"
-    ]
+    ],
+    "coatOfArms": {
+      "sourceUrl": "https://commons.wikimedia.org/wiki/Fil:Lyngdal_komm.svg",
+      "localPath": "/assets/heraldry/municipalities/municipality-1027-audnedal.svg",
+      "mimeType": "image/svg+xml"
+    }
   },
   {
     "id": "hist-mun-1031-austad",
@@ -595,7 +653,12 @@
     "wikipediaUrl": "https://no.wikipedia.org/wiki/Austad",
     "resultIds": [
       "4225"
-    ]
+    ],
+    "coatOfArms": {
+      "sourceUrl": "https://commons.wikimedia.org/wiki/Fil:Lyngdal_komm.svg",
+      "localPath": "/assets/heraldry/municipalities/municipality-1031-austad.svg",
+      "mimeType": "image/svg+xml"
+    }
   },
   {
     "id": "hist-mun-1045-bakke",
@@ -614,7 +677,12 @@
     "wikipediaUrl": "https://no.wikipedia.org/wiki/Bakke_(Vest-Agder)",
     "resultIds": [
       "4207"
-    ]
+    ],
+    "coatOfArms": {
+      "sourceUrl": "https://commons.wikimedia.org/wiki/Fil:Flekkefjord_komm.svg",
+      "localPath": "/assets/heraldry/municipalities/municipality-1045-bakke.svg",
+      "mimeType": "image/svg+xml"
+    }
   },
   {
     "id": "hist-mun-1024-bjelland",
@@ -633,7 +701,12 @@
     "wikipediaUrl": "https://no.wikipedia.org/wiki/Bjelland",
     "resultIds": [
       "hist-mun-1021-marnardal"
-    ]
+    ],
+    "coatOfArms": {
+      "sourceUrl": "https://commons.wikimedia.org/wiki/Fil:Marnardal_komm.svg",
+      "localPath": "/assets/heraldry/municipalities/municipality-1024-bjelland.svg",
+      "mimeType": "image/svg+xml"
+    }
   },
   {
     "id": "hist-mun-1024-bjelland-og-grindheim",
@@ -672,7 +745,12 @@
     "wikipediaUrl": "https://no.wikipedia.org/wiki/Eiken",
     "resultIds": [
       "4226"
-    ]
+    ],
+    "coatOfArms": {
+      "sourceUrl": "https://commons.wikimedia.org/wiki/Fil:H%C3%A6gebostad_komm.svg",
+      "localPath": "/assets/heraldry/municipalities/municipality-1035-eiken.svg",
+      "mimeType": "image/svg+xml"
+    }
   },
   {
     "id": "hist-mun-1038-feda",
@@ -691,7 +769,12 @@
     "wikipediaUrl": "https://no.wikipedia.org/wiki/Feda",
     "resultIds": [
       "4227"
-    ]
+    ],
+    "coatOfArms": {
+      "sourceUrl": "https://commons.wikimedia.org/wiki/Fil:Kvinesdal_komm.svg",
+      "localPath": "/assets/heraldry/municipalities/municipality-1038-feda.svg",
+      "mimeType": "image/svg+xml"
+    }
   },
   {
     "id": "hist-mun-1023-finsland",
@@ -710,7 +793,12 @@
     "wikipediaUrl": "https://no.wikipedia.org/wiki/Finsland",
     "resultIds": [
       "hist-mun-1017-songdalen"
-    ]
+    ],
+    "coatOfArms": {
+      "sourceUrl": "https://commons.wikimedia.org/wiki/Fil:Songdalen_komm.svg",
+      "localPath": "/assets/heraldry/municipalities/municipality-1023-finsland.svg",
+      "mimeType": "image/svg+xml"
+    }
   },
   {
     "id": "hist-mun-1036-fjotland",
@@ -729,7 +817,12 @@
     "wikipediaUrl": "https://no.wikipedia.org/wiki/Fjotland",
     "resultIds": [
       "4227"
-    ]
+    ],
+    "coatOfArms": {
+      "sourceUrl": "https://commons.wikimedia.org/wiki/Fil:Kvinesdal_komm.svg",
+      "localPath": "/assets/heraldry/municipalities/municipality-1036-fjotland.svg",
+      "mimeType": "image/svg+xml"
+    }
   },
   {
     "id": "hist-mun-1017-greipstad",
@@ -748,7 +841,12 @@
     "wikipediaUrl": "https://no.wikipedia.org/wiki/Greipstad_(Vest-Agder)",
     "resultIds": [
       "hist-mun-1017-songdalen"
-    ]
+    ],
+    "coatOfArms": {
+      "sourceUrl": "https://commons.wikimedia.org/wiki/Fil:Songdalen_komm.svg",
+      "localPath": "/assets/heraldry/municipalities/municipality-1017-greipstad.svg",
+      "mimeType": "image/svg+xml"
+    }
   },
   {
     "id": "hist-mun-1025-grindheim",
@@ -767,7 +865,12 @@
     "wikipediaUrl": "https://no.wikipedia.org/wiki/Grindheim",
     "resultIds": [
       "hist-mun-1027-audnedal"
-    ]
+    ],
+    "coatOfArms": {
+      "sourceUrl": "https://commons.wikimedia.org/wiki/Fil:Audnedal_komm.svg",
+      "localPath": "/assets/heraldry/municipalities/municipality-1025-grindheim.svg",
+      "mimeType": "image/svg+xml"
+    }
   },
   {
     "id": "hist-mun-1044-gyland",
@@ -786,7 +889,12 @@
     "wikipediaUrl": "https://no.wikipedia.org/wiki/Gyland",
     "resultIds": [
       "4207"
-    ]
+    ],
+    "coatOfArms": {
+      "sourceUrl": "https://commons.wikimedia.org/wiki/Fil:Flekkefjord_komm.svg",
+      "localPath": "/assets/heraldry/municipalities/municipality-1044-gyland.svg",
+      "mimeType": "image/svg+xml"
+    }
   },
   {
     "id": "hist-mun-1019-halse-og-harkmark",
@@ -805,7 +913,12 @@
     "wikipediaUrl": "https://no.wikipedia.org/wiki/Halse_og_Harkmark",
     "resultIds": [
       "hist-mun-1002-mandal"
-    ]
+    ],
+    "coatOfArms": {
+      "sourceUrl": "https://commons.wikimedia.org/wiki/Fil:Mandal_komm.svg",
+      "localPath": "/assets/heraldry/municipalities/municipality-1019-halse-og-harkmark.svg",
+      "mimeType": "image/svg+xml"
+    }
   },
   {
     "id": "hist-mun-1039-herad",
@@ -824,7 +937,12 @@
     "wikipediaUrl": "https://no.wikipedia.org/wiki/Herad_kommune",
     "resultIds": [
       "4206"
-    ]
+    ],
+    "coatOfArms": {
+      "sourceUrl": "https://commons.wikimedia.org/wiki/Fil:Farsund_komm.svg",
+      "localPath": "/assets/heraldry/municipalities/municipality-1039-herad.svg",
+      "mimeType": "image/svg+xml"
+    }
   },
   {
     "id": "hist-mun-1042-hidra",
@@ -843,7 +961,12 @@
     "wikipediaUrl": "https://no.wikipedia.org/wiki/Hidra",
     "resultIds": [
       "4207"
-    ]
+    ],
+    "coatOfArms": {
+      "sourceUrl": "https://commons.wikimedia.org/wiki/Fil:Flekkefjord_komm.svg",
+      "localPath": "/assets/heraldry/municipalities/municipality-1042-hidra.svg",
+      "mimeType": "image/svg+xml"
+    }
   },
   {
     "id": "hist-mun-1020-holum",
@@ -862,7 +985,12 @@
     "wikipediaUrl": "https://no.wikipedia.org/wiki/Holum_(kommune)",
     "resultIds": [
       "hist-mun-1002-mandal"
-    ]
+    ],
+    "coatOfArms": {
+      "sourceUrl": "https://commons.wikimedia.org/wiki/Fil:Mandal_komm.svg",
+      "localPath": "/assets/heraldry/municipalities/municipality-1020-holum.svg",
+      "mimeType": "image/svg+xml"
+    }
   },
   {
     "id": "hist-mun-1015-haegeland",
@@ -881,7 +1009,12 @@
     "wikipediaUrl": "https://no.wikipedia.org/wiki/H%C3%A6geland",
     "resultIds": [
       "4223"
-    ]
+    ],
+    "coatOfArms": {
+      "sourceUrl": "https://commons.wikimedia.org/wiki/Fil:Vennesla_komm.svg",
+      "localPath": "/assets/heraldry/municipalities/municipality-1015-haegeland.svg",
+      "mimeType": "image/svg+xml"
+    }
   },
   {
     "id": "hist-mun-1027-konsmo",
@@ -900,7 +1033,12 @@
     "wikipediaUrl": "https://no.wikipedia.org/wiki/Konsmo",
     "resultIds": [
       "hist-mun-1027-audnedal"
-    ]
+    ],
+    "coatOfArms": {
+      "sourceUrl": "https://commons.wikimedia.org/wiki/Fil:Audnedal_komm.svg",
+      "localPath": "/assets/heraldry/municipalities/municipality-1027-konsmo.svg",
+      "mimeType": "image/svg+xml"
+    }
   },
   {
     "id": "hist-mun-1033-kvas",
@@ -919,7 +1057,12 @@
     "wikipediaUrl": "https://no.wikipedia.org/wiki/Kv%C3%A5s",
     "resultIds": [
       "4225"
-    ]
+    ],
+    "coatOfArms": {
+      "sourceUrl": "https://commons.wikimedia.org/wiki/Fil:Lyngdal_komm.svg",
+      "localPath": "/assets/heraldry/municipalities/municipality-1033-kvas.svg",
+      "mimeType": "image/svg+xml"
+    }
   },
   {
     "id": "hist-mun-1022-laudal",
@@ -938,7 +1081,12 @@
     "wikipediaUrl": "https://no.wikipedia.org/wiki/Laudal",
     "resultIds": [
       "hist-mun-1021-marnardal"
-    ]
+    ],
+    "coatOfArms": {
+      "sourceUrl": "https://commons.wikimedia.org/wiki/Fil:Marnardal_komm.svg",
+      "localPath": "/assets/heraldry/municipalities/municipality-1022-laudal.svg",
+      "mimeType": "image/svg+xml"
+    }
   },
   {
     "id": "hist-mun-1041-lista",
@@ -957,7 +1105,12 @@
     "wikipediaUrl": "https://no.wikipedia.org/wiki/Lista",
     "resultIds": [
       "4206"
-    ]
+    ],
+    "coatOfArms": {
+      "sourceUrl": "https://commons.wikimedia.org/wiki/Fil:Farsund_komm.svg",
+      "localPath": "/assets/heraldry/municipalities/municipality-1041-lista.svg",
+      "mimeType": "image/svg+xml"
+    }
   },
   {
     "id": "hist-mun-1002-mandal",
@@ -976,7 +1129,12 @@
     "wikipediaUrl": "https://no.wikipedia.org/wiki/Mandal",
     "resultIds": [
       "4205"
-    ]
+    ],
+    "coatOfArms": {
+      "sourceUrl": "https://commons.wikimedia.org/wiki/Fil:Lindesnes_komm_(2020).svg",
+      "localPath": "/assets/heraldry/municipalities/municipality-1002-mandal.svg",
+      "mimeType": "image/svg+xml"
+    }
   },
   {
     "id": "hist-mun-1021-marnardal",
@@ -1074,7 +1232,12 @@
     "wikipediaUrl": "https://no.wikipedia.org/wiki/Oddernes_kommune",
     "resultIds": [
       "4204"
-    ]
+    ],
+    "coatOfArms": {
+      "sourceUrl": "https://commons.wikimedia.org/wiki/Fil:Kristiansand_komm.svg",
+      "localPath": "/assets/heraldry/municipalities/municipality-1012-oddernes.svg",
+      "mimeType": "image/svg+xml"
+    }
   },
   {
     "id": "hist-mun-1011-randesund",
@@ -1150,7 +1313,12 @@
     "wikipediaUrl": "https://no.wikipedia.org/wiki/Spangereid",
     "resultIds": [
       "4205"
-    ]
+    ],
+    "coatOfArms": {
+      "sourceUrl": "https://commons.wikimedia.org/wiki/Fil:Lindesnes_komm.svg",
+      "localPath": "/assets/heraldry/municipalities/municipality-1030-spangereid.svg",
+      "mimeType": "image/svg+xml"
+    }
   },
   {
     "id": "hist-mun-1040-spind",
@@ -1207,7 +1375,12 @@
     "wikipediaUrl": "https://no.wikipedia.org/wiki/Tonstad",
     "resultIds": [
       "4228"
-    ]
+    ],
+    "coatOfArms": {
+      "sourceUrl": "https://commons.wikimedia.org/wiki/Fil:Sirdal_komm.svg",
+      "localPath": "/assets/heraldry/municipalities/municipality-1046-tonstad.svg",
+      "mimeType": "image/svg+xml"
+    }
   },
   {
     "id": "hist-mun-1013-tveit",
@@ -1381,7 +1554,12 @@
     "wikipediaUrl": "https://no.wikipedia.org/wiki/Brandval",
     "resultIds": [
       "3401"
-    ]
+    ],
+    "coatOfArms": {
+      "sourceUrl": "https://commons.wikimedia.org/wiki/Fil:Kongsvinger_komm.svg",
+      "localPath": "/assets/heraldry/municipalities/municipality-0422-brandval.svg",
+      "mimeType": "image/svg+xml"
+    }
   },
   {
     "id": "hist-mun-0413-furnes",
@@ -1400,7 +1578,12 @@
     "wikipediaUrl": "https://no.wikipedia.org/wiki/Furnes",
     "resultIds": [
       "3411"
-    ]
+    ],
+    "coatOfArms": {
+      "sourceUrl": "https://commons.wikimedia.org/wiki/Fil:Ringsaker_komm.svg",
+      "localPath": "/assets/heraldry/municipalities/municipality-0413-furnes.svg",
+      "mimeType": "image/svg+xml"
+    }
   },
   {
     "id": "hist-mun-0424-hof",
@@ -1419,7 +1602,12 @@
     "wikipediaUrl": "https://no.wikipedia.org/wiki/Hof_i_Hedmark",
     "resultIds": [
       "3418"
-    ]
+    ],
+    "coatOfArms": {
+      "sourceUrl": "https://commons.wikimedia.org/wiki/Fil:%C3%85snes_komm.svg",
+      "localPath": "/assets/heraldry/municipalities/municipality-0424-hof.svg",
+      "mimeType": "image/svg+xml"
+    }
   },
   {
     "id": "hist-mun-0440-kvikne",
@@ -1440,7 +1628,12 @@
     "resultIds": [
       "5022",
       "3427"
-    ]
+    ],
+    "coatOfArms": {
+      "sourceUrl": "https://commons.wikimedia.org/wiki/Fil:Rennebu_komm.svg",
+      "localPath": "/assets/heraldry/municipalities/municipality-0440-kvikne.svg",
+      "mimeType": "image/svg+xml"
+    }
   },
   {
     "id": "hist-mun-0411-nes",
@@ -1499,7 +1692,12 @@
     "wikipediaUrl": "https://no.wikipedia.org/wiki/Romedal",
     "resultIds": [
       "3413"
-    ]
+    ],
+    "coatOfArms": {
+      "sourceUrl": "https://commons.wikimedia.org/wiki/Fil:Stange_komm.svg",
+      "localPath": "/assets/heraldry/municipalities/municipality-0416-romedal.svg",
+      "mimeType": "image/svg+xml"
+    }
   },
   {
     "id": "hist-mun-0580-sollia",
@@ -1518,7 +1716,12 @@
     "wikipediaUrl": "https://no.wikipedia.org/wiki/Sollia_(kommune)",
     "resultIds": [
       "3423"
-    ]
+    ],
+    "coatOfArms": {
+      "sourceUrl": "https://commons.wikimedia.org/wiki/Fil:Stor-Elvdal_komm.svg",
+      "localPath": "/assets/heraldry/municipalities/municipality-0580-sollia.svg",
+      "mimeType": "image/svg+xml"
+    }
   },
   {
     "id": "hist-mun-0435-tolga-os",
@@ -1539,7 +1742,12 @@
     "resultIds": [
       "3430",
       "3426"
-    ]
+    ],
+    "coatOfArms": {
+      "sourceUrl": "https://commons.wikimedia.org/wiki/Fil:Os_Innlandet_komm.svg",
+      "localPath": "/assets/heraldry/municipalities/municipality-0435-tolga-os.svg",
+      "mimeType": "image/svg+xml"
+    }
   },
   {
     "id": "hist-mun-0414-vang",
@@ -1562,9 +1770,7 @@
     "coatOfArms": {
       "sourceUrl": "https://commons.wikimedia.org/wiki/Fil:Hamar_komm.svg",
       "localPath": "/assets/heraldry/municipalities/municipality-0414-vang.svg",
-      "mimeType": "image/svg+xml",
-      "attribution": "Own work This W3C-unspecified vector image was created with Inkscape .",
-      "license": "Public domain"
+      "mimeType": "image/svg+xml"
     }
   },
   {
@@ -1607,9 +1813,7 @@
     "coatOfArms": {
       "sourceUrl": "https://commons.wikimedia.org/wiki/Fil:Rendalen_komm.svg",
       "localPath": "/assets/heraldry/municipalities/municipality-0432-ytre-rendal.svg",
-      "mimeType": "image/svg+xml",
-      "attribution": "Own work This W3C-unspecified vector image was created with Inkscape .",
-      "license": "Public domain"
+      "mimeType": "image/svg+xml"
     }
   },
   {
@@ -1653,9 +1857,7 @@
     "coatOfArms": {
       "sourceUrl": "https://commons.wikimedia.org/wiki/Fil:V%C3%A5ler_Innlandet_komm.svg",
       "localPath": "/assets/heraldry/municipalities/municipality-0425-asnes-og-valer.svg",
-      "mimeType": "image/svg+xml",
-      "attribution": "Original by caplex.no",
-      "license": "Public domain"
+      "mimeType": "image/svg+xml"
     }
   },
   {
@@ -1679,9 +1881,7 @@
     "coatOfArms": {
       "sourceUrl": "https://commons.wikimedia.org/wiki/Fil:Gj%C3%B8vik_komm.svg",
       "localPath": "/assets/heraldry/municipalities/municipality-0525-biri.svg",
-      "mimeType": "image/svg+xml",
-      "attribution": "Original by caplex.no",
-      "license": "Public domain"
+      "mimeType": "image/svg+xml"
     }
   },
   {
@@ -1705,9 +1905,7 @@
     "coatOfArms": {
       "sourceUrl": "https://commons.wikimedia.org/wiki/Fil:Gran_komm.svg",
       "localPath": "/assets/heraldry/municipalities/municipality-0535-brandbu.svg",
-      "mimeType": "image/svg+xml",
-      "attribution": "Original by caplex.no",
-      "license": "Public domain"
+      "mimeType": "image/svg+xml"
     }
   },
   {
@@ -1731,9 +1929,7 @@
     "coatOfArms": {
       "sourceUrl": "https://commons.wikimedia.org/wiki/Fil:Vestre_Toten_komm.svg",
       "localPath": "/assets/heraldry/municipalities/municipality-0530-eina.svg",
-      "mimeType": "image/svg+xml",
-      "attribution": "Original by caplex.no",
-      "license": "Public domain"
+      "mimeType": "image/svg+xml"
     }
   },
   {
@@ -1757,9 +1953,7 @@
     "coatOfArms": {
       "sourceUrl": "https://commons.wikimedia.org/wiki/Fil:S%C3%B8ndre_Land_komm.svg",
       "localPath": "/assets/heraldry/municipalities/municipality-0537-fluberg.svg",
-      "mimeType": "image/svg+xml",
-      "attribution": "Own work  This W3C-unspecified vector image was created with Inkscape .",
-      "license": "Public domain"
+      "mimeType": "image/svg+xml"
     }
   },
   {
@@ -1785,9 +1979,7 @@
     "coatOfArms": {
       "sourceUrl": "https://commons.wikimedia.org/wiki/Fil:Nord-Fron_komm.svg",
       "localPath": "/assets/heraldry/municipalities/municipality-0518-fron.svg",
-      "mimeType": "image/svg+xml",
-      "attribution": "Original by caplex.no",
-      "license": "Public domain"
+      "mimeType": "image/svg+xml"
     }
   },
   {
@@ -1811,9 +2003,7 @@
     "coatOfArms": {
       "sourceUrl": "https://commons.wikimedia.org/wiki/Fil:Lillehammer_komm.svg",
       "localPath": "/assets/heraldry/municipalities/municipality-0524-faberg.svg",
-      "mimeType": "image/svg+xml",
-      "attribution": "Own work This W3C-unspecified vector image was created with Inkscape .",
-      "license": "Public domain"
+      "mimeType": "image/svg+xml"
     }
   },
   {
@@ -1837,9 +2027,7 @@
     "coatOfArms": {
       "sourceUrl": "https://commons.wikimedia.org/wiki/Fil:Sel_komm.svg",
       "localPath": "/assets/heraldry/municipalities/municipality-0516-heidal.svg",
-      "mimeType": "image/svg+xml",
-      "attribution": "Original by caplex.no",
-      "license": "Public domain"
+      "mimeType": "image/svg+xml"
     }
   },
   {
@@ -1996,6 +2184,984 @@
     "wikipediaUrl": "https://no.wikipedia.org/wiki/%C3%98stre_Gausdal",
     "resultIds": [
       "3441"
+    ]
+  },
+  {
+    "id": "hist-mun-1545-aukra",
+    "type": "municipality",
+    "name": "Aukra",
+    "municipalityNumber": "1545",
+    "countyNameAtSource": "Møre og Romsdal",
+    "validFrom": 1838,
+    "validTo": 1924,
+    "changeType": "unknown",
+    "notes": "Delt. 1546 Sandøy utskilt i 1867",
+    "resultNames": [
+      "Nord-Aukra",
+      "Sandøy",
+      "Sør-Aukra"
+    ],
+    "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner",
+    "wikipediaUrl": "https://no.wikipedia.org/wiki/Aukra",
+    "resultIds": [
+      "hist-mun-1547-nord-aukra",
+      "hist-mun-1546-sandoy",
+      "hist-mun-1545-sor-aukra"
+    ]
+  },
+  {
+    "id": "hist-mun-1544-bolsoy",
+    "type": "municipality",
+    "name": "Bolsøy",
+    "municipalityNumber": "1544",
+    "countyNameAtSource": "Møre og Romsdal",
+    "validFrom": 1838,
+    "validTo": 1964,
+    "changeType": "incorporated",
+    "notes": "Innlemmet i Molde",
+    "resultNames": [
+      "Molde"
+    ],
+    "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner",
+    "wikipediaUrl": "https://no.wikipedia.org/wiki/Bols%C3%B8y",
+    "resultIds": [
+      "1506"
+    ]
+  },
+  {
+    "id": "hist-mun-1531-borgund",
+    "type": "municipality",
+    "name": "Borgund",
+    "municipalityNumber": "1531",
+    "countyNameAtSource": "Møre og Romsdal",
+    "validFrom": 1908,
+    "validTo": 1968,
+    "changeType": "incorporated",
+    "notes": "Innlemmet i Ålesund og Haram , deler utskilt som ny kommune Sula",
+    "resultNames": [
+      "Ålesund",
+      "Haram",
+      "Sula"
+    ],
+    "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner",
+    "wikipediaUrl": "https://no.wikipedia.org/wiki/Borgund_(M%C3%B8re_og_Romsdal)",
+    "resultIds": [
+      "1508",
+      "1580",
+      "1531"
+    ]
+  },
+  {
+    "id": "hist-mun-1574-brattvaer",
+    "type": "municipality",
+    "name": "Brattvær",
+    "municipalityNumber": "1574",
+    "countyNameAtSource": "Møre og Romsdal",
+    "validFrom": 1915,
+    "validTo": 1960,
+    "changeType": "merged",
+    "notes": "Slått sammen med Edøy og Hopen",
+    "resultNames": [
+      "Smøla"
+    ],
+    "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner",
+    "wikipediaUrl": "https://no.wikipedia.org/wiki/Brattv%C3%A6r",
+    "resultIds": [
+      "1573"
+    ]
+  },
+  {
+    "id": "hist-mun-1554-bremsnes",
+    "type": "municipality",
+    "name": "Bremsnes",
+    "municipalityNumber": "1554",
+    "countyNameAtSource": "Møre og Romsdal",
+    "validFrom": 1897,
+    "validTo": 1964,
+    "changeType": "unknown",
+    "notes": "Oppdelt og innlemmet i flere kommuner",
+    "resultNames": [
+      "Averøy",
+      "Frei",
+      "Kristiansund"
+    ],
+    "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner",
+    "wikipediaUrl": "https://no.wikipedia.org/wiki/Bremsnes",
+    "resultIds": [
+      "1554",
+      "hist-mun-1556-frei",
+      "1505"
+    ]
+  },
+  {
+    "id": "hist-mun-1549-bud",
+    "type": "municipality",
+    "name": "Bud",
+    "municipalityNumber": "1549",
+    "countyNameAtSource": "Møre og Romsdal",
+    "validFrom": 1838,
+    "validTo": 1964,
+    "changeType": "incorporated",
+    "notes": "Innlemmet i Fræna",
+    "resultNames": [
+      "Fræna"
+    ],
+    "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner",
+    "wikipediaUrl": "https://no.wikipedia.org/wiki/Bud",
+    "resultIds": [
+      "hist-mun-1548-fraena"
+    ]
+  },
+  {
+    "id": "hist-mun-1518-dalsfjord",
+    "type": "municipality",
+    "name": "Dalsfjord",
+    "municipalityNumber": "1518",
+    "countyNameAtSource": "Møre og Romsdal",
+    "validFrom": 1924,
+    "validTo": 1964,
+    "changeType": "incorporated",
+    "notes": "Innlemmet i Volda",
+    "resultNames": [
+      "Volda"
+    ],
+    "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner",
+    "wikipediaUrl": "https://no.wikipedia.org/wiki/Dalsfjord",
+    "resultIds": [
+      "1577"
+    ]
+  },
+  {
+    "id": "hist-mun-1573-edoy",
+    "type": "municipality",
+    "name": "Edøy",
+    "municipalityNumber": "1573",
+    "countyNameAtSource": "Møre og Romsdal",
+    "validFrom": 1838,
+    "validTo": 1960,
+    "changeType": "merged",
+    "notes": "Slått sammen med Brattvær og Hopen",
+    "resultNames": [
+      "Smøla"
+    ],
+    "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner",
+    "wikipediaUrl": "https://no.wikipedia.org/wiki/Ed%C3%B8y",
+    "resultIds": [
+      "1573"
+    ]
+  },
+  {
+    "id": "hist-mun-1538-eid",
+    "type": "municipality",
+    "name": "Eid",
+    "municipalityNumber": "1538",
+    "countyNameAtSource": "Møre og Romsdal",
+    "validFrom": 1874,
+    "validTo": 1964,
+    "changeType": "merged",
+    "notes": "Slått sammen med Grytten , Hen , Voll og deler av Veøy",
+    "resultNames": [
+      "Rauma"
+    ],
+    "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner",
+    "wikipediaUrl": "https://no.wikipedia.org/wiki/Eid_i_M%C3%B8re_og_Romsdal",
+    "resultIds": [
+      "1539"
+    ]
+  },
+  {
+    "id": "hist-mun-1537-eid-og-voll",
+    "type": "municipality",
+    "name": "Eid og Voll",
+    "municipalityNumber": "1537",
+    "countyNameAtSource": "Møre og Romsdal",
+    "validFrom": 1838,
+    "validTo": 1874,
+    "changeType": "split",
+    "notes": "Delt i to",
+    "resultNames": [
+      "Eid",
+      "Voll"
+    ],
+    "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner",
+    "wikipediaUrl": "https://no.wikipedia.org/wiki/Eid_og_Voll",
+    "resultIds": [
+      "hist-mun-1537-voll"
+    ]
+  },
+  {
+    "id": "hist-mun-1551-eide",
+    "type": "municipality",
+    "name": "Eide",
+    "municipalityNumber": "1551",
+    "countyNameAtSource": "Møre og Romsdal",
+    "validFrom": 1897,
+    "validTo": 2020,
+    "changeType": "merged",
+    "notes": "Slått sammen med Fræna",
+    "resultNames": [
+      "Hustadvika"
+    ],
+    "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner",
+    "wikipediaUrl": "https://no.wikipedia.org/wiki/Eide_(M%C3%B8re_og_Romsdal)",
+    "resultIds": [
+      "1579"
+    ]
+  },
+  {
+    "id": "hist-mun-1542-eresfjord-og-vistdal",
+    "type": "municipality",
+    "name": "Eresfjord og Vistdal",
+    "municipalityNumber": "1542",
+    "countyNameAtSource": "Møre og Romsdal",
+    "validFrom": 1890,
+    "validTo": 1964,
+    "changeType": "incorporated",
+    "notes": "Innlemmet i Nesset",
+    "resultNames": [
+      "Nesset"
+    ],
+    "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner",
+    "wikipediaUrl": "https://no.wikipedia.org/wiki/Eresfjord_og_Vistdal",
+    "resultIds": [
+      "hist-mun-1543-nesset"
+    ]
+  },
+  {
+    "id": "hist-mun-1556-frei",
+    "type": "municipality",
+    "name": "Frei",
+    "municipalityNumber": "1556",
+    "countyNameAtSource": "Møre og Romsdal",
+    "validFrom": 1838,
+    "validTo": 2008,
+    "changeType": "incorporated",
+    "notes": "Innlemmet i Kristiansund",
+    "resultNames": [
+      "Kristiansund"
+    ],
+    "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner",
+    "wikipediaUrl": "https://no.wikipedia.org/wiki/Frei",
+    "resultIds": [
+      "1505"
+    ]
+  },
+  {
+    "id": "hist-mun-1548-fraena",
+    "type": "municipality",
+    "name": "Fræna",
+    "municipalityNumber": "1548",
+    "countyNameAtSource": "Møre og Romsdal",
+    "validFrom": 1838,
+    "validTo": 2020,
+    "changeType": "merged",
+    "notes": "Slått sammen med Eide",
+    "resultNames": [
+      "Hustadvika"
+    ],
+    "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner",
+    "wikipediaUrl": "https://no.wikipedia.org/wiki/Fr%C3%A6na",
+    "resultIds": [
+      "1579"
+    ]
+  },
+  {
+    "id": "hist-mun-1555-grip",
+    "type": "municipality",
+    "name": "Grip",
+    "municipalityNumber": "1555",
+    "countyNameAtSource": "Møre og Romsdal",
+    "validFrom": 1897,
+    "validTo": 1964,
+    "changeType": "incorporated",
+    "notes": "Innlemmet i Kristiansund",
+    "resultNames": [
+      "Kristiansund"
+    ],
+    "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner",
+    "wikipediaUrl": "https://no.wikipedia.org/wiki/Grip",
+    "resultIds": [
+      "1505"
+    ]
+  },
+  {
+    "id": "hist-mun-1539-grytten",
+    "type": "municipality",
+    "name": "Grytten",
+    "municipalityNumber": "1539",
+    "countyNameAtSource": "Møre og Romsdal",
+    "validFrom": 1902,
+    "validTo": 1964,
+    "changeType": "merged",
+    "notes": "Slått sammen med Eid , Hen , Voll og deler av Veøy",
+    "resultNames": [
+      "Rauma"
+    ],
+    "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner",
+    "wikipediaUrl": "https://no.wikipedia.org/wiki/Grytten",
+    "resultIds": [
+      "1539"
+    ]
+  },
+  {
+    "id": "hist-mun-1571-halsa",
+    "type": "municipality",
+    "name": "Halsa",
+    "municipalityNumber": "1571",
+    "countyNameAtSource": "Møre og Romsdal",
+    "validFrom": 1838,
+    "validTo": 2020,
+    "changeType": "merged",
+    "notes": "Slått sammen med Hemne og deler av Snillfjord",
+    "resultNames": [
+      "Heim"
+    ],
+    "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner",
+    "wikipediaUrl": "https://no.wikipedia.org/wiki/Halsa",
+    "resultIds": [
+      "5055"
+    ]
+  },
+  {
+    "id": "hist-mun-1540-hen",
+    "type": "municipality",
+    "name": "Hen",
+    "municipalityNumber": "1540",
+    "countyNameAtSource": "Møre og Romsdal",
+    "validFrom": 1902,
+    "validTo": 1964,
+    "changeType": "merged",
+    "notes": "Slått sammen med Eid , Grytten , Voll og deler av Veøy",
+    "resultNames": [
+      "Rauma"
+    ],
+    "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner",
+    "wikipediaUrl": "https://no.wikipedia.org/wiki/Hen_(Rauma)",
+    "resultIds": [
+      "1539"
+    ]
+  },
+  {
+    "id": "hist-mun-1522-hjorundfjord",
+    "type": "municipality",
+    "name": "Hjørundfjord",
+    "municipalityNumber": "1522",
+    "countyNameAtSource": "Møre og Romsdal",
+    "validFrom": 1838,
+    "validTo": 1964,
+    "changeType": "incorporated",
+    "notes": "Innlemmet i Ørsta",
+    "resultNames": [
+      "Ørsta"
+    ],
+    "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner",
+    "wikipediaUrl": "https://no.wikipedia.org/wiki/Hj%C3%B8rundfjord",
+    "resultIds": [
+      "1520"
+    ]
+  },
+  {
+    "id": "hist-mun-1575-hopen",
+    "type": "municipality",
+    "name": "Hopen",
+    "municipalityNumber": "1575",
+    "countyNameAtSource": "Møre og Romsdal",
+    "validFrom": 1915,
+    "validTo": 1960,
+    "changeType": "merged",
+    "notes": "Slått sammen med Brattvær og Edøy",
+    "resultNames": [
+      "Smøla"
+    ],
+    "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner",
+    "wikipediaUrl": "https://no.wikipedia.org/wiki/Hopen_(Sm%C3%B8la)",
+    "resultIds": [
+      "1573"
+    ]
+  },
+  {
+    "id": "hist-mun-1550-hustad",
+    "type": "municipality",
+    "name": "Hustad",
+    "municipalityNumber": "1550",
+    "countyNameAtSource": "Møre og Romsdal",
+    "validFrom": 1918,
+    "validTo": 1964,
+    "changeType": "incorporated",
+    "notes": "Innlemmet i Fræna",
+    "resultNames": [
+      "Fræna"
+    ],
+    "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner",
+    "wikipediaUrl": "https://no.wikipedia.org/wiki/Hustad",
+    "resultIds": [
+      "hist-mun-1548-fraena"
+    ]
+  },
+  {
+    "id": "hist-mun-1552-kornstad",
+    "type": "municipality",
+    "name": "Kornstad",
+    "municipalityNumber": "1552",
+    "countyNameAtSource": "Møre og Romsdal",
+    "validFrom": 1897,
+    "validTo": 1964,
+    "changeType": "unknown",
+    "notes": "Oppdelt og innlemmet i flere kommuner",
+    "resultNames": [
+      "Averøy",
+      "Eide"
+    ],
+    "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner",
+    "wikipediaUrl": "https://no.wikipedia.org/wiki/Kornstad",
+    "resultIds": [
+      "1554"
+    ]
+  },
+  {
+    "id": "hist-mun-1553-kvernes",
+    "type": "municipality",
+    "name": "Kvernes",
+    "municipalityNumber": "1553",
+    "countyNameAtSource": "Møre og Romsdal",
+    "validFrom": 1897,
+    "validTo": 1964,
+    "changeType": "merged",
+    "notes": "Slått sammen med mesteparten av Bremsnes og Kornstad",
+    "resultNames": [
+      "Averøy"
+    ],
+    "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner",
+    "wikipediaUrl": "https://no.wikipedia.org/wiki/Kvernes",
+    "resultIds": [
+      "1554"
+    ]
+  },
+  {
+    "id": "hist-mun-1545-midsund",
+    "type": "municipality",
+    "name": "Midsund",
+    "municipalityNumber": "1545",
+    "countyNameAtSource": "Møre og Romsdal",
+    "validFrom": 1965,
+    "validTo": 2020,
+    "changeType": "incorporated",
+    "notes": "Innlemmet i Molde",
+    "resultNames": [
+      "Molde"
+    ],
+    "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner",
+    "wikipediaUrl": "https://no.wikipedia.org/wiki/Midsund",
+    "resultIds": [
+      "1506"
+    ]
+  },
+  {
+    "id": "hist-mun-1543-nesset",
+    "type": "municipality",
+    "name": "Nesset",
+    "municipalityNumber": "1543",
+    "countyNameAtSource": "Møre og Romsdal",
+    "validFrom": 1838,
+    "validTo": 2020,
+    "changeType": "incorporated",
+    "notes": "Innlemmet i Molde",
+    "resultNames": [
+      "Molde"
+    ],
+    "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner",
+    "wikipediaUrl": "https://no.wikipedia.org/wiki/Nesset",
+    "resultIds": [
+      "1506"
+    ]
+  },
+  {
+    "id": "hist-mun-1547-nord-aukra",
+    "type": "municipality",
+    "name": "Nord-Aukra",
+    "municipalityNumber": "1547",
+    "countyNameAtSource": "Møre og Romsdal",
+    "validFrom": 1924,
+    "validTo": 1964,
+    "changeType": "unknown",
+    "notes": "Nordal krets innlemmet i Molde. Resten endret navn til Aukra 1965",
+    "resultNames": [
+      "Aukra",
+      "Molde"
+    ],
+    "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner",
+    "wikipediaUrl": "https://no.wikipedia.org/wiki/Nord-Aukra",
+    "resultIds": [
+      "1547",
+      "1506"
+    ]
+  },
+  {
+    "id": "hist-mun-1524-norddal",
+    "type": "municipality",
+    "name": "Norddal",
+    "municipalityNumber": "1524",
+    "countyNameAtSource": "Møre og Romsdal",
+    "validFrom": 1838,
+    "validTo": 2020,
+    "changeType": "merged",
+    "notes": "Slått sammen med Stordal",
+    "resultNames": [
+      "Fjord"
+    ],
+    "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner",
+    "wikipediaUrl": "https://no.wikipedia.org/wiki/Norddal",
+    "resultIds": [
+      "1578"
+    ]
+  },
+  {
+    "id": "hist-mun-1513-rovde",
+    "type": "municipality",
+    "name": "Rovde",
+    "municipalityNumber": "1513",
+    "countyNameAtSource": "Møre og Romsdal",
+    "validFrom": 1905,
+    "validTo": 1964,
+    "changeType": "unknown",
+    "notes": "Oppdelt og innlemmet i flere kommuner",
+    "resultNames": [
+      "Sande",
+      "Vanylven"
+    ],
+    "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner",
+    "wikipediaUrl": "https://no.wikipedia.org/wiki/Rovde",
+    "resultIds": [
+      "1514",
+      "1511"
+    ]
+  },
+  {
+    "id": "hist-mun-1546-sandoy",
+    "type": "municipality",
+    "name": "Sandøy",
+    "municipalityNumber": "1546",
+    "countyNameAtSource": "Møre og Romsdal",
+    "validFrom": 1867,
+    "validTo": 2020,
+    "changeType": "incorporated",
+    "notes": "Innlemmet i Ålesund",
+    "resultNames": [
+      "Ålesund"
+    ],
+    "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner",
+    "wikipediaUrl": "https://no.wikipedia.org/wiki/Sand%C3%B8y",
+    "resultIds": [
+      "1508"
+    ]
+  },
+  {
+    "id": "hist-mun-1529-skodje",
+    "type": "municipality",
+    "name": "Skodje",
+    "municipalityNumber": "1529",
+    "countyNameAtSource": "Møre og Romsdal",
+    "validFrom": 1849,
+    "validTo": 2020,
+    "changeType": "incorporated",
+    "notes": "Innlemmet i Ålesund",
+    "resultNames": [
+      "Ålesund"
+    ],
+    "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner",
+    "wikipediaUrl": "https://no.wikipedia.org/wiki/Skodje",
+    "resultIds": [
+      "1508"
+    ]
+  },
+  {
+    "id": "hist-mun-1564-stangvik",
+    "type": "municipality",
+    "name": "Stangvik",
+    "municipalityNumber": "1564",
+    "countyNameAtSource": "Møre og Romsdal",
+    "validFrom": 1895,
+    "validTo": 1965,
+    "changeType": "unknown",
+    "notes": "Oppdelt og innlemmet i flere kommuner",
+    "resultNames": [
+      "Surnadal",
+      "Sunndal",
+      "Tingvoll"
+    ],
+    "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner",
+    "wikipediaUrl": "https://no.wikipedia.org/wiki/Stangvik",
+    "resultIds": [
+      "1566",
+      "1563",
+      "1560"
+    ]
+  },
+  {
+    "id": "hist-mun-1568-stemshaug",
+    "type": "municipality",
+    "name": "Stemshaug",
+    "municipalityNumber": "1568",
+    "countyNameAtSource": "Møre og Romsdal",
+    "validFrom": 1914,
+    "validTo": 1965,
+    "changeType": "incorporated",
+    "notes": "Innlemmet i Aure",
+    "resultNames": [
+      "Aure"
+    ],
+    "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner",
+    "wikipediaUrl": "https://no.wikipedia.org/wiki/Stemshaug",
+    "resultIds": [
+      "1576"
+    ]
+  },
+  {
+    "id": "hist-mun-1526-stordal",
+    "type": "municipality",
+    "name": "Stordal",
+    "municipalityNumber": "1526",
+    "countyNameAtSource": "Møre og Romsdal",
+    "validFrom": 1838,
+    "validTo": 2020,
+    "changeType": "merged",
+    "notes": "Slått sammen med Norddal",
+    "resultNames": [
+      "Fjord"
+    ],
+    "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner",
+    "wikipediaUrl": "https://no.wikipedia.org/wiki/Stordal",
+    "resultIds": [
+      "1578"
+    ]
+  },
+  {
+    "id": "hist-mun-1559-straumsnes",
+    "type": "municipality",
+    "name": "Straumsnes",
+    "municipalityNumber": "1559",
+    "countyNameAtSource": "Møre og Romsdal",
+    "validFrom": 1866,
+    "validTo": 1964,
+    "changeType": "incorporated",
+    "notes": "Innlemmet i Tingvoll",
+    "resultNames": [
+      "Tingvoll"
+    ],
+    "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner",
+    "wikipediaUrl": "https://no.wikipedia.org/wiki/Straumsnes_(Tingvoll)",
+    "resultIds": [
+      "1560"
+    ]
+  },
+  {
+    "id": "hist-mun-1523-sunnylven",
+    "type": "municipality",
+    "name": "Sunnylven",
+    "municipalityNumber": "1523",
+    "countyNameAtSource": "Møre og Romsdal",
+    "validFrom": 1838,
+    "validTo": 1965,
+    "changeType": "incorporated",
+    "notes": "Innlemmet i Stranda",
+    "resultNames": [
+      "Stranda"
+    ],
+    "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner",
+    "wikipediaUrl": "https://no.wikipedia.org/wiki/Sunnylven",
+    "resultIds": [
+      "1525"
+    ]
+  },
+  {
+    "id": "hist-mun-1512-syvde",
+    "type": "municipality",
+    "name": "Syvde",
+    "municipalityNumber": "1512",
+    "countyNameAtSource": "Møre og Romsdal",
+    "validFrom": 1918,
+    "validTo": 1964,
+    "changeType": "incorporated",
+    "notes": "Innlemmet i Vanylven",
+    "resultNames": [
+      "Vanylven"
+    ],
+    "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner",
+    "wikipediaUrl": "https://no.wikipedia.org/wiki/Syvde",
+    "resultIds": [
+      "1511"
+    ]
+  },
+  {
+    "id": "hist-mun-1545-sor-aukra",
+    "type": "municipality",
+    "name": "Sør-Aukra",
+    "municipalityNumber": "1545",
+    "countyNameAtSource": "Møre og Romsdal",
+    "validFrom": 1924,
+    "validTo": 1965,
+    "changeType": "merged",
+    "notes": "Slått sammen med deler av Vatne",
+    "resultNames": [
+      "Midsund"
+    ],
+    "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner",
+    "wikipediaUrl": "https://no.wikipedia.org/wiki/S%C3%B8r-Aukra",
+    "resultIds": [
+      "hist-mun-1545-midsund"
+    ]
+  },
+  {
+    "id": "hist-mun-1536-tresfjord",
+    "type": "municipality",
+    "name": "Tresfjord",
+    "municipalityNumber": "1536",
+    "countyNameAtSource": "Møre og Romsdal",
+    "validFrom": 1899,
+    "validTo": 1964,
+    "changeType": "incorporated",
+    "notes": "Innlemmet i Vestnes",
+    "resultNames": [
+      "Vestnes"
+    ],
+    "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner",
+    "wikipediaUrl": "https://no.wikipedia.org/wiki/Tresfjord",
+    "resultIds": [
+      "1535"
+    ]
+  },
+  {
+    "id": "hist-mun-1572-tustna",
+    "type": "municipality",
+    "name": "Tustna",
+    "municipalityNumber": "1572",
+    "countyNameAtSource": "Møre og Romsdal",
+    "validFrom": 1838,
+    "validTo": 2006,
+    "changeType": "incorporated",
+    "notes": "Innlemmet i Aure",
+    "resultNames": [
+      "Aure"
+    ],
+    "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner",
+    "wikipediaUrl": "https://no.wikipedia.org/wiki/Tustna",
+    "resultIds": [
+      "1576"
+    ]
+  },
+  {
+    "id": "hist-mun-1570-valsoyfjord",
+    "type": "municipality",
+    "name": "Valsøyfjord",
+    "municipalityNumber": "1570",
+    "countyNameAtSource": "Møre og Romsdal",
+    "validFrom": 1894,
+    "validTo": 1965,
+    "changeType": "unknown",
+    "notes": "Oppdelt og innlemmet i flere kommuner",
+    "resultNames": [
+      "Halsa",
+      "Aure"
+    ],
+    "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner",
+    "wikipediaUrl": "https://no.wikipedia.org/wiki/Vals%C3%B8yfjord",
+    "resultIds": [
+      "hist-mun-1571-halsa",
+      "1576"
+    ]
+  },
+  {
+    "id": "hist-mun-1521-vartdal",
+    "type": "municipality",
+    "name": "Vartdal",
+    "municipalityNumber": "1521",
+    "countyNameAtSource": "Møre og Romsdal",
+    "validFrom": 1895,
+    "validTo": 1964,
+    "changeType": "incorporated",
+    "notes": "Innlemmet i Ørsta",
+    "resultNames": [
+      "Ørsta"
+    ],
+    "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner",
+    "wikipediaUrl": "https://no.wikipedia.org/wiki/Vartdal",
+    "resultIds": [
+      "1520"
+    ]
+  },
+  {
+    "id": "hist-mun-1530-vatne",
+    "type": "municipality",
+    "name": "Vatne",
+    "municipalityNumber": "1530",
+    "countyNameAtSource": "Møre og Romsdal",
+    "validFrom": 1902,
+    "validTo": 1965,
+    "changeType": "unknown",
+    "notes": "Oppdelt og innlemmet i flere kommuner",
+    "resultNames": [
+      "Haram",
+      "Midsund"
+    ],
+    "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner",
+    "wikipediaUrl": "https://no.wikipedia.org/wiki/Vatne_kommune",
+    "resultIds": [
+      "1580",
+      "hist-mun-1545-midsund"
+    ]
+  },
+  {
+    "id": "hist-mun-1541-veoy",
+    "type": "municipality",
+    "name": "Veøy",
+    "municipalityNumber": "1541",
+    "countyNameAtSource": "Møre og Romsdal",
+    "validFrom": 1838,
+    "validTo": 1964,
+    "changeType": "unknown",
+    "notes": "Oppdelt og innlemmet i flere kommuner",
+    "resultNames": [
+      "Molde",
+      "Rauma"
+    ],
+    "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner",
+    "wikipediaUrl": "https://no.wikipedia.org/wiki/Ve%C3%B8y",
+    "resultIds": [
+      "1506",
+      "1539"
+    ]
+  },
+  {
+    "id": "hist-mun-1533-vigra",
+    "type": "municipality",
+    "name": "Vigra",
+    "municipalityNumber": "1533",
+    "countyNameAtSource": "Møre og Romsdal",
+    "validFrom": 1890,
+    "validTo": 1964,
+    "changeType": "incorporated",
+    "notes": "Innlemmet i Giske",
+    "resultNames": [
+      "Giske"
+    ],
+    "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner",
+    "wikipediaUrl": "https://no.wikipedia.org/wiki/Vigra",
+    "resultIds": [
+      "1532"
+    ]
+  },
+  {
+    "id": "hist-mun-1537-voll",
+    "type": "municipality",
+    "name": "Voll",
+    "municipalityNumber": "1537",
+    "countyNameAtSource": "Møre og Romsdal",
+    "validFrom": 1874,
+    "validTo": 1964,
+    "changeType": "merged",
+    "notes": "Slått sammen med Eid , Grytten , Hen og deler av Veøy",
+    "resultNames": [
+      "Rauma"
+    ],
+    "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner",
+    "wikipediaUrl": "https://no.wikipedia.org/wiki/Voll_(M%C3%B8re_og_Romsdal)",
+    "resultIds": [
+      "1539"
+    ]
+  },
+  {
+    "id": "hist-mun-1561-oksendal",
+    "type": "municipality",
+    "name": "Øksendal",
+    "municipalityNumber": "1561",
+    "countyNameAtSource": "Møre og Romsdal",
+    "validFrom": 1854,
+    "validTo": 1960,
+    "changeType": "incorporated",
+    "notes": "Innlemmet i Sunndal",
+    "resultNames": [
+      "Sunndal"
+    ],
+    "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner",
+    "wikipediaUrl": "https://no.wikipedia.org/wiki/%C3%98ksendal_i_M%C3%B8re_og_Romsdal",
+    "resultIds": [
+      "1563"
+    ]
+  },
+  {
+    "id": "hist-mun-1558-ore",
+    "type": "municipality",
+    "name": "Øre",
+    "municipalityNumber": "1558",
+    "countyNameAtSource": "Møre og Romsdal",
+    "validFrom": 1838,
+    "validTo": 1965,
+    "changeType": "incorporated",
+    "notes": "Innlemmet i Gjemnes",
+    "resultNames": [
+      "Gjemnes"
+    ],
+    "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner",
+    "wikipediaUrl": "https://no.wikipedia.org/wiki/%C3%98re_(Gjemnes)",
+    "resultIds": [
+      "1557"
+    ]
+  },
+  {
+    "id": "hist-mun-1523-orskog",
+    "type": "municipality",
+    "name": "Ørskog",
+    "municipalityNumber": "1523",
+    "countyNameAtSource": "Møre og Romsdal",
+    "validFrom": 1838,
+    "validTo": 2020,
+    "changeType": "incorporated",
+    "notes": "Innlemmet i Ålesund",
+    "resultNames": [
+      "Ålesund"
+    ],
+    "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner",
+    "wikipediaUrl": "https://no.wikipedia.org/wiki/%C3%98rskog",
+    "resultIds": [
+      "1508"
+    ]
+  },
+  {
+    "id": "hist-mun-1562-alvundeid",
+    "type": "municipality",
+    "name": "Ålvundeid",
+    "municipalityNumber": "1562",
+    "countyNameAtSource": "Møre og Romsdal",
+    "validFrom": 1899,
+    "validTo": 1960,
+    "changeType": "incorporated",
+    "notes": "Innlemmet i Sunndal",
+    "resultNames": [
+      "Sunndal"
+    ],
+    "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner",
+    "wikipediaUrl": "https://no.wikipedia.org/wiki/%C3%85lvundeid",
+    "resultIds": [
+      "1563"
+    ]
+  },
+  {
+    "id": "hist-mun-1565-asskard",
+    "type": "municipality",
+    "name": "Åsskard",
+    "municipalityNumber": "1565",
+    "countyNameAtSource": "Møre og Romsdal",
+    "validFrom": 1895,
+    "validTo": 1965,
+    "changeType": "incorporated",
+    "notes": "Innlemmet i Surnadal",
+    "resultNames": [
+      "Surnadal"
+    ],
+    "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner",
+    "wikipediaUrl": "https://no.wikipedia.org/wiki/%C3%85sskard",
+    "resultIds": [
+      "1566"
     ]
   },
   {
@@ -2695,7 +3861,12 @@
     "resultIds": [
       "1149",
       "1146"
-    ]
+    ],
+    "coatOfArms": {
+      "sourceUrl": "https://commons.wikimedia.org/wiki/Fil:Karm%C3%B8y_komm.svg",
+      "localPath": "/assets/heraldry/municipalities/municipality-1147-avaldsnes.svg",
+      "mimeType": "image/svg+xml"
+    }
   },
   {
     "id": "hist-mun-1101-egersund",
@@ -3009,7 +4180,12 @@
     "wikipediaUrl": "https://no.wikipedia.org/wiki/Kopervik",
     "resultIds": [
       "1149"
-    ]
+    ],
+    "coatOfArms": {
+      "sourceUrl": "https://commons.wikimedia.org/wiki/Fil:Karm%C3%B8y_komm.svg",
+      "localPath": "/assets/heraldry/municipalities/municipality-1105-kopervik.svg",
+      "mimeType": "image/svg+xml"
+    }
   },
   {
     "id": "hist-mun-1125-madla",
@@ -3220,7 +4396,12 @@
     "wikipediaUrl": "https://no.wikipedia.org/wiki/Skudenes_(kommune)",
     "resultIds": [
       "1149"
-    ]
+    ],
+    "coatOfArms": {
+      "sourceUrl": "https://commons.wikimedia.org/wiki/Fil:Karm%C3%B8y_komm.svg",
+      "localPath": "/assets/heraldry/municipalities/municipality-1150-skudenes.svg",
+      "mimeType": "image/svg+xml"
+    }
   },
   {
     "id": "hist-mun-1104-skudeneshavn",
@@ -3239,7 +4420,12 @@
     "wikipediaUrl": "https://no.wikipedia.org/wiki/Skudeneshavn",
     "resultIds": [
       "1149"
-    ]
+    ],
+    "coatOfArms": {
+      "sourceUrl": "https://commons.wikimedia.org/wiki/Fil:Karm%C3%B8y_komm.svg",
+      "localPath": "/assets/heraldry/municipalities/municipality-1104-skudeneshavn.svg",
+      "mimeType": "image/svg+xml"
+    }
   },
   {
     "id": "hist-mun-1153-skare",
@@ -3296,7 +4482,12 @@
     "wikipediaUrl": "https://no.wikipedia.org/wiki/Stangeland_(Karm%C3%B8y)",
     "resultIds": [
       "1149"
-    ]
+    ],
+    "coatOfArms": {
+      "sourceUrl": "https://commons.wikimedia.org/wiki/Fil:Karm%C3%B8y_komm.svg",
+      "localPath": "/assets/heraldry/municipalities/municipality-1148-stangaland.svg",
+      "mimeType": "image/svg+xml"
+    }
   },
   {
     "id": "hist-mun-1152-torvastad",
@@ -3315,7 +4506,12 @@
     "wikipediaUrl": "https://no.wikipedia.org/wiki/Torvastad",
     "resultIds": [
       "1149"
-    ]
+    ],
+    "coatOfArms": {
+      "sourceUrl": "https://commons.wikimedia.org/wiki/Fil:Karm%C3%B8y_komm.svg",
+      "localPath": "/assets/heraldry/municipalities/municipality-1152-torvastad.svg",
+      "mimeType": "image/svg+xml"
+    }
   },
   {
     "id": "hist-mun-1155-vats",
@@ -3410,7 +4606,12 @@
     "wikipediaUrl": "https://no.wikipedia.org/wiki/%C3%85kra_(kommune)",
     "resultIds": [
       "1149"
-    ]
+    ],
+    "coatOfArms": {
+      "sourceUrl": "https://commons.wikimedia.org/wiki/Fil:Karm%C3%B8y_komm.svg",
+      "localPath": "/assets/heraldry/municipalities/municipality-1149-akra.svg",
+      "mimeType": "image/svg+xml"
+    }
   },
   {
     "id": "hist-mun-1131-ardal",
@@ -3680,7 +4881,12 @@
     "wikipediaUrl": "https://no.wikipedia.org/wiki/Troms%C3%B8ysund",
     "resultIds": [
       "5501"
-    ]
+    ],
+    "coatOfArms": {
+      "sourceUrl": "https://commons.wikimedia.org/wiki/Fil:Troms%C3%B8_komm.svg",
+      "localPath": "/assets/heraldry/municipalities/municipality-1934-tromsoysund.svg",
+      "mimeType": "image/svg+xml"
+    }
   },
   {
     "id": "hist-mun-1914-trondenes",
@@ -3718,7 +4924,12 @@
     "wikipediaUrl": "https://no.wikipedia.org/wiki/Ullsfjord",
     "resultIds": [
       "5501"
-    ]
+    ],
+    "coatOfArms": {
+      "sourceUrl": "https://commons.wikimedia.org/wiki/Fil:Troms%C3%B8_komm.svg",
+      "localPath": "/assets/heraldry/municipalities/municipality-1937-ullsfjord.svg",
+      "mimeType": "image/svg+xml"
+    }
   },
   {
     "id": "hist-mun-1923-overbygd",
@@ -3856,6 +5067,1571 @@
     ]
   },
   {
+    "id": "hist-mun-5016-agdenes",
+    "type": "municipality",
+    "name": "Agdenes",
+    "municipalityNumber": "5016",
+    "countyNameAtSource": "Trøndelag",
+    "validFrom": 1964,
+    "validTo": 2020,
+    "changeType": "merged",
+    "notes": "Slått sammen med Orkdal , Meldal og deler av Snillfjord",
+    "resultNames": [
+      "Orkland"
+    ],
+    "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner",
+    "wikipediaUrl": "https://no.wikipedia.org/wiki/Agdenes",
+    "resultIds": [
+      "5059"
+    ]
+  },
+  {
+    "id": "hist-mun-1727-beitstad",
+    "type": "municipality",
+    "name": "Beitstad",
+    "municipalityNumber": "1727",
+    "countyNameAtSource": "Trøndelag",
+    "validFrom": 1838,
+    "validTo": 1964,
+    "changeType": "merged",
+    "notes": "Slått sammen med Egge , Kvam , Sparbu , Steinkjer , Stod og Ogndal .",
+    "resultNames": [
+      "Steinkjer"
+    ],
+    "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner",
+    "wikipediaUrl": "https://no.wikipedia.org/wiki/Beitstad",
+    "resultIds": [
+      "5006"
+    ]
+  },
+  {
+    "id": "hist-mun-5017-bjugn",
+    "type": "municipality",
+    "name": "Bjugn",
+    "municipalityNumber": "5017",
+    "countyNameAtSource": "Trøndelag",
+    "validFrom": 1853,
+    "validTo": 2020,
+    "changeType": "incorporated",
+    "notes": "Innlemmet i Ørland",
+    "resultNames": [
+      "Ørland"
+    ],
+    "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner",
+    "wikipediaUrl": "https://no.wikipedia.org/wiki/Bjugn",
+    "resultIds": [
+      "5057"
+    ]
+  },
+  {
+    "id": "hist-mun-1632-bjornor",
+    "type": "municipality",
+    "name": "Bjørnør",
+    "municipalityNumber": "1632",
+    "countyNameAtSource": "Trøndelag",
+    "validFrom": 1838,
+    "validTo": 1892,
+    "changeType": "split",
+    "notes": "Delt i tre",
+    "resultNames": [
+      "Osen",
+      "Roan",
+      "Stoksund"
+    ],
+    "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner",
+    "wikipediaUrl": "https://no.wikipedia.org/wiki/Bj%C3%B8rn%C3%B8r",
+    "resultIds": [
+      "5020",
+      "hist-mun-5019-roan",
+      "hist-mun-1631-stoksund"
+    ]
+  },
+  {
+    "id": "hist-mun-1642-brekken",
+    "type": "municipality",
+    "name": "Brekken",
+    "municipalityNumber": "1642",
+    "countyNameAtSource": "Trøndelag",
+    "validFrom": 1926,
+    "validTo": 1964,
+    "changeType": "unknown",
+    "notes": "Opprettet da Røros ble oppdelt i Brekken, Røros bergstad, Røros landsogn og Glåmos , og slått sammen igjen.",
+    "resultNames": [
+      "Røros"
+    ],
+    "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner",
+    "wikipediaUrl": "https://no.wikipedia.org/wiki/Brekken",
+    "resultIds": [
+      "5025"
+    ]
+  },
+  {
+    "id": "hist-mun-1647-budal",
+    "type": "municipality",
+    "name": "Budal",
+    "municipalityNumber": "1647",
+    "countyNameAtSource": "Trøndelag",
+    "validFrom": 1879,
+    "validTo": 1964,
+    "changeType": "unknown",
+    "notes": "Opprettet da Støren ble delt i Budal og Støren. Slått sammen med Singsås , Soknedal og Støren",
+    "resultNames": [
+      "Midtre Gauldal"
+    ],
+    "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner",
+    "wikipediaUrl": "https://no.wikipedia.org/wiki/Budal",
+    "resultIds": [
+      "5027"
+    ]
+  },
+  {
+    "id": "hist-mun-1656-buvik",
+    "type": "municipality",
+    "name": "Buvik",
+    "municipalityNumber": "1656",
+    "countyNameAtSource": "Trøndelag",
+    "validFrom": 1855,
+    "validTo": 1965,
+    "changeType": "unknown",
+    "notes": "Opprettet da Byneset ble delt i Byneset og Buvik. Slått sammen med Skaun og Børsa .",
+    "resultNames": [
+      "Skaun"
+    ],
+    "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner",
+    "wikipediaUrl": "https://no.wikipedia.org/wiki/Buvik",
+    "resultIds": [
+      "5029"
+    ]
+  },
+  {
+    "id": "hist-mun-1655-byneset",
+    "type": "municipality",
+    "name": "Byneset",
+    "municipalityNumber": "1655",
+    "countyNameAtSource": "Trøndelag",
+    "validFrom": 1838,
+    "validTo": 1964,
+    "changeType": "merged",
+    "notes": "Slått sammen med Leinstrand , Tiller , Trondheim og Strinda .",
+    "resultNames": [
+      "Trondheim"
+    ],
+    "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner",
+    "wikipediaUrl": "https://no.wikipedia.org/wiki/Byneset",
+    "resultIds": [
+      "5001"
+    ]
+  },
+  {
+    "id": "hist-mun-1658-borsa",
+    "type": "municipality",
+    "name": "Børsa",
+    "municipalityNumber": "1658",
+    "countyNameAtSource": "Trøndelag",
+    "validFrom": 1838,
+    "validTo": 1965,
+    "changeType": "merged",
+    "notes": "Slått sammen med Skaun og Buvik .",
+    "resultNames": [
+      "Skaun"
+    ],
+    "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner",
+    "wikipediaUrl": "https://no.wikipedia.org/wiki/B%C3%B8rsa",
+    "resultIds": [
+      "5029"
+    ]
+  },
+  {
+    "id": "hist-mun-1733-egge",
+    "type": "municipality",
+    "name": "Egge",
+    "municipalityNumber": "1733",
+    "countyNameAtSource": "Trøndelag",
+    "validFrom": 1869,
+    "validTo": 1964,
+    "changeType": "unknown",
+    "notes": "Opprettet da Stod ble delt i Stod og Egge. Slått sammen med Beitstad , Kvam , Sparbu , Steinkjer , Stod og Ogndal .",
+    "resultNames": [
+      "Steinkjer"
+    ],
+    "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner",
+    "wikipediaUrl": "https://no.wikipedia.org/wiki/Egge",
+    "resultIds": [
+      "5006"
+    ]
+  },
+  {
+    "id": "hist-mun-1616-fillan",
+    "type": "municipality",
+    "name": "Fillan",
+    "municipalityNumber": "1616",
+    "countyNameAtSource": "Trøndelag",
+    "validFrom": 1886,
+    "validTo": 1964,
+    "changeType": "unknown",
+    "notes": "Opprettet da Hitra ble delt i Hitra og Fillan. Slått sammen med Kvenvær , Sandstad og Hitra",
+    "resultNames": [
+      "Hitra"
+    ],
+    "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner",
+    "wikipediaUrl": "https://no.wikipedia.org/wiki/Fillan",
+    "resultIds": [
+      "5056"
+    ]
+  },
+  {
+    "id": "hist-mun-1652-fla",
+    "type": "municipality",
+    "name": "Flå",
+    "municipalityNumber": "1652",
+    "countyNameAtSource": "Trøndelag",
+    "validFrom": 1880,
+    "validTo": 1964,
+    "changeType": "unknown",
+    "notes": "Opprettet da Melhus ble delt i Melhus og Flå. Slått sammen med Hølonda , Horg , Melhus og Langørgengårdene i Buvik .",
+    "resultNames": [
+      "Melhus"
+    ],
+    "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner",
+    "wikipediaUrl": "https://no.wikipedia.org/wiki/Fl%C3%A5_(Melhus)",
+    "resultIds": [
+      "5028"
+    ]
+  },
+  {
+    "id": "hist-mun-1753-foldereid",
+    "type": "municipality",
+    "name": "Foldereid",
+    "municipalityNumber": "1753",
+    "countyNameAtSource": "Trøndelag",
+    "validFrom": 1886,
+    "validTo": 1964,
+    "changeType": "unknown",
+    "notes": "Oppdelt og innlemmet i flere kommuner",
+    "resultNames": [
+      "Høylandet",
+      "Nærøy"
+    ],
+    "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner",
+    "wikipediaUrl": "https://no.wikipedia.org/wiki/Foldereid",
+    "resultIds": [
+      "5046",
+      "hist-mun-5051-naeroy"
+    ]
+  },
+  {
+    "id": "hist-mun-5048-fosnes",
+    "type": "municipality",
+    "name": "Fosnes",
+    "municipalityNumber": "5048",
+    "countyNameAtSource": "Trøndelag",
+    "validFrom": 1838,
+    "validTo": 2020,
+    "changeType": "incorporated",
+    "notes": "Innlemmet i Namsos",
+    "resultNames": [
+      "Namsos"
+    ],
+    "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner",
+    "wikipediaUrl": "https://no.wikipedia.org/wiki/Fosnes",
+    "resultIds": [
+      "5007"
+    ]
+  },
+  {
+    "id": "hist-mun-1720-frol",
+    "type": "municipality",
+    "name": "Frol",
+    "municipalityNumber": "1720",
+    "countyNameAtSource": "Trøndelag",
+    "validFrom": 1856,
+    "validTo": 1962,
+    "changeType": "incorporated",
+    "notes": "Innlemmet i Levanger",
+    "resultNames": [
+      "Levanger"
+    ],
+    "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner",
+    "wikipediaUrl": "https://no.wikipedia.org/wiki/Frol",
+    "resultIds": [
+      "5037"
+    ]
+  },
+  {
+    "id": "hist-mun-1659-geitastrand",
+    "type": "municipality",
+    "name": "Geitastrand",
+    "municipalityNumber": "1659",
+    "countyNameAtSource": "Trøndelag",
+    "validFrom": 1905,
+    "validTo": 1963,
+    "changeType": "unknown",
+    "notes": "Opprettet da Børsa ble delt i Børsa og Geitastrand. Slått sammen med Orkdal , Orkland og Orkanger .",
+    "resultNames": [
+      "Orkdal"
+    ],
+    "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner",
+    "wikipediaUrl": "https://no.wikipedia.org/wiki/Geitastrand",
+    "resultIds": [
+      "hist-mun-5024-orkdal"
+    ]
+  },
+  {
+    "id": "hist-mun-1643-glamos",
+    "type": "municipality",
+    "name": "Glåmos",
+    "municipalityNumber": "1643",
+    "countyNameAtSource": "Trøndelag",
+    "validFrom": 1926,
+    "validTo": 1964,
+    "changeType": "unknown",
+    "notes": "Opprettet da Røros ble oppdelt i Brekken , Røros bergstad, Røros landsogn og Glåmos, og slått sammen igjen.",
+    "resultNames": [
+      "Røros"
+    ],
+    "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner",
+    "wikipediaUrl": "https://no.wikipedia.org/wiki/Gl%C3%A5mos",
+    "resultIds": [
+      "5025"
+    ]
+  },
+  {
+    "id": "hist-mun-1754-gravvik",
+    "type": "municipality",
+    "name": "Gravvik",
+    "municipalityNumber": "1754",
+    "countyNameAtSource": "Trøndelag",
+    "validFrom": 1909,
+    "validTo": 1964,
+    "changeType": "incorporated",
+    "notes": "Innlemmet i Nærøy",
+    "resultNames": [
+      "Nærøy"
+    ],
+    "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner",
+    "wikipediaUrl": "https://no.wikipedia.org/wiki/Gravvik",
+    "resultIds": [
+      "hist-mun-5051-naeroy"
+    ]
+  },
+  {
+    "id": "hist-mun-1645-haltdalen",
+    "type": "municipality",
+    "name": "Haltdalen",
+    "municipalityNumber": "1645",
+    "countyNameAtSource": "Trøndelag",
+    "validFrom": 1855,
+    "validTo": 1972,
+    "changeType": "unknown",
+    "notes": "Opprettet da Holtålen ble delt i Haltdalen og Ålen . Slått sammen igjen.",
+    "resultNames": [
+      "Holtålen"
+    ],
+    "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner",
+    "wikipediaUrl": "https://no.wikipedia.org/wiki/Haltdalen",
+    "resultIds": [
+      "5026"
+    ]
+  },
+  {
+    "id": "hist-mun-1741-harran",
+    "type": "municipality",
+    "name": "Harran",
+    "municipalityNumber": "1741",
+    "countyNameAtSource": "Trøndelag",
+    "validFrom": 1923,
+    "validTo": 1964,
+    "changeType": "incorporated",
+    "notes": "Innlemmet i Grong",
+    "resultNames": [
+      "Grong"
+    ],
+    "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner",
+    "wikipediaUrl": "https://no.wikipedia.org/wiki/Harran",
+    "resultIds": [
+      "5045"
+    ]
+  },
+  {
+    "id": "hist-mun-1712-hegra",
+    "type": "municipality",
+    "name": "Hegra",
+    "municipalityNumber": "1712",
+    "countyNameAtSource": "Trøndelag",
+    "validFrom": 1874,
+    "validTo": 1962,
+    "changeType": "incorporated",
+    "notes": "Innlemmet i Stjørdal",
+    "resultNames": [
+      "Stjørdal"
+    ],
+    "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner",
+    "wikipediaUrl": "https://no.wikipedia.org/wiki/Hegra",
+    "resultIds": [
+      "5035"
+    ]
+  },
+  {
+    "id": "hist-mun-1614-heim",
+    "type": "municipality",
+    "name": "Heim",
+    "municipalityNumber": "1614",
+    "countyNameAtSource": "Trøndelag",
+    "validFrom": 1911,
+    "validTo": 1964,
+    "changeType": "unknown",
+    "notes": "Oppdelt og innlemmet i flere kommuner",
+    "resultNames": [
+      "Hemne",
+      "Snillfjord"
+    ],
+    "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner",
+    "wikipediaUrl": "https://no.wikipedia.org/wiki/Heim_(tidligere_kommune)",
+    "resultIds": [
+      "hist-mun-5011-hemne",
+      "hist-mun-5012-snillfjord"
+    ]
+  },
+  {
+    "id": "hist-mun-5011-hemne",
+    "type": "municipality",
+    "name": "Hemne",
+    "municipalityNumber": "5011",
+    "countyNameAtSource": "Trøndelag",
+    "validFrom": 1838,
+    "validTo": 2020,
+    "changeType": "merged",
+    "notes": "Slått sammen med Halsa og deler av Snillfjord",
+    "resultNames": [
+      "Heim"
+    ],
+    "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner",
+    "wikipediaUrl": "https://no.wikipedia.org/wiki/Hemne",
+    "resultIds": [
+      "5055"
+    ]
+  },
+  {
+    "id": "hist-mun-1617-hitra",
+    "type": "municipality",
+    "name": "Hitra",
+    "municipalityNumber": "1617",
+    "countyNameAtSource": "Trøndelag",
+    "validFrom": 1838,
+    "validTo": 1964,
+    "changeType": "merged",
+    "notes": "Slått sammen med Kvenvær , Sandstad og Fillan",
+    "resultNames": [
+      "Hitra"
+    ],
+    "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner",
+    "wikipediaUrl": "https://no.wikipedia.org/wiki/Hitra_(sogn)",
+    "resultIds": [
+      "5056"
+    ]
+  },
+  {
+    "id": "hist-mun-5030-klaebu",
+    "type": "municipality",
+    "name": "Klæbu",
+    "municipalityNumber": "5030",
+    "countyNameAtSource": "Trøndelag",
+    "validFrom": 1838,
+    "validTo": 2020,
+    "changeType": "merged",
+    "notes": "Slått sammen med Trondheim",
+    "resultNames": [
+      "Trondheim"
+    ],
+    "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner",
+    "wikipediaUrl": "https://no.wikipedia.org/wiki/Kl%C3%A6bu",
+    "resultIds": [
+      "5001"
+    ]
+  },
+  {
+    "id": "hist-mun-1650-horg",
+    "type": "municipality",
+    "name": "Horg",
+    "municipalityNumber": "1650",
+    "countyNameAtSource": "Trøndelag",
+    "validFrom": 1841,
+    "validTo": 1964,
+    "changeType": "unknown",
+    "notes": "Opprettet da Støren ble delt i Støren, Soknedal og Horg. Slått sammen med Hølonda , Flå , Melhus og Langørgengårdene i Buvik",
+    "resultNames": [
+      "Melhus"
+    ],
+    "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner",
+    "wikipediaUrl": "https://no.wikipedia.org/wiki/Horg",
+    "resultIds": [
+      "5028"
+    ]
+  },
+  {
+    "id": "hist-mun-1651-holonda",
+    "type": "municipality",
+    "name": "Hølonda",
+    "municipalityNumber": "1651",
+    "countyNameAtSource": "Trøndelag",
+    "validFrom": 1865,
+    "validTo": 1964,
+    "changeType": "unknown",
+    "notes": "Opprettet da Melhus ble delt i Melhus og Hølonda. Slått sammen med Horg , Flå , Melhus og Langørgengårdene i Buvik",
+    "resultNames": [
+      "Melhus"
+    ],
+    "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner",
+    "wikipediaUrl": "https://no.wikipedia.org/wiki/H%C3%B8londa",
+    "resultIds": [
+      "5028"
+    ]
+  },
+  {
+    "id": "hist-mun-1629-jossund",
+    "type": "municipality",
+    "name": "Jøssund",
+    "municipalityNumber": "1629",
+    "countyNameAtSource": "Trøndelag",
+    "validFrom": 1896,
+    "validTo": 1964,
+    "changeType": "unknown",
+    "notes": "Opprettet da Åfjord ble delt i Åfjord og Jøssund. Slått sammen med Bjugn, Nes og Nord-Stjørna .",
+    "resultNames": [
+      "Bjugn"
+    ],
+    "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner",
+    "wikipediaUrl": "https://no.wikipedia.org/wiki/J%C3%B8ssund",
+    "resultIds": [
+      "hist-mun-5017-bjugn"
+    ]
+  },
+  {
+    "id": "hist-mun-1746-klinga",
+    "type": "municipality",
+    "name": "Klinga",
+    "municipalityNumber": "1746",
+    "countyNameAtSource": "Trøndelag",
+    "validFrom": 1891,
+    "validTo": 1964,
+    "changeType": "incorporated",
+    "notes": "Innlemmet i Namsos",
+    "resultNames": [
+      "Namsos"
+    ],
+    "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner",
+    "wikipediaUrl": "https://no.wikipedia.org/wiki/Klinga",
+    "resultIds": [
+      "5007"
+    ]
+  },
+  {
+    "id": "hist-mun-1752-kolvereid",
+    "type": "municipality",
+    "name": "Kolvereid",
+    "municipalityNumber": "1752",
+    "countyNameAtSource": "Trøndelag",
+    "validFrom": 1838,
+    "validTo": 1964,
+    "changeType": "incorporated",
+    "notes": "Innlemmet i Nærøy",
+    "resultNames": [
+      "Nærøy"
+    ],
+    "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner",
+    "wikipediaUrl": "https://no.wikipedia.org/wiki/Kolvereid",
+    "resultIds": [
+      "hist-mun-5051-naeroy"
+    ]
+  },
+  {
+    "id": "hist-mun-1735-kvam",
+    "type": "municipality",
+    "name": "Kvam",
+    "municipalityNumber": "1735",
+    "countyNameAtSource": "Trøndelag",
+    "validFrom": 1909,
+    "validTo": 1964,
+    "changeType": "unknown",
+    "notes": "Opprettet da Stod ble delt i Stod og Kvam. Slått sammen med Beitstad , Egge , Sparbu , Steinkjer , Stod og Ogndal .",
+    "resultNames": [
+      "Steinkjer"
+    ],
+    "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner",
+    "wikipediaUrl": "https://no.wikipedia.org/wiki/Kvam_i_Nord-Tr%C3%B8ndelag",
+    "resultIds": [
+      "5006"
+    ]
+  },
+  {
+    "id": "hist-mun-1618-kvenvaer",
+    "type": "municipality",
+    "name": "Kvenvær",
+    "municipalityNumber": "1618",
+    "countyNameAtSource": "Trøndelag",
+    "validFrom": 1913,
+    "validTo": 1964,
+    "changeType": "merged",
+    "notes": "Slått sammen med Hitra , Sandstad og Fillan",
+    "resultNames": [
+      "Hitra"
+    ],
+    "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner",
+    "wikipediaUrl": "https://no.wikipedia.org/wiki/Kvenv%C3%A6r",
+    "resultIds": [
+      "5056"
+    ]
+  },
+  {
+    "id": "hist-mun-1654-leinstrand",
+    "type": "municipality",
+    "name": "Leinstrand",
+    "municipalityNumber": "1654",
+    "countyNameAtSource": "Trøndelag",
+    "validFrom": 1838,
+    "validTo": 1964,
+    "changeType": "merged",
+    "notes": "Slått sammen med Byneset , Tiller , Trondheim og Strinda .",
+    "resultNames": [
+      "Trondheim"
+    ],
+    "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner",
+    "wikipediaUrl": "https://no.wikipedia.org/wiki/Leinstrand",
+    "resultIds": [
+      "5001"
+    ]
+  },
+  {
+    "id": "hist-mun-1718-leksvik",
+    "type": "municipality",
+    "name": "Leksvik",
+    "municipalityNumber": "1718",
+    "countyNameAtSource": "Trøndelag",
+    "validFrom": 1838,
+    "validTo": 2018,
+    "changeType": "merged",
+    "notes": "Slått sammen med Rissa",
+    "resultNames": [
+      "Indre Fosen"
+    ],
+    "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner",
+    "wikipediaUrl": "https://no.wikipedia.org/wiki/Leksvik",
+    "resultIds": [
+      "5054"
+    ]
+  },
+  {
+    "id": "hist-mun-1623-lensvik",
+    "type": "municipality",
+    "name": "Lensvik",
+    "municipalityNumber": "1623",
+    "countyNameAtSource": "Trøndelag",
+    "validFrom": 1905,
+    "validTo": 1964,
+    "changeType": "incorporated",
+    "notes": "Innlemmet i Agdenes",
+    "resultNames": [
+      "Agdenes"
+    ],
+    "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner",
+    "wikipediaUrl": "https://no.wikipedia.org/wiki/Lensvik",
+    "resultIds": [
+      "hist-mun-5016-agdenes"
+    ]
+  },
+  {
+    "id": "hist-mun-1713-lanke",
+    "type": "municipality",
+    "name": "Lånke",
+    "municipalityNumber": "1713",
+    "countyNameAtSource": "Trøndelag",
+    "validFrom": 1902,
+    "validTo": 1962,
+    "changeType": "incorporated",
+    "notes": "Innlemmet i Stjørdal",
+    "resultNames": [
+      "Stjørdal"
+    ],
+    "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner",
+    "wikipediaUrl": "https://no.wikipedia.org/wiki/L%C3%A5nke",
+    "resultIds": [
+      "5035"
+    ]
+  },
+  {
+    "id": "hist-mun-1726-malm",
+    "type": "municipality",
+    "name": "Malm",
+    "municipalityNumber": "1726",
+    "countyNameAtSource": "Trøndelag",
+    "validFrom": 1913,
+    "validTo": 1964,
+    "changeType": "incorporated",
+    "notes": "Innlemmet i Verran",
+    "resultNames": [
+      "Verran"
+    ],
+    "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner",
+    "wikipediaUrl": "https://no.wikipedia.org/wiki/Malm_kommune",
+    "resultIds": [
+      "hist-mun-5039-verran"
+    ]
+  },
+  {
+    "id": "hist-mun-5023-meldal",
+    "type": "municipality",
+    "name": "Meldal",
+    "municipalityNumber": "5023",
+    "countyNameAtSource": "Trøndelag",
+    "validFrom": 1837,
+    "validTo": 2020,
+    "changeType": "unknown",
+    "notes": "Rennebu utskilt som egen kommune i 1839. Slått sammen med Agdenes , Orkdal og deler av Snillfjord .",
+    "resultNames": [
+      "Rennebu",
+      "Orkland"
+    ],
+    "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner",
+    "wikipediaUrl": "https://no.wikipedia.org/wiki/Meldal",
+    "resultIds": [
+      "5022",
+      "5059"
+    ]
+  },
+  {
+    "id": "hist-mun-1723-mosvik",
+    "type": "municipality",
+    "name": "Mosvik",
+    "municipalityNumber": "1723",
+    "countyNameAtSource": "Trøndelag",
+    "validFrom": 1901,
+    "validTo": 2012,
+    "changeType": "incorporated",
+    "notes": "Innlemmet i Inderøy",
+    "resultNames": [
+      "Inderøy"
+    ],
+    "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner",
+    "wikipediaUrl": "https://no.wikipedia.org/wiki/Mosvik",
+    "resultIds": [
+      "5053"
+    ]
+  },
+  {
+    "id": "hist-mun-1723-mosvik-og-verran",
+    "type": "municipality",
+    "name": "Mosvik og Verran",
+    "municipalityNumber": "1723",
+    "countyNameAtSource": "Trøndelag",
+    "validFrom": 1867,
+    "validTo": 1901,
+    "changeType": "split",
+    "notes": "Delt i to",
+    "resultNames": [
+      "Mosvik",
+      "Verran"
+    ],
+    "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner",
+    "wikipediaUrl": "https://no.wikipedia.org/wiki/Mosvik_og_Verran",
+    "resultIds": [
+      "hist-mun-1723-mosvik",
+      "hist-mun-5039-verran"
+    ]
+  },
+  {
+    "id": "hist-mun-5040-namdalseid",
+    "type": "municipality",
+    "name": "Namdalseid",
+    "municipalityNumber": "5040",
+    "countyNameAtSource": "Trøndelag",
+    "validFrom": 1904,
+    "validTo": 2020,
+    "changeType": "incorporated",
+    "notes": "Innlemmet i Namsos",
+    "resultNames": [
+      "Namsos"
+    ],
+    "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner",
+    "wikipediaUrl": "https://no.wikipedia.org/wiki/Namdalseid",
+    "resultIds": [
+      "5007"
+    ]
+  },
+  {
+    "id": "hist-mun-1714-nedre-stjordal",
+    "type": "municipality",
+    "name": "Nedre Stjørdal",
+    "municipalityNumber": "1714",
+    "countyNameAtSource": "Trøndelag",
+    "validFrom": 1850,
+    "validTo": 1902,
+    "changeType": "split",
+    "notes": "Delt i tre",
+    "resultNames": [
+      "Lånke",
+      "Skatval",
+      "Stjørdal"
+    ],
+    "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner",
+    "wikipediaUrl": "https://no.wikipedia.org/wiki/Nedre_Stj%C3%B8rdal",
+    "resultIds": [
+      "hist-mun-1713-lanke",
+      "hist-mun-1715-skatval",
+      "5035"
+    ]
+  },
+  {
+    "id": "hist-mun-1628-nes",
+    "type": "municipality",
+    "name": "Nes",
+    "municipalityNumber": "1628",
+    "countyNameAtSource": "Trøndelag",
+    "validFrom": 1899,
+    "validTo": 1964,
+    "changeType": "unknown",
+    "notes": "Opprettet da Bjugn ble delt i Bjugn, Nes og Stjørna . Slått sammen med Bjugn, Jøssund og Nord-Stjørna.",
+    "resultNames": [
+      "Bjugn"
+    ],
+    "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner",
+    "wikipediaUrl": "https://no.wikipedia.org/wiki/Nes_(Bjugn)",
+    "resultIds": [
+      "hist-mun-5017-bjugn"
+    ]
+  },
+  {
+    "id": "hist-mun-1620-nord-froya",
+    "type": "municipality",
+    "name": "Nord-Frøya",
+    "municipalityNumber": "1620",
+    "countyNameAtSource": "Trøndelag",
+    "validFrom": 1906,
+    "validTo": 1964,
+    "changeType": "merged",
+    "notes": "Slått sammen med Sør-Frøya",
+    "resultNames": [
+      "Frøya"
+    ],
+    "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner",
+    "wikipediaUrl": "https://no.wikipedia.org/wiki/Nord-Fr%C3%B8ya",
+    "resultIds": [
+      "5014"
+    ]
+  },
+  {
+    "id": "hist-mun-1738-nordli",
+    "type": "municipality",
+    "name": "Nordli",
+    "municipalityNumber": "1738",
+    "countyNameAtSource": "Trøndelag",
+    "validFrom": 1915,
+    "validTo": 1964,
+    "changeType": "merged",
+    "notes": "Slått sammen med Sørli",
+    "resultNames": [
+      "Lierne"
+    ],
+    "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner",
+    "wikipediaUrl": "https://no.wikipedia.org/wiki/Nordli",
+    "resultIds": [
+      "5042"
+    ]
+  },
+  {
+    "id": "hist-mun-5051-naeroy",
+    "type": "municipality",
+    "name": "Nærøy",
+    "municipalityNumber": "5051",
+    "countyNameAtSource": "Trøndelag",
+    "validFrom": 1838,
+    "validTo": 2020,
+    "changeType": "merged",
+    "notes": "Slått sammen med Vikna",
+    "resultNames": [
+      "Nærøysund"
+    ],
+    "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner",
+    "wikipediaUrl": "https://no.wikipedia.org/wiki/N%C3%A6r%C3%B8y",
+    "resultIds": [
+      "5060"
+    ]
+  },
+  {
+    "id": "hist-mun-1732-ogndal",
+    "type": "municipality",
+    "name": "Ogndal",
+    "municipalityNumber": "1732",
+    "countyNameAtSource": "Trøndelag",
+    "validFrom": 1885,
+    "validTo": 1964,
+    "changeType": "unknown",
+    "notes": "Opprettet da Sparbu ble delt i Sparbu og Ogndal. Slått sammen med Beitstad , Egge , Kvam , Sparbu , Steinkjer og Stod .",
+    "resultNames": [
+      "Steinkjer"
+    ],
+    "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner",
+    "wikipediaUrl": "https://no.wikipedia.org/wiki/Ogndal",
+    "resultIds": [
+      "5006"
+    ]
+  },
+  {
+    "id": "hist-mun-1639-orkanger",
+    "type": "municipality",
+    "name": "Orkanger",
+    "municipalityNumber": "1639",
+    "countyNameAtSource": "Trøndelag",
+    "validFrom": 1920,
+    "validTo": 1963,
+    "changeType": "unknown",
+    "notes": "Opprettet da Orkdal ble delt i Orkdal, Orkland og Orkanger. Slått sammen med Orkdal, Orkland og Geitastrand .",
+    "resultNames": [
+      "Orkdal"
+    ],
+    "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner",
+    "wikipediaUrl": "https://no.wikipedia.org/wiki/Orkanger",
+    "resultIds": [
+      "hist-mun-5024-orkdal"
+    ]
+  },
+  {
+    "id": "hist-mun-5024-orkdal",
+    "type": "municipality",
+    "name": "Orkdal",
+    "municipalityNumber": "5024",
+    "countyNameAtSource": "Trøndelag",
+    "validFrom": 1838,
+    "validTo": 2020,
+    "changeType": "merged",
+    "notes": "Slått sammen med Agdenes , Meldal og deler av Snillfjord",
+    "resultNames": [
+      "Orkland"
+    ],
+    "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner",
+    "wikipediaUrl": "https://no.wikipedia.org/wiki/Orkdal",
+    "resultIds": [
+      "5059"
+    ]
+  },
+  {
+    "id": "hist-mun-1637-orkland",
+    "type": "municipality",
+    "name": "Orkland",
+    "municipalityNumber": "1637",
+    "countyNameAtSource": "Trøndelag",
+    "validFrom": 1920,
+    "validTo": 1963,
+    "changeType": "unknown",
+    "notes": "Opprettet da Orkdal ble delt i Orkdal, Orkland og Orkanger . Slått sammen med Geitastrand , Orkdal og Orkanger.",
+    "resultNames": [
+      "Orkdal"
+    ],
+    "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner",
+    "wikipediaUrl": "https://no.wikipedia.org/wiki/Orkland_(tidligere_kommune)",
+    "resultIds": [
+      "hist-mun-5024-orkdal"
+    ]
+  },
+  {
+    "id": "hist-mun-1748-otteroy",
+    "type": "municipality",
+    "name": "Otterøy",
+    "municipalityNumber": "1748",
+    "countyNameAtSource": "Trøndelag",
+    "validFrom": 1913,
+    "validTo": 1964,
+    "changeType": "unknown",
+    "notes": "Oppdelt og innlemmet i flere kommuner",
+    "resultNames": [
+      "Namdalseid",
+      "Namsos"
+    ],
+    "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner",
+    "wikipediaUrl": "https://no.wikipedia.org/wiki/Otter%C3%B8y",
+    "resultIds": [
+      "hist-mun-5040-namdalseid",
+      "5007"
+    ]
+  },
+  {
+    "id": "hist-mun-1624-rissa",
+    "type": "municipality",
+    "name": "Rissa",
+    "municipalityNumber": "1624",
+    "countyNameAtSource": "Trøndelag",
+    "validFrom": 1964,
+    "validTo": 2017,
+    "changeType": "merged",
+    "notes": "Slått sammen med Leksvik",
+    "resultNames": [
+      "Indre Fosen"
+    ],
+    "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner",
+    "wikipediaUrl": "https://no.wikipedia.org/wiki/Rissa",
+    "resultIds": [
+      "5054"
+    ]
+  },
+  {
+    "id": "hist-mun-5019-roan",
+    "type": "municipality",
+    "name": "Roan",
+    "municipalityNumber": "5019",
+    "countyNameAtSource": "Trøndelag",
+    "validFrom": 1892,
+    "validTo": 2020,
+    "changeType": "unknown",
+    "notes": "Sammenslått med Åfjord",
+    "resultNames": [
+      "Åfjord"
+    ],
+    "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner",
+    "wikipediaUrl": "https://no.wikipedia.org/wiki/Roan",
+    "resultIds": [
+      "5058"
+    ]
+  },
+  {
+    "id": "hist-mun-1730-rora",
+    "type": "municipality",
+    "name": "Røra",
+    "municipalityNumber": "1730",
+    "countyNameAtSource": "Trøndelag",
+    "validFrom": 1907,
+    "validTo": 1962,
+    "changeType": "incorporated",
+    "notes": "Innlemmet i Inderøy",
+    "resultNames": [
+      "Inderøy"
+    ],
+    "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner",
+    "wikipediaUrl": "https://no.wikipedia.org/wiki/R%C3%B8ra",
+    "resultIds": [
+      "5053"
+    ]
+  },
+  {
+    "id": "hist-mun-1641-roros-landsogn",
+    "type": "municipality",
+    "name": "Røros landsogn",
+    "municipalityNumber": "1641",
+    "countyNameAtSource": "Trøndelag",
+    "validFrom": 1926,
+    "validTo": 1965,
+    "changeType": "unknown",
+    "notes": "Opprettet da Røros ble oppdelt i Brekken , Røros bergstad, Røros landsogn og Glåmos , og slått sammen igjen.",
+    "resultNames": [
+      "Røros"
+    ],
+    "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner",
+    "wikipediaUrl": "https://no.wikipedia.org/wiki/R%C3%B8ros_landsogn",
+    "resultIds": [
+      "5025"
+    ]
+  },
+  {
+    "id": "hist-mun-1615-sandstad",
+    "type": "municipality",
+    "name": "Sandstad",
+    "municipalityNumber": "1615",
+    "countyNameAtSource": "Trøndelag",
+    "validFrom": 1914,
+    "validTo": 1964,
+    "changeType": "merged",
+    "notes": "Slått sammen med Hitra , Kvenvær og Fillan",
+    "resultNames": [
+      "Hitra"
+    ],
+    "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner",
+    "wikipediaUrl": "https://no.wikipedia.org/wiki/Sandstad",
+    "resultIds": [
+      "5056"
+    ]
+  },
+  {
+    "id": "hist-mun-1728-sandvollan",
+    "type": "municipality",
+    "name": "Sandvollan",
+    "municipalityNumber": "1728",
+    "countyNameAtSource": "Trøndelag",
+    "validFrom": 1907,
+    "validTo": 1962,
+    "changeType": "incorporated",
+    "notes": "Innlemmet i Inderøy",
+    "resultNames": [
+      "Inderøy"
+    ],
+    "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner",
+    "wikipediaUrl": "https://no.wikipedia.org/wiki/Sandvollan",
+    "resultIds": [
+      "5053"
+    ]
+  },
+  {
+    "id": "hist-mun-1646-singsas",
+    "type": "municipality",
+    "name": "Singsås",
+    "municipalityNumber": "1646",
+    "countyNameAtSource": "Trøndelag",
+    "validFrom": 1841,
+    "validTo": 1964,
+    "changeType": "merged",
+    "notes": "Slått sammen med Budal , Soknedal og Støren",
+    "resultNames": [
+      "Midtre Gauldal"
+    ],
+    "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner",
+    "wikipediaUrl": "https://no.wikipedia.org/wiki/Sings%C3%A5s",
+    "resultIds": [
+      "5027"
+    ]
+  },
+  {
+    "id": "hist-mun-1715-skatval",
+    "type": "municipality",
+    "name": "Skatval",
+    "municipalityNumber": "1715",
+    "countyNameAtSource": "Trøndelag",
+    "validFrom": 1902,
+    "validTo": 1962,
+    "changeType": "incorporated",
+    "notes": "Innlemmet i Stjørdal",
+    "resultNames": [
+      "Stjørdal"
+    ],
+    "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner",
+    "wikipediaUrl": "https://no.wikipedia.org/wiki/Skatval",
+    "resultIds": [
+      "5035"
+    ]
+  },
+  {
+    "id": "hist-mun-1719-skogn",
+    "type": "municipality",
+    "name": "Skogn",
+    "municipalityNumber": "1719",
+    "countyNameAtSource": "Trøndelag",
+    "validFrom": 1838,
+    "validTo": 1962,
+    "changeType": "incorporated",
+    "notes": "Innlemmet i Levanger",
+    "resultNames": [
+      "Levanger"
+    ],
+    "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner",
+    "wikipediaUrl": "https://no.wikipedia.org/wiki/Skogn",
+    "resultIds": [
+      "5037"
+    ]
+  },
+  {
+    "id": "hist-mun-5012-snillfjord",
+    "type": "municipality",
+    "name": "Snillfjord",
+    "municipalityNumber": "5012",
+    "countyNameAtSource": "Trøndelag",
+    "validFrom": 1924,
+    "validTo": 2020,
+    "changeType": "unknown",
+    "notes": "Delt og sammenslått med tre kommuner",
+    "resultNames": [
+      "Orkland",
+      "Hitra",
+      "Heim"
+    ],
+    "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner",
+    "wikipediaUrl": "https://no.wikipedia.org/wiki/Snillfjord",
+    "resultIds": [
+      "5059",
+      "5056",
+      "5055"
+    ]
+  },
+  {
+    "id": "hist-mun-1649-soknedal",
+    "type": "municipality",
+    "name": "Soknedal",
+    "municipalityNumber": "1649",
+    "countyNameAtSource": "Trøndelag",
+    "validFrom": 1841,
+    "validTo": 1964,
+    "changeType": "unknown",
+    "notes": "Opprettet da Støren ble delt i Støren, Soknedal og Horg. Slått sammen med Budal , Singsås og Støren.",
+    "resultNames": [
+      "Midtre Gauldal"
+    ],
+    "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner",
+    "wikipediaUrl": "https://no.wikipedia.org/wiki/Soknedal",
+    "resultIds": [
+      "5027"
+    ]
+  },
+  {
+    "id": "hist-mun-1731-sparbu",
+    "type": "municipality",
+    "name": "Sparbu",
+    "municipalityNumber": "1731",
+    "countyNameAtSource": "Trøndelag",
+    "validFrom": 1838,
+    "validTo": 1964,
+    "changeType": "merged",
+    "notes": "Slått sammen med Beitstad , Egge , Kvam , Steinkjer , Stod og Ogndal .",
+    "resultNames": [
+      "Steinkjer"
+    ],
+    "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner",
+    "wikipediaUrl": "https://no.wikipedia.org/wiki/Sparbu",
+    "resultIds": [
+      "5006"
+    ]
+  },
+  {
+    "id": "hist-mun-1625-stadsbygd",
+    "type": "municipality",
+    "name": "Stadsbygd",
+    "municipalityNumber": "1625",
+    "countyNameAtSource": "Trøndelag",
+    "validFrom": 1838,
+    "validTo": 1964,
+    "changeType": "unknown",
+    "notes": "Oppdelt, slått sammen med Rissa og Sør-Stjørna, bortsett fra Ingdalen krets som ble slått sammen med Lensvik og Indre Agdenes medregnet Moldtua og Leksa .",
+    "resultNames": [
+      "Rissa",
+      "Agdenes"
+    ],
+    "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner",
+    "wikipediaUrl": "https://no.wikipedia.org/wiki/Stadsbygd",
+    "resultIds": [
+      "hist-mun-1624-rissa",
+      "hist-mun-5016-agdenes"
+    ]
+  },
+  {
+    "id": "hist-mun-1714-stjordalen",
+    "type": "municipality",
+    "name": "Stjørdalen",
+    "municipalityNumber": "1714",
+    "countyNameAtSource": "Trøndelag",
+    "validFrom": 1838,
+    "validTo": 1850,
+    "changeType": "split",
+    "notes": "Delt i to",
+    "resultNames": [
+      "Nedre Stjørdal",
+      "Øvre Stjørdal"
+    ],
+    "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner",
+    "wikipediaUrl": "https://no.wikipedia.org/wiki/Stj%C3%B8rdalen",
+    "resultIds": [
+      "hist-mun-1714-nedre-stjordal",
+      "hist-mun-1711-ovre-stjordal"
+    ]
+  },
+  {
+    "id": "hist-mun-1626-stjorna",
+    "type": "municipality",
+    "name": "Stjørna",
+    "municipalityNumber": "1626",
+    "countyNameAtSource": "Trøndelag",
+    "validFrom": 1853,
+    "validTo": 1964,
+    "changeType": "unknown",
+    "notes": "Opprettet da Bjugn ble delt i Bjugn, Nes og Stjørna. Nord-Stjørna ble slått sammen med Bjugn, Nes og Jøssund. Sør-Stjørna ble slått sammen med Rissa og Stadsbygd (unntatt Ingdalen ).",
+    "resultNames": [
+      "Bjugn",
+      "Rissa"
+    ],
+    "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner",
+    "wikipediaUrl": "https://no.wikipedia.org/wiki/Stj%C3%B8rna",
+    "resultIds": [
+      "hist-mun-5017-bjugn",
+      "hist-mun-1624-rissa"
+    ]
+  },
+  {
+    "id": "hist-mun-1734-stod",
+    "type": "municipality",
+    "name": "Stod",
+    "municipalityNumber": "1734",
+    "countyNameAtSource": "Trøndelag",
+    "validFrom": 1838,
+    "validTo": 1964,
+    "changeType": "merged",
+    "notes": "Slått sammen med Beitstad , Egge , Kvam , Sparbu , Steinkjer og Ogndal .",
+    "resultNames": [
+      "Steinkjer"
+    ],
+    "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner",
+    "wikipediaUrl": "https://no.wikipedia.org/wiki/Stod",
+    "resultIds": [
+      "5006"
+    ]
+  },
+  {
+    "id": "hist-mun-1631-stoksund",
+    "type": "municipality",
+    "name": "Stoksund",
+    "municipalityNumber": "1631",
+    "countyNameAtSource": "Trøndelag",
+    "validFrom": 1892,
+    "validTo": 1964,
+    "changeType": "incorporated",
+    "notes": "Innlemmet i Åfjord",
+    "resultNames": [
+      "Åfjord"
+    ],
+    "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner",
+    "wikipediaUrl": "https://no.wikipedia.org/wiki/Stoksund",
+    "resultIds": [
+      "5058"
+    ]
+  },
+  {
+    "id": "hist-mun-1660-strinda",
+    "type": "municipality",
+    "name": "Strinda",
+    "municipalityNumber": "1660",
+    "countyNameAtSource": "Trøndelag",
+    "validFrom": 1838,
+    "validTo": 1964,
+    "changeType": "merged",
+    "notes": "Slått sammen med Leinstrand , Tiller , Trondheim og Byneset .",
+    "resultNames": [
+      "Trondheim"
+    ],
+    "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner",
+    "wikipediaUrl": "https://no.wikipedia.org/wiki/Strinda",
+    "resultIds": [
+      "5001"
+    ]
+  },
+  {
+    "id": "hist-mun-1648-storen",
+    "type": "municipality",
+    "name": "Støren",
+    "municipalityNumber": "1648",
+    "countyNameAtSource": "Trøndelag",
+    "validFrom": 1838,
+    "validTo": 1964,
+    "changeType": "merged",
+    "notes": "Slått sammen med Budal , Singsås og Soknedal",
+    "resultNames": [
+      "Midtre Gauldal"
+    ],
+    "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner",
+    "wikipediaUrl": "https://no.wikipedia.org/wiki/St%C3%B8ren",
+    "resultIds": [
+      "5027"
+    ]
+  },
+  {
+    "id": "hist-mun-1619-sor-froya",
+    "type": "municipality",
+    "name": "Sør-Frøya",
+    "municipalityNumber": "1619",
+    "countyNameAtSource": "Trøndelag",
+    "validFrom": 1906,
+    "validTo": 1964,
+    "changeType": "merged",
+    "notes": "Slått sammen med Nord-Frøya",
+    "resultNames": [
+      "Frøya"
+    ],
+    "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner",
+    "wikipediaUrl": "https://no.wikipedia.org/wiki/S%C3%B8r-Fr%C3%B8ya",
+    "resultIds": [
+      "5014"
+    ]
+  },
+  {
+    "id": "hist-mun-1737-sorli",
+    "type": "municipality",
+    "name": "Sørli",
+    "municipalityNumber": "1737",
+    "countyNameAtSource": "Trøndelag",
+    "validFrom": 1915,
+    "validTo": 1964,
+    "changeType": "merged",
+    "notes": "Slått sammen med Nordli",
+    "resultNames": [
+      "Lierne"
+    ],
+    "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner",
+    "wikipediaUrl": "https://no.wikipedia.org/wiki/S%C3%B8rli",
+    "resultIds": [
+      "5042"
+    ]
+  },
+  {
+    "id": "hist-mun-1661-tiller",
+    "type": "municipality",
+    "name": "Tiller",
+    "municipalityNumber": "1661",
+    "countyNameAtSource": "Trøndelag",
+    "validFrom": 1899,
+    "validTo": 1964,
+    "changeType": "unknown",
+    "notes": "Opprettet da Klæbu ble delt i Klæbu og Tiller. Slått sammen med Leinstrand , Byneset Trondheim og Strinda .",
+    "resultNames": [
+      "Trondheim"
+    ],
+    "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner",
+    "wikipediaUrl": "https://no.wikipedia.org/wiki/Tiller",
+    "resultIds": [
+      "5001"
+    ]
+  },
+  {
+    "id": "hist-mun-1745-vemundvik",
+    "type": "municipality",
+    "name": "Vemundvik",
+    "municipalityNumber": "1745",
+    "countyNameAtSource": "Trøndelag",
+    "validFrom": 1891,
+    "validTo": 1964,
+    "changeType": "incorporated",
+    "notes": "Innlemmet i Namsos",
+    "resultNames": [
+      "Namsos"
+    ],
+    "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner",
+    "wikipediaUrl": "https://no.wikipedia.org/wiki/Vemundvik",
+    "resultIds": [
+      "5007"
+    ]
+  },
+  {
+    "id": "hist-mun-5039-verran",
+    "type": "municipality",
+    "name": "Verran",
+    "municipalityNumber": "5039",
+    "countyNameAtSource": "Trøndelag",
+    "validFrom": 1901,
+    "validTo": 2020,
+    "changeType": "incorporated",
+    "notes": "Innlemmet i Steinkjer",
+    "resultNames": [
+      "Steinkjer"
+    ],
+    "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner",
+    "wikipediaUrl": "https://no.wikipedia.org/wiki/Verran",
+    "resultIds": [
+      "5006"
+    ]
+  },
+  {
+    "id": "hist-mun-5050-vikna",
+    "type": "municipality",
+    "name": "Vikna",
+    "municipalityNumber": "5050",
+    "countyNameAtSource": "Trøndelag",
+    "validFrom": 1869,
+    "validTo": 2019,
+    "changeType": "merged",
+    "notes": "Slått sammen med Nærøy",
+    "resultNames": [
+      "Nærøysund"
+    ],
+    "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner",
+    "wikipediaUrl": "https://no.wikipedia.org/wiki/Vikna",
+    "resultIds": [
+      "5060"
+    ]
+  },
+  {
+    "id": "hist-mun-1611-vinje",
+    "type": "municipality",
+    "name": "Vinje",
+    "municipalityNumber": "1611",
+    "countyNameAtSource": "Trøndelag",
+    "validFrom": 1924,
+    "validTo": 1964,
+    "changeType": "incorporated",
+    "notes": "Innlemmet i Hemne",
+    "resultNames": [
+      "Hemne"
+    ],
+    "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner",
+    "wikipediaUrl": "https://no.wikipedia.org/wiki/Vinje_(Hemne)",
+    "resultIds": [
+      "hist-mun-5011-hemne"
+    ]
+  },
+  {
+    "id": "hist-mun-1722-ytteroy",
+    "type": "municipality",
+    "name": "Ytterøy",
+    "municipalityNumber": "1722",
+    "countyNameAtSource": "Trøndelag",
+    "validFrom": 1838,
+    "validTo": 1867,
+    "changeType": "unknown",
+    "notes": "Mosvik og Verran utskilt",
+    "resultNames": [],
+    "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner",
+    "wikipediaUrl": "https://no.wikipedia.org/wiki/Ytter%C3%B8y_kommune",
+    "resultIds": []
+  },
+  {
+    "id": "hist-mun-1711-ovre-stjordal",
+    "type": "municipality",
+    "name": "Øvre Stjørdal",
+    "municipalityNumber": "1711",
+    "countyNameAtSource": "Trøndelag",
+    "validFrom": 1850,
+    "validTo": 1874,
+    "changeType": "split",
+    "notes": "Delt i to",
+    "resultNames": [
+      "Hegra",
+      "Meråker"
+    ],
+    "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner",
+    "wikipediaUrl": "https://no.wikipedia.org/wiki/%C3%98vre_Stj%C3%B8rdal",
+    "resultIds": [
+      "hist-mun-1712-hegra",
+      "5034"
+    ]
+  },
+  {
+    "id": "hist-mun-1644-alen",
+    "type": "municipality",
+    "name": "Ålen",
+    "municipalityNumber": "1644",
+    "countyNameAtSource": "Trøndelag",
+    "validFrom": 1855,
+    "validTo": 1972,
+    "changeType": "unknown",
+    "notes": "Opprettet da Holtålen ble delt i Haltdalen og Ålen. Slått sammen igjen.",
+    "resultNames": [
+      "Holtålen"
+    ],
+    "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner",
+    "wikipediaUrl": "https://no.wikipedia.org/wiki/%C3%85len",
+    "resultIds": [
+      "5026"
+    ]
+  },
+  {
+    "id": "hist-mun-1716-asen",
+    "type": "municipality",
+    "name": "Åsen",
+    "municipalityNumber": "1716",
+    "countyNameAtSource": "Trøndelag",
+    "validFrom": 1838,
+    "validTo": 1962,
+    "changeType": "incorporated",
+    "notes": "Innlemmet i Levanger",
+    "resultNames": [
+      "Levanger"
+    ],
+    "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner",
+    "wikipediaUrl": "https://no.wikipedia.org/wiki/%C3%85sen_(Levanger)",
+    "resultIds": [
+      "5037"
+    ]
+  },
+  {
     "id": "hist-mun-0719-andebu",
     "type": "municipality",
     "name": "Andebu",
@@ -3872,7 +6648,12 @@
     "wikipediaUrl": "https://no.wikipedia.org/wiki/Andebu_(tidligere_kommune)",
     "resultIds": [
       "3907"
-    ]
+    ],
+    "coatOfArms": {
+      "sourceUrl": "https://commons.wikimedia.org/wiki/Fil:Sandefjord_komm_2017.svg",
+      "localPath": "/assets/heraldry/municipalities/municipality-0719-andebu.svg",
+      "mimeType": "image/svg+xml"
+    }
   },
   {
     "id": "hist-mun-0717-borre",
@@ -3882,9 +6663,10 @@
     "countyNameAtSource": "Vestfold og Telemark",
     "validFrom": 1838,
     "validTo": 2002,
-    "changeType": "renamed",
+    "changeType": "merged",
     "notes": "Slått sammen med Horten til Borre , ble senere i 2002 endret tilbake til Horten",
     "resultNames": [
+      "Borre",
       "Horten"
     ],
     "sourceUrl": "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner",
@@ -4062,7 +6844,12 @@
     "wikipediaUrl": "https://no.wikipedia.org/wiki/Sandar_kommune",
     "resultIds": [
       "3907"
-    ]
+    ],
+    "coatOfArms": {
+      "sourceUrl": "https://commons.wikimedia.org/wiki/Fil:Sandefjord_komm_2017.svg",
+      "localPath": "/assets/heraldry/municipalities/municipality-0724-sandar.svg",
+      "mimeType": "image/svg+xml"
+    }
   },
   {
     "id": "hist-mun-0713-sande",
@@ -4157,7 +6944,12 @@
     "wikipediaUrl": "https://no.wikipedia.org/wiki/Stokke_(kommune)",
     "resultIds": [
       "3907"
-    ]
+    ],
+    "coatOfArms": {
+      "sourceUrl": "https://commons.wikimedia.org/wiki/Fil:Sandefjord_komm_2017.svg",
+      "localPath": "/assets/heraldry/municipalities/municipality-0720-stokke.svg",
+      "mimeType": "image/svg+xml"
+    }
   },
   {
     "id": "hist-mun-0711-stromm",

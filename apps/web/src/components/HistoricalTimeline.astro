@@ -3,6 +3,10 @@ import HistoricalTimelineItem, {
   type TimelinePeriodMode,
 } from "@/components/HistoricalTimelineItem.astro";
 import SectionHeading from "@/components/SectionHeading.astro";
+import {
+  buildTimelineBriefSummary,
+  type EntityKind,
+} from "@/lib/historical-mobile-story";
 import type { TimelineStep } from "@/lib/historical-data";
 
 interface Props {
@@ -13,6 +17,7 @@ interface Props {
   periodMode?: TimelinePeriodMode;
   currentStatusLabel?: string;
   showChangeType?: boolean;
+  entityKind?: EntityKind;
   class?: string;
 }
 
@@ -24,16 +29,30 @@ const {
   periodMode = "range",
   currentStatusLabel,
   showChangeType = true,
+  entityKind = "kommune",
   class: className,
 } = Astro.props;
 
 const id = headingId ?? "historical-timeline";
+const briefSummary = buildTimelineBriefSummary(steps, entityKind);
+const currentStep = steps.find((s) => s.isCurrent);
 ---
 
 {
   steps.length > 0 && (
     <section class:list={["mb-10", className]} aria-labelledby={id}>
       <SectionHeading id={id} title={title} description={description} />
+
+      {briefSummary && (
+        <div class="mb-4 rounded-lg border border-primary/20 bg-primary/[0.04] px-4 py-3 md:hidden">
+          <p class="text-xs font-semibold uppercase tracking-wide text-primary">
+            Kort fortalt
+          </p>
+          <p class="mt-1.5 text-sm leading-relaxed text-foreground/90">
+            {briefSummary}
+          </p>
+        </div>
+      )}
 
       <ol class="relative ml-2 space-y-0 border-l-2 border-border/80 pl-7 sm:ml-3 sm:pl-8">
         {steps.map((step, index) => (
@@ -47,6 +66,14 @@ const id = headingId ?? "historical-timeline";
           />
         ))}
       </ol>
+
+      {currentStep && steps.length > 3 && (
+        <p class="mt-4 text-center text-sm text-muted-foreground md:hidden">
+          Ender i:{" "}
+          <span class="font-medium text-foreground">{currentStep.name}</span>{" "}
+          {entityKind} i dag
+        </p>
+      )}
 
       {Astro.slots.has("footer") && (
         <div class="mt-4 text-sm text-muted-foreground">

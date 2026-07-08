@@ -2,6 +2,7 @@
 import Breadcrumb from "@/components/Breadcrumb.astro";
 import EmptyState from "@/components/EmptyState.astro";
 import HistoricalChangeBadge from "@/components/HistoricalChangeBadge.astro";
+import HistoricalListPeriod from "@/components/HistoricalListPeriod.astro";
 import ListPageHeader from "@/components/ListPageHeader.astro";
 import SearchField from "@/components/SearchField.astro";
 import SectionHeading from "@/components/SectionHeading.astro";
@@ -29,7 +30,6 @@ import {
 import { url } from "../../lib/base";
 import {
   changeTypeLabel,
-  formatPeriod,
   getCountyNamesFromMunicipalities,
   loadCurrentCountiesWiki,
   loadHistoricalCounties,
@@ -205,7 +205,7 @@ const changeTypes = [
   >
     <SectionHeading
       title="Tidligere kommuner"
-      description="Kommuner som er slått sammen, innlemmet eller delt. Klikk på navn for historielinje."
+      description="Kommuner som er slått sammen, innlemmet eller delt. Klikk på navn for administrativ utvikling."
     />
 
     <div class="mb-4 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
@@ -280,7 +280,7 @@ const changeTypes = [
                 <TableHead data-sort-type="text" class="w-20">Nr.</TableHead>
                 <TableHead data-sort-type="text">Navn</TableHead>
                 <TableHead data-sort-type="text">Fylke</TableHead>
-                <TableHead data-sort-type="number">Periode</TableHead>
+                <TableHead data-sort-type="number">Opphørte</TableHead>
                 <TableHead data-sort-type="text">Endring</TableHead>
                 <TableHead data-sort-type="text">Resultat</TableHead>
               </TableRow>
@@ -320,11 +320,18 @@ const changeTypes = [
                   <TableCell data-sort-value={mun.countyNameAtSource ?? ""}>
                     {mun.countyNameAtSource ?? "—"}
                   </TableCell>
-                  <TableCell data-sort-value={String(mun.validFrom ?? 0)}>
-                    {formatPeriod(mun.validFrom, mun.validTo)}
+                  <TableCell data-sort-value={String(mun.validTo ?? 0)}>
+                    <HistoricalListPeriod
+                      validFrom={mun.validFrom}
+                      validTo={mun.validTo}
+                    />
                   </TableCell>
                   <TableCell data-sort-value={mun.changeType ?? "unknown"}>
-                    <HistoricalChangeBadge changeType={mun.changeType} size="sm" />
+                    <HistoricalChangeBadge
+                      changeType={mun.changeType}
+                      year={mun.validTo}
+                      size="sm"
+                    />
                   </TableCell>
                   <TableCell data-sort-value={mun.resultNames.join(", ")}>
                     {mun.resultNames.join(", ") || "—"}
@@ -350,20 +357,59 @@ const changeTypes = [
   >
     <SectionHeading
       title="Tidligere fylker"
-      description="Fylker som er slått sammen, delt eller gjenopprettet. Klikk på navn for utviklingslinje."
+      description="Fylker som er slått sammen, delt eller gjenopprettet. Klikk på navn for administrativ utvikling."
     />
 
-    <div class="mb-4 flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
+    <div class="mb-4 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
       <SearchField
         id="county-search"
         label="Søk"
         placeholder="Navn eller fylkesnummer…"
-        class="max-w-sm"
         data-table-filter="county-table"
       />
+      <div>
+        <label for="county-change-filter" class="mb-1.5 block text-sm font-medium">Endringstype</label>
+        <select
+          id="county-change-filter"
+          class="border-input dark:bg-input/30 text-foreground h-9 w-full rounded-md border bg-transparent px-3 text-sm shadow-xs focus-visible:border-outline focus-visible:ring-outline/50 focus-visible:outline-none focus-visible:ring-3"
+          data-county-filter="change"
+        >
+          <option value="">Alle typer</option>
+          {changeTypes.map((type) => (
+            <option value={type}>{changeTypeLabel(type)}</option>
+          ))}
+        </select>
+      </div>
+      <div>
+        <label for="county-year-filter" class="mb-1.5 block text-sm font-medium">Opphørte (år)</label>
+        <Input
+          id="county-year-filter"
+          type="number"
+          min="1500"
+          max="2100"
+          placeholder="f.eks. 2020"
+          size="sm"
+          data-county-filter="year"
+        />
+      </div>
     </div>
 
-    <Card class="border-border/80">
+    <p
+      class="mb-3 text-sm text-muted-foreground"
+      id="county-filter-status"
+      role="status"
+      aria-live="polite"
+    >
+      Viser {sortedCounties.length} av {sortedCounties.length} fylker
+    </p>
+
+    <div id="county-empty-state" class="mb-4 hidden">
+      <EmptyState title="Ingen fylker matcher filtrene">
+        Prøv å fjerne ett eller flere filtre, eller søk på et annet navn eller fylkesnummer.
+      </EmptyState>
+    </div>
+
+    <Card id="county-table-card" class="border-border/80">
       <CardContent class="p-0">
         <TableScroll>
           <Table id="county-table" data-sortable>
@@ -374,13 +420,18 @@ const changeTypes = [
                 <TableHead data-sort-type="text">Navn</TableHead>
                 <TableHead data-sort-type="text">Adm.senter</TableHead>
                 <TableHead data-sort-type="number">Opphørte</TableHead>
+                <TableHead data-sort-type="text">Endring</TableHead>
                 <TableHead data-sort-type="text">I dag en del av</TableHead>
                 <TableHead data-sort-type="text">Nytt nr.</TableHead>
               </TableRow>
             </TableHeader>
             <TableBody>
               {sortedCounties.map((county) => (
-                <TableRow class="transition-colors hover:bg-muted/50">
+                <TableRow
+                  class="historikk-county-row transition-colors hover:bg-muted/50"
+                  data-change={county.changeType ?? "unknown"}
+                  data-year={county.validTo ?? ""}
+                >
                   <TableCell class="font-mono text-xs text-muted-foreground" data-sort-value={county.countyNumber ?? ""}>
                     {county.countyNumber ?? "—"}
                   </TableCell>
@@ -408,7 +459,14 @@ const changeTypes = [
                     {county.administrativeCenter ?? "—"}
                   </TableCell>
                   <TableCell data-sort-value={String(county.validTo ?? 0)}>
-                    {county.validTo ?? "—"}
+                    <HistoricalListPeriod validTo={county.validTo} />
+                  </TableCell>
+                  <TableCell data-sort-value={county.changeType ?? "unknown"}>
+                    <HistoricalChangeBadge
+                      changeType={county.changeType}
+                      year={county.validTo}
+                      size="sm"
+                    />
                   </TableCell>
                   <TableCell data-sort-value={county.todayPartOfNames.join(", ")}>
                     {county.todayPartOfNames.join(", ") || "—"}
@@ -583,10 +641,61 @@ const changeTypes = [
     year?.addEventListener("input", apply);
   }
 
+  function initCountyFilters() {
+    const search = document.getElementById("county-search") as HTMLInputElement | null;
+    const change = document.getElementById("county-change-filter") as HTMLSelectElement | null;
+    const year = document.getElementById("county-year-filter") as HTMLInputElement | null;
+    const status = document.getElementById("county-filter-status");
+    const emptyState = document.getElementById("county-empty-state");
+    const tableCard = document.getElementById("county-table-card");
+    const rows = document.querySelectorAll<HTMLTableRowElement>(".historikk-county-row");
+    const total = rows.length;
+    if (!rows.length) return;
+
+    const apply = () => {
+      const query = search?.value.trim().toLowerCase() ?? "";
+      const changeVal = change?.value ?? "";
+      const yearVal = year?.value.trim() ?? "";
+      let visible = 0;
+
+      rows.forEach((row) => {
+        const rowText = row.textContent?.toLowerCase() ?? "";
+        const matchSearch = !query || rowText.includes(query);
+        const matchChange = !changeVal || row.dataset.change === changeVal;
+        const matchYear = !yearVal || String(row.dataset.year) === yearVal;
+        const show = matchSearch && matchChange && matchYear;
+        row.classList.toggle("hidden", !show);
+        if (show) visible++;
+      });
+
+      const activeFilters: string[] = [];
+      if (query) activeFilters.push(`søk «${query}»`);
+      if (changeVal) activeFilters.push(`endring: ${change?.selectedOptions[0]?.text ?? changeVal}`);
+      if (yearVal) activeFilters.push(`år: ${yearVal}`);
+
+      if (status) {
+        const filterNote =
+          activeFilters.length > 0 ? ` · Filter: ${activeFilters.join(", ")}` : "";
+        status.textContent = `Viser ${visible} av ${total} fylker${filterNote}`;
+      }
+
+      emptyState?.classList.toggle("hidden", visible > 0);
+      if (tableCard instanceof HTMLElement) {
+        tableCard.classList.toggle("hidden", visible === 0);
+      }
+    };
+
+    search?.addEventListener("input", apply);
+    change?.addEventListener("change", apply);
+    year?.addEventListener("input", apply);
+  }
+
   initHistorikkTabs();
   initMunicipalityFilters();
+  initCountyFilters();
   document.addEventListener("astro:after-swap", () => {
     initHistorikkTabs();
     initMunicipalityFilters();
+    initCountyFilters();
   });
 </script>

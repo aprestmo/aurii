@@ -1,0 +1,44 @@
+---
+import HistoricalChangeBadge from "@/components/HistoricalChangeBadge.astro";
+import { formatPeriod, type ChangeType } from "@/lib/historical-data";
+
+interface Props {
+  validFrom?: number;
+  validTo?: number;
+  changeType?: ChangeType;
+  showChange?: boolean;
+}
+
+const { validFrom, validTo, changeType, showChange = false } = Astro.props;
+
+const period = formatPeriod(validFrom, validTo);
+const hasRange = validFrom !== undefined && validTo !== undefined;
+---
+
+<div class="flex flex-col gap-1.5">
+  {
+    validTo !== undefined && (
+      <span
+        class="inline-flex w-fit items-center rounded-md border border-border/80 bg-muted/60 px-2 py-0.5 font-mono text-sm font-semibold tabular-nums text-foreground"
+        title={hasRange ? `Periode: ${period}` : undefined}
+      >
+        {validTo}
+      </span>
+    )
+  }
+  {
+    hasRange && (
+      <span class="text-xs text-muted-foreground">{period}</span>
+    )
+  }
+  {
+    !hasRange && validFrom !== undefined && !validTo && (
+      <span class="text-xs text-muted-foreground">{period}</span>
+    )
+  }
+  {
+    showChange && changeType && (
+      <HistoricalChangeBadge changeType={changeType} year={validTo} size="sm" />
+    )
+  }
+</div>

@@ -2,16 +2,12 @@
 import Breadcrumb from "@/components/Breadcrumb.astro";
 import HistoricalChangeBadge from "@/components/HistoricalChangeBadge.astro";
 import HistoricalFlowCard from "@/components/HistoricalFlowCard.astro";
-import HistoricalTimeline from "@/components/HistoricalTimeline.astro";
 import PageHeader from "@/components/PageHeader.astro";
 import Layout from "../../../layouts/Layout.astro";
 import { Badge } from "@/components/starwind/badge";
 import { Card, CardContent, CardDescription } from "@/components/starwind/card";
 import { url } from "../../../lib/base";
-import {
-  buildCountyTimeline,
-  loadHistoricalCounties,
-} from "../../../lib/historical-data";
+import { loadHistoricalCounties } from "../../../lib/historical-data";
 import { buildForwardFlow, hasFlowContent } from "../../../lib/historical-flow";
 
 export async function getStaticPaths() {
@@ -28,7 +24,6 @@ if (!county) {
   return Astro.redirect(url("historikk"));
 }
 
-const timeline = await buildCountyTimeline(county.id);
 const flow = await buildForwardFlow(county.id, "county");
 const showFlow = hasFlowContent(flow);
 ---
@@ -101,20 +96,9 @@ const showFlow = hasFlowContent(flow);
   {showFlow && (
     <HistoricalFlowCard
       flow={flow}
-      title="Veien til dagens fylke"
-      description="Administrative endringer fra dette fylket frem til dagens inndeling — inkludert gjenopprettelser og sammenslåinger."
+      title="Administrativ utvikling"
+      description="Endringer fra dette fylket frem til dagens inndeling — sammenslåinger, delinger og gjenopprettelser med årstall."
       entityKind="fylke"
     />
   )}
-
-  <HistoricalTimeline
-    steps={timeline}
-    title="Utviklingslinje"
-    description="Hvordan fylket endret seg — inkludert gjenopprettelser og sammenslåinger."
-    headingId="county-timeline"
-    periodMode="end-year"
-    currentStatusLabel="Dagens fylke"
-    showChangeType={false}
-    entityKind="fylke"
-  />
 </Layout>

@@ -103,6 +103,7 @@ const showFlow = hasFlowContent(flow);
       flow={flow}
       title="Veien til dagens fylke"
       description="Administrative endringer fra dette fylket frem til dagens inndeling — inkludert gjenopprettelser og sammenslåinger."
+      entityKind="fylke"
     />
   )}
 
@@ -114,5 +115,6 @@ const showFlow = hasFlowContent(flow);
     periodMode="end-year"
     currentStatusLabel="Dagens fylke"
     showChangeType={false}
+    entityKind="fylke"
   />
 </Layout>

@@ -6,7 +6,6 @@ import EmptyState from "@/components/EmptyState.astro";
 import EntityNav from "@/components/EntityNav.astro";
 import ExploreLinks from "@/components/ExploreLinks.astro";
 import GroupedFactsCard from "@/components/GroupedFactsCard.astro";
-import MunicipalityNumberTimeline from "@/components/MunicipalityNumberTimeline.astro";
 import SectionHeading from "@/components/SectionHeading.astro";
 import ShowMoreFooter from "@/components/ShowMoreFooter.astro";
 import TableScroll from "@/components/TableScroll.astro";
@@ -40,7 +39,6 @@ import { buildAncestryFlow, hasFlowContent } from "../../lib/historical-flow";
 import {
   getMunicipalityEnrichment,
   getWikiCurrentMunicipality,
-  buildMunicipalityNumberTimeline,
 } from "../../lib/historical-data";
 
 export async function getStaticPaths() {
@@ -67,9 +65,6 @@ const adjacent = county ? await getAdjacentMunicipalities(id!, county.id) : {};
 const relatedMunicipalities = county ? await getRelatedMunicipalities(id!, county.id) : [];
 const ancestryFlow = await buildAncestryFlow(id!, "municipality");
 const showAncestryFlow = hasFlowContent(ancestryFlow);
-const numberTimeline = await buildMunicipalityNumberTimeline(id!);
-const showNumberTimeline = numberTimeline.length > 1;
-const showHistorySection = showAncestryFlow || showNumberTimeline;
 const wikiMunicipality = await getWikiCurrentMunicipality(id!);
 const enrichment = await getMunicipalityEnrichment(id!);
 const websiteUrl = wikiMunicipality?.websiteUrl ?? enrichment?.websiteUrl;
@@ -211,24 +206,20 @@ const exploreLinks = [
     description="Kommunegrense med fylket i bakgrunnen. Klikk på kartet for å zoome med musehjulet."
   />
 
-  {showHistorySection && (
+  {showAncestryFlow && (
     <section class="mb-10" aria-labelledby="history-heading">
       <SectionHeading
         id="history-heading"
-        title="Historikk og nummerendringer"
-        description="Denne kommunen har røtter i tidligere administrative enheter. Administrativ historikk viser sammenslåinger og delinger fra Wikipedia. Kommunenummer-linjen viser offisielle nummerbytter fra SSB Klass — to ulike, men relaterte perspektiver på endringer over tid."
+        title="Administrativ historikk"
+        description="Denne kommunen har røtter i tidligere administrative enheter. Historikken viser sammenslåinger, delinger og andre administrative endringer over tid."
       />
 
-      {showAncestryFlow && (
-        <HistoricalFlowCard
-          flow={ancestryFlow}
-          title="Administrativ historikk"
-          description="Forgjengere som ble slått sammen med eller innlemmet i dagens kommune."
-          entityKind="kommune"
-        />
-      )}
-
-      <MunicipalityNumberTimeline municipalityId={municipality.id} embedded />
+      <HistoricalFlowCard
+        flow={ancestryFlow}
+        title="Administrativ historikk"
+        description="Forgjengere som ble slått sammen med eller innlemmet i dagens kommune."
+        entityKind="kommune"
+      />
     </section>
   )}
 

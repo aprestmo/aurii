@@ -1,0 +1,129 @@
+---
+import HistoricalEntityCard from "@/components/HistoricalEntityCard.astro";
+import {
+  buildFlowBriefSummary,
+  buildFlowStoryEvents,
+  type EntityKind,
+} from "@/lib/historical-mobile-story";
+import type { AdministrativeFlow } from "@/lib/historical-flow";
+
+interface Props {
+  flow: AdministrativeFlow;
+  entityKind?: EntityKind;
+}
+
+const { flow, entityKind } = Astro.props;
+
+const events = buildFlowStoryEvents(flow);
+const briefSummary = buildFlowBriefSummary(flow, entityKind);
+const terminalNode = flow.nodes.find((n) => n.isCurrent);
+const entityLabel = entityKind === "fylke" ? "fylke" : "kommune";
+---
+
+<div class="md:hidden">
+  {briefSummary && (
+    <div class="mb-4 rounded-lg border border-primary/20 bg-primary/[0.04] px-4 py-3">
+      <p class="text-xs font-semibold uppercase tracking-wide text-primary">
+        Kort fortalt
+      </p>
+      <p class="mt-1.5 text-sm leading-relaxed text-foreground/90">
+        {briefSummary}
+      </p>
+    </div>
+  )}
+
+  <ol class="space-y-3" aria-label="Historisk fortelling">
+    {events.map((event) => (
+      <li class="overflow-hidden rounded-xl border border-border/70 bg-card">
+        <div class="px-4 py-3.5">
+          {event.year && (
+            <p
+              class="mb-1 font-mono text-lg font-semibold tabular-nums text-foreground"
+              aria-hidden="true"
+            >
+              {event.year}
+            </p>
+          )}
+          <p class="text-xs font-medium text-muted-foreground">{event.heading}</p>
+          <p class="mt-2 text-sm font-medium leading-snug text-foreground">
+            {event.summary}
+          </p>
+          {event.resultLine && (
+            <p class="mt-2 text-sm text-primary">{event.resultLine}</p>
+          )}
+        </div>
+
+        {event.hasDetails && (
+          <details class="group border-t border-border/60">
+            <summary class="cursor-pointer list-none px-4 py-2.5 text-sm font-medium text-muted-foreground transition-colors hover:bg-muted/30 hover:text-foreground focus:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-outline [&::-webkit-details-marker]:hidden">
+              <span class="inline-flex items-center gap-1.5">
+                <span
+                  class="inline-block transition-transform group-open:rotate-90"
+                  aria-hidden="true"
+                >
+                  ›
+                </span>
+                Vis detaljer
+              </span>
+            </summary>
+            <div class="space-y-3 border-t border-border/40 bg-muted/10 px-4 py-3">
+              {event.fromNodes.length > 0 && (
+                <div>
+                  <p class="mb-2 text-xs font-medium uppercase tracking-wide text-muted-foreground">
+                    Fra
+                  </p>
+                  <div class="space-y-2">
+                    {event.fromNodes.map((node) => (
+                      <HistoricalEntityCard
+                        name={node.name}
+                        number={node.number}
+                        validFrom={node.validFrom}
+                        validTo={node.validTo}
+                        isCurrent={node.isCurrent}
+                        isFocus={node.id === flow.focusNodeId}
+                        isUncertain={!node.link && !node.isCurrent}
+                        link={node.link}
+                        coatOfArms={node.coatOfArms}
+                        compact
+                      />
+                    ))}
+                  </div>
+                </div>
+              )}
+              {event.toNodes.length > 0 && (
+                <div>
+                  <p class="mb-2 text-xs font-medium uppercase tracking-wide text-muted-foreground">
+                    Til
+                  </p>
+                  <div class="space-y-2">
+                    {event.toNodes.map((node) => (
+                      <HistoricalEntityCard
+                        name={node.name}
+                        number={node.number}
+                        validFrom={node.validFrom}
+                        validTo={node.validTo}
+                        isCurrent={node.isCurrent}
+                        isFocus={node.id === flow.focusNodeId}
+                        isUncertain={!node.link && !node.isCurrent}
+                        link={node.link}
+                        coatOfArms={node.coatOfArms}
+                        compact
+                      />
+                    ))}
+                  </div>
+                </div>
+              )}
+            </div>
+          </details>
+        )}
+      </li>
+    ))}
+  </ol>
+
+  {terminalNode && events.length > 2 && (
+    <p class="mt-4 text-center text-sm text-muted-foreground">
+      Ender i: <span class="font-medium text-foreground">{terminalNode.name}</span>{" "}
+      {entityLabel} i dag
+    </p>
+  )}
+</div>

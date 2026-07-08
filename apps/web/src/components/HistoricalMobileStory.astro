@@ -10,12 +10,15 @@ import type { AdministrativeFlow } from "@/lib/historical-flow";
 interface Props {
   flow: AdministrativeFlow;
   entityKind?: EntityKind;
+  showBriefSummary?: boolean;
 }
 
-const { flow, entityKind } = Astro.props;
+const { flow, entityKind, showBriefSummary = true } = Astro.props;
 
 const events = buildFlowStoryEvents(flow);
-const briefSummary = buildFlowBriefSummary(flow, entityKind);
+const briefSummary = showBriefSummary
+  ? buildFlowBriefSummary(flow, entityKind)
+  : null;
 const terminalNode = flow.nodes.find((n) => n.isCurrent);
 const entityLabel = entityKind === "fylke" ? "fylke" : "kommune";
 ---

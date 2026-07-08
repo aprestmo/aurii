@@ -2,17 +2,12 @@
 import Breadcrumb from "@/components/Breadcrumb.astro";
 import HistoricalChangeBadge from "@/components/HistoricalChangeBadge.astro";
 import HistoricalFlowCard from "@/components/HistoricalFlowCard.astro";
-import HistoricalTimeline from "@/components/HistoricalTimeline.astro";
 import PageHeader from "@/components/PageHeader.astro";
 import Layout from "../../../layouts/Layout.astro";
 import { Badge } from "@/components/starwind/badge";
 import { Card, CardContent, CardDescription } from "@/components/starwind/card";
 import { url } from "../../../lib/base";
-import {
-  buildMunicipalityTimeline,
-  formatPeriod,
-  loadHistoricalMunicipalities,
-} from "../../../lib/historical-data";
+import { formatPeriod, loadHistoricalMunicipalities } from "../../../lib/historical-data";
 import { buildForwardFlow, hasFlowContent } from "../../../lib/historical-flow";
 
 export async function getStaticPaths() {
@@ -29,7 +24,6 @@ if (!municipality) {
   return Astro.redirect(url("historikk"));
 }
 
-const timeline = await buildMunicipalityTimeline(municipality.id);
 const flow = await buildForwardFlow(municipality.id, "municipality");
 const showFlow = hasFlowContent(flow);
 ---
@@ -115,19 +109,9 @@ const showFlow = hasFlowContent(flow);
   {showFlow && (
     <HistoricalFlowCard
       flow={flow}
-      title="Veien til dagens kommune"
-      description="Administrative endringer fra denne kommunen frem til dagens tilhørighet. Pilene viser sammenslåinger, delinger og andre endringer."
+      title="Administrativ utvikling"
+      description="Endringer fra denne kommunen frem til dagens tilhørighet — sammenslåinger, delinger og gjenopprettelser med årstall."
       entityKind="kommune"
     />
   )}
-
-  <HistoricalTimeline
-    steps={timeline}
-    title="Historielinje"
-    description="Utvikling over tid — fra denne kommunen til dagens tilhørighet."
-    headingId="municipality-timeline"
-    periodMode="range"
-    currentStatusLabel="Dagens kommune"
-    entityKind="kommune"
-  />
 </Layout>

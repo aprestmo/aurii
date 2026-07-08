@@ -10,9 +10,8 @@ import {
   CardTitle,
 } from "@/components/starwind/card";
 import { Separator } from "@/components/starwind/separator";
+import { buildFlowBriefSummary, type EntityKind } from "@/lib/historical-mobile-story";
 import type { AdministrativeFlow } from "@/lib/historical-flow";
-
-import type { EntityKind } from "@/lib/historical-mobile-story";
 
 interface Props {
   flow: AdministrativeFlow;
@@ -23,12 +22,13 @@ interface Props {
 
 const {
   flow,
-  title = "Administrative endringer",
+  title = "Administrativ utvikling",
   description = "Hvordan enheten utviklet seg over tid — eldste forgjengere til venstre, dagens enhet til høyre.",
   entityKind,
 } = Astro.props;
 
 const nodeById = new Map(flow.nodes.map((n) => [n.id, n]));
+const briefSummary = buildFlowBriefSummary(flow, entityKind);
 
 function edgesBetween(fromLayer: string[], toLayer: string[]) {
   return flow.edges.filter(
@@ -46,6 +46,17 @@ function edgesBetween(fromLayer: string[], toLayer: string[]) {
       <p class="mb-6 max-w-2xl text-sm leading-relaxed text-muted-foreground">
         {description}
       </p>
+
+      {briefSummary && (
+        <div class="mb-6 rounded-lg border border-primary/20 bg-primary/[0.04] px-4 py-3">
+          <p class="text-xs font-semibold uppercase tracking-wide text-primary">
+            Kort fortalt
+          </p>
+          <p class="mt-1.5 text-sm leading-relaxed text-foreground/90">
+            {briefSummary}
+          </p>
+        </div>
+      )}
 
       <Card class="border-border/80">
         <CardHeader class="border-b border-border/60 px-4 py-4 sm:px-6">
@@ -106,9 +117,13 @@ function edgesBetween(fromLayer: string[], toLayer: string[]) {
                       <div class="flex flex-col items-center gap-1.5">
                         {edgesBetween(layer, nextLayer).map((edge) => (
                           <div class="flex flex-col items-center gap-0.5">
+                            {edge.changeYear && (
+                              <span class="font-mono text-xs font-semibold tabular-nums text-foreground">
+                                {edge.changeYear}
+                              </span>
+                            )}
                             <HistoricalChangeBadge
                               changeType={edge.changeType}
-                              year={edge.changeYear}
                               size="sm"
                             />
                             <span class="text-muted-foreground" aria-hidden="true">
@@ -125,7 +140,7 @@ function edgesBetween(fromLayer: string[], toLayer: string[]) {
             })}
           </div>
 
-          <HistoricalMobileStory flow={flow} entityKind={entityKind} />
+          <HistoricalMobileStory flow={flow} entityKind={entityKind} showBriefSummary={false} />
         </CardContent>
       </Card>
     </section>

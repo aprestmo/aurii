@@ -30,6 +30,8 @@ Aurii is **not** an API framework.
 
 Aurii is a **Declarative Runtime for Structured Knowledge**.
 
+**Clarification:** Aurii Core is not a CMS. Aurii can power CMS products through an **optional** authoring client. A CMS is never required between Core and a frontend. See `docs/PRODUCT_MODEL.md` and `adr/ADR-0010 — Optional Authoring Layer.md`.
+
 Everything you build should reinforce that vision.
 
 ---
@@ -410,11 +412,28 @@ Never more complicated.
 
 ---
 
-# Reference Demo Project
+# Reference Verticals
 
-When adding features, fixing bugs, or validating architecture changes, use **Norwegian Geo** as the canonical end-to-end testbed. It is Aurii's primary reference implementation and a reusable Norwegian reference data product. Do not invent new synthetic datasets when this one already exercises the platform.
+Aurii uses **two** planned reference verticals. Pick the one that matches the capability under change.
 
-## What it is
+| Vertical | Validates | Status |
+|----------|-----------|--------|
+| **Norwegian Geo** | Import, schema, query, storage, SDK, **delivery**, product modules | Canonical and implemented |
+| **Editorial** (future) | Authoring, revision, publishing, preview, workflow, media | Planned after Phase 4; **do not implement in Phase 4 docs/work** |
+
+Cross-cutting Runtime changes must eventually be validated against both verticals. Until Editorial exists, do **not** add editorial concepts to Core merely because Norwegian Geo cannot exercise them. Express draft/publish/revision as generic schemas and capabilities when that phase begins—not as hardcoded news CMS behavior.
+
+Product model: `docs/PRODUCT_MODEL.md`. Phase plan: `Phase4.md`. ADR: `adr/ADR-0010 — Optional Authoring Layer.md`.
+
+---
+
+## Norwegian Geo (canonical data / delivery testbed)
+
+When adding features, fixing bugs, or validating architecture changes for **import, schema, query, storage, SDK, or delivery**, use **Norwegian Geo**. It is Aurii's primary reference implementation and a reusable Norwegian reference data product. Do not invent new synthetic datasets when this one already exercises the platform.
+
+Norwegian Geo is **not** sufficient to validate authoring-specific functionality (drafts, publishing UI, preview, editorial workflow, media libraries). Those wait for the Editorial vertical.
+
+### What it is
 
 A three-layer product built on Aurii:
 
@@ -430,17 +449,17 @@ Aurii Core → Norwegian Geo Core → Dataset Modules
 | **Import** | `bun run import:norwegian-geo` | One-command import into Core (dataset: `norwegian-geo`) |
 | **Tests** | `vertical-slice.test.ts`, `geo-website-routes.test.ts`, `public-reference-datasets.test.ts` | Integration coverage |
 | **Consumer site** | `apps/geo` | Public website |
-| **Admin client** | `apps/studio` | Entity browser (dataset: `norwegian-geo`) |
+| **Admin client** | `apps/studio` | Data workspace (dataset: `norwegian-geo`) |
 
 Full documentation: `docs/NORWEGIAN_GEO.md`, `docs/REFERENCE_DEMO.md`, and `Phase2.2.md`.
 
-## When to use it
+### When to use it
 
 **Always extend Norwegian Geo when:**
 
-- Adding import, query, schema, or API capabilities
+- Adding import, query, schema, API, or **delivery** capabilities
 - Changing SDK or storage behaviour
-- Validating that a feature works end-to-end
+- Validating that a data-product feature works end-to-end
 
 **Workflow for agents:**
 
@@ -455,14 +474,28 @@ Full documentation: `docs/NORWEGIAN_GEO.md`, `docs/REFERENCE_DEMO.md`, and `Phas
 - Create parallel demo datasets for the same purpose
 - Hardcode Norwegian geo logic in Core (keep it in schemas, imports, and the Norwegian Geo product)
 - Skip integration tests and rely only on unit tests
+- Pretend Norwegian Geo validates CMS/authoring flows
+- Implement the Editorial vertical “while you’re here” unless that is the assigned task
 
-## Example queries (copy-paste)
+### Example queries (copy-paste)
 
 ```
 from county order by name asc
 from municipality where countyId == "03"
 from postal-code where municipalityId == "0301" limit 10
 ```
+
+---
+
+## Editorial (future authoring vertical)
+
+Use a future **Editorial** reference product when changing authoring, revision, publishing, preview, workflow, or media behaviour.
+
+Until that vertical exists:
+
+- Do not create a fake newsroom dataset to justify Core special cases
+- Do not require Norwegian Geo to grow editorial fields for platform features it does not need
+- Keep Phase 4 focused on data products and delivery (`Phase4.md`)
 
 ---
 

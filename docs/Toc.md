@@ -3,6 +3,7 @@ Toc
 README.md
 VISION.md
 CONSTITUTION.md
+PRODUCT_MODEL.md
 
 ARCHITECTURE.md
 RUNTIME.md
@@ -21,3 +22,6 @@ API.md
 AI.md
 STUDIO.md
 AGENTS.md
+
+Phase reports: Phase1.md … Phase3.md (historical), Phase4.md (plan)
+ADR-0010 — Optional Authoring Layer

@@ -1,6 +1,8 @@
 # Reference Demo Project
 
-> **For AI agents:** This is the canonical demo for validating Aurii features. Read this before adding new capabilities. Also see the **Reference Demo Project** section in `AGENTS.md` and [`docs/NORWEGIAN_GEO.md`](NORWEGIAN_GEO.md) for product architecture.
+> **For AI agents:** Norwegian Geo is the canonical demo for validating **import, schema, query, storage, SDK, and delivery**. Read this before adding those capabilities. Also see **Reference Verticals** in `AGENTS.md`, [`docs/NORWEGIAN_GEO.md`](NORWEGIAN_GEO.md), and [`docs/PRODUCT_MODEL.md`](PRODUCT_MODEL.md).
+>
+> Norwegian Geo does **not** validate authoring, drafts, publishing, preview, workflow, or media. Those belong to a future Editorial vertical (after Phase 4). Do not invent editorial Core features to compensate.
 
 ---
 
@@ -11,6 +13,8 @@
 ```
 Kartverket + Bring + UDIR + Brreg  →  import  →  storage  →  query  →  API  →  SDK  →  Studio / apps/geo
 ```
+
+**Delivery note:** Integration tests and Studio use the live API/SDK path. `apps/geo` may still read committed snapshots as an explicit offline/build-time mode. Phase 4 (`Phase4.md`) requires proving live Core → SDK → frontend delivery as a first-class contract—not snapshots alone.
 
 ### Three layers
 
@@ -139,9 +143,12 @@ Build validates routes resolve. See `apps/geo/README.md`.
 
 ## What not to use this for
 
-- Performance benchmarking at scale (dataset is small by design)
-- Features explicitly deferred to Phase 4+ (RBAC, plugins, AI, full-text search, dot-notation traversal)
+- Performance benchmarking at scale (dataset is small by design; Phase 4 defines larger stress cases)
+- Authoring, drafts, publishing, preview, editorial workflow, or media libraries (future Editorial vertical)
+- Features explicitly deferred past Phase 4 (full RBAC, plugins as production, AI as production, CMS/LiveCenter)
 - Domain-specific Core hacks — behaviour belongs in schemas, imports, or the Norwegian Geo product
+
+Product composition: `demo/norwegian-geo/product.yaml`. Model: `docs/PRODUCT_MODEL.md`.
 
 ---
 

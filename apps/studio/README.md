@@ -1,14 +1,19 @@
-# @aurii/studio — Phase 2
+# @aurii/studio
 
-> Aurii Studio is a client of the Aurii Runtime. It consumes the public HTTP API and nothing else.
+> Aurii Studio is a **client** of the Aurii Runtime. It consumes the public HTTP API (via `@aurii/sdk`) and nothing else.
+>
+> Today Studio is a generic **data workspace** (imports, schemas, entities, queries). An optional **authoring workspace** for CMS-style editing is a later-phase client—not required for data products. See [`docs/PRODUCT_MODEL.md`](../../docs/PRODUCT_MODEL.md) and [ADR-0010](../../adr/ADR-0010%20—%20Optional%20Authoring%20Layer.md).
 
 An Astro application providing:
 
 - **Dashboard** — entity counts, field coverage per schema, import history
 - **Import Wizard** — upload → analyze → schema → mapping → dry run → import
-- **Entity Browser** — browse, filter, and query entities
+- **Entity Browser** — browse, filter, and query entities (including relation links)
+- **Query playground** — run and explain Query Language against the active dataset
 - **Schemas** — inspect registered schemas
 - **Login** — API URL + token when the API requires authentication
+
+**Status:** usable after Phase 2–3. Phase 4 deepens import operations and delivery; it does not turn Studio into a news CMS.
 
 ## Quick start
 

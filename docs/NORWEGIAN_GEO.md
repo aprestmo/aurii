@@ -1,6 +1,8 @@
 # Norwegian Geo — Reference Data Product
 
 > Norwegian Geo is Aurii's primary real-world reference implementation and a reusable Norwegian reference data platform built on top of Aurii.
+>
+> It is a **data product without a CMS**: imports → Core → API/SDK → consumers. Studio is used only as a generic data workspace. See [`docs/PRODUCT_MODEL.md`](PRODUCT_MODEL.md).
 
 This document defines **what belongs where** — for human contributors and AI agents.
 
@@ -204,9 +206,11 @@ AURII_STORAGE=postgres \
 | Consumer | How it uses Norwegian Geo |
 |----------|---------------------------|
 | **Aurii Core** | `bun run import:norwegian-geo` loads dataset `norwegian-geo` |
-| **Studio** | Select dataset `norwegian-geo` after import |
-| **apps/geo** | Reads `core/data/` and `modules/*/data/` at build time; historical from `core/historical/data/` |
-| **Integration tests** | `packages/core/src/__tests__/` via manifest paths |
+| **Studio** | Data workspace: select dataset `norwegian-geo` after import (not a CMS) |
+| **apps/geo** | Today: reads `core/data/` and `modules/*/data/` at build time (offline/snapshot mode); historical from `core/historical/data/`. Phase 4 adds live Core → SDK delivery as a first-class path. |
+| **Integration tests** | `packages/core/src/__tests__/` via manifest paths; SDK vertical slice |
+
+Norwegian Geo does not require an authoring workspace. Frontends must not depend on Studio.
 
 ---
 
@@ -216,10 +220,10 @@ Norwegian Geo is structured so it can eventually deploy independently:
 
 - **Engine:** Aurii Core (PostgreSQL, REST API)
 - **Data:** `bun run fetch:norwegian-geo && bun run import:norwegian-geo`
-- **Frontend:** `apps/geo` (static Astro site) or any SDK consumer
+- **Frontend:** `apps/geo` (Astro) via snapshots and/or `@aurii/sdk` against Core (Phase 4 delivery contract)
 - **Hosting:** Docker, Coolify, self-hosted
 
-The product boundary is `demo/norwegian-geo/` plus its consumer apps. Aurii Core is the engine behind it.
+The product boundary is `demo/norwegian-geo/` plus its consumer apps. Aurii Core is the engine behind it. Product composition: `product.yaml` (convention; Phase 4 may promote useful parts to SDK/helpers).
 
 ---
 
@@ -227,8 +231,10 @@ The product boundary is `demo/norwegian-geo/` plus its consumer apps. Aurii Core
 
 | Document | Purpose |
 |----------|---------|
+| [`docs/PRODUCT_MODEL.md`](PRODUCT_MODEL.md) | Aurii product model (modes, glossary) |
+| [`Phase4.md`](../Phase4.md) | Data products and delivery plan |
 | [`demo/norwegian-geo/README.md`](../demo/norwegian-geo/README.md) | Product quick start |
 | [`docs/REFERENCE_DEMO.md`](REFERENCE_DEMO.md) | Agent workflow and test IDs |
 | [`docs/Public Reference Datasets.md`](Public%20Reference%20Datasets.md) | Source survey and selection rationale |
 | [`demo/norwegian-geo/core/historical/README.md`](../demo/norwegian-geo/core/historical/README.md) | Historical pipeline details |
-| [`AGENTS.md`](../AGENTS.md) | Architectural philosophy |
+| [`AGENTS.md`](../AGENTS.md) | Architectural philosophy; dual verticals |

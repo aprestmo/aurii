@@ -4,6 +4,9 @@
 >
 > It does not describe implementation details.
 > It describes responsibilities, boundaries and interactions between the major parts of the platform.
+>
+> **Product boundaries** (Core vs Studio vs optional authoring vs consumers): [`PRODUCT_MODEL.md`](PRODUCT_MODEL.md).  
+> **Status:** Phase 3 complete; many engines below are visionary. Prefer README / Phase docs for what is implemented.
 
 ---
 
@@ -20,14 +23,14 @@ Together they form a single platform.
 
  ┌──────────────────────────────────────────┐
  │                                          │
- │ Studio                                  │
- │ Websites                                │
- │ Mobile Apps                             │
- │ APIs                                    │
- │ AI Agents                               │
- │ Print                                   │
- │ Third-party Integrations                │
- │ Internal Systems                        │
+ │ Studio (data workspace; optional authoring later) │
+ │ Websites                                         │
+ │ Mobile Apps                                      │
+ │ APIs                                             │
+ │ AI Agents                                        │
+ │ Print                                            │
+ │ Third-party Integrations                         │
+ │ Internal Systems                                 │
  │                                          │
  └──────────────────────────────────────────┘
 

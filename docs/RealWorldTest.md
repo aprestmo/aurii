@@ -1,5 +1,7 @@
 # Real-World Dataset Test — Findings
 
+> **Historical findings document.** Written against Phase 2-era Query Language. Items marked “Phase 3 gap” (joins, aggregates) were addressed in Phase 3—see [`Phase3.md`](../Phase3.md) and [`docs/Query-Language-v1.md`](Query-Language-v1.md). Open transform/inference issues may still apply.
+>
 > Tested against: `packages/core/examples/data/job-postings.csv`
 > Dataset: 15 Norwegian job postings with realistic messy data
 > Test file: `packages/core/src/__tests__/real-world-dataset.test.ts`

@@ -1,424 +1,110 @@
 # Aurii
 
-> A composable content and data platform built for the next generation of applications.
+> A schema-driven runtime for structured knowledge—import, relate, query, and deliver.
 
 ---
 
 ## What is Aurii?
 
-Aurii is a schema-first, API-first and AI-first platform for storing, managing, enriching and delivering structured content and data.
+Aurii is a schema-driven runtime for importing, creating, relating, transforming, querying, and delivering structured data. Data may come from external sources, people, automation, or AI. Studio provides generic data administration, while products that need manual authoring may add an optional schema- and capability-driven authoring workspace. Frontends and other consumers communicate with Core through public APIs and SDKs.
 
-Aurii is **not** a traditional CMS.
+Aurii is **not** a traditional CMS, database, or API framework.
 
-It is a platform for building systems that happen to manage content.
+**Aurii Core is not a CMS.** Aurii can power CMS products through an optional authoring layer. A CMS is never required between Core and a frontend.
 
-At its core, Aurii provides a flexible Content Lake capable of powering everything from websites and newsrooms to public datasets, internal business systems, documentation platforms, APIs, AI applications and print workflows.
-
-The goal is simple:
-
-> Store data once. Use it everywhere.
+Canonical product vocabulary: [`docs/PRODUCT_MODEL.md`](docs/PRODUCT_MODEL.md).  
+Optional authoring decision: [`adr/ADR-0010 — Optional Authoring Layer.md`](adr/ADR-0010%20—%20Optional%20Authoring%20Layer.md).
 
 ---
 
-# Vision
+## Product modes
 
-Modern organizations manage much more than pages and articles.
+Aurii supports three modes. Only the **data product** path is fully exercised today (Norwegian Geo). Authored and hybrid modes are architectural commitments for later phases—not claims of a shipping CMS.
 
-They manage products, customers, maps, media assets, datasets, taxonomies, events, AI-generated content, analytics, structured documents and countless integrations.
+### 1. Data product (no CMS)
 
-Traditional CMS platforms were designed around publishing web pages.
-
-Aurii is designed around managing information.
-
-Everything is modeled as data.
-
-Everything is queryable.
-
-Everything is reusable.
-
----
-
-# Philosophy
-
-Aurii is built around a few fundamental principles.
-
-## Schema First
-
-Every dataset begins with a schema.
-
-Schemas define:
-
-- structure
-- validation
-- relationships
-- permissions
-- editing capabilities
-- APIs
-- search
-- AI understanding
-
-Schemas are the foundation of the platform.
-
----
-
-## API First
-
-Everything inside Aurii is available through APIs.
-
-The Studio itself communicates with Core exclusively through public APIs.
-
-If something cannot be accessed through an API, it probably does not belong inside Core.
-
----
-
-## AI First
-
-Artificial Intelligence is not an add-on.
-
-AI is part of the platform.
-
-AI should assist with:
-
-- schema creation
-- data modeling
-- validation
-- import
-- search
-- transformation
-- enrichment
-- automation
-
-The human always remains in control.
-
----
-
-## Data Before Presentation
-
-Content should never depend on a frontend.
-
-Instead:
-
-```
-Data
-
-↓
-
-API
-
-↓
-
-Frontend
+```text
+External sources → Import / pipelines → Aurii Core → API / SDK → Frontend, API, AI, or print
 ```
 
-A website is simply one consumer.
+Examples: Norwegian Geo, tax lists, company data, SSB datasets, election data.
 
-A mobile app is another.
+### 2. Authored content (optional CMS client)
 
-A print workflow is another.
-
-An AI agent is another.
-
----
-
-## Composable
-
-Aurii is built as independent engines.
-
-Every subsystem should be replaceable.
-
-Every feature should be reusable.
-
-Avoid tightly coupled functionality.
-
----
-
-## Open by Design
-
-Aurii should embrace open standards whenever possible.
-
-Examples include:
-
-- JSON
-- OpenAPI
-- OAuth
-- OpenID Connect
-- S3
-- PostgreSQL
-- Markdown
-- GraphQL (optional)
-- RSS
-- XML
-
-Vendor lock-in should never be required.
-
----
-
-# What can Aurii build?
-
-Aurii should be capable of powering systems such as:
-
-- Headless CMS
-- News publishing
-- Documentation platforms
-- Public data portals
-- Internal business systems
-- Customer portals
-- Product catalogs
-- AI knowledge bases
-- Geographic information systems
-- Print production
-- Digital archives
-- Media asset management
-- Event systems
-- Live coverage
-- Public APIs
-
-All using the same Core.
-
----
-
-# Core Architecture
-
-Aurii is composed of several independent engines.
-
-```
-                    Studio
-
-                      │
-
-        ┌─────────────┴─────────────┐
-
-        │                           │
-
-      REST                      Query API
-
-        │                           │
-
-        └─────────────┬─────────────┘
-
-                      │
-
-                    Core
-
-──────────────────────────────────────────
-
-Schemas
-
-Datasets
-
-Documents
-
-Assets
-
-Imports
-
-Connectors
-
-Pipelines
-
-Search
-
-Events
-
-Permissions
-
-AI
-
-──────────────────────────────────────────
-
-                PostgreSQL
+```text
+Editor → Optional authoring workspace → Aurii Core → API / SDK → Frontend
 ```
 
-Core is the product.
+The frontend reads Core directly—not through the CMS UI.
 
-Studio is one client.
+### 3. Hybrid
 
----
-
-# Technology
-
-The initial implementation uses:
-
-Frontend
-
-- Astro
-
-Backend
-
-- Bun
-- Elysia
-
-Language
-
-- TypeScript
-
-Database
-
-- PostgreSQL
-- JSONB
-
-Infrastructure
-
-- Docker
-- Coolify
-- S3 compatible object storage
-
-Hosting
-
-Self-hosted by default.
-
-Cloud deployments should also be possible.
-
----
-
-# Why Aurii?
-
-Many existing CMS platforms assume that websites are the primary product.
-
-Aurii assumes that structured information is the primary product.
-
-Websites are simply one output.
-
-This distinction influences every architectural decision.
-
----
-
-# Import Philosophy
-
-Importing data is a core capability.
-
-Import is not simply uploading a CSV.
-
-Aurii should understand incoming information.
-
-Supported sources include:
-
-- CSV
-- Excel
-- JSON
-- XML
-- APIs
-- Databases
-- Cloud storage
-- Git repositories
-- Google Sheets
-- AI extracted documents
-
-Every import should be:
-
-- analyzable
-- repeatable
-- auditable
-- versioned
-- resumable
-
----
-
-# AI Philosophy
-
-AI should augment—not replace—the user.
-
-AI may suggest:
-
-- schemas
-- field types
-- mappings
-- relationships
-- validation rules
-- import strategies
-- search queries
-
-Every suggestion should be reviewable.
-
-Nothing important should happen automatically without user approval.
-
----
-
-# Documentation
-
-The project documentation is organized as follows:
-
-```
-docs/
-
-README.md
-
-VISION.md
-
-CONSTITUTION.md
-
-ARCHITECTURE.md
-
-DOMAIN_MODEL.md
-
-CORE.md
-
-SCHEMA_ENGINE.md
-
-IMPORT_ENGINE.md
-
-QUERY_ENGINE.md
-
-API.md
-
-AI.md
-
-AGENTS.md
+```text
+Imports + editors + automation/AI → Aurii Core → API / SDK / events → many consumers
 ```
 
-Each document builds upon the previous one.
+---
 
-Together they form the complete Aurii Specification.
+## Core vs Studio
+
+| Piece | Role |
+|-------|------|
+| **Core** (`packages/core`) | Domain-agnostic runtime and system of record |
+| **SDK** (`packages/sdk`) | Typed HTTP client for browsers and servers |
+| **Studio** (`apps/studio`) | Generic **data workspace** client (imports, schemas, entities, queries) |
+| **Authoring workspace** | Optional future client for editing/publishing—not required for data products |
+| **Consumers** | Sites, apps, public APIs, AI, exports—talk to Core, not to Studio |
+
+```text
+Studio / authoring / CLI / AI     →  public APIs / SDK  →  Core  →  consumers
+```
 
 ---
 
-# Development Principles
+## Foundations
 
-When contributing to Aurii:
+### Schema first
 
-- Keep Core generic.
-- Avoid application-specific features.
-- Prefer composition over inheritance.
-- Prefer configuration over hardcoding.
-- Build reusable primitives.
-- Design APIs before interfaces.
-- Keep business logic out of the UI.
-- Think in datasets instead of pages.
-- Think in schemas instead of forms.
-- Think in APIs instead of components.
+Schemas define structure, validation, relationships, and declared behavior. Prefer declaring behavior in schemas and capabilities over hardcoding it in Core or UI.
 
----
+### Import first
 
-# Long-term Goal
+Importing external data is a core capability: analyzable, repeatable, auditable mappings from sources into entities. Phase 1–3 proved this loop; Phase 4 deepens it as a product surface.
 
-Aurii aims to become a complete platform for structured information.
+### API first
 
-Not merely a CMS.
+Studio and every other client use the same public APIs. If something cannot be accessed through an API, it probably does not belong in Core.
 
-Not merely a database.
+### Runtime first
 
-Not merely an API.
-
-Aurii should become the foundation upon which entirely new classes of applications can be built.
+Applications adapt to the Runtime. Domain-specific logic belongs in product schemas, modules, plugins, pipelines, and clients—not in Core.
 
 ---
 
 ## Status
 
-**Current state: Phase 2 complete.**
+**Current state: Phase 3 complete.**
 
-Phase 2.2 validated the architecture with the Norwegian geographic reference demo. Phase 3 work begins from here. See `Phase2.2.md`, `docs/REFERENCE_DEMO.md`, and `AGENTS.md` (Reference Demo Project).
+| Phase | Focus | Status |
+|-------|--------|--------|
+| Phase 1 | Import-first Core | Complete — [`Phase1.md`](Phase1.md) |
+| Phase 2 | PostgreSQL, datasets, HTTP API, Studio | Complete — [`Phase2.md`](Phase2.md) |
+| Phase 2.2 | Norwegian Geo vertical slice | Complete — [`Phase2.2.md`](Phase2.2.md) |
+| Phase 3 | References, joins, query planner, Studio query playground | Complete — [`Phase3.md`](Phase3.md) |
+| Phase 4 | Data products and delivery | Planned — [`Phase4.md`](Phase4.md) |
+
+Phase 4 completes the import → Core → SDK → frontend path and product composition before newsroom/CMS work. See the product model and Phase 4 docs before opening authoring or LiveCenter issues.
 
 ### Repository layout
 
 ```
 apps/
-  studio/          @aurii/studio — Astro admin client
-  geo/             @aurii/geo    — Norwegian counties/municipalities demo site
+  studio/          @aurii/studio — Astro data-workspace client
+  geo/             @aurii/geo    — Norwegian Geo public site
 packages/
   core/            @aurii/core   — Runtime (Bun + Elysia)
   sdk/             @aurii/sdk    — Typed HTTP client (browser + server)
-demo/              Ready-to-import example datasets
+demo/              Example datasets; norwegian-geo reference product
 docs/              Architecture specifications and design documents
 adr/               Architecture Decision Records
 ```
@@ -428,71 +114,62 @@ adr/               Architecture Decision Records
 | Component | Status |
 |-----------|--------|
 | `packages/core` — CLI, HTTP API, schema, import, query, pipeline | Running |
-| `packages/sdk` — Typed HTTP client wrapping all API endpoints | Built, tested |
+| `packages/sdk` — Typed HTTP client wrapping API endpoints | Built, tested |
 | SQLite storage adapter | Verified end-to-end |
-| PostgreSQL storage adapter | **CI-verified** — runs against `postgres:16` on every push |
-| Query Language v0 (parser + executor) | Unit tests passing |
+| PostgreSQL storage adapter | **CI-verified** against `postgres:16` |
+| Query Language v1 (joins, count, explain) | Phase 3 complete |
+| Schema `reference` fields + import reference validation | Phase 3 complete |
 | Import pipeline (CSV/JSON, mapping, transforms, validation) | E2E tests passing |
 | HTTP API (datasets, schemas, entities, query, import, stats) | Integration tests passing |
-| OpenAPI / Swagger UI | Available at `/swagger` when Core is running |
-| Capability Registry | Self-registering internal subsystem declarations |
+| OpenAPI / Swagger UI | `/swagger` when Core is running |
+| Capability Registry | Internal subsystem declarations |
 | Internal domain events | `dataset.created`, `entity.*`, `import.*` |
-| Studio (Astro) — dashboard, import wizard, entity browser | Builds, uses SDK |
-| Studio automated tests | SDK integration tests against in-process Core |
-| Docker developer environment | `docker compose up` starts Core + Studio + PostgreSQL |
-| Demo datasets | news, products, municipalities, companies in `demo/` |
-| **Norwegian geo vertical slice** | `demo/norwegian-geo/` — real counties, municipalities, postal codes |
+| Studio — dashboard, import wizard, entity browser, query playground | Builds, uses SDK |
+| Docker developer environment | `docker compose up` → Core + Studio + PostgreSQL |
+| **Norwegian Geo** | `demo/norwegian-geo/` — counties, municipalities, postal codes + modules |
+
+### What is not built yet
+
+Do not treat these as shipping features:
+
+- Optional authoring / CMS workspace (planned after Phase 4)
+- Newsroom, LiveCenter, realtime collaboration
+- Draft / publish / revision / workflow as production capabilities
+- Full asset / media management
+- Plugin runtime (as a loadable extension system)
+- AI integration as a production feature
+- RBAC (only a single bearer token today)
+- SQL join pushdown at million-row scale (in-memory joins today)
+- Scheduled imports and generic HTTP connectors (Phase 4 stretch / later)
 
 ### Continuous Integration
 
-Every push and pull request runs four jobs:
+Every push and pull request runs:
 
 - **core** — typecheck, lint, and full test suite (SQLite)
-- **core-postgres** — same test suite against a real PostgreSQL/JSONB service container
+- **core-postgres** — same suite against PostgreSQL/JSONB
 - **sdk** — typecheck and SDK tests
 - **studio** — build check + API integration tests
 
-### Quick start (one command)
+### Quick start
 
 ```bash
 docker compose up
 ```
 
-This starts:
-- Core API at **http://localhost:3000** (Swagger UI at /swagger)
-- Studio at **http://localhost:4321**
-- PostgreSQL on port 5432
+- Core API: **http://localhost:3000** (Swagger at `/swagger`)
+- Studio: **http://localhost:4321**
+- PostgreSQL: port 5432
 
-### Running locally without Docker
-
-**Install dependencies:**
+Without Docker:
 
 ```bash
-bun install   # installs all workspace packages
+bun install
+cd packages/core && bun run serve    # http://localhost:3000
+cd apps/studio && bun run dev        # http://localhost:4321
 ```
 
-**Core (HTTP API):**
-
-```bash
-cd packages/core
-bun run serve          # starts on http://localhost:3000
-```
-
-**Studio:**
-
-```bash
-cd apps/studio
-bun run dev            # starts on http://localhost:4321
-```
-
-**Root workspace scripts:**
-
-```bash
-bun run build      # typecheck all packages
-bun run test       # run all test suites
-bun run lint       # lint all packages
-bun run typecheck  # TypeScript check all packages
-```
+Root scripts: `bun run build` · `bun run test` · `bun run lint` · `bun run typecheck`
 
 ### Environment variables for Core
 
@@ -504,22 +181,6 @@ bun run typecheck  # TypeScript check all packages
 | `DATABASE_URL` | — | PostgreSQL connection string |
 | `AURII_API_TOKEN` | — | Bearer token (unset = open) |
 
-### Running tests
-
-```bash
-# Core (all tests, SQLite)
-cd packages/core && bun run test
-
-# Core with PostgreSQL adapter
-DATABASE_URL=postgres://user:pass@localhost:5432/aurii_test bun run test
-
-# SDK
-cd packages/sdk && bun run test
-
-# Studio
-cd apps/studio && bun run test
-```
-
 ### Using the SDK
 
 ```ts
@@ -528,52 +189,45 @@ import { createClient } from "@aurii/sdk";
 const client = createClient({
   baseUrl: "http://localhost:3000",
   token: process.env.AURII_API_TOKEN,
-  defaultDataset: "my-dataset",
+  defaultDataset: "norwegian-geo",
 });
 
 const datasets = await client.datasets.list();
-const schemas  = await client.schemas.list();
-const result   = await client.query.run("FROM article LIMIT 10");
+const schemas = await client.schemas.list();
+const result = await client.query.run(
+  'from municipality join county on municipality.countyId = county.id where municipality.id == "0301"',
+);
 ```
 
-### Norwegian geographic dataset (Phase 2.2)
-
-Import real Norwegian reference data (counties, municipalities, postal codes):
+### Norwegian Geo (reference data product)
 
 ```bash
-# After docker compose up:
 AURII_STORAGE=postgres \
   DATABASE_URL=postgres://aurii:aurii@localhost:5432/aurii \
   bun run import:norwegian-geo
 ```
 
-See `Phase2.2.md` and `demo/norwegian-geo/README.md` for query examples and Studio setup.
+See [`docs/NORWEGIAN_GEO.md`](docs/NORWEGIAN_GEO.md), [`docs/REFERENCE_DEMO.md`](docs/REFERENCE_DEMO.md), and [`Phase2.2.md`](Phase2.2.md).
 
-### Demo datasets
+### Documentation map
 
-Load ready-made example data:
+| Document | Purpose |
+|----------|---------|
+| [`docs/PRODUCT_MODEL.md`](docs/PRODUCT_MODEL.md) | **Canonical product model** (Core, datasets, products, Studio, consumers) |
+| [`Phase4.md`](Phase4.md) | Next phase: data products and delivery |
+| [`docs/Architecture.md`](docs/Architecture.md), [`docs/Core.md`](docs/Core.md), [`docs/API.md`](docs/API.md) | Architecture and API |
+| [`docs/Schema Language.md`](docs/Schema%20Language.md), [`docs/Query-Language-v1.md`](docs/Query-Language-v1.md) | Languages (v1 status + vision docs) |
+| [`adr/`](adr/) | Architecture Decision Records |
+| [`AGENTS.md`](AGENTS.md) | Rules for AI agents and contributors |
+| `Phase1.md` … `Phase3.md` | Historical phase records |
 
-```bash
-cd packages/core
-bun run cli schema apply ../demo/news/schema.yaml
-bun run cli import run ../demo/news/import.yaml
-```
+---
 
-See `demo/README.md` for the full list and usage instructions.
+## Development principles
 
-### What is not built yet
-
-- Real permission system (only a single bearer token today)
-- Relation support in queries
-- Plugin system
-- AI integration
-- Phase 3 features (pgvector, semantic search, scheduled imports, RBAC)
-
-### Specification
-
-Architecture design documents live in `docs/`:
-
-- `docs/Architecture.md`, `docs/API.md`, `docs/Core.md`
-- `docs/Schema Language.md`, `docs/Query Language.md`, `docs/Pipeline Language.md`
-- `adr/` — Architecture Decision Records
-- `Phase1.md`, `Phase2.md`, `Phase2.2.md` — implementation phase records
+- Keep Core generic; avoid application-specific Core features.
+- Prefer schemas, capabilities, pipelines, and plugins over hardcoded behavior.
+- Design APIs before interfaces; keep business logic out of the UI.
+- Think in datasets and schemas—not pages and forms.
+- Distinguish **implemented** behavior from **planned** behavior in docs and PRs.
+- Ask: does this make Aurii a better declarative runtime for structured knowledge?

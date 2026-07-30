@@ -8,6 +8,8 @@ Norwegian Geo serves three roles:
 2. **Reusable reference data platform** — stable counties, municipalities, and postal codes for any application
 3. **Foundation for domain datasets** — schools, hospitals, holidays today; tax, elections, companies tomorrow
 
+This is a **data product without a CMS**. Product model: [`docs/PRODUCT_MODEL.md`](../../docs/PRODUCT_MODEL.md).
+
 ---
 
 ## Architecture

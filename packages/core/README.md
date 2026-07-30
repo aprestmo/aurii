@@ -1,10 +1,12 @@
-# @aurii/core — Phase 2
+# @aurii/core
 
-> The smallest possible Aurii that works — now with real storage.
+> Aurii Core Runtime — schema-driven, import-first, storage-agnostic.
+>
+> **Status:** Phase 3 complete (relational references, joins, query planner). Next: [`Phase4.md`](../../Phase4.md). Product model: [`docs/PRODUCT_MODEL.md`](../../docs/PRODUCT_MODEL.md).
 
-The Aurii Core Runtime: import-first, schema-driven, storage-agnostic.
+**External data → Declarative mapping → Entity storage → Query → API / SDK**
 
-**External data → Declarative mapping → Entity storage → Query**
+Core is the system of record. Studio and future authoring clients are optional. Frontends consume Core through public APIs—not through a CMS.
 
 ---
 
@@ -71,7 +73,8 @@ A `default` dataset always exists and is used when `--dataset` is omitted.
 | **Import Engine v0** | CSV and JSON sources, declarative field mapping, dry run |
 | **Import analysis** | Format, delimiter, column, and type detection; schema suggestion |
 | **Pipeline v0** | map → transform → validate → persist steps |
-| **Query Language v0** | `from`, `where`, `select`, `order by`, `limit`, `offset` |
+| **Query Language v1** | `from`, `where`, `join`, `select`, `order by`, `limit`, `offset`, `count`, explain |
+| **Schema references** | `type: reference` with import-time validation |
 | **Storage adapters** | SQLite (dev) and PostgreSQL JSONB (production) |
 | **Datasets** | Multiple named datasets per deployment |
 | **CLI** | `dataset`, `schema`, `import`, `query`, `entity`, `serve` |
@@ -182,9 +185,8 @@ pipeline:
 
 ## Studio
 
-The visual client lives in [`packages/studio`](../studio) — an Astro app with
-an Import Wizard, Dashboard, and Entity Browser. It consumes only this API.
+The visual **data workspace** lives in [`apps/studio`](../../apps/studio) — an Astro app with an Import Wizard, Dashboard, Entity Browser, and Query playground. It consumes only this API. It is not a required CMS layer for frontends.
 
 ---
 
-*See `Phase1.md` and `Phase2.md` in the repository root for scope and rationale.*
+*See `Phase1.md`–`Phase3.md` (historical) and `Phase4.md` (plan) in the repository root. Product model: `docs/PRODUCT_MODEL.md`.*

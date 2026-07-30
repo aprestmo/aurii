@@ -19,7 +19,7 @@ Each dataset includes:
 | `companies/` | JSON | 10 | Company directory with industry, revenue and headquarters |
 | `norwegian-geo/` | JSON | ~17,000 | **Canonical product** — Norwegian Geo Core + dataset modules (see `docs/NORWEGIAN_GEO.md`) |
 
-> **For agents:** `norwegian-geo` is the goto reference product. See `docs/NORWEGIAN_GEO.md`, `docs/REFERENCE_DEMO.md` and `AGENTS.md`.
+> **For agents:** `norwegian-geo` is the goto reference **data product**. See `docs/NORWEGIAN_GEO.md`, `docs/PRODUCT_MODEL.md`, `docs/REFERENCE_DEMO.md` and `AGENTS.md`. It does not validate authoring/CMS flows.
 
 ---
 

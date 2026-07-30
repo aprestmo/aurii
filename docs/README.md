@@ -8,6 +8,12 @@ The specification is the **source of truth**. Code implements the specification.
 
 ## Contents
 
+### Product model
+
+- [PRODUCT_MODEL.md](./PRODUCT_MODEL.md) — **Canonical product model** (Core, datasets, products, modules, Studio, authoring, consumers)
+- [Phase4.md](../Phase4.md) — Phase 4 plan: Data Products and Delivery
+- [ADR-0010 — Optional Authoring Layer](../adr/ADR-0010%20—%20Optional%20Authoring%20Layer.md) — CMS/authoring as optional Core clients
+
 ### Architecture
 
 - [Architecture.md](./Architecture.md) — Overall system architecture and engine design
@@ -41,10 +47,24 @@ The specification is the **source of truth**. Code implements the specification.
 
 ### Development
 
-- [REFERENCE_DEMO.md](./REFERENCE_DEMO.md) — **Canonical demo project** for agents and contributors (Norwegian geo vertical slice)
+- [REFERENCE_DEMO.md](./REFERENCE_DEMO.md) — **Canonical data/delivery demo** for agents and contributors (Norwegian Geo)
+- [NORWEGIAN_GEO.md](./NORWEGIAN_GEO.md) — Norwegian Geo product layer boundaries
+- [../AGENTS.md](../AGENTS.md) — Agent rules, including Norwegian Geo vs future Editorial vertical
+
+### Phase reports (historical + plan)
+
+| Document | Status |
+|----------|--------|
+| [Phase1.md](../Phase1.md) | Historical — complete |
+| [Phase2.md](../Phase2.md) | Historical — complete |
+| [Phase2.2.md](../Phase2.2.md) | Historical — complete |
+| [Phase3.md](../Phase3.md) | Historical — complete |
+| [Phase4.md](../Phase4.md) | Plan — Data Products and Delivery |
+
+Historical phase reports are records of what was true when written. Prefer status notes over rewriting them.
 
 ---
 
 ## Architecture Decision Records
 
-See [`../adr/`](../adr/) for all recorded architectural decisions.
+See [`../adr/`](../adr/) for all recorded architectural decisions. Latest product-boundary decision: [ADR-0010](../adr/ADR-0010%20—%20Optional%20Authoring%20Layer.md).

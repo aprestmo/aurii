@@ -1,5 +1,7 @@
 # Phase 1 — Import-first Core
 
+> **Status: complete (historical record).** Do not treat deferred items below as current roadmap without checking [`README.md`](README.md) and [`Phase4.md`](Phase4.md).
+>
 > Aurii is not a system yet.
 > Aurii is an unusually well-formulated hypothesis.
 >

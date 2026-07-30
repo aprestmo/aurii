@@ -1,10 +1,14 @@
 # Studio
 
-> Studio is Aurii's primary user interface.
+> Studio is Aurii's primary administrative user interface.
 >
 > It is not the platform.
 >
 > It is a client of the platform.
+>
+> **Implemented today:** a generic **data workspace** (dashboard, import wizard, entity browser, schemas, query playground).
+>
+> **Planned / visionary (not all implemented):** schema-generated editors, authoring workflows, AI assistants, collaboration, plugins. Treat sections below that describe those capabilities as design intent unless marked implemented. Product boundaries: [`PRODUCT_MODEL.md`](PRODUCT_MODEL.md). ADR: [ADR-0010](../adr/ADR-0010%20—%20Optional%20Authoring%20Layer.md).
 
 ---
 
@@ -19,6 +23,8 @@ Studio should never contain business logic.
 Studio visualizes the platform.
 
 The Runtime executes it.
+
+A future **authoring workspace** may share a Studio shell; it remains an optional client. Frontends never read through Studio or a CMS UI.
 
 ---
 

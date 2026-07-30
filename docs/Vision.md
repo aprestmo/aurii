@@ -56,6 +56,8 @@ Aurii should never become "just another CMS."
 
 Instead, it should become a general platform for structured information.
 
+**Aurii Core is not a CMS.** Products may still add an optional authoring workspace and deliver classic CMS experiences (blogs, docs, news) while frontends consume Core through APIs. See [`PRODUCT_MODEL.md`](PRODUCT_MODEL.md) and [ADR-0010](../adr/ADR-0010%20—%20Optional%20Authoring%20Layer.md).
+
 A platform where organizations can model their knowledge, data and workflows without being constrained by predefined content types or publishing assumptions.
 
 News articles.

@@ -39,7 +39,11 @@ Negative:
 
 Phase 4 recommendations
 
+Detailed plan: `Phase4.md` (Data Products and Delivery). Technical carry-overs:
+
 - Push join and aggregate predicates into SQL where possible
 - Reference integrity indexes on hot reference fields
 - Schema-aware EXISTS (verify target entity exists)
 - Dot-notation traversal as sugar over joins
+
+Authoring/CMS forms are out of Phase 4 scope (ADR-0010).

@@ -1,5 +1,7 @@
 # Phase 2 — PostgreSQL + Studio
 
+> **Status: complete (historical record).** Phase 3 is also complete; see [`Phase3.md`](Phase3.md) and [`Phase4.md`](Phase4.md). Non-goals labeled “Phase 3” below reflect planning at the time of writing—not the final Phase 3 scope.
+>
 > Phase 1 proved the loop: external data → declarative mapping → entity storage → query.
 >
 > Phase 2 makes it real for an actual customer: real storage, real datasets, a real user interface.
@@ -31,8 +33,8 @@
 # Architecture
 
 ```
-packages/studio  (Astro)          ← client, consumes public API only
-        │  HTTP + Bearer token
+apps/studio      (Astro)          ← client, consumes public API only
+        │  HTTP + Bearer token     (path was `packages/studio` in early drafts)
         ▼
 packages/core    (Bun)
 ├── api/         HTTP API (REST, CORS, auth)
@@ -229,7 +231,7 @@ capability, not as middleware sprawl.
 
 # Studio (Astro)
 
-`packages/studio` — an Astro application. Static output, client-side data fetching against the Core API. Studio never touches storage.
+`apps/studio` — an Astro application (historically drafted under `packages/studio`). Static output, client-side data fetching against the Core API. Studio never touches storage.
 
 ## Pages
 

@@ -1,6 +1,6 @@
 # Phase 2.2 — Reality Check
 
-> **Status: complete.** Phase 2 is closed. This document records the reality check and remains the reference for the canonical demo project.
+> **Status: complete.** Phase 2 is closed. This document records the reality check and remains a reference for the Norwegian Geo demo. Recommendations labeled “Phase 3” below were inputs to planning; Phase 3 delivered relational Core (see [`Phase3.md`](Phase3.md)). Current product model: [`docs/PRODUCT_MODEL.md`](docs/PRODUCT_MODEL.md). Next phase: [`Phase4.md`](Phase4.md).
 
 Validate that the Phase 1–2 architecture solves a realistic problem end-to-end.
 

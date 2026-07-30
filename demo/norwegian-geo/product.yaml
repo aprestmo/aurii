@@ -1,6 +1,8 @@
 id: norwegian-geo
 name: Norwegian Geo
 # Human-readable manifest. Programmatic source: lib/manifest.ts (keep in sync).
+# Product composition convention — see docs/PRODUCT_MODEL.md and Phase4.md (workstream A).
+# A product module is not a runtime plugin; this file is product packaging, not Core.
 description: >
   Production-quality Norwegian reference data product built on Aurii.
   Serves as Aurii's primary real-world reference implementation and

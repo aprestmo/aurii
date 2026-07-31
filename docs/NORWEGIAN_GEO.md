@@ -163,6 +163,7 @@ Import order (enforced by `product.yaml` and `scripts/import.ts`):
 
 `demo/norwegian-geo/product.yaml` is the single source of truth for:
 
+- Owning Aurii project (`norge-data` / Norge Data)
 - Dataset ID (`norwegian-geo`)
 - Core schemas and imports
 - Module list, dependencies, and import order
@@ -170,6 +171,8 @@ Import order (enforced by `product.yaml` and `scripts/import.ts`):
 - Target metadata fields
 
 `demo/norwegian-geo/lib/manifest.ts` loads the manifest for scripts and tests.
+
+Norwegian Geo datasets belong to project **Norge Data** (`slug: norge-data`), not Legacy. Import and migrate scripts ensure that project and classify `norwegian-geo` under it.
 
 ---
 
@@ -179,8 +182,11 @@ Import order (enforced by `product.yaml` and `scripts/import.ts`):
 # Refresh all snapshots from live APIs
 bun run fetch:norwegian-geo
 
-# Import Core + all modules into Aurii
+# Import Core + all modules into Aurii (under Norge Data)
 bun run import:norwegian-geo
+
+# Classify an existing norwegian-geo dataset under Norge Data (idempotent)
+bun run migrate:norwegian-geo-project
 
 # Historical pipeline (Core extension)
 bun run fetch:historical-norwegian-geo
@@ -205,8 +211,8 @@ AURII_STORAGE=postgres \
 
 | Consumer | How it uses Norwegian Geo |
 |----------|---------------------------|
-| **Aurii Core** | `bun run import:norwegian-geo` loads dataset `norwegian-geo` |
-| **Studio** | Data workspace: select dataset `norwegian-geo` after import (not a CMS) |
+| **Aurii Core** | `bun run import:norwegian-geo` loads dataset `norwegian-geo` in project `norge-data` |
+| **Studio** | Data workspace: project-scoped dataset list; select `norwegian-geo` after import (not a CMS) |
 | **apps/geo** | Today: reads `core/data/` and `modules/*/data/` at build time (offline/snapshot mode); historical from `core/historical/data/`. Phase 4 adds live Core → SDK delivery as a first-class path. |
 | **Integration tests** | `packages/core/src/__tests__/` via manifest paths; SDK vertical slice |
 

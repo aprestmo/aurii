@@ -7,6 +7,16 @@
 
 ---
 
+# Project write policy
+
+Schemas are stored per dataset (`id` + `dataset_id`). Project is derived as `Schema → Dataset → Project`.
+
+Runtime mutations (`registerSchema`, `deleteSchema`, project-scoped `POST .../schemas`) require an **active** project. Reads remain available for inactive and archived projects.
+
+Static product YAML files are not runtime mutations until Core registration runs. See [ADR-0013](../adr/ADR-0013%20—%20Project%20Write%20Policy%20for%20Dataset-Bound%20Resources.md).
+
+---
+
 # Purpose
 
 Schemas are the foundation of Aurii.

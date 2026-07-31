@@ -23,6 +23,7 @@ import { executeQuery } from "../query/executor";
 import { parseQuery } from "../query/parser";
 import { registerSchema } from "../schema/registry";
 import type { SchemaDefinition } from "../schema/types";
+import { resetProjectService } from "../project/runtime";
 import { closeStorage, getStorage } from "../storage";
 
 const ROOT = resolve(import.meta.dir, "../../../..");
@@ -72,13 +73,16 @@ const POSTAL_CODE_SCHEMA: SchemaDefinition = {
 let uploadDir: string;
 
 beforeEach(async () => {
+	delete process.env["DATABASE_URL"];
 	process.env["AURII_STORAGE"] = "sqlite";
 	process.env["AURII_DB_PATH"] = ":memory:";
+	resetProjectService();
 	uploadDir = await mkdtemp(join(tmpdir(), "aurii-vertical-"));
 });
 
 afterEach(async () => {
 	await closeStorage();
+	resetProjectService();
 	await rm(uploadDir, { recursive: true, force: true });
 });
 

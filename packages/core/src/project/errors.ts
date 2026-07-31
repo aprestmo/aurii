@@ -65,11 +65,18 @@ export class ProjectValidationError extends ProjectError {
 export class ProjectNotWritableError extends ProjectError {
 	readonly code = "PROJECT_NOT_WRITABLE" as const;
 	readonly httpStatus = 409;
+	readonly projectId: string;
+	readonly projectStatus: string;
+	readonly operation: string | undefined;
 
-	constructor(projectId: string, status: string) {
+	constructor(projectId: string, status: string, operation?: string) {
+		const op = operation ? ` (${operation})` : "";
 		super(
-			`Project "${projectId}" has status "${status}" and does not allow write operations.`,
+			`Project "${projectId}" has status "${status}" and does not allow write operations${op}.`,
 		);
+		this.projectId = projectId;
+		this.projectStatus = status;
+		this.operation = operation;
 	}
 }
 

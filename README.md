@@ -198,7 +198,8 @@ const client = createClient({
   defaultDataset: "norwegian-geo",
 });
 
-const datasets = await client.datasets.list();
+const project = await client.projects.getBySlug("norge-data");
+const datasets = await client.projects.byId(project.id).datasets.list();
 const schemas = await client.schemas.list();
 const result = await client.query.run(
   'from municipality join county on municipality.countyId = county.id where municipality.id == "0301"',

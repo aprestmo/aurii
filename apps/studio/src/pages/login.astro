@@ -41,8 +41,8 @@
           const health = await fetch(`${apiUrl}/health`);
           if (!health.ok) throw new Error("API unreachable");
 
-          // Verify the token actually works against a protected route
-          const check = await fetch(`${apiUrl}/datasets`, {
+          // Verify the token against a Core protected route
+          const check = await fetch(`${apiUrl}/schemas`, {
             headers: token ? { Authorization: `Bearer ${token}` } : {},
           });
           if (check.status === 401) throw new Error("Invalid token");

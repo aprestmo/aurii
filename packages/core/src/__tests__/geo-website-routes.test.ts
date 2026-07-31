@@ -18,6 +18,7 @@ import { resolve } from "path";
 import { loadImportDefinition, runImport } from "../import/engine";
 import { executeQuery } from "../query/executor";
 import { parseQuery } from "../query/parser";
+import { resetProjectService } from "../project/runtime";
 import { registerSchema } from "../schema/registry";
 import type { SchemaDefinition } from "../schema/types";
 import { closeStorage, getStorage } from "../storage";
@@ -87,8 +88,11 @@ beforeAll(async () => {
 });
 
 beforeEach(async () => {
+	delete process.env["DATABASE_URL"];
 	process.env["AURII_STORAGE"] = "sqlite";
 	process.env["AURII_DB_PATH"] = ":memory:";
+	resetProjectService();
+	await closeStorage();
 
 	const storage = await getStorage();
 	await storage.createDataset({ id: DATASET, name: "Norwegian Geography" });
@@ -107,6 +111,7 @@ beforeEach(async () => {
 
 afterEach(async () => {
 	await closeStorage();
+	resetProjectService();
 });
 
 describe("Geo website — route feasibility", () => {

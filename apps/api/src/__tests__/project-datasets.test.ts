@@ -8,6 +8,7 @@ import {
 	ensureLegacyProject,
 	getStorage,
 	MemoryProjectRepository,
+	resetProjectService,
 } from "@aurii/core";
 import { buildApiApp } from "../server";
 
@@ -42,7 +43,9 @@ function app() {
 }
 
 beforeEach(async () => {
+	delete process.env["DATABASE_URL"];
 	await closeStorage();
+	resetProjectService();
 	process.env["AURII_STORAGE"] = "sqlite";
 	process.env["AURII_DB_PATH"] = `:memory:`;
 	// Force fresh in-memory storage for each test via getStorage after close
@@ -53,6 +56,7 @@ beforeEach(async () => {
 
 afterEach(async () => {
 	await closeStorage();
+	resetProjectService();
 	delete process.env["AURII_DB_PATH"];
 });
 
@@ -179,23 +183,17 @@ describe("project-scoped datasets API", () => {
 		expect(body.error.code).toBe("PROJECT_NOT_WRITABLE");
 	});
 
-	it("deprecated global /datasets is Legacy-scoped", async () => {
+	it("global /datasets routes are removed", async () => {
 		const instance = app();
-		const projectId = await createProject(instance, "norge-data");
-		await instance.handle(
-			req("POST", `/api/projects/${projectId}/datasets`, {
-				body: { id: "only-in-project", name: "Only" },
-			}),
-		);
-		await instance.handle(
-			req("POST", "/datasets", {
-				body: { id: "legacy-only", name: "Legacy Only" },
-			}),
-		);
-		const globalList = (await json(
-			await instance.handle(req("GET", "/datasets")),
-		)) as { id: string; projectId: string }[];
-		expect(globalList.some((d) => d.id === "legacy-only")).toBe(true);
-		expect(globalList.some((d) => d.id === "only-in-project")).toBe(false);
+		expect((await instance.handle(req("GET", "/datasets"))).status).toBe(404);
+		expect(
+			(
+				await instance.handle(
+					req("POST", "/datasets", {
+						body: { id: "legacy-only", name: "Legacy Only" },
+					}),
+				)
+			).status,
+		).toBe(404);
 	});
 });

@@ -7,6 +7,7 @@
 
 import {
 	buildApp as buildCoreApp,
+	configureProjectService,
 	type AppOptions,
 	createProjectService,
 	DrizzleProjectRepository,
@@ -19,6 +20,7 @@ import {
 } from "@aurii/core";
 import { createDb } from "@aurii/db";
 import { createProjectDatasetsPlugin } from "./routes/project-datasets";
+import { createProjectDatasetResourcesPlugin } from "./routes/project-dataset-resources";
 import { createProjectsPlugin } from "./routes/projects";
 
 export interface ApiAppOptions extends AppOptions {
@@ -39,6 +41,9 @@ export function buildApiApp(options: ApiAppOptions = {}) {
 			options.projectRepository ?? createDefaultProjectRepository(),
 		);
 
+	// Share the same ProjectService with Core import/schema write checks.
+	configureProjectService(projectService);
+
 	const datasetPluginOptions: Parameters<
 		typeof createProjectDatasetsPlugin
 	>[0] = {
@@ -54,7 +59,13 @@ export function buildApiApp(options: ApiAppOptions = {}) {
 
 	return buildCoreApp(options)
 		.use(createProjectsPlugin({ service: projectService }))
-		.use(createProjectDatasetsPlugin(datasetPluginOptions));
+		.use(createProjectDatasetsPlugin(datasetPluginOptions))
+		.use(
+			createProjectDatasetResourcesPlugin({
+				projectService,
+				getStorage,
+			}),
+		);
 }
 
 function createDefaultProjectRepository(): ProjectRepository {

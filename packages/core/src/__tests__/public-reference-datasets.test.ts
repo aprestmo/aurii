@@ -19,14 +19,18 @@ import { executeQuery } from "../query/executor";
 import { parseQuery } from "../query/parser";
 import { registerSchema } from "../schema/registry";
 import type { SchemaDefinition } from "../schema/types";
+import { resetProjectService } from "../project/runtime";
 import { closeStorage, getStorage } from "../storage";
 
 const DATASET = "norwegian-geo";
 const TEST_TIMEOUT_MS = 120_000;
 
 beforeAll(async () => {
+	delete process.env["DATABASE_URL"];
 	process.env["AURII_STORAGE"] = "sqlite";
 	process.env["AURII_DB_PATH"] = ":memory:";
+	resetProjectService();
+	await closeStorage();
 
 	const manifest = loadManifest();
 	const datasetId = getDatasetId(manifest);
@@ -54,6 +58,7 @@ beforeAll(async () => {
 
 afterAll(async () => {
 	await closeStorage();
+	resetProjectService();
 });
 
 describe("Public reference datasets", () => {

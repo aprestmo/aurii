@@ -27,23 +27,32 @@ Human-readable compound addressing can still be expressed as `projectSlug/datase
 
 ## Project write rules
 
-| Project status | List / get dataset | Create / update dataset |
-|----------------|--------------------|-------------------------|
-| `active` | Yes | Yes |
-| `inactive` | Yes | No (`PROJECT_NOT_WRITABLE`) |
-| `archived` | Yes | No (`PROJECT_NOT_WRITABLE`) |
+| Project status | List / get / read data | Create / update dataset | Import / schema mutations |
+|----------------|------------------------|-------------------------|---------------------------|
+| `active` | Yes | Yes | Yes |
+| `inactive` | Yes | No (`PROJECT_NOT_WRITABLE`) | No |
+| `archived` | Yes | No (`PROJECT_NOT_WRITABLE`) | No |
+
+Shared Core helper: `assertProjectWritable` ([ADR-0013](../adr/ADR-0013%20—%20Project%20Write%20Policy%20for%20Dataset-Bound%20Resources.md)).
 
 ---
 
 ## API
-
-Preferred:
 
 ```
 GET    /api/projects/:id/datasets
 POST   /api/projects/:id/datasets
 GET    /api/projects/:id/datasets/:datasetId
 PATCH  /api/projects/:id/datasets/:datasetId
+```
+
+Project-scoped import/schema helpers:
+
+```
+GET    /api/projects/:id/datasets/:datasetId/schemas
+POST   /api/projects/:id/datasets/:datasetId/schemas
+GET    /api/projects/:id/datasets/:datasetId/imports
+POST   /api/projects/:id/datasets/:datasetId/imports/run
 ```
 
 Response includes `projectId`:
@@ -61,24 +70,32 @@ Response includes `projectId`:
 
 Opening a dataset through the wrong project returns **404** (`DATASET_NOT_FOUND`).
 
-### Deprecated global routes
+### Breaking change — global `/datasets` removed
 
-`GET/POST /datasets` remain for compatibility. They are scoped to the **Legacy** fallback project only and do not list or create datasets across projects.
+Removed:
+
+```
+GET  /datasets
+POST /datasets
+```
+
+Use the project-scoped routes above. There is no Legacy fallback on the removed paths.
 
 ---
 
 ## SDK
 
 ```ts
-const datasets = await client.projects.byId(projectId).datasets.list();
-const one = await client.projects.byId(projectId).datasets.get("norwegian-geo");
-await client.projects.byId(projectId).datasets.create({
+const project = await client.projects.getBySlug("norge-data");
+const datasets = await client.projects.byId(project.id).datasets.list();
+const one = await client.projects.byId(project.id).datasets.get("norwegian-geo");
+await client.projects.byId(project.id).datasets.create({
   id: "municipalities",
   name: "Municipalities",
 });
 ```
 
-Deprecated: `client.datasets.list()` / `client.datasets.create()` (Legacy project only).
+Deprecated global `client.datasets.*` methods have been **removed**.
 
 ---
 
@@ -103,18 +120,22 @@ bun run --filter='@aurii/db' migrate
 
 ## Classifying Legacy datasets
 
-After migration, move datasets out of Legacy with the admin script (not the public API):
+After migration, move datasets out of Legacy with admin tooling (not the public API):
 
 ```bash
+# Single dataset
 bun run --filter='@aurii/db' reassign-dataset -- \
   --dataset norwegian-geo --to-project norge-data
+
+# Norwegian Geo product (idempotent summary)
+bun run migrate:norwegian-geo-project
 ```
 
 Example target layout:
 
 ```
 Legacy          ← only unclassified leftovers
-Norge Data      ← municipalities, counties, postal-codes, norwegian-geo
+Norge Data      ← norwegian-geo (and future NO reference datasets)
 Valgdata        ← elections, election-results
 News CMS        ← articles (future)
 ```
@@ -131,16 +152,16 @@ Imports reference a **dataset id**. Project is derived:
 Import → Dataset → Project
 ```
 
-Do not add `project_id` on import tables while that would duplicate ownership. Next task: enforce project write rules on import runs that mutate data (inactive/archived → reject).
+Core `runImport` enforces writable project status at job start and again immediately before entity writes. Inactive/archived projects reject the run (`PROJECT_NOT_WRITABLE`, HTTP 409) and write no entities. Import history remains readable.
 
 ### Schemas
 
-Schemas are stored per dataset (`PRIMARY KEY (id, dataset_id)`). They are not project-scoped in this change. After project migration, a dataset still resolves its schemas the same way.
+Schemas are stored per dataset (`PRIMARY KEY (id, dataset_id)`). Project is derived through the dataset. `registerSchema` / `deleteSchema` enforce writable project status in Core.
 
-**Next step:** decide whether schema *registration* becomes project-scoped (admin UX) while keeping schema definitions reusable across datasets, or keep registration dataset-scoped only. Recommendation: keep schemas dataset-scoped and reusable; project context comes from the dataset.
+**Static product YAML** under `demo/` is not a runtime mutation until `registerSchema` (CLI, import script, or API) runs.
 
 ---
 
 ## Core service
 
-`DatasetService` (`@aurii/core`) requires `projectId` on all operations, checks project existence and writability, and never trusts `projectId` from a request body when the URL already supplies it.
+`DatasetService` (`@aurii/core`) requires `projectId` on all operations, checks project existence and writability via `assertProjectWritable`, and never trusts `projectId` from a request body when the URL already supplies it.

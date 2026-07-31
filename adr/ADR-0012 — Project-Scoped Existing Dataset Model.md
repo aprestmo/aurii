@@ -3,7 +3,7 @@ ADR-0012 — Project-Scoped Existing Dataset Model
 Status: Accepted
 Date: 2026-07-31
 Decision Makers: Aurii Project
-Related: ADR-0011 (Project as Top-Level Boundary), ADR-0006 (Unified Data Model)
+Related: ADR-0011 (Project as Top-Level Boundary), ADR-0006 (Unified Data Model), ADR-0013 (Project Write Policy for Dataset-Bound Resources)
 
 ⸻
 
@@ -29,9 +29,32 @@ Decision
 
 6. **Schemas remain dataset-scoped** (composite key with `dataset_id`). Project-scoped schema registration is a follow-up; schemas stay reusable patterns registered per dataset after this migration.
 
-7. **Public dataset administration is project-scoped** at `/api/projects/:id/datasets`. Global `/datasets` routes remain temporarily as **deprecated**, Legacy-project-only surfaces so existing SDK/demo callers do not gain cross-project listing.
+7. **Public dataset administration is project-scoped** at `/api/projects/:id/datasets`.
 
 8. **Moving datasets between projects** is an administrative operation (CLI/script / `DatasetService.reassignDatasetProject`), not a public API update field.
+
+### Update (2026-07-31) — global `/datasets` removed
+
+Internal consumers (Studio, SDK, tests, Norwegian Geo) now use project-scoped dataset routes and SDK methods exclusively.
+
+**Removed (breaking):**
+
+* `GET /datasets`
+* `POST /datasets`
+* Deprecated SDK `client.datasets.list()` / `client.datasets.create()`
+
+**Use instead:**
+
+* `GET /api/projects/:projectId/datasets`
+* `POST /api/projects/:projectId/datasets`
+* `GET /api/projects/:projectId/datasets/:datasetId`
+* `PATCH /api/projects/:projectId/datasets/:datasetId`
+* `client.projects.byId(projectId).datasets.*`
+* `client.projects.getBySlug(slug)` for bootstrap
+
+**Legacy remains** as the migration fallback for unclassified datasets. `LEGACY_PROJECT_ID`, storage defaults, and admin reassignment scripts are unchanged. There is no hidden fallback from removed global routes to Legacy.
+
+Project write rules for import/schema mutations are specified in ADR-0013.
 
 ⸻
 
@@ -43,12 +66,13 @@ Positive
 * Project write rules (active / inactive / archived) apply to dataset administration
 * Single catalog — no parallel models
 * Clear migration path from Legacy to named projects (Norge Data, Valgdata, …)
+* Single public dataset API surface (project-scoped)
 
 Tradeoffs
 
 * Global uniqueness of dataset `id` means the same slug cannot exist in two projects until a future identity change
 * Dual DDL ownership (adapter `CREATE TABLE IF NOT EXISTS` + Drizzle migration) requires keeping column definitions aligned
-* Global `/datasets` deprecation must be completed in a later cleanup
+* Removing global `/datasets` is a breaking API change for any external callers still on the deprecated routes
 
 Non-goals
 
@@ -57,3 +81,4 @@ Non-goals
 * Import or schema project columns
 * Public dataset move API
 * RBAC / API keys
+* Deleting the Legacy project

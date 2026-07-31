@@ -28,6 +28,7 @@
     "build:municipality-enrichment": "bun run demo/norwegian-geo/core/historical/build-enrichment.ts",
     "validate:historical-norwegian-geo": "bun run demo/norwegian-geo/core/historical/validate.ts",
     "import:norwegian-geo": "bun run demo/norwegian-geo/scripts/import.ts",
+    "migrate:norwegian-geo-project": "bun run demo/norwegian-geo/scripts/migrate-project.ts",
     "build:geodata": "bun run demo/norwegian-geo/geodata/scripts/build-boundaries.ts"
   },
   "devDependencies": {

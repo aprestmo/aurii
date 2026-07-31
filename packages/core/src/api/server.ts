@@ -3,8 +3,6 @@
  *
  * Routes:
  *   GET  /health
- *   GET  /datasets                 (deprecated — Legacy project only; prefer /api/projects/:id/datasets)
- *   POST /datasets                 (deprecated — creates in Legacy project)
  *   GET  /schemas?dataset=
  *   POST /schemas?dataset=
  *   GET  /schemas/:id?dataset=
@@ -17,6 +15,9 @@
  *   GET  /imports?dataset=
  *   GET  /stats?dataset=
  *
+ * Dataset administration lives on the composed API app:
+ *   /api/projects/:id/datasets
+ *
  * Auth: if AURII_API_TOKEN is set, all routes except /health require
  * `Authorization: Bearer <token>`.
  */
@@ -28,8 +29,8 @@ import { mkdir } from "fs/promises";
 import { join, resolve } from "path";
 import { parse as parseYaml } from "yaml";
 import { listCapabilities } from "../capabilities/registry";
+import { isDatasetError } from "../dataset/errors";
 import { countEntities, getEntity, listEntities } from "../entity/store";
-import { emit } from "../events/emitter";
 import { analyzeContent } from "../import/analyze";
 import { loadImportDefinition, runImport } from "../import/engine";
 import type {
@@ -37,11 +38,10 @@ import type {
 	ImportDefinition,
 	PipelineStep,
 } from "../import/types";
+import { isProjectError } from "../project/errors";
 import { executeQuery, explainQuery } from "../query/executor";
-import { parseQuery } from "../query/parser";
 import { getSchema, listSchemas, registerSchema } from "../schema/registry";
 import type { SchemaDefinition } from "../schema/types";
-import { LEGACY_PROJECT_ID } from "@aurii/types";
 import { DEFAULT_DATASET, getStorage } from "../storage";
 
 export interface AppOptions {
@@ -111,7 +111,6 @@ export function buildApp(options: AppOptions = {}) {
 						},
 						tags: [
 							{ name: "Health", description: "Runtime health" },
-							{ name: "Datasets", description: "Dataset management" },
 							{ name: "Schemas", description: "Schema registry" },
 							{ name: "Entities", description: "Entity store" },
 							{ name: "Query", description: "Query Language" },
@@ -123,6 +122,24 @@ export function buildApp(options: AppOptions = {}) {
 			)
 			.use(yamlBodyParser)
 			.onError(({ error, set }) => {
+				if (isProjectError(error)) {
+					set.status = error.httpStatus;
+					return {
+						error: {
+							code: error.code,
+							message: error.message,
+						},
+					};
+				}
+				if (isDatasetError(error)) {
+					set.status = error.httpStatus;
+					return {
+						error: {
+							code: error.code,
+							message: error.message,
+						},
+					};
+				}
 				set.status = 500;
 				return { error: String(error) };
 			})
@@ -169,49 +186,7 @@ export function buildApp(options: AppOptions = {}) {
 						}
 					})
 
-					// Datasets (deprecated — scoped to Legacy fallback project;
-					// prefer /api/projects/:projectId/datasets)
-					.get("/datasets", async () => {
-						const storage = await getStorage();
-						return storage.listDatasets(LEGACY_PROJECT_ID);
-					})
-					.post("/datasets", async ({ body, set }) => {
-						const b = body as {
-							id?: string;
-							name?: string;
-							description?: string;
-							projectId?: string;
-						} | null;
-						if (!b?.id || !b?.name) {
-							set.status = 400;
-							return { error: "Dataset requires `id` and `name`" };
-						}
-						if (!/^[a-z0-9][a-z0-9-]*$/.test(b.id)) {
-							set.status = 400;
-							return {
-								error: "Dataset id must be lowercase alphanumeric with dashes",
-							};
-						}
-						// Ignore body.projectId — deprecated route always uses Legacy.
-						const storage = await getStorage();
-						const dataset = await storage.createDataset({
-							id: b.id,
-							name: b.name,
-							...(b.description !== undefined
-								? { description: b.description }
-								: {}),
-							projectId: LEGACY_PROJECT_ID,
-						});
-						emit({
-							type: "dataset.created",
-							datasetId: dataset.id,
-							name: dataset.name,
-						});
-						set.status = 201;
-						return dataset;
-					})
-
-					// Schemas
+					// Schemas (dataset-scoped; project write policy enforced in Core)
 					.get("/schemas", async ({ query, dataset }) => {
 						const scoped =
 							(query as Record<string, string | undefined>)["dataset"] !==

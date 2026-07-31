@@ -21,6 +21,8 @@ export interface ProductModule {
 export interface ProductManifest {
 	id: string;
 	name: string;
+	/** Owning Aurii project slug (stable bootstrap key). */
+	project: { slug: string; name: string };
 	dataset: { id: string; name: string };
 	layers: {
 		norwegianGeoCore: {
@@ -49,6 +51,10 @@ export interface ImportRef {
 export const MANIFEST: ProductManifest = {
 	id: "norwegian-geo",
 	name: "Norwegian Geo",
+	project: {
+		slug: "norge-data",
+		name: "Norge Data",
+	},
 	dataset: {
 		id: "norwegian-geo",
 		name: "Norwegian Public Reference Data",

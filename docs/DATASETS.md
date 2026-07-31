@@ -40,10 +40,10 @@ Human-readable compound addressing can still be expressed as `projectSlug/datase
 Preferred:
 
 ```
-GET    /api/projects/:projectId/datasets
-POST   /api/projects/:projectId/datasets
-GET    /api/projects/:projectId/datasets/:datasetId
-PATCH  /api/projects/:projectId/datasets/:datasetId
+GET    /api/projects/:id/datasets
+POST   /api/projects/:id/datasets
+GET    /api/projects/:id/datasets/:datasetId
+PATCH  /api/projects/:id/datasets/:datasetId
 ```
 
 Response includes `projectId`:

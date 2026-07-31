@@ -1,5 +1,5 @@
 /**
- * HTTP integration tests for /api/projects/:projectId/datasets.
+ * HTTP integration tests for /api/projects/:id/datasets.
  */
 
 import { afterEach, beforeEach, describe, expect, it } from "bun:test";

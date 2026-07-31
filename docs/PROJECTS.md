@@ -122,12 +122,12 @@ Error envelope:
 
 | Method | Path | Purpose |
 |--------|------|---------|
-| `GET` | `/api/projects/:projectId/datasets` | List datasets in project |
-| `POST` | `/api/projects/:projectId/datasets` | Create (active projects only) |
-| `GET` | `/api/projects/:projectId/datasets/:datasetId` | Get (404 if wrong project) |
-| `PATCH` | `/api/projects/:projectId/datasets/:datasetId` | Update name/description |
+| `GET` | `/api/projects/:id/datasets` | List datasets in project |
+| `POST` | `/api/projects/:id/datasets` | Create (active projects only) |
+| `GET` | `/api/projects/:id/datasets/:datasetId` | Get (404 if wrong project) |
+| `PATCH` | `/api/projects/:id/datasets/:datasetId` | Update name/description |
 
-`projectId` always comes from the URL. Body `projectId` is ignored.
+Project id always comes from the URL (`:id`). Body `projectId` is ignored.
 
 ### Deprecated global dataset routes
 

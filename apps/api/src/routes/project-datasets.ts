@@ -1,9 +1,10 @@
 /**
  * Project-scoped dataset HTTP routes.
  *
- * Base path: /api/projects/:projectId/datasets
+ * Nested under /api/projects/:id/datasets
  *
- * projectId always comes from the URL — never from the request body.
+ * Project id always comes from the URL — never from the request body.
+ * Param name must be `:id` to match the projects plugin (Elysia/memoirist).
  */
 
 import {
@@ -42,11 +43,11 @@ export function createProjectDatasetsPlugin(
 		return createDatasetService(storage, options.projectService);
 	};
 
-	return new Elysia({ name: "project-datasets" })
-		.get("/api/projects/:projectId/datasets", async ({ params, set }) => {
+	return new Elysia({ name: "project-datasets", prefix: "/api/projects" })
+		.get("/:id/datasets", async ({ params, set }) => {
 			try {
 				const service = await resolveService();
-				const data = await service.listDatasets(params.projectId);
+				const data = await service.listDatasets(params.id);
 				return { data };
 			} catch (error) {
 				const mapped = toApiError(error);
@@ -54,7 +55,7 @@ export function createProjectDatasetsPlugin(
 				return mapped.body;
 			}
 		})
-		.post("/api/projects/:projectId/datasets", async ({ params, body, set }) => {
+		.post("/:id/datasets", async ({ params, body, set }) => {
 			try {
 				const service = await resolveService();
 				const raw = (body ?? {}) as CreateDatasetInput & {
@@ -63,7 +64,7 @@ export function createProjectDatasetsPlugin(
 				// URL is the source of truth — ignore body.projectId
 				const { projectId: _ignored, ...input } = raw;
 				const data = await service.createDataset(
-					params.projectId,
+					params.id,
 					input as CreateDatasetInput,
 				);
 				set.status = 201;
@@ -74,43 +75,34 @@ export function createProjectDatasetsPlugin(
 				return mapped.body;
 			}
 		})
-		.get(
-			"/api/projects/:projectId/datasets/:datasetId",
-			async ({ params, set }) => {
-				try {
-					const service = await resolveService();
-					const data = await service.getDataset(
-						params.projectId,
-						params.datasetId,
-					);
-					return { data };
-				} catch (error) {
-					const mapped = toApiError(error);
-					set.status = mapped.status;
-					return mapped.body;
-				}
-			},
-		)
-		.patch(
-			"/api/projects/:projectId/datasets/:datasetId",
-			async ({ params, body, set }) => {
-				try {
-					const service = await resolveService();
-					const raw = (body ?? {}) as UpdateDatasetInput & {
-						projectId?: string;
-					};
-					const { projectId: _ignored, ...input } = raw;
-					const data = await service.updateDataset(
-						params.projectId,
-						params.datasetId,
-						input as UpdateDatasetInput,
-					);
-					return { data };
-				} catch (error) {
-					const mapped = toApiError(error);
-					set.status = mapped.status;
-					return mapped.body;
-				}
-			},
-		);
+		.get("/:id/datasets/:datasetId", async ({ params, set }) => {
+			try {
+				const service = await resolveService();
+				const data = await service.getDataset(params.id, params.datasetId);
+				return { data };
+			} catch (error) {
+				const mapped = toApiError(error);
+				set.status = mapped.status;
+				return mapped.body;
+			}
+		})
+		.patch("/:id/datasets/:datasetId", async ({ params, body, set }) => {
+			try {
+				const service = await resolveService();
+				const raw = (body ?? {}) as UpdateDatasetInput & {
+					projectId?: string;
+				};
+				const { projectId: _ignored, ...input } = raw;
+				const data = await service.updateDataset(
+					params.id,
+					params.datasetId,
+					input as UpdateDatasetInput,
+				);
+				return { data };
+			} catch (error) {
+				const mapped = toApiError(error);
+				set.status = mapped.status;
+				return mapped.body;
+			}
+		});
 }

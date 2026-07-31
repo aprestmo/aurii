@@ -85,7 +85,8 @@ A `default` dataset always exists and is used when `--dataset` is omitted.
 | **Query Language v1** | `from`, `where`, `join`, `select`, `order by`, `limit`, `offset`, `count`, explain |
 | **Schema references** | `type: reference` with import-time validation |
 | **Storage adapters** | SQLite (dev) and PostgreSQL JSONB (production) |
-| **Datasets** | Multiple named datasets per deployment |
+| **Datasets** | Multiple named datasets per project (`aurii_datasets.project_id`) |
+| **DatasetService** | Project-scoped create/list/get/update with write-rule enforcement |
 | **CLI** | `dataset`, `schema`, `import`, `query`, `entity`, `serve` |
 | **HTTP API** | REST API with token auth, uploads, dry runs, and stats |
 
@@ -133,8 +134,12 @@ from product where price > 100 order by price desc
 
 ```
 GET  /health                        (no auth)
-GET  /datasets
-POST /datasets                      { id, name, description? }
+GET  /datasets                      (deprecated — Legacy project only)
+POST /datasets                      (deprecated — creates in Legacy)
+GET  /api/projects/:id/datasets
+POST /api/projects/:id/datasets
+GET  /api/projects/:id/datasets/:datasetId
+PATCH /api/projects/:id/datasets/:datasetId
 GET  /schemas?dataset=
 POST /schemas?dataset=
 GET  /schemas/:id?dataset=

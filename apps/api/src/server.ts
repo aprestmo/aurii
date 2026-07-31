@@ -39,16 +39,22 @@ export function buildApiApp(options: ApiAppOptions = {}) {
 			options.projectRepository ?? createDefaultProjectRepository(),
 		);
 
+	const datasetPluginOptions: Parameters<
+		typeof createProjectDatasetsPlugin
+	>[0] = {
+		projectService,
+		getStorage,
+	};
+	if (options.datasetService) {
+		datasetPluginOptions.datasetService = options.datasetService;
+	}
+	if (options.storage) {
+		datasetPluginOptions.storage = options.storage;
+	}
+
 	return buildCoreApp(options)
 		.use(createProjectsPlugin({ service: projectService }))
-		.use(
-			createProjectDatasetsPlugin({
-				projectService,
-				datasetService: options.datasetService,
-				storage: options.storage,
-				getStorage,
-			}),
-		);
+		.use(createProjectDatasetsPlugin(datasetPluginOptions));
 }
 
 function createDefaultProjectRepository(): ProjectRepository {

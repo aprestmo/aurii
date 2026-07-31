@@ -29,7 +29,7 @@ Decision
 
 6. **Schemas remain dataset-scoped** (composite key with `dataset_id`). Project-scoped schema registration is a follow-up; schemas stay reusable patterns registered per dataset after this migration.
 
-7. **Public dataset administration is project-scoped** at `/api/projects/:projectId/datasets`. Global `/datasets` routes remain temporarily as **deprecated**, Legacy-project-only surfaces so existing SDK/demo callers do not gain cross-project listing.
+7. **Public dataset administration is project-scoped** at `/api/projects/:id/datasets`. Global `/datasets` routes remain temporarily as **deprecated**, Legacy-project-only surfaces so existing SDK/demo callers do not gain cross-project listing.
 
 8. **Moving datasets between projects** is an administrative operation (CLI/script / `DatasetService.reassignDatasetProject`), not a public API update field.
 

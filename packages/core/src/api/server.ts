@@ -197,7 +197,9 @@ export function buildApp(options: AppOptions = {}) {
 						const dataset = await storage.createDataset({
 							id: b.id,
 							name: b.name,
-							description: b.description,
+							...(b.description !== undefined
+								? { description: b.description }
+								: {}),
 							projectId: LEGACY_PROJECT_ID,
 						});
 						emit({

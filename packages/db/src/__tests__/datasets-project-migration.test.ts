@@ -10,7 +10,7 @@ import { join } from "path";
 import postgres from "postgres";
 import { LEGACY_PROJECT_ID, LEGACY_PROJECT_SLUG } from "../legacy-project";
 
-const url = process.env["DATABASE_URL"];
+const url = process.env.DATABASE_URL;
 const hasDb = Boolean(url);
 
 const MIGRATIONS_DIR = join(import.meta.dir, "../../migrations");
@@ -20,7 +20,8 @@ describe.skipIf(!hasDb)("aurii_datasets project_id migration", () => {
 	let sql: ReturnType<typeof postgres>;
 
 	beforeAll(async () => {
-		sql = postgres(url!, { max: 1, connect_timeout: 10 });
+		if (!url) throw new Error("DATABASE_URL required");
+		sql = postgres(url, { max: 1, connect_timeout: 10 });
 		// Fresh-ish isolation: drop and recreate runtime table for this suite
 		await sql`DROP TABLE IF EXISTS aurii_datasets CASCADE`;
 		await sql`
@@ -64,6 +65,7 @@ describe.skipIf(!hasDb)("aurii_datasets project_id migration", () => {
 
 	afterAll(async () => {
 		await sql`DROP TABLE IF EXISTS aurii_datasets CASCADE`;
+		// Safe after datasets are gone (FK RESTRICT)
 		await sql`DELETE FROM projects WHERE slug = ${LEGACY_PROJECT_SLUG}`;
 		await sql.end({ timeout: 5 });
 	});
@@ -114,22 +116,32 @@ describe.skipIf(!hasDb)("aurii_datasets project_id migration", () => {
 	});
 
 	it("enforces foreign key to projects", async () => {
-		expect(
-			sql`
+		let failed = false;
+		try {
+			await sql.unsafe(`
 				INSERT INTO aurii_datasets (id, name, project_id)
 				VALUES (
-					${TEST_PREFIX + "orphan"},
+					'${TEST_PREFIX}orphan',
 					'Orphan',
-					'00000000-0000-4000-8000-000000000099'::uuid
+					'00000000-0000-4000-8000-000000000099'
 				)
-			`,
-		).rejects.toBeDefined();
+			`);
+		} catch {
+			failed = true;
+		}
+		expect(failed).toBe(true);
 	});
 
 	it("restricts hard-delete of a project that owns datasets", async () => {
-		expect(
-			sql`DELETE FROM projects WHERE id = ${LEGACY_PROJECT_ID}::uuid`,
-		).rejects.toBeDefined();
+		let failed = false;
+		try {
+			await sql.unsafe(
+				`DELETE FROM projects WHERE id = '${LEGACY_PROJECT_ID}'`,
+			);
+		} catch {
+			failed = true;
+		}
+		expect(failed).toBe(true);
 	});
 
 	it("migration file is registered in the journal", async () => {

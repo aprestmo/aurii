@@ -203,10 +203,13 @@ export class PostgresAdapter implements StorageAdapter {
 	// ── Datasets ───────────────────────────────────────────────────────────────
 
 	private mapDatasetRow(row: Record<string, unknown>): Dataset {
+		const description = row["description"] as string | null;
 		return {
 			id: row["id"] as string,
 			name: row["name"] as string,
-			description: (row["description"] as string | null) ?? undefined,
+			...(description !== null && description !== undefined
+				? { description }
+				: {}),
 			projectId: String(row["project_id"]),
 			createdAt: ts(row["created_at"] as string | Date),
 		};

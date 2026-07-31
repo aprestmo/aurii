@@ -54,7 +54,9 @@ export class DatasetService {
 		return this.storage.createDataset({
 			id: input.id,
 			name: input.name,
-			description: input.description,
+			...(input.description !== undefined
+				? { description: input.description }
+				: {}),
 			projectId,
 		});
 	}

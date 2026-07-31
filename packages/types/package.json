@@ -11,7 +11,7 @@
 	},
 	"scripts": {
 		"build": "bun run typecheck",
-		"test": "bun test src/__tests__ 2>/dev/null || true",
+		"test": "bun test src/__tests__",
 		"typecheck": "tsc --noEmit",
 		"lint": "bunx @biomejs/biome lint src/"
 	},

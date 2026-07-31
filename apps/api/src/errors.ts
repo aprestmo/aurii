@@ -1,10 +1,13 @@
 /**
- * Map Core project domain errors to the public API error envelope.
+ * Map Core project/dataset domain errors to the public API error envelope.
  */
 
 import {
+	isDatasetError,
 	isProjectError,
+	type DatasetError,
 	type ProjectError,
+	DatasetValidationError,
 	ProjectValidationError,
 } from "@aurii/core";
 
@@ -32,12 +35,32 @@ export function projectErrorToResponse(error: ProjectError): {
 	return { status: error.httpStatus, body };
 }
 
+export function datasetErrorToResponse(error: DatasetError): {
+	status: number;
+	body: ApiErrorBody;
+} {
+	const body: ApiErrorBody = {
+		error: {
+			code: error.code,
+			message: error.message,
+		},
+	};
+	if (error instanceof DatasetValidationError) {
+		// Keep shape consistent with project validation errors
+		body.error.issues = [{ path: "input", message: error.message }];
+	}
+	return { status: error.httpStatus, body };
+}
+
 export function toApiError(error: unknown): {
 	status: number;
 	body: ApiErrorBody;
 } {
 	if (isProjectError(error)) {
 		return projectErrorToResponse(error);
+	}
+	if (isDatasetError(error)) {
+		return datasetErrorToResponse(error);
 	}
 	return {
 		status: 500,

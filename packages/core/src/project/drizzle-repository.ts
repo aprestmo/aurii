@@ -36,6 +36,7 @@ export class DrizzleProjectRepository implements ProjectRepository {
 		const [row] = await this.db
 			.insert(projects)
 			.values({
+				...(data.id !== undefined ? { id: data.id } : {}),
 				name: data.name,
 				slug: data.slug,
 				description: data.description,

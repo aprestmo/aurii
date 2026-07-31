@@ -56,12 +56,13 @@ SQLite is for zero-config development. PostgreSQL (JSONB) is the production targ
 ## Projects
 
 Projects are the top-level administrative boundary (`ProjectService` in this package).
-See [`docs/PROJECTS.md`](../../docs/PROJECTS.md). Entity datasets are not yet scoped
-to `projectId` — that is the next attach point.
+See [`docs/PROJECTS.md`](../../docs/PROJECTS.md) and [`docs/DATASETS.md`](../../docs/DATASETS.md).
+Every row in `aurii_datasets` belongs to exactly one project (`project_id`).
 
 ## Datasets
 
-A deployment can hold multiple datasets with different kinds of data:
+A deployment can hold multiple datasets with different kinds of data. Prefer
+project-scoped administration via `DatasetService` / `/api/projects/:id/datasets`:
 
 ```bash
 bun run cli dataset create editorial "Editorial content"

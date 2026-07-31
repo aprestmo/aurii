@@ -14,6 +14,17 @@ export const PROJECT_STATUSES: readonly ProjectStatus[] = [
 	"archived",
 ] as const;
 
+/**
+ * Stable UUID for the migration fallback project ("Legacy").
+ *
+ * Existing `aurii_datasets` rows are backfilled to this project.
+ * Do not hardcode this value elsewhere — import this constant.
+ */
+export const LEGACY_PROJECT_ID = "a0000000-0000-4000-8000-000000000001";
+
+/** Slug of the migration fallback project. */
+export const LEGACY_PROJECT_SLUG = "legacy";
+
 export interface Project {
 	id: string;
 	name: string;

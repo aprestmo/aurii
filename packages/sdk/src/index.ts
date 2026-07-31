@@ -17,8 +17,8 @@
  *   defaultDataset: "my-dataset",
  * });
  *
- * // List all datasets
- * const datasets = await client.datasets.list();
+ * // List datasets in a project
+ * const datasets = await client.projects.byId(projectId).datasets.list();
  *
  * // Query entities
  * const result = await client.query.run("FROM article LIMIT 10");
@@ -32,6 +32,7 @@
 export { AuriiClient, createClient } from "./client";
 export type {
 	AnalyzeResponse,
+	ApiEnvelope,
 	AuriiClientConfig,
 	Dataset,
 	DatasetInput,
@@ -45,10 +46,12 @@ export type {
 	ImportResult,
 	ImportRunRecord,
 	ImportRunRequest,
+	Project,
 	QueryResult,
 	SchemaDefinition,
 	SchemaStats,
 	StorageStats,
 	StoredSchema,
+	UpdateDatasetInput,
 } from "./types";
 export { AuriiError } from "./types";

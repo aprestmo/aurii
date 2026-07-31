@@ -11,6 +11,8 @@ import type {
 } from "@aurii/types";
 
 export interface ProjectInsert {
+	/** Optional stable id (used for the Legacy fallback project). */
+	id?: string;
 	name: string;
 	slug: string;
 	description: string | null;

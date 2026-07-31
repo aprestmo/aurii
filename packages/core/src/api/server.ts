@@ -3,8 +3,8 @@
  *
  * Routes:
  *   GET  /health
- *   GET  /datasets
- *   POST /datasets
+ *   GET  /datasets                 (deprecated — Legacy project only; prefer /api/projects/:id/datasets)
+ *   POST /datasets                 (deprecated — creates in Legacy project)
  *   GET  /schemas?dataset=
  *   POST /schemas?dataset=
  *   GET  /schemas/:id?dataset=
@@ -41,6 +41,7 @@ import { executeQuery, explainQuery } from "../query/executor";
 import { parseQuery } from "../query/parser";
 import { getSchema, listSchemas, registerSchema } from "../schema/registry";
 import type { SchemaDefinition } from "../schema/types";
+import { LEGACY_PROJECT_ID } from "@aurii/types";
 import { DEFAULT_DATASET, getStorage } from "../storage";
 
 export interface AppOptions {
@@ -168,16 +169,18 @@ export function buildApp(options: AppOptions = {}) {
 						}
 					})
 
-					// Datasets
+					// Datasets (deprecated — scoped to Legacy fallback project;
+					// prefer /api/projects/:projectId/datasets)
 					.get("/datasets", async () => {
 						const storage = await getStorage();
-						return storage.listDatasets();
+						return storage.listDatasets(LEGACY_PROJECT_ID);
 					})
 					.post("/datasets", async ({ body, set }) => {
 						const b = body as {
 							id?: string;
 							name?: string;
 							description?: string;
+							projectId?: string;
 						} | null;
 						if (!b?.id || !b?.name) {
 							set.status = 400;
@@ -189,10 +192,14 @@ export function buildApp(options: AppOptions = {}) {
 								error: "Dataset id must be lowercase alphanumeric with dashes",
 							};
 						}
+						// Ignore body.projectId — deprecated route always uses Legacy.
 						const storage = await getStorage();
-						const dataset = await storage.createDataset(
-							b as { id: string; name: string; description?: string },
-						);
+						const dataset = await storage.createDataset({
+							id: b.id,
+							name: b.name,
+							description: b.description,
+							projectId: LEGACY_PROJECT_ID,
+						});
 						emit({
 							type: "dataset.created",
 							datasetId: dataset.id,

@@ -12,6 +12,8 @@ export interface Dataset {
 	id: string;
 	name: string;
 	description?: string;
+	/** Owning project UUID. */
+	projectId: string;
 	createdAt: string;
 }
 
@@ -19,6 +21,26 @@ export interface DatasetInput {
 	id: string;
 	name: string;
 	description?: string;
+}
+
+export interface UpdateDatasetInput {
+	name?: string;
+	description?: string | null;
+}
+
+export interface Project {
+	id: string;
+	name: string;
+	slug: string;
+	description: string | null;
+	status: "active" | "inactive" | "archived";
+	createdAt: string;
+	updatedAt: string;
+	archivedAt: string | null;
+}
+
+export interface ApiEnvelope<T> {
+	data: T;
 }
 
 // ── Schemas ───────────────────────────────────────────────────────────────────

@@ -49,13 +49,27 @@ import "../styles/global.css";
         conn.innerHTML = `<span class="dot err"></span>API unreachable`;
       }
 
-      // Dataset switcher
+      // Dataset switcher — project-scoped discovery (all readable projects)
       try {
-        const datasets = await api<{ id: string; name: string }[]>("/datasets");
+        type Project = { id: string; name: string; slug: string };
+        type Dataset = { id: string; name: string; projectId: string };
+        const projectsRes = await api<{ data: Project[] }>("/api/projects");
+        const datasets: (Dataset & { projectSlug: string })[] = [];
+        for (const project of projectsRes.data) {
+          const list = await api<{ data: Dataset[] }>(
+            `/api/projects/${encodeURIComponent(project.id)}/datasets`,
+          );
+          for (const d of list.data) {
+            datasets.push({ ...d, projectSlug: project.slug });
+          }
+        }
         const sel = document.getElementById("dataset-switcher") as HTMLSelectElement;
         const current = getDataset();
         sel.innerHTML = datasets
-          .map((d) => `<option value="${d.id}" ${d.id === current ? "selected" : ""}>${d.name}</option>`)
+          .map(
+            (d) =>
+              `<option value="${d.id}" ${d.id === current ? "selected" : ""}>${d.name} (${d.projectSlug})</option>`,
+          )
           .join("");
         sel.addEventListener("change", () => {
           setDataset(sel.value);

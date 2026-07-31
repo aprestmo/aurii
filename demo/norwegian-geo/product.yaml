@@ -8,6 +8,11 @@ description: >
   Serves as Aurii's primary real-world reference implementation and
   reusable foundation for domain-specific public datasets.
 
+# Aurii Project that owns this product's datasets (not Legacy).
+project:
+  slug: norge-data
+  name: Norge Data
+
 dataset:
   id: norwegian-geo
   name: Norwegian Public Reference Data

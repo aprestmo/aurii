@@ -115,11 +115,15 @@ export type {
 } from "./events";
 // Projects
 export {
+	assertProjectWritable,
+	configureProjectService,
 	createProjectService,
 	DrizzleProjectRepository,
 	ensureLegacyProject,
+	getProjectService,
 	InvalidProjectStatusTransitionError,
 	isProjectError,
+	isProjectWritable,
 	MemoryProjectRepository,
 	ProjectError,
 	ProjectNotFoundError,
@@ -127,8 +131,13 @@ export {
 	ProjectService,
 	ProjectSlugConflictError,
 	ProjectValidationError,
+	requireDatasetInProject,
+	requireWritableDatasetProject,
+	resetProjectService,
+	resolveDatasetProject,
 } from "./project";
 export type {
+	DatasetProjectContext,
 	ProjectErrorCode,
 	ProjectInsert,
 	ProjectPatch,

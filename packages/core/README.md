@@ -134,12 +134,14 @@ from product where price > 100 order by price desc
 
 ```
 GET  /health                        (no auth)
-GET  /datasets                      (deprecated — Legacy project only)
-POST /datasets                      (deprecated — creates in Legacy)
 GET  /api/projects/:id/datasets
 POST /api/projects/:id/datasets
 GET  /api/projects/:id/datasets/:datasetId
 PATCH /api/projects/:id/datasets/:datasetId
+GET  /api/projects/:id/datasets/:datasetId/schemas
+POST /api/projects/:id/datasets/:datasetId/schemas
+GET  /api/projects/:id/datasets/:datasetId/imports
+POST /api/projects/:id/datasets/:datasetId/imports/run
 GET  /schemas?dataset=
 POST /schemas?dataset=
 GET  /schemas/:id?dataset=

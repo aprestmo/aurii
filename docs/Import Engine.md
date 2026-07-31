@@ -55,6 +55,17 @@ Import should therefore be intelligent.
 
 ---
 
+# Project write policy
+
+Imports belong to a dataset. Project is derived as `Import → Dataset → Project`.
+
+* **active** — import definitions may run; entity writes allowed
+* **inactive / archived** — import history and results remain readable; new runs are rejected (`PROJECT_NOT_WRITABLE`)
+
+Core re-checks project status at import start and again immediately before persisting entities. See [ADR-0013](../adr/ADR-0013%20—%20Project%20Write%20Policy%20for%20Dataset-Bound%20Resources.md).
+
+---
+
 # Import Is A Resource
 
 An Import is an Entity.

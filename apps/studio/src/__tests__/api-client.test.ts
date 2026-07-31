@@ -2,27 +2,41 @@
  * Studio API client integration tests.
  *
  * These tests verify that the Studio's usage of @aurii/sdk is correct,
- * by running the SDK against an in-process Aurii Core instance.
- *
- * This indirectly validates the Studio's data-fetching layer without
- * requiring a browser or a real HTTP server.
+ * by running the SDK against an in-process Aurii API instance.
  */
 
 import { afterAll, beforeAll, describe, expect, test } from "bun:test";
-// Import Core directly (test environment, not browser)
-// Path is relative from apps/studio/src/__tests__/ to repo root
-import { buildApp } from "../../../../packages/core/src/api/server";
-import { closeStorage, getStorage } from "../../../../packages/core/src/storage";
+import {
+	closeStorage,
+	ensureLegacyProject,
+	getStorage,
+	MemoryProjectRepository,
+	resetProjectService,
+} from "../../../../packages/core/src/index";
+import { buildApiApp } from "../../../api/src/server";
 import { AuriiError, createClient } from "../../../../packages/sdk/src/index";
 
 const MOCK_BASE = "http://localhost:3000";
 const originalFetch = globalThis.fetch;
 
-const app = buildApp({ apiToken: "studio-test-token" });
+let repo: MemoryProjectRepository;
+let app: ReturnType<typeof buildApiApp>;
+let projectId: string;
 
 beforeAll(async () => {
-	const storage = await getStorage();
-	await storage.init();
+	delete process.env["DATABASE_URL"];
+	process.env["AURII_STORAGE"] = "sqlite";
+	process.env["AURII_DB_PATH"] = ":memory:";
+	resetProjectService();
+	await closeStorage();
+	repo = new MemoryProjectRepository();
+	await ensureLegacyProject(repo);
+	await getStorage();
+	app = buildApiApp({
+		apiToken: "studio-test-token",
+		projectRepository: repo,
+		uploadDir: "/tmp/aurii-studio-sdk-test",
+	});
 
 	const mockFetch = async (
 		input: RequestInfo | URL,
@@ -41,11 +55,24 @@ beforeAll(async () => {
 	};
 	// @ts-expect-error — replacing with compatible subset for testing
 	globalThis.fetch = mockFetch;
+
+	const created = (await (
+		await fetch(`${MOCK_BASE}/api/projects`, {
+			method: "POST",
+			headers: {
+				Authorization: "Bearer studio-test-token",
+				"Content-Type": "application/json",
+			},
+			body: JSON.stringify({ name: "Studio Proj", slug: "studio-proj" }),
+		})
+	).json()) as { data: { id: string } };
+	projectId = created.data.id;
 });
 
 afterAll(async () => {
 	globalThis.fetch = originalFetch;
 	await closeStorage();
+	resetProjectService();
 });
 
 const client = createClient({
@@ -55,19 +82,20 @@ const client = createClient({
 });
 
 describe("Studio API client — datasets", () => {
-	test("can list datasets", async () => {
-		const datasets = await client.datasets.list();
+	test("can list datasets via project scope", async () => {
+		const datasets = await client.projects.byId(projectId).datasets.list();
 		expect(Array.isArray(datasets)).toBe(true);
 	});
 
-	test("can create a dataset", async () => {
-		const ds = await client.datasets.create({
+	test("can create a dataset via project scope", async () => {
+		const ds = await client.projects.byId(projectId).datasets.create({
 			id: "studio-test",
 			name: "Studio Test",
 			description: "Created by Studio tests",
 		});
 		expect(ds.id).toBe("studio-test");
 		expect(ds.name).toBe("Studio Test");
+		expect(ds.projectId).toBe(projectId);
 	});
 });
 
@@ -120,7 +148,7 @@ describe("Studio API client — error handling", () => {
 	test("throws AuriiError on 401", async () => {
 		const badClient = createClient({ baseUrl: MOCK_BASE, token: "wrong" });
 		try {
-			await badClient.datasets.list();
+			await badClient.projects.list();
 			expect(true).toBe(false);
 		} catch (e) {
 			expect(e).toBeInstanceOf(AuriiError);
@@ -139,13 +167,5 @@ describe("Studio API client — import history", () => {
 	test("can list import history", async () => {
 		const history = await client.import.history();
 		expect(Array.isArray(history)).toBe(true);
-	});
-});
-
-describe("Studio API client — query", () => {
-	test("can run a query", async () => {
-		const result = await client.query.run("FROM studio-news LIMIT 5");
-		expect(result).toBeDefined();
-		expect(Array.isArray(result.entities)).toBe(true);
 	});
 });

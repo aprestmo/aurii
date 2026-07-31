@@ -24,6 +24,7 @@ import { applyTransform } from "../pipeline/transforms";
 import type { ImportDefinition } from "../import/types";
 import { executeQuery } from "../query/executor";
 import { parseQuery } from "../query/parser";
+import { resetProjectService } from "../project/runtime";
 import { registerSchema } from "../schema/registry";
 import type { SchemaDefinition } from "../schema/types";
 import { closeStorage, DEFAULT_DATASET } from "../storage";
@@ -103,12 +104,15 @@ const IMPORT_DEF: ImportDefinition = {
 // ── Helpers ───────────────────────────────────────────────────────────────────
 
 beforeEach(() => {
+	delete process.env["DATABASE_URL"];
 	process.env["AURII_STORAGE"] = "sqlite";
 	process.env["AURII_DB_PATH"] = ":memory:";
+	resetProjectService();
 });
 
 afterEach(async () => {
 	await closeStorage();
+	resetProjectService();
 });
 
 async function importDataset(dryRun = false) {

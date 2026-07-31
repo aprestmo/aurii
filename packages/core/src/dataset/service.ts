@@ -7,7 +7,7 @@
  */
 
 import type { Project } from "@aurii/types";
-import { ProjectNotWritableError } from "../project/errors";
+import { assertProjectWritable } from "../project/policy";
 import type { ProjectService } from "../project/service";
 import type {
 	Dataset,
@@ -43,7 +43,7 @@ export class DatasetService {
 		projectId: string,
 		input: CreateDatasetInput,
 	): Promise<Dataset> {
-		await this.requireWritableProject(projectId);
+		await this.requireWritableProject(projectId, "dataset.create");
 		this.validateCreateInput(input);
 
 		const existing = await this.storage.getDataset(input.id);
@@ -80,7 +80,7 @@ export class DatasetService {
 		datasetId: string,
 		input: UpdateDatasetInput,
 	): Promise<Dataset> {
-		await this.requireWritableProject(projectId);
+		await this.requireWritableProject(projectId, "dataset.update");
 
 		if (
 			input.name === undefined &&
@@ -126,7 +126,7 @@ export class DatasetService {
 		datasetId: string,
 		toProjectId: string,
 	): Promise<Dataset> {
-		await this.requireWritableProject(toProjectId);
+		await this.requireWritableProject(toProjectId, "dataset.reassign");
 		const existing = await this.storage.getDataset(datasetId);
 		if (!existing) {
 			throw new DatasetNotFoundError(datasetId);
@@ -159,11 +159,12 @@ export class DatasetService {
 		return this.projects.getProjectById(projectId);
 	}
 
-	private async requireWritableProject(projectId: string): Promise<Project> {
+	private async requireWritableProject(
+		projectId: string,
+		operation = "dataset.write",
+	): Promise<Project> {
 		const project = await this.projects.getProjectById(projectId);
-		if (project.status !== "active") {
-			throw new ProjectNotWritableError(projectId, project.status);
-		}
+		assertProjectWritable(project, operation);
 		return project;
 	}
 }

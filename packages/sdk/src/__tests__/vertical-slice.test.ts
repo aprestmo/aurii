@@ -9,6 +9,7 @@ import { afterAll, beforeAll, describe, expect, test } from "bun:test";
 import { resolve } from "path";
 import { buildApp } from "../../../core/src/api/server";
 import { loadImportDefinition, runImport } from "../../../core/src/import/engine";
+import { resetProjectService } from "../../../core/src/project/runtime";
 import { registerSchema } from "../../../core/src/schema/registry";
 import type { SchemaDefinition } from "../../../core/src/schema/types";
 import { closeStorage, getStorage } from "../../../core/src/storage";
@@ -24,8 +25,11 @@ const app = buildApp();
 const originalFetch = globalThis.fetch;
 
 beforeAll(async () => {
+	delete process.env["DATABASE_URL"];
 	process.env["AURII_STORAGE"] = "sqlite";
 	process.env["AURII_DB_PATH"] = ":memory:";
+	resetProjectService();
+	await closeStorage();
 
 	const storage = await getStorage();
 	await storage.init();
@@ -86,6 +90,7 @@ beforeAll(async () => {
 afterAll(async () => {
 	globalThis.fetch = originalFetch;
 	await closeStorage();
+	resetProjectService();
 });
 
 describe("SDK vertical slice — Norwegian geo workflow", () => {

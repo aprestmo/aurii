@@ -12,6 +12,7 @@ import { loadImportDefinition } from "../import/engine";
 import { executeQuery, explainQuery } from "../query/executor";
 import { parseQuery } from "../query/parser";
 import { planQuery } from "../query/planner";
+import { resetProjectService } from "../project/runtime";
 import { registerSchema } from "../schema/registry";
 import type { SchemaDefinition } from "../schema/types";
 import { closeStorage, getStorage } from "../storage";
@@ -66,6 +67,11 @@ async function importDemo() {
 
 describe("Phase 3 — Relational Core", () => {
 	beforeEach(async () => {
+		delete process.env["DATABASE_URL"];
+		process.env["AURII_STORAGE"] = "sqlite";
+		process.env["AURII_DB_PATH"] = ":memory:";
+		resetProjectService();
+		await closeStorage();
 		const storage = await getStorage();
 		await storage.createDataset({
 			id: DATASET,
@@ -79,6 +85,7 @@ describe("Phase 3 — Relational Core", () => {
 
 	afterEach(async () => {
 		await closeStorage();
+		resetProjectService();
 	});
 
 	describe("reference fields", () => {

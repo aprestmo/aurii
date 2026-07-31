@@ -14,6 +14,7 @@ import { mkdtemp, rm } from "fs/promises";
 import { tmpdir } from "os";
 import { join } from "path";
 import { buildApp } from "../api/server";
+import { resetProjectService } from "../project/runtime";
 import { closeStorage } from "../storage";
 
 const BASE = "http://localhost";
@@ -48,11 +49,14 @@ let uploadDir: string;
 beforeEach(async () => {
 	process.env["AURII_STORAGE"] = "sqlite";
 	process.env["AURII_DB_PATH"] = ":memory:";
+	delete process.env["DATABASE_URL"];
+	resetProjectService();
 	uploadDir = await mkdtemp(join(tmpdir(), "aurii-api-test-"));
 });
 
 afterEach(async () => {
 	await closeStorage();
+	resetProjectService();
 	await rm(uploadDir, { recursive: true, force: true });
 });
 
@@ -79,7 +83,7 @@ describe("GET /health", () => {
 describe("auth", () => {
 	it("rejects protected routes with 401 when no token is provided", async () => {
 		const app = buildApp({ apiToken: "secret", uploadDir });
-		const res = await app.handle(req("GET", "/datasets"));
+		const res = await app.handle(req("GET", "/schemas"));
 		expect(res.status).toBe(401);
 		expect(await json(res)).toEqual({ error: "Unauthorized" });
 	});
@@ -87,7 +91,7 @@ describe("auth", () => {
 	it("rejects protected routes with 401 when the token is wrong", async () => {
 		const app = buildApp({ apiToken: "secret", uploadDir });
 		const res = await app.handle(
-			req("GET", "/datasets", {
+			req("GET", "/schemas", {
 				headers: { authorization: "Bearer wrong-token" },
 			}),
 		);
@@ -97,7 +101,7 @@ describe("auth", () => {
 	it("allows protected routes with the correct bearer token", async () => {
 		const app = buildApp({ apiToken: "secret", uploadDir });
 		const res = await app.handle(
-			req("GET", "/datasets", {
+			req("GET", "/schemas", {
 				headers: { authorization: "Bearer secret" },
 			}),
 		);
@@ -106,48 +110,30 @@ describe("auth", () => {
 
 	it("allows every route when no token is configured", async () => {
 		const app = buildApp({ uploadDir });
-		const res = await app.handle(req("GET", "/datasets"));
+		const res = await app.handle(req("GET", "/schemas"));
 		expect(res.status).toBe(200);
 	});
 });
 
-describe("GET/POST /datasets", () => {
-	it("always includes the default dataset", async () => {
+describe("removed global /datasets routes", () => {
+	it("GET /datasets is gone", async () => {
 		const app = buildApp({ uploadDir });
 		const res = await app.handle(req("GET", "/datasets"));
-		expect(res.status).toBe(200);
-		const body = await json(res);
-		expect(body.some((d: { id: string }) => d.id === "default")).toBe(true);
+		expect(res.status).toBe(404);
 	});
 
-	it("rejects a dataset missing id or name with 400", async () => {
-		const app = buildApp({ uploadDir });
-		const res = await app.handle(
-			req("POST", "/datasets", { body: { name: "No id" } }),
-		);
-		expect(res.status).toBe(400);
-	});
-
-	it("rejects an invalid dataset id with 400", async () => {
-		const app = buildApp({ uploadDir });
-		const res = await app.handle(
-			req("POST", "/datasets", { body: { id: "Not Valid!", name: "Bad" } }),
-		);
-		expect(res.status).toBe(400);
-	});
-
-	it("creates a dataset and returns 201", async () => {
+	it("POST /datasets is gone", async () => {
 		const app = buildApp({ uploadDir });
 		const res = await app.handle(
 			req("POST", "/datasets", { body: { id: "blog", name: "Blog" } }),
 		);
-		expect(res.status).toBe(201);
-		const body = await json(res);
-		expect(body.id).toBe("blog");
-		expect(body.projectId).toBeTruthy();
+		expect(res.status).toBe(404);
+	});
 
-		const list = await json(await app.handle(req("GET", "/datasets")));
-		expect(list.some((d: { id: string }) => d.id === "blog")).toBe(true);
+	it("GET /datasets/:id is gone", async () => {
+		const app = buildApp({ uploadDir });
+		const res = await app.handle(req("GET", "/datasets/default"));
+		expect(res.status).toBe(404);
 	});
 });
 

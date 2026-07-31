@@ -129,14 +129,20 @@ Error envelope:
 
 Project id always comes from the URL (`:id`). Body `projectId` is ignored.
 
-### Deprecated global dataset routes
+### Dataset-bound resources
 
-| Method | Path | Behavior |
-|--------|------|----------|
-| `GET` | `/datasets` | Lists **Legacy** project datasets only |
-| `POST` | `/datasets` | Creates in the **Legacy** project |
+| Method | Path | Purpose |
+|--------|------|---------|
+| `GET` | `/api/projects/:id/datasets/:datasetId/schemas` | List schemas (any project status) |
+| `POST` | `/api/projects/:id/datasets/:datasetId/schemas` | Register schema (active only) |
+| `GET` | `/api/projects/:id/datasets/:datasetId/imports` | Import history (any status) |
+| `POST` | `/api/projects/:id/datasets/:datasetId/imports/run` | Run import YAML (active only) |
 
-Prefer the project-scoped routes. See [DATASETS.md](./DATASETS.md).
+Wrong project → **404**. See [DATASETS.md](./DATASETS.md) and [ADR-0013](../adr/ADR-0013%20—%20Project%20Write%20Policy%20for%20Dataset-Bound%20Resources.md).
+
+### Removed global dataset routes
+
+`GET/POST /datasets` have been **removed**. Use project-scoped routes only. Legacy remains for unclassified migrated rows — not as an HTTP fallback.
 
 ---
 
@@ -172,6 +178,9 @@ Do not place new example datasets in Legacy. Reclassify Legacy datasets with:
 
 ```bash
 bun run --filter='@aurii/db' reassign-dataset -- --dataset norwegian-geo --to-project norge-data
+
+# Or the Norwegian Geo product migration (idempotent):
+bun run migrate:norwegian-geo-project
 ```
 
 ---

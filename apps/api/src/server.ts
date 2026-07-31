@@ -19,6 +19,7 @@ import {
 	type StorageAdapter,
 } from "@aurii/core";
 import { createDb } from "@aurii/db";
+import { Elysia } from "elysia";
 import { createProjectDatasetsPlugin } from "./routes/project-datasets";
 import { createProjectDatasetResourcesPlugin } from "./routes/project-dataset-resources";
 import { createProjectsPlugin } from "./routes/projects";
@@ -57,7 +58,19 @@ export function buildApiApp(options: ApiAppOptions = {}) {
 		datasetPluginOptions.storage = options.storage;
 	}
 
-	return buildCoreApp(options)
+	const apiToken = options.apiToken ?? process.env["AURII_API_TOKEN"];
+
+	// Apply the same bearer-token gate as Core to /api/projects* routes.
+	const projectRoutes = new Elysia({ name: "api-projects-auth" })
+		.onBeforeHandle(({ headers, set }) => {
+			if (!apiToken) return;
+			const auth =
+				(headers as Record<string, string | undefined>)["authorization"] ?? "";
+			if (auth !== `Bearer ${apiToken}`) {
+				set.status = 401;
+				return { error: "Unauthorized" };
+			}
+		})
 		.use(createProjectsPlugin({ service: projectService }))
 		.use(createProjectDatasetsPlugin(datasetPluginOptions))
 		.use(
@@ -66,6 +79,8 @@ export function buildApiApp(options: ApiAppOptions = {}) {
 				getStorage,
 			}),
 		);
+
+	return buildCoreApp(options).use(projectRoutes);
 }
 
 function createDefaultProjectRepository(): ProjectRepository {

@@ -121,7 +121,11 @@ export function buildApp(options: AppOptions = {}) {
 				}),
 			)
 			.use(yamlBodyParser)
-			.onError(({ error, set }) => {
+			.onError(({ error, set, code }) => {
+				if (code === "NOT_FOUND") {
+					set.status = 404;
+					return { error: "Not Found" };
+				}
 				if (isProjectError(error)) {
 					set.status = error.httpStatus;
 					return {

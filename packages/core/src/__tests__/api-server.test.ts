@@ -144,6 +144,7 @@ describe("GET/POST /datasets", () => {
 		expect(res.status).toBe(201);
 		const body = await json(res);
 		expect(body.id).toBe("blog");
+		expect(body.projectId).toBeTruthy();
 
 		const list = await json(await app.handle(req("GET", "/datasets")));
 		expect(list.some((d: { id: string }) => d.id === "blog")).toBe(true);

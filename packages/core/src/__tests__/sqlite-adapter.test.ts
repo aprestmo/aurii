@@ -1,4 +1,5 @@
 import { afterEach, beforeEach, describe, expect, it } from "bun:test";
+import { LEGACY_PROJECT_ID } from "@aurii/types";
 import { SqliteAdapter } from "../storage/sqlite";
 
 /**
@@ -37,6 +38,7 @@ describe("datasets", () => {
 		const ds = await db.createDataset({ id: "blog", name: "Blog" });
 		expect(ds.id).toBe("blog");
 		expect(ds.name).toBe("Blog");
+		expect(ds.projectId).toBe(LEGACY_PROJECT_ID);
 		expect(ds.createdAt).toBeTruthy();
 	});
 
@@ -45,6 +47,23 @@ describe("datasets", () => {
 		const ds = await db.getDataset("test");
 		expect(ds?.id).toBe("test");
 		expect(ds?.description).toBe("desc");
+		expect(ds?.projectId).toBe(LEGACY_PROJECT_ID);
+	});
+
+	it("lists datasets filtered by projectId", async () => {
+		const otherProject = "b0000000-0000-4000-8000-000000000002";
+		await db.createDataset({
+			id: "in-legacy",
+			name: "Legacy DS",
+			projectId: LEGACY_PROJECT_ID,
+		});
+		await db.createDataset({
+			id: "in-other",
+			name: "Other DS",
+			projectId: otherProject,
+		});
+		const scoped = await db.listDatasets(otherProject);
+		expect(scoped.map((d) => d.id)).toEqual(["in-other"]);
 	});
 
 	it("returns null for unknown dataset", async () => {

@@ -1,6 +1,6 @@
 # Aurii Projects
 
-> An Aurii **project** is the administrative, security, and functional boundary for datasets, imports, relations, and APIs. All future Core resources belong to exactly one project, with explicit mechanisms for controlled cross-project relations.
+> An Aurii **project** is the administrative, security, and functional boundary for datasets, imports, relations, and APIs. All Core resources belong to exactly one project, with explicit mechanisms for controlled cross-project relations.
 
 ---
 
@@ -14,7 +14,7 @@ Until now Aurii organized data primarily by **dataset**. Datasets remain the sto
 
 **Project** is that parent. Stable identity is a UUID; human-readable addressing uses a unique **slug**.
 
-This supersedes the earlier guidance in `PRODUCT_MODEL.md` that deferred a Core `Project` type. See [ADR-0011](../adr/ADR-0011%20—%20Project%20as%20Top-Level%20Boundary.md).
+This supersedes the earlier guidance in `PRODUCT_MODEL.md` that deferred a Core `Project` type. See [ADR-0011](../adr/ADR-0011%20—%20Project%20as%20Top-Level%20Boundary.md) and [ADR-0012](../adr/ADR-0012%20—%20Project-Scoped%20Existing%20Dataset%20Model.md).
 
 ---
 
@@ -22,11 +22,11 @@ This supersedes the earlier guidance in `PRODUCT_MODEL.md` that deferred a Core 
 
 | Status | Meaning |
 |--------|---------|
-| `active` | Available for normal use |
-| `inactive` | Temporarily disabled |
+| `active` | Available for normal use (create/update datasets, imports that write, schema changes) |
+| `inactive` | Temporarily disabled — read/list allowed; writes rejected |
 | `archived` | Read-only intent; `archivedAt` is set. Reactivation clears `archivedAt` |
 
-Projects are not permanently deleted through the public API in this version.
+Projects are not permanently deleted through the public API in this version. Hard-deleting a project that still owns datasets is blocked by `ON DELETE RESTRICT` on `aurii_datasets.project_id`.
 
 ### Allowed transitions
 
@@ -40,11 +40,11 @@ archived → active
 
 ## Data model
 
-Table `projects` (PostgreSQL via Drizzle in `@aurii/db`):
+### `projects` (PostgreSQL via Drizzle in `@aurii/db`)
 
 | Column | Type | Notes |
 |--------|------|-------|
-| `id` | uuid | Generated |
+| `id` | uuid | Generated (or stable for Legacy) |
 | `name` | text | Required |
 | `slug` | text | Required, unique, indexed |
 | `description` | text \| null | Optional |
@@ -53,7 +53,27 @@ Table `projects` (PostgreSQL via Drizzle in `@aurii/db`):
 | `updated_at` | timestamptz | Automatic on change |
 | `archived_at` | timestamptz \| null | Set on archive |
 
-Future tables (`datasets`, `imports`, `relationships`, `api_routes`, `project_members`, `project_api_keys`, `saved_queries`, `data_views`) should reference `project_id`. They are **not** created in this foundation step.
+### `aurii_datasets` (canonical dataset table — Core storage)
+
+`aurii_datasets` is the **canonical** dataset catalog. It is **not** replaced by a parallel `datasets` / `project_datasets` table.
+
+| Column | Type | Notes |
+|--------|------|-------|
+| `id` | text | Stable dataset identity (global PK) |
+| `name` | text | Display name |
+| `description` | text \| null | Optional |
+| `project_id` | uuid | **Required**, FK → `projects.id` `ON DELETE RESTRICT`, indexed |
+| `created_at` | timestamptz | Automatic |
+
+See [DATASETS.md](./DATASETS.md) for identity, API, migration, and Legacy classification.
+
+### Relationship model
+
+```
+Project 1──* Dataset 1──* Schema / Entity / ImportRun
+                │
+                └── imports derive project via dataset (Import → Dataset → Project)
+```
 
 ---
 
@@ -61,15 +81,18 @@ Future tables (`datasets`, `imports`, `relationships`, `api_routes`, `project_me
 
 | Package | Role |
 |---------|------|
-| `@aurii/types` | Shared `Project` types (no Drizzle types in the API) |
+| `@aurii/types` | Shared `Project` types + `LEGACY_PROJECT_ID` |
 | `@aurii/validation` | Name/slug/description/status rules |
-| `@aurii/db` | Drizzle schema, migrations, seed |
-| `@aurii/core` | `ProjectService` + repositories (memory / Drizzle) |
+| `@aurii/db` | Drizzle schema, migrations, seed, reassign script |
+| `@aurii/core` | `ProjectService`, `DatasetService`, repositories, storage adapters |
 | `@aurii/api` | Thin Elysia routes under `/api/projects` |
+| `@aurii/sdk` | `client.projects.byId(id).datasets.*` |
 
 ---
 
 ## API
+
+### Projects
 
 Base path: `/api/projects`
 
@@ -95,15 +118,25 @@ Error envelope:
 | `PATCH` | `/api/projects/:id/status` | Change status |
 | `POST` | `/api/projects/:id/archive` | Explicit archive |
 
-**List default:** returns **all** projects (active, inactive, and archived). Pass `?status=active` (or `inactive` / `archived`) to filter. Inactive projects are not hidden unless you filter.
+### Project-scoped datasets
 
-Create example:
+| Method | Path | Purpose |
+|--------|------|---------|
+| `GET` | `/api/projects/:id/datasets` | List datasets in project |
+| `POST` | `/api/projects/:id/datasets` | Create (active projects only) |
+| `GET` | `/api/projects/:id/datasets/:datasetId` | Get (404 if wrong project) |
+| `PATCH` | `/api/projects/:id/datasets/:datasetId` | Update name/description |
 
-```bash
-curl -s -X POST http://localhost:3000/api/projects \
-  -H 'content-type: application/json' \
-  -d '{"name":"Valgdata","slug":"valgdata","description":"Offisielle og bearbeidede norske valgdata."}'
-```
+Project id always comes from the URL (`:id`). Body `projectId` is ignored.
+
+### Deprecated global dataset routes
+
+| Method | Path | Behavior |
+|--------|------|----------|
+| `GET` | `/datasets` | Lists **Legacy** project datasets only |
+| `POST` | `/datasets` | Creates in the **Legacy** project |
+
+Prefer the project-scoped routes. See [DATASETS.md](./DATASETS.md).
 
 ---
 
@@ -116,17 +149,29 @@ export DATABASE_URL=postgres://aurii:aurii@localhost:5432/aurii
 bun run --filter='@aurii/db' migrate
 ```
 
-Migration file: `packages/db/migrations/0000_projects.sql`.
+Migration files:
+
+- `packages/db/migrations/0000_projects.sql` — `projects` table
+- `packages/db/migrations/0001_datasets_project_id.sql` — Legacy project + `aurii_datasets.project_id`
 
 ---
 
 ## Seed
 
-Idempotent seed (Norge Data, Valgdata, News CMS) — upserts by slug:
+Idempotent seed — upserts by slug:
+
+1. **Legacy** (stable UUID) — only for unclassified pre-migration data
+2. **Norge Data**, **Valgdata**, **News CMS** — example projects for new data
 
 ```bash
 export DATABASE_URL=postgres://aurii:aurii@localhost:5432/aurii
 bun run --filter='@aurii/db' seed
+```
+
+Do not place new example datasets in Legacy. Reclassify Legacy datasets with:
+
+```bash
+bun run --filter='@aurii/db' reassign-dataset -- --dataset norwegian-geo --to-project norge-data
 ```
 
 ---
@@ -137,11 +182,15 @@ bun run --filter='@aurii/db' seed
 # Validation
 bun run --filter='@aurii/validation' test
 
-# Core project service (in-memory)
+# Core project + dataset services
 bun test packages/core/src/__tests__/project-service.test.ts
+bun test packages/core/src/__tests__/dataset-service.test.ts
 
-# HTTP routes (in-memory)
+# HTTP routes
 bun run --filter='@aurii/api' test
+
+# Migration (requires DATABASE_URL)
+bun run --filter='@aurii/db' test
 ```
 
 When `DATABASE_URL` is unset, `@aurii/api` uses an in-memory project repository so local/runtime tests do not require Postgres. Production and Docker should set `DATABASE_URL` and run migrations.

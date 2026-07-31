@@ -9,6 +9,8 @@ export interface Dataset {
 	id: string;
 	name: string;
 	description?: string;
+	/** Owning project UUID. Required after project-scoped migration. */
+	projectId: string;
 	createdAt: string;
 }
 
@@ -16,6 +18,17 @@ export interface DatasetInput {
 	id: string;
 	name: string;
 	description?: string;
+	/**
+	 * Owning project UUID. When omitted at the storage layer, adapters assign
+	 * the Legacy fallback project. Prefer DatasetService which requires an
+	 * explicit projectId from the URL/context.
+	 */
+	projectId?: string;
+}
+
+export interface DatasetUpdateInput {
+	name?: string;
+	description?: string | null;
 }
 
 export interface ImportRunRecord {
@@ -69,7 +82,20 @@ export interface StorageAdapter {
 	// Datasets
 	createDataset(input: DatasetInput): Promise<Dataset>;
 	getDataset(id: string): Promise<Dataset | null>;
-	listDatasets(): Promise<Dataset[]>;
+	/** List datasets. When `projectId` is set, only that project's datasets. */
+	listDatasets(projectId?: string): Promise<Dataset[]>;
+	updateDataset(
+		id: string,
+		input: DatasetUpdateInput,
+	): Promise<Dataset | null>;
+	/**
+	 * Administrative reassignment of a dataset to another project.
+	 * Not exposed on the public HTTP API — used by migration/CLI tooling.
+	 */
+	reassignDatasetProject(
+		datasetId: string,
+		toProjectId: string,
+	): Promise<Dataset | null>;
 
 	// Schemas
 	upsertSchema(def: SchemaDefinition, datasetId: string): Promise<StoredSchema>;

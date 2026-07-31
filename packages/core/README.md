@@ -56,12 +56,13 @@ SQLite is for zero-config development. PostgreSQL (JSONB) is the production targ
 ## Projects
 
 Projects are the top-level administrative boundary (`ProjectService` in this package).
-See [`docs/PROJECTS.md`](../../docs/PROJECTS.md). Entity datasets are not yet scoped
-to `projectId` — that is the next attach point.
+See [`docs/PROJECTS.md`](../../docs/PROJECTS.md) and [`docs/DATASETS.md`](../../docs/DATASETS.md).
+Every row in `aurii_datasets` belongs to exactly one project (`project_id`).
 
 ## Datasets
 
-A deployment can hold multiple datasets with different kinds of data:
+A deployment can hold multiple datasets with different kinds of data. Prefer
+project-scoped administration via `DatasetService` / `/api/projects/:id/datasets`:
 
 ```bash
 bun run cli dataset create editorial "Editorial content"
@@ -84,7 +85,8 @@ A `default` dataset always exists and is used when `--dataset` is omitted.
 | **Query Language v1** | `from`, `where`, `join`, `select`, `order by`, `limit`, `offset`, `count`, explain |
 | **Schema references** | `type: reference` with import-time validation |
 | **Storage adapters** | SQLite (dev) and PostgreSQL JSONB (production) |
-| **Datasets** | Multiple named datasets per deployment |
+| **Datasets** | Multiple named datasets per project (`aurii_datasets.project_id`) |
+| **DatasetService** | Project-scoped create/list/get/update with write-rule enforcement |
 | **CLI** | `dataset`, `schema`, `import`, `query`, `entity`, `serve` |
 | **HTTP API** | REST API with token auth, uploads, dry runs, and stats |
 
@@ -132,8 +134,12 @@ from product where price > 100 order by price desc
 
 ```
 GET  /health                        (no auth)
-GET  /datasets
-POST /datasets                      { id, name, description? }
+GET  /datasets                      (deprecated — Legacy project only)
+POST /datasets                      (deprecated — creates in Legacy)
+GET  /api/projects/:id/datasets
+POST /api/projects/:id/datasets
+GET  /api/projects/:id/datasets/:datasetId
+PATCH /api/projects/:id/datasets/:datasetId
 GET  /schemas?dataset=
 POST /schemas?dataset=
 GET  /schemas/:id?dataset=

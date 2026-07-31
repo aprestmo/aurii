@@ -10,7 +10,8 @@ export type ProjectErrorCode =
 	| "PROJECT_NOT_FOUND"
 	| "PROJECT_SLUG_CONFLICT"
 	| "INVALID_PROJECT_STATUS_TRANSITION"
-	| "PROJECT_VALIDATION_ERROR";
+	| "PROJECT_VALIDATION_ERROR"
+	| "PROJECT_NOT_WRITABLE";
 
 export abstract class ProjectError extends Error {
 	abstract readonly code: ProjectErrorCode;
@@ -58,6 +59,17 @@ export class ProjectValidationError extends ProjectError {
 		const summary = issues.map((i) => `${i.path || "input"}: ${i.message}`).join("; ");
 		super(summary || "Project validation failed.");
 		this.issues = issues;
+	}
+}
+
+export class ProjectNotWritableError extends ProjectError {
+	readonly code = "PROJECT_NOT_WRITABLE" as const;
+	readonly httpStatus = 409;
+
+	constructor(projectId: string, status: string) {
+		super(
+			`Project "${projectId}" has status "${status}" and does not allow write operations.`,
+		);
 	}
 }
 

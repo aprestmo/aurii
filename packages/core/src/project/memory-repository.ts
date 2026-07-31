@@ -19,7 +19,7 @@ export class MemoryProjectRepository implements ProjectRepository {
 	async insert(data: ProjectInsert): Promise<Project> {
 		const now = new Date().toISOString();
 		const project: Project = {
-			id: crypto.randomUUID(),
+			id: data.id ?? crypto.randomUUID(),
 			name: data.name,
 			slug: data.slug,
 			description: data.description,

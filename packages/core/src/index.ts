@@ -117,11 +117,13 @@ export type {
 export {
 	createProjectService,
 	DrizzleProjectRepository,
+	ensureLegacyProject,
 	InvalidProjectStatusTransitionError,
 	isProjectError,
 	MemoryProjectRepository,
 	ProjectError,
 	ProjectNotFoundError,
+	ProjectNotWritableError,
 	ProjectService,
 	ProjectSlugConflictError,
 	ProjectValidationError,
@@ -132,6 +134,21 @@ export type {
 	ProjectPatch,
 	ProjectRepository,
 } from "./project";
+// Datasets (project-scoped administration)
+export {
+	createDatasetService,
+	DatasetError,
+	DatasetIdConflictError,
+	DatasetNotFoundError,
+	DatasetService,
+	DatasetValidationError,
+	isDatasetError,
+} from "./dataset";
+export type {
+	CreateDatasetInput,
+	DatasetErrorCode,
+	UpdateDatasetInput,
+} from "./dataset";
 // HTTP (for apps/api composition)
 export { buildApp } from "./api/server";
 export type { AppOptions } from "./api/server";

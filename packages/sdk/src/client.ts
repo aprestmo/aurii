@@ -8,6 +8,7 @@
 
 import type {
 	AnalyzeResponse,
+	ApiEnvelope,
 	AuriiClientConfig,
 	Dataset,
 	DatasetInput,
@@ -17,11 +18,13 @@ import type {
 	ImportResult,
 	ImportRunRecord,
 	ImportRunRequest,
+	Project,
 	QueryResult,
 	PlanExplanation,
 	SchemaDefinition,
 	StorageStats,
 	StoredSchema,
+	UpdateDatasetInput,
 } from "./types";
 import { AuriiError } from "./types";
 
@@ -63,18 +66,99 @@ async function request<T>(
 	return res.json() as Promise<T>;
 }
 
-// ── Dataset API ───────────────────────────────────────────────────────────────
+// ── Dataset API (deprecated — Legacy project only) ────────────────────────────
 
+/**
+ * @deprecated Prefer `client.projects.byId(projectId).datasets`.
+ * These methods call the global `/datasets` routes which are scoped to the
+ * Legacy fallback project and do not accept cross-project access.
+ */
 function buildDatasetsApi(baseUrl: string, token: string | undefined) {
 	return {
+		/** @deprecated Use `client.projects.byId(projectId).datasets.list()`. */
 		list(): Promise<Dataset[]> {
 			return request(baseUrl, "/datasets", token);
 		},
+		/** @deprecated Use `client.projects.byId(projectId).datasets.create()`. */
 		create(input: DatasetInput): Promise<Dataset> {
 			return request(baseUrl, "/datasets", token, {
 				method: "POST",
 				body: JSON.stringify(input),
 			});
+		},
+	};
+}
+
+// ── Project-scoped Dataset API ────────────────────────────────────────────────
+
+function buildProjectDatasetsApi(
+	baseUrl: string,
+	token: string | undefined,
+	projectId: string,
+) {
+	const root = `/api/projects/${encodeURIComponent(projectId)}/datasets`;
+	return {
+		async list(): Promise<Dataset[]> {
+			const res = await request<ApiEnvelope<Dataset[]>>(
+				baseUrl,
+				root,
+				token,
+			);
+			return res.data;
+		},
+		async get(datasetId: string): Promise<Dataset> {
+			const res = await request<ApiEnvelope<Dataset>>(
+				baseUrl,
+				`${root}/${encodeURIComponent(datasetId)}`,
+				token,
+			);
+			return res.data;
+		},
+		async create(input: DatasetInput): Promise<Dataset> {
+			const res = await request<ApiEnvelope<Dataset>>(baseUrl, root, token, {
+				method: "POST",
+				body: JSON.stringify(input),
+			});
+			return res.data;
+		},
+		async update(
+			datasetId: string,
+			input: UpdateDatasetInput,
+		): Promise<Dataset> {
+			const res = await request<ApiEnvelope<Dataset>>(
+				baseUrl,
+				`${root}/${encodeURIComponent(datasetId)}`,
+				token,
+				{ method: "PATCH", body: JSON.stringify(input) },
+			);
+			return res.data;
+		},
+	};
+}
+
+function buildProjectsApi(baseUrl: string, token: string | undefined) {
+	return {
+		async list(status?: Project["status"]): Promise<Project[]> {
+			const qs = status ? `?status=${encodeURIComponent(status)}` : "";
+			const res = await request<ApiEnvelope<Project[]>>(
+				baseUrl,
+				`/api/projects${qs}`,
+				token,
+			);
+			return res.data;
+		},
+		async get(id: string): Promise<Project> {
+			const res = await request<ApiEnvelope<Project>>(
+				baseUrl,
+				`/api/projects/${encodeURIComponent(id)}`,
+				token,
+			);
+			return res.data;
+		},
+		byId(projectId: string) {
+			return {
+				datasets: buildProjectDatasetsApi(baseUrl, token, projectId),
+			};
 		},
 	};
 }
@@ -234,13 +318,18 @@ function buildHealthApi(baseUrl: string) {
  *
  * const client = createClient({ baseUrl: "http://localhost:3000", token: "..." });
  *
- * const datasets = await client.datasets.list();
+ * const datasets = await client.projects.byId(projectId).datasets.list();
  * const schemas  = await client.schemas.list();
  * const result   = await client.query.run("FROM article WHERE state = active LIMIT 10");
  * ```
  */
 export class AuriiClient {
+	/**
+	 * @deprecated Prefer `projects.byId(projectId).datasets`.
+	 * Global dataset methods are Legacy-project-scoped.
+	 */
 	readonly datasets: ReturnType<typeof buildDatasetsApi>;
+	readonly projects: ReturnType<typeof buildProjectsApi>;
 	readonly schemas: ReturnType<typeof buildSchemasApi>;
 	readonly entities: ReturnType<typeof buildEntitiesApi>;
 	readonly query: ReturnType<typeof buildQueryApi>;
@@ -253,6 +342,7 @@ export class AuriiClient {
 		const defaultDataset = config.defaultDataset ?? "default";
 
 		this.datasets = buildDatasetsApi(baseUrl, token);
+		this.projects = buildProjectsApi(baseUrl, token);
 		this.schemas = buildSchemasApi(baseUrl, token, defaultDataset);
 		this.entities = buildEntitiesApi(baseUrl, token, defaultDataset);
 		this.query = buildQueryApi(baseUrl, token, defaultDataset);

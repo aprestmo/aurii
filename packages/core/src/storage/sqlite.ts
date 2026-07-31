@@ -12,9 +12,11 @@ import {
 	type PlanResult,
 	whereExprToSqlClauses,
 } from "./plan-executor";
+import { LEGACY_PROJECT_ID } from "@aurii/types";
 import type {
 	Dataset,
 	DatasetInput,
+	DatasetUpdateInput,
 	ImportRunRecord,
 	SchemaStats,
 	StorageAdapter,
@@ -127,6 +129,7 @@ export class SqliteAdapter implements StorageAdapter {
         id          TEXT PRIMARY KEY,
         name        TEXT NOT NULL,
         description TEXT,
+        project_id  TEXT NOT NULL DEFAULT '${LEGACY_PROJECT_ID}',
         created_at  TEXT NOT NULL DEFAULT (datetime('now'))
       );
 
@@ -155,6 +158,9 @@ export class SqliteAdapter implements StorageAdapter {
       CREATE INDEX IF NOT EXISTS idx_entities_dataset_schema
         ON aurii_entities(dataset_id, schema_id);
 
+      CREATE INDEX IF NOT EXISTS idx_datasets_project_id
+        ON aurii_datasets(project_id);
+
       CREATE TABLE IF NOT EXISTS aurii_import_runs (
         id            TEXT PRIMARY KEY,
         definition_id TEXT,
@@ -172,13 +178,42 @@ export class SqliteAdapter implements StorageAdapter {
       );
     `);
 
-		// Ensure default dataset exists
+		// Migrate pre-existing SQLite DBs that lack project_id
+		this.ensureProjectIdColumn();
+
+		// Ensure default dataset exists (owned by Legacy fallback project)
 		this.db
 			.prepare(
-				`INSERT INTO aurii_datasets (id, name, description)
-         VALUES (?, ?, ?) ON CONFLICT(id) DO NOTHING`,
+				`INSERT INTO aurii_datasets (id, name, description, project_id)
+         VALUES (?, ?, ?, ?) ON CONFLICT(id) DO NOTHING`,
 			)
-			.run(DEFAULT_DATASET, "Default", "Default dataset");
+			.run(
+				DEFAULT_DATASET,
+				"Default",
+				"Default dataset",
+				LEGACY_PROJECT_ID,
+			);
+	}
+
+	/** Add and backfill project_id for databases created before project scoping. */
+	private ensureProjectIdColumn(): void {
+		const cols = this.db
+			.prepare("PRAGMA table_info(aurii_datasets)")
+			.all() as { name: string }[];
+		const hasProjectId = cols.some((c) => c.name === "project_id");
+		if (!hasProjectId) {
+			this.db.exec(
+				`ALTER TABLE aurii_datasets ADD COLUMN project_id TEXT NOT NULL DEFAULT '${LEGACY_PROJECT_ID}'`,
+			);
+		}
+		this.db
+			.prepare(
+				`UPDATE aurii_datasets SET project_id = ? WHERE project_id IS NULL OR project_id = ''`,
+			)
+			.run(LEGACY_PROJECT_ID);
+		this.db.exec(
+			`CREATE INDEX IF NOT EXISTS idx_datasets_project_id ON aurii_datasets(project_id)`,
+		);
 	}
 
 	async close(): Promise<void> {
@@ -187,13 +222,33 @@ export class SqliteAdapter implements StorageAdapter {
 
 	// ── Datasets ───────────────────────────────────────────────────────────────
 
+	private mapDatasetRow(row: {
+		id: string;
+		name: string;
+		description: string | null;
+		project_id: string;
+		created_at: string;
+	}): Dataset {
+		return {
+			id: row.id,
+			name: row.name,
+			...(row.description !== null ? { description: row.description } : {}),
+			projectId: row.project_id,
+			createdAt: row.created_at,
+		};
+	}
+
 	async createDataset(input: DatasetInput): Promise<Dataset> {
+		const projectId = input.projectId ?? LEGACY_PROJECT_ID;
 		this.db
 			.prepare(
-				`INSERT INTO aurii_datasets (id, name, description) VALUES (?, ?, ?)
-         ON CONFLICT(id) DO UPDATE SET name = excluded.name, description = excluded.description`,
+				`INSERT INTO aurii_datasets (id, name, description, project_id) VALUES (?, ?, ?, ?)
+         ON CONFLICT(id) DO UPDATE SET
+           name = excluded.name,
+           description = excluded.description,
+           project_id = COALESCE(aurii_datasets.project_id, excluded.project_id)`,
 			)
-			.run(input.id, input.name, input.description ?? null);
+			.run(input.id, input.name, input.description ?? null, projectId);
 		return (await this.getDataset(input.id))!;
 	}
 
@@ -204,32 +259,63 @@ export class SqliteAdapter implements StorageAdapter {
 			id: string;
 			name: string;
 			description: string | null;
+			project_id: string;
 			created_at: string;
 		} | null;
 		if (!row) return null;
-		return {
-			id: row.id,
-			name: row.name,
-			...(row.description !== null ? { description: row.description } : {}),
-			createdAt: row.created_at,
-		};
+		return this.mapDatasetRow(row);
 	}
 
-	async listDatasets(): Promise<Dataset[]> {
-		const rows = this.db
-			.prepare("SELECT * FROM aurii_datasets ORDER BY created_at ASC")
-			.all() as {
+	async listDatasets(projectId?: string): Promise<Dataset[]> {
+		const rows = (
+			projectId
+				? this.db
+						.prepare(
+							"SELECT * FROM aurii_datasets WHERE project_id = ? ORDER BY created_at ASC",
+						)
+						.all(projectId)
+				: this.db
+						.prepare("SELECT * FROM aurii_datasets ORDER BY created_at ASC")
+						.all()
+		) as {
 			id: string;
 			name: string;
 			description: string | null;
+			project_id: string;
 			created_at: string;
 		}[];
-		return rows.map((r) => ({
-			id: r.id,
-			name: r.name,
-			...(r.description !== null ? { description: r.description } : {}),
-			createdAt: r.created_at,
-		}));
+		return rows.map((r) => this.mapDatasetRow(r));
+	}
+
+	async updateDataset(
+		id: string,
+		input: DatasetUpdateInput,
+	): Promise<Dataset | null> {
+		const existing = await this.getDataset(id);
+		if (!existing) return null;
+		const name = input.name !== undefined ? input.name : existing.name;
+		const description =
+			input.description !== undefined
+				? input.description
+				: (existing.description ?? null);
+		this.db
+			.prepare(
+				`UPDATE aurii_datasets SET name = ?, description = ? WHERE id = ?`,
+			)
+			.run(name, description, id);
+		return this.getDataset(id);
+	}
+
+	async reassignDatasetProject(
+		datasetId: string,
+		toProjectId: string,
+	): Promise<Dataset | null> {
+		const existing = await this.getDataset(datasetId);
+		if (!existing) return null;
+		this.db
+			.prepare(`UPDATE aurii_datasets SET project_id = ? WHERE id = ?`)
+			.run(toProjectId, datasetId);
+		return this.getDataset(datasetId);
 	}
 
 	// ── Schemas ────────────────────────────────────────────────────────────────

@@ -91,6 +91,19 @@ describe("client.datasets", () => {
 		});
 		expect(dataset.id).toBe("sdk-test-ds");
 		expect(dataset.name).toBe("SDK Test Dataset");
+		expect(dataset.projectId).toBeTruthy();
+	});
+});
+
+describe("client.projects", () => {
+	test("byId().datasets is available", () => {
+		const client = createClient({ baseUrl: MOCK_BASE, token: "test-token" });
+		expect(typeof client.projects.byId).toBe("function");
+		expect(typeof client.projects.byId("proj").datasets.list).toBe("function");
+		expect(typeof client.projects.byId("proj").datasets.get).toBe("function");
+		expect(typeof client.projects.byId("proj").datasets.create).toBe(
+			"function",
+		);
 	});
 });
 

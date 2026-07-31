@@ -9,9 +9,11 @@ import {
 	type PlanResult,
 	whereExprToSqlClauses,
 } from "./plan-executor";
+import { LEGACY_PROJECT_ID } from "@aurii/types";
 import type {
 	Dataset,
 	DatasetInput,
+	DatasetUpdateInput,
 	ImportRunRecord,
 	SchemaStats,
 	StorageAdapter,
@@ -113,6 +115,7 @@ export class PostgresAdapter implements StorageAdapter {
         id          TEXT PRIMARY KEY,
         name        TEXT NOT NULL,
         description TEXT,
+        project_id  UUID NOT NULL DEFAULT '${LEGACY_PROJECT_ID}',
         created_at  TIMESTAMPTZ NOT NULL DEFAULT now()
       );
 
@@ -142,6 +145,8 @@ export class PostgresAdapter implements StorageAdapter {
         ON aurii_entities(dataset_id, schema_id);
       CREATE INDEX IF NOT EXISTS idx_entities_data_gin
         ON aurii_entities USING GIN (data);
+      CREATE INDEX IF NOT EXISTS idx_datasets_project_id
+        ON aurii_datasets(project_id);
 
       CREATE TABLE IF NOT EXISTS aurii_import_runs (
         id            UUID PRIMARY KEY,
@@ -160,11 +165,35 @@ export class PostgresAdapter implements StorageAdapter {
       );
     `);
 
+		// Migrate pre-existing Postgres DBs that lack project_id (Drizzle
+		// migration 0001 is preferred when projects table exists; this is a
+		// safety net for adapter-only startups).
+		await this.ensureProjectIdColumn();
+
 		await this.sql`
-      INSERT INTO aurii_datasets (id, name, description)
-      VALUES (${DEFAULT_DATASET}, 'Default', 'Default dataset')
+      INSERT INTO aurii_datasets (id, name, description, project_id)
+      VALUES (${DEFAULT_DATASET}, 'Default', 'Default dataset', ${LEGACY_PROJECT_ID}::uuid)
       ON CONFLICT (id) DO NOTHING
     `;
+	}
+
+	private async ensureProjectIdColumn(): Promise<void> {
+		await this.sql.unsafe(`
+      DO $$
+      BEGIN
+        IF NOT EXISTS (
+          SELECT 1 FROM information_schema.columns
+          WHERE table_name = 'aurii_datasets' AND column_name = 'project_id'
+        ) THEN
+          ALTER TABLE aurii_datasets
+            ADD COLUMN project_id UUID NOT NULL DEFAULT '${LEGACY_PROJECT_ID}';
+        END IF;
+      END $$;
+      UPDATE aurii_datasets
+        SET project_id = '${LEGACY_PROJECT_ID}'
+        WHERE project_id IS NULL;
+      CREATE INDEX IF NOT EXISTS idx_datasets_project_id ON aurii_datasets(project_id);
+    `);
 	}
 
 	async close(): Promise<void> {
@@ -173,11 +202,27 @@ export class PostgresAdapter implements StorageAdapter {
 
 	// ── Datasets ───────────────────────────────────────────────────────────────
 
+	private mapDatasetRow(row: Record<string, unknown>): Dataset {
+		const description = row["description"] as string | null;
+		return {
+			id: row["id"] as string,
+			name: row["name"] as string,
+			...(description !== null && description !== undefined
+				? { description }
+				: {}),
+			projectId: String(row["project_id"]),
+			createdAt: ts(row["created_at"] as string | Date),
+		};
+	}
+
 	async createDataset(input: DatasetInput): Promise<Dataset> {
+		const projectId = input.projectId ?? LEGACY_PROJECT_ID;
 		await this.sql`
-      INSERT INTO aurii_datasets (id, name, description)
-      VALUES (${input.id}, ${input.name}, ${input.description ?? null})
-      ON CONFLICT (id) DO UPDATE SET name = EXCLUDED.name, description = EXCLUDED.description
+      INSERT INTO aurii_datasets (id, name, description, project_id)
+      VALUES (${input.id}, ${input.name}, ${input.description ?? null}, ${projectId}::uuid)
+      ON CONFLICT (id) DO UPDATE SET
+        name = EXCLUDED.name,
+        description = EXCLUDED.description
     `;
 		return (await this.getDataset(input.id))!;
 	}
@@ -186,23 +231,51 @@ export class PostgresAdapter implements StorageAdapter {
 		const rows = await this.sql`SELECT * FROM aurii_datasets WHERE id = ${id}`;
 		const row = rows[0];
 		if (!row) return null;
-		return {
-			id: row.id,
-			name: row.name,
-			description: row.description ?? undefined,
-			createdAt: ts(row.created_at),
-		};
+		return this.mapDatasetRow(row as Record<string, unknown>);
 	}
 
-	async listDatasets(): Promise<Dataset[]> {
-		const rows = await this
-			.sql`SELECT * FROM aurii_datasets ORDER BY created_at ASC`;
-		return rows.map((r: Record<string, unknown>) => ({
-			id: r["id"] as string,
-			name: r["name"] as string,
-			description: (r["description"] as string | null) ?? undefined,
-			createdAt: ts(r["created_at"] as string | Date),
-		}));
+	async listDatasets(projectId?: string): Promise<Dataset[]> {
+		const rows = projectId
+			? await this.sql`
+          SELECT * FROM aurii_datasets
+          WHERE project_id = ${projectId}::uuid
+          ORDER BY created_at ASC
+        `
+			: await this.sql`SELECT * FROM aurii_datasets ORDER BY created_at ASC`;
+		return rows.map((r: Record<string, unknown>) => this.mapDatasetRow(r));
+	}
+
+	async updateDataset(
+		id: string,
+		input: DatasetUpdateInput,
+	): Promise<Dataset | null> {
+		const existing = await this.getDataset(id);
+		if (!existing) return null;
+		const name = input.name !== undefined ? input.name : existing.name;
+		const description =
+			input.description !== undefined
+				? input.description
+				: (existing.description ?? null);
+		await this.sql`
+      UPDATE aurii_datasets
+      SET name = ${name}, description = ${description}
+      WHERE id = ${id}
+    `;
+		return this.getDataset(id);
+	}
+
+	async reassignDatasetProject(
+		datasetId: string,
+		toProjectId: string,
+	): Promise<Dataset | null> {
+		const existing = await this.getDataset(datasetId);
+		if (!existing) return null;
+		await this.sql`
+      UPDATE aurii_datasets
+      SET project_id = ${toProjectId}::uuid
+      WHERE id = ${datasetId}
+    `;
+		return this.getDataset(datasetId);
 	}
 
 	// ── Schemas ────────────────────────────────────────────────────────────────

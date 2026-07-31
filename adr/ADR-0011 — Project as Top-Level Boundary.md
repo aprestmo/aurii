@@ -44,7 +44,7 @@ Positive
 
 Tradeoffs
 
-* Existing datasets are not yet project-scoped; migration of legacy `aurii_datasets` is a follow-up
+* Dataset project-scoping of existing `aurii_datasets` is specified in [ADR-0012](./ADR-0012%20—%20Project-Scoped%20Existing%20Dataset%20Model.md) (completed follow-up)
 * Product manifests (`product.yaml`) remain complementary composition docs—not a substitute for Project rows
 * Must avoid conflating Project (tenancy) with Product (shipping solution) or Dataset (storage/query boundary)
 

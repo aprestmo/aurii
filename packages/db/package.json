@@ -12,12 +12,13 @@
 	},
 	"scripts": {
 		"build": "bun run typecheck",
-		"test": "bun test src/__tests__ 2>/dev/null || true",
+		"test": "bun test src/__tests__",
 		"typecheck": "tsc --noEmit",
 		"lint": "bunx @biomejs/biome lint src/",
 		"generate": "drizzle-kit generate",
 		"migrate": "bun run scripts/migrate.ts",
-		"seed": "bun run scripts/seed.ts"
+		"seed": "bun run scripts/seed.ts",
+		"reassign-dataset": "bun run scripts/reassign-dataset.ts"
 	},
 	"dependencies": {
 		"@aurii/types": "workspace:*",

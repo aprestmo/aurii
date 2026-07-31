@@ -1,7 +1,10 @@
 /**
  * projects — administrative top-level boundary for Aurii resources.
  *
- * Future tables (datasets, imports, api_routes, …) will reference projectId.
+ * Runtime table `aurii_datasets` references `projects.id` via `project_id`
+ * (see migration 0001_datasets_project_id.sql and ADR-0012). The dataset
+ * table itself remains owned by Core storage adapters — do not redefine it
+ * here as a second Drizzle model.
  */
 
 import { index, pgTable, text, timestamp, uuid } from "drizzle-orm/pg-core";

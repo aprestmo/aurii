@@ -121,6 +121,8 @@ Business concepts belong in schemas.
 Core consists of a very small set of primitives.
 
 ```
+Project
+
 Entity
 
 Schema
@@ -135,6 +137,8 @@ Event
 
 Plugin
 ```
+
+**Project** is the administrative and security boundary for future resources (datasets, imports, API routes, keys). See [`PROJECTS.md`](PROJECTS.md) and [ADR-0011](../adr/ADR-0011%20—%20Project%20as%20Top-Level%20Boundary.md). Content remains Entity/Schema-centric within that boundary.
 
 Everything else is built from these primitives.
 

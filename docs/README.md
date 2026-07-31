@@ -11,8 +11,10 @@ The specification is the **source of truth**. Code implements the specification.
 ### Product model
 
 - [PRODUCT_MODEL.md](./PRODUCT_MODEL.md) — **Canonical product model** (Core, datasets, products, modules, Studio, authoring, consumers)
+- [PROJECTS.md](./PROJECTS.md) — Project as top-level Core boundary (API, migration, seed)
 - [Phase4.md](../Phase4.md) — Phase 4 plan: Data Products and Delivery
 - [ADR-0010 — Optional Authoring Layer](../adr/ADR-0010%20—%20Optional%20Authoring%20Layer.md) — CMS/authoring as optional Core clients
+- [ADR-0011 — Project as Top-Level Boundary](../adr/ADR-0011%20—%20Project%20as%20Top-Level%20Boundary.md) — Project tenancy model
 
 ### Architecture
 
@@ -37,6 +39,7 @@ The specification is the **source of truth**. Code implements the specification.
 ### Integration
 
 - [API.md](./API.md) — HTTP API reference
+- [PROJECTS.md](./PROJECTS.md) — Projects API and data model
 - [AI.md](./AI.md) — AI integration and agent interface
 
 ### Vision & Philosophy
@@ -67,4 +70,4 @@ Historical phase reports are records of what was true when written. Prefer statu
 
 ## Architecture Decision Records
 
-See [`../adr/`](../adr/) for all recorded architectural decisions. Latest product-boundary decision: [ADR-0010](../adr/ADR-0010%20—%20Optional%20Authoring%20Layer.md).
+See [`../adr/`](../adr/) for all recorded architectural decisions. Latest project-boundary decision: [ADR-0011](../adr/ADR-0011%20—%20Project%20as%20Top-Level%20Boundary.md).

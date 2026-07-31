@@ -99,15 +99,21 @@ Phase 4 completes the import → Core → SDK → frontend path and product comp
 
 ```
 apps/
+  api/             @aurii/api    — HTTP API (Core runtime + /api/projects)
   studio/          @aurii/studio — Astro data-workspace client
   geo/             @aurii/geo    — Norwegian Geo public site
 packages/
   core/            @aurii/core   — Runtime (Bun + Elysia)
+  db/              @aurii/db     — Drizzle schema, migrations, seed
+  types/           @aurii/types  — Shared domain types
+  validation/      @aurii/validation — Shared validation
   sdk/             @aurii/sdk    — Typed HTTP client (browser + server)
 demo/              Example datasets; norwegian-geo reference product
 docs/              Architecture specifications and design documents
 adr/               Architecture Decision Records
 ```
+
+Projects (top-level tenancy): [`docs/PROJECTS.md`](docs/PROJECTS.md), [ADR-0011](adr/ADR-0011%20—%20Project%20as%20Top-Level%20Boundary.md).
 
 ### What exists and is verified
 

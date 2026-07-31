@@ -1,0 +1,10 @@
+{
+	"extends": "../../tsconfig.base.json",
+	"compilerOptions": {
+		"types": ["bun"],
+		"paths": {
+			"@aurii/types": ["./src/index.ts"]
+		}
+	},
+	"include": ["src/**/*"]
+}

@@ -113,3 +113,25 @@ export type {
 	ImportFinishedEvent,
 	ImportStartedEvent,
 } from "./events";
+// Projects
+export {
+	createProjectService,
+	DrizzleProjectRepository,
+	InvalidProjectStatusTransitionError,
+	isProjectError,
+	MemoryProjectRepository,
+	ProjectError,
+	ProjectNotFoundError,
+	ProjectService,
+	ProjectSlugConflictError,
+	ProjectValidationError,
+} from "./project";
+export type {
+	ProjectErrorCode,
+	ProjectInsert,
+	ProjectPatch,
+	ProjectRepository,
+} from "./project";
+// HTTP (for apps/api composition)
+export { buildApp } from "./api/server";
+export type { AppOptions } from "./api/server";

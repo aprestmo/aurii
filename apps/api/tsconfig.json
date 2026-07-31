@@ -1,0 +1,14 @@
+{
+	"extends": "../../tsconfig.base.json",
+	"compilerOptions": {
+		"types": ["bun"],
+		"paths": {
+			"@aurii/api": ["./src/index.ts"],
+			"@aurii/core": ["../../packages/core/src/index.ts"],
+			"@aurii/db": ["../../packages/db/src/index.ts"],
+			"@aurii/types": ["../../packages/types/src/index.ts"],
+			"@aurii/validation": ["../../packages/validation/src/index.ts"]
+		}
+	},
+	"include": ["src/**/*"]
+}

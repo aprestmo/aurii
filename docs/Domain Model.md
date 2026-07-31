@@ -469,20 +469,29 @@ Aurii should support multi-tenancy through Organizations.
 
 # Projects
 
-Projects are Entities.
+Projects are the top-level administrative and security boundary in Aurii.
 
-Projects organize work.
+A Project is identified by a stable UUID. A unique slug provides human-readable addressing. Name and slug may change without breaking identity.
 
-A Project may contain:
+Status values: `active`, `inactive`, `archived`.
+
+A Project may contain (as future resources attach to `projectId`):
 
 - datasets
 - schemas
 - imports
+- relations
+- API routes and keys
+- saved queries and data views
 - assets
 - connectors
 - pipelines
 
-Projects provide logical separation.
+Projects provide logical separation. Cross-project references must be explicit (stable ids or declarative queries)—data is not copied between projects by default.
+
+See [`PROJECTS.md`](PROJECTS.md) and [ADR-0011](../adr/ADR-0011%20—%20Project%20as%20Top-Level%20Boundary.md).
+
+Note: Project is implemented as a platform resource (dedicated table), not as a Schema-backed Entity. Content Entities remain schema-typed; Project organizes them.
 
 ---
 

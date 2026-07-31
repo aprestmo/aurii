@@ -27,8 +27,8 @@ bun run cli import run examples/imports/articles.yaml
 bun run cli query "from article where published == true"
 bun run cli query "from article select title, author order by publishedAt desc"
 
-# Serve the HTTP API (used by Studio)
-bun run cli serve
+# Serve the HTTP API (used by Studio) — prefer @aurii/api for project routes
+bun run --filter='@aurii/api' serve
 ```
 
 ## Storage
@@ -47,14 +47,21 @@ parser produces an AST; each adapter translates it to its own SQL dialect.
 # PostgreSQL
 export AURII_STORAGE=postgres
 export DATABASE_URL="postgres://user:pass@localhost:5432/aurii"
-bun run cli serve
+bun run db:migrate   # creates projects (+ future Drizzle tables)
+bun run --filter='@aurii/api' serve
 ```
 
 SQLite is for zero-config development. PostgreSQL (JSONB) is the production target.
 
+## Projects
+
+Projects are the top-level administrative boundary (`ProjectService` in this package).
+See [`docs/PROJECTS.md`](../../docs/PROJECTS.md). Entity datasets are not yet scoped
+to `projectId` — that is the next attach point.
+
 ## Datasets
 
-A project can hold multiple datasets with different kinds of data:
+A deployment can hold multiple datasets with different kinds of data:
 
 ```bash
 bun run cli dataset create editorial "Editorial content"
@@ -69,6 +76,7 @@ A `default` dataset always exists and is used when `--dataset` is omitted.
 
 | Component | Description |
 |-----------|-------------|
+| **Projects** | Top-level tenancy boundary (`ProjectService`); HTTP via `@aurii/api` |
 | **Schema Language v0** | YAML-based schema definitions (fields, types, validation) |
 | **Import Engine v0** | CSV and JSON sources, declarative field mapping, dry run |
 | **Import analysis** | Format, delimiter, column, and type detection; schema suggestion |

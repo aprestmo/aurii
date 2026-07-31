@@ -19,9 +19,11 @@ PLUGIN_RUNTIME.md
 CORE.md
 IMPORT_ENGINE.md
 API.md
+PROJECTS.md
 AI.md
 STUDIO.md
 AGENTS.md
 
 Phase reports: Phase1.md … Phase3.md (historical), Phase4.md (plan)
 ADR-0010 — Optional Authoring Layer
+ADR-0011 — Project as Top-Level Boundary

@@ -93,7 +93,7 @@ Workstreams may overlap in engineering time, but dependencies run roughly A → 
    - what becomes SDK helpers (load manifest, ordered import);
    - what, if anything, becomes a Core API.
 4. Exercise every change against Norwegian Geo—no abstract product engine without a consumer.
-5. Avoid a new `Project` Core type unless a demonstrated need appears.
+5. Project Core type is now established ([ADR-0011](adr/ADR-0011%20—%20Project%20as%20Top-Level%20Boundary.md), [`docs/PROJECTS.md`](docs/PROJECTS.md)). Phase 4 should attach product/dataset composition to projects rather than inventing a parallel tenancy model.
 
 **Exit contribution:** One data product (Norwegian Geo) is described through the agreed composition model with unambiguous module dependency order.
 

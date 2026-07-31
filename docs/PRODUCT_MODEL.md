@@ -228,7 +228,9 @@ Product
 | **Product module** | Domain data package for a product | A Runtime plugin |
 | **Plugin** | Runtime extension | A folder of schemas and CSV/JSON imports |
 
-Do **not** introduce a new `Project` abstraction into Core unless a concrete implementation need is demonstrated. Norwegian Geo already uses dataset + product manifest (documentation/convention). Prefer evolving that convention before adding Core types.
+**Project** is now a Core top-level boundary (UUID + slug + status) for administration, security, and future resource ownership. See [`PROJECTS.md`](PROJECTS.md) and [ADR-0011](../adr/ADR-0011%20—%20Project%20as%20Top-Level%20Boundary.md).
+
+A Project is not the same as a Product: a product may map to one or more projects over time. Norwegian Geo’s `product.yaml` remains the composition convention for modules and imports; project rows are the Runtime tenancy parent those resources will attach to.
 
 ---
 

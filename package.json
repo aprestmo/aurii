@@ -15,11 +15,13 @@
   },
   "scripts": {
     "build": "bun run --filter='*' build",
-    "test": "bun run --filter='@aurii/core' test && bun run --filter='@aurii/sdk' test && bun run --filter='@aurii/studio' test && bun run --filter='@aurii/geo' test",
+    "test": "bun run --filter='@aurii/validation' test && bun run --filter='@aurii/core' test && bun run --filter='@aurii/api' test && bun run --filter='@aurii/sdk' test && bun run --filter='@aurii/studio' test && bun run --filter='@aurii/geo' test",
     "lint": "bun run --filter='*' lint",
     "typecheck": "bun run --filter='*' typecheck",
-    "dev": "bun run --filter='@aurii/core' dev & bun run --filter='@aurii/studio' dev",
-    "serve": "bun run --filter='@aurii/core' serve",
+    "dev": "bun run --filter='@aurii/api' dev & bun run --filter='@aurii/studio' dev",
+    "serve": "bun run --filter='@aurii/api' serve",
+    "db:migrate": "bun run --filter='@aurii/db' migrate",
+    "db:seed": "bun run --filter='@aurii/db' seed",
     "fetch:norwegian-geo": "bun run demo/norwegian-geo/scripts/fetch.ts",
     "fetch:historical-norwegian-geo": "bun run demo/norwegian-geo/core/historical/fetch-historical.ts",
     "fetch:ssb-identifiers-norwegian-geo": "bun run demo/norwegian-geo/core/historical/fetch-ssb-identifiers.ts",
@@ -27,5 +29,8 @@
     "validate:historical-norwegian-geo": "bun run demo/norwegian-geo/core/historical/validate.ts",
     "import:norwegian-geo": "bun run demo/norwegian-geo/scripts/import.ts",
     "build:geodata": "bun run demo/norwegian-geo/geodata/scripts/build-boundaries.ts"
+  },
+  "devDependencies": {
+    "drizzle-kit": "^0.31.10"
   }
 }

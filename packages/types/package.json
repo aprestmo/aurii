@@ -1,0 +1,22 @@
+{
+	"name": "@aurii/types",
+	"version": "0.1.0",
+	"description": "Aurii shared domain types",
+	"module": "src/index.ts",
+	"main": "src/index.ts",
+	"type": "module",
+	"exports": {
+		".": "./src/index.ts",
+		"./project": "./src/project.ts"
+	},
+	"scripts": {
+		"build": "bun run typecheck",
+		"test": "bun test src/__tests__ 2>/dev/null || true",
+		"typecheck": "tsc --noEmit",
+		"lint": "bunx @biomejs/biome lint src/"
+	},
+	"devDependencies": {
+		"@types/bun": "latest",
+		"typescript": "^6.0.3"
+	}
+}

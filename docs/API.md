@@ -107,6 +107,29 @@ Everything else derives from these.
 
 ---
 
+# Projects API (implemented)
+
+Projects are the administrative top-level boundary. Full contract: [`PROJECTS.md`](PROJECTS.md).
+
+Base path: `/api/projects` (served by `@aurii/api`).
+
+| Method | Path | Notes |
+|--------|------|-------|
+| POST | `/api/projects` | Create (`201`) |
+| GET | `/api/projects` | List; optional `?status=`; default returns all statuses |
+| GET | `/api/projects/:id` | By UUID |
+| GET | `/api/projects/by-slug/:slug` | By slug (separate from UUID lookup) |
+| PATCH | `/api/projects/:id` | Update name, slug, description |
+| PATCH | `/api/projects/:id/status` | Body `{ "status": "inactive" }` |
+| POST | `/api/projects/:id/archive` | Explicit archive |
+
+Success: `{ "data": { …project } }`.  
+Error: `{ "error": { "code": "PROJECT_…", "message": "…" } }`.
+
+No permanent delete endpoint.
+
+---
+
 # REST
 
 REST is the primary transport.

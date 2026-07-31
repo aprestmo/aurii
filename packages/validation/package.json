@@ -1,0 +1,25 @@
+{
+	"name": "@aurii/validation",
+	"version": "0.1.0",
+	"description": "Aurii shared validation helpers",
+	"module": "src/index.ts",
+	"main": "src/index.ts",
+	"type": "module",
+	"exports": {
+		".": "./src/index.ts",
+		"./project": "./src/project.ts"
+	},
+	"scripts": {
+		"build": "bun run typecheck",
+		"test": "bun test src/__tests__",
+		"typecheck": "tsc --noEmit",
+		"lint": "bunx @biomejs/biome lint src/"
+	},
+	"dependencies": {
+		"@aurii/types": "workspace:*"
+	},
+	"devDependencies": {
+		"@types/bun": "latest",
+		"typescript": "^6.0.3"
+	}
+}

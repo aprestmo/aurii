@@ -48,6 +48,13 @@ services:
     depends_on:
       postgres:
         condition: service_healthy
+    # Apply project migrations before serving (idempotent).
+    command:
+      [
+        "sh",
+        "-c",
+        "bun run packages/db/scripts/migrate.ts && bun run apps/api/src/index.ts",
+      ]
     healthcheck:
       test: ["CMD-SHELL", "curl -f http://localhost:3000/health || exit 1"]
       interval: 10s

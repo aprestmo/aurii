@@ -1,15 +1,15 @@
 /**
  * Data access for the geo demo site.
  *
- * Reads bundled snapshots from Norwegian Geo Core and dataset modules
- * (same data imported into Core via `bun run import:norwegian-geo`).
- * Uses Node fs so Astro's static build works outside the Bun runtime.
+ * Prefer live published routes when `AURII_CORE_URL` is set; otherwise read
+ * bundled snapshots (offline/build-time mode). Never imports Studio.
  */
 
 import { readFile } from "node:fs/promises";
 import { resolve } from "node:path";
 
 import { compareGeoIds } from "./format";
+import { fetchPublished, getLiveGeoConfig } from "./live";
 
 // Resolved from the current working directory (apps/geo) rather than
 // import.meta.dirname, since the build output nests compiled chunks at
@@ -108,10 +108,30 @@ async function readJson<T>(dir: string, file: string): Promise<T> {
 }
 
 export async function loadCounties(): Promise<County[]> {
+  const live = getLiveGeoConfig();
+  if (live) {
+    try {
+      const rows = await fetchPublished<County>(live, "/counties");
+      if (rows.length) return rows.sort((a, b) => compareGeoIds(a.id, b.id));
+    } catch {
+      /* fall through to snapshots */
+    }
+  }
   return readJson<County[]>(CORE_DATA, "counties.json");
 }
 
 export async function loadMunicipalities(): Promise<Municipality[]> {
+  const live = getLiveGeoConfig();
+  if (live) {
+    try {
+      const rows = await fetchPublished<Municipality>(live, "/municipalities");
+      if (rows.length) {
+        return [...rows].sort((a, b) => compareGeoIds(a.id, b.id));
+      }
+    } catch {
+      /* fall through to snapshots */
+    }
+  }
   return readJson<Municipality[]>(CORE_DATA, "municipalities.json");
 }
 

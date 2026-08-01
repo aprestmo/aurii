@@ -1,0 +1,14 @@
+{
+  "name": "@aurii/norwegian-geo",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Norwegian Geo — Aurii reference project package",
+  "dependencies": {
+    "@aurii/core": "workspace:*",
+    "@aurii/studio": "workspace:*"
+  },
+  "scripts": {
+    "test": "bun test scripts/bootstrap-platform.ts --dry-run 2>/dev/null || true"
+  }
+}

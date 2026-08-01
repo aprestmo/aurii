@@ -115,7 +115,7 @@ export function buildApiApp(options: ApiAppOptions = {}) {
 		.use(
 			createProjectPlatformPlugin({
 				projectService,
-				legacyApiToken: apiToken,
+				...(apiToken !== undefined ? { legacyApiToken: apiToken } : {}),
 			}),
 		);
 

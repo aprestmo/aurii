@@ -70,7 +70,6 @@ describe("Norwegian Geo project-oriented beta e2e", () => {
 
 		const app = buildApiApp({
 			projectService: projects,
-			apiToken: undefined,
 		});
 
 		const sourceRes = await app.handle(

@@ -1,10 +1,14 @@
 /**
  * Project Studio navigation — loads defineStudio from the project package
- * when AURII_PROJECT_ROOT is set; otherwise falls back to generic defaults
- * (or a built-in Norwegian Geo layout when only the slug is known).
+ * when AURII_PROJECT_ROOT / AURII_STUDIO_CONFIG is set; otherwise falls back
+ * to generic defaults (or a built-in Norwegian Geo layout when only the slug
+ * is known).
+ *
+ * Intentionally does **not** import `@aurii/core` — Studio talks to Core via
+ * HTTP/SDK only. Pulling Core into the Astro/Vite graph breaks the static
+ * build (bun-native modules).
  */
 
-import { loadProjectPackage } from "@aurii/core";
 import {
 	apiRoutes,
 	collection,
@@ -18,42 +22,78 @@ import {
 	sources,
 } from "@aurii/studio";
 import type { AuriiStudioConfig, StudioNavGroup } from "@aurii/types";
-import { resolve } from "node:path";
+import { access } from "node:fs/promises";
+import { join, resolve } from "node:path";
+import { pathToFileURL } from "node:url";
 import { getStudioRuntimeEnv } from "./env";
 
 export { navHref, navLabel, resolveStudioConfig };
 
 let cachedPackageConfig: {
-	root: string;
+	key: string;
 	config: AuriiStudioConfig;
 	title: string;
 } | null = null;
 
+async function fileExists(path: string): Promise<boolean> {
+	try {
+		await access(path);
+		return true;
+	} catch {
+		return false;
+	}
+}
+
+/**
+ * Resolve the on-disk `defineStudio` module path without loading Core.
+ *
+ * Order:
+ * 1. `AURII_STUDIO_CONFIG` (explicit file)
+ * 2. `{AURII_PROJECT_ROOT}/studio/studio.config.ts` (convention)
+ * 3. `{AURII_PROJECT_ROOT}/studio/studio.config.js`
+ */
+export async function resolveStudioConfigModulePath(
+	projectRoot?: string | null,
+	studioConfigPath?: string | null,
+): Promise<string | null> {
+	const env = getStudioRuntimeEnv();
+	const explicit = studioConfigPath ?? env.studioConfigPath;
+	if (explicit) {
+		const abs = resolve(explicit);
+		return (await fileExists(abs)) ? abs : null;
+	}
+	const rootEnv = projectRoot ?? env.projectRoot;
+	if (!rootEnv) return null;
+	const root = resolve(rootEnv);
+	for (const rel of ["studio/studio.config.ts", "studio/studio.config.js"]) {
+		const abs = join(root, rel);
+		if (await fileExists(abs)) return abs;
+	}
+	return null;
+}
+
 /**
  * Load Studio config from the project package on disk (server-side only).
- * Safe to call during Astro SSR / build; never embeds secrets.
+ * Safe to call during Astro SSR / build; never embeds secrets; never imports Core.
  */
 export async function loadStudioConfigFromPackage(
 	projectRoot?: string | null,
 ): Promise<{ config: AuriiStudioConfig; title: string } | null> {
-	const rootEnv = projectRoot ?? getStudioRuntimeEnv().projectRoot;
-	if (!rootEnv) return null;
-	const root = resolve(rootEnv);
-	if (cachedPackageConfig?.root === root) {
+	const configPath = await resolveStudioConfigModulePath(projectRoot);
+	if (!configPath) return null;
+	if (cachedPackageConfig?.key === configPath) {
 		return {
 			config: cachedPackageConfig.config,
 			title: cachedPackageConfig.title,
 		};
 	}
-	const pkg = await loadProjectPackage(root);
-	const config =
-		pkg.studio ?? defaultStudioConfig(pkg.config.title ?? "Aurii Studio");
-	cachedPackageConfig = {
-		root,
-		config,
-		title: pkg.config.title ?? config.title ?? "Aurii Studio",
-	};
-	return { config, title: cachedPackageConfig.title };
+	const mod = await import(pathToFileURL(configPath).href);
+	const raw = (mod.default ?? mod.config) as AuriiStudioConfig | undefined;
+	if (!raw || typeof raw !== "object") return null;
+	const config = resolveStudioConfig(raw);
+	const title = config.title ?? "Aurii Studio";
+	cachedPackageConfig = { key: configPath, config, title };
+	return { config, title };
 }
 
 /** @internal test helper */
@@ -122,7 +162,9 @@ export async function resolveActiveStudioConfig(): Promise<{
 	const config = resolveStudioConfig(studioConfigForProject(env.projectSlug));
 	return {
 		config,
-		title: config.title ?? (env.projectSlug ? `Project ${env.projectSlug}` : "Aurii Studio"),
+		title:
+			config.title ??
+			(env.projectSlug ? `Project ${env.projectSlug}` : "Aurii Studio"),
 	};
 }
 

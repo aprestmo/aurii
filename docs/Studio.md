@@ -138,7 +138,8 @@ bun run studio:build           # static output for hosting
 | `AURII_CORE_URL` / `PUBLIC_AURII_CORE_URL` | Core API base URL (default `http://localhost:3000`) |
 | `AURII_PROJECT_SLUG` / `PUBLIC_AURII_PROJECT_SLUG` | Core Project slug to bind |
 | `AURII_DEFAULT_DATASET` / `PUBLIC_AURII_DEFAULT_DATASET` | Default dataset id |
-| `AURII_PROJECT_ROOT` | Optional path to project package (server-side config load) |
+| `AURII_PROJECT_ROOT` | Optional path to project package (loads `studio/studio.config.ts` by convention) |
+| `AURII_STUDIO_CONFIG` | Optional explicit path to a `defineStudio` module (overrides convention) |
 
 **Do not embed API tokens or secrets in public Studio builds.** Auth tokens stay in the browser session / localStorage after login, not in the static asset bundle.
 
@@ -186,7 +187,7 @@ export default defineStudio({
 
 The project package references this file via `studio:` in `aurii.config.ts`. See [`PROJECT_PACKAGES.md`](PROJECT_PACKAGES.md).
 
-When Studio runs with `AURII_PROJECT_ROOT` pointing at the package, `@aurii/studio-app` loads that `defineStudio` config (navigation, views, groups) at SSR/build time. Without `AURII_PROJECT_ROOT`, Studio uses the generic default workspace (or a slug-based fallback for known demos).
+When Studio runs with `AURII_PROJECT_ROOT` (or `AURII_STUDIO_CONFIG`), `@aurii/studio-app` loads the project's `defineStudio` module at SSR/build time — via the package convention `studio/studio.config.ts`, without importing `@aurii/core` into the Studio bundle. Without those env vars, Studio uses the generic default workspace (or a slug-based fallback for known demos).
 
 Config may set:
 

@@ -59,7 +59,6 @@
       "dependencies": {
         "@astrojs/check": "^0.9.9",
         "@astrojs/node": "^10",
-        "@aurii/core": "workspace:*",
         "@aurii/sdk": "workspace:*",
         "@aurii/studio": "workspace:*",
         "@aurii/types": "workspace:*",

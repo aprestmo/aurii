@@ -1,6 +1,7 @@
 import {
 	isRouteAccess,
 	type DeclarativeRouteQuery,
+	type PublishedRouteDefaults,
 	type PublishedRouteDefinition,
 } from "@aurii/types";
 import { fail, ok, type ValidationIssue, type ValidationResult } from "./result";
@@ -17,7 +18,7 @@ export function validateDeclarativeQuery(
 		return fail([issue("query", "query is required")]);
 	}
 	const q = query as Record<string, unknown>;
-	if (typeof q["schema"] !== "string" || !q["schema"].trim()) {
+	if (typeof q["schema"] !== "string" || !(q["schema"] as string).trim()) {
 		issues.push(issue("query.schema", "schema is required"));
 	}
 	if (q["select"] !== undefined) {
@@ -37,7 +38,26 @@ export function validateDeclarativeQuery(
 		issues.push(issue("query.limit", "limit must be a number"));
 	}
 	if (issues.length) return fail(issues);
-	return ok(q as DeclarativeRouteQuery);
+
+	const normalized: DeclarativeRouteQuery = {
+		schema: (q["schema"] as string).trim(),
+	};
+	if (q["filter"] !== undefined && typeof q["filter"] === "object" && q["filter"]) {
+		normalized.filter = q["filter"] as Record<string, unknown>;
+	}
+	if (Array.isArray(q["select"])) {
+		normalized.select = q["select"] as string[];
+	}
+	if (Array.isArray(q["orderBy"])) {
+		normalized.orderBy = q["orderBy"] as Array<{
+			field: string;
+			direction: "asc" | "desc";
+		}>;
+	}
+	if (typeof q["limit"] === "number") {
+		normalized.limit = q["limit"];
+	}
+	return ok(normalized);
 }
 
 export function validatePublishedRouteDefinition(
@@ -71,14 +91,20 @@ export function validatePublishedRouteDefinition(
 
 	if (issues.length) return fail(issues);
 
-	return ok({
+	const normalized: PublishedRouteDefinition = {
 		id: (raw["id"] as string).trim(),
 		path: (raw["path"] as string).trim(),
 		method: "GET",
 		query: (query as { success: true; data: DeclarativeRouteQuery }).data,
-		defaults: raw["defaults"] as PublishedRouteDefinition["defaults"],
-		description:
-			typeof raw["description"] === "string" ? raw["description"] : undefined,
-		version: typeof raw["version"] === "string" ? raw["version"] : undefined,
-	});
+	};
+	if (raw["defaults"] && typeof raw["defaults"] === "object") {
+		normalized.defaults = raw["defaults"] as PublishedRouteDefaults;
+	}
+	if (typeof raw["description"] === "string") {
+		normalized.description = raw["description"];
+	}
+	if (typeof raw["version"] === "string") {
+		normalized.version = raw["version"];
+	}
+	return ok(normalized);
 }

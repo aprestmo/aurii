@@ -9,6 +9,7 @@ import {
 	isDataSourceStatus,
 	type CreateDataSourceInput,
 	type DataSourceConfig,
+	type SecretRef,
 } from "@aurii/types";
 
 export interface NormalizedCreateDataSource {
@@ -60,25 +61,31 @@ export function validateCreateDataSource(
 
 	if (issues.length) return fail(issues);
 
-	return ok({
-		id: typeof raw["id"] === "string" ? raw["id"] : undefined,
+	const normalized: NormalizedCreateDataSource = {
 		datasetId,
 		name,
 		kind: raw["kind"] as NormalizedCreateDataSource["kind"],
 		status: status as NormalizedCreateDataSource["status"],
 		config,
-	});
+	};
+	if (typeof raw["id"] === "string") {
+		normalized.id = raw["id"];
+	}
+	return ok(normalized);
 }
 
 /** Strip secret values from config for API responses (keep SecretRef ids only). */
 export function redactDataSourceConfig(config: DataSourceConfig): DataSourceConfig {
-	const secrets = config.secrets?.map((s) => ({
-		secretId: s.secretId,
-		label: s.label,
-	}));
-	return {
-		...config,
-		secrets,
-		options: config.options ? { ...config.options } : undefined,
-	};
+	const out: DataSourceConfig = { ...config };
+	if (config.secrets) {
+		out.secrets = config.secrets.map((s): SecretRef => {
+			const ref: SecretRef = { secretId: s.secretId };
+			if (s.label !== undefined) ref.label = s.label;
+			return ref;
+		});
+	}
+	if (config.options) {
+		out.options = { ...config.options };
+	}
+	return out;
 }

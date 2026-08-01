@@ -111,7 +111,8 @@ export class DataSourceService {
 
 	/** Ensure dataset exists (read path). */
 	async assertDataset(datasetId: string): Promise<void> {
-		const ds = await getStorage().getDataset(datasetId);
+		const storage = await getStorage();
+		const ds = await storage.getDataset(datasetId);
 		if (!ds) {
 			throw new DataSourceError(`Dataset "${datasetId}" not found`, "not_found", 404);
 		}

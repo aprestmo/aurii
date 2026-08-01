@@ -18,20 +18,23 @@ export function collection(
 	schemaId: string,
 	options?: StudioCollectionOptions & { title?: string },
 ): StudioNavItem {
-	return {
+	const item: StudioNavItem = {
 		kind: "collection",
 		schemaId,
-		title: options?.title,
-		options: options
-			? {
-					columns: options.columns,
-					filters: options.filters,
-					orderBy: options.orderBy,
-					hidden: options.hidden,
-					featured: options.featured,
-				}
-			: undefined,
 	};
+	if (options?.title !== undefined) item.title = options.title;
+	if (options) {
+		const collectionOptions: StudioCollectionOptions = {};
+		if (options.columns !== undefined) collectionOptions.columns = options.columns;
+		if (options.filters !== undefined) collectionOptions.filters = options.filters;
+		if (options.orderBy !== undefined) collectionOptions.orderBy = options.orderBy;
+		if (options.hidden !== undefined) collectionOptions.hidden = options.hidden;
+		if (options.featured !== undefined) collectionOptions.featured = options.featured;
+		if (Object.keys(collectionOptions).length > 0) {
+			item.options = collectionOptions;
+		}
+	}
+	return item;
 }
 
 export function sources(title = "Sources"): StudioNavItem {
@@ -66,12 +69,14 @@ export function customView(
 	viewId: string,
 	opts: { title: string; href?: string },
 ): StudioNavItem {
-	return {
+	const item: StudioNavItem = {
 		kind: "custom",
 		viewId,
 		title: opts.title,
-		href: opts.href ?? `/views/${viewId}`,
 	};
+	if (opts.href !== undefined) item.href = opts.href;
+	else item.href = `/views/${viewId}`;
+	return item;
 }
 
 export function view(def: StudioCustomView): StudioCustomView {

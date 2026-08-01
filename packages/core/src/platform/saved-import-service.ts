@@ -240,7 +240,7 @@ export class SavedImportService {
 		}
 		steps.push({ type: "validate" }, { type: "persist" });
 
-		return {
+		const result: ImportDefinition = {
 			id: def.id,
 			name: def.name,
 			schema: def.schemaId,
@@ -250,9 +250,14 @@ export class SavedImportService {
 				path: def.filePath,
 			},
 			pipeline: { steps },
-			deduplicateBy: def.pipeline?.deduplicateBy,
-			referenceValidation: def.pipeline?.referenceValidation,
 		};
+		if (def.pipeline?.deduplicateBy !== undefined) {
+			result.deduplicateBy = def.pipeline.deduplicateBy;
+		}
+		if (def.pipeline?.referenceValidation !== undefined) {
+			result.referenceValidation = def.pipeline.referenceValidation;
+		}
+		return result;
 	}
 
 	private normalizeSchedule(schedule: ScheduleState): ScheduleState {

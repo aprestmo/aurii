@@ -66,20 +66,21 @@ export function validateProjectConfigShape(
 
 	if (issues.length) return fail(issues);
 
-	return ok({
+	const normalized: AuriiProjectConfig = {
 		version: PROJECT_CONFIG_VERSION,
 		id: raw.id.trim(),
 		title: raw.title.trim(),
-		description: raw.description,
 		core: {
 			projectSlug: raw.core!.projectSlug.trim(),
 			defaultDataset: raw.core!.defaultDataset.trim(),
 		},
-		schemas: raw.schemas,
-		sources: raw.sources,
-		imports: raw.imports,
-		sync: raw.sync,
-		routes: raw.routes,
-		studio: raw.studio,
-	});
+	};
+	if (raw.description !== undefined) normalized.description = raw.description;
+	if (raw.schemas !== undefined) normalized.schemas = raw.schemas;
+	if (raw.sources !== undefined) normalized.sources = raw.sources;
+	if (raw.imports !== undefined) normalized.imports = raw.imports;
+	if (raw.sync !== undefined) normalized.sync = raw.sync;
+	if (raw.routes !== undefined) normalized.routes = raw.routes;
+	if (raw.studio !== undefined) normalized.studio = raw.studio;
+	return ok(normalized);
 }

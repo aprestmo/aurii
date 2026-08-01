@@ -1,0 +1,98 @@
+---
+import Layout from "../layouts/Layout.astro";
+---
+<Layout title="Imports" active="imports">
+  <h1>Saved imports</h1>
+  <p class="muted">Run saved definitions (dry or persist). History uses Core import runs.</p>
+  <div id="defs" class="card" style="margin-top: 1rem;">Loading…</div>
+  <h2 style="margin-top: 2rem;">Import history</h2>
+  <div id="history" class="card">Loading…</div>
+</Layout>
+
+<script>
+  import { api, getDataset } from "../lib/api";
+
+  type Project = { id: string; slug: string };
+  type SavedImport = {
+    id: string;
+    name: string;
+    schemaId: string;
+    status: string;
+    triggerMode: string;
+    schedule: { enabled: boolean; spec: { expression: string }; nextRunAt: string | null } | null;
+  };
+  type Run = {
+    id: string;
+    definitionId: string | null;
+    status: string;
+    dryRun: boolean;
+    total: number;
+    imported: number;
+    failed: number;
+    startedAt: string | null;
+    completedAt: string | null;
+  };
+
+  const projectSlug = localStorage.getItem("aurii.projectSlug");
+  const projects = await api<{ data: Project[] }>("/api/projects");
+  const project = projectSlug
+    ? projects.data.find((p) => p.slug === projectSlug)
+    : projects.data[0];
+  const defsEl = document.getElementById("defs")!;
+  const histEl = document.getElementById("history")!;
+
+  if (!project) {
+    defsEl.textContent = "No project selected.";
+    histEl.textContent = "";
+  } else {
+    const dataset = getDataset();
+    const defs = await api<{ data: SavedImport[] }>(
+      `/api/projects/${project.id}/saved-imports?dataset=${encodeURIComponent(dataset)}`,
+    );
+    if (!defs.data.length) {
+      defsEl.innerHTML = "<p class='muted'>No saved imports. Bootstrap the project package or create via API.</p>";
+    } else {
+      defsEl.innerHTML = defs.data
+        .map(
+          (d) => `<div class="row" style="display:flex;gap:1rem;align-items:center;margin-bottom:0.75rem;">
+            <div style="flex:1">
+              <strong>${d.name}</strong>
+              <div class="muted" style="font-size:12px">${d.schemaId} · ${d.triggerMode} · ${d.status}
+              ${d.schedule ? ` · cron ${d.schedule.spec.expression} (${d.schedule.enabled ? "on" : "off"})` : ""}
+              </div>
+            </div>
+            <button data-id="${d.id}" data-dry="1">Dry run</button>
+            <button data-id="${d.id}" data-dry="0">Run</button>
+          </div>`,
+        )
+        .join("");
+      defsEl.querySelectorAll("button").forEach((btn) => {
+        btn.addEventListener("click", async () => {
+          const id = btn.getAttribute("data-id")!;
+          const dryRun = btn.getAttribute("data-dry") === "1";
+          btn.setAttribute("disabled", "true");
+          try {
+            await api(`/api/projects/${project.id}/saved-imports/${id}/run`, {
+              method: "POST",
+              body: JSON.stringify({ dryRun }),
+            });
+            window.location.reload();
+          } catch (e) {
+            alert(e instanceof Error ? e.message : String(e));
+            btn.removeAttribute("disabled");
+          }
+        });
+      });
+    }
+
+    const hist = await api<Run[]>(`/imports?dataset=${encodeURIComponent(dataset)}&limit=20`);
+    const rows = Array.isArray(hist) ? hist : [];
+    histEl.innerHTML = rows.length
+      ? `<table><thead><tr><th>Definition</th><th>Status</th><th>Dry</th><th>Total</th><th>Imported</th><th>Failed</th><th>Started</th></tr></thead>
+         <tbody>${rows.map((r) => `<tr>
+           <td>${r.definitionId ?? "—"}</td><td>${r.status}</td><td>${r.dryRun}</td>
+           <td>${r.total}</td><td>${r.imported}</td><td>${r.failed}</td><td>${r.startedAt ?? "—"}</td>
+         </tr>`).join("")}</tbody></table>`
+      : "<p class='muted'>No runs yet.</p>";
+  }
+</script>

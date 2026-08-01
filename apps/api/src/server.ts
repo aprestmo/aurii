@@ -2,7 +2,7 @@
  * Aurii HTTP API application.
  *
  * Composes the existing Core runtime routes with the Project administration
- * surface under /api/projects and project-scoped datasets.
+ * surface under /api/projects, platform resources, and public published routes.
  */
 
 import {
@@ -11,6 +11,7 @@ import {
 	type AppOptions,
 	createProjectService,
 	DrizzleProjectRepository,
+	getImportScheduler,
 	getStorage,
 	MemoryProjectRepository,
 	type DatasetService,
@@ -22,7 +23,9 @@ import { createDb } from "@aurii/db";
 import { Elysia } from "elysia";
 import { createProjectDatasetsPlugin } from "./routes/project-datasets";
 import { createProjectDatasetResourcesPlugin } from "./routes/project-dataset-resources";
+import { createProjectPlatformPlugin } from "./routes/project-platform";
 import { createProjectsPlugin } from "./routes/projects";
+import { createPublicRoutesPlugin } from "./routes/public-routes";
 
 export interface ApiAppOptions extends AppOptions {
 	/** Override project persistence (defaults: memory unless DATABASE_URL is set). */
@@ -30,10 +33,12 @@ export interface ApiAppOptions extends AppOptions {
 	projectService?: ProjectService;
 	datasetService?: DatasetService;
 	storage?: StorageAdapter;
+	/** Start the in-process import scheduler (default: false in tests). */
+	enableScheduler?: boolean;
 }
 
 /**
- * Build the full API app (Core runtime + projects + project datasets).
+ * Build the full API app (Core runtime + projects + platform + public routes).
  */
 export function buildApiApp(options: ApiAppOptions = {}) {
 	const projectService =
@@ -78,9 +83,22 @@ export function buildApiApp(options: ApiAppOptions = {}) {
 				projectService,
 				getStorage,
 			}),
-		);
+		)
+		.use(createProjectPlatformPlugin({ projectService }));
 
-	return buildCoreApp(options).use(projectRoutes);
+	const app = buildCoreApp(options)
+		.use(projectRoutes)
+		.use(createPublicRoutesPlugin({ projectService }));
+
+	if (options.enableScheduler ?? process.env["AURII_ENABLE_SCHEDULER"] === "1") {
+		const scheduler = getImportScheduler();
+		void projectService.listProjects().then((projects) => {
+			scheduler.setWatchedProjects(projects.map((p) => p.id));
+			scheduler.start();
+		});
+	}
+
+	return app;
 }
 
 function createDefaultProjectRepository(): ProjectRepository {

@@ -1,0 +1,23 @@
+{
+  "name": "@aurii/studio",
+  "version": "0.1.0",
+  "description": "Aurii Studio — declarative project configuration helpers",
+  "type": "module",
+  "exports": {
+    ".": "./src/index.ts"
+  },
+  "scripts": {
+    "test": "bun test src/__tests__",
+    "typecheck": "tsc --noEmit",
+    "lint": "bunx @biomejs/biome lint src/",
+    "build": "bun run typecheck"
+  },
+  "dependencies": {
+    "@aurii/types": "workspace:*",
+    "@aurii/validation": "workspace:*"
+  },
+  "devDependencies": {
+    "@types/bun": "latest",
+    "typescript": "^6.0.3"
+  }
+}

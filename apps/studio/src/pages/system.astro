@@ -1,0 +1,36 @@
+---
+import Layout from "../layouts/Layout.astro";
+---
+<Layout title="System" active="system">
+  <h1>System status</h1>
+  <div id="status" class="card" style="margin-top: 1rem;">Loading…</div>
+</Layout>
+
+<script>
+  import { api, checkHealth, getApiUrl, getDataset } from "../lib/api";
+
+  const health = await checkHealth();
+  const el = document.getElementById("status")!;
+  const projectSlug = localStorage.getItem("aurii.projectSlug") ?? "—";
+  let statsHtml = "";
+  try {
+    const stats = await api<{
+      datasetId: string;
+      totalEntities: number;
+      schemas: { schemaId: string; count: number }[];
+    }>(`/stats?dataset=${encodeURIComponent(getDataset())}`);
+    statsHtml = `<p><strong>Entities:</strong> ${stats.totalEntities}</p>
+      <ul>${stats.schemas.map((s) => `<li>${s.schemaId}: ${s.count}</li>`).join("")}</ul>`;
+  } catch {
+    statsHtml = "<p class='muted'>Stats unavailable</p>";
+  }
+
+  el.innerHTML = `
+    <p><strong>Core URL:</strong> ${getApiUrl()}</p>
+    <p><strong>Project:</strong> ${projectSlug}</p>
+    <p><strong>Dataset:</strong> ${getDataset()}</p>
+    <p><strong>Health:</strong> ${health ? `${health.status} (${health.storage})` : "unreachable"}</p>
+    ${statsHtml}
+    <p class="muted" style="margin-top:1rem">Studio is a client of Core. Frontends must not depend on Studio.</p>
+  `;
+</script>

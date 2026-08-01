@@ -11,3 +11,18 @@ export {
 	validateProjectStatus,
 	validateUpdateProject,
 } from "./project";
+export type { NormalizedCreateDataSource } from "./data-source";
+export {
+	redactDataSourceConfig,
+	validateCreateDataSource,
+} from "./data-source";
+export {
+	validateCronExpression,
+	validateScheduleSpec,
+	validateTimezone,
+} from "./schedule";
+export {
+	validateDeclarativeQuery,
+	validatePublishedRouteDefinition,
+} from "./published-route";
+export { validateProjectConfigShape } from "./project-config";

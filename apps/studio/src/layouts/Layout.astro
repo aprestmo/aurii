@@ -6,6 +6,12 @@ interface Props {
 const { title, active } = Astro.props;
 
 import "../styles/global.css";
+import { getStudioRuntimeEnv } from "../lib/env";
+import { navigationGroups, navHref, navLabel } from "../lib/studio-config";
+
+const env = getStudioRuntimeEnv();
+const groups = navigationGroups(env.projectSlug);
+const studioTitle = env.projectSlug === "norge-data" ? "Norwegian Geo" : "Aurii Studio";
 ---
 
 <!doctype html>
@@ -13,17 +19,52 @@ import "../styles/global.css";
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>{title} — Aurii Studio</title>
+    <title>{title} — {studioTitle}</title>
+    <script is:inline define:vars={{ coreUrl: env.coreUrl, projectSlug: env.projectSlug, defaultDataset: env.defaultDataset }}>
+      if (coreUrl && !localStorage.getItem("aurii.apiUrl")) {
+        localStorage.setItem("aurii.apiUrl", coreUrl);
+      }
+      if (projectSlug) localStorage.setItem("aurii.projectSlug", projectSlug);
+      if (defaultDataset && !localStorage.getItem("aurii.dataset")) {
+        localStorage.setItem("aurii.dataset", defaultDataset);
+      }
+    </script>
   </head>
   <body>
     <div class="app">
       <nav class="sidebar">
         <div class="logo">au<span>rii</span> studio</div>
-        <a href="/" class={active === "dashboard" ? "active" : ""}>Dashboard</a>
-        <a href="/import" class={active === "import" ? "active" : ""}>Import</a>
-        <a href="/entities" class={active === "entities" ? "active" : ""}>Entities</a>
-        <a href="/query" class={active === "query" ? "active" : ""}>Query</a>
-        <a href="/schemas" class={active === "schemas" ? "active" : ""}>Schemas</a>
+        {env.projectSlug && (
+          <div class="muted" style="padding: 0 12px 8px; font-size: 11px; text-transform: uppercase; letter-spacing: 0.04em;">
+            {env.projectSlug}
+          </div>
+        )}
+        {groups.map((group) => (
+          <div class="nav-group">
+            <div class="nav-group-title">{group.title}</div>
+            {group.items.map((item) => {
+              const href = navHref(item);
+              const label = navLabel(item);
+              const key = item.kind === "collection"
+                ? `entities:${item.schemaId ?? ""}`
+                : item.kind === "custom"
+                  ? `view:${item.viewId ?? ""}`
+                  : item.kind;
+              const isActive =
+                active === key ||
+                (active === "dashboard" && item.kind === "dashboard") ||
+                (active === "entities" && item.kind === "collection") ||
+                (active === "sources" && item.kind === "sources") ||
+                (active === "imports" && item.kind === "imports") ||
+                (active === "routes" && item.kind === "apiRoutes") ||
+                (active === "query" && item.kind === "query") ||
+                (active === "schemas" && item.kind === "schemas");
+              return (
+                <a href={href} class={isActive ? "active" : ""}>{label}</a>
+              );
+            })}
+          </div>
+        ))}
         <div class="spacer"></div>
         <div style="padding: 0 12px 12px;">
           <label for="dataset-switcher" class="muted" style="font-size: 11px;">DATASET</label>
@@ -49,13 +90,17 @@ import "../styles/global.css";
         conn.innerHTML = `<span class="dot err"></span>API unreachable`;
       }
 
-      // Dataset switcher — project-scoped discovery (all readable projects)
       try {
         type Project = { id: string; name: string; slug: string };
         type Dataset = { id: string; name: string; projectId: string };
+        const projectSlug = localStorage.getItem("aurii.projectSlug");
         const projectsRes = await api<{ data: Project[] }>("/api/projects");
+        let projects = projectsRes.data;
+        if (projectSlug) {
+          projects = projects.filter((p) => p.slug === projectSlug);
+        }
         const datasets: (Dataset & { projectSlug: string })[] = [];
-        for (const project of projectsRes.data) {
+        for (const project of projects) {
           const list = await api<{ data: Dataset[] }>(
             `/api/projects/${encodeURIComponent(project.id)}/datasets`,
           );
@@ -81,3 +126,14 @@ import "../styles/global.css";
     </script>
   </body>
 </html>
+
+<style>
+  .nav-group { margin-bottom: 0.75rem; }
+  .nav-group-title {
+    padding: 0.35rem 12px;
+    font-size: 10px;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    opacity: 0.55;
+  }
+</style>

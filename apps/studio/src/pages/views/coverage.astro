@@ -1,0 +1,35 @@
+---
+import Layout from "../../layouts/Layout.astro";
+---
+<Layout title="Datadekning" active="view:coverage">
+  <h1>Datadekning</h1>
+  <p class="muted">Project-specific view — data via Core /stats (SDK/API). No database access from Studio.</p>
+  <div id="view" class="card" style="margin-top: 1rem;">Loading…</div>
+</Layout>
+
+<script>
+  import { api, getDataset } from "../../lib/api";
+
+  const el = document.getElementById("view")!;
+  try {
+    const stats = await api<{
+      schemas: { schemaId: string; count: number; fieldCoverage: { field: string; pct: number }[] }[];
+    }>(`/stats?dataset=${encodeURIComponent(getDataset())}`);
+    const focus = ["county", "municipality", "postal-code"];
+    const rows = stats.schemas.filter((s) => focus.includes(s.schemaId));
+    el.innerHTML = rows.length
+      ? rows
+          .map(
+            (s) => `<div style="margin-bottom:1.25rem">
+              <h3>${s.schemaId} <span class="muted">(${s.count})</span></h3>
+              <ul>${s.fieldCoverage
+                .map((f) => `<li>${f.field}: ${f.pct}%</li>`)
+                .join("")}</ul>
+            </div>`,
+          )
+          .join("")
+      : "<p class='muted'>No coverage data for core schemas yet. Import Norwegian Geo first.</p>";
+  } catch (e) {
+    el.textContent = e instanceof Error ? e.message : String(e);
+  }
+</script>

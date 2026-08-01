@@ -7,7 +7,10 @@
   "exports": {
     ".": "./src/index.ts",
     "./api": "./src/api/server.ts",
-    "./project": "./src/project/index.ts"
+    "./project": "./src/project/index.ts",
+    "./project-config": "./src/project-config/index.ts",
+    "./platform": "./src/platform/index.ts",
+    "./schedule": "./src/schedule/index.ts"
   },
   "scripts": {
     "cli": "bun run src/cli.ts",

@@ -28,9 +28,17 @@ Aurii is **not** a database.
 
 Aurii is **not** an API framework.
 
-Aurii is a **Declarative Runtime for Structured Knowledge**.
+Aurii is a **Declarative Runtime for Structured Knowledge** — a schema-driven platform for structured data.
 
-**Clarification:** Aurii Core is not a CMS. Aurii can power CMS products through an **optional** authoring client. A CMS is never required between Core and a frontend. See `docs/PRODUCT_MODEL.md` and `adr/ADR-0010 — Optional Authoring Layer.md`.
+**Product clarification:**
+
+- **Aurii Core** is the system of record. It is not a CMS.
+- **Studio** is a **project workspace** (data operations: sources, imports, schedules, entities, query, published routes). Studio is **not** a CMS and **not** an editorial editor.
+- Data enters Core from **many sources** (file, HTTP, database, manual, automation, AI, future product clients)—not only from an authoring UI.
+- Developers describe installable projects with a **project package** (`aurii.config.ts` / `defineProject`), complementary to product composition (`product.yaml`).
+- A **CMS is a future separate product** that may consume Core. It is never required between Core and a frontend, and it is not Studio renamed.
+
+See `docs/PRODUCT_MODEL.md`, `docs/Studio.md`, `docs/PROJECT_PACKAGES.md`, `adr/ADR-0010 — Optional Authoring Layer.md`, and ADRs 0014–0018.
 
 Everything you build should reinforce that vision.
 
@@ -423,7 +431,7 @@ Aurii uses **two** planned reference verticals. Pick the one that matches the ca
 
 Cross-cutting Runtime changes must eventually be validated against both verticals. Until Editorial exists, do **not** add editorial concepts to Core merely because Norwegian Geo cannot exercise them. Express draft/publish/revision as generic schemas and capabilities when that phase begins—not as hardcoded news CMS behavior.
 
-Product model: `docs/PRODUCT_MODEL.md`. Phase plan: `Phase4.md`. ADR: `adr/ADR-0010 — Optional Authoring Layer.md`.
+Product model: `docs/PRODUCT_MODEL.md`. Project packages: `docs/PROJECT_PACKAGES.md`. Studio: `docs/Studio.md`. Phase plan: `Phase4.md`. ADRs: `0010`, `0014`–`0018`.
 
 ---
 
@@ -449,7 +457,8 @@ Aurii Core → Norwegian Geo Core → Dataset Modules
 | **Import** | `bun run import:norwegian-geo` | One-command import into Core (dataset: `norwegian-geo`) |
 | **Tests** | `vertical-slice.test.ts`, `geo-website-routes.test.ts`, `public-reference-datasets.test.ts` | Integration coverage |
 | **Consumer site** | `apps/geo` | Public website |
-| **Admin client** | `apps/studio` | Data workspace (dataset: `norwegian-geo`) |
+| **Studio** | `apps/studio` (`@aurii/studio-app`) | Project workspace (dataset: `norwegian-geo`; config via `aurii.config.ts`) |
+| **Project package** | `demo/norwegian-geo/aurii.config.ts` | Schemas, sources, imports, sync, routes, Studio config |
 
 Full documentation: `docs/NORWEGIAN_GEO.md`, `docs/REFERENCE_DEMO.md`, and `Phase2.2.md`.
 

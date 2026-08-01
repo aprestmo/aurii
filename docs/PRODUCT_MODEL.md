@@ -3,47 +3,63 @@
 > Canonical description of how Aurii is composed as a product platform.
 >
 > This document defines terms, boundaries, and supported product modes.
-> It distinguishes **implemented** concepts from **planned** ones.
+> It distinguishes **implemented** concepts from **planned** / **beta** ones.
 > Implementation plans live in `Phase4.md` and later phase documents.
 
 ---
 
 ## One-sentence definition
 
-Aurii is a schema-driven runtime for importing, creating, relating, transforming, querying, and delivering structured data. Data may come from external sources, people, automation, or AI. Studio provides generic data administration. Products that need manual authoring may add an optional schema- and capability-driven authoring workspace. Frontends and other consumers communicate with Core through public APIs and SDKs.
+Aurii is a **schema-driven platform for structured data**. Aurii Core is the system of record. Studio is a **project workspace** for operating data products. A CMS is a **future separate product** that may consume Core—not a synonym for Studio, and never a required layer between Core and a frontend.
 
 ---
 
-## Architectural clarification
+## Canonical principle
+
+| Layer | Role | Status |
+|-------|------|--------|
+| **Aurii Core** | System of record: schemas, entities, datasets, projects, imports, queries, delivery APIs | Implemented |
+| **Studio** | Project-oriented data workspace (generic UI + declarative project config) | **Beta** (Phase 4) |
+| **Project package** (`aurii.config.ts`) | Versioned files describing schemas, sources, imports, sync, routes, Studio config | **Beta** |
+| **CMS / authoring product** | Future separate client for editorial authoring | **Planned** (post–Phase 4); not Studio |
+
+Data enters Core from **many sources**—files, HTTP APIs, databases, manual entry, automation, AI, and future product clients. Frontends and other consumers talk to Core through public APIs and the SDK. They do not read through Studio or a CMS UI.
+
+See [ADR-0010](../adr/ADR-0010%20—%20Optional%20Authoring%20Layer.md), [ADR-0014](../adr/ADR-0014%20—%20Project%20Configuration%20Package.md)–[ADR-0018](../adr/ADR-0018%20—%20Minimal%20Scheduling.md).
+
+---
+
+## Architecture
 
 ```text
-                    ┌─────────────────────────────┐
-                    │  Optional clients           │
-                    │  Studio (data workspace)    │
-                    │  Authoring workspace / CMS  │
-                    │  CLI, AI agents, tools      │
-                    └──────────────┬──────────────┘
-                                   │ public APIs / SDK
-                                   ▼
-                            Aurii Core
-                                   │
-                    ┌──────────────┴──────────────┐
-                    │ public APIs / SDK / events  │
-                    ▼                             ▼
-              Consumers                     Storage
-         (web, apps, APIs,                (PostgreSQL,
-          AI, print, export)               SQLite, …)
+  File / HTTP / DB / manual / automation / AI / future products
+                         │
+                         ▼
+              ┌─────────────────────┐
+              │     Aurii Core      │  ← system of record
+              │  schemas · entities │
+              │  datasets · projects│
+              │  imports · query    │
+              │  published routes   │
+              └──────────┬──────────┘
+                         │
+         public APIs / SDK / events
+                         │
+       ┌─────────────────┼─────────────────┐
+       ▼                 ▼                 ▼
+   Studio          Frontends /        Other product
+ (project          apps / AI /        clients (future
+  workspace)       export             CMS, tools, …)
 ```
 
-**A CMS or authoring interface is an optional client of Aurii Core. It is not a required layer between Core and a frontend.**
+**A CMS or authoring interface is an optional future client of Aurii Core. It is not a required layer between Core and a frontend. Studio is not that CMS.**
 
 - Core is the system of record.
-- Studio is one client.
-- An authoring workspace, if present, is another client.
+- Studio is one client: a project workspace for sources, imports, schedules, entities, queries, and published routes.
 - Frontends, apps, export adapters, and AI clients consume Core directly.
-- They do not read through a CMS UI.
+- They do not read through Studio or a CMS UI.
 
-This preserves the principle “Aurii is not a CMS” for Core, while allowing Aurii to power CMS products through an optional authoring layer. See [ADR-0010](../adr/ADR-0010%20—%20Optional%20Authoring%20Layer.md).
+This preserves “Aurii is not a CMS” for Core and Studio, while allowing a separate CMS product later. See [ADR-0010](../adr/ADR-0010%20—%20Optional%20Authoring%20Layer.md).
 
 ---
 
@@ -51,17 +67,33 @@ This preserves the principle “Aurii is not a CMS” for Core, while allowing A
 
 ### Core / Runtime
 
-The domain-agnostic engine and system of record. Core owns schemas, entities, datasets, imports, pipelines, queries, events, and the public HTTP API. It does not encode product-specific domain logic (Norwegian geography, newsroom workflow, LiveCenter layouts, and so on).
+The domain-agnostic engine and system of record. Core owns schemas, entities, datasets, projects, imports, pipelines, queries, events, DataSources, saved import/sync definitions, published route state, and the public HTTP API. It does not encode product-specific domain logic (Norwegian geography, newsroom workflow, and so on).
 
-Location today: `packages/core/`.
+Location today: `packages/core/`. **Status:** implemented (platform ops surfaces in beta).
 
 ### Deployment
 
-A running Aurii instance and its infrastructure boundary: process(es), storage, configuration, network exposure, and auth settings. One deployment may host one or more datasets. “Deployment” is an operational concept; it is not a Core domain object that applications must model.
+A running Aurii instance and its infrastructure boundary: process(es), storage, configuration, network exposure, and auth settings. One deployment may host one or more projects and datasets. “Deployment” is an operational concept; it is not a Core domain object that applications must model.
+
+### Project (Core)
+
+A Core top-level tenancy / administration boundary (UUID + slug + status). Resources such as datasets, DataSources, and published route state attach to a Project. See [`PROJECTS.md`](PROJECTS.md) and [ADR-0011](../adr/ADR-0011%20—%20Project%20as%20Top-Level%20Boundary.md).
+
+**Status:** implemented.
+
+### Project package (`aurii.config.ts`)
+
+Files on disk that declare an installable project: schemas, DataSources, import definitions, sync definitions, published routes, and Studio configuration. Entry point is `defineProject()` from `@aurii/core`. Links to a Core Project by `core.projectSlug`. See [`PROJECT_PACKAGES.md`](PROJECT_PACKAGES.md) and [ADR-0014](../adr/ADR-0014%20—%20Project%20Configuration%20Package.md).
+
+A project package is **not** a Core Project row, **not** a Product, and **not** a Dataset.
+
+**Status:** beta.
 
 ### Dataset
 
-A logical data boundary inside Core. Entities and schemas are scoped to a dataset. Norwegian Geo uses dataset id `norwegian-geo`. A product may use one dataset or several; a dataset alone is not a product.
+A logical data boundary inside Core. Entities and schemas are scoped to a dataset (owned by a Project). Norwegian Geo uses dataset id `norwegian-geo`. A product may use one dataset or several; a dataset alone is not a product.
+
+**Status:** implemented.
 
 ### Schema
 
@@ -69,15 +101,43 @@ Declarative definition of structure, validation, relationships, and declared beh
 
 ### Entity
 
-A stored instance of a schema. Everything durable in Core should preferably be an entity (or a schema/import/pipeline definition that the Runtime understands), rather than a special-cased object type.
+A stored instance of a schema. Prefer entities (or platform definitions the Runtime understands) over special-cased object types.
 
-### Source
+### DataSource
 
-The origin of imported data: a file, API, database, cloud object, spreadsheet, or other external system. Sources are described by import definitions; they are not Core domain entities unless a product chooses to model them that way.
+A Core-managed resource (scoped to Project + Dataset) describing where data comes from. Kinds include `file`, `http`, `database`, `manual`, `product`, `automation`, and `other`. Secrets stay server-side (`SecretRef`); API responses never include secret values. Links to saved import/sync definitions; does not replace the import/pipeline engine.
 
-### Import Definition
+**Status:** beta. See [ADR-0015](../adr/ADR-0015%20—%20DataSource%20Model.md).
 
-A repeatable, declarative mapping from a source into schemas and entities (field maps, transforms, validation, persist). Import definitions are first-class product surfaces for data products.
+### Import definition (saved)
+
+A repeatable, declarative mapping from a source into schemas and entities (field maps, transforms, validation, persist). Saved definitions are first-class operable surfaces in Studio and Core—distinct from one-off upload wizard runs. May reference a DataSource and optional schedule.
+
+**Status:** import engine implemented; saved definitions + Studio ops surfaces beta.
+
+### Sync definition
+
+A saved import definition oriented toward recurring refresh from an external DataSource (for example nightly HTTP postal-code sync). Same engine as imports; typically carries a schedule. Declared in the project package under `sync:`.
+
+**Status:** beta.
+
+### Schedule
+
+Minimal cron schedule on a saved import/sync definition (`type: "cron"`, expression, timezone). Single-process scheduler co-located with the API server. Enable/disable, no overlapping runs per definition, failures on run records. Not a distributed job platform.
+
+**Status:** beta. See [ADR-0018](../adr/ADR-0018%20—%20Minimal%20Scheduling.md).
+
+### Published route
+
+A stable, versioned public HTTP endpoint (`/public/:projectSlug/v1/...`) backed by a declarative query. Definition lives in project code (`defineRoute`); enable/access/cache state lives in Core. Consumers call Core—never Studio.
+
+**Status:** beta. See [ADR-0016](../adr/ADR-0016%20—%20Published%20Routes.md).
+
+### Studio configuration
+
+Declarative Studio layout for a project via `defineStudio()` from `@aurii/studio`: navigation groups, collections, featured schemas, import/route groups, dashboards, and optional custom views. Without config, Studio ships a default project workspace.
+
+**Status:** beta. See [ADR-0017](../adr/ADR-0017%20—%20Studio%20Extension%20Model.md) and [`Studio.md`](Studio.md).
 
 ### Pipeline
 
@@ -85,7 +145,7 @@ Declared transforms, validation, enrichment, and persistence steps. Imports use 
 
 ### Product
 
-A coherent solution composed from datasets, schemas, imports, capabilities, modules, and consumers. A product is **not** merely another name for a dataset.
+A coherent solution composed from datasets, schemas, imports, capabilities, modules, and consumers. A product is **not** merely another name for a dataset, Core Project, or project package.
 
 Examples:
 
@@ -93,11 +153,11 @@ Examples:
 |---------|--------|
 | Norwegian Geo | Data product (import → Core → delivery) |
 | Tax-list explorer | Data product + visualization consumer |
-| Classic blog | Authored product (optional CMS client) |
-| News CMS | Authored / hybrid product |
+| Classic blog | Authored product (future CMS client) |
+| News CMS | Authored / hybrid product (future) |
 | LiveCenter | Hybrid realtime product (later phase) |
 
-Products live outside generic Core as compositions: manifests, schemas, imports, modules, and client applications.
+Products live outside generic Core as compositions: `product.yaml` / modules, project packages, and client applications.
 
 ### Product Module / Dataset Module
 
@@ -105,33 +165,81 @@ Domain data packaged for a product—for example education or health under Norwe
 
 A product module is **not** a runtime plugin.
 
-Norwegian Geo convention: `demo/norwegian-geo/product.yaml` and `modules/<id>/module.yaml`. Phase 4 formalizes the useful generic parts of this convention without inventing a large new Core abstraction prematurely.
+Norwegian Geo convention: `demo/norwegian-geo/product.yaml` and `modules/<id>/module.yaml`. Phase 4 formalizes useful generic parts without inventing a large new Core “Product Runtime.”
 
 ### Plugin
 
-A runtime extension mechanism that adds engines, connectors, field types, pipeline steps, or Studio surfaces to Core. Plugins extend the Runtime; dataset modules package domain data for a product. Do not conflate the two.
+A runtime extension mechanism that adds engines, connectors, field types, pipeline steps, or (later) Studio surfaces to Core. Plugins extend the Runtime; dataset modules package domain data. Do not conflate the two.
 
-Plugin Runtime is largely **planned**; dataset modules for Norwegian Geo are **implemented** as product packaging.
+**Full Plugin Runtime:** largely planned. Studio beta uses a **simple view registry**, not a full plugin marketplace ([ADR-0017](../adr/ADR-0017%20—%20Studio%20Extension%20Model.md)).
 
 ### Studio
 
-The generic administrative client that uses public Core APIs and the SDK. Today Studio provides a **data workspace**: dashboard, import wizard, entity browser, schema inspection, and query playground.
+The generic **project workspace** client (`@aurii/studio-app`). It uses public Core APIs and the SDK. Surfaces include sources, imports, history, schedules, published routes, entities, query, and system status. Projects customize it with `defineStudio` and optional custom views.
 
-Studio is not the platform. It must not own business logic.
+Studio is **not** a CMS, **not** an editorial editor, and **not** the platform. It must not own business logic.
+
+**Status:** data workspace usable; project-oriented Studio **beta**.
 
 ### Data Workspace
 
-The Studio (or equivalent) surfaces for imports, schemas, data browsing, queries, API access, and operations. Sufficient for data-only products. No editorial authoring UI is required.
+Studio (or equivalent) surfaces for sources, imports, schemas, entities, queries, published routes, schedules, and operations. Sufficient for data-only products. No editorial authoring UI is required.
 
-### Authoring Workspace
+### Authoring Workspace / CMS (future product)
 
-An **optional** content creation, editing, preview, and publishing client. It writes to Core through public APIs. It may share a Studio shell with the data workspace, but it remains a client of Core. Not implemented as of Phase 3; planned for later phases after Phase 4 proves delivery.
+An **optional**, separate content creation, editing, preview, and publishing client. It would write to Core through public APIs. It is **not** Studio renamed. Not implemented; planned for later phases after Phase 4 proves delivery. See [ADR-0010](../adr/ADR-0010%20—%20Optional%20Authoring%20Layer.md).
 
 ### Consumer
 
-Any frontend, app, public API façade, AI client, export adapter, or print workflow that uses Core outputs through APIs, SDK, events, or explicitly documented offline/build-time modes (for example snapshot files).
+Any frontend, app, public API façade, AI client, export adapter, or print workflow that uses Core outputs through APIs, SDK, events, or documented offline/build-time modes (for example snapshot files).
 
-Consumers must not depend on Studio or an authoring UI being deployed.
+Consumers must not depend on Studio or a CMS being deployed.
+
+### External product clients (future)
+
+Additional clients beyond Studio and delivery frontends—CLI tools, AI agents, a future CMS product, custom ops dashboards. All consume the same Core APIs. None become intermediaries for delivery.
+
+---
+
+## Project vs Product vs Dataset vs Project package
+
+```text
+Product  (shipping composition — product.yaml, modules, consumers)
+  │
+  ├── Project package  (aurii.config.ts — files: schemas, sources, imports, sync, routes, studio)
+  │         │ links by slug
+  │         ▼
+  ├── Core Project     (runtime tenancy: UUID + slug)
+  │         │
+  │         └── Dataset(s)  (storage / query boundary)
+  │
+  └── Consumers        (web, API, AI, print — talk to Core)
+```
+
+| Concept | What it is | What it is not |
+|---------|------------|----------------|
+| **Dataset** | Logical storage/query boundary in Core | A full product or Studio app |
+| **Core Project** | Runtime tenancy / admin parent | Files on disk; a marketing product name |
+| **Project package** | Declarative files (`aurii.config.ts`) for install & Studio | A Core table; a Product Runtime |
+| **Product** | Coherent solution spanning data, packaging, and consumers | A Core primitive required before shipping data |
+| **Product module** | Domain data package for a product | A Runtime plugin |
+| **Plugin** | Runtime extension | A folder of schemas and CSV/JSON imports |
+
+A product may map to one or more Core Projects over time. Norwegian Geo keeps `product.yaml` for module composition and adds `aurii.config.ts` as the installable project package ([ADR-0014](../adr/ADR-0014%20—%20Project%20Configuration%20Package.md)).
+
+---
+
+## Aurii vs CMS
+
+| | Aurii (Core + Studio) | CMS (future separate product) |
+|--|----------------------|-------------------------------|
+| Primary job | Import, store, relate, query, deliver structured data | Author, revise, preview, publish editorial content |
+| System of record | Aurii Core | Would still write to Aurii Core (client) |
+| Studio | Project data workspace | Not the CMS |
+| Required for frontends? | Core APIs/SDK yes; Studio no | Never required between Core and frontend |
+| Phase 4 | In scope (data products + delivery) | Out of scope |
+
+Saying “Studio is our CMS” is incorrect. Studio operates data products. A CMS, if built, is another client.
 
 ---
 
@@ -142,20 +250,20 @@ Consumers must not depend on Studio or an authoring UI being deployed.
 Examples: Norwegian Geo, tax lists, company and bankruptcy data, SSB datasets, election data, public APIs and visualizations.
 
 ```text
-External sources
+Many sources (file, HTTP, DB, manual, automation, …)
       ↓
-Import definitions and pipelines
+DataSources + import / sync definitions (+ optional schedule)
       ↓
 Aurii Core
       ↓
-Delivery API / SDK
+Published routes / Query API / SDK
       ↓
 Frontend, visualization, API consumer, AI, or print
 ```
 
-Studio’s data workspace configures and inspects imports, schemas, entities, queries, runs, errors, and access. No editorial authoring interface is required.
+Studio’s project workspace configures and inspects sources, imports, schedules, schemas, entities, queries, published routes, runs, and errors. No editorial authoring interface is required.
 
-**Status:** Path proven through import, Core, query, API, and SDK (Norwegian Geo). Live frontend delivery via SDK is the Phase 4 contract; `apps/geo` may still use committed snapshots as an explicit offline/build-time mode.
+**Status:** Path proven through import, Core, query, API, and SDK (Norwegian Geo). Project-oriented Studio, DataSources, schedules, and published routes are **beta**. Live frontend delivery via SDK is the Phase 4 contract; `apps/geo` may still use committed snapshots as an explicit offline/build-time mode.
 
 ### 2. Authored content with an optional CMS layer
 
@@ -164,7 +272,7 @@ Examples: classic blog CMS, documentation CMS, magazine or publication CMS, news
 ```text
 Editor
    ↓
-Optional authoring workspace / CMS client
+Future CMS / authoring product (separate client)
    ↓
 Aurii Core
    ↓
@@ -173,7 +281,7 @@ Delivery API / SDK
 Frontend and other consumers
 ```
 
-The authoring interface writes to Core through public APIs. The frontend reads from Core through delivery APIs or the SDK. The frontend does **not** read through the CMS client.
+The authoring interface writes to Core through public APIs. The frontend reads from Core. The frontend does **not** read through the CMS client. Studio remains a data workspace, not that CMS.
 
 **Status:** Architecturally supported; authoring workspace and editorial reference vertical are **not** implemented in Phase 4. Prerequisites are defined in `Phase4.md` workstream E.
 
@@ -182,14 +290,14 @@ The authoring interface writes to Core through public APIs. The frontend reads f
 Examples: a newsroom article referencing municipalities or companies; a live event enriched with structured reference data; an editorial package producing web, NewsML-G2, visualizations, and print from the same entities.
 
 ```text
-External data ──→ Imports and pipelines ──┐
-                                           │
-Editors ────────→ Authoring workspace ─────┼──→ Aurii Core
-                                           │         ↓
-Automation / AI ───────────────────────────┘   API / SDK / events
-                                                     ↓
-                                      Web, apps, visualizations,
-                                      public APIs, AI, and print
+External data ──→ DataSources / imports / sync ──┐
+                                                   │
+Editors ────────→ Future CMS client ───────────────┼──→ Aurii Core
+                                                   │         ↓
+Automation / AI ───────────────────────────────────┘   API / SDK / events
+                                                             ↓
+                                              Web, apps, visualizations,
+                                              public APIs, AI, and print
 ```
 
 Hybrid products compose imported entities with authored entities through schema-declared references. Core stays generic; domain composition lives in product schemas, modules, and clients.
@@ -202,35 +310,11 @@ Hybrid products compose imported entities with authored entities through schema-
 
 | Example | Mode | Core role | Clients | Notes |
 |---------|------|-----------|---------|-------|
-| **Norwegian Geo** | Data-only | Stores counties, municipalities, postal codes, module entities | Studio data workspace; `apps/geo` consumer | Canonical import/data/delivery vertical |
+| **Norwegian Geo** | Data-only | Counties, municipalities, postal codes, module entities | Studio project workspace; `apps/geo` consumer | Canonical import/data/delivery vertical; reference `aurii.config.ts` |
 | **Tax-list exploration** | Data-only | Large imported tables, queries, exports | Studio + visualization frontend | Future scale stress case (Phase 4) |
-| **Classic blog** | Authored | Article/page entities, schemas, delivery API | Optional authoring workspace + site | CMS optional; site reads Core |
-| **News CMS** | Authored / hybrid | Articles, related reference data | Authoring workspace + news site | Editorial vertical (post–Phase 4) |
+| **Classic blog** | Authored | Article/page entities, schemas, delivery API | Future CMS + site | CMS optional; site reads Core |
+| **News CMS** | Authored / hybrid | Articles, related reference data | Future CMS + news site | Editorial vertical (post–Phase 4) |
 | **LiveCenter** | Hybrid | Structured events + reference enrichment | Live UI + authoring | Later phase; composition on Runtime, not Core special case |
-
----
-
-## Product vs Dataset vs Module vs Plugin
-
-```text
-Product
-  ├── one or more Datasets (Core data boundaries)
-  ├── Schemas, Import Definitions, Pipelines
-  ├── Product Modules (domain packages; optional)
-  ├── Capabilities / Plugins used by the deployment (optional)
-  └── Consumers (web, API, AI, print, …)
-```
-
-| Concept | What it is | What it is not |
-|---------|------------|----------------|
-| **Dataset** | Logical storage/query boundary in Core | A full product, marketing site, or module pack |
-| **Product** | Coherent solution spanning data, packaging, and consumers | A Core primitive that must exist before shipping data |
-| **Product module** | Domain data package for a product | A Runtime plugin |
-| **Plugin** | Runtime extension | A folder of schemas and CSV/JSON imports |
-
-**Project** is now a Core top-level boundary (UUID + slug + status) for administration, security, and future resource ownership. See [`PROJECTS.md`](PROJECTS.md) and [ADR-0011](../adr/ADR-0011%20—%20Project%20as%20Top-Level%20Boundary.md).
-
-A Project is not the same as a Product: a product may map to one or more projects over time. Norwegian Geo’s `product.yaml` remains the composition convention for modules and imports; project rows are the Runtime tenancy parent those resources will attach to.
 
 ---
 
@@ -239,23 +323,27 @@ A Project is not the same as a Product: a product may map to one or more project
 1. **Core stays domain-agnostic.** Norwegian geo rules, newsroom rules, and LiveCenter UX stay outside Core.
 2. **Schemas remain the source of truth** for structure, validation, and relationships.
 3. **Applications do not read the database directly.**
-4. **Studio and authoring clients use public APIs and the SDK only.**
+4. **Studio and future CMS clients use public APIs and the SDK only.**
 5. **Frontends do not depend on Studio.**
-6. **CMS/authoring is optional** and never an intermediary for delivery.
-7. **Document implemented behavior separately from plans.** Phase docs and ADRs record decisions; do not present planned CMS, workflow, assets, realtime, RBAC, or AI features as complete.
+6. **CMS/authoring is optional**, never an intermediary for delivery, and **not** Studio.
+7. **Document implemented / beta / planned separately.** Phase docs and ADRs record decisions; do not present planned CMS, workflow, assets, realtime, RBAC, or AI features as complete.
 
 ---
 
 ## Relationship to Norwegian Geo’s product.yaml
 
-`demo/norwegian-geo/product.yaml` is the working example of product composition:
+`demo/norwegian-geo/product.yaml` is the working example of **product composition** (modules, layers, dependencies).
 
-- product id and dataset id
-- layered ownership (Aurii / Norwegian Geo Core / dataset modules)
-- module list with schemas, imports, sources, and `dependsOn`
-- future modules as documentation
+`demo/norwegian-geo/aurii.config.ts` is the **project package** for Studio, sources, imports, sync, and published routes. It points at Core Project slug `norge-data` and dataset `norwegian-geo`.
 
-Phase 4 asks which parts of this convention should remain documentation and which should become SDK or Core helpers—validated against Norwegian Geo before inventing a large generic product runtime.
+The two coexist ([ADR-0014](../adr/ADR-0014%20—%20Project%20Configuration%20Package.md)):
+
+| File | Answers |
+|------|---------|
+| `product.yaml` | What modules make up this shipping product? |
+| `aurii.config.ts` | How does a developer install and operate this project in Core/Studio? |
+
+Phase 4 may add SDK helpers to load manifests; that is not a second tenancy model or a “Product Runtime.”
 
 ---
 
@@ -263,19 +351,34 @@ Phase 4 asks which parts of this convention should remain documentation and whic
 
 | Vertical | Purpose | Status |
 |----------|---------|--------|
-| **Norwegian Geo** | Canonical import, schema, query, storage, SDK, and delivery testbed | Implemented; Phase 4 strengthens delivery |
+| **Norwegian Geo** | Canonical import, schema, query, storage, SDK, Studio project package, and delivery testbed | Implemented core path; project Studio / routes / sources **beta**; Phase 4 strengthens delivery |
 | **Editorial** (planned) | Canonical authoring, revision, publishing, preview, workflow, media | Not built in this documentation phase; later |
 
 Use the vertical that matches the capability under change. Cross-cutting Runtime changes must eventually be validated against both. See `AGENTS.md`.
 
 ---
 
+## Related ADRs (project-oriented Studio)
+
+| ADR | Topic |
+|-----|--------|
+| [ADR-0010](../adr/ADR-0010%20—%20Optional%20Authoring%20Layer.md) | Optional authoring / CMS as separate client |
+| [ADR-0011](../adr/ADR-0011%20—%20Project%20as%20Top-Level%20Boundary.md) | Core Project tenancy |
+| [ADR-0014](../adr/ADR-0014%20—%20Project%20Configuration%20Package.md) | `aurii.config.ts` / `defineProject` |
+| [ADR-0015](../adr/ADR-0015%20—%20DataSource%20Model.md) | DataSource registry |
+| [ADR-0016](../adr/ADR-0016%20—%20Published%20Routes.md) | Published delivery routes |
+| [ADR-0017](../adr/ADR-0017%20—%20Studio%20Extension%20Model.md) | Studio layers and simple view registry |
+| [ADR-0018](../adr/ADR-0018%20—%20Minimal%20Scheduling.md) | Cron schedules on sync/import definitions |
+
+---
+
 ## Related documents
 
-- [ADR-0010 — Optional Authoring Layer](../adr/ADR-0010%20—%20Optional%20Authoring%20Layer.md)
+- [PROJECT_PACKAGES.md](./PROJECT_PACKAGES.md) — `aurii.config.ts`, `defineProject` / `defineStudio` / `defineRoute`
+- [PROJECTS.md](./PROJECTS.md) — Core Project boundary
 - [Phase4.md](../Phase4.md) — Data Products and Delivery plan
 - [NORWEGIAN_GEO.md](./NORWEGIAN_GEO.md) — Norwegian Geo layer boundaries
 - [REFERENCE_DEMO.md](./REFERENCE_DEMO.md) — agent/contributor demo guide
-- [Studio.md](./Studio.md) — Studio design vision (includes future capabilities; not all implemented)
+- [Studio.md](./Studio.md) — project-oriented Studio (beta)
 - [Architecture.md](./Architecture.md) — engine-level architecture
 - [AGENTS.md](../AGENTS.md) — agent reasoning rules

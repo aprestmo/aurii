@@ -161,3 +161,45 @@ export type {
 // HTTP (for apps/api composition)
 export { buildApp } from "./api/server";
 export type { AppOptions } from "./api/server";
+// Project package configuration
+export {
+	defineProject,
+	loadProjectConfigJson,
+	loadProjectPackage,
+	ProjectConfigError,
+	validateProjectReferences,
+} from "./project-config";
+export type { LoadedProjectPackage } from "./project-config";
+export { defineRoute } from "./platform";
+// Platform services (sources, saved imports, published routes, tokens)
+export {
+	appendAudit,
+	configurePlatformStore,
+	createDataSourceService,
+	createProjectTokenService,
+	createPublishedRouteService,
+	createSavedImportService,
+	DataSourceError,
+	DataSourceService,
+	extractPathParams,
+	getPlatformStore,
+	hashToken,
+	listAuditEvents,
+	MemoryPlatformStore,
+	parseBearer,
+	ProjectTokenService,
+	PublishedRouteError,
+	PublishedRouteService,
+	resetPlatformStore,
+	SavedImportError,
+	SavedImportService,
+	TokenError,
+} from "./platform";
+export type { PlatformStore } from "./platform";
+// Scheduling
+export {
+	computeNextCronRun,
+	getImportScheduler,
+	ImportScheduler,
+	resetImportScheduler,
+} from "./schedule";

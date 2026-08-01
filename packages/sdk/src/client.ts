@@ -149,6 +149,83 @@ function buildProjectsApi(baseUrl: string, token: string | undefined) {
 		byId(projectId: string) {
 			return {
 				datasets: buildProjectDatasetsApi(baseUrl, token, projectId),
+				sources: {
+					list(dataset?: string) {
+						const qs = dataset ? `?dataset=${encodeURIComponent(dataset)}` : "";
+						return request<ApiEnvelope<unknown[]>>(
+							baseUrl,
+							`/api/projects/${encodeURIComponent(projectId)}/sources${qs}`,
+							token,
+						).then((r) => r.data);
+					},
+					create(body: unknown) {
+						return request<ApiEnvelope<unknown>>(
+							baseUrl,
+							`/api/projects/${encodeURIComponent(projectId)}/sources`,
+							token,
+							{ method: "POST", body: JSON.stringify(body) },
+						).then((r) => r.data);
+					},
+				},
+				savedImports: {
+					list(dataset?: string) {
+						const qs = dataset ? `?dataset=${encodeURIComponent(dataset)}` : "";
+						return request<ApiEnvelope<unknown[]>>(
+							baseUrl,
+							`/api/projects/${encodeURIComponent(projectId)}/saved-imports${qs}`,
+							token,
+						).then((r) => r.data);
+					},
+					create(body: unknown) {
+						return request<ApiEnvelope<unknown>>(
+							baseUrl,
+							`/api/projects/${encodeURIComponent(projectId)}/saved-imports`,
+							token,
+							{ method: "POST", body: JSON.stringify(body) },
+						).then((r) => r.data);
+					},
+					run(importId: string, opts: { dryRun?: boolean } = {}) {
+						return request<ApiEnvelope<unknown>>(
+							baseUrl,
+							`/api/projects/${encodeURIComponent(projectId)}/saved-imports/${encodeURIComponent(importId)}/run`,
+							token,
+							{ method: "POST", body: JSON.stringify(opts) },
+						).then((r) => r.data);
+					},
+					update(importId: string, body: unknown) {
+						return request<ApiEnvelope<unknown>>(
+							baseUrl,
+							`/api/projects/${encodeURIComponent(projectId)}/saved-imports/${encodeURIComponent(importId)}`,
+							token,
+							{ method: "PATCH", body: JSON.stringify(body) },
+						).then((r) => r.data);
+					},
+				},
+				routes: {
+					list() {
+						return request<ApiEnvelope<unknown[]>>(
+							baseUrl,
+							`/api/projects/${encodeURIComponent(projectId)}/routes`,
+							token,
+						).then((r) => r.data);
+					},
+					upsert(body: unknown) {
+						return request<ApiEnvelope<unknown>>(
+							baseUrl,
+							`/api/projects/${encodeURIComponent(projectId)}/routes`,
+							token,
+							{ method: "POST", body: JSON.stringify(body) },
+						).then((r) => r.data);
+					},
+					update(routeId: string, body: unknown) {
+						return request<ApiEnvelope<unknown>>(
+							baseUrl,
+							`/api/projects/${encodeURIComponent(projectId)}/routes/${encodeURIComponent(routeId)}`,
+							token,
+							{ method: "PATCH", body: JSON.stringify(body) },
+						).then((r) => r.data);
+					},
+				},
 			};
 		},
 	};

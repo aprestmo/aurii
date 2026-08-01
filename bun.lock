@@ -54,12 +54,14 @@
       },
     },
     "apps/studio": {
-      "name": "@aurii/studio",
+      "name": "@aurii/studio-app",
       "version": "0.2.0",
       "dependencies": {
         "@astrojs/check": "^0.9.9",
         "@astrojs/node": "^10",
         "@aurii/sdk": "workspace:*",
+        "@aurii/studio": "workspace:*",
+        "@aurii/types": "workspace:*",
         "@tabler/icons": "^3",
         "@tailwindcss/forms": "^0.5",
         "@tailwindcss/vite": "^4",
@@ -69,6 +71,14 @@
         "tailwindcss": "^4",
         "tw-animate-css": "^1",
         "typescript": "^6.0.3",
+      },
+    },
+    "demo/norwegian-geo": {
+      "name": "@aurii/norwegian-geo",
+      "version": "0.1.0",
+      "dependencies": {
+        "@aurii/core": "workspace:*",
+        "@aurii/studio": "workspace:*",
       },
     },
     "packages/core": {
@@ -106,6 +116,18 @@
     "packages/sdk": {
       "name": "@aurii/sdk",
       "version": "0.1.0",
+      "devDependencies": {
+        "@types/bun": "latest",
+        "typescript": "^6.0.3",
+      },
+    },
+    "packages/studio": {
+      "name": "@aurii/studio",
+      "version": "0.1.0",
+      "dependencies": {
+        "@aurii/types": "workspace:*",
+        "@aurii/validation": "workspace:*",
+      },
       "devDependencies": {
         "@types/bun": "latest",
         "typescript": "^6.0.3",
@@ -158,9 +180,13 @@
 
     "@aurii/geo": ["@aurii/geo@workspace:apps/geo"],
 
+    "@aurii/norwegian-geo": ["@aurii/norwegian-geo@workspace:demo/norwegian-geo"],
+
     "@aurii/sdk": ["@aurii/sdk@workspace:packages/sdk"],
 
-    "@aurii/studio": ["@aurii/studio@workspace:apps/studio"],
+    "@aurii/studio": ["@aurii/studio@workspace:packages/studio"],
+
+    "@aurii/studio-app": ["@aurii/studio-app@workspace:apps/studio"],
 
     "@aurii/types": ["@aurii/types@workspace:packages/types"],
 

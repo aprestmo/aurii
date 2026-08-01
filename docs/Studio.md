@@ -1,489 +1,256 @@
 # Studio
 
-> Studio is Aurii's primary administrative user interface.
+> Studio is Aurii’s **project workspace** — a client of the Runtime, not the platform.
 >
-> It is not the platform.
+> It is a data operations UI for projects: sources, imports, schedules, entities, queries, and published routes.
 >
-> It is a client of the platform.
+> It is **not** a CMS and **not** an editorial authoring editor.
 >
-> **Implemented today:** a generic **data workspace** (dashboard, import wizard, entity browser, schemas, query playground).
+> **Status:** project-oriented Studio is **beta** (Phase 4). A future CMS product is separate ([ADR-0010](../adr/ADR-0010%20—%20Optional%20Authoring%20Layer.md)).
 >
-> **Planned / visionary (not all implemented):** schema-generated editors, authoring workflows, AI assistants, collaboration, plugins. Treat sections below that describe those capabilities as design intent unless marked implemented. Product boundaries: [`PRODUCT_MODEL.md`](PRODUCT_MODEL.md). ADR: [ADR-0010](../adr/ADR-0010%20—%20Optional%20Authoring%20Layer.md).
+> Product boundaries: [`PRODUCT_MODEL.md`](PRODUCT_MODEL.md). Extension model: [ADR-0017](../adr/ADR-0017%20—%20Studio%20Extension%20Model.md).
 
 ---
 
-# Purpose
+## Purpose
 
-Studio exists to make the Runtime accessible to humans.
+Studio makes the Runtime operable for humans working on a **project package**.
 
 Everything available inside Studio should ultimately be available through the Runtime.
 
-Studio should never contain business logic.
+Studio never contains business logic. It visualizes and operates what Core already defines.
 
-Studio visualizes the platform.
-
-The Runtime executes it.
-
-A future **authoring workspace** may share a Studio shell; it remains an optional client. Frontends never read through Studio or a CMS UI.
+Frontends never read through Studio.
 
 ---
 
-# Philosophy
+## Three layers
 
-Traditional CMS platforms are editor-first.
+Studio is composed of three layers ([ADR-0017](../adr/ADR-0017%20—%20Studio%20Extension%20Model.md)):
 
-Aurii is Runtime-first.
-
-Studio should therefore be built exactly like any other application.
-
+```text
+1. Generic Studio runtime     apps/studio  →  @aurii/studio-app
+2. Declarative project config               →  defineStudio() in @aurii/studio
+3. Optional custom views                    →  simple view registry (module paths)
 ```
-Studio
 
-↓
+| Layer | Package / location | Responsibility |
+|-------|--------------------|----------------|
+| **1. Runtime** | `apps/studio` (`@aurii/studio-app`) | Generic Astro UI; talks to Core via `@aurii/sdk` only |
+| **2. Config** | `@aurii/studio` + project `studio.config.ts` | Navigation, collections, featured schemas, import/route groups, dashboards |
+| **3. Custom views** | Project modules (optional) | Domain-specific pages (maps, coverage, …) using SDK/public APIs |
 
-Runtime
+Projects depend on `@aurii/studio` for config without pulling the full UI. The app package is `@aurii/studio-app`.
 
-↓
+---
 
-Entities
+## Default experience (no config)
+
+Without a `defineStudio` config, Studio still works. Default navigation covers:
+
+- Project overview / dashboard
+- Dataset switcher
+- Schemas
+- Entities
+- Sources
+- Imports (wizard + saved definitions / history)
+- Published API routes
+- Query playground
+- System status
+
+Config customizes labels, grouping, featured schemas, and custom views. It does not replace Core behavior.
+
+---
+
+## Not a CMS
+
+| Studio is | Studio is not |
+|-----------|----------------|
+| A project data workspace | A content management system |
+| Import / sync / schedule ops | A newsroom or blog editor |
+| Schema-aware browsing and query | Draft / preview / publish workflow UI |
+| Enable/disable published routes | The delivery layer for frontends |
+
+Authoring, revision, and publishing UIs belong to a **future separate product**, not to renaming Studio. See [ADR-0010](../adr/ADR-0010%20—%20Optional%20Authoring%20Layer.md).
+
+---
+
+## Philosophy
+
+Aurii is Runtime-first. Studio is built like any other application:
+
+```text
+Studio  →  public APIs / SDK  →  Aurii Core  →  storage
 ```
 
 Studio never talks directly to storage.
 
 Studio never bypasses APIs.
 
-Studio never owns business logic.
+Studio never owns domain rules.
 
 ---
 
-# Studio Is Generated
+## Surfaces (beta)
 
-Studio should not be hardcoded.
+| Surface | What operators do |
+|---------|-------------------|
+| **Sources** | Inspect DataSources (provenance, status, linked definitions) |
+| **Imports** | Run wizard uploads; manage saved import definitions; dry-run vs commit |
+| **History** | Review import/sync runs, errors, inserted/updated/skipped counts |
+| **Schedules** | Enable/disable cron on sync/import definitions; see next run |
+| **Published routes** | Inspect declared routes; enable/disable; access mode (Core serves them) |
+| **Entities** | Browse and filter entities for the active dataset |
+| **Query** | Run and explain Query Language |
+| **System** | Connection, project/dataset, runtime health signals |
 
-Instead, Studio should emerge from:
-
-- Schema Language
-- Capability Model
-- Runtime
-- Plugins
-
-The interface is assembled dynamically.
-
----
-
-# The User Experience
-
-Users should never think about:
-
-- tables
-- collections
-- JSON
-- storage
-- implementation
-
-Instead they should think about:
-
-- information
-- relationships
-- workflows
-- publishing
-
-Studio hides implementation.
-
-Runtime guarantees consistency.
+Schemas remain inspectable. Navigation may group collections by schema via `defineStudio`.
 
 ---
 
-# Navigation
+## Local and hosted runs
 
-Studio should be organized around knowledge.
+### Local development
 
-Example:
+```bash
+bun run serve                  # Core API (default :3000)
 
-```
-Project
-
-├── Schemas
-
-├── Entities
-
-├── Imports
-
-├── Pipelines
-
-├── Assets
-
-├── Queries
-
-├── AI
-
-├── Plugins
-
-├── Users
-
-└── Settings
+AURII_CORE_URL=http://localhost:3000 \
+AURII_PROJECT_SLUG=norge-data \
+AURII_DEFAULT_DATASET=norwegian-geo \
+AURII_PROJECT_ROOT=demo/norwegian-geo \
+bun run studio                 # → @aurii/studio-app dev
 ```
 
-Every screen represents a Runtime resource.
+### Static / hosted build
 
----
-
-# Entity Editor
-
-The Entity Editor is generated from Schema Language.
-
-```
-Schema
-
-↓
-
-Fields
-
-↓
-
-Components
-
-↓
-
-Editor
+```bash
+AURII_CORE_URL=https://api.example.com \
+AURII_PROJECT_SLUG=norge-data \
+AURII_DEFAULT_DATASET=norwegian-geo \
+bun run studio:build           # static output for hosting
 ```
 
-Adding a new field type should automatically update Studio.
+### Environment variables
 
-No manual editor implementation should be required.
+| Variable | Meaning |
+|----------|---------|
+| `AURII_CORE_URL` / `PUBLIC_AURII_CORE_URL` | Core API base URL (default `http://localhost:3000`) |
+| `AURII_PROJECT_SLUG` / `PUBLIC_AURII_PROJECT_SLUG` | Core Project slug to bind |
+| `AURII_DEFAULT_DATASET` / `PUBLIC_AURII_DEFAULT_DATASET` | Default dataset id |
+| `AURII_PROJECT_ROOT` | Optional path to project package (server-side config load) |
 
----
+**Do not embed API tokens or secrets in public Studio builds.** Auth tokens stay in the browser session / localStorage after login, not in the static asset bundle.
 
-# Capabilities Drive UI
-
-Capabilities determine available actions.
-
-Example:
-
-```
-Capabilities
-
-↓
-
-Publish
-
-Archive
-
-Translate
-
-Version
-
-Workflow
-```
-
-Studio renders actions automatically.
-
-Applications should never inspect entity types.
+Browser connection keys (login UI): `aurii.apiUrl`, `aurii.token`, `aurii.dataset`.
 
 ---
 
-# Views
+## Declarative config (`defineStudio`)
 
-Entities may be viewed in different ways.
+From `@aurii/studio`, projects export something like:
 
-Examples:
+```ts
+import {
+  defineStudio,
+  collection,
+  sources,
+  imports,
+  apiRoutes,
+  customView,
+} from "@aurii/studio";
 
-- Form
-- Table
-- Grid
-- Kanban
-- Timeline
-- Calendar
-- Map
-- Gallery
-
-Views are presentation.
-
-They do not change the Entity.
-
----
-
-# Relationships
-
-Relationships should be navigable.
-
-Example:
-
-```
-Article
-
-↓
-
-Author
-
-↓
-
-Organization
-
-↓
-
-Municipality
+export default defineStudio({
+  title: "Norwegian Geo",
+  featuredSchemas: ["county", "municipality", "postal-code"],
+  navigation: [
+    {
+      title: "Geography",
+      items: [
+        collection("county", { columns: ["id", "name"], featured: true }),
+        collection("municipality", { columns: ["id", "name", "countyId"] }),
+      ],
+    },
+    { title: "Intake", items: [sources(), imports()] },
+    { title: "Delivery", items: [apiRoutes()] },
+  ],
+  views: [
+    {
+      id: "coverage",
+      title: "Coverage",
+      module: "./views/coverage.ts",
+    },
+  ],
+});
 ```
 
-Users should move naturally through connected knowledge.
+The project package references this file via `studio:` in `aurii.config.ts`. See [`PROJECT_PACKAGES.md`](PROJECT_PACKAGES.md).
 
-Studio should visualize relationships instead of hiding them.
+Config may set:
 
----
-
-# Search
-
-Search should be global.
-
-Users should search:
-
-- Entities
-- Assets
-- Schemas
-- Imports
-- Pipelines
-- Plugins
-
-Search is the primary navigation mechanism.
+- Navigation groups and items
+- Collection columns / filters / sort
+- Hidden or featured schemas
+- Import groups and route groups
+- Dashboards and custom view registrations
 
 ---
 
-# AI
+## Extension model
 
-AI is integrated throughout Studio.
+Beta uses a **simple view registry**, not a full Plugin Runtime ([ADR-0017](../adr/ADR-0017%20—%20Studio%20Extension%20Model.md)).
 
-Examples:
+Rules for custom views:
 
-- Create Schema
-- Explain Entity
-- Generate Query
-- Suggest Relationships
-- Clean Imports
-- Write Documentation
+1. Register via `defineStudio` (`views` + nav `customView(...)`).
+2. Use `@aurii/sdk` / public HTTP APIs only.
+3. No direct database access.
+4. No Core domain logic inside the view module.
+5. Isolation is thin (client modules)—sufficient for beta; expand later if needed.
 
-AI appears where it adds value.
-
-Never as a separate product.
+Norwegian Geo example: coverage view under `demo/norwegian-geo/studio/`.
 
 ---
 
-# Import Experience
+## Package split
 
-Import should feel like onboarding knowledge.
-
-Example:
-
-```
-Choose Source
-
-↓
-
-Analyze
-
-↓
-
-Review
-
-↓
-
-Map
-
-↓
-
-Transform
-
-↓
-
-Preview
-
-↓
-
-Import
-
-↓
-
-Done
-```
-
-Users should understand what is happening.
+| Package | Role |
+|---------|------|
+| `@aurii/studio` | `defineStudio` and helpers — safe for project packages to depend on |
+| `@aurii/studio-app` | Astro application in `apps/studio` |
 
 ---
 
-# Pipeline Builder
+## Accessibility, performance, offline
 
-Studio should visualize Pipelines.
+Studio should remain keyboard-friendly and responsive. Large imports and sync runs execute asynchronously with progress feedback. The Runtime remains authoritative if connectivity drops; Studio is not an offline SoR.
 
-```
-Import
-
-↓
-
-Normalize
-
-↓
-
-Validate
-
-↓
-
-Publish
-
-↓
-
-Notify
-```
-
-Visual editing is optional.
-
-The Pipeline remains declarative.
+Full collaboration, AI copilots, and marketplace plugins are **planned / visionary**, not beta exit criteria.
 
 ---
 
-# Schema Designer
-
-Schema editing should focus on concepts.
-
-Users define:
-
-- fields
-- relationships
-- capabilities
-- validation
-- documentation
-
-Studio generates the rest.
-
----
-
-# Query Builder
-
-Users should build queries visually.
-
-Advanced users may edit Query Language directly.
-
-Both interfaces produce the same Query.
-
----
-
-# Runtime Inspector
-
-Studio should expose Runtime activity.
-
-Examples:
-
-- events
-- jobs
-- queues
-- imports
-- pipelines
-- AI activity
-- logs
-
-Users should understand why the platform behaves as it does.
-
----
-
-# Collaboration
-
-Studio should support collaboration.
-
-Examples:
-
-- comments
-- mentions
-- presence
-- assignments
-- review
-
-Collaboration belongs around Entities.
-
-Not around pages.
-
----
-
-# Plugins
-
-Plugins extend Studio automatically.
-
-Examples:
-
-- new editors
-- dashboards
-- panels
-- widgets
-- inspectors
-
-Studio discovers extensions.
-
-It never hardcodes them.
-
----
-
-# Accessibility
-
-Studio should be fully accessible.
-
-Keyboard-first.
-
-Screen-reader friendly.
-
-High contrast support.
-
-Localization support.
-
-Accessibility is a platform requirement.
-
----
-
-# Offline
-
-Where practical, Studio should tolerate temporary network loss.
-
-Edits should synchronize when connectivity returns.
-
-The Runtime remains authoritative.
-
----
-
-# Performance
-
-Studio should remain responsive regardless of dataset size.
-
-Large operations should execute asynchronously.
-
-Users should always receive progress feedback.
-
----
-
-# The Future
-
-Eventually, Studio should become only one of many clients.
-
-Other clients might include:
-
-- mobile apps
-- CLI
-- VS Code
-- AI agents
-- custom dashboards
-- third-party applications
-
-Every client consumes the same Runtime.
-
----
-
-# Guiding Principle
+## Guiding principle
 
 Studio should never invent behavior.
 
-It should reveal the behavior already defined by:
+It should reveal behavior already defined by:
 
 - Runtime
 - Schema Language
-- Capability Model
-- Pipeline Language
-- Query Language
+- Project package (`defineProject` / `defineRoute`)
+- Studio config (`defineStudio`)
+- Capability / Pipeline / Query languages
 
-If Studio contains business logic,
+If Studio contains business logic, the architecture has failed.
 
-the architecture has failed.
+---
+
+## Related documents
+
+- [PRODUCT_MODEL.md](PRODUCT_MODEL.md)
+- [PROJECT_PACKAGES.md](PROJECT_PACKAGES.md)
+- [ADR-0017 — Studio Extension Model](../adr/ADR-0017%20—%20Studio%20Extension%20Model.md)
+- [ADR-0014 — Project Configuration Package](../adr/ADR-0014%20—%20Project%20Configuration%20Package.md)
+- [ADR-0015 — DataSource Model](../adr/ADR-0015%20—%20DataSource%20Model.md)
+- [ADR-0016 — Published Routes](../adr/ADR-0016%20—%20Published%20Routes.md)
+- [ADR-0018 — Minimal Scheduling](../adr/ADR-0018%20—%20Minimal%20Scheduling.md)

@@ -5,7 +5,8 @@
   "description": "Aurii — Declarative Runtime for Structured Knowledge",
   "workspaces": [
     "packages/*",
-    "apps/*"
+    "apps/*",
+    "demo/norwegian-geo"
   ],
   "dependencies": {
     "@turf/bbox": "^7.2.0",
@@ -15,10 +16,12 @@
   },
   "scripts": {
     "build": "bun run --filter='*' build",
-    "test": "bun run --filter='@aurii/validation' test && bun run --filter='@aurii/types' test && bun run --filter='@aurii/db' test && bun run --filter='@aurii/core' test && bun run --filter='@aurii/api' test && bun run --filter='@aurii/sdk' test && bun run --filter='@aurii/studio' test && bun run --filter='@aurii/geo' test",
+    "test": "bun run --filter='@aurii/validation' test && bun run --filter='@aurii/types' test && bun run --filter='@aurii/db' test && bun run --filter='@aurii/core' test && bun run --filter='@aurii/api' test && bun run --filter='@aurii/sdk' test && bun run --filter='@aurii/studio' test && bun run --filter='@aurii/studio-app' test && bun run --filter='@aurii/geo' test",
     "lint": "bun run --filter='*' lint",
     "typecheck": "bun run --filter='*' typecheck",
-    "dev": "bun run --filter='@aurii/api' dev & bun run --filter='@aurii/studio' dev",
+    "dev": "bun run --filter='@aurii/api' dev & bun run --filter='@aurii/studio-app' dev",
+    "studio": "bun run --filter='@aurii/studio-app' dev",
+    "studio:build": "bun run --filter='@aurii/studio-app' build",
     "serve": "bun run --filter='@aurii/api' serve",
     "db:migrate": "bun run --filter='@aurii/db' migrate",
     "db:seed": "bun run --filter='@aurii/db' seed",

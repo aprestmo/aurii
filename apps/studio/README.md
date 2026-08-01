@@ -1,59 +1,79 @@
-# @aurii/studio
+# @aurii/studio-app
 
 > Aurii Studio is a **client** of the Aurii Runtime. It consumes the public HTTP API (via `@aurii/sdk`) and nothing else.
 >
-> Today Studio is a generic **data workspace** (imports, schemas, entities, queries). An optional **authoring workspace** for CMS-style editing is a later-phase client—not required for data products. See [`docs/PRODUCT_MODEL.md`](../../docs/PRODUCT_MODEL.md) and [ADR-0010](../../adr/ADR-0010%20—%20Optional%20Authoring%20Layer.md).
+> Studio is a **project-oriented data workspace** — sources, imports, schedules, entities, queries, published routes. It is **not** a CMS.
+>
+> Config helpers live in `@aurii/studio` (`defineStudio`). This package is the Astro UI app.
+>
+> **Status:** project-oriented Studio **beta** (Phase 4). See [`docs/Studio.md`](../../docs/Studio.md), [`docs/PRODUCT_MODEL.md`](../../docs/PRODUCT_MODEL.md), [ADR-0017](../../adr/ADR-0017%20—%20Studio%20Extension%20Model.md).
 
-An Astro application providing:
+## Surfaces
 
-- **Dashboard** — entity counts, field coverage per schema, import history
-- **Import Wizard** — upload → analyze → schema → mapping → dry run → import
-- **Entity Browser** — browse, filter, and query entities (including relation links)
-- **Query playground** — run and explain Query Language against the active dataset
+- **Overview** — project dashboard, dataset context
+- **Sources** — DataSource registry
+- **Imports** — wizard + saved definitions, history, schedules
+- **Published routes** — inspect / enable delivery endpoints (served by Core)
+- **Entities** — browse and filter
+- **Query** — Query Language playground
 - **Schemas** — inspect registered schemas
-- **Login** — API URL + token when the API requires authentication
-
-**Status:** usable after Phase 2–3. Phase 4 deepens import operations and delivery; it does not turn Studio into a news CMS.
+- **System** — connection and status
+- **Custom views** — optional, via project `defineStudio` registry
 
 ## Quick start
 
-```bash
-# Start the Core API first (from packages/core)
-bun run cli serve
+From the repo root (Core must be running):
 
-# Then start Studio
+```bash
+bun run serve
+
+AURII_CORE_URL=http://localhost:3000 \
+AURII_PROJECT_SLUG=norge-data \
+AURII_DEFAULT_DATASET=norwegian-geo \
+AURII_PROJECT_ROOT=demo/norwegian-geo \
+bun run studio
+```
+
+Or from this package:
+
+```bash
 bun install
 bun run dev        # http://localhost:4321
 ```
 
-Production build:
+Hosted / static build (from repo root):
 
 ```bash
-bun run build      # static output in dist/
-bun run preview
+AURII_CORE_URL=https://api.example.com \
+AURII_PROJECT_SLUG=norge-data \
+AURII_DEFAULT_DATASET=norwegian-geo \
+bun run studio:build
 ```
 
-## Configuration
+**Do not** embed API tokens in public builds.
 
-Studio stores its connection settings in the browser (localStorage):
+## Environment variables
 
-| Key             | Meaning                                    |
-|-----------------|--------------------------------------------|
-| `aurii.apiUrl`  | Core API base URL (default localhost:3000) |
-| `aurii.token`   | Bearer token if the API requires auth      |
-| `aurii.dataset` | Active dataset (switcher in the sidebar)   |
+| Variable | Meaning |
+|----------|---------|
+| `AURII_CORE_URL` / `PUBLIC_AURII_CORE_URL` | Core API base URL (default `http://localhost:3000`) |
+| `AURII_PROJECT_SLUG` / `PUBLIC_AURII_PROJECT_SLUG` | Core Project slug |
+| `AURII_DEFAULT_DATASET` / `PUBLIC_AURII_DEFAULT_DATASET` | Default dataset id |
+| `AURII_PROJECT_ROOT` | Optional path to project package for config loading |
 
-Visit `/login` to change the connection.
+Browser login still stores `aurii.apiUrl`, `aurii.token`, and `aurii.dataset` in localStorage.
+
+## Project config
+
+Projects customize navigation and views with `defineStudio` from `@aurii/studio`, referenced from `aurii.config.ts`. Without config, Studio uses the default workspace. See [`docs/PROJECT_PACKAGES.md`](../../docs/PROJECT_PACKAGES.md).
 
 ## Import Wizard
 
-The wizard walks through six steps:
+1. **Upload** — CSV or JSON  
+2. **Preview** — format, columns, inferred types  
+3. **Schema** — generated or existing  
+4. **Mapping** — columns → fields, transforms  
+5. **Dry run** — validate only  
+6. **Import** — persist + summary  
 
-1. **Upload** — drag-and-drop CSV or JSON
-2. **Preview** — detected format, delimiter, columns, inferred types
-3. **Schema** — accept the generated schema or use an existing one
-4. **Mapping** — map source columns to schema fields, choose transforms
-5. **Dry run** — full validation, nothing written, per-row errors shown
-6. **Import** — the real run, with result summary
-
-Nothing is written to storage before step 6.
+Nothing is written before step 6.

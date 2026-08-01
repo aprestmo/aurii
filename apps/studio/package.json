@@ -1,5 +1,5 @@
 {
-  "name": "@aurii/studio",
+  "name": "@aurii/studio-app",
   "version": "0.2.0",
   "description": "Aurii Studio — admin client for the Aurii Runtime",
   "type": "module",
@@ -15,6 +15,8 @@
     "@astrojs/check": "^0.9.9",
     "@astrojs/node": "^10",
     "@aurii/sdk": "workspace:*",
+    "@aurii/studio": "workspace:*",
+    "@aurii/types": "workspace:*",
     "@tabler/icons": "^3",
     "@tailwindcss/forms": "^0.5",
     "@tailwindcss/vite": "^4",

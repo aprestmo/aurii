@@ -233,7 +233,17 @@ Phase 4 is complete when all of the following are true:
 
 ## Suggested follow-up issue split
 
-Derive implementation issues from this plan rather than one mega-PR:
+**Current next-step plan (post–project Studio beta):** [`docs/NEXT_AFTER_STUDIO_BETA.md`](docs/NEXT_AFTER_STUDIO_BETA.md).
+
+That document assumes [PR #52](https://github.com/aprestmo/aurii/pull/52) (persistence, package-driven Studio, register-via-api, AuthScopes) as baseline and sequences:
+
+1. Live delivery contract + `apps/geo` integration proof (N1)
+2. Studio ops polish — groups, provenance, run errors (N2)
+3. Package/composition alignment + shared register helper (N3)
+4. Scale measurements / pushdown spike (N4)
+5. Optional hardening — Postgres platform store, scheduler e2e (N5)
+
+Older split (still valid themes, superseded in order by the doc above):
 
 1. Product manifest convention + docs/SDK helpers (A)
 2. Studio import operations polish + provenance fields (B)

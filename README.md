@@ -12,7 +12,8 @@ Aurii is **not** a traditional CMS, database, or API framework.
 
 Canonical product vocabulary: [`docs/PRODUCT_MODEL.md`](docs/PRODUCT_MODEL.md).  
 Optional authoring decision: [`adr/ADR-0010 — Optional Authoring Layer.md`](adr/ADR-0010%20—%20Optional%20Authoring%20Layer.md).  
-Project packages: [`adr/ADR-0014 — Project Configuration Package.md`](adr/ADR-0014%20—%20Project%20Configuration%20Package.md).
+Project packages: [`adr/ADR-0014 — Project Configuration Package.md`](adr/ADR-0014%20—%20Project%20Configuration%20Package.md).  
+**Next after Studio beta:** [`docs/NEXT_AFTER_STUDIO_BETA.md`](docs/NEXT_AFTER_STUDIO_BETA.md).
 
 ---
 

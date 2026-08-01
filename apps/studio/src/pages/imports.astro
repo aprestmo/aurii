@@ -3,7 +3,7 @@ import Layout from "../layouts/Layout.astro";
 ---
 <Layout title="Imports" active="imports">
   <h1>Saved imports</h1>
-  <p class="muted">Run saved definitions (dry or persist). History uses Core import runs.</p>
+  <p class="muted">Run saved definitions (dry or persist). Toggle schedules. History includes errors from Core.</p>
   <div id="defs" class="card" style="margin-top: 1rem;">Loading…</div>
   <h2 style="margin-top: 2rem;">Import history</h2>
   <div id="history" class="card">Loading…</div>
@@ -19,7 +19,12 @@ import Layout from "../layouts/Layout.astro";
     schemaId: string;
     status: string;
     triggerMode: string;
-    schedule: { enabled: boolean; spec: { expression: string }; nextRunAt: string | null } | null;
+    schedule: {
+      enabled: boolean;
+      spec: { expression: string; timezone?: string };
+      nextRunAt: string | null;
+      lastRunAt: string | null;
+    } | null;
   };
   type Run = {
     id: string;
@@ -29,6 +34,7 @@ import Layout from "../layouts/Layout.astro";
     total: number;
     imported: number;
     failed: number;
+    errors: unknown[];
     startedAt: string | null;
     completedAt: string | null;
   };
@@ -41,6 +47,20 @@ import Layout from "../layouts/Layout.astro";
   const defsEl = document.getElementById("defs")!;
   const histEl = document.getElementById("history")!;
 
+  function formatErrors(errors: unknown[]): string {
+    if (!errors?.length) return "";
+    return errors
+      .slice(0, 5)
+      .map((e) => {
+        if (typeof e === "string") return e;
+        if (e && typeof e === "object" && "message" in e) {
+          return String((e as { message: unknown }).message);
+        }
+        return JSON.stringify(e);
+      })
+      .join("; ");
+  }
+
   if (!project) {
     defsEl.textContent = "No project selected.";
     histEl.textContent = "";
@@ -50,23 +70,31 @@ import Layout from "../layouts/Layout.astro";
       `/api/projects/${project.id}/saved-imports?dataset=${encodeURIComponent(dataset)}`,
     );
     if (!defs.data.length) {
-      defsEl.innerHTML = "<p class='muted'>No saved imports. Bootstrap the project package or create via API.</p>";
+      defsEl.innerHTML = "<p class='muted'>No saved imports. Run <code>register-via-api.ts</code> or create via API.</p>";
     } else {
       defsEl.innerHTML = defs.data
         .map(
-          (d) => `<div class="row" style="display:flex;gap:1rem;align-items:center;margin-bottom:0.75rem;">
-            <div style="flex:1">
+          (d) => `<div class="row" style="display:flex;gap:0.75rem;align-items:center;margin-bottom:0.75rem;flex-wrap:wrap;">
+            <div style="flex:1;min-width:200px">
               <strong>${d.name}</strong>
               <div class="muted" style="font-size:12px">${d.schemaId} · ${d.triggerMode} · ${d.status}
-              ${d.schedule ? ` · cron ${d.schedule.spec.expression} (${d.schedule.enabled ? "on" : "off"})` : ""}
+              ${d.schedule ? ` · cron ${d.schedule.spec.expression}${d.schedule.spec.timezone ? " (" + d.schedule.spec.timezone + ")" : ""}` : ""}
+              ${d.schedule?.nextRunAt ? ` · next ${d.schedule.nextRunAt}` : ""}
+              ${d.schedule?.lastRunAt ? ` · last ${d.schedule.lastRunAt}` : ""}
               </div>
             </div>
+            ${
+              d.schedule
+                ? `<button data-sched="${d.id}" data-enabled="${d.schedule.enabled ? "0" : "1"}">${d.schedule.enabled ? "Disable schedule" : "Enable schedule"}</button>`
+                : ""
+            }
             <button data-id="${d.id}" data-dry="1">Dry run</button>
             <button data-id="${d.id}" data-dry="0">Run</button>
           </div>`,
         )
         .join("");
-      defsEl.querySelectorAll("button").forEach((btn) => {
+
+      defsEl.querySelectorAll("button[data-id]").forEach((btn) => {
         btn.addEventListener("click", async () => {
           const id = btn.getAttribute("data-id")!;
           const dryRun = btn.getAttribute("data-dry") === "1";
@@ -83,16 +111,45 @@ import Layout from "../layouts/Layout.astro";
           }
         });
       });
+
+      defsEl.querySelectorAll("button[data-sched]").forEach((btn) => {
+        btn.addEventListener("click", async () => {
+          const id = btn.getAttribute("data-sched")!;
+          const enabled = btn.getAttribute("data-enabled") === "1";
+          const def = defs.data.find((d) => d.id === id);
+          if (!def?.schedule) return;
+          btn.setAttribute("disabled", "true");
+          try {
+            await api(`/api/projects/${project.id}/saved-imports/${id}`, {
+              method: "PATCH",
+              body: JSON.stringify({
+                schedule: {
+                  ...def.schedule,
+                  enabled,
+                },
+              }),
+            });
+            window.location.reload();
+          } catch (e) {
+            alert(e instanceof Error ? e.message : String(e));
+            btn.removeAttribute("disabled");
+          }
+        });
+      });
     }
 
     const hist = await api<Run[]>(`/imports?dataset=${encodeURIComponent(dataset)}&limit=20`);
     const rows = Array.isArray(hist) ? hist : [];
     histEl.innerHTML = rows.length
-      ? `<table><thead><tr><th>Definition</th><th>Status</th><th>Dry</th><th>Total</th><th>Imported</th><th>Failed</th><th>Started</th></tr></thead>
-         <tbody>${rows.map((r) => `<tr>
+      ? `<table><thead><tr><th>Definition</th><th>Status</th><th>Dry</th><th>Total</th><th>Imported</th><th>Failed</th><th>Started</th><th>Errors</th></tr></thead>
+         <tbody>${rows.map((r) => {
+           const err = formatErrors(r.errors ?? []);
+           return `<tr>
            <td>${r.definitionId ?? "—"}</td><td>${r.status}</td><td>${r.dryRun}</td>
            <td>${r.total}</td><td>${r.imported}</td><td>${r.failed}</td><td>${r.startedAt ?? "—"}</td>
-         </tr>`).join("")}</tbody></table>`
+           <td style="max-width:280px;font-size:12px;color:${err ? "var(--danger, #b33)" : "inherit"}">${err || "—"}</td>
+         </tr>`;
+         }).join("")}</tbody></table>`
       : "<p class='muted'>No runs yet.</p>";
   }
 </script>

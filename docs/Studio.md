@@ -186,6 +186,8 @@ export default defineStudio({
 
 The project package references this file via `studio:` in `aurii.config.ts`. See [`PROJECT_PACKAGES.md`](PROJECT_PACKAGES.md).
 
+When Studio runs with `AURII_PROJECT_ROOT` pointing at the package, `@aurii/studio-app` loads that `defineStudio` config (navigation, views, groups) at SSR/build time. Without `AURII_PROJECT_ROOT`, Studio uses the generic default workspace (or a slug-based fallback for known demos).
+
 Config may set:
 
 - Navigation groups and items

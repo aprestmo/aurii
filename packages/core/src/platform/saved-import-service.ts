@@ -9,6 +9,7 @@ import { resolve } from "node:path";
 import { loadImportDefinition, runImport } from "../import/engine";
 import type { ImportDefinition, ImportResult } from "../import/types";
 import { requireDatasetInProject, requireWritableDatasetProject } from "../project/dataset-context";
+import { appendAudit } from "./audit";
 import { getPlatformStore, type PlatformStore } from "./store";
 import { computeNextCronRun } from "../schedule/cron";
 
@@ -92,6 +93,7 @@ export class SavedImportService {
 		projectId: string,
 		id: string,
 		input: UpdateSavedImportInput,
+		actor = "system",
 	): Promise<SavedImportDefinition> {
 		const existing = await this.get(projectId, id);
 		await requireWritableDatasetProject(existing.datasetId, "update saved import");
@@ -126,6 +128,24 @@ export class SavedImportService {
 		if (!saved) {
 			throw new SavedImportError(`Saved import "${id}" not found`, "not_found", 404);
 		}
+
+		const scheduleChanged =
+			input.schedule !== undefined &&
+			JSON.stringify(existing.schedule) !== JSON.stringify(schedule);
+		if (scheduleChanged) {
+			await appendAudit(this.store, {
+				projectId,
+				action: "schedule.updated",
+				actor,
+				resourceType: "saved_import",
+				resourceId: id,
+				detail: {
+					enabled: schedule?.enabled ?? false,
+					expression: schedule?.spec.expression ?? null,
+				},
+			});
+		}
+
 		return saved;
 	}
 

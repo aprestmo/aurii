@@ -1,8 +1,8 @@
 /**
- * Register Norwegian Geo project-package resources into a running Core:
- * data sources, saved imports (incl. disabled nightly sync), published routes.
+ * Bootstrap Norwegian Geo platform resources in-process (CI / validation).
+ * For a running Core API, use register-via-api.ts instead.
  *
- * Usage (after import:norwegian-geo):
+ * Usage:
  *   bun run demo/norwegian-geo/scripts/bootstrap-platform.ts
  */
 
@@ -38,8 +38,9 @@ async function main() {
 	// for standalone bootstrap we still need a project + dataset.
 	const storage = new SqliteAdapter(":memory:");
 	await storage.init();
-	// Note: this script is mainly for validation of package loading in CI.
-	// Production registration uses HTTP against a running API — see register-via-api.ts
+	// Note: this script validates package loading and in-process registration.
+	// Production / local demo registration against a running API:
+	//   bun run demo/norwegian-geo/scripts/register-via-api.ts
 
 	resetPlatformStore();
 	let project = await projects.listProjects({ status: "active" }).then((list) =>

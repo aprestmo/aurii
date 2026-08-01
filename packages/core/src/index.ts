@@ -176,6 +176,7 @@ export {
 	appendAudit,
 	configurePlatformStore,
 	createDataSourceService,
+	createDurablePlatformStore,
 	createProjectTokenService,
 	createPublishedRouteService,
 	createSavedImportService,
@@ -193,6 +194,7 @@ export {
 	resetPlatformStore,
 	SavedImportError,
 	SavedImportService,
+	SqlitePlatformStore,
 	TokenError,
 } from "./platform";
 export type { PlatformStore } from "./platform";

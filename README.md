@@ -91,9 +91,12 @@ bun run serve                  # Core API (default :3000)
 AURII_CORE_URL=http://localhost:3000 \
 AURII_PROJECT_SLUG=norge-data \
 AURII_DEFAULT_DATASET=norwegian-geo \
-bun run studio                 # project Studio locally
+AURII_PROJECT_ROOT=demo/norwegian-geo \
+bun run studio                 # project Studio locally (loads defineStudio from package)
 
 bun run studio:build           # static Studio for hosting
+# After import: register sources/imports/routes:
+#   bun run demo/norwegian-geo/scripts/register-via-api.ts
 ```
 
 Do **not** put API tokens into a public Studio build.

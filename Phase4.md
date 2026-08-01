@@ -70,11 +70,12 @@ Do not re-implement these; build on them.
 
 ### Known gaps Phase 4 must treat honestly
 
-- `apps/geo` primarily reads **committed snapshots**, not live Core via SDK.
+- `apps/geo` prefers live published routes when `AURII_CORE_URL` is set (counties, municipalities, postal codes); snapshots remain the offline/build-time fallback.
 - In-memory joins are **not** suitable for millions of rows.
-- Project Studio / DataSource / schedule / published routes are **beta**—harden UX, provenance, and failure reporting.
-- Resumability for huge imports and multi-node HA scheduling remain out of beta guarantees.
+- Platform ops (DataSource / schedule / published routes) persist in SQLite when `AURII_DB_PATH` is a file; HA multi-node scheduling remains out of beta.
+- Resumability for huge imports and distributed job queues remain out of beta guarantees.
 - Product composition via `product.yaml` remains a **convention** alongside `aurii.config.ts`; no large “Product Runtime.”
+- Project tokens + AuthScopes are enforced on platform routes when `AURII_API_TOKEN` is set (global token = `project:admin`); finer multi-org RBAC is later.
 - No Editorial reference vertical (by design for this phase).
 
 ---

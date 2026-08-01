@@ -136,6 +136,25 @@ export async function loadMunicipalities(): Promise<Municipality[]> {
 }
 
 export async function loadPostalCodes(): Promise<PostalCode[]> {
+  const live = getLiveGeoConfig();
+  if (live) {
+    try {
+      const rows = await fetchPublished<{
+        id: string;
+        name: string;
+        municipalityId: string;
+      }>(live, "/postal-codes");
+      if (rows.length) {
+        return rows.map((r) => ({
+          code: r.id,
+          city: r.name,
+          municipalityId: r.municipalityId,
+        }));
+      }
+    } catch {
+      /* fall through to snapshots */
+    }
+  }
   return readJson<PostalCode[]>(CORE_DATA, "postal-codes.json");
 }
 

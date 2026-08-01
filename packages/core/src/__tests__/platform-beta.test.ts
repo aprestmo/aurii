@@ -274,3 +274,48 @@ describe("published routes", () => {
 		).rejects.toMatchObject({ code: "validation_error" });
 	});
 });
+
+describe("schedule audit", () => {
+	beforeEach(async () => {
+		await closeStorage().catch(() => undefined);
+	});
+	afterEach(async () => {
+		await closeStorage().catch(() => undefined);
+		resetPlatformStore();
+		resetProjectService();
+	});
+
+	test("schedule enable/disable is audited", async () => {
+		const { project, store } = await setup();
+		const imports = createSavedImportService(store);
+		await imports.create(project.id, {
+			id: "nightly",
+			datasetId: "norwegian-geo",
+			name: "Nightly",
+			schemaId: "postal-code",
+			triggerMode: "scheduled",
+			definitionPath: "/tmp/x.yaml",
+			schedule: {
+				enabled: false,
+				spec: { type: "cron", expression: "0 4 * * *", timezone: "Europe/Oslo" },
+				nextRunAt: null,
+				lastRunAt: null,
+			},
+		});
+		await imports.update(
+			project.id,
+			"nightly",
+			{
+				schedule: {
+					enabled: true,
+					spec: { type: "cron", expression: "0 4 * * *", timezone: "Europe/Oslo" },
+					nextRunAt: null,
+					lastRunAt: null,
+				},
+			},
+			"test-actor",
+		);
+		const audit = await store.listAudit(project.id);
+		expect(audit.some((e) => e.action === "schedule.updated")).toBe(true);
+	});
+});

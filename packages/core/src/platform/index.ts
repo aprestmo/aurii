@@ -6,6 +6,10 @@ export {
 	type PlatformStore,
 } from "./store";
 export {
+	createDurablePlatformStore,
+	SqlitePlatformStore,
+} from "./sqlite-store";
+export {
 	createDataSourceService,
 	DataSourceError,
 	DataSourceService,

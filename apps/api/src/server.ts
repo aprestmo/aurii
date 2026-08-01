@@ -7,13 +7,18 @@
 
 import {
 	buildApp as buildCoreApp,
+	configurePlatformStore,
 	configureProjectService,
+	createDurablePlatformStore,
 	type AppOptions,
 	createProjectService,
 	DrizzleProjectRepository,
 	getImportScheduler,
+	getPlatformStore,
 	getStorage,
+	hashToken,
 	MemoryProjectRepository,
+	parseBearer,
 	type DatasetService,
 	type ProjectRepository,
 	type ProjectService,
@@ -35,12 +40,19 @@ export interface ApiAppOptions extends AppOptions {
 	storage?: StorageAdapter;
 	/** Start the in-process import scheduler (default: false in tests). */
 	enableScheduler?: boolean;
+	/** Skip durable platform store init (tests that inject MemoryPlatformStore). */
+	skipPlatformStoreInit?: boolean;
 }
 
 /**
  * Build the full API app (Core runtime + projects + platform + public routes).
  */
 export function buildApiApp(options: ApiAppOptions = {}) {
+	if (!options.skipPlatformStoreInit) {
+		const durable = createDurablePlatformStore();
+		if (durable) configurePlatformStore(durable);
+	}
+
 	const projectService =
 		options.projectService ??
 		createProjectService(
@@ -65,15 +77,31 @@ export function buildApiApp(options: ApiAppOptions = {}) {
 
 	const apiToken = options.apiToken ?? process.env["AURII_API_TOKEN"];
 
-	// Apply the same bearer-token gate as Core to /api/projects* routes.
+	// Accept global bearer OR a valid project-bound token. Platform routes
+	// enforce finer AuthScope checks. Open mode when no global token is set.
 	const projectRoutes = new Elysia({ name: "api-projects-auth" })
-		.onBeforeHandle(({ headers, set }) => {
+		.onBeforeHandle(async ({ headers, set, path }) => {
 			if (!apiToken) return;
-			const auth =
-				(headers as Record<string, string | undefined>)["authorization"] ?? "";
-			if (auth !== `Bearer ${apiToken}`) {
+			const raw = parseBearer(
+				(headers as Record<string, string | undefined>)["authorization"],
+			);
+			if (!raw) {
 				set.status = 401;
 				return { error: "Unauthorized" };
+			}
+			if (raw === apiToken) return;
+			// Allow project tokens through; platform handlers check scopes.
+			const store = getPlatformStore();
+			const token = await store.findTokenByHash(hashToken(raw));
+			if (!token) {
+				set.status = 401;
+				return { error: "Unauthorized" };
+			}
+			// Token must match the project in the path when present.
+			const match = /\/api\/projects\/([^/]+)/.exec(path ?? "");
+			if (match?.[1] && match[1] !== token.projectId) {
+				set.status = 403;
+				return { error: "Forbidden" };
 			}
 		})
 		.use(createProjectsPlugin({ service: projectService }))
@@ -84,7 +112,12 @@ export function buildApiApp(options: ApiAppOptions = {}) {
 				getStorage,
 			}),
 		)
-		.use(createProjectPlatformPlugin({ projectService }));
+		.use(
+			createProjectPlatformPlugin({
+				projectService,
+				...(apiToken !== undefined ? { legacyApiToken: apiToken } : {}),
+			}),
+		);
 
 	const app = buildCoreApp(options)
 		.use(projectRoutes)

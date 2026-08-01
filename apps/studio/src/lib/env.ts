@@ -10,6 +10,8 @@ export interface StudioRuntimeEnv {
 	defaultDataset: string | null;
 	/** Optional path to project package for server-side config loading. */
 	projectRoot: string | null;
+	/** Optional explicit path to defineStudio module (overrides package convention). */
+	studioConfigPath: string | null;
 }
 
 export function getStudioRuntimeEnv(
@@ -23,5 +25,6 @@ export function getStudioRuntimeEnv(
 		defaultDataset:
 			env["AURII_DEFAULT_DATASET"] ?? env["PUBLIC_AURII_DEFAULT_DATASET"] ?? null,
 		projectRoot: env["AURII_PROJECT_ROOT"] ?? null,
+		studioConfigPath: env["AURII_STUDIO_CONFIG"] ?? null,
 	};
 }

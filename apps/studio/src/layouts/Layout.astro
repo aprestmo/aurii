@@ -7,11 +7,11 @@ const { title, active } = Astro.props;
 
 import "../styles/global.css";
 import { getStudioRuntimeEnv } from "../lib/env";
-import { navigationGroups, navHref, navLabel } from "../lib/studio-config";
+import { navHref, navLabel, resolveActiveStudioConfig } from "../lib/studio-config";
 
 const env = getStudioRuntimeEnv();
-const groups = navigationGroups(env.projectSlug);
-const studioTitle = env.projectSlug === "norge-data" ? "Norwegian Geo" : "Aurii Studio";
+const { config: studioCfg, title: studioTitle } = await resolveActiveStudioConfig();
+const groups = studioCfg.navigation ?? [];
 ---
 
 <!doctype html>

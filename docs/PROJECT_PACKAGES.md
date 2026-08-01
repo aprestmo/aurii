@@ -96,9 +96,29 @@ Core Project + Dataset →  runtime boundaries those files target
 2. Ensure a Core Project exists for `core.projectSlug` (and dataset for `defaultDataset`).
 3. Import / register schemas and run imports (`bun run import:norwegian-geo` for the reference vertical).
 4. Start Core (`bun run serve`).
-5. Run Studio locally with env vars pointing at Core + project slug (see [`Studio.md`](Studio.md)).
+5. Register package resources (sources, saved imports, routes) against the running API:
+
+   ```bash
+   AURII_CORE_URL=http://localhost:3000 bun run demo/norwegian-geo/scripts/register-via-api.ts
+   ```
+
+6. Run Studio locally with env vars pointing at Core + project package:
+
+   ```bash
+   AURII_CORE_URL=http://localhost:3000 \
+   AURII_PROJECT_SLUG=norge-data \
+   AURII_DEFAULT_DATASET=norwegian-geo \
+   AURII_PROJECT_ROOT=demo/norwegian-geo \
+   bun run studio
+   ```
+
+   Studio loads `defineStudio` from the package when `AURII_PROJECT_ROOT` is set.
 
 Frontends consume Core published routes or the Query API via `@aurii/sdk` — not Studio.
+
+### Platform persistence
+
+When `AURII_DB_PATH` points at a SQLite file, Core stores DataSources, saved imports, published route state, project tokens, secrets, and audit events in the same database (`SqlitePlatformStore`). In-memory mode (`:memory:` / tests) keeps an ephemeral store.
 
 ---
 

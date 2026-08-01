@@ -70,11 +70,12 @@ Do not re-implement these; build on them.
 
 ### Known gaps Phase 4 must treat honestly
 
-- `apps/geo` primarily reads **committed snapshots**, not live Core via SDK.
+- `apps/geo` prefers live published routes when `AURII_CORE_URL` is set (counties, municipalities, postal codes); snapshots remain the offline/build-time fallback.
 - In-memory joins are **not** suitable for millions of rows.
-- Project Studio / DataSource / schedule / published routes are **beta**—harden UX, provenance, and failure reporting.
-- Resumability for huge imports and multi-node HA scheduling remain out of beta guarantees.
+- Platform ops (DataSource / schedule / published routes) persist in SQLite when `AURII_DB_PATH` is a file; HA multi-node scheduling remains out of beta.
+- Resumability for huge imports and distributed job queues remain out of beta guarantees.
 - Product composition via `product.yaml` remains a **convention** alongside `aurii.config.ts`; no large “Product Runtime.”
+- Project tokens + AuthScopes are enforced on platform routes when `AURII_API_TOKEN` is set (global token = `project:admin`); finer multi-org RBAC is later.
 - No Editorial reference vertical (by design for this phase).
 
 ---
@@ -232,7 +233,17 @@ Phase 4 is complete when all of the following are true:
 
 ## Suggested follow-up issue split
 
-Derive implementation issues from this plan rather than one mega-PR:
+**Current next-step plan (post–project Studio beta):** [`docs/NEXT_AFTER_STUDIO_BETA.md`](docs/NEXT_AFTER_STUDIO_BETA.md).
+
+That document assumes [PR #52](https://github.com/aprestmo/aurii/pull/52) (persistence, package-driven Studio, register-via-api, AuthScopes) as baseline and sequences:
+
+1. Live delivery contract + `apps/geo` integration proof (N1)
+2. Studio ops polish — groups, provenance, run errors (N2)
+3. Package/composition alignment + shared register helper (N3)
+4. Scale measurements / pushdown spike (N4)
+5. Optional hardening — Postgres platform store, scheduler e2e (N5)
+
+Older split (still valid themes, superseded in order by the doc above):
 
 1. Product manifest convention + docs/SDK helpers (A)
 2. Studio import operations polish + provenance fields (B)

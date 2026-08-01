@@ -22,6 +22,7 @@
     "dev": "bun run --filter='@aurii/api' dev & bun run --filter='@aurii/studio-app' dev",
     "studio": "bun run --filter='@aurii/studio-app' dev",
     "studio:build": "bun run --filter='@aurii/studio-app' build",
+    "register:norwegian-geo-platform": "bun run demo/norwegian-geo/scripts/register-via-api.ts",
     "serve": "bun run --filter='@aurii/api' serve",
     "db:migrate": "bun run --filter='@aurii/db' migrate",
     "db:seed": "bun run --filter='@aurii/db' seed",

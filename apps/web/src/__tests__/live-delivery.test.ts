@@ -27,5 +27,13 @@ describe("live delivery config", () => {
 		expect(Object.keys(deps).some((k) => k.includes("studio-app"))).toBe(
 			false,
 		);
+		expect(Object.keys(deps).some((k) => k === "@aurii/studio")).toBe(false);
+	});
+
+	test("published route paths for core geo schemas", () => {
+		const paths = ["/counties", "/municipalities", "/postal-codes"];
+		for (const p of paths) {
+			expect(p.startsWith("/")).toBe(true);
+		}
 	});
 });

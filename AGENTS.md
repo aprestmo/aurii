@@ -32,14 +32,15 @@ Aurii is a **Declarative Runtime for Structured Knowledge** — a schema-driven 
 
 **Product clarification:**
 
-- **Aurii Core** is the system of record. It is not a CMS. It does not assume records are articles. The same entity/schema model represents structured records, editorial documents, and hybrids.
-- **Studio** is an **extensible project workspace** (generated UI by default; custom editors/views via extensions). Studio is **not** a publication CMS and **not** the Editorial product.
+- **Aurii Core** is the system of record. It is not a CMS. It does not assume records are articles. The same entity/schema model represents structured records, editorial documents, and hybrids. Core must remain usable independently of Studio and of commercial products.
+- **Studio** is an **extensible developer/operator project workspace** (generated UI by default; custom editors/views via extensions). Studio is **not** a publication CMS, **not** the Editorial product, and **not** the default tool for journalists, editors, or other domain users.
 - Data enters Core from **many sources** (file, HTTP, database, manual, automation, AI, future product clients)—not only from an authoring UI.
 - Developers describe installable projects with a **project package** (`aurii.config.ts` / `defineProject`), complementary to product composition (`product.yaml`).
-- A **publication CMS is a future separate product** that may consume Core. It is never required between Core and a frontend, and it is not Studio renamed. Domain-specific Studio tools (match desk, map) are extensions, not that CMS.
+- **Products** may be separate, opinionated clients over Core. They do not need to share one universal UI. A publication CMS is a future separate product that may consume Core. It is never required between Core and a frontend, and it is not Studio renamed. Domain-specific Studio tools (match desk, map) are operator-facing extensions, not that CMS.
+- **Products discover requirements. Core absorbs durable generalizations.** Do not move a need into Core merely because it could theoretically be useful elsewhere. Do not make Core media-specific because publishing is an early vertical.
 - Relations, sources, provenance/overrides, and Studio extensibility are **foundations**. Do not treat them as late optional integrations. Do not implement them as large features unless that is the assigned task.
 
-See `docs/PRODUCT_MODEL.md`, `docs/Studio.md`, `docs/PROJECT_PACKAGES.md`, `docs/ARCHITECTURE_FITNESS.md`, [ADR-0010](adr/ADR-0010%20—%20Optional%20Authoring%20Layer.md), [ADR-0019](adr/ADR-0019%20—%20Provenance%20and%20Editorial%20Overrides.md), [ADR-0020](adr/ADR-0020%20—%20Extensible%20Studio.md), and ADRs 0014–0018.
+See `docs/PRODUCT_MODEL.md`, `docs/PRODUCT_STRATEGY.md`, `docs/Studio.md`, `docs/PROJECT_PACKAGES.md`, `docs/ARCHITECTURE_FITNESS.md`, [ADR-0010](adr/ADR-0010%20—%20Optional%20Authoring%20Layer.md), [ADR-0019](adr/ADR-0019%20—%20Provenance%20and%20Editorial%20Overrides.md), [ADR-0020](adr/ADR-0020%20—%20Extensible%20Studio.md), and ADRs 0014–0018.
 
 Everything you build should reinforce that vision.
 
@@ -56,8 +57,12 @@ Before implementing anything, ask yourself:
 5. Does this belong in the Capability Model?
 6. Can this be implemented as a Plugin?
 7. Does this make Aurii more generic?
+8. Has a real product proven this need, or is it hypothetical?
+9. Would this turn Studio into a domain CMS, or Core into a media backend?
 
 If you cannot answer these questions, stop and think before writing code.
+
+A need that is real for one product should usually stay in that product until it proves durable across products.
 
 ---
 
@@ -218,6 +223,8 @@ move it:
 Generic Runtime.
 
 Specific Plugins.
+
+**Products discover requirements. Core absorbs durable generalizations.** Do not promote a product need into Core until it has proven durable and general.
 
 ---
 
@@ -414,6 +421,10 @@ Choose the one that:
 - improves declarative behavior
 - reduces coupling
 - improves future extensibility
+- keeps product-specific logic out of Core
+- does not turn Studio into a domain CMS
+
+Prefer implementing a need in a product first. Promote it to a reusable capability or Core only after the pattern proves durable.
 
 Aurii should become simpler over time.
 
@@ -436,7 +447,7 @@ If a change would require Core to know football, playgrounds, Gaselle rankings, 
 
 Cross-cutting Runtime changes must eventually be validated against both verticals. Until Editorial exists, do **not** add editorial concepts to Core merely because Norwegian Geo cannot exercise them. Express draft/publish/revision as generic schemas and capabilities when that phase begins—not as hardcoded news CMS behavior. Structured + rich fields on the same record is already in the unified model—do not wait for Editorial to allow hybrid records in schemas.
 
-Product model: `docs/PRODUCT_MODEL.md`. Project packages: `docs/PROJECT_PACKAGES.md`. Studio: `docs/Studio.md`. Delivery: `docs/DELIVERY.md`. Phase plan: `Phase4.md`. Editorial roadmap (planned): `Phase5.md`. ADRs: `0010`, `0014`–`0020`.
+Product model: `docs/PRODUCT_MODEL.md`. Product strategy: `docs/PRODUCT_STRATEGY.md`. Project packages: `docs/PROJECT_PACKAGES.md`. Studio: `docs/Studio.md`. Delivery: `docs/DELIVERY.md`. Phase plan: `Phase4.md`. Editorial roadmap (planned): `Phase5.md`. ADRs: `0010`, `0014`–`0020`.
 
 ---
 
@@ -515,6 +526,8 @@ Until that vertical exists:
 - Keep Phase 4 focused on data products and delivery (`Phase4.md`)
 - Do not implement Phase 5 capabilities (editor, Context, CRDT, workflow engines) unless that is the assigned task
 - Domain-specific Studio extensions are planned ([ADR-0020](adr/ADR-0020%20—%20Extensible%20Studio.md)); do not build match desks or map views unless assigned
+- Do not turn Studio into the Editorial product or assume every publishing use case belongs in one universal CMS
+- Publishing/news/magazine is an important validation domain, not a boundary on what Core can support
 
 ---
 

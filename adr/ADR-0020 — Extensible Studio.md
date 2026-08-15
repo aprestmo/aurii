@@ -45,7 +45,7 @@ Separately, schema-generated forms were deferred as a “CMS feature” ([`Phase
 
 3. **Collection views are Studio extensions, not Core concepts.** Map, Kanban, or Timeline must not become Runtime types. Core stores entities; Studio (or a reusable view module) renders them.
 
-4. **Domain-specific Studio experiences do not require the Editorial product.** A match desk or map browser is a Studio extension on public APIs. Draft/preview/collaboration/Context remain the future Editorial client ([`Phase5.md`](../Phase5.md)). One Studio shell may host both data operations and custom editors ([ADR-0010](./ADR-0010%20—%20Optional%20Authoring%20Layer.md) point 6).
+4. **Domain-specific Studio experiences do not require the Editorial product.** A match desk or map browser is a Studio extension on public APIs when the user is operating Aurii. Draft/preview/collaboration/Context remain the future Editorial client ([`Phase5.md`](../Phase5.md)). One Studio shell may host both data operations and custom editors ([ADR-0010](./ADR-0010%20—%20Optional%20Authoring%20Layer.md) point 6). That must not turn Studio into a universal CMS or the default journalist/editor product ([`docs/PRODUCT_STRATEGY.md`](../docs/PRODUCT_STRATEGY.md)).
 
 5. **Keep a stable extension contract as a planned API.** Beta keeps the simple view registry. Do not lock plugin signatures in this ADR. Do document the **intent** so Core/Studio changes do not paint the platform into generated-CRUD-only.
 

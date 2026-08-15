@@ -5,6 +5,7 @@
 > Phase 3 completed the relational Core. Phase 4 completes the **data-product path** before the repository attempts a full newsroom, LiveCenter, or authoring CMS.
 >
 > Product vocabulary: [`docs/PRODUCT_MODEL.md`](docs/PRODUCT_MODEL.md).  
+> Product strategy: [`docs/PRODUCT_STRATEGY.md`](docs/PRODUCT_STRATEGY.md).  
 > Optional authoring decision: [`adr/ADR-0010 — Optional Authoring Layer.md`](adr/ADR-0010%20—%20Optional%20Authoring%20Layer.md).  
 > Architecture fitness tests: [`docs/ARCHITECTURE_FITNESS.md`](docs/ARCHITECTURE_FITNESS.md).  
 > Provenance: [`adr/ADR-0019 — Provenance and Editorial Overrides.md`](adr/ADR-0019%20—%20Provenance%20and%20Editorial%20Overrides.md).  

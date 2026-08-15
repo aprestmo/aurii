@@ -7,6 +7,7 @@
 > If any case needs special-case logic inside Core, the architecture should be reconsidered.
 >
 > Product vocabulary: [`PRODUCT_MODEL.md`](PRODUCT_MODEL.md).  
+> Product strategy: [`PRODUCT_STRATEGY.md`](PRODUCT_STRATEGY.md).  
 > Studio extension: [ADR-0017](../adr/ADR-0017%20—%20Studio%20Extension%20Model.md), [ADR-0020](../adr/ADR-0020%20—%20Extensible%20Studio.md).  
 > Provenance: [ADR-0019](../adr/ADR-0019%20—%20Provenance%20and%20Editorial%20Overrides.md).
 
@@ -25,9 +26,11 @@ The same Core must eventually support, among others:
 - Geo datasets
 - LiveCenter
 - documentation
-- other structured-data applications
+- other structured-data applications — including products not listed here
 
 without each project inventing its own backend architecture.
+
+These cases are **architecture tests and possible products**, not a closed catalog of what Aurii is allowed to become. Customer needs may evolve the platform beyond them. **Products discover requirements. Core absorbs durable generalizations.** See [`PRODUCT_STRATEGY.md`](PRODUCT_STRATEGY.md).
 
 Norwegian Geo remains the **implemented** canonical vertical for import, schema, query, storage, SDK, and delivery. Editorial + Context remains the **planned** vertical for authoring, revision, publishing, preview, workflow, and media ([`Phase5.md`](../Phase5.md)).
 
@@ -246,6 +249,7 @@ When changing Core, Schema Language, Query Language, Studio, or the roadmap:
 ## Related documents
 
 - [`PRODUCT_MODEL.md`](PRODUCT_MODEL.md) — product composition and modes
+- [`PRODUCT_STRATEGY.md`](PRODUCT_STRATEGY.md) — open Core, product boundaries, Studio audience
 - [`Architecture.md`](Architecture.md) — engines, sources, provenance
 - [`Studio.md`](Studio.md) — generated UI and extension surface
 - [`Phase4.md`](../Phase4.md) — data products and delivery

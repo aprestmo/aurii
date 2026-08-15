@@ -2,11 +2,11 @@
 
 > Aurii Studio is a **client** of the Aurii Runtime. It consumes the public HTTP API (via `@aurii/sdk`) and nothing else.
 >
-> Studio is a **project-oriented workspace** — sources, imports, schedules, entities, queries, published routes, plus generated default UI and optional custom views. It is **not** a publication CMS.
+> Studio is a **developer/operator project-oriented workspace** — sources, imports, schedules, entities, queries, published routes, plus generated default UI and optional custom views. It is **not** a publication CMS and **not** the default tool for journalists, editors, or other domain users.
 >
 > Config helpers live in `@aurii/studio` (`defineStudio`). This package is the Astro UI app.
 >
-> **Status:** project-oriented Studio **beta** (Phase 4). Full extension API planned ([ADR-0020](../../adr/ADR-0020%20—%20Extensible%20Studio.md)). See [`docs/Studio.md`](../../docs/Studio.md), [`docs/PRODUCT_MODEL.md`](../../docs/PRODUCT_MODEL.md), [ADR-0017](../../adr/ADR-0017%20—%20Studio%20Extension%20Model.md).
+> **Status:** project-oriented Studio **beta** (Phase 4). Full extension API planned ([ADR-0020](../../adr/ADR-0020%20—%20Extensible%20Studio.md)). See [`docs/Studio.md`](../../docs/Studio.md), [`docs/PRODUCT_MODEL.md`](../../docs/PRODUCT_MODEL.md), [`docs/PRODUCT_STRATEGY.md`](../../docs/PRODUCT_STRATEGY.md), [ADR-0017](../../adr/ADR-0017%20—%20Studio%20Extension%20Model.md).
 
 ## Surfaces
 

@@ -11,6 +11,7 @@ The specification is the **source of truth**. Code implements the specification.
 ### Product model
 
 - [PRODUCT_MODEL.md](./PRODUCT_MODEL.md) — **Canonical product model** (Core, datasets, products, modules, Studio, authoring, consumers)
+- [PRODUCT_STRATEGY.md](./PRODUCT_STRATEGY.md) — Open Core, product boundaries, Studio audience, customer-led evolution
 - [ARCHITECTURE_FITNESS.md](./ARCHITECTURE_FITNESS.md) — Kampbart, playgrounds, Gaselle, Geo as architecture tests
 - [PROJECTS.md](./PROJECTS.md) — Project as top-level Core boundary (API, migration, seed)
 - [Phase4.md](../Phase4.md) — Phase 4 plan: Data Products and Delivery
@@ -38,7 +39,7 @@ The specification is the **source of truth**. Code implements the specification.
 
 ### Components
 
-- [Studio.md](./Studio.md) — Studio admin client design
+- [Studio.md](./Studio.md) — Studio developer/operator workspace (beta)
 - [Import Engine.md](./Import%20Engine.md) — Import pipeline architecture
 - [Plugin Runtime.md](./Plugin%20Runtime.md) — Plugin system specification
 
@@ -52,7 +53,8 @@ The specification is the **source of truth**. Code implements the specification.
 ### Vision & Philosophy
 
 - [Vision.md](./Vision.md) — Product vision
-- [Constitution.md](./Constitution.md) — Architectural principles
+- [Constitution.md](./Constitution.md) — Architectural principles (including customer-led evolution)
+- [PRODUCT_STRATEGY.md](./PRODUCT_STRATEGY.md) — Open Core, product boundaries, Studio audience
 - [Toc.md](./Toc.md) — Table of contents for the full specification
 
 ### Development

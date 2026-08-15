@@ -136,6 +136,33 @@ export function studioConfigForProject(
 					],
 				},
 				{
+					title: "Utdanning",
+					items: [
+						collection("school", {
+							columns: ["id", "name", "municipalityId"],
+						}),
+						collection("kindergarten", {
+							columns: ["id", "name", "municipalityId"],
+						}),
+					],
+				},
+				{
+					title: "Helse",
+					items: [
+						collection("hospital", {
+							columns: ["id", "name", "municipalityId"],
+						}),
+					],
+				},
+				{
+					title: "Kalender",
+					items: [
+						collection("public-holiday", {
+							columns: ["id", "localName", "date", "year"],
+						}),
+					],
+				},
+				{
 					title: "Datatilførsel",
 					items: [sources(), imports()],
 				},
@@ -161,6 +188,18 @@ export function studioConfigForProject(
 				{
 					title: "Kjerne",
 					definitionIds: ["counties", "municipalities", "postal-codes"],
+				},
+				{
+					title: "Utdanning",
+					definitionIds: ["schools", "kindergartens"],
+				},
+				{
+					title: "Helse",
+					definitionIds: ["hospitals"],
+				},
+				{
+					title: "Kalender",
+					definitionIds: ["public-holidays"],
 				},
 				{
 					title: "Planlagt synk",

@@ -20,7 +20,7 @@ Treat the following as **done foundation**. Next agents extend these surfaces; t
 | Cron scheduling (single-process) | Core scheduler; Studio enable/disable; audited | ADR-0018 |
 | Published routes | `defineRoute` + `/public/:slug/v1/...` + Studio enable/disable | ADR-0016 |
 | Durable platform store (SQLite file) | `SqlitePlatformStore` when `AURII_DB_PATH` is a file | Secrets stay server-side |
-| Package → Core register | `register-via-api.ts` / `bun run register:norwegian-geo-platform` | After `import:norwegian-geo` + `serve` |
+| Package → Core register | `registerProjectPackage` (`@aurii/core`); CLI: `bun run register:norwegian-geo-platform` | After `import:norwegian-geo` + `serve` |
 | AuthScopes (beta) | Platform routes; global token = `project:admin` | Not full RBAC |
 | Geo consumer independence | `apps/geo` never imports Studio; live published routes when `AURII_CORE_URL` set | Snapshots = explicit offline fallback (`AURII_DELIVERY_MODE=snapshot`); live never falls back silently |
 
@@ -102,10 +102,10 @@ Editorial/CMS remains **out of scope** for N1. See [`Phase5.md`](../Phase5.md) (
 
 | Step | Deliverable |
 |------|-------------|
-| N3.1 | Document when a schema belongs in `aurii.config.ts` vs only in `product.yaml` modules |
-| N3.2 | Decide whether education/health/calendar modules get Studio collections via package config (ops) or stay CLI-only — pick one and implement consistently for NG |
-| N3.3 | SDK helper: `loadProjectPackage` + thin `registerProjectPackage({ coreUrl, token })` shared by CLI scripts (replace duplicated register logic) |
-| N3.4 | ADR only if Core must learn “product” as a runtime object (default: **no**) |
+| N3.1 | **Done** — schema placement documented in [`PROJECT_PACKAGES.md`](PROJECT_PACKAGES.md): core YAML in both files; module YAML in `product.yaml` / `module.yaml` / `lib/manifest.ts` only |
+| N3.2 | **Done** — education/health/calendar are Studio-operable (collections, sources, saved imports). Planned modules stay in `futureModules` |
+| N3.3 | **Done** — `loadProjectPackage` + `registerProjectPackage({ coreUrl, token })` + `applyProjectPackage` in `@aurii/core`; CLI scripts are thin wrappers |
+| N3.4 | **Done** — no ADR; Product remains a composition convention, not a Core object |
 
 **Exit:** Contributor can add a module and know which files to touch; register helper is one code path.
 
@@ -151,9 +151,9 @@ Small, reviewable PRs branching from **main after #52 merges**:
 1. **`docs/DELIVERY.md` + geo live README** (N1.1, N1.4) — docs-first
 2. **`apps/geo` SDK/live loaders + integration test** (N1.2, N1.3)
 3. **Studio: config groups + source/import detail UX** (N2.1–N2.3)
-4. **`registerProjectPackage` helper + script thin wrapper** (N3.3)
-5. **Module surface decision for NG Studio** (N3.1–N3.2)
-6. **Benchmarks + scale note** (N4.1, N4.4)
+4. **`registerProjectPackage` helper + script thin wrapper** (N3.3) — **done**
+5. **Module surface decision for NG Studio** (N3.1–N3.2) — **done**
+6. **Benchmarks + scale note** (N4.1, N4.4) — **next**
 7. Optional later: Postgres platform store, scheduler e2e, tokens UI (N5)
 
 Each PR must:
@@ -173,7 +173,7 @@ Use this after N1–N4 land (N5 can trail):
 - [x] Live delivery contract documented and integration-tested ([`DELIVERY.md`](DELIVERY.md), `live-geo-delivery.integration.test.ts`)
 - [x] `apps/geo` demonstrates Core/published-route consumption without Studio
 - [x] Studio operates NG sources/imports/schedules/routes using package `defineStudio` (N2.1–N2.4)
-- [ ] Composition story (`aurii.config` vs `product.yaml`) documented; register helper shared
+- [x] Composition story (`aurii.config` vs `product.yaml`) documented; register helper shared
 - [ ] Scale limits measured and written down
 - [x] Docs still say: publication CMS is a future separate product; Studio is an extensible workspace (generated default, replaceable UI); fitness tests in `ARCHITECTURE_FITNESS.md`
 
@@ -182,7 +182,7 @@ Use this after N1–N4 land (N5 can trail):
 ## Agent instructions (next run)
 
 1. Assume branch/`main` includes #52–#55 and Studio N2 ops polish (N2.1–N2.4).
-2. Start with **N3** (package/composition alignment) unless the user names another workstream. **N4** follows N3.
+2. Start with **N4** (scale and query honesty) unless the user names another workstream. N3 (package/composition + `registerProjectPackage`) is done.
 3. Read this file + `Phase4.md` + `docs/PRODUCT_MODEL.md` before coding.
 4. Do not re-scaffold `defineProject` / platform store / ADRs 0014–0018 / live delivery / Studio ops pages.
 5. Prefer a shared `registerProjectPackage` helper wrapping `register-via-api.ts` / `bootstrap-platform.ts`.

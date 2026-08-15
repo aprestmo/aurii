@@ -419,10 +419,12 @@ The two coexist ([ADR-0014](../adr/ADR-0014%20—%20Project%20Configuration%20Pa
 
 | File | Answers |
 |------|---------|
-| `product.yaml` | What modules make up this shipping product? |
+| `product.yaml` | What modules make up this shipping product? CLI import order and `dependsOn`. |
 | `aurii.config.ts` | How does a developer install and operate this project in Core/Studio? |
 
-Phase 4 may add SDK helpers to load manifests; that is not a second tenancy model or a “Product Runtime.”
+**Schema placement:** core geography schemas are listed in both files. Shipped module schemas (`school`, `kindergarten`, `hospital`, `public-holiday`) live in `product.yaml` / `module.yaml` / `lib/manifest.ts` for CLI import. They are **not** copied into `aurii.config.ts` `schemas:`. Studio operates those modules via package sources, saved imports, and `defineStudio` collections. Planned modules stay in `futureModules` only.
+
+Phase 4 adds `registerProjectPackage` / `loadProjectPackage` helpers in `@aurii/core`. That is not a second tenancy model and **not** a Product Runtime. Core does not learn “product” as an object (N3.4 — no ADR).
 
 ---
 

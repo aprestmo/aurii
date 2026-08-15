@@ -100,7 +100,8 @@ Use this checklist:
 
 1. **Does it affect Core geography?** → Extend `demo/norwegian-geo/core/`
 2. **Does it affect a domain dataset?** → Add or extend a module under `demo/norwegian-geo/modules/`
-3. **Does it affect import?** → Update `product.yaml` and `scripts/import.ts`; add tests in `vertical-slice.test.ts` or `public-reference-datasets.test.ts`
+3. **Does it affect import?** → Update `product.yaml`, `lib/manifest.ts`, and `scripts/import.ts`; add tests in `vertical-slice.test.ts` or `public-reference-datasets.test.ts`
+3b. **Does it add a shipped module to Studio?** → Add source/import descriptors to `aurii.config.ts` and collections to `studio/studio.config.ts`; register via `registerProjectPackage`
 4. **Does it affect query?** → Add cases to `geo-website-routes.test.ts` using real county/municipality IDs
 5. **Does it affect the API/SDK?** → Extend `packages/sdk/src/__tests__/vertical-slice.test.ts`
 6. **Does it affect public consumers?** → Update `apps/geo`

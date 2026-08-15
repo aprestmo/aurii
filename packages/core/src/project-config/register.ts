@@ -150,42 +150,38 @@ export async function materializeProjectPackage(
 	const sources: MaterializedSource[] = [];
 	for (const sp of pkg.sourcePaths) {
 		const def = await importDefault<ProjectPackageSourceDef>(sp);
-		sources.push({
+		const payload: CreateDataSourceInput = {
 			id: def.id,
-			payload: {
-				id: def.id,
-				datasetId: def.datasetId ?? datasetId,
-				name: def.name,
-				kind: def.kind,
-				config: def.config,
-			},
-		});
+			datasetId: def.datasetId ?? datasetId,
+			name: def.name,
+			kind: def.kind,
+		};
+		if (def.config) payload.config = def.config;
+		sources.push({ id: def.id, payload });
 	}
 
 	const imports: MaterializedImport[] = [];
 	for (const ip of [...pkg.importPaths, ...pkg.syncPaths]) {
 		const def = await importDefault<ProjectPackageImportDef>(ip);
-		imports.push({
+		const payload: CreateSavedImportInput = {
 			id: def.id,
-			payload: {
-				id: def.id,
-				datasetId: def.datasetId ?? datasetId,
-				sourceId: def.sourceId,
-				name: def.name,
-				schemaId: def.schemaId,
-				status: def.status ?? "active",
-				triggerMode: def.triggerMode,
-				definitionPath: resolve(pkg.root, def.definitionPath),
-				schedule: def.schedule
-					? {
-							enabled: def.schedule.enabled,
-							spec: def.schedule.spec,
-							nextRunAt: null,
-							lastRunAt: null,
-						}
-					: null,
-			},
-		});
+			datasetId: def.datasetId ?? datasetId,
+			sourceId: def.sourceId ?? null,
+			name: def.name,
+			schemaId: def.schemaId,
+			status: def.status ?? "active",
+			definitionPath: resolve(pkg.root, def.definitionPath),
+			schedule: def.schedule
+				? {
+						enabled: def.schedule.enabled,
+						spec: def.schedule.spec,
+						nextRunAt: null,
+						lastRunAt: null,
+					}
+				: null,
+		};
+		if (def.triggerMode) payload.triggerMode = def.triggerMode;
+		imports.push({ id: def.id, payload });
 	}
 
 	const routes: MaterializedRoute[] = pkg.routes.map((route: PublishedRouteDefinition) => ({

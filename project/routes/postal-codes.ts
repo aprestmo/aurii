@@ -8,9 +8,17 @@ export default defineRoute({
 	version: "1",
 	query: {
 		schema: "postal-code",
-		select: ["id", "name", "municipalityId"],
-		orderBy: [{ field: "id", direction: "asc" }],
-		limit: 500,
+		select: [
+			"code",
+			"city",
+			"municipalityId",
+			"municipalityName",
+			"postalCodeType",
+		],
+		orderBy: [{ field: "code", direction: "asc" }],
+		// Single-request limit: Norwegian Geo has ~5,122 postal codes.
+		// Cursor pagination is not yet part of the published-route contract (N4).
+		limit: 10000,
 	},
 	defaults: {
 		enabled: false,

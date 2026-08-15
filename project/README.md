@@ -61,8 +61,10 @@ bun run fetch:norwegian-geo
 # Run integration tests
 bun run test
 
-# Public demo site
+# Public demo site (live vs snapshot)
 cd apps/geo && bun run dev
+# Live: AURII_CORE_URL=http://localhost:3000 bun run dev
+# See docs/DELIVERY.md and apps/geo/README.md
 ```
 
 ---

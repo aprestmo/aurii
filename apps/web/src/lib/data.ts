@@ -1,15 +1,22 @@
 /**
  * Data access for the geo demo site.
  *
- * Prefer live published routes when `AURII_CORE_URL` is set; otherwise read
- * bundled snapshots (offline/build-time mode). Never imports Studio.
+ * Live mode (`AURII_CORE_URL` or `AURII_DELIVERY_MODE=live`) reads Core
+ * published routes via `@aurii/sdk` and never falls back to snapshots.
+ * Snapshot mode is the explicit offline / build-time path.
+ * Never imports Studio. See `docs/DELIVERY.md`.
  */
 
 import { readFile } from "node:fs/promises";
 import { resolve } from "node:path";
 
 import { compareGeoIds } from "./format";
-import { fetchPublished, getLiveGeoConfig } from "./live";
+import {
+  fetchPublished,
+  LIVE_GEO_ROUTES,
+  resolveGeoDelivery,
+  type GeoDeliveryMode,
+} from "./live";
 
 // Resolved from the current working directory (apps/geo) rather than
 // import.meta.dirname, since the build output nests compiled chunks at
@@ -88,6 +95,11 @@ export interface PublicHoliday {
   source?: string;
 }
 
+export interface GeoLoaded<T> {
+  data: T[];
+  source: GeoDeliveryMode;
+}
+
 export interface DatasetSummary {
   id: string;
   title: string;
@@ -107,55 +119,100 @@ async function readJson<T>(dir: string, file: string): Promise<T> {
   return JSON.parse(text) as T;
 }
 
-export async function loadCounties(): Promise<County[]> {
-  const live = getLiveGeoConfig();
-  if (live) {
-    try {
-      const rows = await fetchPublished<County>(live, "/counties");
-      if (rows.length) return rows.sort((a, b) => compareGeoIds(a.id, b.id));
-    } catch {
-      /* fall through to snapshots */
-    }
+function mapPostalCode(row: {
+  code?: string;
+  city?: string;
+  id?: string;
+  name?: string;
+  municipalityId: string;
+  municipalityName?: string;
+  postalCodeType?: string;
+}): PostalCode {
+  const mapped: PostalCode = {
+    code: row.code ?? row.id ?? "",
+    city: row.city ?? row.name ?? "",
+    municipalityId: row.municipalityId,
+  };
+  if (row.municipalityName !== undefined) {
+    mapped.municipalityName = row.municipalityName;
   }
-  return readJson<County[]>(CORE_DATA, "counties.json");
+  if (row.postalCodeType !== undefined) {
+    mapped.postalCodeType = row.postalCodeType;
+  }
+  return mapped;
+}
+
+export async function loadCountiesLoaded(): Promise<GeoLoaded<County>> {
+  const delivery = resolveGeoDelivery();
+  if (delivery.mode === "live" && delivery.config) {
+    const rows = await fetchPublished<County>(
+      delivery.config,
+      LIVE_GEO_ROUTES.counties,
+    );
+    return {
+      data: [...rows].sort((a, b) => compareGeoIds(a.id, b.id)),
+      source: "live",
+    };
+  }
+  return {
+    data: await readJson<County[]>(CORE_DATA, "counties.json"),
+    source: "snapshot",
+  };
+}
+
+export async function loadMunicipalitiesLoaded(): Promise<
+  GeoLoaded<Municipality>
+> {
+  const delivery = resolveGeoDelivery();
+  if (delivery.mode === "live" && delivery.config) {
+    const rows = await fetchPublished<Municipality>(
+      delivery.config,
+      LIVE_GEO_ROUTES.municipalities,
+    );
+    return {
+      data: [...rows].sort((a, b) => compareGeoIds(a.id, b.id)),
+      source: "live",
+    };
+  }
+  return {
+    data: await readJson<Municipality[]>(CORE_DATA, "municipalities.json"),
+    source: "snapshot",
+  };
+}
+
+export async function loadPostalCodesLoaded(): Promise<GeoLoaded<PostalCode>> {
+  const delivery = resolveGeoDelivery();
+  if (delivery.mode === "live" && delivery.config) {
+    const rows = await fetchPublished<{
+      code?: string;
+      city?: string;
+      id?: string;
+      name?: string;
+      municipalityId: string;
+      municipalityName?: string;
+      postalCodeType?: string;
+    }>(delivery.config, LIVE_GEO_ROUTES.postalCodes);
+    return {
+      data: rows.map(mapPostalCode),
+      source: "live",
+    };
+  }
+  return {
+    data: await readJson<PostalCode[]>(CORE_DATA, "postal-codes.json"),
+    source: "snapshot",
+  };
+}
+
+export async function loadCounties(): Promise<County[]> {
+  return (await loadCountiesLoaded()).data;
 }
 
 export async function loadMunicipalities(): Promise<Municipality[]> {
-  const live = getLiveGeoConfig();
-  if (live) {
-    try {
-      const rows = await fetchPublished<Municipality>(live, "/municipalities");
-      if (rows.length) {
-        return [...rows].sort((a, b) => compareGeoIds(a.id, b.id));
-      }
-    } catch {
-      /* fall through to snapshots */
-    }
-  }
-  return readJson<Municipality[]>(CORE_DATA, "municipalities.json");
+  return (await loadMunicipalitiesLoaded()).data;
 }
 
 export async function loadPostalCodes(): Promise<PostalCode[]> {
-  const live = getLiveGeoConfig();
-  if (live) {
-    try {
-      const rows = await fetchPublished<{
-        id: string;
-        name: string;
-        municipalityId: string;
-      }>(live, "/postal-codes");
-      if (rows.length) {
-        return rows.map((r) => ({
-          code: r.id,
-          city: r.name,
-          municipalityId: r.municipalityId,
-        }));
-      }
-    } catch {
-      /* fall through to snapshots */
-    }
-  }
-  return readJson<PostalCode[]>(CORE_DATA, "postal-codes.json");
+  return (await loadPostalCodesLoaded()).data;
 }
 
 export async function loadSchools(): Promise<School[]> {

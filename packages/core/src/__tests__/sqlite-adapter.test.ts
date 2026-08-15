@@ -307,6 +307,68 @@ describe("executePlan", () => {
 		);
 		expect(result.entities.every((e) => "title" in e.data)).toBe(true);
 	});
+
+	it("COUNT aggregate uses SQL and matches filtered scan", async () => {
+		const all = await db.executePlan(
+			{ kind: "aggregate", fn: "count", schemaId: "article" },
+			"test",
+		);
+		expect(all.aggregate?.value).toBe(3);
+
+		const published = await db.executePlan(
+			{
+				kind: "aggregate",
+				fn: "count",
+				schemaId: "article",
+				where: {
+					type: "condition",
+					condition: { field: "published", op: "==", value: true },
+				},
+			},
+			"test",
+		);
+		expect(published.aggregate?.value).toBe(2);
+
+		const notPublished = await db.executePlan(
+			{
+				kind: "aggregate",
+				fn: "count",
+				schemaId: "article",
+				where: {
+					type: "not",
+					expr: {
+						type: "condition",
+						condition: { field: "published", op: "==", value: true },
+					},
+				},
+			},
+			"test",
+		);
+		expect(notPublished.aggregate?.value).toBe(1);
+	});
+});
+
+describe("findEntityByField", () => {
+	it("finds by natural key without scanning a 10k page", async () => {
+		await db.createDataset({ id: "test", name: "Test" });
+		await db.upsertSchema(
+			{
+				id: "place",
+				name: "Place",
+				fields: [{ name: "id", type: "string", required: true }],
+			},
+			"test",
+		);
+		const batch: Array<{ schemaId: string; data: Record<string, unknown> }> = [];
+		for (let i = 0; i < 120; i++) {
+			batch.push({ schemaId: "place", data: { id: String(i).padStart(4, "0") } });
+		}
+		await db.insertEntities(batch, "test");
+
+		const found = await db.findEntityByField("place", "test", "id", "0119");
+		expect(found?.data["id"]).toBe("0119");
+		expect(await db.findEntityByField("place", "test", "id", "missing")).toBeNull();
+	});
 });
 
 describe("import runs", () => {

@@ -460,7 +460,7 @@ Collections should support:
 
 Large datasets should never require loading everything.
 
-**Current beta (honest):** `GET /entities` and Query Language use offset/`limit`. Published routes use a single declarative `limit` on the route definition — no cursor or page query parameters. See [`DELIVERY.md`](DELIVERY.md).
+**Current beta (honest):** `GET /entities` and Query Language use offset/`limit`. Published routes use a single declarative `limit` on the route definition — no cursor or page query parameters. Keyset/cursor design (not implemented): [`SCALE.md`](SCALE.md). See also [`DELIVERY.md`](DELIVERY.md).
 
 ---
 

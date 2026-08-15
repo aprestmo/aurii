@@ -1,14 +1,20 @@
 import { SQL } from "bun";
 import type { Entity, EntityInput, EntityState } from "../entity/types";
+import type { WhereExpr } from "../query/ast";
 import type { ExecutionPlan, ScanStep } from "../query/plan";
 import type { SchemaDefinition, StoredSchema } from "../schema/types";
 import {
+	canPushdownWhere,
 	evaluateWhere,
 	executePlan as runPlan,
 	type PlanExecutorContext,
 	type PlanResult,
 	whereExprToSqlClauses,
 } from "./plan-executor";
+
+function jsonFieldName(field: string): string {
+	return field.replace(/[^a-zA-Z0-9_]/g, "");
+}
 import { LEGACY_PROJECT_ID } from "@aurii/types";
 import type {
 	Dataset,
@@ -145,6 +151,8 @@ export class PostgresAdapter implements StorageAdapter {
         ON aurii_entities(dataset_id, schema_id);
       CREATE INDEX IF NOT EXISTS idx_entities_data_gin
         ON aurii_entities USING GIN (data);
+      CREATE INDEX IF NOT EXISTS idx_entities_natural_id
+        ON aurii_entities (dataset_id, schema_id, (data->>'id'));
       CREATE INDEX IF NOT EXISTS idx_datasets_project_id
         ON aurii_datasets(project_id);
 
@@ -475,6 +483,54 @@ export class PostgresAdapter implements StorageAdapter {
 		return rows[0].count as number;
 	}
 
+	async findEntityByField(
+		schemaId: string,
+		datasetId: string,
+		field: string,
+		value: string,
+	): Promise<Entity | null> {
+		const safe = jsonFieldName(field);
+		const rows = await this.sql.unsafe(
+			`SELECT id, dataset_id, schema_id, data, state, created_at, updated_at
+       FROM aurii_entities
+       WHERE dataset_id = $1 AND schema_id = $2 AND data->>'${safe}' = $3
+       LIMIT 1`,
+			[datasetId, schemaId, value],
+		);
+		const row = (rows as unknown as RawEntityRow[])[0];
+		return row ? rowToEntity(row) : null;
+	}
+
+	private async countMatching(
+		schemaId: string,
+		datasetId: string,
+		where?: WhereExpr,
+	): Promise<number> {
+		if (where && !canPushdownWhere(where)) {
+			const step: ScanStep = { kind: "scan", schemaId, alias: schemaId, where };
+			const entities = await this.scanStep(step, datasetId);
+			return entities.length;
+		}
+		const params: unknown[] = [datasetId, schemaId];
+		let sql =
+			"SELECT COUNT(*)::int AS count FROM aurii_entities WHERE dataset_id = $1 AND schema_id = $2";
+		if (where) {
+			const bind = (v: unknown) => {
+				params.push(v);
+				return `$${params.length}`;
+			};
+			const clauses = whereExprToSqlClauses(
+				where,
+				(field) => `data->>'${jsonFieldName(field)}'`,
+				bind,
+				"postgres",
+			);
+			if (clauses.length > 0) sql += ` AND ${clauses.join(" AND ")}`;
+		}
+		const rows = await this.sql.unsafe(sql, params as never[]);
+		return (rows[0] as { count: number }).count;
+	}
+
 	// ── Query ──────────────────────────────────────────────────────────────────
 
 	async executePlan(
@@ -484,21 +540,14 @@ export class PostgresAdapter implements StorageAdapter {
 		const ctx: PlanExecutorContext = {
 			datasetId,
 			scan: async (step) => this.scanStep(step, datasetId),
-			count: async (schemaId, where) => {
-				const step: ScanStep = where
-					? { kind: "scan", schemaId, alias: schemaId, where }
-					: { kind: "scan", schemaId, alias: schemaId };
-				const entities = await this.scanStep(step, datasetId);
-				return entities.length;
-			},
+			count: async (schemaId, where) =>
+				this.countMatching(schemaId, datasetId, where),
 			getSchemaFields: async (schemaId) => {
 				const s = await this.getSchema(schemaId, datasetId);
 				return s?.fields ?? [];
 			},
-			findByField: async (schemaId, field, value) => {
-				const entities = await this.listEntities(schemaId, datasetId, 10000, 0);
-				return entities.find((e) => e.data[field] === value) ?? null;
-			},
+			findByField: async (schemaId, field, value) =>
+				this.findEntityByField(schemaId, datasetId, field, value),
 		};
 		return runPlan(plan, ctx);
 	}

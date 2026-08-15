@@ -127,7 +127,7 @@ Norwegian Geo project package: `demo/norwegian-geo/aurii.config.ts`.
 | Phase | Focus | Status |
 |-------|--------|--------|
 | Phase 1–3 | Import, storage, query, references | Complete |
-| Phase 4 | Data products, Studio ops, published routes, live delivery | In progress — [`Phase4.md`](Phase4.md), [`docs/DELIVERY.md`](docs/DELIVERY.md) |
+| Phase 4 | Data products, Studio ops, published routes, live delivery, scale honesty | In progress — [`Phase4.md`](Phase4.md), [`docs/DELIVERY.md`](docs/DELIVERY.md), [`docs/SCALE.md`](docs/SCALE.md) |
 | Phase 5 | Editorial & Context (separate client on generic Core) | **Planned** — [`Phase5.md`](Phase5.md) |
 
 ### Repository layout

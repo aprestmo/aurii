@@ -41,9 +41,10 @@ Phase 4 recommendations
 
 Detailed plan: `Phase4.md` (Data Products and Delivery). Technical carry-overs:
 
-- Push join and aggregate predicates into SQL where possible
-- Reference integrity indexes on hot reference fields
+- Push join and aggregate predicates into SQL where possible — **N4:** `COUNT(*)` for pushdown-safe WHERE; joins still in-memory ([`docs/SCALE.md`](../docs/SCALE.md))
+- Reference integrity indexes on hot reference fields — **N4:** natural-key `data.id` index + `findEntityByField`
 - Schema-aware EXISTS (verify target entity exists)
 - Dot-notation traversal as sugar over joins
+- Cursor/keyset pagination — designed in N4, not implemented
 
 Authoring/CMS forms are out of Phase 4 scope (ADR-0010).

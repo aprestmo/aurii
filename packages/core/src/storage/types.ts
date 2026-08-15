@@ -128,6 +128,16 @@ export interface StorageAdapter {
 		offset?: number,
 	): Promise<Entity[]>;
 	countEntities(schemaId: string, datasetId: string): Promise<number>;
+	/**
+	 * Lookup one entity by a JSON data field (natural key).
+	 * Implemented as a SQL filter + LIMIT 1 — not a capped in-memory scan.
+	 */
+	findEntityByField(
+		schemaId: string,
+		datasetId: string,
+		field: string,
+		value: string,
+	): Promise<Entity | null>;
 
 	// Query
 	executePlan(plan: ExecutionPlan, datasetId: string): Promise<PlanResult>;

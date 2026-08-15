@@ -5,12 +5,50 @@
 > This document defines terms, boundaries, and supported product modes.
 > It distinguishes **implemented** concepts from **planned** / **beta** ones.
 > Implementation plans live in `Phase4.md`. Editorial + Context is **planned / post–Phase 4** — see [`Phase5.md`](../Phase5.md) (roadmap only; not implemented).
+> Architecture fitness tests: [`ARCHITECTURE_FITNESS.md`](ARCHITECTURE_FITNESS.md).
 
 ---
 
 ## One-sentence definition
 
-Aurii is a **schema-driven platform for structured data**. Aurii Core is the system of record. Studio is a **project workspace** for operating data products. A CMS is a **future separate product** that may consume Core—not a synonym for Studio, and never a required layer between Core and a frontend.
+Aurii is a platform for **modeling, ingesting, editing, enriching, relating, and publishing structured data and editorial content**. Aurii Core is the system of record. Studio is a **customizable project workspace** on the same Core model (generated UI by default; replaceable by extensions). A publication CMS is a **future separate product** that may consume Core—not a synonym for Studio, and never a required layer between Core and a frontend.
+
+Aurii is not only an alternative to a traditional headless CMS. The same Core must be able to support publication CMS, Kampbart, playground directories, DN Gaselle, Geo datasets, LiveCenter, documentation, and other structured-data applications without each project inventing its own backend.
+
+---
+
+## Platform principles
+
+These refine existing ADRs; they do not replace them.
+
+1. **Data is not necessarily content.** A municipality, company, or match is a record. It need not be an article.
+2. **Content can reference data without owning it.** An article may point at a company; the company is not a field of the article.
+3. **Structured data and rich content can live on the same record.** A playground can have coordinates and a rich description without two storage models.
+4. **External sources are a normal way data enters Aurii.** Manual editing is one origin among many.
+5. **Aurii should be able to preserve provenance.** Where a value came from is Core metadata, not a product hack ([ADR-0019](../adr/ADR-0019%20—%20Provenance%20and%20Editorial%20Overrides.md)).
+6. **Editorial overrides must be able to exist without destroying source data.** Source value and override are distinct concepts.
+7. **The schema describes the domain, not only the form in Studio.** APIs, validation, relations, search, and editors all derive from it.
+8. **Generated Studio is the default, not the limitation.** ([ADR-0020](../adr/ADR-0020%20—%20Extensible%20Studio.md))
+9. **Domain-specific interfaces must be buildable without domain-special logic in Core.** Kampbart’s match desk is a Studio extension, not a Match engine.
+10. **Core must be usable without Studio.** Imports, query, and delivery never require a UI.
+
+---
+
+## Unified records (not “articles vs data”)
+
+Core does **not** assume that records are articles or traditional CMS documents.
+
+The same entity/schema primitive represents:
+
+| Kind | Examples |
+|------|----------|
+| Structured records | `Company`, `Match`, `Player`, `Municipality` |
+| Editorial documents | `Article`, `MatchReport`, documentation pages |
+| Hybrids | `Playground` (facts + tips/blocks), `Match` (score/lineup + report) |
+
+There is **one** storage/lifecycle model: schema-typed entities. Do not introduce separate “content” and “data” stores unless a future ADR shows a strong technical reason. Studio (and a future CMS client) may *present* records differently; Core does not split them.
+
+See [ADR-0006](../adr/ADR-0006%20—%20Unified%20Data%20Model.md) and [`Domain Model.md`](Domain%20Model.md).
 
 ---
 
@@ -19,9 +57,9 @@ Aurii is a **schema-driven platform for structured data**. Aurii Core is the sys
 | Layer | Role | Status |
 |-------|------|--------|
 | **Aurii Core** | System of record: schemas, entities, datasets, projects, imports, queries, delivery APIs | Implemented |
-| **Studio** | Project-oriented data workspace (generic UI + declarative project config) | **Beta** (Phase 4) |
+| **Studio** | Extensible project workspace (generic UI + declarative config + planned extension API) | **Beta** (Phase 4); full extension API planned |
 | **Project package** (`aurii.config.ts`) | Versioned files describing schemas, sources, imports, sync, routes, Studio config | **Beta** |
-| **CMS / authoring product** | Future separate client for editorial authoring | **Planned** (post–Phase 4); not Studio. Roadmap: [`Phase5.md`](../Phase5.md) |
+| **CMS / authoring product** | Future separate client for publication authoring | **Planned** (post–Phase 4); not Studio. Roadmap: [`Phase5.md`](../Phase5.md) |
 
 Data enters Core from **many sources**—files, HTTP APIs, databases, manual entry, automation, AI, and future product clients. Frontends and other consumers talk to Core through public APIs and the SDK. They do not read through Studio or a CMS UI.
 
@@ -52,10 +90,10 @@ See [ADR-0010](../adr/ADR-0010%20—%20Optional%20Authoring%20Layer.md), [ADR-00
   workspace)       export             CMS, tools, …)
 ```
 
-**A CMS or authoring interface is an optional future client of Aurii Core. It is not a required layer between Core and a frontend. Studio is not that CMS.**
+**A CMS or authoring interface is an optional future client of Aurii Core. It is not a required layer between Core and a frontend. Studio is not that CMS—but Studio may host custom editors as extensions on the same Core model.**
 
 - Core is the system of record.
-- Studio is one client: a project workspace for sources, imports, schedules, entities, queries, and published routes.
+- Studio is one client: an extensible project workspace for sources, imports, schedules, entities, queries, published routes, and (via extensions) domain-specific editors.
 - Frontends, apps, export adapters, and AI clients consume Core directly.
 - They do not read through Studio or a CMS UI.
 
@@ -101,13 +139,15 @@ Declarative definition of structure, validation, relationships, and declared beh
 
 ### Entity
 
-A stored instance of a schema. Prefer entities (or platform definitions the Runtime understands) over special-cased object types.
+A stored instance of a schema—the unified record. An entity may be purely structured, primarily editorial, or a hybrid. Prefer entities (or platform definitions the Runtime understands) over special-cased object types. Relations are schema-declared and owned by Core.
 
 ### DataSource
 
 A Core-managed resource (scoped to Project + Dataset) describing where data comes from. Kinds include `file`, `http`, `database`, `manual`, `product`, `automation`, and `other`. Secrets stay server-side (`SecretRef`); API responses never include secret values. Links to saved import/sync definitions; does not replace the import/pipeline engine.
 
 **Status:** beta. See [ADR-0015](../adr/ADR-0015%20—%20DataSource%20Model.md).
+
+**Intended evolution (not implemented):** reusable source adapters (fetch → transform → identity matching → normalize → upsert/sync), conceptually a `packages/sources` layer feeding Core. Long-running sync may later run in `apps/worker` (or equivalent) rather than only on the API process. The `defineSource({ name, target, fetch, transform, identity })` sketch is illustrative; the adapter API is **not locked**. Provenance of resulting values is [ADR-0019](../adr/ADR-0019%20—%20Provenance%20and%20Editorial%20Overrides.md).
 
 ### Import definition (saved)
 
@@ -151,11 +191,15 @@ Examples:
 
 | Product | Nature |
 |---------|--------|
-| Norwegian Geo | Data product (import → Core → delivery) |
+| Norwegian Geo | Data product (import → Core → delivery); canonical implemented vertical |
+| Playground directory | Hybrid structured + editorial records; map/list/table Studio views |
+| DN Gaselle | Structured company/financial data related to articles; ingestion + overrides |
+| Kampbart | Structured sports graph + operational match editor (Studio extension) |
 | Tax-list explorer | Data product + visualization consumer |
-| Classic blog | Authored product (future CMS client) |
+| Classic blog / publication CMS | Authored product (future CMS client) |
 | News CMS | Authored / hybrid product (future) |
 | LiveCenter | Hybrid realtime product (later phase) |
+| Documentation | Authored product on the same entity model |
 
 Products live outside generic Core as compositions: `product.yaml` / modules, project packages, and client applications.
 
@@ -171,19 +215,37 @@ Norwegian Geo convention: `demo/norwegian-geo/product.yaml` and `modules/<id>/mo
 
 A runtime extension mechanism that adds engines, connectors, field types, pipeline steps, or (later) Studio surfaces to Core. Plugins extend the Runtime; dataset modules package domain data. Do not conflate the two.
 
-**Full Plugin Runtime:** largely planned. Studio beta uses a **simple view registry**, not a full plugin marketplace ([ADR-0017](../adr/ADR-0017%20—%20Studio%20Extension%20Model.md)).
+**Full Plugin Runtime:** largely planned. Studio beta uses a **simple view registry**, not a full plugin marketplace ([ADR-0017](../adr/ADR-0017%20—%20Studio%20Extension%20Model.md)). Planned Studio surface: [ADR-0020](../adr/ADR-0020%20—%20Extensible%20Studio.md).
 
 ### Studio
 
-The generic **project workspace** client (`@aurii/studio-app`). It uses public Core APIs and the SDK. Surfaces include sources, imports, history, schedules, published routes, entities, query, and system status. Projects customize it with `defineStudio` and optional custom views.
+The generic **project workspace** client (`@aurii/studio-app`) on public Core APIs and the SDK. Default experience: schema-aware generated (or generic) UI for collections and records, plus sources, imports, history, schedules, published routes, query, and system status. Projects customize it with `defineStudio` and, over time, a stable extension API (custom field inputs, record editors, collection views, tools, navigation). See [ADR-0017](../adr/ADR-0017%20—%20Studio%20Extension%20Model.md) and [ADR-0020](../adr/ADR-0020%20—%20Extensible%20Studio.md).
 
-Studio is **not** a CMS, **not** an editorial editor, and **not** the platform. It must not own business logic.
+Studio is **not** a publication CMS and **not** the platform. It **is** allowed to host domain-specific editors (for example a match desk) as extensions. It must not own business logic. Core must remain usable without Studio.
 
-**Status:** data workspace usable; project-oriented Studio **beta**.
+**Status:** data workspace usable; project-oriented Studio **beta**; full extension API **planned**.
+
+### Content / Data / Sources (product lenses)
+
+Useful **mental models** for operators—not separate Core storage models and not a frozen Studio information architecture:
+
+| Lens | Meaning | Typical surfaces |
+|------|---------|------------------|
+| **Content** | Editorial production | Schemas with rich/free-form fields; custom editors; future Editorial client |
+| **Data** | Records and datasets | Collections, query, tables, maps |
+| **Sources** | External systems and synchronization | DataSources, imports, sync, schedules, provenance |
+
+Default Studio navigation stays project-configured collections and ops. A project *may* group items under these lenses via `defineStudio`. Norwegian Geo need not show a Content section. A Match record may be both data and content.
+
+### Provenance / editorial override
+
+Planned Core metadata distinguishing **source values** from **editorial overrides**, plus origin, upstream id, fetch times, sync status, and transform identity. Not required in ordinary record JSON. See [ADR-0019](../adr/ADR-0019%20—%20Provenance%20and%20Editorial%20Overrides.md).
+
+**Status:** designed; not implemented as a Core metadata store. DataSource registry is **beta**.
 
 ### Data Workspace
 
-Studio (or equivalent) surfaces for sources, imports, schemas, entities, queries, published routes, schedules, and operations. Sufficient for data-only products. No editorial authoring UI is required.
+Studio (or equivalent) surfaces for sources, imports, schemas, entities, queries, published routes, schedules, and operations—plus generated record UI and optional custom views/editors. Sufficient for data-only products. A separate publication-CMS client is not required.
 
 ### Authoring Workspace / CMS (future product)
 
@@ -233,13 +295,13 @@ A product may map to one or more Core Projects over time. Norwegian Geo keeps `p
 
 | | Aurii (Core + Studio) | CMS (future separate product) |
 |--|----------------------|-------------------------------|
-| Primary job | Import, store, relate, query, deliver structured data | Author, revise, preview, publish editorial content |
+| Primary job | Model, ingest, edit, enrich, relate, query, and deliver structured data **and** editorial content | Author, revise, preview, publish, collaborate (publication workflow) |
 | System of record | Aurii Core | Would still write to Aurii Core (client) |
-| Studio | Project data workspace | Not the CMS |
+| Studio | Extensible project workspace (generated UI default; custom editors/views via extensions) | Not the CMS; not renamed Studio |
 | Required for frontends? | Core APIs/SDK yes; Studio no | Never required between Core and frontend |
-| Phase 4 | In scope (data products + delivery) | Out of scope |
+| Phase 4 | In scope (data products + delivery; architecture for sources, provenance, Studio extension) | Out of scope as a product |
 
-Saying “Studio is our CMS” is incorrect. Studio operates data products. A CMS, if built, is another client.
+Saying “Studio is our CMS” is incorrect. Studio operates projects on Core and may host domain-specific editors. A publication CMS, if built, is another client (Editorial + Context — [`Phase5.md`](../Phase5.md)).
 
 ---
 
@@ -261,7 +323,7 @@ Published routes / Query API / SDK
 Frontend, visualization, API consumer, AI, or print
 ```
 
-Studio’s project workspace configures and inspects sources, imports, schedules, schemas, entities, queries, published routes, runs, and errors. No editorial authoring interface is required.
+Studio’s project workspace configures and inspects sources, imports, schedules, schemas, entities, queries, published routes, runs, and errors. Domain-specific collection views (for example Map) are extensions, not Core. No publication-CMS client is required.
 
 **Status:** Path proven through import, Core, query, API, SDK, and live published routes (Norwegian Geo core schemas). Project-oriented Studio, DataSources, schedules, and published routes are **beta**. Live frontend delivery is documented in [`DELIVERY.md`](DELIVERY.md); `apps/geo` uses committed snapshots only as an explicit offline/build-time mode.
 
@@ -287,22 +349,22 @@ The authoring interface writes to Core through public APIs. The frontend reads f
 
 ### 3. Hybrid product
 
-Examples: a newsroom article referencing municipalities or companies; a live event enriched with structured reference data; an editorial package producing web, NewsML-G2, visualizations, and print from the same entities.
+Examples: Gaselle (companies + articles); playgrounds (facts + copy); Kampbart (match graph + report); a newsroom article referencing municipalities; Geo with editorial overrides; LiveCenter.
 
 ```text
 External data ──→ DataSources / imports / sync ──┐
                                                    │
-Editors ────────→ Future CMS client ───────────────┼──→ Aurii Core
+Studio (generated or custom editors) ─────────────┼──→ Aurii Core
                                                    │         ↓
-Automation / AI ───────────────────────────────────┘   API / SDK / events
-                                                             ↓
-                                              Web, apps, visualizations,
-                                              public APIs, AI, and print
+Future CMS client (optional) ─────────────────────┤   API / SDK / events
+                                                   │         ↓
+Automation / AI ───────────────────────────────────┘   Web, apps, maps,
+                                                       rankings, APIs, print
 ```
 
-Hybrid products compose imported entities with authored entities through schema-declared references. Core stays generic; domain composition lives in product schemas, modules, and clients.
+Hybrid products compose imported entities with authored fields or entities through schema-declared references. Structured facts and rich content may share a record. Core stays generic; domain composition lives in product schemas, modules, and clients (including Studio extensions).
 
-**Status:** Relational references (Phase 3) enable the data half. Full hybrid editorial products are later phases.
+**Status:** Relational references (Phase 3) enable the graph. DataSource beta enables intake. Provenance/overrides and full custom editors are **designed** ([ADR-0019](../adr/ADR-0019%20—%20Provenance%20and%20Editorial%20Overrides.md), [ADR-0020](../adr/ADR-0020%20—%20Extensible%20Studio.md)); not fully implemented. Full publication-CMS hybrid is later phases.
 
 ---
 
@@ -310,23 +372,29 @@ Hybrid products compose imported entities with authored entities through schema-
 
 | Example | Mode | Core role | Clients | Notes |
 |---------|------|-----------|---------|-------|
-| **Norwegian Geo** | Data-only | Counties, municipalities, postal codes, module entities | Studio project workspace; `apps/geo` consumer | Canonical import/data/delivery vertical; reference `aurii.config.ts` |
+| **Norwegian Geo** | Data-only (enrichment/overrides later) | Counties, municipalities, postal codes, module entities | Studio project workspace; `apps/geo` consumer | Canonical import/data/delivery vertical; fitness test **Geo** |
+| **Playground directory** | Hybrid | Structured place records + rich fields; geo references | Studio list/table/map views; public site | Fitness test; not implemented as a demo unless assigned |
+| **DN Gaselle** | Hybrid | Companies, financials, rankings related to articles | Studio tables; publication frontend; APIs | Fitness test: data must not be modeled as articles |
+| **Kampbart** | Hybrid | Sports graph (match, team, player, events) + report | Custom Studio match editor; public site | Fitness test: Studio as specialized tool via extensions |
 | **Tax-list exploration** | Data-only | Large imported tables, queries, exports | Studio + visualization frontend | Future scale stress case (Phase 4) |
-| **Classic blog** | Authored | Article/page entities, schemas, delivery API | Future CMS + site | CMS optional; site reads Core |
+| **Classic blog / docs** | Authored | Article/page entities, schemas, delivery API | Future CMS + site, or generated Studio | CMS optional; site reads Core |
 | **News CMS** | Authored / hybrid | Articles, related reference data | Future CMS + news site | Editorial vertical (post–Phase 4) |
 | **LiveCenter** | Hybrid | Structured events + reference enrichment | Live UI + authoring | Later phase; composition on Runtime, not Core special case |
+
+Architecture questions and capability matrix: [`ARCHITECTURE_FITNESS.md`](ARCHITECTURE_FITNESS.md).
 
 ---
 
 ## Boundaries that must not blur
 
-1. **Core stays domain-agnostic.** Norwegian geo rules, newsroom rules, and LiveCenter UX stay outside Core.
-2. **Schemas remain the source of truth** for structure, validation, and relationships.
+1. **Core stays domain-agnostic.** Norwegian geo rules, football, Gaselle rankings, newsroom rules, and LiveCenter UX stay outside Core.
+2. **Schemas remain the source of truth** for structure, validation, and relationships. Relations are part of the foundation, not an add-on.
 3. **Applications do not read the database directly.**
 4. **Studio and future CMS clients use public APIs and the SDK only.**
 5. **Frontends do not depend on Studio.**
-6. **CMS/authoring is optional**, never an intermediary for delivery, and **not** Studio.
-7. **Document implemented / beta / planned separately.** Phase docs and ADRs record decisions; do not present planned CMS, workflow, assets, realtime, RBAC, or AI features as complete.
+6. **A publication CMS is optional**, never an intermediary for delivery, and **not** Studio renamed. Studio *may* host custom editors as extensions.
+7. **Do not split content storage from data storage** without a strong technical ADR.
+8. **Document implemented / beta / planned separately.** Phase docs and ADRs record decisions; do not present planned CMS, provenance store, map views, workflow, assets, realtime, RBAC, or AI features as complete.
 
 ---
 
@@ -347,14 +415,15 @@ Phase 4 may add SDK helpers to load manifests; that is not a second tenancy mode
 
 ---
 
-## Reference verticals
+## Reference verticals and fitness tests
 
-| Vertical | Purpose | Status |
-|----------|---------|--------|
+| Vertical / test | Purpose | Status |
+|-----------------|---------|--------|
 | **Norwegian Geo** | Canonical import, schema, query, storage, SDK, Studio project package, and delivery testbed | Implemented core path; project Studio / routes / sources **beta**; Phase 4 strengthens delivery |
 | **Editorial** (planned) | Canonical authoring, revision, publishing, preview, workflow, media, **Context** | Not built; post–Phase 4 roadmap in [`Phase5.md`](../Phase5.md) |
+| **Architecture fitness tests** | Kampbart, playgrounds, Gaselle, Geo as design tests for the unified platform | Documentation — [`ARCHITECTURE_FITNESS.md`](ARCHITECTURE_FITNESS.md). Do not implement those products unless assigned. |
 
-Use the vertical that matches the capability under change. Cross-cutting Runtime changes must eventually be validated against both. See `AGENTS.md`.
+Use the vertical that matches the capability under change. Cross-cutting Runtime changes must eventually be validated against both implemented/planned verticals **and** must still answer the four fitness questions. See `AGENTS.md`.
 
 ---
 
@@ -369,11 +438,14 @@ Use the vertical that matches the capability under change. Cross-cutting Runtime
 | [ADR-0016](../adr/ADR-0016%20—%20Published%20Routes.md) | Published delivery routes |
 | [ADR-0017](../adr/ADR-0017%20—%20Studio%20Extension%20Model.md) | Studio layers and simple view registry |
 | [ADR-0018](../adr/ADR-0018%20—%20Minimal%20Scheduling.md) | Cron schedules on sync/import definitions |
+| [ADR-0019](../adr/ADR-0019%20—%20Provenance%20and%20Editorial%20Overrides.md) | Source values vs editorial overrides; Core provenance metadata |
+| [ADR-0020](../adr/ADR-0020%20—%20Extensible%20Studio.md) | Generated UI default; replaceable editors/views |
 
 ---
 
 ## Related documents
 
+- [ARCHITECTURE_FITNESS.md](./ARCHITECTURE_FITNESS.md) — Kampbart, playgrounds, Gaselle, Geo as architecture tests
 - [PROJECT_PACKAGES.md](./PROJECT_PACKAGES.md) — `aurii.config.ts`, `defineProject` / `defineStudio` / `defineRoute`
 - [PROJECTS.md](./PROJECTS.md) — Core Project boundary
 - [Phase4.md](../Phase4.md) — Data Products and Delivery plan

@@ -1,16 +1,19 @@
 # Aurii
 
-> A schema-driven platform for structured data—import, relate, query, and deliver.
+> A schema-driven platform for structured data and editorial content—model, ingest, edit, enrich, relate, and publish.
 
 ---
 
 ## What is Aurii?
 
-Aurii is a **schema-driven platform for structured data**. Data may arise through import, synchronization, manual registration, automation, AI, or external products. **Aurii Core is the system of record.** Studio is the project-specific workspace for administering data, data sources, data streams, relations, and published interfaces. A CMS is a possible future product that uses Aurii—it is **not** Aurii.
+Aurii is a platform for **modeling, ingesting, editing, enriching, relating, and publishing structured data and editorial content**. Data may arise through import, synchronization, manual registration, automation, AI, or external products. **Aurii Core is the system of record.** Studio is a customizable project workspace on that same model (generated UI by default; replaceable by extensions). A publication CMS is a possible future product that uses Aurii—it is **not** Aurii, and it is not Studio renamed.
+
+The same Core is intended to support publication CMS, Kampbart, playground directories, DN Gaselle, Geo datasets, LiveCenter, documentation, and other structured-data applications without each project inventing its own backend.
 
 Aurii is **not** a traditional CMS, database, or API framework.
 
 Canonical product vocabulary: [`docs/PRODUCT_MODEL.md`](docs/PRODUCT_MODEL.md).  
+Architecture fitness tests: [`docs/ARCHITECTURE_FITNESS.md`](docs/ARCHITECTURE_FITNESS.md).  
 Optional authoring decision: [`adr/ADR-0010 — Optional Authoring Layer.md`](adr/ADR-0010%20—%20Optional%20Authoring%20Layer.md).  
 Project packages: [`adr/ADR-0014 — Project Configuration Package.md`](adr/ADR-0014%20—%20Project%20Configuration%20Package.md).  
 **Next after Studio beta:** [`docs/NEXT_AFTER_STUDIO_BETA.md`](docs/NEXT_AFTER_STUDIO_BETA.md).  
@@ -38,10 +41,12 @@ Future CMS product ───────────────┘
                        SDK / HTTP / Events
               ┌───────────────────┼───────────────────┐
          Aurii Studio        Astro/frontend      Other products
+         (extensible         (talk to Core)      (future CMS, …)
+          workspace)
 ```
 
 - **Core** is system of record.
-- **Studio** reads and writes through public Core APIs and the SDK—never the database.
+- **Studio** reads and writes through public Core APIs and the SDK—never the database. Generated UI is the default; custom editors/views are extensions.
 - **Frontends** talk to Core (or published routes), not Studio.
 - A **CMS is never** a required middle layer between Core and a frontend.
 
@@ -76,7 +81,7 @@ Imports + editors + automation → Core → many consumers.
 | **Core** (`packages/core`) | Domain-agnostic runtime and system of record |
 | **SDK** (`packages/sdk`) | Typed HTTP client |
 | **Studio config** (`packages/studio` / `@aurii/studio`) | `defineStudio`, navigation helpers |
-| **Studio app** (`apps/studio` / `@aurii/studio-app`) | Data workspace UI (local + static host) |
+| **Studio app** (`apps/studio` / `@aurii/studio-app`) | Extensible workspace UI (local + static host) |
 | **Project package** (`aurii.config.ts`) | Declarative schemas, sources, imports, routes, studio config |
 | **Product** (`product.yaml`) | Shipping composition (modules)—complementary convention |
 | **Consumers** | Sites/apps—talk to Core, not Studio |
@@ -158,11 +163,13 @@ Projects: [`docs/PROJECTS.md`](docs/PROJECTS.md). Studio: [`docs/Studio.md`](doc
 
 ## Principles
 
-1. Schema is the source of truth.
+1. Schema is the source of truth (the domain, not only Studio forms).
 2. Capabilities before hardcoded features.
-3. Plugins before Core domain logic.
+3. Plugins / Studio extensions before Core domain logic.
 4. Queries before SQL in applications.
 5. Documentation before large architecture changes (ADRs).
+6. One entity model for structured data, editorial content, and hybrids.
+7. Sources, relations, provenance, and Studio extensibility are foundations.
 
 ---
 

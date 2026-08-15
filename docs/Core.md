@@ -99,20 +99,18 @@ Core must never contain business-specific knowledge.
 
 Core should not know about:
 
-- Articles
-- Products
-- Municipalities
-- Companies
-- Employees
-- Customers
+- Articles as a privileged type
+- Products, municipalities, companies, matches, playgrounds
+- Football, Gaselle rankings, or Norwegian administrative geography
 
 Core only understands:
 
-- Entities
+- Entities (records)
 - Schemas
 - Relationships
+- Provenance metadata (planned)
 
-Business concepts belong in schemas.
+Business concepts belong in schemas. `Company`, `Match`, `Player`, `Municipality`, `Playground`, `Article`, and `MatchReport` are all the same kind of thing: schema-typed entities. Structured fields and rich/free-form fields may coexist on one record.
 
 ---
 
@@ -138,7 +136,7 @@ Event
 Plugin
 ```
 
-**Project** is the administrative and security boundary for future resources (datasets, imports, API routes, keys). See [`PROJECTS.md`](PROJECTS.md) and [ADR-0011](../adr/ADR-0011%20—%20Project%20as%20Top-Level%20Boundary.md). Content remains Entity/Schema-centric within that boundary.
+**Project** is the administrative and security boundary for future resources (datasets, imports, API routes, keys). See [`PROJECTS.md`](PROJECTS.md) and [ADR-0011](../adr/ADR-0011%20—%20Project%20as%20Top-Level%20Boundary.md). Records remain Entity/Schema-centric within that boundary. There is no separate “content” primitive.
 
 Everything else is built from these primitives.
 
@@ -219,7 +217,7 @@ Validation rules come from Schemas.
 
 # Relationships
 
-Relationships are owned by Core.
+Relationships are owned by Core. They are part of the foundation, not an optional CMS add-on.
 
 Core understands:
 
@@ -235,17 +233,34 @@ Relationship
 Entity
 ```
 
-Relationship types are configurable.
+Required (progressively):
 
-Examples:
+- typed references
+- one-to-one / many-to-one
+- one-to-many
+- many-to-many
+- reverse references
+- query/filter through relations
+- referential integrity
 
-- references
-- owns
-- belongs_to
-- contains
-- parent_of
+Relationship types are configurable (references, owns, belongs_to, contains, parent_of, …). Core should never hardcode relationship semantics for articles, matches, or companies.
 
-Core should never hardcode relationship semantics.
+Studio may later present relation context; Core remains the authority.
+
+---
+
+# Provenance (planned)
+
+Core should eventually record, as **internal metadata** rather than required business JSON:
+
+- source / DataSource
+- upstream id
+- fetched-at / upstream changed-at
+- sync status
+- transform identity
+- source value vs editorial override
+
+See [ADR-0019](../adr/ADR-0019%20—%20Provenance%20and%20Editorial%20Overrides.md). Mutation APIs should not assume every write is equivalent to an import upsert.
 
 ---
 
@@ -293,7 +308,7 @@ Core understands:
 - sorting
 - pagination
 - projections
-- relationships
+- relationships (including traversal as the language grows)
 - aggregations
 
 Applications should never query the database directly.
@@ -560,10 +575,12 @@ it probably belongs in Core.
 
 If functionality exists only because one application needs it,
 
-it probably belongs outside Core.
+it probably belongs outside Core (schema, plugin, pipeline, or Studio extension).
 
 Core should become smaller,
 
 more generic,
 
 and more powerful over time.
+
+Core must remain usable without Studio.

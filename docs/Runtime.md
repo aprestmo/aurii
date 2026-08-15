@@ -18,7 +18,7 @@ Aurii is not a CMS.
 
 Aurii is a declarative runtime for structured knowledge.
 
-**Clarification:** Core is not a CMS. Optional authoring clients may power CMS products. See `docs/PRODUCT_MODEL.md` and ADR-0010.
+**Clarification:** Core is not a CMS. Records are not assumed to be articles. Optional authoring clients may power CMS products. Studio is an extensible client, not the Runtime. See `docs/PRODUCT_MODEL.md`, ADR-0010, ADR-0020.
 
 The Runtime exists to execute the platform.
 

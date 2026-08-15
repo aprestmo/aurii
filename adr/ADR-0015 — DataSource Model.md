@@ -46,3 +46,11 @@ Non-goals
 * Distributed connector marketplace
 * Live database CDC
 * Returning credentials to the browser
+* Field-level provenance store (see [ADR-0019](./ADR-0019%20—%20Provenance%20and%20Editorial%20Overrides.md))
+* Locking `defineSource` adapter APIs or adding `packages/sources` in this ADR
+
+⸻
+
+## Follow-up
+
+DataSource remains the **registry**. Value-level provenance, source vs override, and intended `packages/sources` / `apps/worker` placement are recorded in [ADR-0019](./ADR-0019%20—%20Provenance%20and%20Editorial%20Overrides.md) and [`docs/Architecture.md`](../docs/Architecture.md).

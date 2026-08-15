@@ -1,6 +1,8 @@
 # Schema Language — Reference Fields (Phase 3)
 
 > Phase 3 implementation status. See `docs/Schema Language.md` for the full vision.
+>
+> Relations are a **foundation**. This page documents what is implemented; planned cardinality and reverse references must not require a second model.
 
 ## Reference type
 
@@ -33,6 +35,22 @@ referenceValidation: strict   # default — fail row on missing target
 referenceValidation: warning  # import with warning in errors
 referenceValidation: skip     # remove invalid reference values and import
 ```
+
+## Planned (do not treat as missing accidents)
+
+These belong on the same reference foundation—not a new “relations engine”:
+
+| Need | Status |
+|------|--------|
+| Typed references | Implemented |
+| One-to-one / many-to-one | Implemented (`type: reference`) |
+| One-to-many | Implemented (`multiple: true`) |
+| Many-to-many | Planned (junction or multi-reference; API not locked) |
+| Reverse references | Planned (query/Studio context; not a second stored graph) |
+| Query/filter through relations | Partial (joins in Query Language v1; richer traversal later) |
+| Referential integrity | Partial (import `strict` / `warning` / `skip`; runtime policies later) |
+
+Studio should later use relations to show context around a record. Core remains the authority.
 
 ## Norwegian geo migration
 

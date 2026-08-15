@@ -47,6 +47,16 @@ What is missing is an explicit decision that separates **Core**, the **data work
 
 ⸻
 
+## Clarification (2026-08-15)
+
+Studio may host **domain-specific editors** (match desk, map collection view, dense company table) as extensions on public APIs ([ADR-0020](./ADR-0020%20—%20Extensible%20Studio.md)). That does **not** make Studio the publication CMS, and it does **not** weaken points 3–5 above.
+
+Provenance and editorial overrides are Core metadata concerns ([ADR-0019](./ADR-0019%20—%20Provenance%20and%20Editorial%20Overrides.md)), not CMS features.
+
+Architecture fitness tests: [`docs/ARCHITECTURE_FITNESS.md`](../docs/ARCHITECTURE_FITNESS.md).
+
+⸻
+
 ## Compatibility with “Aurii is not a CMS”
 
 | Statement | Meaning |

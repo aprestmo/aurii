@@ -85,6 +85,16 @@ Every Import has:
 
 Imports should be reusable.
 
+**Sources** are the architectural companion: a DataSource registry already exists ([ADR-0015](../adr/ADR-0015%20—%20DataSource%20Model.md)). Ingestion should be thinkable as:
+
+```
+fetch → transform → identity matching → normalize → upsert/sync
+```
+
+Intended (not implemented) placement: reusable adapters in `packages/sources`, optional long-running work in `apps/worker`. Adapter APIs are not locked. Resulting values should carry provenance; source values and editorial overrides stay distinct ([ADR-0019](../adr/ADR-0019%20—%20Provenance%20and%20Editorial%20Overrides.md)).
+
+Do not build a second import engine. Extend this one.
+
 ---
 
 # Import Lifecycle

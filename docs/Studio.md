@@ -1,14 +1,16 @@
 # Studio
 
-> Studio is Aurii’s **project workspace** — a client of the Runtime, not the platform.
+> Studio is Aurii’s **extensible project workspace** — a client of the Runtime, not the platform.
 >
-> It is a data operations UI for projects: sources, imports, schedules, entities, queries, and published routes.
+> Default experience: schema-generated (or generic) UI for collections and records, plus data operations (sources, imports, schedules, query, published routes).
 >
-> It is **not** a CMS and **not** an editorial authoring editor.
+> Architecture: generated UI is the **default**, not the ceiling. Projects may replace field inputs, record editors, collection views, tools, and navigation.
 >
-> **Status:** project-oriented Studio is **beta** (Phase 4). A future CMS product is separate ([ADR-0010](../adr/ADR-0010%20—%20Optional%20Authoring%20Layer.md)).
+> Studio is **not** a publication CMS and **not** an Editorial product. It **may** host domain-specific editors (for example a match desk) as extensions on public APIs.
 >
-> Product boundaries: [`PRODUCT_MODEL.md`](PRODUCT_MODEL.md). Extension model: [ADR-0017](../adr/ADR-0017%20—%20Studio%20Extension%20Model.md).
+> **Status:** project-oriented Studio is **beta** (Phase 4). Full extension API is **planned** ([ADR-0020](../adr/ADR-0020%20—%20Extensible%20Studio.md)). A future CMS product is separate ([ADR-0010](../adr/ADR-0010%20—%20Optional%20Authoring%20Layer.md)).
+>
+> Product boundaries: [`PRODUCT_MODEL.md`](PRODUCT_MODEL.md). Fitness tests: [`ARCHITECTURE_FITNESS.md`](ARCHITECTURE_FITNESS.md). Extension model: [ADR-0017](../adr/ADR-0017%20—%20Studio%20Extension%20Model.md), [ADR-0020](../adr/ADR-0020%20—%20Extensible%20Studio.md).
 
 ---
 
@@ -18,9 +20,40 @@ Studio makes the Runtime operable for humans working on a **project package**.
 
 Everything available inside Studio should ultimately be available through the Runtime.
 
-Studio never contains business logic. It visualizes and operates what Core already defines.
+Studio never contains business logic. It visualizes and operates what Core already defines. Domain-specific match desks or map views are **presentation modules** that still call public APIs.
 
 Frontends never read through Studio.
+
+Core must remain fully usable without Studio.
+
+---
+
+## Generated default, replaceable UI
+
+```text
+Schema
+  ↓
+Default generated UI
+  ↓
+Customizable / replaceable UI
+```
+
+Without config or extensions, Studio still works. Schema-generated (or today’s generic) record UI is the **default editor for any entity**—Company, Municipality, Match, Article—not a CMS-only feature.
+
+Projects may progressively replace:
+
+| Extension | Status |
+|-----------|--------|
+| Navigation, collection columns, featured schemas | **Beta** — `defineStudio` |
+| Custom pages / tools (module path) | **Beta** — simple view registry |
+| Custom field inputs | **Planned** |
+| Custom record editors (replace the entity form) | **Planned** |
+| Custom collection views (List, Table, Cards, Map, Custom) | **Planned** |
+| Domain-specific workflows on generic Core operations | **Planned** |
+
+Kampbart should be able to ship Score / Lineup / Timeline / Events / Match report **without Core knowing football**. Playgrounds should be able to offer List | Table | Map **without Map becoming a Core type**.
+
+Do not implement those UIs unless that is the assigned task. Do not lock component APIs yet. Do keep Core/Studio changes compatible with this trajectory.
 
 ---
 
@@ -62,16 +95,29 @@ Config customizes labels, grouping, featured schemas, and custom views. It does 
 
 ---
 
-## Not a CMS
+## Not a publication CMS
 
 | Studio is | Studio is not |
 |-----------|----------------|
-| A project data workspace | A content management system |
-| Import / sync / schedule ops | A newsroom or blog editor |
-| Schema-aware browsing and query | Draft / preview / publish workflow UI |
-| Enable/disable published routes | The delivery layer for frontends |
+| An extensible project workspace | A publication / newsroom CMS |
+| Import / sync / schedule ops | The delivery layer for frontends |
+| Schema-aware generated UI (default) | The only allowed editing experience |
+| Custom editors and views via extensions | Domain logic (football, Gaselle, geo rules) |
+| Enable/disable published routes | A required proxy for frontends |
 
-Authoring, revision, and publishing UIs belong to a **future separate product**, not to renaming Studio. See [ADR-0010](../adr/ADR-0010%20—%20Optional%20Authoring%20Layer.md).
+Authoring collaboration, revision UX, preview, and Context belong to a **future separate Editorial product**, not to renaming Studio. Domain tools such as a match desk **do not wait** on that product—they are Studio extensions ([ADR-0020](../adr/ADR-0020%20—%20Extensible%20Studio.md)). See [ADR-0010](../adr/ADR-0010%20—%20Optional%20Authoring%20Layer.md).
+
+---
+
+## Content / Data / Sources (optional lenses)
+
+These are **mental models**, not three Core stores and not a mandated top-level IA:
+
+- **Sources** — external systems and sync (already a Studio surface)
+- **Data** — records and datasets (collections, query)
+- **Content** — editorial production on the same entities (rich fields, custom editors, future Editorial client)
+
+`defineStudio` may group navigation this way. Default remains schema collections plus ops. Do not force a Content section onto Norwegian Geo.
 
 ---
 
@@ -100,11 +146,13 @@ Studio never owns domain rules.
 | **History** | Review import/sync runs, errors, inserted/updated/skipped counts |
 | **Schedules** | Enable/disable cron on sync/import definitions; see next run |
 | **Published routes** | Inspect declared routes; enable/disable; access mode (Core serves them) |
-| **Entities** | Browse and filter entities for the active dataset |
+| **Entities** | Browse and filter entities; relation links; default record UI |
 | **Query** | Run and explain Query Language |
 | **System** | Connection, project/dataset, runtime health signals |
 
-Schemas remain inspectable. Navigation may group collections by schema via `defineStudio`.
+Schemas remain inspectable. Navigation may group collections by schema via `defineStudio`. Collection **views** (table vs map vs custom) are a planned extension of this surface.
+
+Studio should later use Core relations to show **context around a record** (incoming references, related articles, parent municipality)—presentation only.
 
 ---
 
@@ -201,11 +249,11 @@ Config may set:
 
 ## Extension model
 
-Beta uses a **simple view registry**, not a full Plugin Runtime ([ADR-0017](../adr/ADR-0017%20—%20Studio%20Extension%20Model.md)).
+Beta uses a **simple view registry**, not a full Plugin Runtime ([ADR-0017](../adr/ADR-0017%20—%20Studio%20Extension%20Model.md)). The planned contract widens that registry to field inputs, record editors, and collection views ([ADR-0020](../adr/ADR-0020%20—%20Extensible%20Studio.md)).
 
-Rules for custom views:
+Rules for custom views **and** future editors:
 
-1. Register via `defineStudio` (`views` + nav `customView(...)`).
+1. Register via `defineStudio` (or the successor extension API).
 2. Use `@aurii/sdk` / public HTTP APIs only.
 3. No direct database access.
 4. No Core domain logic inside the view module.
@@ -258,3 +306,6 @@ If Studio contains business logic, the architecture has failed.
 - [ADR-0015 — DataSource Model](../adr/ADR-0015%20—%20DataSource%20Model.md)
 - [ADR-0016 — Published Routes](../adr/ADR-0016%20—%20Published%20Routes.md)
 - [ADR-0018 — Minimal Scheduling](../adr/ADR-0018%20—%20Minimal%20Scheduling.md)
+- [ADR-0020 — Extensible Studio](../adr/ADR-0020%20—%20Extensible%20Studio.md)
+- [ADR-0019 — Provenance and Editorial Overrides](../adr/ADR-0019%20—%20Provenance%20and%20Editorial%20Overrides.md)
+- [ARCHITECTURE_FITNESS.md](ARCHITECTURE_FITNESS.md)

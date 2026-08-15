@@ -54,9 +54,9 @@ Consumers
 - **Core** remains the system of record.
 - **Editorial** is a **client** / separate product — not Studio renamed, and not a required layer between Core and frontends.
 - **Frontends consume Core/delivery APIs directly** and must never depend on Editorial as a read proxy.
-- **Studio** remains the **data workspace** (sources, imports, schedules, entities, query, published routes). It must not evolve into the CMS.
+- **Studio** remains the **extensible project workspace** (sources, imports, schedules, entities, query, published routes, generated default UI, custom editors/views via extensions). It must not evolve into the publication CMS. Domain-specific Studio experiences (match desk, map) are extensions and may be designed before Phase 5; they are not Editorial.
 
-This is [ADR-0010](adr/ADR-0010%20—%20Optional%20Authoring%20Layer.md) applied to a concrete product hypothesis: **Editorial + Context**.
+This is [ADR-0010](adr/ADR-0010%20—%20Optional%20Authoring%20Layer.md) applied to a concrete product hypothesis: **Editorial + Context**. Fitness tests: [`docs/ARCHITECTURE_FITNESS.md`](docs/ARCHITECTURE_FITNESS.md).
 
 ---
 
@@ -72,10 +72,11 @@ Investigate and design (prefer ADRs before new Core abstractions):
 - durable revisions / version history
 - generic draft/published lifecycle capability
 - authors/ownership references
-- schema-declared references from authored content to existing Aurii entities
+- schema-declared references from authored content to existing Aurii entities (content references data without owning it)
+- structured fields and rich/free-form content on the **same** entity when the product needs a hybrid record
 - preview/delivery of unpublished content
 
-Do **not** hardcode journalism concepts into Core. `Article` may exist as a product schema later; it must not become a special built-in Core type.
+Do **not** hardcode journalism concepts into Core. `Article` may exist as a product schema later; it must not become a special built-in Core type. `Company`, `Match`, and `Playground` remain ordinary schemas too.
 
 ### B. Minimal Editorial authoring product
 
@@ -277,7 +278,7 @@ At minimum:
 
 Initially reject:
 
-- turning Studio into the CMS
+- turning Studio into the publication CMS (custom Studio editors for matches/maps are ADR-0020 extensions, not this product)
 - hardcoded `Article`, `Desk`, `PrintReady` or similar newsroom concepts in generic Core
 - making Editorial a required proxy between Core and frontends
 - representing all realtime collaboration state as ordinary durable Core entities
@@ -306,4 +307,7 @@ If yes, Aurii has validated both:
 - [`docs/PRODUCT_MODEL.md`](docs/PRODUCT_MODEL.md) — Core / Studio / CMS / consumer vocabulary
 - [`docs/DELIVERY.md`](docs/DELIVERY.md) — live frontend delivery contract
 - [`adr/ADR-0010 — Optional Authoring Layer.md`](adr/ADR-0010%20—%20Optional%20Authoring%20Layer.md)
-- [`AGENTS.md`](AGENTS.md) — dual reference verticals (Norwegian Geo now; Editorial later)
+- [`docs/ARCHITECTURE_FITNESS.md`](docs/ARCHITECTURE_FITNESS.md) — Kampbart, playgrounds, Gaselle, Geo
+- [`adr/ADR-0019 — Provenance and Editorial Overrides.md`](adr/ADR-0019%20—%20Provenance%20and%20Editorial%20Overrides.md)
+- [`adr/ADR-0020 — Extensible Studio.md`](adr/ADR-0020%20—%20Extensible%20Studio.md)
+- [`AGENTS.md`](AGENTS.md) — dual reference verticals (Norwegian Geo now; Editorial later) plus fitness tests

@@ -6,6 +6,7 @@
 > It describes responsibilities, boundaries and interactions between the major parts of the platform.
 >
 > **Product boundaries** (Core vs Studio vs optional authoring vs consumers): [`PRODUCT_MODEL.md`](PRODUCT_MODEL.md).  
+> **Fitness tests** (Kampbart, playgrounds, Gaselle, Geo): [`ARCHITECTURE_FITNESS.md`](ARCHITECTURE_FITNESS.md).  
 > **Status:** Phase 3 complete; many engines below are visionary. Prefer README / Phase docs for what is implemented.
 
 ---
@@ -23,7 +24,8 @@ Together they form a single platform.
 
  ┌──────────────────────────────────────────┐
  │                                          │
- │ Studio (data workspace; optional authoring later) │
+ │ Studio (extensible workspace; optional   │
+ │         authoring product later)         │
  │ Websites                                         │
  │ Mobile Apps                                      │
  │ APIs                                             │
@@ -107,14 +109,20 @@ Core is responsible for:
 
 - storing information
 - validating information
+- relating information
 - indexing information
 - exposing information
 - securing information
 - transforming information
+- recording provenance (planned Core metadata)
 
 Core is **not** responsible for presentation.
 
-Core contains no assumptions about websites, editors or user interfaces.
+Core contains no assumptions about websites, match desks, maps, or publication CMS workflows.
+
+Core does **not** assume that records are articles. The same entity model represents `Company`, `Match`, `Player`, `Municipality`, `Playground`, `Article`, and `MatchReport`.
+
+Core must be fully usable without Studio.
 
 ---
 
@@ -126,14 +134,16 @@ It is not part of Core.
 
 Studio consumes the same APIs available to external developers.
 
-Its responsibilities include:
+Its default responsibilities include:
 
-- editing
+- schema-generated (or generic) browsing and editing
 - administration
 - dashboards
-- schema editing
-- media browsing
-- user management
+- source / import / schedule operations
+- query
+- published routes
+
+The architecture is **replaceable UI**: custom field inputs, record editors, collection views (List, Table, Cards, Map, Custom), tools, and navigation. Map and match-timeline are extensions, not Core engines. See [ADR-0020](../adr/ADR-0020%20—%20Extensible%20Studio.md).
 
 Everything Studio can do should also be possible through APIs.
 
@@ -152,7 +162,7 @@ Responsible for:
 - schemas
 - field definitions
 - validation rules
-- references
+- references and relationship cardinality
 - metadata
 - versioning
 
@@ -169,6 +179,8 @@ Validation
 
 Reference Definition
 ```
+
+Schemas describe the **domain** (structure, relations, capabilities)—not merely the form shown in Studio.
 
 ---
 
@@ -195,9 +207,8 @@ Collection
 
 ## Document Engine
 
-Responsible for:
+Responsible for **entity lifecycle** capabilities that some records use:
 
-- documents
 - revisions
 - drafts
 - publishing
@@ -206,7 +217,7 @@ Responsible for:
 Owns:
 
 ```
-Document
+Entity (canonical record)
 
 Revision
 
@@ -214,6 +225,8 @@ Draft
 
 Publication
 ```
+
+This engine must not imply that all records are CMS documents. `Municipality` and `Article` share the entity primitive; publishing is a **capability**, not a separate store. Do not split “content storage” from “data storage.”
 
 ---
 
@@ -267,6 +280,14 @@ Validation Report
 Import Engine never modifies datasets directly.
 
 It produces validated data for the Dataset Engine.
+
+Conceptual ingestion path (Sources):
+
+```
+fetch → transform → identity matching → normalize → upsert/sync
+```
+
+DataSource ([ADR-0015](../adr/ADR-0015%20—%20DataSource%20Model.md)) is the Core registry. Adapter implementations are intended to live outside generic Core—see **Sources placement** below.
 
 ---
 
@@ -339,10 +360,10 @@ It should provide:
 - pagination
 - projections
 - joins
-- graph traversal
+- reverse-reference / graph traversal
 - AI-assisted querying
 
-The Query Engine should not modify data.
+Relations are a foundation of the query model (typed references; one-to-one, one-to-many, many-to-many over time; referential integrity on write). The Query Engine should not modify data.
 
 ---
 
@@ -452,7 +473,7 @@ Plugins may contribute:
 - connectors
 - pipeline steps
 - API endpoints
-- UI extensions
+- UI extensions (Studio field inputs, record editors, collection views, tools)
 
 Plugins should never modify Core directly.
 
@@ -467,7 +488,7 @@ External Source
 
 ↓
 
-Import
+Ingest (fetch / transform / identity / normalize)
 
 ↓
 
@@ -475,15 +496,11 @@ Validation
 
 ↓
 
-Transformation
+Dataset / Entity (source values + provenance metadata)
 
 ↓
 
-Dataset
-
-↓
-
-Document
+Editorial enrichment / overrides (optional)
 
 ↓
 
@@ -501,6 +518,71 @@ Consumers
 Information should move forward through the system.
 
 Backwards dependencies should be avoided.
+
+Source values and editorial overrides remain distinct ([ADR-0019](../adr/ADR-0019%20—%20Provenance%20and%20Editorial%20Overrides.md)).
+
+---
+
+# Sources placement (intended, not implemented)
+
+Sources are first-class in the **architecture**. They are not a late integration.
+
+| Location | Intended responsibility |
+|----------|-------------------------|
+| Core `DataSource` | Registry, secrets, status, links to import/sync definitions ([ADR-0015](../adr/ADR-0015%20—%20DataSource%20Model.md)) |
+| Import / Pipeline engines | Mapping, transform, validate, persist |
+| `packages/sources` (planned) | Reusable adapters: fetch, transform, identity matching, normalize, emit upserts into Core |
+| `apps/worker` (planned) | Long-running / scheduled ingestion separate from the interactive API process when needed |
+
+Illustrative adapter shape (API **not locked**):
+
+```ts
+defineSource({
+  name: "ssb-population",
+  target: "municipality",
+  fetch: ...,
+  transform: ...,
+  identity: ...,
+});
+```
+
+Do not implement this package layout in a docs-only change. Do not invent a second import engine.
+
+---
+
+# Relations (foundation)
+
+Relations are not an optional CMS feature.
+
+Core must support, progressively:
+
+- typed references
+- one-to-one / many-to-one
+- one-to-many
+- many-to-many (planned)
+- reverse references (planned)
+- query/filter through relations
+- referential integrity on write (import validation exists; runtime policies will grow)
+
+Example (Gaselle):
+
+```text
+Company
+  ├── AnnualFinancials
+  ├── GaselleQualification
+  ├── Region
+  └── Articles
+```
+
+Studio should later use relations to show **context around a record**. Core owns the graph; Studio only presents it.
+
+Phase 3 shipped typed reference fields, import integrity modes, and joins. Remaining relation work is evolution of that foundation—not a new subsystem.
+
+---
+
+# Provenance
+
+Provenance is planned **internal Core metadata** (origin, upstream id, fetched-at, upstream changed-at, sync status, transform, source-owned vs override). It need not appear as ordinary schema fields. See [ADR-0019](../adr/ADR-0019%20—%20Provenance%20and%20Editorial%20Overrides.md).
 
 ---
 
@@ -532,10 +614,12 @@ Aurii separates logical resources from physical storage.
 
 Logical resources include:
 
-- Documents
+- Entities (records)
 - Assets
 - Schemas
 - Datasets
+- DataSources
+- Provenance metadata (planned)
 
 Physical storage may be:
 

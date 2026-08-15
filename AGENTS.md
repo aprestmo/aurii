@@ -28,17 +28,18 @@ Aurii is **not** a database.
 
 Aurii is **not** an API framework.
 
-Aurii is a **Declarative Runtime for Structured Knowledge** — a schema-driven platform for structured data.
+Aurii is a **Declarative Runtime for Structured Knowledge** — a schema-driven platform for modeling, ingesting, editing, enriching, relating, and publishing structured data and editorial content.
 
 **Product clarification:**
 
-- **Aurii Core** is the system of record. It is not a CMS.
-- **Studio** is a **project workspace** (data operations: sources, imports, schedules, entities, query, published routes). Studio is **not** a CMS and **not** an editorial editor.
+- **Aurii Core** is the system of record. It is not a CMS. It does not assume records are articles. The same entity/schema model represents structured records, editorial documents, and hybrids.
+- **Studio** is an **extensible project workspace** (generated UI by default; custom editors/views via extensions). Studio is **not** a publication CMS and **not** the Editorial product.
 - Data enters Core from **many sources** (file, HTTP, database, manual, automation, AI, future product clients)—not only from an authoring UI.
 - Developers describe installable projects with a **project package** (`aurii.config.ts` / `defineProject`), complementary to product composition (`product.yaml`).
-- A **CMS is a future separate product** that may consume Core. It is never required between Core and a frontend, and it is not Studio renamed.
+- A **publication CMS is a future separate product** that may consume Core. It is never required between Core and a frontend, and it is not Studio renamed. Domain-specific Studio tools (match desk, map) are extensions, not that CMS.
+- Relations, sources, provenance/overrides, and Studio extensibility are **foundations**. Do not treat them as late optional integrations. Do not implement them as large features unless that is the assigned task.
 
-See `docs/PRODUCT_MODEL.md`, `docs/Studio.md`, `docs/PROJECT_PACKAGES.md`, `adr/ADR-0010 — Optional Authoring Layer.md`, and ADRs 0014–0018.
+See `docs/PRODUCT_MODEL.md`, `docs/Studio.md`, `docs/PROJECT_PACKAGES.md`, `docs/ARCHITECTURE_FITNESS.md`, [ADR-0010](adr/ADR-0010%20—%20Optional%20Authoring%20Layer.md), [ADR-0019](adr/ADR-0019%20—%20Provenance%20and%20Editorial%20Overrides.md), [ADR-0020](adr/ADR-0020%20—%20Extensible%20Studio.md), and ADRs 0014–0018.
 
 Everything you build should reinforce that vision.
 
@@ -422,16 +423,20 @@ Never more complicated.
 
 # Reference Verticals
 
-Aurii uses **two** planned reference verticals. Pick the one that matches the capability under change.
+Aurii uses **two** planned reference verticals, plus **architecture fitness tests** that must not require Core special cases.
 
 | Vertical | Validates | Status |
 |----------|-----------|--------|
-| **Norwegian Geo** | Import, schema, query, storage, SDK, **delivery**, product modules | Canonical and implemented |
+| **Norwegian Geo** | Import, schema, query, storage, SDK, **delivery**, product modules, sources | Canonical and implemented |
 | **Editorial** (future) | Authoring, revision, publishing, preview, workflow, media, Context | Planned after Phase 4 — [`Phase5.md`](Phase5.md); **do not implement in Phase 4 docs/work** |
 
-Cross-cutting Runtime changes must eventually be validated against both verticals. Until Editorial exists, do **not** add editorial concepts to Core merely because Norwegian Geo cannot exercise them. Express draft/publish/revision as generic schemas and capabilities when that phase begins—not as hardcoded news CMS behavior.
+**Fitness tests** (design, not in-repo demos unless assigned): Kampbart, playground directory, DN Gaselle, Geo — [`docs/ARCHITECTURE_FITNESS.md`](docs/ARCHITECTURE_FITNESS.md).
 
-Product model: `docs/PRODUCT_MODEL.md`. Project packages: `docs/PROJECT_PACKAGES.md`. Studio: `docs/Studio.md`. Delivery: `docs/DELIVERY.md`. Phase plan: `Phase4.md`. Editorial roadmap (planned): `Phase5.md`. ADRs: `0010`, `0014`–`0018`.
+If a change would require Core to know football, playgrounds, Gaselle rankings, or Norwegian geography, stop. Express the domain in schemas, sources, pipelines, and Studio extensions.
+
+Cross-cutting Runtime changes must eventually be validated against both verticals. Until Editorial exists, do **not** add editorial concepts to Core merely because Norwegian Geo cannot exercise them. Express draft/publish/revision as generic schemas and capabilities when that phase begins—not as hardcoded news CMS behavior. Structured + rich fields on the same record is already in the unified model—do not wait for Editorial to allow hybrid records in schemas.
+
+Product model: `docs/PRODUCT_MODEL.md`. Project packages: `docs/PROJECT_PACKAGES.md`. Studio: `docs/Studio.md`. Delivery: `docs/DELIVERY.md`. Phase plan: `Phase4.md`. Editorial roadmap (planned): `Phase5.md`. ADRs: `0010`, `0014`–`0020`.
 
 ---
 
@@ -485,6 +490,7 @@ Full documentation: `docs/NORWEGIAN_GEO.md`, `docs/REFERENCE_DEMO.md`, and `Phas
 - Skip integration tests and rely only on unit tests
 - Pretend Norwegian Geo validates CMS/authoring flows
 - Implement the Editorial vertical “while you’re here” unless that is the assigned task
+- Implement Kampbart, playground Map, or Gaselle as Core features or new demo backends unless that is the assigned task
 
 ### Example queries (copy-paste)
 
@@ -508,6 +514,7 @@ Until that vertical exists:
 - Do not require Norwegian Geo to grow editorial fields for platform features it does not need
 - Keep Phase 4 focused on data products and delivery (`Phase4.md`)
 - Do not implement Phase 5 capabilities (editor, Context, CRDT, workflow engines) unless that is the assigned task
+- Domain-specific Studio extensions are planned ([ADR-0020](adr/ADR-0020%20—%20Extensible%20Studio.md)); do not build match desks or map views unless assigned
 
 ---
 

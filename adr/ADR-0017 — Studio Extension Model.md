@@ -49,3 +49,9 @@ Non-goals
 * CMS / authoring workspace
 * Realtime collaboration
 * Complete plugin marketplace
+
+⸻
+
+## Follow-up
+
+[ADR-0020](./ADR-0020%20—%20Extensible%20Studio.md) records the planned expansion: generated UI as default; replaceable field inputs, record editors, collection views, tools, and workflows. This ADR remains the beta contract.

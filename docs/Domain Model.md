@@ -25,13 +25,19 @@ An article is an Entity.
 
 A municipality is an Entity.
 
-A customer is an Entity.
+A company is an Entity.
+
+A match is an Entity.
+
+A playground is an Entity.
 
 An image is an Entity.
 
 A dataset is an Entity.
 
 A schema is an Entity.
+
+The platform does **not** treat articles as the default record type. Structured records, editorial documents, and hybrids share this primitive.
 
 Everything begins with an Entity.
 
@@ -152,9 +158,41 @@ Address
 Industry
 ```
 
+Playground (hybrid)
+
+```
+Name
+
+Coordinates
+
+Municipality (reference)
+
+Facilities
+
+Description (rich text)
+
+Tips (blocks)
+```
+
+Match (hybrid)
+
+```
+Sport
+
+HomeTeam / AwayTeam (references)
+
+Score
+
+Lineup
+
+Events[] (references)
+
+MatchReport (rich content)
+```
+
 The platform does not distinguish between these internally.
 
-They are all values attached to an Entity.
+They are all values attached to an Entity. Structured fields and rich/free-form content may coexist on the same record. Do not introduce a second “content document” model.
 
 ---
 
@@ -172,8 +210,9 @@ Typical metadata includes:
 - status
 - revision
 - tags
+- provenance (planned Core metadata: source, upstream id, fetched-at, sync status, override vs source-owned — [ADR-0019](../adr/ADR-0019%20—%20Provenance%20and%20Editorial%20Overrides.md))
 
-Metadata is separate from business data.
+Metadata is separate from business data. Provenance should not have to live in the ordinary field JSON.
 
 ---
 
@@ -233,57 +272,31 @@ Nothing important should disappear.
 
 Entities rarely exist alone.
 
-Relationships are first-class.
+Relationships are first-class **foundation**, not a CMS add-on.
+
+The model must cover:
+
+- typed references
+- one-to-one / many-to-one
+- one-to-many
+- many-to-many
+- reverse references
+- query/filter through relations
+- referential integrity
 
 Examples:
 
 ```
-Article
-
-↓
-
-Author
-
-↓
-
-Person
+Article  →  Company  →  Region
+Match    →  Team     →  Player
+Playground → Municipality → County
+Company  →  AnnualFinancials
+Company  ←  Articles (reverse)
 ```
 
-```
-Company
+Relationships are typed (`owns`, `references`, `belongs_to`, `contains`, `depends_on`, `located_in`, …).
 
-↓
-
-Municipality
-```
-
-```
-Image
-
-↓
-
-Photographer
-```
-
-Relationships are typed.
-
-Examples:
-
-```
-owns
-
-references
-
-belongs_to
-
-contains
-
-depends_on
-
-located_in
-```
-
-Relationships should always be queryable.
+Relationships should always be queryable. Studio should later use them to show context around a record.
 
 ---
 
@@ -629,10 +642,14 @@ Aurii is not document-centric.
 
 Aurii is entity-centric.
 
-Every object in the platform is represented by the same conceptual primitive.
+Every object in the platform is represented by the same conceptual primitive—whether it is “data,” “content,” or both.
 
 Schemas define behavior.
 
 Entities hold information.
 
-Everything else emerges from those two concepts.
+Relations connect entities.
+
+Provenance (planned) explains origin and overrides.
+
+Everything else emerges from those concepts.

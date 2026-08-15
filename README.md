@@ -13,7 +13,9 @@ Aurii is **not** a traditional CMS, database, or API framework.
 Canonical product vocabulary: [`docs/PRODUCT_MODEL.md`](docs/PRODUCT_MODEL.md).  
 Optional authoring decision: [`adr/ADR-0010 — Optional Authoring Layer.md`](adr/ADR-0010%20—%20Optional%20Authoring%20Layer.md).  
 Project packages: [`adr/ADR-0014 — Project Configuration Package.md`](adr/ADR-0014%20—%20Project%20Configuration%20Package.md).  
-**Next after Studio beta:** [`docs/NEXT_AFTER_STUDIO_BETA.md`](docs/NEXT_AFTER_STUDIO_BETA.md).
+**Next after Studio beta:** [`docs/NEXT_AFTER_STUDIO_BETA.md`](docs/NEXT_AFTER_STUDIO_BETA.md).  
+**Delivery contract:** [`docs/DELIVERY.md`](docs/DELIVERY.md).  
+**Phase 5 (planned):** [`Phase5.md`](Phase5.md) — Editorial & Context; not implemented in this phase.
 
 ---
 
@@ -98,6 +100,11 @@ bun run studio                 # project Studio locally (loads defineStudio from
 bun run studio:build           # static Studio for hosting
 # After import: register sources/imports/routes:
 #   bun run demo/norwegian-geo/scripts/register-via-api.ts
+
+# Live geo consumer (after import + serve + register + enable routes):
+#   cd apps/geo && AURII_CORE_URL=http://localhost:3000 bun run dev
+# Snapshot / offline geo (no Core):
+#   cd apps/geo && bun run dev
 ```
 
 Do **not** put API tokens into a public Studio build.
@@ -113,7 +120,8 @@ Norwegian Geo project package: `demo/norwegian-geo/aurii.config.ts`.
 | Phase | Focus | Status |
 |-------|--------|--------|
 | Phase 1–3 | Import, storage, query, references | Complete |
-| Phase 4 | Data products, Studio ops, published routes, live delivery | In progress — [`Phase4.md`](Phase4.md) |
+| Phase 4 | Data products, Studio ops, published routes, live delivery | In progress — [`Phase4.md`](Phase4.md), [`docs/DELIVERY.md`](docs/DELIVERY.md) |
+| Phase 5 | Editorial & Context (separate client on generic Core) | **Planned** — [`Phase5.md`](Phase5.md) |
 
 ### Repository layout
 

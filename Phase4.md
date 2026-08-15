@@ -70,7 +70,7 @@ Do not re-implement these; build on them.
 
 ### Known gaps Phase 4 must treat honestly
 
-- `apps/geo` prefers live published routes when `AURII_CORE_URL` is set (counties, municipalities, postal codes); snapshots remain the offline/build-time fallback.
+- Live delivery for Norwegian Geo core schemas is documented in [`docs/DELIVERY.md`](docs/DELIVERY.md) and integration-tested (`apps/geo` live loaders via published routes). Snapshots remain an **explicit** offline/build-time mode (`AURII_DELIVERY_MODE=snapshot`). Module datasets in `apps/geo` still use snapshots in this beta.
 - In-memory joins are **not** suitable for millions of rows.
 - Platform ops (DataSource / schedule / published routes) persist in SQLite when `AURII_DB_PATH` is a file; HA multi-node scheduling remains out of beta.
 - Resumability for huge imports and distributed job queues remain out of beta guarantees.
@@ -204,7 +204,7 @@ Import → Core storage → Query/API → @aurii/sdk → real frontend
 | Track | Role | Phase 4 action |
 |-------|------|----------------|
 | **Norwegian Geo** | Canonical import / data / delivery vertical | Extend and prove delivery |
-| **Editorial** | Canonical authoring / publishing vertical (later) | Define boundary and prerequisites only |
+| **Editorial** | Canonical authoring / publishing vertical (later) | Define boundary and prerequisites only — roadmap: [`Phase5.md`](Phase5.md) (**planned / post–Phase 4**, not implemented here) |
 
 **Prerequisites before an Editorial phase should start:**
 
@@ -253,7 +253,7 @@ Older split (still valid themes, superseded in order by the doc above):
 6. Reference index / lookup performance for imports (D)
 7. Pagination strategy for large result sets (D)
 
-Authoring, newsroom, and LiveCenter issues wait until Phase 4 exits.
+Authoring, newsroom, and LiveCenter issues wait until Phase 4 exits. The post–Phase 4 Editorial + Context hypothesis is captured in [`Phase5.md`](Phase5.md) (planning only).
 
 ---
 
@@ -266,6 +266,8 @@ Phase 3’s “Recommended Phase 4 scope” listed SQL pushdown, reference index
 ## Documentation updates expected during Phase 4 implementation
 
 - Keep `docs/PRODUCT_MODEL.md`, `docs/Studio.md`, `docs/PROJECT_PACKAGES.md`, and this file’s “baseline / non-goals / exit criteria” in sync with reality.
+- Delivery contract: [`docs/DELIVERY.md`](docs/DELIVERY.md) (N1).
+- Post–Phase 4 Editorial + Context: [`Phase5.md`](Phase5.md) (planned only — do not implement in Phase 4).
 - Update README status when Phase 4 completes.
 - Do not rewrite Phase 1–3 historical reports; add status notes if needed.
 

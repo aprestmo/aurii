@@ -427,11 +427,11 @@ Aurii uses **two** planned reference verticals. Pick the one that matches the ca
 | Vertical | Validates | Status |
 |----------|-----------|--------|
 | **Norwegian Geo** | Import, schema, query, storage, SDK, **delivery**, product modules | Canonical and implemented |
-| **Editorial** (future) | Authoring, revision, publishing, preview, workflow, media | Planned after Phase 4; **do not implement in Phase 4 docs/work** |
+| **Editorial** (future) | Authoring, revision, publishing, preview, workflow, media, Context | Planned after Phase 4 — [`Phase5.md`](Phase5.md); **do not implement in Phase 4 docs/work** |
 
 Cross-cutting Runtime changes must eventually be validated against both verticals. Until Editorial exists, do **not** add editorial concepts to Core merely because Norwegian Geo cannot exercise them. Express draft/publish/revision as generic schemas and capabilities when that phase begins—not as hardcoded news CMS behavior.
 
-Product model: `docs/PRODUCT_MODEL.md`. Project packages: `docs/PROJECT_PACKAGES.md`. Studio: `docs/Studio.md`. Phase plan: `Phase4.md`. ADRs: `0010`, `0014`–`0018`.
+Product model: `docs/PRODUCT_MODEL.md`. Project packages: `docs/PROJECT_PACKAGES.md`. Studio: `docs/Studio.md`. Delivery: `docs/DELIVERY.md`. Phase plan: `Phase4.md`. Editorial roadmap (planned): `Phase5.md`. ADRs: `0010`, `0014`–`0018`.
 
 ---
 
@@ -455,7 +455,7 @@ Aurii Core → Norwegian Geo Core → Dataset Modules
 | **Norwegian Geo Core** | `demo/norwegian-geo/core/` | Counties, municipalities, postal codes, history |
 | **Dataset modules** | `demo/norwegian-geo/modules/` | Schools, kindergartens, hospitals, holidays (+ future domains) |
 | **Import** | `bun run import:norwegian-geo` | One-command import into Core (dataset: `norwegian-geo`) |
-| **Tests** | `vertical-slice.test.ts`, `geo-website-routes.test.ts`, `public-reference-datasets.test.ts` | Integration coverage |
+| **Tests** | `vertical-slice.test.ts`, `geo-website-routes.test.ts`, `public-reference-datasets.test.ts`, `apps/api/src/__tests__/live-geo-delivery.test.ts` | Integration coverage |
 | **Consumer site** | `apps/geo` | Public website |
 | **Studio** | `apps/studio` (`@aurii/studio-app`) | Project workspace (dataset: `norwegian-geo`; config via `aurii.config.ts`) |
 | **Project package** | `demo/norwegian-geo/aurii.config.ts` | Schemas, sources, imports, sync, routes, Studio config |
@@ -474,7 +474,7 @@ Full documentation: `docs/NORWEGIAN_GEO.md`, `docs/REFERENCE_DEMO.md`, and `Phas
 
 1. Read `docs/NORWEGIAN_GEO.md` to understand layer boundaries
 2. Import the dataset: `bun run import:norwegian-geo`
-3. Run relevant tests: `bun test` (especially `vertical-slice`, `geo-website-routes`, `public-reference-datasets`)
+3. Run relevant tests: `bun test` (especially `vertical-slice`, `geo-website-routes`, `public-reference-datasets`, `live-geo-delivery`)
 4. If the feature affects public consumers, update `apps/geo` or add a test there
 5. New domain data → add a module under `demo/norwegian-geo/modules/`, not Core hacks
 
@@ -500,11 +500,14 @@ from postal-code where municipalityId == "0301" limit 10
 
 Use a future **Editorial** reference product when changing authoring, revision, publishing, preview, workflow, or media behaviour.
 
+Planning only (not implemented): [`Phase5.md`](Phase5.md) — Editorial & Context.
+
 Until that vertical exists:
 
 - Do not create a fake newsroom dataset to justify Core special cases
 - Do not require Norwegian Geo to grow editorial fields for platform features it does not need
 - Keep Phase 4 focused on data products and delivery (`Phase4.md`)
+- Do not implement Phase 5 capabilities (editor, Context, CRDT, workflow engines) unless that is the assigned task
 
 ---
 

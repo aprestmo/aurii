@@ -2,7 +2,7 @@
 
 A public website for the Norwegian Geo **data product**. It proves that Kartverket/Bring (and module) data can power county and municipality pages.
 
-**Not Studio** — this is a separate consumer. Frontends talk to product data / Core; they never go through a CMS UI. See [`docs/PRODUCT_MODEL.md`](../../docs/PRODUCT_MODEL.md).
+**Not Studio** — this is a separate consumer. Frontends talk to Core published routes or committed snapshots; they never go through Studio or a CMS UI. See [`docs/PRODUCT_MODEL.md`](../../docs/PRODUCT_MODEL.md) and [`docs/DELIVERY.md`](../../docs/DELIVERY.md).
 
 ## Routes
 
@@ -22,12 +22,47 @@ Hosted on GitHub Pages (see `docs/DEPLOYMENT.md`):
 
 **https://aprestmo.github.io/aurii/**
 
-## Run locally
+That deployment uses **snapshot / build-time** mode (no running Core).
+
+## Delivery modes
+
+Live Core-backed mode is the **normal production integration contract**. Snapshot mode is an **explicit** offline / build-time fallback. Live mode never silently reads snapshot files.
+
+| Mode | How to select | Data source |
+|------|----------------|-------------|
+| **Live** | Set `AURII_CORE_URL` (or `AURII_DELIVERY_MODE=live` + Core URL) | Published routes via `@aurii/sdk` |
+| **Snapshot** | Unset Core URL, or `AURII_DELIVERY_MODE=snapshot` | Bundled JSON under `demo/norwegian-geo/**/data/` |
+
+Core schemas on the live path today: **counties**, **municipalities**, **postal codes**. Module datasets (schools, kindergartens, hospitals, holidays) still use snapshots in this beta.
+
+This app has **no dependency on Studio**.
+
+### Live Core-backed mode
+
+```bash
+# From repo root — import, serve, register, then enable routes
+bun run import:norwegian-geo
+bun run serve
+AURII_CORE_URL=http://localhost:3000 bun run register:norwegian-geo-platform
+# Enable counties / municipalities / postal-codes in Studio, or:
+#   PATCH /api/projects/:id/routes/:routeId  { "enabled": true }
+
+cd apps/geo
+AURII_CORE_URL=http://localhost:3000 \
+AURII_PROJECT_SLUG=norge-data \
+bun run dev        # http://localhost:4322
+```
+
+`PUBLIC_AURII_CORE_URL` / `PUBLIC_AURII_PROJECT_SLUG` are accepted as aliases for static hosts that only expose `PUBLIC_*` env.
+
+### Snapshot / offline / build-time mode
 
 ```bash
 cd apps/geo
 bun install
-bun run dev        # http://localhost:4322
+bun run dev        # http://localhost:4322 — reads committed snapshots
+# or:
+AURII_DELIVERY_MODE=snapshot bun run build
 ```
 
 ## Build
@@ -37,13 +72,15 @@ bun run build      # generates static pages
 bun run preview
 ```
 
+Without `AURII_CORE_URL`, the build is snapshot mode. With Core URL set, the build reads live published routes (and **fails** if Core is unreachable).
+
 ## Relationship to Aurii Core
 
-**Today:** this site reads bundled snapshots from `demo/norwegian-geo/core/data/` and `demo/norwegian-geo/modules/*/data/` at build time — the same files imported into Core via `bun run import:norwegian-geo`. Snapshot consumption is an explicit offline/build-time mode.
+```text
+Import → Aurii Core → published route / @aurii/sdk → apps/geo
+```
 
-**Phase 4 delivery contract:** production consumers should prefer `Import → Core → Query/API → @aurii/sdk → frontend`. Live SDK delivery is planned as a first-class path alongside snapshots (`Phase4.md`).
-
-Equivalent Aurii Query Language for each page:
+Equivalent Aurii Query Language for each page (authenticated Query API; the public site uses published routes instead):
 
 ```
 # County list
@@ -64,4 +101,10 @@ Automated proof that every route is queryable via Core:
 
 ```bash
 cd packages/core && bun test src/__tests__/geo-website-routes.test.ts
+```
+
+Live published-route path used by this app:
+
+```bash
+cd apps/api && bun test src/__tests__/live-geo-delivery.test.ts
 ```

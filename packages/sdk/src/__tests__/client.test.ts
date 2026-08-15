@@ -74,6 +74,7 @@ describe("createClient", () => {
 		expect(typeof client.import.run).toBe("function");
 		expect(typeof client.stats.get).toBe("function");
 		expect(typeof client.health.check).toBe("function");
+		expect(typeof client.published.get).toBe("function");
 	});
 });
 

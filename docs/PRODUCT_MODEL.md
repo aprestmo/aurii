@@ -4,7 +4,7 @@
 >
 > This document defines terms, boundaries, and supported product modes.
 > It distinguishes **implemented** concepts from **planned** / **beta** ones.
-> Implementation plans live in `Phase4.md` and later phase documents.
+> Implementation plans live in `Phase4.md`. Editorial + Context is **planned / post–Phase 4** — see [`Phase5.md`](../Phase5.md) (roadmap only; not implemented).
 
 ---
 
@@ -21,7 +21,7 @@ Aurii is a **schema-driven platform for structured data**. Aurii Core is the sys
 | **Aurii Core** | System of record: schemas, entities, datasets, projects, imports, queries, delivery APIs | Implemented |
 | **Studio** | Project-oriented data workspace (generic UI + declarative project config) | **Beta** (Phase 4) |
 | **Project package** (`aurii.config.ts`) | Versioned files describing schemas, sources, imports, sync, routes, Studio config | **Beta** |
-| **CMS / authoring product** | Future separate client for editorial authoring | **Planned** (post–Phase 4); not Studio |
+| **CMS / authoring product** | Future separate client for editorial authoring | **Planned** (post–Phase 4); not Studio. Roadmap: [`Phase5.md`](../Phase5.md) |
 
 Data enters Core from **many sources**—files, HTTP APIs, databases, manual entry, automation, AI, and future product clients. Frontends and other consumers talk to Core through public APIs and the SDK. They do not read through Studio or a CMS UI.
 
@@ -263,7 +263,7 @@ Frontend, visualization, API consumer, AI, or print
 
 Studio’s project workspace configures and inspects sources, imports, schedules, schemas, entities, queries, published routes, runs, and errors. No editorial authoring interface is required.
 
-**Status:** Path proven through import, Core, query, API, and SDK (Norwegian Geo). Project-oriented Studio, DataSources, schedules, and published routes are **beta**. Live frontend delivery via SDK is the Phase 4 contract; `apps/geo` may still use committed snapshots as an explicit offline/build-time mode.
+**Status:** Path proven through import, Core, query, API, SDK, and live published routes (Norwegian Geo core schemas). Project-oriented Studio, DataSources, schedules, and published routes are **beta**. Live frontend delivery is documented in [`DELIVERY.md`](DELIVERY.md); `apps/geo` uses committed snapshots only as an explicit offline/build-time mode.
 
 ### 2. Authored content with an optional CMS layer
 
@@ -283,7 +283,7 @@ Frontend and other consumers
 
 The authoring interface writes to Core through public APIs. The frontend reads from Core. The frontend does **not** read through the CMS client. Studio remains a data workspace, not that CMS.
 
-**Status:** Architecturally supported; authoring workspace and editorial reference vertical are **not** implemented in Phase 4. Prerequisites are defined in `Phase4.md` workstream E.
+**Status:** Architecturally supported; authoring workspace and editorial reference vertical are **not** implemented in Phase 4. Roadmap: [`Phase5.md`](../Phase5.md) (planned / post–Phase 4). Prerequisites are defined in `Phase4.md` workstream E.
 
 ### 3. Hybrid product
 
@@ -352,7 +352,7 @@ Phase 4 may add SDK helpers to load manifests; that is not a second tenancy mode
 | Vertical | Purpose | Status |
 |----------|---------|--------|
 | **Norwegian Geo** | Canonical import, schema, query, storage, SDK, Studio project package, and delivery testbed | Implemented core path; project Studio / routes / sources **beta**; Phase 4 strengthens delivery |
-| **Editorial** (planned) | Canonical authoring, revision, publishing, preview, workflow, media | Not built in this documentation phase; later |
+| **Editorial** (planned) | Canonical authoring, revision, publishing, preview, workflow, media, **Context** | Not built; post–Phase 4 roadmap in [`Phase5.md`](../Phase5.md) |
 
 Use the vertical that matches the capability under change. Cross-cutting Runtime changes must eventually be validated against both. See `AGENTS.md`.
 
@@ -377,6 +377,8 @@ Use the vertical that matches the capability under change. Cross-cutting Runtime
 - [PROJECT_PACKAGES.md](./PROJECT_PACKAGES.md) — `aurii.config.ts`, `defineProject` / `defineStudio` / `defineRoute`
 - [PROJECTS.md](./PROJECTS.md) — Core Project boundary
 - [Phase4.md](../Phase4.md) — Data Products and Delivery plan
+- [Phase5.md](../Phase5.md) — Editorial & Context (planned / post–Phase 4)
+- [DELIVERY.md](./DELIVERY.md) — Live frontend delivery contract
 - [NORWEGIAN_GEO.md](./NORWEGIAN_GEO.md) — Norwegian Geo layer boundaries
 - [REFERENCE_DEMO.md](./REFERENCE_DEMO.md) — agent/contributor demo guide
 - [Studio.md](./Studio.md) — project-oriented Studio (beta)

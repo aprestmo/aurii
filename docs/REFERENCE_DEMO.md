@@ -2,7 +2,7 @@
 
 > **For AI agents:** Norwegian Geo is the canonical demo for validating **import, schema, query, storage, SDK, and delivery**. Read this before adding those capabilities. Also see **Reference Verticals** in `AGENTS.md`, [`docs/NORWEGIAN_GEO.md`](NORWEGIAN_GEO.md), and [`docs/PRODUCT_MODEL.md`](PRODUCT_MODEL.md).
 >
-> Norwegian Geo does **not** validate authoring, drafts, publishing, preview, workflow, or media. Those belong to a future Editorial vertical (after Phase 4). Do not invent editorial Core features to compensate.
+> Norwegian Geo does **not** validate authoring, drafts, publishing, preview, workflow, or media. Those belong to a future Editorial vertical after Phase 4 — [`Phase5.md`](../Phase5.md) (planned only). Do not invent editorial Core features to compensate.
 
 ---
 
@@ -14,7 +14,7 @@
 Kartverket + Bring + UDIR + Brreg  →  import  →  storage  →  query  →  API  →  SDK  →  Studio / apps/geo
 ```
 
-**Delivery note:** Integration tests and Studio use the live API/SDK path. `apps/geo` may still read committed snapshots as an explicit offline/build-time mode. Phase 4 (`Phase4.md`) requires proving live Core → SDK → frontend delivery as a first-class contract—not snapshots alone.
+**Delivery note:** `apps/geo` live mode reads Core published routes via `@aurii/sdk` when `AURII_CORE_URL` is set. Snapshots are an explicit offline/build-time mode (`AURII_DELIVERY_MODE=snapshot`). Contract: [`docs/DELIVERY.md`](DELIVERY.md). Integration test: `apps/api/src/__tests__/live-geo-delivery.test.ts`.
 
 ### Three layers
 
@@ -41,6 +41,7 @@ Dataset Modules (demo/norwegian-geo/modules/)
 | Route feasibility tests | `packages/core/src/__tests__/geo-website-routes.test.ts` |
 | Live API import test | `packages/core/src/__tests__/norwegian-geo-import.test.ts` |
 | SDK vertical slice | `packages/sdk/src/__tests__/vertical-slice.test.ts` |
+| Live geo delivery (N1) | `apps/api/src/__tests__/live-geo-delivery.test.ts` |
 | Public website demo | `apps/geo` |
 | Phase 3 relational tests | `packages/core/src/__tests__/phase-3-relational.test.ts` |
 

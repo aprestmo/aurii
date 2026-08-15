@@ -17,7 +17,7 @@ export default defineRoute({
 		],
 		orderBy: [{ field: "code", direction: "asc" }],
 		// Single-request limit: Norwegian Geo has ~5,122 postal codes.
-		// Cursor pagination is not yet part of the published-route contract (N4).
+		// Cursor pagination is designed, not implemented — docs/SCALE.md (N4).
 		limit: 10000,
 	},
 	defaults: {

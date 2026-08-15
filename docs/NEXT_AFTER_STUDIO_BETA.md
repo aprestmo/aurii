@@ -119,10 +119,10 @@ Editorial/CMS remains **out of scope** for N1. See [`Phase5.md`](../Phase5.md) (
 
 | Step | Deliverable |
 |------|-------------|
-| N4.1 | Benchmark Norwegian Geo join/query sizes; record numbers in docs |
-| N4.2 | Spike: SQL pushdown for one join or filter path |
-| N4.3 | Cursor pagination design for large lists (postal codes / future tax list) |
-| N4.4 | Explicit “not ready for N rows” statement updated with measured N |
+| N4.1 | **Done** — Norwegian Geo timings in [`SCALE.md`](SCALE.md); test: `scale-benchmark.test.ts` |
+| N4.2 | **Done** — SQL `COUNT(*)` for pushdown-safe WHERE; `findEntityByField` + natural-key index (not a full SQL join) |
+| N4.3 | **Done** — keyset/cursor design in [`SCALE.md`](SCALE.md) (not implemented) |
+| N4.4 | **Done** — not ready for 100k+ join sides, ~100k+ offset walks, or tax-list published-route dumps |
 
 **Exit:** Phase 4 scale exit criterion satisfied with numbers and named bottlenecks.
 
@@ -153,8 +153,8 @@ Small, reviewable PRs branching from **main after #52 merges**:
 3. **Studio: config groups + source/import detail UX** (N2.1–N2.3)
 4. **`registerProjectPackage` helper + script thin wrapper** (N3.3) — **done**
 5. **Module surface decision for NG Studio** (N3.1–N3.2) — **done**
-6. **Benchmarks + scale note** (N4.1, N4.4) — **next**
-7. Optional later: Postgres platform store, scheduler e2e, tokens UI (N5)
+6. **Benchmarks + scale note** (N4.1, N4.4) — **done** ([`SCALE.md`](SCALE.md))
+7. Optional later: Postgres platform store, scheduler e2e, tokens UI (N5) — **next**
 
 Each PR must:
 
@@ -174,7 +174,7 @@ Use this after N1–N4 land (N5 can trail):
 - [x] `apps/geo` demonstrates Core/published-route consumption without Studio
 - [x] Studio operates NG sources/imports/schedules/routes using package `defineStudio` (N2.1–N2.4)
 - [x] Composition story (`aurii.config` vs `product.yaml`) documented; register helper shared
-- [ ] Scale limits measured and written down
+- [x] Scale limits measured and written down ([`SCALE.md`](SCALE.md))
 - [x] Docs still say: publication CMS is a future separate product; Studio is an extensible workspace (generated default, replaceable UI); fitness tests in `ARCHITECTURE_FITNESS.md`
 
 ---
@@ -182,10 +182,10 @@ Use this after N1–N4 land (N5 can trail):
 ## Agent instructions (next run)
 
 1. Assume branch/`main` includes #52–#55 and Studio N2 ops polish (N2.1–N2.4).
-2. Start with **N4** (scale and query honesty) unless the user names another workstream. N3 (package/composition + `registerProjectPackage`) is done.
+2. Start with **N5** (hardening / beta polish) unless the user names another workstream. N1–N4 are done.
 3. Read this file + `Phase4.md` + `docs/PRODUCT_MODEL.md` before coding.
 4. Do not re-scaffold `defineProject` / platform store / ADRs 0014–0018 / live delivery / Studio ops pages.
-5. Prefer a shared `registerProjectPackage` helper wrapping `register-via-api.ts` / `bootstrap-platform.ts`.
+5. Do not rebuild N1–N4 (delivery, Studio ops, `registerProjectPackage`, scale measurements). N5 items are optional hardening.
 6. Stop and document if a step would require a new Core abstraction — ADR first.
 7. Do not implement Kampbart, Map views, Gaselle, source adapter packages, or a provenance store unless the assigned task says so.
 

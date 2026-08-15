@@ -128,12 +128,21 @@ export async function runImport(
 		const toInsert: EntityInput[] = [];
 		const refMode = def.referenceValidation ?? "strict";
 
+		const refCache = new Map<string, Entity | null>();
 		const lookupRef = async (
 			targetSchema: string,
 			id: string,
 		): Promise<Entity | null> => {
-			const entities = await storage.listEntities(targetSchema, datasetId, 10000);
-			return entities.find((e) => e.data["id"] === id) ?? null;
+			const key = `${targetSchema}\0${id}`;
+			if (refCache.has(key)) return refCache.get(key) ?? null;
+			const found = await storage.findEntityByField(
+				targetSchema,
+				datasetId,
+				"id",
+				id,
+			);
+			refCache.set(key, found);
+			return found;
 		};
 
 		for (let i = 0; i < rows.length; i++) {

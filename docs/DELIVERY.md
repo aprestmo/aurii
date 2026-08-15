@@ -121,7 +121,7 @@ Norwegian Geo routes default to `enabled: false`. Registering the package does n
 
 **Not implemented on published routes:** cursor/keyset pagination, `?page=` / `?cursor=` query parameters, or automatic continuation.
 
-Offset pagination and in-memory joins are **not** a scale contract for millions of rows. That is Phase 4 N4, not this delivery slice.
+Offset pagination and in-memory joins are **not** a scale contract for millions of rows. Measured limits and the cursor design: [`SCALE.md`](SCALE.md).
 
 ---
 

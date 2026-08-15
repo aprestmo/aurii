@@ -1,8 +1,9 @@
 /**
  * Shared execution-plan logic for storage adapters.
  *
- * Adapters delegate scan operations to their native SQL; joins and EXISTS
- * are resolved in-memory so behaviour stays identical across engines.
+ * Adapters delegate scan and COUNT operations to native SQL when predicates
+ * are pushdown-safe. Joins and EXISTS remain in-memory so behaviour stays
+ * identical across engines.
  */
 
 import type { Entity } from "../entity/types";
@@ -206,6 +207,23 @@ export function evaluateCondition(
 				.toLowerCase()
 				.includes(String(value ?? "").toLowerCase());
 		default:
+			return false;
+	}
+}
+
+/**
+ * True when every predicate can be expressed by `whereExprToSqlClauses`.
+ * NOT and EXISTS stay in-memory; partial SQL COUNT would be wrong.
+ */
+export function canPushdownWhere(expr?: WhereExpr): boolean {
+	if (!expr) return true;
+	switch (expr.type) {
+		case "condition":
+			return expr.condition.op !== "exists";
+		case "and":
+		case "or":
+			return expr.exprs.every((child) => canPushdownWhere(child));
+		case "not":
 			return false;
 	}
 }

@@ -41,7 +41,7 @@ Dataset Modules (demo/norwegian-geo/modules/)
 | Route feasibility tests | `packages/core/src/__tests__/geo-website-routes.test.ts` |
 | Live API import test | `packages/core/src/__tests__/norwegian-geo-import.test.ts` |
 | SDK vertical slice | `packages/sdk/src/__tests__/vertical-slice.test.ts` |
-| Live geo delivery (N1) | `apps/api/src/__tests__/live-geo-delivery.test.ts` |
+| Live geo delivery (N1) | `apps/geo/src/__tests__/live-geo-delivery.integration.test.ts` |
 | Public website demo | `apps/geo` |
 | Phase 3 relational tests | `packages/core/src/__tests__/phase-3-relational.test.ts` |
 

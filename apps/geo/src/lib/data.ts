@@ -128,13 +128,18 @@ function mapPostalCode(row: {
   municipalityName?: string;
   postalCodeType?: string;
 }): PostalCode {
-  return {
+  const mapped: PostalCode = {
     code: row.code ?? row.id ?? "",
     city: row.city ?? row.name ?? "",
     municipalityId: row.municipalityId,
-    municipalityName: row.municipalityName,
-    postalCodeType: row.postalCodeType,
   };
+  if (row.municipalityName !== undefined) {
+    mapped.municipalityName = row.municipalityName;
+  }
+  if (row.postalCodeType !== undefined) {
+    mapped.postalCodeType = row.postalCodeType;
+  }
+  return mapped;
 }
 
 export async function loadCountiesLoaded(): Promise<GeoLoaded<County>> {

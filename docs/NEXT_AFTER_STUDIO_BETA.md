@@ -168,7 +168,7 @@ Each PR must:
 Use this after N1–N4 land (N5 can trail):
 
 - [ ] #52 merged; demo path above works on a clean clone
-- [ ] Live delivery contract documented and integration-tested ([`DELIVERY.md`](DELIVERY.md), `live-geo-delivery.test.ts`)
+- [ ] Live delivery contract documented and integration-tested ([`DELIVERY.md`](DELIVERY.md), `live-geo-delivery.integration.test.ts`)
 - [ ] `apps/geo` demonstrates Core/published-route consumption without Studio
 - [ ] Studio operates NG sources/imports/schedules/routes using package `defineStudio`
 - [ ] Composition story (`aurii.config` vs `product.yaml`) documented; register helper shared

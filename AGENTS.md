@@ -455,7 +455,7 @@ Aurii Core → Norwegian Geo Core → Dataset Modules
 | **Norwegian Geo Core** | `demo/norwegian-geo/core/` | Counties, municipalities, postal codes, history |
 | **Dataset modules** | `demo/norwegian-geo/modules/` | Schools, kindergartens, hospitals, holidays (+ future domains) |
 | **Import** | `bun run import:norwegian-geo` | One-command import into Core (dataset: `norwegian-geo`) |
-| **Tests** | `vertical-slice.test.ts`, `geo-website-routes.test.ts`, `public-reference-datasets.test.ts`, `apps/api/src/__tests__/live-geo-delivery.test.ts` | Integration coverage |
+| **Tests** | `vertical-slice.test.ts`, `geo-website-routes.test.ts`, `public-reference-datasets.test.ts`, `apps/geo/src/__tests__/live-geo-delivery.integration.test.ts` | Integration coverage |
 | **Consumer site** | `apps/geo` | Public website |
 | **Studio** | `apps/studio` (`@aurii/studio-app`) | Project workspace (dataset: `norwegian-geo`; config via `aurii.config.ts`) |
 | **Project package** | `demo/norwegian-geo/aurii.config.ts` | Schemas, sources, imports, sync, routes, Studio config |

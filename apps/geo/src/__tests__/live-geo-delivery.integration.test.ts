@@ -22,15 +22,15 @@ import {
 	resetPlatformStore,
 	resetProjectService,
 	runImport,
-} from "@aurii/core";
+} from "../../../../packages/core/src/index";
+import { buildApiApp } from "../../../api/src/server";
+import { PRODUCT_ROOT } from "../../../../demo/norwegian-geo/lib/paths";
 import {
 	loadCountiesLoaded,
 	loadMunicipalitiesLoaded,
 	loadPostalCodesLoaded,
-} from "../../../geo/src/lib/data";
-import { LiveDeliveryError } from "../../../geo/src/lib/live";
-import { PRODUCT_ROOT } from "../../../../demo/norwegian-geo/lib/paths";
-import { buildApiApp } from "../server";
+} from "../lib/data";
+import { LiveDeliveryError } from "../lib/live";
 
 const DEMO = PRODUCT_ROOT;
 const CORE_IMPORTS = resolve(DEMO, "core/imports");
@@ -103,7 +103,9 @@ describe("live geo delivery (N1)", () => {
 		await registerPackageSchemas(pkg);
 
 		for (const name of ["counties", "municipalities", "postal-codes"] as const) {
-			const def = await loadImportDefinition(resolve(CORE_IMPORTS, `${name}.yaml`));
+			const def = await loadImportDefinition(
+				resolve(CORE_IMPORTS, `${name}.yaml`),
+			);
 			const result = await runImport(def, CORE_IMPORTS, {
 				dryRun: false,
 				datasetId: DATASET,
@@ -116,18 +118,20 @@ describe("live geo delivery (N1)", () => {
 			skipPlatformStoreInit: true,
 		});
 
-		globalThis.fetch = async (input: RequestInfo | URL, init?: RequestInit) => {
+		const mockFetch = async (input: RequestInfo | URL, init?: RequestInit) => {
 			const url =
 				typeof input === "string"
 					? input
 					: input instanceof URL
 						? input.toString()
-						: input.url;
+						: (input as Request).url;
 			if (url.startsWith(MOCK_BASE)) {
-				return app.handle(new Request(url, init));
+				return app.handle(new Request(url, init as RequestInit));
 			}
 			return originalFetch(input as RequestInfo, init);
 		};
+		// @ts-expect-error — replacing with a compatible subset for testing
+		globalThis.fetch = mockFetch;
 
 		for (const route of pkg.routes) {
 			if (!["counties", "municipalities", "postal-codes"].includes(route.id)) {
@@ -184,6 +188,7 @@ describe("live geo delivery (N1)", () => {
 		process.env["AURII_CORE_URL"] = MOCK_BASE;
 		process.env["AURII_PROJECT_SLUG"] = "norge-data";
 		process.env["AURII_DELIVERY_MODE"] = "live";
+		// @ts-expect-error — replacing with a compatible subset for testing
 		globalThis.fetch = async () => new Response("down", { status: 503 });
 
 		await expect(loadCountiesLoaded()).rejects.toBeInstanceOf(LiveDeliveryError);

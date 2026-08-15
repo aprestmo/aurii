@@ -106,5 +106,5 @@ cd packages/core && bun test src/__tests__/geo-website-routes.test.ts
 Live published-route path used by this app:
 
 ```bash
-cd apps/api && bun test src/__tests__/live-geo-delivery.test.ts
+cd apps/geo && bun test src/__tests__/live-geo-delivery.integration.test.ts
 ```

@@ -54,37 +54,24 @@ That single difference changes everything.
 
 Aurii should never become "just another CMS."
 
-Instead, it should become a general platform for structured information.
+Instead, it should become a general platform for **modeling, ingesting, editing, enriching, relating, and publishing** structured data and editorial content.
 
-**Aurii Core is not a CMS.** Products may still add an optional authoring workspace and deliver classic CMS experiences (blogs, docs, news) while frontends consume Core through APIs. See [`PRODUCT_MODEL.md`](PRODUCT_MODEL.md) and [ADR-0010](../adr/ADR-0010%20—%20Optional%20Authoring%20Layer.md).
+**Aurii Core is not a CMS.** Studio is a customizable client on the same Core model. Products may still add an optional authoring workspace and deliver classic CMS experiences (blogs, docs, news) while frontends consume Core through APIs. See [`PRODUCT_MODEL.md`](PRODUCT_MODEL.md) and [ADR-0010](../adr/ADR-0010%20—%20Optional%20Authoring%20Layer.md).
+
+The same Core should support:
+
+- publication CMS
+- Kampbart-style operational tools
+- playground / place directories
+- company and financial datasets (Gaselle)
+- Geo datasets
+- LiveCenter
+- documentation
+- other structured-data applications
+
+without each product requiring its own backend architecture.
 
 A platform where organizations can model their knowledge, data and workflows without being constrained by predefined content types or publishing assumptions.
-
-News articles.
-
-Products.
-
-Tax data.
-
-Maps.
-
-Events.
-
-Scientific datasets.
-
-Documentation.
-
-Legal documents.
-
-Subscriptions.
-
-Live reporting.
-
-Assets.
-
-Metadata.
-
-Everything should be first-class citizens.
 
 ---
 
@@ -340,9 +327,13 @@ But it is not the product.
 
 Studio consumes the same APIs available to everyone else.
 
+Generated UI is the default. Domain-specific tools (match desks, maps, dense tables) are extensions—not Core features.
+
 Nothing inside Studio should require privileged access unavailable to external developers.
 
 If Studio can do something, another application should be able to do it as well.
+
+Core must work without Studio.
 
 ---
 
@@ -399,7 +390,7 @@ Aurii should become that platform.
 
 Everything we build should answer one question:
 
-> Does this make Aurii a better platform for structured information?
+> Does this make Aurii a better platform for structured information—data and content on one Core?
 
 If the answer is yes,
 
@@ -408,3 +399,5 @@ it belongs.
 If the answer is no,
 
 it probably belongs somewhere else.
+
+Architecture fitness tests: [`ARCHITECTURE_FITNESS.md`](ARCHITECTURE_FITNESS.md).

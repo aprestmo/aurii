@@ -161,7 +161,15 @@ Filters should compose naturally.
 
 # Relationships
 
-Relationships should be traversable.
+Relationships should be traversable. Query-through-relation is part of the **foundation**, not a CMS extra.
+
+The language should eventually support:
+
+- filter/sort on referenced fields
+- reverse references (e.g. articles that reference this company)
+- one-to-many and many-to-many as schema cardinality allows
+
+Implemented today: Query Language v1 joins (see [`Query-Language-v1.md`](Query-Language-v1.md)). Dot-notation traversal remains visionary (ADR-0004). Reverse references are planned, not a new query engine.
 
 Example:
 

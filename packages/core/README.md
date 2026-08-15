@@ -1,12 +1,12 @@
 # @aurii/core
 
-> Aurii Core Runtime — schema-driven, import-first, storage-agnostic.
+> Aurii Core Runtime — schema-driven, import-first, storage-agnostic. Same entity model for structured data, editorial content, and hybrids.
 >
-> **Status:** Phase 3 complete (relational references, joins, query planner). Next: [`Phase4.md`](../../Phase4.md). Product model: [`docs/PRODUCT_MODEL.md`](../../docs/PRODUCT_MODEL.md).
+> **Status:** Phase 3 complete (relational references, joins, query planner). Next: [`Phase4.md`](../../Phase4.md). Product model: [`docs/PRODUCT_MODEL.md`](../../docs/PRODUCT_MODEL.md). Fitness tests: [`docs/ARCHITECTURE_FITNESS.md`](../../docs/ARCHITECTURE_FITNESS.md).
 
 **External data → Declarative mapping → Entity storage → Query → API / SDK**
 
-Core is the system of record. Studio and future authoring clients are optional. Frontends consume Core through public APIs—not through a CMS.
+Core is the system of record. It does not assume records are articles. Studio and future authoring clients are optional. Frontends consume Core through public APIs—not through a CMS.
 
 ---
 

@@ -11,16 +11,20 @@ The specification is the **source of truth**. Code implements the specification.
 ### Product model
 
 - [PRODUCT_MODEL.md](./PRODUCT_MODEL.md) — **Canonical product model** (Core, datasets, products, modules, Studio, authoring, consumers)
+- [ARCHITECTURE_FITNESS.md](./ARCHITECTURE_FITNESS.md) — Kampbart, playgrounds, Gaselle, Geo as architecture tests
 - [PROJECTS.md](./PROJECTS.md) — Project as top-level Core boundary (API, migration, seed)
 - [Phase4.md](../Phase4.md) — Phase 4 plan: Data Products and Delivery
 - [Phase5.md](../Phase5.md) — Phase 5 plan: Editorial & Context (**planned / post–Phase 4**)
 - [DELIVERY.md](./DELIVERY.md) — Live frontend delivery contract
 - [ADR-0010 — Optional Authoring Layer](../adr/ADR-0010%20—%20Optional%20Authoring%20Layer.md) — CMS/authoring as optional Core clients
 - [ADR-0011 — Project as Top-Level Boundary](../adr/ADR-0011%20—%20Project%20as%20Top-Level%20Boundary.md) — Project tenancy model
+- [ADR-0019 — Provenance and Editorial Overrides](../adr/ADR-0019%20—%20Provenance%20and%20Editorial%20Overrides.md)
+- [ADR-0020 — Extensible Studio](../adr/ADR-0020%20—%20Extensible%20Studio.md)
 
 ### Architecture
 
 - [Architecture.md](./Architecture.md) — Overall system architecture and engine design
+- [ARCHITECTURE_FITNESS.md](./ARCHITECTURE_FITNESS.md) — Representative product tests of the architecture
 - [Runtime.md](./Runtime.md) — Runtime design and execution model
 - [Core.md](./Core.md) — Core package internals
 - [Domain Model.md](./Domain%20Model.md) — Entity, Dataset, Schema, Pipeline domain model
@@ -74,4 +78,4 @@ Historical phase reports are records of what was true when written. Prefer statu
 
 ## Architecture Decision Records
 
-See [`../adr/`](../adr/) for all recorded architectural decisions. Latest project-boundary decision: [ADR-0011](../adr/ADR-0011%20—%20Project%20as%20Top-Level%20Boundary.md).
+See [`../adr/`](../adr/) for all recorded architectural decisions. Latest: [ADR-0019](../adr/ADR-0019%20—%20Provenance%20and%20Editorial%20Overrides.md), [ADR-0020](../adr/ADR-0020%20—%20Extensible%20Studio.md). Project-boundary decision: [ADR-0011](../adr/ADR-0011%20—%20Project%20as%20Top-Level%20Boundary.md).

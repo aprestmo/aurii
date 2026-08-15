@@ -11,9 +11,11 @@
 
 # Article 1 — Purpose
 
-Aurii exists to provide a general-purpose platform for structured content and data.
+Aurii exists to provide a general-purpose platform for structured content and data—modeling, ingesting, editing, enriching, relating, and publishing information independently of how it is consumed.
 
 Aurii is not designed around websites.
+
+Aurii is not designed around articles as the primary record type.
 
 Aurii is designed around information.
 
@@ -405,6 +407,29 @@ Until this works in production, no new horizontal capabilities shall take priori
 This is not a limitation.
 
 This is the foundation.
+
+---
+
+# Article 23 — Unified Records, Sources, and Extensible Clients
+
+Aurii is a platform for structured data **and** editorial content on one Core model.
+
+1. Data is not necessarily content.
+2. Content may reference data without owning it.
+3. Structured data and rich content may live on the same record.
+4. External sources are a normal way data enters Aurii.
+5. Aurii shall be able to preserve provenance.
+6. Editorial overrides shall be representable without destroying source values.
+7. The schema describes the domain, not only the Studio form.
+8. Generated Studio is the default experience, not the limitation.
+9. Domain-specific interfaces shall be buildable without domain-special logic in Core.
+10. Core shall be usable without Studio.
+
+The platform shall not introduce separate storage models for “content” and “data” without a documented technical necessity.
+
+Relations, sources, provenance, and Studio extensibility are architectural foundations. They must not be treated as late optional integrations even when implementation is staged.
+
+Fitness tests for this article: [`ARCHITECTURE_FITNESS.md`](ARCHITECTURE_FITNESS.md).
 
 ---
 

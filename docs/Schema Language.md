@@ -45,15 +45,16 @@ A Schema answers questions such as:
 - What fields exist?
 - How are they validated?
 - How are they related?
-- How should they be edited?
+- How should they be edited? (default generated UI; replaceable)
 - How should they be queried?
 - How should they be indexed?
 - How should AI understand them?
 - Who may access them?
 - How are they imported?
 - How are they exported?
+- Which fields are relations, and to which schemas?
 
-One Schema drives the entire platform.
+One Schema drives the entire platform. It describes the **domain**, not merely the schema of a Studio form.
 
 ---
 
@@ -241,34 +242,41 @@ json
 asset
 
 richtext
+
+blocks
 ```
 
 Field types should be extensible.
 
 Plugins may introduce new field types.
 
+A schema may mix scalar/structured fields and rich/free-form fields on the **same** record (playground facts + tips; match score + match report). Rich content is a field type (or plugin type), not a parallel document store.
+
+Studio may generate default inputs from field types. Custom field inputs may replace those defaults ([ADR-0020](../adr/ADR-0020%20—%20Extensible%20Studio.md)). The schema still describes the domain, not only the form.
+
 ---
 
 # Relationships
 
-Relationships define how Entities connect.
+Relationships define how Entities connect. They are a **foundation** of Schema Language, not merely UI metadata.
+
+The schema must be able to declare:
+
+- typed references (`type: reference`, `to:`)
+- cardinality: one-to-one, many-to-one, one-to-many (`multiple`), many-to-many (planned)
+- reverse / incoming references (planned)
+- integrity expectations (required, on-delete behavior—planned)
+
+Implemented reference fields: [`Schema-Language-References.md`](Schema-Language-References.md).
 
 Examples:
 
 ```
-Author
-
-↓
-
-Article
-```
-
-```
-Municipality
-
-↓
-
-County
+Author → Article
+Municipality → County
+Company → Region
+Article → Company   (content references data without owning it)
+Match → events[] → Player
 ```
 
 Relationships should always be typed.
@@ -276,6 +284,8 @@ Relationships should always be typed.
 Schemas describe the relationship.
 
 Core enforces it.
+
+Studio may generate default relation pickers and later show reverse-reference context. That UI is derived from the schema; the schema is not derived from Studio.
 
 ---
 

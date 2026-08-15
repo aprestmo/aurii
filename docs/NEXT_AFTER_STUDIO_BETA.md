@@ -4,7 +4,7 @@
 >
 > Baseline: project packages, DataSources, schedules, published routes, scoped platform APIs, and package-driven Studio are **in tree**.
 >
-> Parent roadmap: [`Phase4.md`](../Phase4.md). Product vocabulary: [`docs/PRODUCT_MODEL.md`](PRODUCT_MODEL.md). Delivery contract: [`DELIVERY.md`](DELIVERY.md). Post–Phase 4 Editorial + Context (planning only): [`Phase5.md`](../Phase5.md).
+> Parent roadmap: [`Phase4.md`](../Phase4.md). Product vocabulary: [`docs/PRODUCT_MODEL.md`](PRODUCT_MODEL.md). Delivery contract: [`DELIVERY.md`](DELIVERY.md). Post–Phase 4 Editorial + Context (planning only): [`Phase5.md`](../Phase5.md). Fitness tests: [`ARCHITECTURE_FITNESS.md`](ARCHITECTURE_FITNESS.md).
 
 ---
 
@@ -47,7 +47,9 @@ Finish Phase 4 **exit criteria** that #52 did not fully close:
 3. **Honest composition** — clarify `aurii.config.ts` vs `product.yaml` for modules; expand package surface only where Studio/ops need it.
 4. **Scale honesty** — measure join/pagination limits; define next bottlenecks without claiming HA or tax-list scale.
 
-Non-goals remain unchanged: CMS, Editorial, LiveCenter, distributed scheduler, marketplace plugins. Editorial + Context is planned after Phase 4 — [`Phase5.md`](../Phase5.md) — and must not be implemented in N1–N5.
+Non-goals remain unchanged: publication CMS, Editorial product implementation, LiveCenter, distributed scheduler, marketplace plugins, Kampbart editor, playground Map, Gaselle, `packages/sources`, `apps/worker`. Editorial + Context is planned after Phase 4 — [`Phase5.md`](../Phase5.md) — and must not be implemented in N1–N5.
+
+Architecture for provenance/overrides and extensible Studio is already recorded ([ADR-0019](../adr/ADR-0019%20—%20Provenance%20and%20Editorial%20Overrides.md), [ADR-0020](../adr/ADR-0020%20—%20Extensible%20Studio.md)). N2 provenance UX should align with that design and must not invent a competing JSON convention as the long-term model.
 
 ---
 
@@ -173,7 +175,7 @@ Use this after N1–N4 land (N5 can trail):
 - [ ] Studio operates NG sources/imports/schedules/routes using package `defineStudio`
 - [ ] Composition story (`aurii.config` vs `product.yaml`) documented; register helper shared
 - [ ] Scale limits measured and written down
-- [ ] Docs still say: CMS is a future separate product; Studio is a data workspace
+- [ ] Docs still say: publication CMS is a future separate product; Studio is an extensible workspace (generated default, replaceable UI); fitness tests in `ARCHITECTURE_FITNESS.md`
 
 ---
 
@@ -185,6 +187,7 @@ Use this after N1–N4 land (N5 can trail):
 4. Do not re-scaffold `defineProject` / platform store / ADRs 0014–0018.
 5. Prefer extending `register-via-api.ts`, Studio pages, and `apps/geo` live loaders.
 6. Stop and document if a step would require a new Core abstraction — ADR first.
+7. Do not implement Kampbart, Map views, Gaselle, source adapter packages, or a provenance store unless the assigned task says so.
 
 ---
 

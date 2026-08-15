@@ -5,7 +5,10 @@
 > Phase 3 completed the relational Core. Phase 4 completes the **data-product path** before the repository attempts a full newsroom, LiveCenter, or authoring CMS.
 >
 > Product vocabulary: [`docs/PRODUCT_MODEL.md`](docs/PRODUCT_MODEL.md).  
-> Optional authoring decision: [`adr/ADR-0010 — Optional Authoring Layer.md`](adr/ADR-0010%20—%20Optional%20Authoring%20Layer.md).
+> Optional authoring decision: [`adr/ADR-0010 — Optional Authoring Layer.md`](adr/ADR-0010%20—%20Optional%20Authoring%20Layer.md).  
+> Architecture fitness tests: [`docs/ARCHITECTURE_FITNESS.md`](docs/ARCHITECTURE_FITNESS.md).  
+> Provenance: [`adr/ADR-0019 — Provenance and Editorial Overrides.md`](adr/ADR-0019%20—%20Provenance%20and%20Editorial%20Overrides.md).  
+> Extensible Studio: [`adr/ADR-0020 — Extensible Studio.md`](adr/ADR-0020%20—%20Extensible%20Studio.md).
 
 ---
 
@@ -31,11 +34,12 @@ Phase 4 includes a **project-oriented Studio beta** as part of the data-product 
 | DataSource model | First-class provenance registry for file/HTTP/DB/manual/… | Beta — [ADR-0015](adr/ADR-0015%20—%20DataSource%20Model.md) |
 | Scheduling (cron on saved sync/import) | Minimal single-process scheduler for recurring refresh | Beta — [ADR-0018](adr/ADR-0018%20—%20Minimal%20Scheduling.md) |
 | Published routes (`defineRoute`) | Stable `/public/:projectSlug/v1/...` delivery endpoints | Beta — [ADR-0016](adr/ADR-0016%20—%20Published%20Routes.md) |
-| Studio extension (`defineStudio`) | Generic `@aurii/studio-app` + project config + simple view registry | Beta — [ADR-0017](adr/ADR-0017%20—%20Studio%20Extension%20Model.md) |
+| Studio extension (`defineStudio`) | Generic `@aurii/studio-app` + project config + simple view registry | Beta — [ADR-0017](adr/ADR-0017%20—%20Studio%20Extension%20Model.md); planned surface [ADR-0020](adr/ADR-0020%20—%20Extensible%20Studio.md) |
+| Provenance / overrides | Source value vs editorial override as Core metadata | Designed — [ADR-0019](adr/ADR-0019%20—%20Provenance%20and%20Editorial%20Overrides.md) (not implemented) |
 
 Docs: [`docs/PRODUCT_MODEL.md`](docs/PRODUCT_MODEL.md), [`docs/Studio.md`](docs/Studio.md), [`docs/PROJECT_PACKAGES.md`](docs/PROJECT_PACKAGES.md).
 
-Studio remains a **data workspace**. A CMS / authoring product stays a non-goal for Phase 4.
+Studio remains an **extensible data workspace**, not a publication CMS. Generated forms are in-scope as **default record UI** (not as a CMS). A CMS / authoring product stays a non-goal for Phase 4. Domain editors (Kampbart match desk, playground Map view) are **not** Phase 4 implementation work; their **extension contract** is an architectural commitment ([ADR-0020](adr/ADR-0020%20—%20Extensible%20Studio.md)).
 
 ---
 
@@ -48,7 +52,53 @@ Studio remains a **data workspace**. A CMS / authoring product stays a non-goal 
 | SDK + HTTP API | End-to-end **live** delivery to a real frontend (not only snapshots / admin UI) |
 | Norwegian Geo as reference data product | Honest scale limits and next bottlenecks measured |
 
-Building CMS, drafts, LiveCenter, or NewsML delivery on top of an incomplete delivery contract would invert the dependency order. Phase 4 finishes the data foundation; later phases add authoring and newsroom compositions.
+Building CMS, drafts, LiveCenter, or NewsML delivery on top of an incomplete delivery contract would invert the dependency order. Phase 4 finishes the data foundation; later phases add publication authoring and newsroom compositions.
+
+Relations, sources, provenance, and Studio extensibility are **not** deferred “nice to haves.” They are already in the architecture (Phase 3 relations; Phase 4 DataSource + simple Studio views). Remaining work is staged implementation on that foundation—see **Foundations roadmap** below.
+
+---
+
+## Foundations roadmap (how this phase sits)
+
+Guideline sequence for the platform (not a claim that Phase 4 implements all of it):
+
+```text
+Schema
+  ↓
+Records
+  ↓
+Relations
+  ↓
+Generated Studio
+  ↓
+Rich content / blocks
+  ↓
+Studio extension API
+  ↓
+Sources / ingestion / provenance
+  ↓
+Publishing / versioning / workflows
+  ↓
+Domain-specific Studio experiences
+```
+
+**Where we already are, and why the order differs slightly:**
+
+| Foundation | Status | Notes |
+|------------|--------|--------|
+| Schema | Implemented | Phase 1–2 |
+| Records / entities | Implemented | Same primitive for data, content, hybrids |
+| Relations | Implemented (typed refs, 1:1, 1:n, joins, import integrity); reverse refs, n:n, richer traversal **planned** | Landed in **Phase 3**, before generated Studio—on purpose (Geo/Gaselle graphs) |
+| Generated Studio | Partial (browse, query, generic entity UI); schema-generated forms **not required to exit Phase 4** | Default workspace UX, not a CMS. May start in Phase 4 polish; must not wait for Phase 5 |
+| Rich content / blocks | Planned field types on the same entity | After generated default UI; **not** a second store. Phase 5 can consume them; schema may grow earlier |
+| Studio extension API | Beta simple view registry; full surface **planned** | Started in Phase 4 **before** rich content because Geo needed custom pages. Widen per ADR-0020 without locking APIs |
+| Sources / ingestion / provenance | DataSource + import/sync **beta**; provenance/overrides **designed** (ADR-0019); `packages/sources` / `apps/worker` **intended placement only** | Pulled **earlier** than the guideline because Geo cannot be honest without sources. Not a late integration |
+| Publishing / versioning / workflows | Planned generic capabilities | **Phase 5+** — unchanged |
+| Domain-specific Studio | After a stable extension contract | Kampbart match desk, Map views: **products**, not Core. Need not wait for Editorial |
+
+**Deviation from the guideline, explained:** Sources and a thin Studio extension point moved earlier than “rich content” because the implemented vertical is a data product (Norwegian Geo). That is compatible with the guideline’s intent: those concerns are foundations, not afterthoughts. Publishing still follows. Domain studios still follow a real extension API.
+
+Do **not** implement Kampbart, playground Map, Gaselle, `packages/sources`, workers, or a provenance store as Phase 4 exit work unless a later issue assigns them.
 
 ---
 
@@ -66,7 +116,7 @@ Do not re-implement these; build on them.
 | Published routes | `defineRoute`; `/public/:projectSlug/v1/...`; Core activation state | Beta |
 | Studio | `@aurii/studio-app`: sources, imports, history, schedules, routes, entities, query, system; `defineStudio` + simple view registry | Beta |
 | Norwegian Geo | `product.yaml`, `aurii.config.ts`, core + modules, import scripts, tests, `apps/geo` consumer | Reference vertical |
-| ADRs | 0009–0010, 0011–0013 (projects), 0014–0018 (project Studio platform) | Accepted |
+| ADRs | 0009–0010, 0011–0013 (projects), 0014–0018 (project Studio platform), 0019–0020 (provenance, extensible Studio) | Accepted |
 
 ### Known gaps Phase 4 must treat honestly
 
@@ -93,8 +143,10 @@ Phase 4 does **not** deliver:
 - NewsML-G2 or InDesign/InCopy delivery
 - AI automation as a production feature
 - RBAC beyond the existing bearer token model (may document needs; not a Phase 4 exit requirement)
-- schema-generated rich authoring forms as a CMS
-- a full Plugin Runtime / marketplace (beta uses a simple Studio view registry)
+- schema-generated **publication** authoring as a CMS (generated **data** forms are allowed as Studio default UI)
+- a full Plugin Runtime / marketplace (beta uses a simple Studio view registry; ADR-0020 is the planned contract)
+- implementing Kampbart, playground Map, Gaselle, `packages/sources`, or `apps/worker`
+- locking `defineSource` or Studio plugin component APIs
 - a large new “product runtime” abstraction without an approved ADR **and** concrete use in Norwegian Geo
 - distributed HA job queues / exactly-once schedulers
 
@@ -145,11 +197,14 @@ Workstreams may overlap in engineering time, but dependencies run roughly A → 
 | P0 | Clear Studio surfacing of sources, saved definitions, dry-run vs commit, and run results (inserted/updated/skipped/errors) | Build on wizard + history + DataSource beta |
 | P0 | Documented dependency ordering for multi-schema imports | Norwegian Geo already requires order |
 | P0 | Project-oriented Studio operable via `aurii.config.ts` + env (local / `studio:build`) | Beta hardening, not a CMS |
-| P1 | Provenance / source metadata conventions on entities | Align with Norwegian Geo `standardFields` in `product.yaml` |
+| P0 | Architecture: provenance/override concepts and Studio extension trajectory documented | ADR-0019, ADR-0020, fitness tests — **design**, not feature build |
+| P1 | Provenance / source metadata on entities (start small; prefer Core metadata over product JSON) | [ADR-0019](adr/ADR-0019%20—%20Provenance%20and%20Editorial%20Overrides.md); NG `standardFields` only as a temporary convention |
 | P1 | Retry and clearer failure reporting for partial runs | Measure before inventing job queues |
 | P1 | Published routes operable from Studio (enable/disable, inspect) | Complements workstream C |
+| P1 | Generated record forms as default entity editor (schema-driven, not CMS) | Optional in Phase 4; must not be classified as Editorial |
 | P2 | Resumability for large imports | Design with tax-list scale in mind |
-| P2 | Richer HTTP connectors beyond minimal schedule guarantees | HA scheduler remains non-goal |
+| P2 | Richer HTTP connectors / `packages/sources` adapters | Design only unless assigned; HA scheduler remains non-goal |
+| P2 | Reverse references / query-through-relation improvements | Evolution of Phase 3; not a new engine |
 
 **Exit contribution:** Studio can operate the Norwegian Geo data product (sources, imports, schedules, schemas, browse, query, published routes) via generic UI + project config—without a product-specific Studio fork and without a CMS.
 
@@ -205,6 +260,7 @@ Import → Core storage → Query/API → @aurii/sdk → real frontend
 |-------|------|----------------|
 | **Norwegian Geo** | Canonical import / data / delivery vertical | Extend and prove delivery |
 | **Editorial** | Canonical authoring / publishing vertical (later) | Define boundary and prerequisites only — roadmap: [`Phase5.md`](Phase5.md) (**planned / post–Phase 4**, not implemented here) |
+| **Architecture fitness tests** | Kampbart, playgrounds, Gaselle, Geo as design tests | Keep the plan honest — [`docs/ARCHITECTURE_FITNESS.md`](docs/ARCHITECTURE_FITNESS.md). Do not implement those products in Phase 4 |
 
 **Prerequisites before an Editorial phase should start:**
 
@@ -212,8 +268,9 @@ Import → Core storage → Query/API → @aurii/sdk → real frontend
 - ADR-0010 still in force
 - Editorial concepts expressed as schemas/capabilities proposals—not Core newsroom builtins
 - No requirement that Norwegian Geo grow draft/publish fields “just to have somewhere to test”
+- Architecture still answers the four fitness questions in [`docs/ARCHITECTURE_FITNESS.md`](docs/ARCHITECTURE_FITNESS.md)
 
-**Exit contribution:** Written boundary in `AGENTS.md` / this document; no Editorial implementation in Phase 4.
+**Exit contribution:** Written boundary in `AGENTS.md` / this document; no Editorial implementation in Phase 4. Domain-specific **Studio extensions** (match desk, Map) remain non-goals to *build* here; their contract is documented.
 
 ---
 
@@ -228,6 +285,7 @@ Phase 4 is complete when all of the following are true:
 5. **Contract:** Delivery contract is documented and covered by integration tests.
 6. **Scale:** Limitations are measured honestly; next bottlenecks are explicit.
 7. **No CMS required:** The data product functions with zero authoring/CMS client.
+8. **Architecture honesty:** Docs/ADRs state that relations, sources, provenance/overrides, and Studio extensibility are foundations; fitness tests exist; no competing parallel plan.
 
 ---
 
@@ -259,13 +317,13 @@ Authoring, newsroom, and LiveCenter issues wait until Phase 4 exits. The post–
 
 ## Relationship to Phase 3 recommendations
 
-Phase 3’s “Recommended Phase 4 scope” listed SQL pushdown, reference indexes, dot-notation, GROUP BY, schema-generated forms, and enum types. Phase 4 **absorbs** the data/delivery and scale items. Schema-generated **authoring** forms are **out of scope** here (ADR-0010 / non-goals); read-only relation display and query playground already shipped. Enum may land if it unblocks data products; it is not a CMS feature.
+Phase 3’s “Recommended Phase 4 scope” listed SQL pushdown, reference indexes, dot-notation, GROUP BY, schema-generated forms, and enum types. Phase 4 **absorbs** the data/delivery and scale items. Schema-generated **publication** forms remain out of scope as a CMS (ADR-0010). Schema-generated **default record UI** is allowed as Studio evolution (ADR-0020) and is not a Phase 4 exit gate. Read-only relation display and query playground already shipped. Enum may land if it unblocks data products.
 
 ---
 
 ## Documentation updates expected during Phase 4 implementation
 
-- Keep `docs/PRODUCT_MODEL.md`, `docs/Studio.md`, `docs/PROJECT_PACKAGES.md`, and this file’s “baseline / non-goals / exit criteria” in sync with reality.
+- Keep `docs/PRODUCT_MODEL.md`, `docs/Studio.md`, `docs/PROJECT_PACKAGES.md`, `docs/ARCHITECTURE_FITNESS.md`, and this file’s “baseline / non-goals / exit criteria” in sync with reality.
 - Delivery contract: [`docs/DELIVERY.md`](docs/DELIVERY.md) (N1).
 - Post–Phase 4 Editorial + Context: [`Phase5.md`](Phase5.md) (planned only — do not implement in Phase 4).
 - Update README status when Phase 4 completes.

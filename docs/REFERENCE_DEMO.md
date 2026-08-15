@@ -145,7 +145,7 @@ Build validates routes resolve. See `apps/geo/README.md`.
 
 ## What not to use this for
 
-- Performance benchmarking at scale (dataset is small by design; Phase 4 defines larger stress cases)
+- Performance benchmarking at tax-list / million-row scale (dataset is small by design; measured NG limits: [`SCALE.md`](SCALE.md))
 - Authoring, drafts, publishing, preview, editorial workflow, or media libraries (future Editorial vertical)
 - Features explicitly deferred past Phase 4 (full RBAC, plugins as production, AI as production, CMS/LiveCenter)
 - Domain-specific Core hacks — behaviour belongs in schemas, imports, or the Norwegian Geo product

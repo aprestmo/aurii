@@ -51,7 +51,7 @@ Default `strict` mode fails rows with missing targets. `warning` and `skip` mode
 1. **EXISTS in queries** checks field population, not that the referenced entity exists in the target schema (import validation covers writes).
 2. **Aggregates** limited to COUNT; no GROUP BY, SUM, or AVG.
 3. **No dot-notation traversal** (`county.name` without JOIN) — ADR-0004 vision, not yet implemented.
-4. **Reference lookup during import** scans up to 10,000 entities per check — acceptable for demo scale.
+4. **Reference lookup during import** scanned up to 10,000 entities per check in Phase 3 — acceptable for demo scale. **N4:** SQL `findEntityByField` + per-run cache; see [`docs/SCALE.md`](docs/SCALE.md).
 5. **Parallel multi-schema imports** race reference validation — imports must be ordered (documented).
 
 ## Design assumption corrected

@@ -73,10 +73,12 @@ GET /query/explain?q=<query>
 
 v0 queries remain valid. The parser now returns a typed AST (`QueryAST`) instead of a flat `ParsedQuery`. Legacy `ParsedQuery` is available via `toLegacyParsedQuery()` for single-entity AND-only queries.
 
-## Known limitations (Phase 3)
+## Known limitations
 
-- Joins execute in-memory after two scans (correct for demo scale; not optimized)
+- Joins execute in-memory after two full scans (correct at Norwegian Geo size; **not** a 100k+ join contract — [`SCALE.md`](SCALE.md))
+- `count` uses SQL `COUNT(*)` when WHERE is pushdown-safe; `NOT` / `EXISTS` still scan then count
 - EXISTS checks field population, not referential integrity against target schema
 - Aggregates: COUNT only (SUM, AVG, GROUP BY deferred)
 - Dot-notation traversal (`author.name`) not yet supported — use JOIN
 - NOT with complex sub-expressions may be evaluated in-memory only
+- Pagination is `limit` / `offset`. Cursor/keyset is designed, not implemented ([`SCALE.md`](SCALE.md))

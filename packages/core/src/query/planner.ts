@@ -84,7 +84,9 @@ export function explainPlan(plan: ExecutionPlan): PlanExplanation {
 		}
 		case "aggregate": {
 			schemas.add(plan.schemaId);
-			steps.push(`Aggregate ${plan.fn.toUpperCase()} on schema "${plan.schemaId}"`);
+			steps.push(
+				`Aggregate ${plan.fn.toUpperCase()} on schema "${plan.schemaId}" (SQL COUNT when predicates are pushdown-safe)`,
+			);
 			if (plan.where) steps.push("Apply filter predicates before aggregation");
 			break;
 		}

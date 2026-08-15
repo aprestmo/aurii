@@ -8,3 +8,4 @@ dist/
 .astro/
 .aurii-uploads/
 .DS_Store
+tmp-bad-ref.json

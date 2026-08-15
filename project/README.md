@@ -30,9 +30,11 @@ Full documentation: [`docs/NORWEGIAN_GEO.md`](../docs/NORWEGIAN_GEO.md)
 
 ```
 demo/norwegian-geo/
-├── product.yaml          # Product manifest — schemas, modules, import order
+├── product.yaml          # Product manifest — modules, dependsOn, CLI import order
+├── aurii.config.ts       # Project package — Studio/ops sources, imports, routes
+├── studio/               # defineStudio collections and import groups
 ├── lib/                  # Shared paths and manifest loader
-├── scripts/              # fetch, import, enrich-population
+├── scripts/              # fetch, import, register-via-api, enrich-population
 ├── core/                 # Counties, municipalities, postal codes, history
 │   ├── schemas/
 │   ├── imports/
@@ -103,9 +105,15 @@ bun run cli query 'from public-holiday where year == 2026 order by date asc' --d
 
 ## Adding a dataset module
 
-1. Create `modules/<id>/` with `module.yaml`, schemas, imports, and `data/`
-2. Add the module to `product.yaml`
-3. Extend `scripts/fetch.ts` if needed
-4. Run `bun run import:norwegian-geo`
+Shipped modules are operable in Studio (collections + saved imports), not CLI-only.
 
-See [`docs/NORWEGIAN_GEO.md`](../docs/NORWEGIAN_GEO.md) for boundaries and import principles.
+1. Create `modules/<id>/` with `module.yaml`, schemas, imports, and `data/`
+2. Add the module to `product.yaml` **and** `lib/manifest.ts` (CLI import order)
+3. Add source + saved-import descriptors; list them in `aurii.config.ts`
+4. Add Studio collections / `importGroups` in `studio/studio.config.ts`
+5. Extend `scripts/fetch.ts` if needed
+6. `bun run import:norwegian-geo` then `bun run register:norwegian-geo-platform`
+
+Planned modules go in `product.yaml` `futureModules` only. Schema YAML for modules stays in the module — not in `aurii.config.ts` `schemas:`.
+
+See [`docs/NORWEGIAN_GEO.md`](../../docs/NORWEGIAN_GEO.md) and [`docs/PROJECT_PACKAGES.md`](../../docs/PROJECT_PACKAGES.md).

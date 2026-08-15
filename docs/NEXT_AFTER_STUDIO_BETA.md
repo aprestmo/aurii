@@ -1,10 +1,10 @@
 # Next: After project-oriented Studio beta (#52)
 
-> Planning document for work **after** [PR #52](https://github.com/aprestmo/aurii/pull/52) (and the #51 scaffold it hardens).
+> **Status: complete.** This was the Phase 4 close-out plan after [PR #52](https://github.com/aprestmo/aurii/pull/52). N1–N5 landed. Remaining items below are **optional polish**, not Phase 4 blockers.
 >
 > Baseline: project packages, DataSources, schedules, published routes, scoped platform APIs, and package-driven Studio are **in tree**.
 >
-> Parent roadmap: [`Phase4.md`](../Phase4.md). Product vocabulary: [`docs/PRODUCT_MODEL.md`](PRODUCT_MODEL.md). Delivery contract: [`DELIVERY.md`](DELIVERY.md). Post–Phase 4 Editorial + Context (planning only): [`Phase5.md`](../Phase5.md). Fitness tests: [`ARCHITECTURE_FITNESS.md`](ARCHITECTURE_FITNESS.md).
+> Parent report: [`Phase4.md`](../Phase4.md) (**complete**). Product vocabulary: [`docs/PRODUCT_MODEL.md`](PRODUCT_MODEL.md). Delivery contract: [`DELIVERY.md`](DELIVERY.md). Scale: [`SCALE.md`](SCALE.md). Post–Phase 4 Editorial + Context (planning only): [`Phase5.md`](../Phase5.md). Fitness tests: [`ARCHITECTURE_FITNESS.md`](ARCHITECTURE_FITNESS.md).
 
 ---
 
@@ -38,9 +38,9 @@ bun run studio
 
 ---
 
-## Goal of the next slice
+## Goal of this slice (closed)
 
-Finish Phase 4 **exit criteria** that #52 did not fully close:
+Finish Phase 4 **exit criteria** that #52 did not fully close. **All four are done:**
 
 1. **Live delivery contract** — `apps/geo` (or equivalent) proven against a running Core with integration tests, not only optional env fallback.
 2. **Operable Studio polish** — provenance, clearer run/error UX, config groups actually used in UI.
@@ -168,7 +168,7 @@ Each PR must:
 
 ## Acceptance checklist for “Phase 4 complete enough”
 
-Use this after N1–N4 land (N5 can trail):
+**Met.** N5 optional polish (secret vault UX, tokens UI) may trail.
 
 - [x] #52 merged; demo path above works on a clean clone
 - [x] Live delivery contract documented and integration-tested ([`DELIVERY.md`](DELIVERY.md), `live-geo-delivery.integration.test.ts`)
@@ -182,18 +182,17 @@ Use this after N1–N4 land (N5 can trail):
 
 ## Agent instructions (next run)
 
-1. Assume branch/`main` includes #52–#59 plus N4 scale honesty. Phase 4 exit criteria are met.
-2. Remaining optional N5: secret vault UX (set-by-id, never echo) and tokens UI. Do not start Phase 5 implementation.
-3. Read this file + `Phase4.md` + `docs/PRODUCT_MODEL.md` before coding.
-4. Do not re-scaffold `defineProject` / platform store / ADRs 0014–0018 / live delivery / Studio ops pages.
-5. Do not rebuild N1–N4 (delivery, Studio ops, `registerProjectPackage`, scale measurements). N5 items are optional hardening.
-6. Stop and document if a step would require a new Core abstraction — ADR first.
-7. Do not implement Kampbart, Map views, Gaselle, source adapter packages, or a provenance store unless the assigned task says so.
+1. Phase 4 is **complete**. Assume `main` includes #52–#59 plus N4 scale honesty ([`SCALE.md`](SCALE.md)).
+2. Remaining optional polish: secret vault UX (set-by-id, never echo) and tokens UI. Do **not** start Phase 5 implementation unless the assigned task says so.
+3. Read [`Phase4.md`](../Phase4.md) + [`Phase5.md`](../Phase5.md) + `docs/PRODUCT_MODEL.md` before coding.
+4. Do not re-scaffold `defineProject` / platform store / ADRs 0014–0018 / live delivery / Studio ops pages / scale measurements.
+5. Stop and document if a step would require a new Core abstraction — ADR first.
+6. Do not implement Kampbart, Map views, Gaselle, source adapter packages, or a provenance store unless the assigned task says so.
 
 ---
 
 ## Success question
 
-> After the next slice, can a contributor import Norwegian Geo, register the package, enable a published route, run Studio from the package config, and load the same data in `apps/geo` from Core—with tests proving the live path—without any CMS?
+> After this slice, can a contributor import Norwegian Geo, register the package, enable a published route, run Studio from the package config, and load the same data in `apps/geo` from Core—with tests proving the live path—without any CMS?
 
-If yes, Phase 4’s project-oriented beta is ready to exit into scale/polish and later Editorial planning.
+**Yes.** Phase 4 is complete. Editorial + Context remains planned: [`Phase5.md`](../Phase5.md).

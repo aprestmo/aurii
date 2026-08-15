@@ -439,7 +439,7 @@ Aurii uses **two** planned reference verticals, plus **architecture fitness test
 | Vertical | Validates | Status |
 |----------|-----------|--------|
 | **Norwegian Geo** | Import, schema, query, storage, SDK, **delivery**, product modules, sources | Canonical and implemented |
-| **Editorial** (future) | Authoring, revision, publishing, preview, workflow, media, Context | Planned after Phase 4 — [`Phase5.md`](Phase5.md); **do not implement in Phase 4 docs/work** |
+| **Editorial** (future) | Authoring, revision, publishing, preview, workflow, media, Context | Planned after Phase 4 — [`Phase5.md`](Phase5.md); **do not implement unless assigned** |
 
 **Fitness tests** (design, not in-repo demos unless assigned): Kampbart, playground directory, DN Gaselle, Geo — [`docs/ARCHITECTURE_FITNESS.md`](docs/ARCHITECTURE_FITNESS.md).
 
@@ -523,7 +523,7 @@ Until that vertical exists:
 
 - Do not create a fake newsroom dataset to justify Core special cases
 - Do not require Norwegian Geo to grow editorial fields for platform features it does not need
-- Keep Phase 4 focused on data products and delivery (`Phase4.md`)
+- Phase 4 is **complete** ([`Phase4.md`](Phase4.md)). Do not reopen data-product delivery as if it were unfinished
 - Do not implement Phase 5 capabilities (editor, Context, CRDT, workflow engines) unless that is the assigned task
 - Domain-specific Studio extensions are planned ([ADR-0020](adr/ADR-0020%20—%20Extensible%20Studio.md)); do not build match desks or map views unless assigned
 - Do not turn Studio into the Editorial product or assume every publishing use case belongs in one universal CMS

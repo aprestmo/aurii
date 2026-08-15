@@ -13,10 +13,6 @@ import {
 	type PlanResult,
 	whereExprToSqlClauses,
 } from "./plan-executor";
-
-function jsonFieldName(field: string): string {
-	return field.replace(/[^a-zA-Z0-9_]/g, "");
-}
 import { LEGACY_PROJECT_ID } from "@aurii/types";
 import type {
 	Dataset,
@@ -29,6 +25,10 @@ import type {
 	UpsertByFieldResult,
 } from "./types";
 import { DEFAULT_DATASET } from "./types";
+
+function jsonFieldName(field: string): string {
+	return field.replace(/[^a-zA-Z0-9_]/g, "");
+}
 
 interface RawEntityRow {
 	id: string;

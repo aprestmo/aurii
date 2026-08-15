@@ -106,7 +106,7 @@ bun run studio                 # project Studio locally (loads defineStudio from
 
 bun run studio:build           # static Studio for hosting
 # After import: register sources/imports/routes:
-#   bun run demo/norwegian-geo/scripts/register-via-api.ts
+#   bun run register:norwegian-geo-platform
 
 # Live geo consumer (after import + serve + register + enable routes):
 #   cd apps/geo && AURII_CORE_URL=http://localhost:3000 bun run dev

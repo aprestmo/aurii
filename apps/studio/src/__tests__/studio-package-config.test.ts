@@ -31,6 +31,12 @@ describe("studio config from project package", () => {
 		expect(
 			loaded!.config.navigation?.some((g) => g.title === "Drift"),
 		).toBe(true);
+		expect(
+			loaded!.config.navigation?.some((g) => g.title === "Utdanning"),
+		).toBe(true);
+		expect(
+			loaded!.config.importGroups?.some((g) => g.title === "Helse"),
+		).toBe(true);
 	});
 
 	test("resolveActiveStudioConfig prefers AURII_PROJECT_ROOT", async () => {

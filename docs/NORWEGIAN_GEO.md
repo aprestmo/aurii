@@ -98,17 +98,30 @@ demo/norwegian-geo/modules/<module-id>/
 └── data/             # published snapshots
 ```
 
-### Adding a future module
+### Adding a module
 
-Examples planned in `product.yaml`: Tax Administration, Gaselle companies, Elections, SSB datasets, Company register, Property data.
+Examples planned in `product.yaml` `futureModules`: Tax Administration, Gaselle companies, Elections, SSB datasets, Company register, Property data.
 
-To add a module:
+**Two files, two jobs:**
+
+| File | Job |
+|------|-----|
+| `product.yaml` + `module.yaml` + `lib/manifest.ts` | What ships, `dependsOn`, CLI import order (`bun run import:norwegian-geo`) |
+| `aurii.config.ts` + `studio/studio.config.ts` | Studio/ops: sources, saved imports, collections (`registerProjectPackage`) |
+
+Shipped modules (education, health, calendar) are **Studio-operable** — browse entities and re-run imports from generic Studio. They are not CLI-only. Schema YAML for modules stays in the module folder and the product manifest; do not add those YAML paths to `aurii.config.ts` `schemas:` (that list is the core install set).
+
+To add a **shipped, operable** module:
 
 1. Create `modules/<id>/` with `module.yaml`, schemas, imports, and `data/`
 2. Declare `dependsOn: [norwegian-geo-core]` when entities reference municipalities/counties
-3. Register the module in `demo/norwegian-geo/product.yaml`
-4. Extend `scripts/fetch.ts` if the module has a live API source
-5. Run `bun run import:norwegian-geo` — the manifest drives registration order
+3. Register the module in `product.yaml` **and** `lib/manifest.ts`
+4. Add source + saved-import descriptors; list them in `aurii.config.ts`
+5. Add Studio collections and `importGroups` in `studio/studio.config.ts`
+6. Extend `scripts/fetch.ts` if the module has a live API source
+7. `bun run import:norwegian-geo` then `bun run register:norwegian-geo-platform`
+
+To add a **planned** module: an entry under `futureModules` only, until the files above exist.
 
 ---
 
@@ -161,7 +174,7 @@ Import order (enforced by `product.yaml` and `scripts/import.ts`):
 
 ## Product manifest
 
-`demo/norwegian-geo/product.yaml` is the single source of truth for:
+`demo/norwegian-geo/product.yaml` is the source of truth for **product composition**:
 
 - Owning Aurii project (`norge-data` / Norge Data)
 - Dataset ID (`norwegian-geo`)
@@ -170,7 +183,7 @@ Import order (enforced by `product.yaml` and `scripts/import.ts`):
 - Planned future modules
 - Target metadata fields
 
-`demo/norwegian-geo/lib/manifest.ts` loads the manifest for scripts and tests.
+`demo/norwegian-geo/lib/manifest.ts` loads the manifest for scripts and tests. `aurii.config.ts` is the source of truth for **Studio/ops registration** (`registerProjectPackage`).
 
 Norwegian Geo datasets belong to project **Norge Data** (`slug: norge-data`), not Legacy. Import and migrate scripts ensure that project and classify `norwegian-geo` under it.
 
@@ -229,7 +242,7 @@ Norwegian Geo is structured so it can eventually deploy independently:
 - **Frontend:** `apps/geo` (Astro) via `@aurii/sdk` published routes against Core, or committed snapshots as an explicit offline/build-time mode ([`docs/DELIVERY.md`](DELIVERY.md))
 - **Hosting:** Docker, Coolify, self-hosted
 
-The product boundary is `demo/norwegian-geo/` plus its consumer apps. Aurii Core is the engine behind it. Product composition: `product.yaml` (convention; Phase 4 may promote useful parts to SDK/helpers).
+The product boundary is `demo/norwegian-geo/` plus its consumer apps. Aurii Core is the engine behind it. Product composition: `product.yaml` (convention). Package ops: `aurii.config.ts` + `registerProjectPackage`. No Product Runtime.
 
 ---
 

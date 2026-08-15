@@ -163,13 +163,26 @@ export { buildApp } from "./api/server";
 export type { AppOptions } from "./api/server";
 // Project package configuration
 export {
+	applyProjectPackage,
 	defineProject,
 	loadProjectConfigJson,
 	loadProjectPackage,
+	materializeProjectPackage,
 	ProjectConfigError,
+	registerProjectPackage,
 	validateProjectReferences,
 } from "./project-config";
-export type { LoadedProjectPackage } from "./project-config";
+export type {
+	ApplyProjectPackageOptions,
+	LoadedProjectPackage,
+	MaterializedProjectPackage,
+	ProjectPackageImportDef,
+	ProjectPackageSourceDef,
+	RegisterEvent,
+	RegisterProjectPackageOptions,
+	RegisterProjectPackageResult,
+} from "./project-config";
+
 export { defineRoute } from "./platform";
 // Platform services (sources, saved imports, published routes, tokens)
 export {

@@ -174,6 +174,8 @@ Workstreams may overlap in engineering time, but dependencies run roughly A → 
 4. Exercise every change against Norwegian Geo—no abstract product engine without a consumer.
 5. Project Core type is now established ([ADR-0011](adr/ADR-0011%20—%20Project%20as%20Top-Level%20Boundary.md), [`docs/PROJECTS.md`](docs/PROJECTS.md)). Phase 4 should attach product/dataset composition to projects rather than inventing a parallel tenancy model.
 
+**N3 landed:** two-file story documented (`product.yaml` = composition + CLI import; `aurii.config.ts` = Studio/ops). `registerProjectPackage` / `applyProjectPackage` live in `@aurii/core`. No Product Runtime ADR (N3.4).
+
 **Exit contribution:** One data product (Norwegian Geo) is described through the agreed composition model with unambiguous module dependency order.
 
 ---
@@ -298,8 +300,8 @@ That document assumes [PR #52](https://github.com/aprestmo/aurii/pull/52) (persi
 
 1. Live delivery contract + `apps/geo` integration proof (N1) — **done** (#53)
 2. Studio ops polish — groups, run errors, System signals (N2.1–N2.4) — **done**
-3. Package/composition alignment + shared register helper (N3) — **next**
-4. Scale measurements / pushdown spike (N4)
+3. Package/composition alignment + shared register helper (N3) — **done**
+4. Scale measurements / pushdown spike (N4) — **next**
 5. Optional hardening — Postgres platform store, scheduler e2e, tokens UI (N5)
 
 Older split (still valid themes, superseded in order by the doc above):

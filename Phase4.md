@@ -123,7 +123,7 @@ Do not re-implement these; build on them.
 
 - Live delivery for Norwegian Geo core schemas is documented in [`docs/DELIVERY.md`](docs/DELIVERY.md) and integration-tested (`apps/geo` live loaders via published routes). Snapshots remain an **explicit** offline/build-time mode (`AURII_DELIVERY_MODE=snapshot`). Module datasets in `apps/geo` still use snapshots in this beta.
 - In-memory joins are **not** suitable for millions of rows.
-- Platform ops (DataSource / schedule / published routes) persist in SQLite when `AURII_DB_PATH` is a file; HA multi-node scheduling remains out of beta.
+- Platform ops (DataSource / schedule / published routes) persist in SQLite when `AURII_DB_PATH` is a file, or in PostgreSQL when `DATABASE_URL` is the primary ops DB; HA multi-node scheduling remains out of beta.
 - Resumability for huge imports and distributed job queues remain out of beta guarantees.
 - Product composition via `product.yaml` remains a **convention** alongside `aurii.config.ts`; no large “Product Runtime.”
 - Project tokens + AuthScopes are enforced on platform routes when `AURII_API_TOKEN` is set (global token = `project:admin`); finer multi-org RBAC is later.
@@ -301,8 +301,8 @@ That document assumes [PR #52](https://github.com/aprestmo/aurii/pull/52) (persi
 1. Live delivery contract + `apps/geo` integration proof (N1) — **done** (#53)
 2. Studio ops polish — groups, run errors, System signals (N2.1–N2.4) — **done**
 3. Package/composition alignment + shared register helper (N3) — **done**
-4. Scale measurements / pushdown spike (N4) — **next**
-5. Optional hardening — Postgres platform store, scheduler e2e, tokens UI (N5)
+4. Scale measurements / pushdown spike (N4) — **in #58**
+5. Hardening — Postgres platform store, scheduler e2e, write-policy UX (N5) — **this slice**; tokens / secret vault UI remain optional
 
 Older split (still valid themes, superseded in order by the doc above):
 

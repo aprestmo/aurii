@@ -5,10 +5,9 @@ export {
 	resetPlatformStore,
 	type PlatformStore,
 } from "./store";
-export {
-	createDurablePlatformStore,
-	SqlitePlatformStore,
-} from "./sqlite-store";
+export { SqlitePlatformStore } from "./sqlite-store";
+export { PostgresPlatformStore } from "./postgres-store";
+export { createDurablePlatformStore } from "./durable-store";
 export {
 	createDataSourceService,
 	DataSourceError,

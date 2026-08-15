@@ -11,7 +11,7 @@ import type {
 	SavedImportDefinition,
 } from "@aurii/types";
 
-export type PlatformStoreMode = "memory" | "sqlite";
+export type PlatformStoreMode = "memory" | "sqlite" | "postgres";
 
 export interface PlatformStore {
 	/** How platform ops (sources, schedules, routes) are persisted. */

@@ -166,7 +166,13 @@ Frontends consume Core published routes or the Query API via `@aurii/sdk` — no
 
 ### Platform persistence
 
-When `AURII_DB_PATH` points at a SQLite file, Core stores DataSources, saved imports, published route state, project tokens, secrets, and audit events in the same database (`SqlitePlatformStore`). In-memory mode (`:memory:` / tests) keeps an ephemeral store.
+Platform ops (DataSources, saved imports, published route state, project tokens, secrets, audit) persist in:
+
+- `PostgresPlatformStore` when `DATABASE_URL` is the primary ops database (unless `AURII_PLATFORM_STORE=sqlite` or `AURII_DB_PATH=:memory:`)
+- `SqlitePlatformStore` when `AURII_DB_PATH` is a file and Postgres is not selected
+- in-memory store for `:memory:` / tests (`AURII_PLATFORM_STORE=memory`)
+
+Secrets stay server-side. HA multi-node scheduling remains out of beta.
 
 ---
 

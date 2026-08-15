@@ -19,7 +19,7 @@ Treat the following as **done foundation**. Next agents extend these surfaces; t
 | DataSource + saved imports/sync | Core platform services + Studio Sources/Imports | ADR-0015 |
 | Cron scheduling (single-process) | Core scheduler; Studio enable/disable; audited | ADR-0018 |
 | Published routes | `defineRoute` + `/public/:slug/v1/...` + Studio enable/disable | ADR-0016 |
-| Durable platform store (SQLite file) | `SqlitePlatformStore` when `AURII_DB_PATH` is a file | Secrets stay server-side |
+| Durable platform store | `SqlitePlatformStore` (file) or `PostgresPlatformStore` (`DATABASE_URL`) | Secrets stay server-side |
 | Package → Core register | `registerProjectPackage` (`@aurii/core`); CLI: `bun run register:norwegian-geo-platform` | After `import:norwegian-geo` + `serve` |
 | AuthScopes (beta) | Platform routes; global token = `project:admin` | Not full RBAC |
 | Geo consumer independence | `apps/geo` never imports Studio; live published routes when `AURII_CORE_URL` set | Snapshots = explicit offline fallback (`AURII_DELIVERY_MODE=snapshot`); live never falls back silently |
@@ -136,11 +136,11 @@ Do as follow-ups when touching related code; do not block N1–N3.
 
 | Item | Notes |
 |------|--------|
-| Postgres-backed `PlatformStore` | Mirror sqlite tables when `DATABASE_URL` is primary ops DB |
-| Scheduler tick e2e | Enabled schedule actually fires import once (time-controlled test) |
-| Published route hitCount / lastError in Studio | If cheap against existing state |
-| Production write policy UX | Surface read-only production dataset restrictions already in Core |
-| Secret vault UX | Set secret by id server-side only; never echo values |
+| Postgres-backed `PlatformStore` | **Done** — same tables as sqlite when `DATABASE_URL` is primary ops DB |
+| Scheduler tick e2e | **Done** — enabled schedule fires import once (time-controlled) |
+| Published route hitCount / lastError in Studio | **Done** — Routes table already shows hits + last error |
+| Production write policy UX | **Done** — banner + disabled import/route mutations when project is inactive/archived |
+| Secret vault UX | Set secret by id server-side only; never echo values — **remaining** |
 
 ---
 
@@ -153,8 +153,9 @@ Small, reviewable PRs branching from **main after #52 merges**:
 3. **Studio: config groups + source/import detail UX** (N2.1–N2.3)
 4. **`registerProjectPackage` helper + script thin wrapper** (N3.3) — **done**
 5. **Module surface decision for NG Studio** (N3.1–N3.2) — **done**
-6. **Benchmarks + scale note** (N4.1, N4.4) — **next**
-7. Optional later: Postgres platform store, scheduler e2e, tokens UI (N5)
+6. **Benchmarks + scale note** (N4.1, N4.4) — **#58**
+7. Postgres platform store + scheduler e2e + write-policy UX (N5) — **this slice**
+8. Optional later: secret vault UX, tokens UI
 
 Each PR must:
 
@@ -181,8 +182,8 @@ Use this after N1–N4 land (N5 can trail):
 
 ## Agent instructions (next run)
 
-1. Assume branch/`main` includes #52–#55 and Studio N2 ops polish (N2.1–N2.4).
-2. Start with **N4** (scale and query honesty) unless the user names another workstream. N3 (package/composition + `registerProjectPackage`) is done.
+1. Assume branch/`main` includes #52–#57. N4 scale honesty is #58. N5 postgres store + scheduler e2e + write-policy UX is in tree after this slice.
+2. Remaining optional N5: secret vault UX (set-by-id, never echo) and tokens UI. Do not start Phase 5 implementation.
 3. Read this file + `Phase4.md` + `docs/PRODUCT_MODEL.md` before coding.
 4. Do not re-scaffold `defineProject` / platform store / ADRs 0014–0018 / live delivery / Studio ops pages.
 5. Prefer a shared `registerProjectPackage` helper wrapping `register-via-api.ts` / `bootstrap-platform.ts`.

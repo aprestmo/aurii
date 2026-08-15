@@ -12,9 +12,9 @@ import Layout from "../layouts/Layout.astro";
 <script>
   import { groupItemsByIds } from "@aurii/studio";
   import { api, getDataset, readStudioOpsConfig } from "../lib/api";
-  import { formatErrorList, formatErrorPreview } from "../lib/ops-format";
+  import { formatErrorList, formatErrorPreview, isProjectWritable } from "../lib/ops-format";
 
-  type Project = { id: string; slug: string };
+  type Project = { id: string; slug: string; status: string };
   type SavedImport = {
     id: string;
     name: string;
@@ -52,7 +52,8 @@ import Layout from "../layouts/Layout.astro";
   const defsEl = document.getElementById("defs")!;
   const histEl = document.getElementById("history")!;
 
-  function renderDef(d: SavedImport): string {
+  function renderDef(d: SavedImport, writable: boolean): string {
+    const disabled = writable ? "" : " disabled";
     return `<div class="row" style="display:flex;gap:0.75rem;align-items:center;margin-bottom:0.75rem;flex-wrap:wrap;">
       <div style="flex:1;min-width:200px">
         <strong>${d.name}</strong>
@@ -65,11 +66,11 @@ import Layout from "../layouts/Layout.astro";
       </div>
       ${
         d.schedule
-          ? `<button data-sched="${d.id}" data-enabled="${d.schedule.enabled ? "0" : "1"}">${d.schedule.enabled ? "Disable schedule" : "Enable schedule"}</button>`
+          ? `<button data-sched="${d.id}" data-enabled="${d.schedule.enabled ? "0" : "1"}"${disabled}>${d.schedule.enabled ? "Disable schedule" : "Enable schedule"}</button>`
           : ""
       }
-      <button data-id="${d.id}" data-dry="1">Dry run</button>
-      <button data-id="${d.id}" data-dry="0">Run</button>
+      <button data-id="${d.id}" data-dry="1"${disabled}>Dry run</button>
+      <button data-id="${d.id}" data-dry="0"${disabled}>Run</button>
     </div>`;
   }
 
@@ -90,7 +91,7 @@ import Layout from "../layouts/Layout.astro";
           const heading = g.title
             ? `<h3 class="ops-group-title">${g.title}</h3>`
             : "";
-          return `${heading}${g.items.map(renderDef).join("")}`;
+          return `${heading}${g.items.map((d) => renderDef(d, isProjectWritable(project.status))).join("")}`;
         })
         .join("");
 

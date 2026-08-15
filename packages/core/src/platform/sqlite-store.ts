@@ -362,19 +362,3 @@ export class SqlitePlatformStore implements PlatformStore {
 		this.db.close();
 	}
 }
-
-/**
- * Create and initialize a durable platform store when AURII_DB_PATH is a
- * real file. Returns null for :memory: / explicit memory mode (tests).
- */
-export function createDurablePlatformStore(
-	path?: string,
-): SqlitePlatformStore | null {
-	if (process.env["AURII_PLATFORM_STORE"] === "memory") return null;
-	const dbPath =
-		path ?? process.env["AURII_DB_PATH"] ?? join(process.cwd(), "aurii.db");
-	if (dbPath === ":memory:") return null;
-	const store = new SqlitePlatformStore(dbPath);
-	store.init();
-	return store;
-}

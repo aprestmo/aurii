@@ -9,10 +9,24 @@ import Layout from "../layouts/Layout.astro";
 
 <script>
   import { api, checkHealth, getApiUrl, getDataset } from "../lib/api";
+  import { isProjectWritable } from "../lib/ops-format";
 
   const health = await checkHealth();
   const el = document.getElementById("status")!;
   const projectSlug = localStorage.getItem("aurii.projectSlug") ?? "—";
+  type Project = { id: string; slug: string; status: string };
+  let projectStatus = "unknown";
+  let writable = false;
+  try {
+    const projects = await api<{ data: Project[] }>("/api/projects");
+    const project = projectSlug !== "—"
+      ? projects.data.find((p) => p.slug === projectSlug)
+      : projects.data[0];
+    projectStatus = project?.status ?? "unknown";
+    writable = isProjectWritable(project?.status);
+  } catch {
+    /* login redirect handled by api() */
+  }
   let statsHtml = "";
   try {
     const stats = await api<{
@@ -36,11 +50,12 @@ import Layout from "../layouts/Layout.astro";
   el.innerHTML = `
     <p><strong>Core URL:</strong> ${getApiUrl()}</p>
     <p><strong>Project slug:</strong> ${projectSlug}</p>
+    <p><strong>Project status:</strong> ${projectStatus} (${writable ? "writable" : "read-only"})</p>
     <p><strong>Dataset:</strong> ${getDataset()}</p>
     <p><strong>Health:</strong> ${health ? `${health.status} (entity storage: ${health.storage})` : "unreachable"}</p>
     <p><strong>Scheduler:</strong> ${scheduler}</p>
     <p><strong>Platform store:</strong> ${storeMode}</p>
     ${statsHtml}
-    <p class="muted" style="margin-top:1rem">Studio is a client of Core. Frontends must not depend on Studio. Platform store is memory unless <code>AURII_DB_PATH</code> is a file. Scheduler starts when Core is served with <code>AURII_ENABLE_SCHEDULER=1</code>.</p>
+    <p class="muted" style="margin-top:1rem">Studio is a client of Core. Frontends must not depend on Studio. Platform store is memory unless <code>AURII_DB_PATH</code> is a file (sqlite) or <code>DATABASE_URL</code> is set (postgres). Inactive/archived projects stay readable; Core blocks writes. Scheduler starts when Core is served with <code>AURII_ENABLE_SCHEDULER=1</code>.</p>
   `;
 </script>

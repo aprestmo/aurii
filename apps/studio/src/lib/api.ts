@@ -63,7 +63,7 @@ export type StudioHealth = {
   status: string;
   storage: string;
   scheduler?: { enabled: boolean };
-  platformStore?: { mode: "memory" | "sqlite" };
+  platformStore?: { mode: "memory" | "sqlite" | "postgres" };
 };
 
 export async function checkHealth(): Promise<StudioHealth | null> {

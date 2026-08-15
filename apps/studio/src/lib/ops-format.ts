@@ -66,6 +66,19 @@ export function emptyStudioOpsConfig(): StudioOpsConfig {
 	};
 }
 
+/** Core write policy (ADR-0013): only active projects accept mutations. */
+export function isProjectWritable(status: string | undefined | null): boolean {
+	return status === "active";
+}
+
+export function writePolicyBanner(status: string | undefined | null): string | null {
+	if (!status || status === "active") return null;
+	if (status === "archived") {
+		return "This project is archived. Reads are allowed; imports, schedules, and route changes are blocked.";
+	}
+	return "This project is inactive. Reads are allowed; imports, schedules, and route changes are blocked.";
+}
+
 export function pickEntityColumns(
 	data: Record<string, unknown>,
 	featured?: string[],

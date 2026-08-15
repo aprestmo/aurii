@@ -38,10 +38,11 @@ parser produces an AST; each adapter translates it to its own SQL dialect.
 
 | Variable          | Values                     | Default    |
 |-------------------|----------------------------|------------|
-| `AURII_STORAGE`   | `sqlite` \| `postgres`     | `sqlite`   |
-| `AURII_DB_PATH`   | SQLite file path           | `aurii.db` |
-| `DATABASE_URL`    | PostgreSQL connection URL  | —          |
-| `AURII_API_TOKEN` | Protect the HTTP API       | (open)     |
+| `AURII_STORAGE`         | `sqlite` \| `postgres`              | `sqlite`   |
+| `AURII_DB_PATH`         | SQLite file path                    | `aurii.db` |
+| `DATABASE_URL`          | PostgreSQL connection URL           | —          |
+| `AURII_PLATFORM_STORE`  | `memory` \| `sqlite` \| `postgres`  | inferred   |
+| `AURII_API_TOKEN`       | Protect the HTTP API                | (open)     |
 
 ```bash
 # PostgreSQL

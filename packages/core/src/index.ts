@@ -201,6 +201,7 @@ export {
 	listAuditEvents,
 	MemoryPlatformStore,
 	parseBearer,
+	PostgresPlatformStore,
 	ProjectTokenService,
 	PublishedRouteError,
 	PublishedRouteService,

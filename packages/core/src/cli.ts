@@ -235,6 +235,8 @@ ${c.bold}Environment:${c.reset}
   AURII_STORAGE=sqlite|postgres    Storage engine (default: sqlite)
   DATABASE_URL=postgres://…        PostgreSQL connection
   AURII_DB_PATH=./aurii.db         SQLite file path
+  AURII_PLATFORM_STORE=memory|sqlite|postgres
+                                   Platform ops store (default: inferred)
   AURII_API_TOKEN=…                Protect the HTTP API
 `);
 }

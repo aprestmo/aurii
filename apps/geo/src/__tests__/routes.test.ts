@@ -2,7 +2,7 @@
  * Geo demo site — validates static route generation for reference datasets.
  */
 
-import { describe, expect, it } from "bun:test";
+import { beforeAll, describe, expect, it } from "bun:test";
 import { resolve } from "path";
 import {
   getCounty,
@@ -20,6 +20,12 @@ import {
 } from "../lib/data";
 
 const ROOT = resolve(import.meta.dir, "../../../..");
+
+beforeAll(() => {
+  process.env["AURII_DELIVERY_MODE"] = "snapshot";
+  delete process.env["AURII_CORE_URL"];
+  delete process.env["PUBLIC_AURII_CORE_URL"];
+});
 
 describe("geo demo site routes", () => {
   it("exposes seven reference datasets", async () => {

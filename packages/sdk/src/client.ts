@@ -21,6 +21,7 @@ import type {
 	Project,
 	QueryResult,
 	PlanExplanation,
+	PublishedRoutePage,
 	SchemaDefinition,
 	StorageStats,
 	StoredSchema,
@@ -375,6 +376,32 @@ function buildHealthApi(baseUrl: string) {
 	};
 }
 
+// ── Published routes (public delivery) ────────────────────────────────────────
+
+function buildPublishedApi(baseUrl: string, token: string | undefined) {
+	return {
+		/**
+		 * GET a published route: `/public/:projectSlug/v1/:path`.
+		 *
+		 * Public routes do not require a token. Authenticated/private routes
+		 * send the client bearer token when one is configured.
+		 */
+		async get<T = unknown>(
+			projectSlug: string,
+			path: string,
+			options: { version?: string } = {},
+		): Promise<PublishedRoutePage<T>> {
+			const version = options.version ?? "v1";
+			const normalized = path.startsWith("/") ? path : `/${path}`;
+			return request<PublishedRoutePage<T>>(
+				baseUrl,
+				`/public/${encodeURIComponent(projectSlug)}/${version}${normalized}`,
+				token,
+			);
+		},
+	};
+}
+
 // ── AuriiClient ───────────────────────────────────────────────────────────────
 
 /**
@@ -390,6 +417,7 @@ function buildHealthApi(baseUrl: string) {
  * const datasets = await client.projects.byId(project.id).datasets.list();
  * const schemas  = await client.schemas.list();
  * const result   = await client.query.run("FROM article WHERE state = active LIMIT 10");
+ * const publicCounties = await client.published.get("norge-data", "/counties");
  * ```
  */
 export class AuriiClient {
@@ -400,9 +428,11 @@ export class AuriiClient {
 	readonly import: ReturnType<typeof buildImportApi>;
 	readonly stats: ReturnType<typeof buildStatsApi>;
 	readonly health: ReturnType<typeof buildHealthApi>;
+	readonly published: ReturnType<typeof buildPublishedApi>;
 
 	constructor(private readonly config: AuriiClientConfig) {
-		const { baseUrl, token } = config;
+		const baseUrl = config.baseUrl.replace(/\/$/, "");
+		const { token } = config;
 		const defaultDataset = config.defaultDataset ?? "default";
 
 		this.projects = buildProjectsApi(baseUrl, token);
@@ -412,6 +442,7 @@ export class AuriiClient {
 		this.import = buildImportApi(baseUrl, token, defaultDataset);
 		this.stats = buildStatsApi(baseUrl, token, defaultDataset);
 		this.health = buildHealthApi(baseUrl);
+		this.published = buildPublishedApi(baseUrl, token);
 	}
 }
 

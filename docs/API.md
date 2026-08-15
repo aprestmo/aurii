@@ -238,6 +238,8 @@ Response includes `entities`, `count`, and optionally `aggregate`, `plan`, and `
 
 See `docs/Query-Language-v1.md` for syntax.
 
+Public, unauthenticated frontend delivery uses **published routes**, not `/query`. See [`DELIVERY.md`](DELIVERY.md).
+
 ---
 
 # Search API
@@ -457,6 +459,8 @@ Collections should support:
 - keyset pagination
 
 Large datasets should never require loading everything.
+
+**Current beta (honest):** `GET /entities` and Query Language use offset/`limit`. Published routes use a single declarative `limit` on the route definition — no cursor or page query parameters. See [`DELIVERY.md`](DELIVERY.md).
 
 ---
 

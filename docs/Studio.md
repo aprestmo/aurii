@@ -251,6 +251,7 @@ If Studio contains business logic, the architecture has failed.
 ## Related documents
 
 - [PRODUCT_MODEL.md](PRODUCT_MODEL.md)
+- [DELIVERY.md](DELIVERY.md)
 - [PROJECT_PACKAGES.md](PROJECT_PACKAGES.md)
 - [ADR-0017 — Studio Extension Model](../adr/ADR-0017%20—%20Studio%20Extension%20Model.md)
 - [ADR-0014 — Project Configuration Package](../adr/ADR-0014%20—%20Project%20Configuration%20Package.md)

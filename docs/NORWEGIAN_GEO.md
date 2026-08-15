@@ -213,7 +213,7 @@ AURII_STORAGE=postgres \
 |----------|---------------------------|
 | **Aurii Core** | `bun run import:norwegian-geo` loads dataset `norwegian-geo` in project `norge-data` |
 | **Studio** | Data workspace: project-scoped dataset list; select `norwegian-geo` after import (not a CMS) |
-| **apps/geo** | Today: reads `core/data/` and `modules/*/data/` at build time (offline/snapshot mode); historical from `core/historical/data/`. Phase 4 adds live Core → SDK delivery as a first-class path. |
+| **apps/geo** | Live: published routes via `@aurii/sdk` when `AURII_CORE_URL` is set (counties, municipalities, postal codes). Snapshot: `core/data/` and `modules/*/data/` as explicit offline/build-time mode. Historical from `core/historical/data/`. See [`DELIVERY.md`](DELIVERY.md). |
 | **Integration tests** | `packages/core/src/__tests__/` via manifest paths; SDK vertical slice |
 
 Norwegian Geo does not require an authoring workspace. Frontends must not depend on Studio.
@@ -226,7 +226,7 @@ Norwegian Geo is structured so it can eventually deploy independently:
 
 - **Engine:** Aurii Core (PostgreSQL, REST API)
 - **Data:** `bun run fetch:norwegian-geo && bun run import:norwegian-geo`
-- **Frontend:** `apps/geo` (Astro) via snapshots and/or `@aurii/sdk` against Core (Phase 4 delivery contract)
+- **Frontend:** `apps/geo` (Astro) via `@aurii/sdk` published routes against Core, or committed snapshots as an explicit offline/build-time mode ([`docs/DELIVERY.md`](DELIVERY.md))
 - **Hosting:** Docker, Coolify, self-hosted
 
 The product boundary is `demo/norwegian-geo/` plus its consumer apps. Aurii Core is the engine behind it. Product composition: `product.yaml` (convention; Phase 4 may promote useful parts to SDK/helpers).
@@ -239,6 +239,8 @@ The product boundary is `demo/norwegian-geo/` plus its consumer apps. Aurii Core
 |----------|---------|
 | [`docs/PRODUCT_MODEL.md`](PRODUCT_MODEL.md) | Aurii product model (modes, glossary) |
 | [`Phase4.md`](../Phase4.md) | Data products and delivery plan |
+| [`Phase5.md`](../Phase5.md) | Editorial & Context (planned / post–Phase 4) |
+| [`docs/DELIVERY.md`](DELIVERY.md) | Live vs snapshot delivery contract |
 | [`demo/norwegian-geo/README.md`](../demo/norwegian-geo/README.md) | Product quick start |
 | [`docs/REFERENCE_DEMO.md`](REFERENCE_DEMO.md) | Agent workflow and test IDs |
 | [`docs/Public Reference Datasets.md`](Public%20Reference%20Datasets.md) | Source survey and selection rationale |

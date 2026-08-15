@@ -114,7 +114,7 @@ Core Project + Dataset →  runtime boundaries those files target
 
    Studio loads `defineStudio` from the package when `AURII_PROJECT_ROOT` is set.
 
-Frontends consume Core published routes or the Query API via `@aurii/sdk` — not Studio.
+Frontends consume Core published routes or the Query API via `@aurii/sdk` — not Studio. Contract: [`DELIVERY.md`](DELIVERY.md).
 
 ### Platform persistence
 
@@ -125,6 +125,7 @@ When `AURII_DB_PATH` points at a SQLite file, Core stores DataSources, saved imp
 ## Related documents
 
 - [PRODUCT_MODEL.md](PRODUCT_MODEL.md)
+- [DELIVERY.md](DELIVERY.md)
 - [Studio.md](Studio.md)
 - [PROJECTS.md](PROJECTS.md)
 - [ADR-0014](../adr/ADR-0014%20—%20Project%20Configuration%20Package.md)

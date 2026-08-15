@@ -47,6 +47,7 @@ export type {
 	ImportRunRecord,
 	ImportRunRequest,
 	Project,
+	PublishedRoutePage,
 	QueryResult,
 	SchemaDefinition,
 	SchemaStats,

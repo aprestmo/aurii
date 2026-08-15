@@ -8,7 +8,7 @@ export default defineRoute({
 	version: "1",
 	query: {
 		schema: "county",
-		select: ["id", "name"],
+		select: ["id", "name", "population", "populationYear", "source"],
 		orderBy: [{ field: "name", direction: "asc" }],
 	},
 	defaults: {

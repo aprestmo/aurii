@@ -212,6 +212,19 @@ export interface HealthResponse {
 	storage: "sqlite" | "postgres";
 }
 
+// ── Published routes ──────────────────────────────────────────────────────────
+
+/**
+ * Public published-route response (`GET /public/:projectSlug/v1/...`).
+ * No Studio involvement. See `docs/DELIVERY.md`.
+ */
+export interface PublishedRoutePage<T = unknown> {
+	data: T[];
+	meta?: {
+		routeId?: string;
+	};
+}
+
 // ── SDK Config ────────────────────────────────────────────────────────────────
 
 export interface AuriiClientConfig {

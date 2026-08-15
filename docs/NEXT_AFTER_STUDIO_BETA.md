@@ -4,7 +4,7 @@
 >
 > Baseline: project packages, DataSources, schedules, published routes, scoped platform APIs, and package-driven Studio are **in tree**.
 >
-> Parent roadmap: [`Phase4.md`](../Phase4.md). Product vocabulary: [`docs/PRODUCT_MODEL.md`](PRODUCT_MODEL.md).
+> Parent roadmap: [`Phase4.md`](../Phase4.md). Product vocabulary: [`docs/PRODUCT_MODEL.md`](PRODUCT_MODEL.md). Delivery contract: [`DELIVERY.md`](DELIVERY.md). Post–Phase 4 Editorial + Context (planning only): [`Phase5.md`](../Phase5.md).
 
 ---
 
@@ -22,7 +22,7 @@ Treat the following as **done foundation**. Next agents extend these surfaces; t
 | Durable platform store (SQLite file) | `SqlitePlatformStore` when `AURII_DB_PATH` is a file | Secrets stay server-side |
 | Package → Core register | `register-via-api.ts` / `bun run register:norwegian-geo-platform` | After `import:norwegian-geo` + `serve` |
 | AuthScopes (beta) | Platform routes; global token = `project:admin` | Not full RBAC |
-| Geo consumer independence | `apps/geo` never imports Studio; live published routes when `AURII_CORE_URL` set | Snapshots = offline fallback |
+| Geo consumer independence | `apps/geo` never imports Studio; live published routes when `AURII_CORE_URL` set | Snapshots = explicit offline fallback (`AURII_DELIVERY_MODE=snapshot`); live never falls back silently |
 
 **Demo path (already documented):**
 
@@ -47,7 +47,7 @@ Finish Phase 4 **exit criteria** that #52 did not fully close:
 3. **Honest composition** — clarify `aurii.config.ts` vs `product.yaml` for modules; expand package surface only where Studio/ops need it.
 4. **Scale honesty** — measure join/pagination limits; define next bottlenecks without claiming HA or tax-list scale.
 
-Non-goals remain unchanged: CMS, Editorial, LiveCenter, distributed scheduler, marketplace plugins.
+Non-goals remain unchanged: CMS, Editorial, LiveCenter, distributed scheduler, marketplace plugins. Editorial + Context is planned after Phase 4 — [`Phase5.md`](../Phase5.md) — and must not be implemented in N1–N5.
 
 ---
 
@@ -59,16 +59,20 @@ Dependencies: **N1 → N2** in parallel with **N3**; then **N4**; **N5** continu
 
 **Goal:** Import → Core → published route / SDK → `apps/geo` is the default demonstrated path when Core is up.
 
+**Contract:** [`docs/DELIVERY.md`](DELIVERY.md).
+
 | Step | Deliverable |
 |------|-------------|
-| N1.1 | Document delivery contract (`docs/DELIVERY.md` or section in `API.md`): public vs authenticated routes, pagination, snapshot vs live modes |
-| N1.2 | Prefer `@aurii/sdk` (or typed HTTP wrappers) in `apps/geo` for live reads; keep snapshots explicitly as offline/build mode |
+| N1.1 | Document delivery contract (`docs/DELIVERY.md`): public vs authenticated routes, pagination, snapshot vs live modes |
+| N1.2 | Prefer `@aurii/sdk` in `apps/geo` for live reads; keep snapshots explicitly as offline/build mode |
 | N1.3 | Integration test: start Core (or use `buildApiApp`), register NG package resources, enable routes, assert `apps/geo` data loaders return live counties/municipalities/postal-codes |
 | N1.4 | README / `apps/geo` README: live mode is first-class; snapshot is fallback |
 
 **Exit:** Phase 4 exit criterion “delivery path” and “contract + integration tests” can be checked off for core geo schemas.
 
 **Depends on:** #52 merged (platform register + published routes + sqlite persistence).
+
+Editorial/CMS remains **out of scope** for N1. See [`Phase5.md`](../Phase5.md) (planned only).
 
 ---
 
@@ -164,7 +168,7 @@ Each PR must:
 Use this after N1–N4 land (N5 can trail):
 
 - [ ] #52 merged; demo path above works on a clean clone
-- [ ] Live delivery contract documented and integration-tested
+- [ ] Live delivery contract documented and integration-tested ([`DELIVERY.md`](DELIVERY.md), `live-geo-delivery.integration.test.ts`)
 - [ ] `apps/geo` demonstrates Core/published-route consumption without Studio
 - [ ] Studio operates NG sources/imports/schedules/routes using package `defineStudio`
 - [ ] Composition story (`aurii.config` vs `product.yaml`) documented; register helper shared

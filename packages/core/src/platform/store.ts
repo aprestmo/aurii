@@ -11,7 +11,12 @@ import type {
 	SavedImportDefinition,
 } from "@aurii/types";
 
+export type PlatformStoreMode = "memory" | "sqlite";
+
 export interface PlatformStore {
+	/** How platform ops (sources, schedules, routes) are persisted. */
+	readonly kind: PlatformStoreMode;
+
 	// Data sources
 	insertDataSource(row: DataSource): Promise<DataSource>;
 	getDataSource(projectId: string, id: string): Promise<DataSource | null>;
@@ -66,6 +71,7 @@ function clone<T>(v: T): T {
 }
 
 export class MemoryPlatformStore implements PlatformStore {
+	readonly kind = "memory" as const;
 	private sources = new Map<string, DataSource>();
 	private imports = new Map<string, SavedImportDefinition>();
 	private routes = new Map<string, PublishedRouteState>();

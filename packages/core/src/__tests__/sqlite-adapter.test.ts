@@ -330,6 +330,27 @@ describe("import runs", () => {
 		expect(runs).toHaveLength(1);
 		expect(runs[0]!.id).toBe("run-1");
 		expect(runs[0]!.imported).toBe(10);
+		expect(runs[0]!.trigger).toBeNull();
+
+		await db.recordImportRun({
+			id: "run-trigger",
+			definitionId: "def-1",
+			datasetId: "default",
+			schemaId: "article",
+			status: "completed",
+			dryRun: false,
+			total: 1,
+			imported: 1,
+			failed: 0,
+			errors: [],
+			startedAt: new Date().toISOString(),
+			completedAt: new Date().toISOString(),
+			trigger: "schedule",
+		});
+		const withTrigger = (await db.listImportRuns("default")).find(
+			(r) => r.id === "run-trigger",
+		);
+		expect(withTrigger?.trigger).toBe("schedule");
 	});
 
 	it("updates an import run", async () => {

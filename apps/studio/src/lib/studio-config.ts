@@ -12,14 +12,18 @@
 import {
 	apiRoutes,
 	collection,
+	collectionColumnsBySchema,
 	customView,
 	defaultStudioConfig,
 	defineStudio,
+	importGroupsFromConfig,
 	imports,
 	navHref,
 	navLabel,
 	resolveStudioConfig,
+	routeGroupsFromConfig,
 	sources,
+	systemStatus,
 } from "@aurii/studio";
 import type { AuriiStudioConfig, StudioNavGroup } from "@aurii/types";
 import { access } from "node:fs/promises";
@@ -27,7 +31,14 @@ import { join, resolve } from "node:path";
 import { pathToFileURL } from "node:url";
 import { getStudioRuntimeEnv } from "./env";
 
-export { navHref, navLabel, resolveStudioConfig };
+export {
+	collectionColumnsBySchema,
+	importGroupsFromConfig,
+	navHref,
+	navLabel,
+	resolveStudioConfig,
+	routeGroupsFromConfig,
+};
 
 let cachedPackageConfig: {
 	key: string;
@@ -139,6 +150,31 @@ export function studioConfigForProject(
 							title: "Datadekning",
 							href: "/views/coverage",
 						}),
+					],
+				},
+				{
+					title: "Drift",
+					items: [systemStatus()],
+				},
+			],
+			importGroups: [
+				{
+					title: "Kjerne",
+					definitionIds: ["counties", "municipalities", "postal-codes"],
+				},
+				{
+					title: "Planlagt synk",
+					definitionIds: ["postal-codes-nightly"],
+				},
+			],
+			routeGroups: [
+				{
+					title: "Offentlig v1",
+					routeIds: [
+						"counties",
+						"municipalities",
+						"municipality-by-id",
+						"postal-codes",
 					],
 				},
 			],

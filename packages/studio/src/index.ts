@@ -20,3 +20,11 @@ export {
 	resolveStudioConfig,
 	StudioConfigError,
 } from "./resolve";
+export {
+	collectionColumns,
+	collectionColumnsBySchema,
+	groupItemsByIds,
+	importGroupsFromConfig,
+	routeGroupsFromConfig,
+} from "./groups";
+export type { GroupedItems, StudioIdGroup } from "./groups";

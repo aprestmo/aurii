@@ -15,6 +15,7 @@ import { tmpdir } from "os";
 import { join } from "path";
 import { buildApp } from "../api/server";
 import { resetProjectService } from "../project/runtime";
+import { resetImportScheduler } from "../schedule/scheduler";
 import { closeStorage } from "../storage";
 
 const BASE = "http://localhost";
@@ -51,6 +52,7 @@ beforeEach(async () => {
 	process.env["AURII_DB_PATH"] = ":memory:";
 	delete process.env["DATABASE_URL"];
 	resetProjectService();
+	resetImportScheduler();
 	uploadDir = await mkdtemp(join(tmpdir(), "aurii-api-test-"));
 });
 
@@ -76,7 +78,12 @@ describe("GET /health", () => {
 		const res = await app.handle(req("GET", "/health"));
 		expect(res.status).toBe(200);
 		const body = await json(res);
-		expect(body).toMatchObject({ status: "ok", storage: "sqlite" });
+		expect(body).toMatchObject({
+			status: "ok",
+			storage: "sqlite",
+			scheduler: { enabled: false },
+			platformStore: { mode: "memory" },
+		});
 	});
 });
 

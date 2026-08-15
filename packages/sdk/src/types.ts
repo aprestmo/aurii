@@ -151,6 +151,8 @@ export interface ImportRunRecord {
 	startedAt: string | null;
 	completedAt: string | null;
 	createdAt: string;
+	/** How the run was initiated. Null/omitted on legacy rows. */
+	trigger?: "user" | "schedule" | "system" | "webhook" | null;
 }
 
 export interface AnalysisResult {
@@ -210,6 +212,8 @@ export interface HealthResponse {
 	phase: string;
 	version: string;
 	storage: "sqlite" | "postgres";
+	scheduler?: { enabled: boolean };
+	platformStore?: { mode: "memory" | "sqlite" };
 }
 
 // ── Published routes ──────────────────────────────────────────────────────────

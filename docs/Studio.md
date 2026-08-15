@@ -175,14 +175,14 @@ Studio never owns domain rules.
 
 | Surface | What operators do |
 |---------|-------------------|
-| **Sources** | Inspect DataSources (provenance, status, linked definitions) |
-| **Imports** | Run wizard uploads; manage saved import definitions; dry-run vs commit |
-| **History** | Review import/sync runs, errors, inserted/updated/skipped counts |
-| **Schedules** | Enable/disable cron on sync/import definitions; see next run |
-| **Published routes** | Inspect declared routes; enable/disable; access mode (Core serves them) |
-| **Entities** | Browse and filter entities; relation links; default record UI |
+| **Sources** | Inspect DataSources (status, last success/failure, next run, last error, linked definitions). Secrets never shown. |
+| **Imports** | Run saved definitions; dry-run vs commit; grouped by `defineStudio.importGroups` |
+| **History** | Expand a run for full `errors[]`, trigger, and counts |
+| **Schedules** | Enable/disable cron on sync/import definitions; see next/last run |
+| **Published routes** | Inspect, enable/disable, test; grouped by `defineStudio.routeGroups` |
+| **Entities** | Browse with featured collection columns from `defineStudio`; relation links |
 | **Query** | Run and explain Query Language |
-| **System** | Connection, project/dataset, runtime health signals |
+| **System** | Core URL, project slug, dataset, health, scheduler enabled?, platform store mode |
 
 Schemas remain inspectable. Navigation may group collections by schema via `defineStudio`. Collection **views** (table vs map vs custom) are a planned extension of this surface.
 
@@ -274,9 +274,9 @@ When Studio runs with `AURII_PROJECT_ROOT` (or `AURII_STUDIO_CONFIG`), `@aurii/s
 Config may set:
 
 - Navigation groups and items
-- Collection columns / filters / sort
+- Collection columns / filters / sort (used on the Entities table)
 - Hidden or featured schemas
-- Import groups and route groups
+- Import groups and route groups (used on Imports and Routes pages)
 - Dashboards and custom view registrations
 
 ---

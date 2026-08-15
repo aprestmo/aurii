@@ -41,6 +41,11 @@ export class ImportScheduler {
 		}
 	}
 
+	/** True after start() until stop(). Used by /health for Studio System. */
+	isStarted(): boolean {
+		return this.timer !== null;
+	}
+
 	async tick(now: Date = new Date()): Promise<void> {
 		if (this.running) return;
 		this.running = true;

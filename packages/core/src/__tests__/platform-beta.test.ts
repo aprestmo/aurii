@@ -134,6 +134,11 @@ describe("cron scheduling", () => {
 			},
 		});
 		const scheduler = new ImportScheduler({ store, manual: true });
+		expect(scheduler.isStarted()).toBe(false);
+		scheduler.start();
+		expect(scheduler.isStarted()).toBe(true);
+		scheduler.stop();
+		expect(scheduler.isStarted()).toBe(false);
 		const due = await scheduler.collectDueForProjects([project.id], new Date());
 		expect(due).toHaveLength(0);
 	});

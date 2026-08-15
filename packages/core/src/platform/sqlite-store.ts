@@ -22,6 +22,7 @@ function clone<T>(v: T): T {
 }
 
 export class SqlitePlatformStore implements PlatformStore {
+	readonly kind = "sqlite" as const;
 	private db: Database;
 	private runLocks = new Set<string>();
 

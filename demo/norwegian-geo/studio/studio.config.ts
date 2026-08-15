@@ -5,6 +5,7 @@ import {
 	defineStudio,
 	imports,
 	sources,
+	systemStatus,
 } from "@aurii/studio";
 
 /**
@@ -44,6 +45,10 @@ export default defineStudio({
 					href: "/views/coverage",
 				}),
 			],
+		},
+		{
+			title: "Drift",
+			items: [systemStatus()],
 		},
 	],
 	views: [

@@ -133,7 +133,7 @@ from product where price > 100 order by price desc
 ## HTTP API
 
 ```
-GET  /health                        (no auth)
+GET  /health                        (no auth; includes storage, scheduler, platformStore)
 GET  /api/projects/:id/datasets
 POST /api/projects/:id/datasets
 GET  /api/projects/:id/datasets/:datasetId

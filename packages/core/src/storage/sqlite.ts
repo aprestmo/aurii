@@ -174,12 +174,14 @@ export class SqliteAdapter implements StorageAdapter {
         errors        TEXT NOT NULL DEFAULT '[]',
         started_at    TEXT,
         completed_at  TEXT,
-        created_at    TEXT NOT NULL DEFAULT (datetime('now'))
+        created_at    TEXT NOT NULL DEFAULT (datetime('now')),
+        run_trigger   TEXT
       );
     `);
 
 		// Migrate pre-existing SQLite DBs that lack project_id
 		this.ensureProjectIdColumn();
+		this.ensureImportRunTriggerColumn();
 
 		// Ensure default dataset exists (owned by Legacy fallback project)
 		this.db
@@ -193,6 +195,16 @@ export class SqliteAdapter implements StorageAdapter {
 				"Default dataset",
 				LEGACY_PROJECT_ID,
 			);
+	}
+
+	/** Add run_trigger for databases created before import-run trigger persistence. */
+	private ensureImportRunTriggerColumn(): void {
+		const cols = this.db
+			.prepare("PRAGMA table_info(aurii_import_runs)")
+			.all() as { name: string }[];
+		if (!cols.some((c) => c.name === "run_trigger")) {
+			this.db.exec(`ALTER TABLE aurii_import_runs ADD COLUMN run_trigger TEXT`);
+		}
 	}
 
 	/** Add and backfill project_id for databases created before project scoping. */
@@ -571,8 +583,8 @@ export class SqliteAdapter implements StorageAdapter {
 		this.db
 			.prepare(
 				`INSERT INTO aurii_import_runs
-         (id, definition_id, dataset_id, schema_id, status, dry_run, total, imported, failed, errors, started_at, completed_at)
-         VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
+         (id, definition_id, dataset_id, schema_id, status, dry_run, total, imported, failed, errors, started_at, completed_at, run_trigger)
+         VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
 			)
 			.run(
 				run.id,
@@ -587,6 +599,7 @@ export class SqliteAdapter implements StorageAdapter {
 				JSON.stringify(run.errors),
 				run.startedAt,
 				run.completedAt,
+				run.trigger ?? null,
 			);
 	}
 
@@ -652,6 +665,7 @@ export class SqliteAdapter implements StorageAdapter {
 			startedAt: r["started_at"] as string | null,
 			completedAt: r["completed_at"] as string | null,
 			createdAt: r["created_at"] as string,
+			trigger: (r["run_trigger"] as ImportRunRecord["trigger"]) ?? null,
 		}));
 	}
 

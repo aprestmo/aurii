@@ -3,12 +3,13 @@ import Layout from "../layouts/Layout.astro";
 ---
 <Layout title="Sources" active="sources">
   <h1>Data sources</h1>
-  <p class="muted">Origins of data flowing into Core. Secrets are never shown.</p>
+  <p class="muted">Origins of data flowing into Core. Expand a row for last success/failure, linked definitions, and next run. Secrets are never shown.</p>
   <div id="list" class="card" style="margin-top: 1rem;">Loading…</div>
 </Layout>
 
 <script>
   import { api, getDataset } from "../lib/api";
+  import { linkedDefinitionIds } from "../lib/ops-format";
 
   type Project = { id: string; slug: string };
   type DataSource = {
@@ -21,8 +22,14 @@ import Layout from "../layouts/Layout.astro";
     lastFailureAt: string | null;
     nextRunAt: string | null;
     lastError: string | null;
-    config: { targetSchemas?: string[]; endpoint?: string };
+    config: {
+      targetSchemas?: string[];
+      endpoint?: string;
+      path?: string;
+      definitionIds?: string[];
+    };
   };
+  type SavedImport = { id: string; name: string; sourceId: string | null };
 
   const projectSlug = localStorage.getItem("aurii.projectSlug");
   const projects = await api<{ data: Project[] }>("/api/projects");
@@ -34,27 +41,60 @@ import Layout from "../layouts/Layout.astro";
     el.textContent = "No project selected.";
   } else {
     const qs = `?dataset=${encodeURIComponent(getDataset())}`;
-    const res = await api<{ data: DataSource[] }>(
-      `/api/projects/${project.id}/sources${qs}`,
-    );
+    const [res, defs] = await Promise.all([
+      api<{ data: DataSource[] }>(`/api/projects/${project.id}/sources${qs}`),
+      api<{ data: SavedImport[] }>(
+        `/api/projects/${project.id}/saved-imports${qs}`,
+      ),
+    ]);
     if (!res.data.length) {
       el.innerHTML = "<p class='muted'>No sources registered yet. Register via API or project bootstrap.</p>";
     } else {
       el.innerHTML = `<table><thead><tr>
-        <th>Name</th><th>Kind</th><th>Status</th><th>Schemas</th><th>Last success</th><th>Next run</th><th>Error</th>
+        <th>Name</th><th>Kind</th><th>Status</th><th>Last success</th><th>Last failure</th><th>Next run</th><th>Error</th>
       </tr></thead><tbody>${res.data
-        .map(
-          (s) => `<tr>
+        .map((s) => {
+          const linked = linkedDefinitionIds(s, defs.data);
+          const linkedNames = linked.map((id) => {
+            const def = defs.data.find((d) => d.id === id);
+            return def ? `${def.name} (${id})` : id;
+          });
+          const detail = [
+            `Id: ${s.id}`,
+            `Dataset: ${s.datasetId}`,
+            `Schemas: ${(s.config.targetSchemas ?? []).join(", ") || "—"}`,
+            s.config.endpoint ? `Endpoint: ${s.config.endpoint}` : null,
+            s.config.path ? `Path: ${s.config.path}` : null,
+            `Last success: ${s.lastSuccessAt ?? "—"}`,
+            `Last failure: ${s.lastFailureAt ?? "—"}`,
+            `Next run: ${s.nextRunAt ?? "—"}`,
+            `Last error: ${s.lastError ?? "—"}`,
+            `Linked definitions: ${linkedNames.length ? linkedNames.join(", ") : "—"}`,
+          ]
+            .filter(Boolean)
+            .join("\n");
+          return `<tr class="ops-expand" data-source="${s.id}" title="Show source detail">
           <td>${s.name}</td>
           <td>${s.kind}</td>
           <td>${s.status}</td>
-          <td>${(s.config.targetSchemas ?? []).join(", ")}</td>
           <td>${s.lastSuccessAt ?? "—"}</td>
+          <td>${s.lastFailureAt ?? "—"}</td>
           <td>${s.nextRunAt ?? "—"}</td>
-          <td>${s.lastError ?? "—"}</td>
-        </tr>`,
-        )
-        .join("")}</tbody></table>`;
+          <td style="max-width:240px;font-size:12px;color:${s.lastError ? "var(--red)" : "inherit"}">${s.lastError ?? "—"}</td>
+        </tr>
+        <tr class="hidden" data-detail="${s.id}"><td colspan="7">
+          <pre class="json">${detail.replace(/</g, "&lt;")}</pre>
+        </td></tr>`;
+        })
+        .join("")}</tbody></table>
+        <p class="muted" style="margin-top:0.75rem;font-size:12px">Click a row for linked definitions and full status. Secret values are never returned by Core.</p>`;
+
+      el.querySelectorAll("tr.ops-expand").forEach((tr) => {
+        tr.addEventListener("click", () => {
+          const id = (tr as HTMLElement).dataset.source;
+          el.querySelector(`tr[data-detail="${id}"]`)?.classList.toggle("hidden");
+        });
+      });
     }
   }
 </script>

@@ -161,7 +161,8 @@ export class PostgresAdapter implements StorageAdapter {
         errors        JSONB NOT NULL DEFAULT '[]',
         started_at    TIMESTAMPTZ,
         completed_at  TIMESTAMPTZ,
-        created_at    TIMESTAMPTZ NOT NULL DEFAULT now()
+        created_at    TIMESTAMPTZ NOT NULL DEFAULT now(),
+        run_trigger   TEXT
       );
     `);
 
@@ -169,12 +170,27 @@ export class PostgresAdapter implements StorageAdapter {
 		// migration 0001 is preferred when projects table exists; this is a
 		// safety net for adapter-only startups).
 		await this.ensureProjectIdColumn();
+		await this.ensureImportRunTriggerColumn();
 
 		await this.sql`
       INSERT INTO aurii_datasets (id, name, description, project_id)
       VALUES (${DEFAULT_DATASET}, 'Default', 'Default dataset', ${LEGACY_PROJECT_ID}::uuid)
       ON CONFLICT (id) DO NOTHING
     `;
+	}
+
+	private async ensureImportRunTriggerColumn(): Promise<void> {
+		await this.sql.unsafe(`
+      DO $$
+      BEGIN
+        IF NOT EXISTS (
+          SELECT 1 FROM information_schema.columns
+          WHERE table_name = 'aurii_import_runs' AND column_name = 'run_trigger'
+        ) THEN
+          ALTER TABLE aurii_import_runs ADD COLUMN run_trigger TEXT;
+        END IF;
+      END $$;
+    `);
 	}
 
 	private async ensureProjectIdColumn(): Promise<void> {
@@ -519,11 +535,11 @@ export class PostgresAdapter implements StorageAdapter {
 	): Promise<void> {
 		await this.sql`
       INSERT INTO aurii_import_runs
-        (id, definition_id, dataset_id, schema_id, status, dry_run, total, imported, failed, errors, started_at, completed_at)
+        (id, definition_id, dataset_id, schema_id, status, dry_run, total, imported, failed, errors, started_at, completed_at, run_trigger)
       VALUES
         (${run.id}::uuid, ${run.definitionId}, ${run.datasetId}, ${run.schemaId},
          ${run.status}, ${run.dryRun}, ${run.total}, ${run.imported}, ${run.failed},
-         ${run.errors as never}, ${run.startedAt}, ${run.completedAt})
+         ${run.errors as never}, ${run.startedAt}, ${run.completedAt}, ${run.trigger ?? null})
     `;
 	}
 
@@ -583,6 +599,7 @@ export class PostgresAdapter implements StorageAdapter {
 				? ts(r["completed_at"] as string | Date)
 				: null,
 			createdAt: ts(r["created_at"] as string | Date),
+			trigger: (r["run_trigger"] as ImportRunRecord["trigger"]) ?? null,
 		}));
 	}
 

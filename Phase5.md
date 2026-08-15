@@ -4,7 +4,7 @@
 >
 > Do **not** implement Phase 5 capabilities until Phase 4 exit criteria are met or consciously waived with documented rationale.
 >
-> Parent: [`Phase4.md`](Phase4.md). Product vocabulary: [`docs/PRODUCT_MODEL.md`](docs/PRODUCT_MODEL.md). Authoring boundary: [`adr/ADR-0010 — Optional Authoring Layer.md`](adr/ADR-0010%20—%20Optional%20Authoring%20Layer.md). Delivery contract: [`docs/DELIVERY.md`](docs/DELIVERY.md).
+> Parent: [`Phase4.md`](Phase4.md). Product vocabulary: [`docs/PRODUCT_MODEL.md`](docs/PRODUCT_MODEL.md). Strategy: [`docs/PRODUCT_STRATEGY.md`](docs/PRODUCT_STRATEGY.md). Authoring boundary: [`adr/ADR-0010 — Optional Authoring Layer.md`](adr/ADR-0010%20—%20Optional%20Authoring%20Layer.md). Delivery contract: [`docs/DELIVERY.md`](docs/DELIVERY.md).
 
 ---
 
@@ -51,12 +51,12 @@ Consumers
   └─ other clients
 ```
 
-- **Core** remains the system of record.
-- **Editorial** is a **client** / separate product — not Studio renamed, and not a required layer between Core and frontends.
+- **Core** remains the system of record. It is not a media backend. Publishing/news/magazine is an important validation domain, not a limit on what Core can support.
+- **Editorial** is a **client** / separate product — not Studio renamed, and not a required layer between Core and frontends. Other publishing cases (magazine, newsroom, small publisher) may justify separate products that share capabilities rather than one universal CMS.
 - **Frontends consume Core/delivery APIs directly** and must never depend on Editorial as a read proxy.
-- **Studio** remains the **extensible project workspace** (sources, imports, schedules, entities, query, published routes, generated default UI, custom editors/views via extensions). It must not evolve into the publication CMS. Domain-specific Studio experiences (match desk, map) are extensions and may be designed before Phase 5; they are not Editorial.
+- **Studio** remains the **extensible developer/operator project workspace** (sources, imports, schedules, entities, query, published routes, generated default UI, custom editors/views via extensions). It must not evolve into the publication CMS or the journalist’s default tool. Domain-specific Studio experiences (match desk, map) are operator-facing extensions and may be designed before Phase 5; they are not Editorial.
 
-This is [ADR-0010](adr/ADR-0010%20—%20Optional%20Authoring%20Layer.md) applied to a concrete product hypothesis: **Editorial + Context**. Fitness tests: [`docs/ARCHITECTURE_FITNESS.md`](docs/ARCHITECTURE_FITNESS.md).
+This is [ADR-0010](adr/ADR-0010%20—%20Optional%20Authoring%20Layer.md) applied to a concrete product hypothesis: **Editorial + Context**. Direction: [`docs/PRODUCT_STRATEGY.md`](docs/PRODUCT_STRATEGY.md). Fitness tests: [`docs/ARCHITECTURE_FITNESS.md`](docs/ARCHITECTURE_FITNESS.md).
 
 ---
 
@@ -305,6 +305,7 @@ If yes, Aurii has validated both:
 
 - [`Phase4.md`](Phase4.md) — data products and delivery (must complete first)
 - [`docs/PRODUCT_MODEL.md`](docs/PRODUCT_MODEL.md) — Core / Studio / CMS / consumer vocabulary
+- [`docs/PRODUCT_STRATEGY.md`](docs/PRODUCT_STRATEGY.md) — open Core, product boundaries, Studio audience
 - [`docs/DELIVERY.md`](docs/DELIVERY.md) — live frontend delivery contract
 - [`adr/ADR-0010 — Optional Authoring Layer.md`](adr/ADR-0010%20—%20Optional%20Authoring%20Layer.md)
 - [`docs/ARCHITECTURE_FITNESS.md`](docs/ARCHITECTURE_FITNESS.md) — Kampbart, playgrounds, Gaselle, Geo

@@ -2,7 +2,7 @@
 
 > Norwegian Geo is Aurii's primary real-world reference implementation and a reusable Norwegian reference data platform built on top of Aurii.
 >
-> It is a **data product without a CMS**: imports → Core → API/SDK → consumers. Studio is used only as a generic data workspace. See [`docs/PRODUCT_MODEL.md`](PRODUCT_MODEL.md).
+> It is a **data product without a CMS**: imports → Core → API/SDK → consumers. Studio is used only as a generic developer/operator data workspace. See [`docs/PRODUCT_MODEL.md`](PRODUCT_MODEL.md) and [`docs/PRODUCT_STRATEGY.md`](PRODUCT_STRATEGY.md).
 
 This document defines **what belongs where** — for human contributors and AI agents.
 

@@ -6,13 +6,14 @@
 
 ## What is Aurii?
 
-Aurii is a platform for **modeling, ingesting, editing, enriching, relating, and publishing structured data and editorial content**. Data may arise through import, synchronization, manual registration, automation, AI, or external products. **Aurii Core is the system of record.** Studio is a customizable project workspace on that same model (generated UI by default; replaceable by extensions). A publication CMS is a possible future product that uses Aurii—it is **not** Aurii, and it is not Studio renamed.
+Aurii is a platform for **modeling, ingesting, editing, enriching, relating, and publishing structured data and editorial content**. Data may arise through import, synchronization, manual registration, automation, AI, or external products. **Aurii Core is the system of record** and remains usable without Studio or any commercial product. Studio is a customizable **developer/operator** project workspace on that same model (generated UI by default; replaceable by extensions). Opinionated products — including a possible future publication CMS — use Aurii; they are **not** Aurii, and they are not Studio renamed.
 
-The same Core is intended to support publication CMS, Kampbart, playground directories, DN Gaselle, Geo datasets, LiveCenter, documentation, and other structured-data applications without each project inventing its own backend.
+The same Core is intended to support publication CMS, Kampbart, playground directories, DN Gaselle, Geo datasets, LiveCenter, documentation, and other structured-data applications without each project inventing its own backend. Those examples are tests and possible products, not a closed list. **Products discover requirements. Core absorbs durable generalizations.**
 
 Aurii is **not** a traditional CMS, database, or API framework.
 
 Canonical product vocabulary: [`docs/PRODUCT_MODEL.md`](docs/PRODUCT_MODEL.md).  
+Product strategy (open Core, product boundaries, Studio audience): [`docs/PRODUCT_STRATEGY.md`](docs/PRODUCT_STRATEGY.md).  
 Architecture fitness tests: [`docs/ARCHITECTURE_FITNESS.md`](docs/ARCHITECTURE_FITNESS.md).  
 Optional authoring decision: [`adr/ADR-0010 — Optional Authoring Layer.md`](adr/ADR-0010%20—%20Optional%20Authoring%20Layer.md).  
 Project packages: [`adr/ADR-0014 — Project Configuration Package.md`](adr/ADR-0014%20—%20Project%20Configuration%20Package.md).  
@@ -45,8 +46,9 @@ Future CMS product ───────────────┘
           workspace)
 ```
 
-- **Core** is system of record.
-- **Studio** reads and writes through public Core APIs and the SDK—never the database. Generated UI is the default; custom editors/views are extensions.
+- **Core** is system of record — usable without Studio or commercial products.
+- **Studio** is a developer/operator workspace. It reads and writes through public Core APIs and the SDK—never the database. Generated UI is the default; custom editors/views are extensions. It is not the journalist’s or editor’s CMS.
+- **Products** may be separate opinionated applications over the same Core. They do not need one universal UI.
 - **Frontends** talk to Core (or published routes), not Studio.
 - A **CMS is never** a required middle layer between Core and a frontend.
 
@@ -81,7 +83,7 @@ Imports + editors + automation → Core → many consumers.
 | **Core** (`packages/core`) | Domain-agnostic runtime and system of record |
 | **SDK** (`packages/sdk`) | Typed HTTP client |
 | **Studio config** (`packages/studio` / `@aurii/studio`) | `defineStudio`, navigation helpers |
-| **Studio app** (`apps/studio` / `@aurii/studio-app`) | Extensible workspace UI (local + static host) |
+| **Studio app** (`apps/studio` / `@aurii/studio-app`) | Developer/operator workspace UI (local + static host) |
 | **Project package** (`aurii.config.ts`) | Declarative schemas, sources, imports, routes, studio config |
 | **Product** (`product.yaml`) | Shipping composition (modules)—complementary convention |
 | **Consumers** | Sites/apps—talk to Core, not Studio |
@@ -170,6 +172,7 @@ Projects: [`docs/PROJECTS.md`](docs/PROJECTS.md). Studio: [`docs/Studio.md`](doc
 5. Documentation before large architecture changes (ADRs).
 6. One entity model for structured data, editorial content, and hybrids.
 7. Sources, relations, provenance, and Studio extensibility are foundations.
+8. Products discover requirements; Core absorbs durable generalizations.
 
 ---
 

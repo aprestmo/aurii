@@ -2,15 +2,45 @@
 
 > Studio is Aurii’s **extensible project workspace** — a client of the Runtime, not the platform.
 >
+> It is a tool for **working with Aurii** (projects, schemas, sources, imports, queries, published routes, runtime state). It is **not** a tool for doing a journalist’s, editor’s, or author’s job.
+>
 > Default experience: schema-generated (or generic) UI for collections and records, plus data operations (sources, imports, schedules, query, published routes).
 >
 > Architecture: generated UI is the **default**, not the ceiling. Projects may replace field inputs, record editors, collection views, tools, and navigation.
 >
-> Studio is **not** a publication CMS and **not** an Editorial product. It **may** host domain-specific editors (for example a match desk) as extensions on public APIs.
+> Studio is **not** a publication CMS, **not** an Editorial product, and **not** the default end-user product for domain users. It **may** host operator-facing domain extensions (for example a match desk or map) on public APIs. That must not turn Studio into a universal CMS or product shell.
 >
-> **Status:** project-oriented Studio is **beta** (Phase 4). Full extension API is **planned** ([ADR-0020](../adr/ADR-0020%20—%20Extensible%20Studio.md)). A future CMS product is separate ([ADR-0010](../adr/ADR-0010%20—%20Optional%20Authoring%20Layer.md)).
+> **Status:** project-oriented Studio is **beta** (Phase 4). Full extension API is **planned** ([ADR-0020](../adr/ADR-0020%20—%20Extensible%20Studio.md)). A future CMS / Editorial product is separate ([ADR-0010](../adr/ADR-0010%20—%20Optional%20Authoring%20Layer.md)).
 >
-> Product boundaries: [`PRODUCT_MODEL.md`](PRODUCT_MODEL.md). Fitness tests: [`ARCHITECTURE_FITNESS.md`](ARCHITECTURE_FITNESS.md). Extension model: [ADR-0017](../adr/ADR-0017%20—%20Studio%20Extension%20Model.md), [ADR-0020](../adr/ADR-0020%20—%20Extensible%20Studio.md).
+> Product boundaries: [`PRODUCT_MODEL.md`](PRODUCT_MODEL.md). Strategy: [`PRODUCT_STRATEGY.md`](PRODUCT_STRATEGY.md). Fitness tests: [`ARCHITECTURE_FITNESS.md`](ARCHITECTURE_FITNESS.md). Extension model: [ADR-0017](../adr/ADR-0017%20—%20Studio%20Extension%20Model.md), [ADR-0020](../adr/ADR-0020%20—%20Extensible%20Studio.md).
+
+---
+
+## Audience
+
+Studio’s primary user is a **competent developer, data operator, integrator, or technical project administrator**.
+
+That person can understand and operate Aurii concepts such as:
+
+- projects and datasets
+- schemas and entities
+- relations
+- DataSources
+- imports, sync, and schedules
+- queries
+- published routes
+- platform / runtime state
+
+A journalist should normally work in a journalism / newsroom **product**. A magazine editor should normally work in a magazine product. A report author should normally work in a reporting product.
+
+Those products may use exactly the same Core entities and APIs without exposing Studio’s operational model.
+
+```text
+Studio is a tool for working with Aurii.
+Products are tools for doing a job.
+```
+
+Do not evolve Studio into the default CMS for those jobs. See [`PRODUCT_STRATEGY.md`](PRODUCT_STRATEGY.md).
 
 ---
 
@@ -20,7 +50,7 @@ Studio makes the Runtime operable for humans working on a **project package**.
 
 Everything available inside Studio should ultimately be available through the Runtime.
 
-Studio never contains business logic. It visualizes and operates what Core already defines. Domain-specific match desks or map views are **presentation modules** that still call public APIs.
+Studio never contains business logic. It visualizes and operates what Core already defines. Domain-specific match desks or map views are **presentation modules** that still call public APIs — appropriate when the user is operating Aurii, not when they are doing a domain job in a product.
 
 Frontends never read through Studio.
 
@@ -99,13 +129,17 @@ Config customizes labels, grouping, featured schemas, and custom views. It does 
 
 | Studio is | Studio is not |
 |-----------|----------------|
-| An extensible project workspace | A publication / newsroom CMS |
+| An extensible **operator / developer** project workspace | A publication / newsroom / magazine CMS |
+| A tool for working with Aurii | The product a journalist, editor, or author works in |
 | Import / sync / schedule ops | The delivery layer for frontends |
 | Schema-aware generated UI (default) | The only allowed editing experience |
-| Custom editors and views via extensions | Domain logic (football, Gaselle, geo rules) |
+| Operator-facing custom editors and views via extensions | A universal CMS / product shell |
 | Enable/disable published routes | A required proxy for frontends |
+| Optional domain tools (map, coverage, match desk) | Domain logic (football, Gaselle, geo rules) |
 
-Authoring collaboration, revision UX, preview, and Context belong to a **future separate Editorial product**, not to renaming Studio. Domain tools such as a match desk **do not wait** on that product—they are Studio extensions ([ADR-0020](../adr/ADR-0020%20—%20Extensible%20Studio.md)). See [ADR-0010](../adr/ADR-0010%20—%20Optional%20Authoring%20Layer.md).
+Authoring collaboration, revision UX, preview, and Context belong to a **future separate Editorial product** (or other opinionated products), not to renaming Studio. Domain tools such as a match desk **do not wait** on that product when they are operator-facing Studio extensions ([ADR-0020](../adr/ADR-0020%20—%20Extensible%20Studio.md)). See [ADR-0010](../adr/ADR-0010%20—%20Optional%20Authoring%20Layer.md).
+
+Studio may host those extensions. It must not become the place every domain user is expected to work.
 
 ---
 
@@ -299,6 +333,7 @@ If Studio contains business logic, the architecture has failed.
 ## Related documents
 
 - [PRODUCT_MODEL.md](PRODUCT_MODEL.md)
+- [PRODUCT_STRATEGY.md](PRODUCT_STRATEGY.md)
 - [DELIVERY.md](DELIVERY.md)
 - [PROJECT_PACKAGES.md](PROJECT_PACKAGES.md)
 - [ADR-0017 — Studio Extension Model](../adr/ADR-0017%20—%20Studio%20Extension%20Model.md)

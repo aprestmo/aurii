@@ -56,7 +56,7 @@ Aurii should never become "just another CMS."
 
 Instead, it should become a general platform for **modeling, ingesting, editing, enriching, relating, and publishing** structured data and editorial content.
 
-**Aurii Core is not a CMS.** Studio is a customizable client on the same Core model. Products may still add an optional authoring workspace and deliver classic CMS experiences (blogs, docs, news) while frontends consume Core through APIs. See [`PRODUCT_MODEL.md`](PRODUCT_MODEL.md) and [ADR-0010](../adr/ADR-0010%20—%20Optional%20Authoring%20Layer.md).
+**Aurii Core is not a CMS.** Studio is a customizable **developer/operator** client on the same Core model. Products may still add optional authoring workspaces and deliver classic CMS experiences (blogs, docs, news, magazines) while frontends consume Core through APIs. Those products need not share one universal UI. See [`PRODUCT_MODEL.md`](PRODUCT_MODEL.md), [`PRODUCT_STRATEGY.md`](PRODUCT_STRATEGY.md), and [ADR-0010](../adr/ADR-0010%20—%20Optional%20Authoring%20Layer.md).
 
 The same Core should support:
 
@@ -67,9 +67,11 @@ The same Core should support:
 - Geo datasets
 - LiveCenter
 - documentation
-- other structured-data applications
+- other structured-data applications — including products we have not identified yet
 
 without each product requiring its own backend architecture.
+
+These are architecture tests and possible products, not a boundary on what Aurii may become. **Products discover requirements. Core absorbs durable generalizations.**
 
 A platform where organizations can model their knowledge, data and workflows without being constrained by predefined content types or publishing assumptions.
 
@@ -325,9 +327,11 @@ The editing interface is important.
 
 But it is not the product.
 
+Studio is a tool for **working with Aurii** — for developers, data operators, integrators, and technical project administrators. It is not the default product in which a journalist, magazine editor, or report author does their job.
+
 Studio consumes the same APIs available to everyone else.
 
-Generated UI is the default. Domain-specific tools (match desks, maps, dense tables) are extensions—not Core features.
+Generated UI is the default. Domain-specific tools (match desks, maps, dense tables) are extensions—not Core features—and remain operator-facing unless a separate product is the right place for that job.
 
 Nothing inside Studio should require privileged access unavailable to external developers.
 

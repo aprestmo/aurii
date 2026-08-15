@@ -6,14 +6,17 @@
 > It distinguishes **implemented** concepts from **planned** / **beta** ones.
 > Implementation plans live in `Phase4.md`. Editorial + Context is **planned / post–Phase 4** — see [`Phase5.md`](../Phase5.md) (roadmap only; not implemented).
 > Architecture fitness tests: [`ARCHITECTURE_FITNESS.md`](ARCHITECTURE_FITNESS.md).
+> Product strategy (open Core, Studio audience, customer-led evolution): [`PRODUCT_STRATEGY.md`](PRODUCT_STRATEGY.md).
 
 ---
 
 ## One-sentence definition
 
-Aurii is a platform for **modeling, ingesting, editing, enriching, relating, and publishing structured data and editorial content**. Aurii Core is the system of record. Studio is a **customizable project workspace** on the same Core model (generated UI by default; replaceable by extensions). A publication CMS is a **future separate product** that may consume Core—not a synonym for Studio, and never a required layer between Core and a frontend.
+Aurii is a platform for **modeling, ingesting, editing, enriching, relating, and publishing structured data and editorial content**. Aurii Core is the system of record. Studio is a **customizable project workspace** for developers and operators on the same Core model (generated UI by default; replaceable by extensions). Opinionated products — including a future publication CMS — are **separate clients** that may consume Core. None of them is a synonym for Studio, and none is a required layer between Core and a frontend.
 
-Aurii is not only an alternative to a traditional headless CMS. The same Core must be able to support publication CMS, Kampbart, playground directories, DN Gaselle, Geo datasets, LiveCenter, documentation, and other structured-data applications without each project inventing its own backend.
+Aurii is not only an alternative to a traditional headless CMS. The same Core must be able to support publication CMS, Kampbart, playground directories, DN Gaselle, Geo datasets, LiveCenter, documentation, and other structured-data applications without each project inventing its own backend. Those examples are architecture tests and possible products — not a closed list of what Aurii may become.
+
+Product direction (open Core, product boundaries, Studio audience, customer-led evolution): [`PRODUCT_STRATEGY.md`](PRODUCT_STRATEGY.md).
 
 ---
 
@@ -31,6 +34,8 @@ These refine existing ADRs; they do not replace them.
 8. **Generated Studio is the default, not the limitation.** ([ADR-0020](../adr/ADR-0020%20—%20Extensible%20Studio.md))
 9. **Domain-specific interfaces must be buildable without domain-special logic in Core.** Kampbart’s match desk is a Studio extension, not a Match engine.
 10. **Core must be usable without Studio.** Imports, query, and delivery never require a UI.
+11. **Products discover requirements. Core absorbs durable generalizations.** A need should not enter Core merely because it could theoretically be useful elsewhere. See [`PRODUCT_STRATEGY.md`](PRODUCT_STRATEGY.md).
+12. **Studio is an Aurii workspace, not the default domain product.** Journalists, magazine editors, and report authors should normally work in products built for those jobs.
 
 ---
 
@@ -90,14 +95,15 @@ See [ADR-0010](../adr/ADR-0010%20—%20Optional%20Authoring%20Layer.md), [ADR-00
   workspace)       export             CMS, tools, …)
 ```
 
-**A CMS or authoring interface is an optional future client of Aurii Core. It is not a required layer between Core and a frontend. Studio is not that CMS—but Studio may host custom editors as extensions on the same Core model.**
+**A CMS or authoring interface is an optional future client of Aurii Core. It is not a required layer between Core and a frontend. Studio is not that CMS—but Studio may host operator-facing custom editors as extensions on the same Core model.**
 
-- Core is the system of record.
-- Studio is one client: an extensible project workspace for sources, imports, schedules, entities, queries, published routes, and (via extensions) domain-specific editors.
+- Core is the system of record and remains usable independently of Studio and of commercial products.
+- Studio is one client: an extensible **developer/operator** project workspace for sources, imports, schedules, entities, queries, published routes, and (via extensions) domain-specific operational editors.
+- Products may be **separate, opinionated applications** over the same Core. They do not need to share one universal UI.
 - Frontends, apps, export adapters, and AI clients consume Core directly.
 - They do not read through Studio or a CMS UI.
 
-This preserves “Aurii is not a CMS” for Core and Studio, while allowing a separate CMS product later. See [ADR-0010](../adr/ADR-0010%20—%20Optional%20Authoring%20Layer.md).
+This preserves “Aurii is not a CMS” for Core and Studio, while allowing separate CMS and other products later. See [ADR-0010](../adr/ADR-0010%20—%20Optional%20Authoring%20Layer.md) and [`PRODUCT_STRATEGY.md`](PRODUCT_STRATEGY.md).
 
 ---
 
@@ -187,7 +193,9 @@ Declared transforms, validation, enrichment, and persistence steps. Imports use 
 
 A coherent solution composed from datasets, schemas, imports, capabilities, modules, and consumers. A product is **not** merely another name for a dataset, Core Project, or project package.
 
-Examples:
+Products may be **separate, opinionated clients** over Core. They may share capabilities, packages, and APIs while differing in navigation, workflows, mental models, defaults, terminology, and interaction patterns. Aurii should not assume one modular CMS UI can cover every product by toggling features. See [`PRODUCT_STRATEGY.md`](PRODUCT_STRATEGY.md).
+
+Examples (architecture tests and possible products — not a closed catalog):
 
 | Product | Nature |
 |---------|--------|
@@ -221,7 +229,9 @@ A runtime extension mechanism that adds engines, connectors, field types, pipeli
 
 The generic **project workspace** client (`@aurii/studio-app`) on public Core APIs and the SDK. Default experience: schema-aware generated (or generic) UI for collections and records, plus sources, imports, history, schedules, published routes, query, and system status. Projects customize it with `defineStudio` and, over time, a stable extension API (custom field inputs, record editors, collection views, tools, navigation). See [ADR-0017](../adr/ADR-0017%20—%20Studio%20Extension%20Model.md) and [ADR-0020](../adr/ADR-0020%20—%20Extensible%20Studio.md).
 
-Studio is **not** a publication CMS and **not** the platform. It **is** allowed to host domain-specific editors (for example a match desk) as extensions. It must not own business logic. Core must remain usable without Studio.
+Studio’s primary audience is a **developer, data operator, integrator, or technical project administrator**. It is a tool for working with Aurii — not the default end-user CMS for a journalist, magazine editor, report author, or other domain user.
+
+Studio is **not** a publication CMS, **not** the Editorial product, and **not** the platform. It **is** allowed to host operator-facing domain-specific editors (for example a match desk or map) as extensions. That must not turn Studio into a universal CMS or product shell. It must not own business logic. Core must remain usable without Studio.
 
 **Status:** data workspace usable; project-oriented Studio **beta**; full extension API **planned**.
 
@@ -249,7 +259,7 @@ Studio (or equivalent) surfaces for sources, imports, schemas, entities, queries
 
 ### Authoring Workspace / CMS (future product)
 
-An **optional**, separate content creation, editing, preview, and publishing client. It would write to Core through public APIs. It is **not** Studio renamed. Not implemented; planned for later phases after Phase 4 proves delivery. See [ADR-0010](../adr/ADR-0010%20—%20Optional%20Authoring%20Layer.md).
+An **optional**, separate content creation, editing, preview, and publishing client. It would write to Core through public APIs. It is **not** Studio renamed. Different publishing cases (blog, magazine, newsroom) may justify separate products that share capabilities rather than one universal CMS. Not implemented; planned for later phases after Phase 4 proves delivery. See [ADR-0010](../adr/ADR-0010%20—%20Optional%20Authoring%20Layer.md) and [`PRODUCT_STRATEGY.md`](PRODUCT_STRATEGY.md).
 
 ### Consumer
 
@@ -293,15 +303,16 @@ A product may map to one or more Core Projects over time. Norwegian Geo keeps `p
 
 ## Aurii vs CMS
 
-| | Aurii (Core + Studio) | CMS (future separate product) |
+| | Aurii (Core + Studio) | CMS / domain product (future separate clients) |
 |--|----------------------|-------------------------------|
-| Primary job | Model, ingest, edit, enrich, relate, query, and deliver structured data **and** editorial content | Author, revise, preview, publish, collaborate (publication workflow) |
-| System of record | Aurii Core | Would still write to Aurii Core (client) |
-| Studio | Extensible project workspace (generated UI default; custom editors/views via extensions) | Not the CMS; not renamed Studio |
+| Primary job | Model, ingest, edit, enrich, relate, query, and deliver structured data **and** editorial content | Do a domain job: author, revise, preview, publish, collaborate, report, … |
+| System of record | Aurii Core (usable without Studio or any commercial product) | Would still write to Aurii Core (client) |
+| Studio | Developer/operator project workspace (generated UI default; custom editors/views via extensions) | Not the CMS; not renamed Studio; not the journalist’s or editor’s default tool |
 | Required for frontends? | Core APIs/SDK yes; Studio no | Never required between Core and frontend |
+| One UI for every product? | No. Products may be separate opinionated applications | Do not assume one modular CMS scales from blog to newsroom |
 | Phase 4 | In scope (data products + delivery; architecture for sources, provenance, Studio extension) | Out of scope as a product |
 
-Saying “Studio is our CMS” is incorrect. Studio operates projects on Core and may host domain-specific editors. A publication CMS, if built, is another client (Editorial + Context — [`Phase5.md`](../Phase5.md)).
+Saying “Studio is our CMS” is incorrect. Studio operates projects on Core and may host operator-facing domain-specific editors. A publication CMS, if built, is another client (Editorial + Context — [`Phase5.md`](../Phase5.md)). Other products (magazine, newsroom, reports, …) may be separate applications that share capabilities. See [`PRODUCT_STRATEGY.md`](PRODUCT_STRATEGY.md).
 
 ---
 
@@ -343,7 +354,7 @@ Delivery API / SDK
 Frontend and other consumers
 ```
 
-The authoring interface writes to Core through public APIs. The frontend reads from Core. The frontend does **not** read through the CMS client. Studio remains a data workspace, not that CMS.
+The authoring interface writes to Core through public APIs. The frontend reads from Core. The frontend does **not** read through the CMS client. Studio remains a developer/operator data workspace, not that CMS. Different authored products need not share one UI.
 
 **Status:** Architecturally supported; authoring workspace and editorial reference vertical are **not** implemented in Phase 4. Roadmap: [`Phase5.md`](../Phase5.md) (planned / post–Phase 4). Prerequisites are defined in `Phase4.md` workstream E.
 
@@ -387,12 +398,12 @@ Architecture questions and capability matrix: [`ARCHITECTURE_FITNESS.md`](ARCHIT
 
 ## Boundaries that must not blur
 
-1. **Core stays domain-agnostic.** Norwegian geo rules, football, Gaselle rankings, newsroom rules, and LiveCenter UX stay outside Core.
+1. **Core stays domain-agnostic.** Norwegian geo rules, football, Gaselle rankings, newsroom rules, magazine workflow, and LiveCenter UX stay outside Core. Do not introduce newsroom, magazine, report, or article as Core built-ins.
 2. **Schemas remain the source of truth** for structure, validation, and relationships. Relations are part of the foundation, not an add-on.
 3. **Applications do not read the database directly.**
 4. **Studio and future CMS clients use public APIs and the SDK only.**
 5. **Frontends do not depend on Studio.**
-6. **A publication CMS is optional**, never an intermediary for delivery, and **not** Studio renamed. Studio *may* host custom editors as extensions.
+6. **A publication CMS is optional**, never an intermediary for delivery, and **not** Studio renamed. Studio *may* host operator-facing custom editors as extensions. It must not become a universal CMS/product shell.
 7. **Do not split content storage from data storage** without a strong technical ADR.
 8. **Document implemented / beta / planned separately.** Phase docs and ADRs record decisions; do not present planned CMS, provenance store, map views, workflow, assets, realtime, RBAC, or AI features as complete.
 
@@ -445,6 +456,7 @@ Use the vertical that matches the capability under change. Cross-cutting Runtime
 
 ## Related documents
 
+- [PRODUCT_STRATEGY.md](./PRODUCT_STRATEGY.md) — open Core, product boundaries, Studio audience, customer-led evolution
 - [ARCHITECTURE_FITNESS.md](./ARCHITECTURE_FITNESS.md) — Kampbart, playgrounds, Gaselle, Geo as architecture tests
 - [PROJECT_PACKAGES.md](./PROJECT_PACKAGES.md) — `aurii.config.ts`, `defineProject` / `defineStudio` / `defineRoute`
 - [PROJECTS.md](./PROJECTS.md) — Core Project boundary

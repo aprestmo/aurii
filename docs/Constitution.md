@@ -27,15 +27,19 @@ Every architectural decision should reinforce this purpose.
 
 # Article 2 — Core Before Clients
 
-Core is the product.
+Core is the platform.
 
-Every other application—including Studio—is a client of Core.
+Every other application—including Studio and opinionated products—is a client of Core.
 
-Core must never depend on Studio.
+Core must never depend on Studio or on any commercial product.
 
 Studio may depend on Core.
 
 This dependency direction must never be reversed.
+
+Core shall remain usable independently of Studio and of separately licensed products.
+
+(“Product” in [`PRODUCT_MODEL.md`](PRODUCT_MODEL.md) means a shipping composition of datasets, modules, and consumers. That usage is compatible with this article: those products are clients of Core.)
 
 ---
 
@@ -216,13 +220,19 @@ No engine should become responsible for unrelated concerns.
 
 # Article 11 — Reusability
 
-Generic solutions shall always be preferred over application-specific solutions.
+Generic solutions shall be preferred over application-specific solutions **when the need has proven durable**.
 
 When implementing a feature, developers should ask:
 
 "Can this solve a broader class of problems?"
 
-If yes, prefer the generalized design.
+If yes, prefer the generalized design — but do not invent Core abstractions for hypothetical future customers.
+
+A requirement shall not move into Core merely because it could theoretically be useful elsewhere.
+
+Products may implement a specific solution first. Core shall absorb what proves fundamental across products.
+
+See Article 24.
 
 ---
 
@@ -424,12 +434,36 @@ Aurii is a platform for structured data **and** editorial content on one Core mo
 8. Generated Studio is the default experience, not the limitation.
 9. Domain-specific interfaces shall be buildable without domain-special logic in Core.
 10. Core shall be usable without Studio.
+11. Studio is a workspace for operating Aurii, not the default end-user product for a domain job.
 
 The platform shall not introduce separate storage models for “content” and “data” without a documented technical necessity.
 
 Relations, sources, provenance, and Studio extensibility are architectural foundations. They must not be treated as late optional integrations even when implementation is staged.
 
 Fitness tests for this article: [`ARCHITECTURE_FITNESS.md`](ARCHITECTURE_FITNESS.md).
+
+---
+
+# Article 24 — Products Discover, Core Generalizes
+
+Aurii shall evolve from real customer and product requirements, not from a complete catalogue of imagined future abstractions.
+
+The intended flow is:
+
+1. A concrete product or customer need appears.
+2. The product implements it.
+3. If the same pattern repeats across products, it may become a reusable capability.
+4. Only when the need is fundamental and general shall it move into Core.
+
+> Products discover requirements. Core absorbs durable generalizations.
+
+Publishing, news, and magazine are valid early verticals for discovering requirements. They shall not define the limits of Core, nor turn Core into a media backend.
+
+Opinionated products may be separate applications. They need not share one universal user interface.
+
+Studio shall remain a developer- and operator-oriented workspace for working with Aurii. It shall not become the default CMS or product shell for journalists, editors, authors, or other domain users.
+
+Direction and optionality: [`PRODUCT_STRATEGY.md`](PRODUCT_STRATEGY.md).
 
 ---
 

@@ -4,7 +4,7 @@ Status: Accepted
 Date: 2026-07-30  
 Decision Makers: Aurii Project  
 Supersedes: None  
-Related: [ADR-0001 — Platform Vision](./ADR-0001%20—%20Platform%20Vision.md), [ADR-0001 Adopt a Runtime-First Architecture](./ADR-0001%20Adopt%20a%20Runtime-First%20Architecture.md), [ADR-0005 — API-First Architecture](./ADR-0005%20—%20API-First%20Architecture.md), [docs/PRODUCT_MODEL.md](../docs/PRODUCT_MODEL.md)
+Related: [ADR-0001 — Platform Vision](./ADR-0001%20—%20Platform%20Vision.md), [ADR-0001 Adopt a Runtime-First Architecture](./ADR-0001%20Adopt%20a%20Runtime-First%20Architecture.md), [ADR-0005 — API-First Architecture](./ADR-0005%20—%20API-First%20Architecture.md), [docs/PRODUCT_MODEL.md](../docs/PRODUCT_MODEL.md), [docs/PRODUCT_STRATEGY.md](../docs/PRODUCT_STRATEGY.md)
 
 ⸻
 
@@ -51,6 +51,10 @@ What is missing is an explicit decision that separates **Core**, the **data work
 
 Studio may host **domain-specific editors** (match desk, map collection view, dense company table) as extensions on public APIs ([ADR-0020](./ADR-0020%20—%20Extensible%20Studio.md)). That does **not** make Studio the publication CMS, and it does **not** weaken points 3–5 above.
 
+Studio’s intended audience is a **developer, data operator, integrator, or technical project administrator**. A journalist, magazine editor, or report author should normally work in a dedicated product, not in Studio. Point 6 (one shell, multiple workspaces) remains technically possible; it must not be read as “Studio is the CMS” or as a requirement that every publishing use case share one universal UI.
+
+**Products discover requirements. Core absorbs durable generalizations.** Publishing/news/magazine is an important early vertical, not a boundary on Core. Core is not a media backend. Direction: [`docs/PRODUCT_STRATEGY.md`](../docs/PRODUCT_STRATEGY.md).
+
 Provenance and editorial overrides are Core metadata concerns ([ADR-0019](./ADR-0019%20—%20Provenance%20and%20Editorial%20Overrides.md)), not CMS features.
 
 Architecture fitness tests: [`docs/ARCHITECTURE_FITNESS.md`](../docs/ARCHITECTURE_FITNESS.md).
@@ -81,7 +85,7 @@ Reject. Hardcodes domain workflow into the Runtime. Violates “keep Runtime sma
 
 ### C. Treat Studio as the only human interface forever
 
-Reject as a long-term model. Studio should remain the generic admin client; specialized authoring UX may exist as additional clients or workspaces. Forcing all editing through today’s data browser would either under-serve editors or pollute Core with UI assumptions.
+Reject as a long-term model. Studio should remain the generic **admin / operator** client; specialized authoring UX may exist as additional clients or workspaces. Forcing all editing through today’s data browser would either under-serve editors or pollute Core with UI assumptions. Studio must not become the default CMS for journalists or other domain users.
 
 ### D. Optional authoring clients on public APIs (chosen)
 

@@ -5,7 +5,7 @@
 > Every capability exposed by the platform ultimately flows through Core.
 > Core owns the data model, enforces the rules, coordinates the engines and exposes the platform.
 >
-> Core is the product.
+> Core is the system of record. It must remain usable independently of Studio and of commercial products. Direction: [`PRODUCT_STRATEGY.md`](PRODUCT_STRATEGY.md).
 
 ---
 

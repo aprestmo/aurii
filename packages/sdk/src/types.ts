@@ -213,7 +213,7 @@ export interface HealthResponse {
 	version: string;
 	storage: "sqlite" | "postgres";
 	scheduler?: { enabled: boolean };
-	platformStore?: { mode: "memory" | "sqlite" };
+	platformStore?: { mode: "memory" | "sqlite" | "postgres" };
 }
 
 // ── Published routes ──────────────────────────────────────────────────────────

@@ -3,8 +3,10 @@ import {
 	formatErrorItem,
 	formatErrorList,
 	formatErrorPreview,
+	isProjectWritable,
 	linkedDefinitionIds,
 	pickEntityColumns,
+	writePolicyBanner,
 } from "../lib/ops-format";
 
 describe("formatErrorItem", () => {
@@ -62,5 +64,20 @@ describe("pickEntityColumns", () => {
 			"d",
 			"e",
 		]);
+	});
+});
+
+describe("write policy", () => {
+	test("only active projects are writable", () => {
+		expect(isProjectWritable("active")).toBe(true);
+		expect(isProjectWritable("inactive")).toBe(false);
+		expect(isProjectWritable("archived")).toBe(false);
+		expect(isProjectWritable(undefined)).toBe(false);
+	});
+
+	test("banner is silent for active projects", () => {
+		expect(writePolicyBanner("active")).toBeNull();
+		expect(writePolicyBanner("inactive")).toContain("inactive");
+		expect(writePolicyBanner("archived")).toContain("archived");
 	});
 });

@@ -3,6 +3,9 @@
  */
 
 import { afterEach, beforeEach, describe, expect, test } from "bun:test";
+import { mkdtemp, writeFile } from "node:fs/promises";
+import { tmpdir } from "node:os";
+import { join } from "node:path";
 import {
 	computeNextCronRun,
 	createDataSourceService,
@@ -19,7 +22,7 @@ import {
 	resetPlatformStore,
 	resetProjectService,
 } from "../index";
-import { createEntities } from "../entity/store";
+import { createEntities, listEntities } from "../entity/store";
 import { closeStorage, getStorage } from "../storage";
 
 async function setup() {
@@ -151,6 +154,78 @@ describe("cron scheduling", () => {
 		expect(again).toBe(false);
 		await store.releaseRunLock("def-1");
 		expect(await store.tryAcquireRunLock("def-1")).toBe(true);
+	});
+
+	test("tick runs a due enabled schedule once (time-controlled)", async () => {
+		const { project, store } = await setup();
+		const tmpDir = await mkdtemp(join(tmpdir(), "aurii-sched-"));
+		const dataPath = join(tmpDir, "counties.json");
+		await writeFile(
+			dataPath,
+			JSON.stringify([
+				{ id: "03", name: "Oslo" },
+				{ id: "11", name: "Rogaland" },
+			]),
+		);
+		await registerSchema(
+			{
+				id: "county",
+				name: "County",
+				fields: [
+					{ name: "id", type: "string", required: true },
+					{ name: "name", type: "string", required: true },
+				],
+			},
+			"norwegian-geo",
+		);
+		const imports = createSavedImportService(store);
+		const created = await imports.create(project.id, {
+			id: "nightly-counties",
+			datasetId: "norwegian-geo",
+			name: "Nightly counties",
+			schemaId: "county",
+			filePath: dataPath,
+			fileFormat: "json",
+			pipeline: { mapping: { id: "id", name: "name" } },
+			schedule: {
+				enabled: true,
+				spec: {
+					type: "cron",
+					expression: "0 4 * * *",
+					timezone: "Europe/Oslo",
+				},
+				nextRunAt: null,
+				lastRunAt: null,
+			},
+		});
+		// create() computes the next future cron; pin nextRunAt in the past
+		// so tick is time-controlled rather than waiting for 04:00.
+		await store.updateSavedImport(project.id, created.id, {
+			...created,
+			schedule: {
+				...created.schedule!,
+				nextRunAt: "2020-01-01T00:00:00.000Z",
+			},
+		});
+
+		const now = new Date("2026-08-15T10:00:00.000Z");
+		const scheduler = new ImportScheduler({ store, manual: true });
+		scheduler.setWatchedProjects([project.id]);
+		await scheduler.tick(now);
+
+		const entities = await listEntities("county", "norwegian-geo");
+		expect(entities).toHaveLength(2);
+		expect(entities.map((e) => e.data["id"]).sort()).toEqual(["03", "11"]);
+
+		const after = await store.getSavedImport(project.id, "nightly-counties");
+		expect(after?.schedule?.lastRunAt).toBeTruthy();
+		expect(after?.schedule?.nextRunAt).toBeTruthy();
+		expect(new Date(after!.schedule!.nextRunAt!).getTime()).toBeGreaterThan(
+			now.getTime(),
+		);
+
+		await scheduler.tick(now);
+		expect(await listEntities("county", "norwegian-geo")).toHaveLength(2);
 	});
 });
 

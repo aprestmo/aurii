@@ -182,7 +182,7 @@ Studio never owns domain rules.
 | **Published routes** | Inspect, enable/disable, test; grouped by `defineStudio.routeGroups` |
 | **Entities** | Browse with featured collection columns from `defineStudio`; relation links |
 | **Query** | Run and explain Query Language |
-| **System** | Core URL, project slug, dataset, health, scheduler enabled?, platform store mode |
+| **System** | Core URL, project slug, project write status, dataset, health, scheduler enabled?, platform store mode (`memory` / `sqlite` / `postgres`) |
 
 Schemas remain inspectable. Navigation may group collections by schema via `defineStudio`. Collection **views** (table vs map vs custom) are a planned extension of this surface.
 

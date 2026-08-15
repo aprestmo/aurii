@@ -96,6 +96,7 @@ const opsConfig = {
 
     <script>
       import { api, checkHealth, getDataset, setDataset } from "../lib/api";
+      import { writePolicyBanner } from "../lib/ops-format";
 
       const health = await checkHealth();
       const conn = document.getElementById("conn-status")!;
@@ -106,13 +107,22 @@ const opsConfig = {
       }
 
       try {
-        type Project = { id: string; name: string; slug: string };
+        type Project = { id: string; name: string; slug: string; status: string };
         type Dataset = { id: string; name: string; projectId: string };
         const projectSlug = localStorage.getItem("aurii.projectSlug");
         const projectsRes = await api<{ data: Project[] }>("/api/projects");
         let projects = projectsRes.data;
         if (projectSlug) {
           projects = projects.filter((p) => p.slug === projectSlug);
+        }
+        const currentProject = projects[0];
+        const bannerText = writePolicyBanner(currentProject?.status);
+        if (bannerText) {
+          const banner = document.createElement("div");
+          banner.className = "error-box";
+          banner.setAttribute("data-write-policy", currentProject?.status ?? "");
+          banner.textContent = bannerText;
+          document.querySelector("main.main")?.prepend(banner);
         }
         const datasets: (Dataset & { projectSlug: string })[] = [];
         for (const project of projects) {

@@ -10,8 +10,9 @@ import Layout from "../layouts/Layout.astro";
 <script>
   import { groupItemsByIds } from "@aurii/studio";
   import { api, getDataset, readStudioOpsConfig } from "../lib/api";
+  import { isProjectWritable } from "../lib/ops-format";
 
-  type Project = { id: string; slug: string };
+  type Project = { id: string; slug: string; status: string };
   type Route = {
     routeId: string;
     enabled: boolean;
@@ -31,7 +32,8 @@ import Layout from "../layouts/Layout.astro";
     : projects.data[0];
   const el = document.getElementById("list")!;
 
-  function renderRoute(r: Route, slug: string): string {
+  function renderRoute(r: Route, slug: string, writable: boolean): string {
+    const disabled = writable ? "" : " disabled";
     return `<tr>
       <td>${r.routeId}</td>
       <td><code>/public/${slug}/v1${r.definition.path}</code></td>
@@ -41,7 +43,7 @@ import Layout from "../layouts/Layout.astro";
       <td>${r.hitCount}</td>
       <td style="max-width:200px;font-size:12px;color:${r.lastError ? "var(--red)" : "inherit"}">${r.lastError ?? "—"}</td>
       <td>
-        <button data-id="${r.routeId}" data-en="${r.enabled ? "0" : "1"}">
+        <button data-id="${r.routeId}" data-en="${r.enabled ? "0" : "1"}"${disabled}>
           ${r.enabled ? "Disable" : "Enable"}
         </button>
         <button data-test="${r.routeId}">Test</button>
@@ -64,7 +66,7 @@ import Layout from "../layouts/Layout.astro";
             : "";
           return `${heading}<table><thead><tr>
             <th>Id</th><th>Path</th><th>Schema</th><th>Access</th><th>Enabled</th><th>Hits</th><th>Last error</th><th></th>
-          </tr></thead><tbody>${g.items.map((r) => renderRoute(r, project.slug)).join("")}</tbody></table>`;
+          </tr></thead><tbody>${g.items.map((r) => renderRoute(r, project.slug, isProjectWritable(project.status))).join("")}</tbody></table>`;
         })
         .join("");
 

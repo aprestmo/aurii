@@ -1,10 +1,10 @@
 # Next: After project-oriented Studio beta (#52)
 
-> Planning document for work **after** [PR #52](https://github.com/aprestmo/aurii/pull/52) (and the #51 scaffold it hardens).
+> **Status: complete.** This was the Phase 4 close-out plan after [PR #52](https://github.com/aprestmo/aurii/pull/52). N1–N5 landed. Remaining items below are **optional polish**, not Phase 4 blockers.
 >
 > Baseline: project packages, DataSources, schedules, published routes, scoped platform APIs, and package-driven Studio are **in tree**.
 >
-> Parent roadmap: [`Phase4.md`](../Phase4.md). Product vocabulary: [`docs/PRODUCT_MODEL.md`](PRODUCT_MODEL.md). Delivery contract: [`DELIVERY.md`](DELIVERY.md). Post–Phase 4 Editorial + Context (planning only): [`Phase5.md`](../Phase5.md). Fitness tests: [`ARCHITECTURE_FITNESS.md`](ARCHITECTURE_FITNESS.md).
+> Parent report: [`Phase4.md`](../Phase4.md) (**complete**). Product vocabulary: [`docs/PRODUCT_MODEL.md`](PRODUCT_MODEL.md). Delivery contract: [`DELIVERY.md`](DELIVERY.md). Scale: [`SCALE.md`](SCALE.md). Post–Phase 4 Editorial + Context (planning only): [`Phase5.md`](../Phase5.md). Fitness tests: [`ARCHITECTURE_FITNESS.md`](ARCHITECTURE_FITNESS.md).
 
 ---
 
@@ -38,9 +38,9 @@ bun run studio
 
 ---
 
-## Goal of the next slice
+## Goal of this slice (closed)
 
-Finish Phase 4 **exit criteria** that #52 did not fully close:
+Finish Phase 4 **exit criteria** that #52 did not fully close. **All four are done:**
 
 1. **Live delivery contract** — `apps/geo` (or equivalent) proven against a running Core with integration tests, not only optional env fallback.
 2. **Operable Studio polish** — provenance, clearer run/error UX, config groups actually used in UI.
@@ -119,10 +119,10 @@ Editorial/CMS remains **out of scope** for N1. See [`Phase5.md`](../Phase5.md) (
 
 | Step | Deliverable |
 |------|-------------|
-| N4.1 | Benchmark Norwegian Geo join/query sizes; record numbers in docs |
-| N4.2 | Spike: SQL pushdown for one join or filter path |
-| N4.3 | Cursor pagination design for large lists (postal codes / future tax list) |
-| N4.4 | Explicit “not ready for N rows” statement updated with measured N |
+| N4.1 | **Done** — Norwegian Geo timings in [`SCALE.md`](SCALE.md); test: `scale-benchmark.test.ts` |
+| N4.2 | **Done** — SQL `COUNT(*)` for pushdown-safe WHERE; `findEntityByField` + natural-key index (not a full SQL join) |
+| N4.3 | **Done** — keyset/cursor design in [`SCALE.md`](SCALE.md) (not implemented) |
+| N4.4 | **Done** — not ready for 100k+ join sides, ~100k+ offset walks, or tax-list published-route dumps |
 
 **Exit:** Phase 4 scale exit criterion satisfied with numbers and named bottlenecks.
 
@@ -153,8 +153,8 @@ Small, reviewable PRs branching from **main after #52 merges**:
 3. **Studio: config groups + source/import detail UX** (N2.1–N2.3)
 4. **`registerProjectPackage` helper + script thin wrapper** (N3.3) — **done**
 5. **Module surface decision for NG Studio** (N3.1–N3.2) — **done**
-6. **Benchmarks + scale note** (N4.1, N4.4) — **#58**
-7. Postgres platform store + scheduler e2e + write-policy UX (N5) — **this slice**
+6. **Benchmarks + scale note** (N4.1, N4.4) — **done** ([`SCALE.md`](SCALE.md))
+7. Postgres platform store + scheduler e2e + write-policy UX (N5) — **done** (#59)
 8. Optional later: secret vault UX, tokens UI
 
 Each PR must:
@@ -168,32 +168,31 @@ Each PR must:
 
 ## Acceptance checklist for “Phase 4 complete enough”
 
-Use this after N1–N4 land (N5 can trail):
+**Met.** N5 optional polish (secret vault UX, tokens UI) may trail.
 
 - [x] #52 merged; demo path above works on a clean clone
 - [x] Live delivery contract documented and integration-tested ([`DELIVERY.md`](DELIVERY.md), `live-geo-delivery.integration.test.ts`)
 - [x] `apps/geo` demonstrates Core/published-route consumption without Studio
 - [x] Studio operates NG sources/imports/schedules/routes using package `defineStudio` (N2.1–N2.4)
 - [x] Composition story (`aurii.config` vs `product.yaml`) documented; register helper shared
-- [ ] Scale limits measured and written down
+- [x] Scale limits measured and written down ([`SCALE.md`](SCALE.md))
 - [x] Docs still say: publication CMS is a future separate product; Studio is an extensible workspace (generated default, replaceable UI); fitness tests in `ARCHITECTURE_FITNESS.md`
 
 ---
 
 ## Agent instructions (next run)
 
-1. Assume branch/`main` includes #52–#57. N4 scale honesty is #58. N5 postgres store + scheduler e2e + write-policy UX is in tree after this slice.
-2. Remaining optional N5: secret vault UX (set-by-id, never echo) and tokens UI. Do not start Phase 5 implementation.
-3. Read this file + `Phase4.md` + `docs/PRODUCT_MODEL.md` before coding.
-4. Do not re-scaffold `defineProject` / platform store / ADRs 0014–0018 / live delivery / Studio ops pages.
-5. Prefer a shared `registerProjectPackage` helper wrapping `register-via-api.ts` / `bootstrap-platform.ts`.
-6. Stop and document if a step would require a new Core abstraction — ADR first.
-7. Do not implement Kampbart, Map views, Gaselle, source adapter packages, or a provenance store unless the assigned task says so.
+1. Phase 4 is **complete**. Assume `main` includes #52–#59 plus N4 scale honesty ([`SCALE.md`](SCALE.md)).
+2. Remaining optional polish: secret vault UX (set-by-id, never echo) and tokens UI. Do **not** start Phase 5 implementation unless the assigned task says so.
+3. Read [`Phase4.md`](../Phase4.md) + [`Phase5.md`](../Phase5.md) + `docs/PRODUCT_MODEL.md` before coding.
+4. Do not re-scaffold `defineProject` / platform store / ADRs 0014–0018 / live delivery / Studio ops pages / scale measurements.
+5. Stop and document if a step would require a new Core abstraction — ADR first.
+6. Do not implement Kampbart, Map views, Gaselle, source adapter packages, or a provenance store unless the assigned task says so.
 
 ---
 
 ## Success question
 
-> After the next slice, can a contributor import Norwegian Geo, register the package, enable a published route, run Studio from the package config, and load the same data in `apps/geo` from Core—with tests proving the live path—without any CMS?
+> After this slice, can a contributor import Norwegian Geo, register the package, enable a published route, run Studio from the package config, and load the same data in `apps/geo` from Core—with tests proving the live path—without any CMS?
 
-If yes, Phase 4’s project-oriented beta is ready to exit into scale/polish and later Editorial planning.
+**Yes.** Phase 4 is complete. Editorial + Context remains planned: [`Phase5.md`](../Phase5.md).

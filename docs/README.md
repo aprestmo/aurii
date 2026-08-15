@@ -14,9 +14,10 @@ The specification is the **source of truth**. Code implements the specification.
 - [PRODUCT_STRATEGY.md](./PRODUCT_STRATEGY.md) — Open Core, product boundaries, Studio audience, customer-led evolution
 - [ARCHITECTURE_FITNESS.md](./ARCHITECTURE_FITNESS.md) — Kampbart, playgrounds, Gaselle, Geo as architecture tests
 - [PROJECTS.md](./PROJECTS.md) — Project as top-level Core boundary (API, migration, seed)
-- [Phase4.md](../Phase4.md) — Phase 4 plan: Data Products and Delivery
+- [Phase4.md](../Phase4.md) — Phase 4 report: Data Products and Delivery (**complete**)
 - [Phase5.md](../Phase5.md) — Phase 5 plan: Editorial & Context (**planned / post–Phase 4**)
 - [DELIVERY.md](./DELIVERY.md) — Live frontend delivery contract
+- [SCALE.md](./SCALE.md) — Query scale measurements and named bottlenecks
 - [ADR-0010 — Optional Authoring Layer](../adr/ADR-0010%20—%20Optional%20Authoring%20Layer.md) — CMS/authoring as optional Core clients
 - [ADR-0011 — Project as Top-Level Boundary](../adr/ADR-0011%20—%20Project%20as%20Top-Level%20Boundary.md) — Project tenancy model
 - [ADR-0019 — Provenance and Editorial Overrides](../adr/ADR-0019%20—%20Provenance%20and%20Editorial%20Overrides.md)
@@ -47,6 +48,7 @@ The specification is the **source of truth**. Code implements the specification.
 
 - [API.md](./API.md) — HTTP API reference
 - [DELIVERY.md](./DELIVERY.md) — Published routes vs authenticated Query/SDK; live vs snapshot
+- [SCALE.md](./SCALE.md) — Measured query limits and named bottlenecks
 - [PROJECTS.md](./PROJECTS.md) — Projects API and data model
 - [AI.md](./AI.md) — AI integration and agent interface
 
@@ -71,7 +73,7 @@ The specification is the **source of truth**. Code implements the specification.
 | [Phase2.md](../Phase2.md) | Historical — complete |
 | [Phase2.2.md](../Phase2.2.md) | Historical — complete |
 | [Phase3.md](../Phase3.md) | Historical — complete |
-| [Phase4.md](../Phase4.md) | Plan — Data Products and Delivery |
+| [Phase4.md](../Phase4.md) | Historical — complete (data products + delivery) |
 | [Phase5.md](../Phase5.md) | Plan — Editorial & Context (post–Phase 4; not implemented) |
 
 Historical phase reports are records of what was true when written. Prefer status notes over rewriting them.

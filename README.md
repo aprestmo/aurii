@@ -17,9 +17,10 @@ Product strategy (open Core, product boundaries, Studio audience): [`docs/PRODUC
 Architecture fitness tests: [`docs/ARCHITECTURE_FITNESS.md`](docs/ARCHITECTURE_FITNESS.md).  
 Optional authoring decision: [`adr/ADR-0010 — Optional Authoring Layer.md`](adr/ADR-0010%20—%20Optional%20Authoring%20Layer.md).  
 Project packages: [`adr/ADR-0014 — Project Configuration Package.md`](adr/ADR-0014%20—%20Project%20Configuration%20Package.md).  
-**Next after Studio beta:** [`docs/NEXT_AFTER_STUDIO_BETA.md`](docs/NEXT_AFTER_STUDIO_BETA.md).  
 **Delivery contract:** [`docs/DELIVERY.md`](docs/DELIVERY.md).  
-**Phase 5 (planned):** [`Phase5.md`](Phase5.md) — Editorial & Context; not implemented in this phase.
+**Scale honesty:** [`docs/SCALE.md`](docs/SCALE.md).  
+**Phase 4 (complete):** [`Phase4.md`](Phase4.md).  
+**Phase 5 (planned):** [`Phase5.md`](Phase5.md) — Editorial & Context; not implemented.
 
 ---
 
@@ -122,12 +123,12 @@ Norwegian Geo project package: `demo/norwegian-geo/aurii.config.ts`.
 
 ## Status
 
-**Current state: Phase 3 complete; Phase 4 (data products + delivery) in progress.**
+**Current state: Phase 4 complete** (data products + delivery). Phase 5 (Editorial & Context) is planned only.
 
 | Phase | Focus | Status |
 |-------|--------|--------|
 | Phase 1–3 | Import, storage, query, references | Complete |
-| Phase 4 | Data products, Studio ops, published routes, live delivery | In progress — [`Phase4.md`](Phase4.md), [`docs/DELIVERY.md`](docs/DELIVERY.md) |
+| Phase 4 | Data products, Studio ops, published routes, live delivery, scale honesty | **Complete** — [`Phase4.md`](Phase4.md), [`docs/DELIVERY.md`](docs/DELIVERY.md), [`docs/SCALE.md`](docs/SCALE.md) |
 | Phase 5 | Editorial & Context (separate client on generic Core) | **Planned** — [`Phase5.md`](Phase5.md) |
 
 ### Repository layout
@@ -159,7 +160,8 @@ Projects: [`docs/PROJECTS.md`](docs/PROJECTS.md). Studio: [`docs/Studio.md`](doc
 | DataSource, saved imports, cron schedule | Beta |
 | Published routes (`/public/:slug/v1/...`) | Beta |
 | Project-configured Studio | Beta |
-| Authoring CMS / drafts / LiveCenter | Not in this phase |
+| Scale honesty (measured NG limits) | Documented — [`docs/SCALE.md`](docs/SCALE.md) |
+| Authoring CMS / drafts / LiveCenter | Planned — [`Phase5.md`](Phase5.md) |
 
 ---
 

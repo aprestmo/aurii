@@ -1,8 +1,10 @@
 # Phase 4 — Data Products and Delivery
 
-> Planning document for the next implementation phase.
+> Engineering report for Phase 4 completion.
 >
-> Phase 3 completed the relational Core. Phase 4 completes the **data-product path** before the repository attempts a full newsroom, LiveCenter, or authoring CMS.
+> **Status: complete.** Current platform status: repository [`README.md`](README.md). Next phase (planning only): [`Phase5.md`](Phase5.md). Delivery: [`docs/DELIVERY.md`](docs/DELIVERY.md). Scale: [`docs/SCALE.md`](docs/SCALE.md). Slice plan that closed the exit criteria: [`docs/NEXT_AFTER_STUDIO_BETA.md`](docs/NEXT_AFTER_STUDIO_BETA.md).
+>
+> Phase 3 completed the relational Core. Phase 4 completed the **data-product path** before the repository attempts a full newsroom, LiveCenter, or authoring CMS.
 >
 > Product vocabulary: [`docs/PRODUCT_MODEL.md`](docs/PRODUCT_MODEL.md).  
 > Product strategy: [`docs/PRODUCT_STRATEGY.md`](docs/PRODUCT_STRATEGY.md).  
@@ -22,6 +24,39 @@ Import → Core storage → Query / API → @aurii/sdk → real frontend
 ```
 
 Norwegian Geo remains the canonical vertical for this proof. Scale stress uses a tax-list-sized (or similarly large) dataset as a future benchmark target—not as a claim that such scale already works.
+
+## Delivered
+
+| Workstream | Status | Evidence |
+|------------|--------|----------|
+| A — Product composition | Done (#57) | Two-file story (`product.yaml` + `aurii.config.ts`); `registerProjectPackage` / `applyProjectPackage` in `@aurii/core` |
+| B — Import / Studio ops | Done (#51–#52, #56) | Generic Studio operates sources, imports, schedules, routes, entities, query; `defineStudio` groups |
+| C — Delivery contract | Done (#53) | [`docs/DELIVERY.md`](docs/DELIVERY.md); `apps/geo` live loaders; `live-geo-delivery.integration.test.ts` |
+| D — Scale honesty | Done | [`docs/SCALE.md`](docs/SCALE.md); SQL `COUNT(*)`; `findEntityByField`; cursor pagination **designed**, not implemented |
+| E — Vertical boundary | Done | Norwegian Geo is the data/delivery vertical; Editorial stays planned ([`Phase5.md`](Phase5.md)); fitness tests in [`docs/ARCHITECTURE_FITNESS.md`](docs/ARCHITECTURE_FITNESS.md) |
+| N5 — Hardening | Done (#59) | Postgres `PlatformStore`, scheduler e2e, write-policy UX. Secret vault UX / tokens UI remain **optional polish**, not exit blockers |
+
+## Exit criteria
+
+**All met.**
+
+1. **Composition:** Norwegian Geo is described through the agreed product composition model.
+2. **Delivery path:** Import → Core → Query/API → SDK → frontend is exercised end to end (live Core, not only snapshots).
+3. **Studio:** Norwegian Geo is operated via generic Studio + project config (`defineStudio` / `aurii.config.ts`) without forking Studio and without a CMS.
+4. **Modules:** Product modules and dependency/import order are unambiguous and documented.
+5. **Contract:** Delivery contract is documented and covered by integration tests.
+6. **Scale:** Limitations are measured; next bottlenecks are explicit ([`docs/SCALE.md`](docs/SCALE.md)).
+7. **No CMS required:** The data product functions with zero authoring/CMS client.
+8. **Architecture honesty:** Docs/ADRs state that relations, sources, provenance/overrides, and Studio extensibility are foundations; fitness tests exist; no competing parallel plan.
+
+### Honest remaining (post–Phase 4, not blockers)
+
+- Provenance/override **store** (ADR-0019 designed, not implemented)
+- SQL join pushdown; GROUP BY / SUM / AVG; cursor pagination implementation
+- Schema-generated default record forms (allowed as Studio evolution; not an exit gate)
+- Module datasets in `apps/geo` still use snapshots in this beta
+- Optional Studio polish: secret vault UX, tokens UI
+- Distributed HA scheduler, tax-list scale, Editorial product — later phases
 
 ---
 
@@ -110,7 +145,7 @@ Do not re-implement these; build on them.
 | Area | What exists | Maturity |
 |------|-------------|----------|
 | Core | Schemas, entities, datasets, projects, import engine, pipelines, Query Language v1 (joins, count), planner, HTTP API, OpenAPI/Swagger | Implemented |
-| Storage | SQLite + PostgreSQL adapters; in-memory joins (correct at Norwegian Geo scale) | Implemented |
+| Storage | SQLite + PostgreSQL adapters; in-memory joins (correct at Norwegian Geo scale); SQL `COUNT(*)` + natural-key lookup (N4) | Implemented |
 | SDK | Typed client for datasets, schemas, entities, query, import, stats | Implemented |
 | Project package | `defineProject` / `aurii.config.ts`; validate/load without Studio | Beta |
 | DataSource + saved imports/sync | Core registry; secrets server-side; cron schedule (single-process) | Beta |
@@ -122,7 +157,7 @@ Do not re-implement these; build on them.
 ### Known gaps Phase 4 must treat honestly
 
 - Live delivery for Norwegian Geo core schemas is documented in [`docs/DELIVERY.md`](docs/DELIVERY.md) and integration-tested (`apps/geo` live loaders via published routes). Snapshots remain an **explicit** offline/build-time mode (`AURII_DELIVERY_MODE=snapshot`). Module datasets in `apps/geo` still use snapshots in this beta.
-- In-memory joins are **not** suitable for millions of rows.
+- In-memory joins are **not** suitable for millions of rows. Measured limits: [`docs/SCALE.md`](docs/SCALE.md).
 - Platform ops (DataSource / schedule / published routes) persist in SQLite when `AURII_DB_PATH` is a file, or in PostgreSQL when `DATABASE_URL` is the primary ops DB; HA multi-node scheduling remains out of beta.
 - Resumability for huge imports and distributed job queues remain out of beta guarantees.
 - Product composition via `product.yaml` remains a **convention** alongside `aurii.config.ts`; no large “Product Runtime.”
@@ -251,6 +286,8 @@ Import → Core storage → Query/API → @aurii/sdk → real frontend
 
 **Honesty rule:** Do not claim the current in-memory join strategy is suitable for millions of rows. Phase 4 may ship incremental pushdown and still exit with explicit remaining bottlenecks.
 
+**N4 landed:** [`docs/SCALE.md`](docs/SCALE.md) — measured NG timings; SQL `COUNT(*)` + `findEntityByField`; cursor pagination designed, not implemented. Joins remain in-memory.
+
 **Exit contribution:** Scale limitations measured; next bottlenecks explicit in docs/tests. Norwegian Geo remains correct; large-dataset criteria defined even if full tax-list product is only partially imported.
 
 ---
@@ -277,21 +314,6 @@ Import → Core storage → Query/API → @aurii/sdk → real frontend
 
 ---
 
-## Exit criteria
-
-Phase 4 is complete when all of the following are true:
-
-1. **Composition:** One data product is described through the agreed product composition model.
-2. **Delivery path:** Import → Core → Query/API → SDK → frontend is exercised end to end (live Core, not only snapshots).
-3. **Studio:** The data product can be operated via generic Studio + project config (`defineStudio` / `aurii.config.ts`) without forking the Studio app and without a CMS.
-4. **Modules:** Product modules and dependency/import order are unambiguous and documented.
-5. **Contract:** Delivery contract is documented and covered by integration tests.
-6. **Scale:** Limitations are measured honestly; next bottlenecks are explicit.
-7. **No CMS required:** The data product functions with zero authoring/CMS client.
-8. **Architecture honesty:** Docs/ADRs state that relations, sources, provenance/overrides, and Studio extensibility are foundations; fitness tests exist; no competing parallel plan.
-
----
-
 ## Suggested follow-up issue split
 
 **Current next-step plan (post–project Studio beta):** [`docs/NEXT_AFTER_STUDIO_BETA.md`](docs/NEXT_AFTER_STUDIO_BETA.md).
@@ -301,8 +323,8 @@ That document assumes [PR #52](https://github.com/aprestmo/aurii/pull/52) (persi
 1. Live delivery contract + `apps/geo` integration proof (N1) — **done** (#53)
 2. Studio ops polish — groups, run errors, System signals (N2.1–N2.4) — **done**
 3. Package/composition alignment + shared register helper (N3) — **done**
-4. Scale measurements / pushdown spike (N4) — **in #58**
-5. Hardening — Postgres platform store, scheduler e2e, write-policy UX (N5) — **this slice**; tokens / secret vault UI remain optional
+4. Scale measurements / pushdown spike (N4) — **done** ([`docs/SCALE.md`](docs/SCALE.md))
+5. Hardening — Postgres platform store, scheduler e2e, write-policy UX (N5) — **done** (#59); tokens / secret vault UI remain optional
 
 Older split (still valid themes, superseded in order by the doc above):
 
@@ -314,7 +336,7 @@ Older split (still valid themes, superseded in order by the doc above):
 6. Reference index / lookup performance for imports (D)
 7. Pagination strategy for large result sets (D)
 
-Authoring, newsroom, and LiveCenter issues wait until Phase 4 exits. The post–Phase 4 Editorial + Context hypothesis is captured in [`Phase5.md`](Phase5.md) (planning only).
+Authoring, newsroom, and LiveCenter wait for later phases. The post–Phase 4 Editorial + Context hypothesis is captured in [`Phase5.md`](Phase5.md) (planning only).
 
 ---
 
@@ -324,13 +346,12 @@ Phase 3’s “Recommended Phase 4 scope” listed SQL pushdown, reference index
 
 ---
 
-## Documentation updates expected during Phase 4 implementation
+## Documentation (landed)
 
-- Keep `docs/PRODUCT_MODEL.md`, `docs/Studio.md`, `docs/PROJECT_PACKAGES.md`, `docs/ARCHITECTURE_FITNESS.md`, and this file’s “baseline / non-goals / exit criteria” in sync with reality.
-- Delivery contract: [`docs/DELIVERY.md`](docs/DELIVERY.md) (N1).
-- Post–Phase 4 Editorial + Context: [`Phase5.md`](Phase5.md) (planned only — do not implement in Phase 4).
-- Update README status when Phase 4 completes.
-- Do not rewrite Phase 1–3 historical reports; add status notes if needed.
+- [`docs/PRODUCT_MODEL.md`](docs/PRODUCT_MODEL.md), [`docs/Studio.md`](docs/Studio.md), [`docs/PROJECT_PACKAGES.md`](docs/PROJECT_PACKAGES.md), [`docs/ARCHITECTURE_FITNESS.md`](docs/ARCHITECTURE_FITNESS.md)
+- Delivery contract: [`docs/DELIVERY.md`](docs/DELIVERY.md)
+- Scale honesty: [`docs/SCALE.md`](docs/SCALE.md)
+- Post–Phase 4 Editorial + Context: [`Phase5.md`](Phase5.md) (planned only — do not implement unless assigned)
 
 ---
 
@@ -338,4 +359,4 @@ Phase 3’s “Recommended Phase 4 scope” listed SQL pushdown, reference index
 
 > Can a new contributor ship a data product on Aurii—declare a project package, import it, operate it in project-oriented Studio, and consume it from an independent frontend via the SDK or published routes—without building or deploying a CMS?
 
-If yes, Phase 4 succeeded.
+**Yes.** Norwegian Geo is that product. Phase 4 succeeded.

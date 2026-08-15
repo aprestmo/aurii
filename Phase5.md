@@ -2,7 +2,7 @@
 
 > **Status: planned / post–Phase 4.** This is a roadmap only.
 >
-> Do **not** implement Phase 5 capabilities until Phase 4 exit criteria are met or consciously waived with documented rationale.
+> Phase 4 exit criteria are **met** ([`Phase4.md`](Phase4.md)). Do **not** implement Phase 5 capabilities unless that is the assigned task.
 >
 > Parent: [`Phase4.md`](Phase4.md). Product vocabulary: [`docs/PRODUCT_MODEL.md`](docs/PRODUCT_MODEL.md). Strategy: [`docs/PRODUCT_STRATEGY.md`](docs/PRODUCT_STRATEGY.md). Authoring boundary: [`adr/ADR-0010 — Optional Authoring Layer.md`](adr/ADR-0010%20—%20Optional%20Authoring%20Layer.md). Delivery contract: [`docs/DELIVERY.md`](docs/DELIVERY.md).
 
@@ -261,7 +261,7 @@ Context must arrive **early enough** that Phase 5 does not turn into simply “b
 
 ## Entry criteria
 
-Do not begin Phase 5 implementation until Phase 4 exit criteria are met or consciously waived with documented rationale.
+Phase 4 exit criteria are **met** ([`Phase4.md`](Phase4.md)). Do not begin Phase 5 implementation unless that is the assigned task.
 
 At minimum:
 

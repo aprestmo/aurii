@@ -4,7 +4,7 @@
 >
 > This document defines terms, boundaries, and supported product modes.
 > It distinguishes **implemented** concepts from **planned** / **beta** ones.
-> Implementation plans live in `Phase4.md`. Editorial + Context is **planned / post–Phase 4** — see [`Phase5.md`](../Phase5.md) (roadmap only; not implemented).
+> Implementation status: Phase 4 is **complete** (`Phase4.md`). Editorial + Context is **planned / post–Phase 4** — see [`Phase5.md`](../Phase5.md) (roadmap only; not implemented).
 > Architecture fitness tests: [`ARCHITECTURE_FITNESS.md`](ARCHITECTURE_FITNESS.md).
 > Product strategy (open Core, Studio audience, customer-led evolution): [`PRODUCT_STRATEGY.md`](PRODUCT_STRATEGY.md).
 
@@ -310,7 +310,7 @@ A product may map to one or more Core Projects over time. Norwegian Geo keeps `p
 | Studio | Developer/operator project workspace (generated UI default; custom editors/views via extensions) | Not the CMS; not renamed Studio; not the journalist’s or editor’s default tool |
 | Required for frontends? | Core APIs/SDK yes; Studio no | Never required between Core and frontend |
 | One UI for every product? | No. Products may be separate opinionated applications | Do not assume one modular CMS scales from blog to newsroom |
-| Phase 4 | In scope (data products + delivery; architecture for sources, provenance, Studio extension) | Out of scope as a product |
+| Phase 4 | **Complete** (data products + delivery; architecture for sources, provenance, Studio extension) | Out of scope as a product |
 
 Saying “Studio is our CMS” is incorrect. Studio operates projects on Core and may host operator-facing domain-specific editors. A publication CMS, if built, is another client (Editorial + Context — [`Phase5.md`](../Phase5.md)). Other products (magazine, newsroom, reports, …) may be separate applications that share capabilities. See [`PRODUCT_STRATEGY.md`](PRODUCT_STRATEGY.md).
 

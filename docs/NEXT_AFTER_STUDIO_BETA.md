@@ -84,10 +84,10 @@ Editorial/CMS remains **out of scope** for N1. See [`Phase5.md`](../Phase5.md) (
 
 | Step | Deliverable |
 |------|-------------|
-| N2.1 | Use `importGroups` / `routeGroups` / featured columns from loaded `defineStudio` in Imports and Routes pages |
-| N2.2 | Source detail: last success/failure, linked definitions, next run, last error (no secrets) |
-| N2.3 | Import run detail drawer or expandable row (full `errors[]`, trigger, counts) |
-| N2.4 | System page: project slug, dataset, Core URL, scheduler enabled?, platform store mode |
+| N2.1 | **Done** — `importGroups` / `routeGroups` / featured columns from loaded `defineStudio` on Imports, Routes, and Entities |
+| N2.2 | **Done** — Source detail: last success/failure, linked definitions, next run, last error (no secrets) |
+| N2.3 | **Done** — Import run expandable row (full `errors[]`, trigger, counts); trigger persisted on import-run records |
+| N2.4 | **Done** — System page: project slug, dataset, Core URL, scheduler enabled?, platform store mode (`GET /health`) |
 | N2.5 | Optional: token list / create (admin only) + audit tail in Studio — thin UI over existing APIs |
 
 **Exit:** Studio can operate sources → run import → see errors → toggle schedule → enable route without CLI except first register.
@@ -169,23 +169,23 @@ Each PR must:
 
 Use this after N1–N4 land (N5 can trail):
 
-- [ ] #52 merged; demo path above works on a clean clone
-- [ ] Live delivery contract documented and integration-tested ([`DELIVERY.md`](DELIVERY.md), `live-geo-delivery.integration.test.ts`)
-- [ ] `apps/geo` demonstrates Core/published-route consumption without Studio
-- [ ] Studio operates NG sources/imports/schedules/routes using package `defineStudio`
+- [x] #52 merged; demo path above works on a clean clone
+- [x] Live delivery contract documented and integration-tested ([`DELIVERY.md`](DELIVERY.md), `live-geo-delivery.integration.test.ts`)
+- [x] `apps/geo` demonstrates Core/published-route consumption without Studio
+- [x] Studio operates NG sources/imports/schedules/routes using package `defineStudio` (N2.1–N2.4)
 - [ ] Composition story (`aurii.config` vs `product.yaml`) documented; register helper shared
 - [ ] Scale limits measured and written down
-- [ ] Docs still say: publication CMS is a future separate product; Studio is an extensible workspace (generated default, replaceable UI); fitness tests in `ARCHITECTURE_FITNESS.md`
+- [x] Docs still say: publication CMS is a future separate product; Studio is an extensible workspace (generated default, replaceable UI); fitness tests in `ARCHITECTURE_FITNESS.md`
 
 ---
 
 ## Agent instructions (next run)
 
-1. Assume branch/`main` includes #52 (or rebase onto it).
-2. Start with **N1** unless the user names another workstream.
+1. Assume branch/`main` includes #52–#55 and Studio N2 ops polish (N2.1–N2.4).
+2. Start with **N3** (package/composition alignment) unless the user names another workstream. **N4** follows N3.
 3. Read this file + `Phase4.md` + `docs/PRODUCT_MODEL.md` before coding.
-4. Do not re-scaffold `defineProject` / platform store / ADRs 0014–0018.
-5. Prefer extending `register-via-api.ts`, Studio pages, and `apps/geo` live loaders.
+4. Do not re-scaffold `defineProject` / platform store / ADRs 0014–0018 / live delivery / Studio ops pages.
+5. Prefer a shared `registerProjectPackage` helper wrapping `register-via-api.ts` / `bootstrap-platform.ts`.
 6. Stop and document if a step would require a new Core abstraction — ADR first.
 7. Do not implement Kampbart, Map views, Gaselle, source adapter packages, or a provenance store unless the assigned task says so.
 

@@ -7,11 +7,24 @@ const { title, active } = Astro.props;
 
 import "../styles/global.css";
 import { getStudioRuntimeEnv } from "../lib/env";
-import { navHref, navLabel, resolveActiveStudioConfig } from "../lib/studio-config";
+import {
+	collectionColumnsBySchema,
+	importGroupsFromConfig,
+	navHref,
+	navLabel,
+	resolveActiveStudioConfig,
+	routeGroupsFromConfig,
+} from "../lib/studio-config";
 
 const env = getStudioRuntimeEnv();
 const { config: studioCfg, title: studioTitle } = await resolveActiveStudioConfig();
 const groups = studioCfg.navigation ?? [];
+const opsConfig = {
+	importGroups: importGroupsFromConfig(studioCfg),
+	routeGroups: routeGroupsFromConfig(studioCfg),
+	featuredSchemas: studioCfg.featuredSchemas ?? [],
+	collectionColumns: collectionColumnsBySchema(studioCfg),
+};
 ---
 
 <!doctype html>
@@ -58,7 +71,8 @@ const groups = studioCfg.navigation ?? [];
                 (active === "imports" && item.kind === "imports") ||
                 (active === "routes" && item.kind === "apiRoutes") ||
                 (active === "query" && item.kind === "query") ||
-                (active === "schemas" && item.kind === "schemas");
+                (active === "schemas" && item.kind === "schemas") ||
+                (active === "system" && item.kind === "system");
               return (
                 <a href={href} class={isActive ? "active" : ""}>{label}</a>
               );
@@ -75,6 +89,7 @@ const groups = studioCfg.navigation ?? [];
         </div>
       </nav>
       <main class="main">
+        <script type="application/json" id="studio-ops-config" set:html={JSON.stringify(opsConfig)} />
         <slot />
       </main>
     </div>

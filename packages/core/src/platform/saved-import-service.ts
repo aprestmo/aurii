@@ -183,6 +183,7 @@ export class SavedImportService {
 					: process.cwd();
 			const result = await runImport(importDef, basePath, {
 				dryRun: options.dryRun ?? false,
+				trigger: options.trigger ?? "user",
 			});
 
 			if (def.sourceId) {

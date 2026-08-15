@@ -3,14 +3,16 @@ import Layout from "../layouts/Layout.astro";
 ---
 <Layout title="Imports" active="imports">
   <h1>Saved imports</h1>
-  <p class="muted">Run saved definitions (dry or persist). Toggle schedules. History includes errors from Core.</p>
+  <p class="muted">Run saved definitions (dry or persist). Toggle schedules. Expand a run for full errors, trigger, and counts.</p>
   <div id="defs" class="card" style="margin-top: 1rem;">Loading…</div>
   <h2 style="margin-top: 2rem;">Import history</h2>
   <div id="history" class="card">Loading…</div>
 </Layout>
 
 <script>
-  import { api, getDataset } from "../lib/api";
+  import { groupItemsByIds } from "@aurii/studio";
+  import { api, getDataset, readStudioOpsConfig } from "../lib/api";
+  import { formatErrorList, formatErrorPreview } from "../lib/ops-format";
 
   type Project = { id: string; slug: string };
   type SavedImport = {
@@ -19,6 +21,7 @@ import Layout from "../layouts/Layout.astro";
     schemaId: string;
     status: string;
     triggerMode: string;
+    sourceId: string | null;
     schedule: {
       enabled: boolean;
       spec: { expression: string; timezone?: string };
@@ -37,8 +40,10 @@ import Layout from "../layouts/Layout.astro";
     errors: unknown[];
     startedAt: string | null;
     completedAt: string | null;
+    trigger?: string | null;
   };
 
+  const ops = readStudioOpsConfig();
   const projectSlug = localStorage.getItem("aurii.projectSlug");
   const projects = await api<{ data: Project[] }>("/api/projects");
   const project = projectSlug
@@ -47,18 +52,25 @@ import Layout from "../layouts/Layout.astro";
   const defsEl = document.getElementById("defs")!;
   const histEl = document.getElementById("history")!;
 
-  function formatErrors(errors: unknown[]): string {
-    if (!errors?.length) return "";
-    return errors
-      .slice(0, 5)
-      .map((e) => {
-        if (typeof e === "string") return e;
-        if (e && typeof e === "object" && "message" in e) {
-          return String((e as { message: unknown }).message);
-        }
-        return JSON.stringify(e);
-      })
-      .join("; ");
+  function renderDef(d: SavedImport): string {
+    return `<div class="row" style="display:flex;gap:0.75rem;align-items:center;margin-bottom:0.75rem;flex-wrap:wrap;">
+      <div style="flex:1;min-width:200px">
+        <strong>${d.name}</strong>
+        <div class="muted" style="font-size:12px">${d.schemaId} · ${d.triggerMode} · ${d.status}
+        ${d.sourceId ? ` · source ${d.sourceId}` : ""}
+        ${d.schedule ? ` · cron ${d.schedule.spec.expression}${d.schedule.spec.timezone ? " (" + d.schedule.spec.timezone + ")" : ""}` : ""}
+        ${d.schedule?.nextRunAt ? ` · next ${d.schedule.nextRunAt}` : ""}
+        ${d.schedule?.lastRunAt ? ` · last ${d.schedule.lastRunAt}` : ""}
+        </div>
+      </div>
+      ${
+        d.schedule
+          ? `<button data-sched="${d.id}" data-enabled="${d.schedule.enabled ? "0" : "1"}">${d.schedule.enabled ? "Disable schedule" : "Enable schedule"}</button>`
+          : ""
+      }
+      <button data-id="${d.id}" data-dry="1">Dry run</button>
+      <button data-id="${d.id}" data-dry="0">Run</button>
+    </div>`;
   }
 
   if (!project) {
@@ -72,26 +84,14 @@ import Layout from "../layouts/Layout.astro";
     if (!defs.data.length) {
       defsEl.innerHTML = "<p class='muted'>No saved imports. Run <code>register-via-api.ts</code> or create via API.</p>";
     } else {
-      defsEl.innerHTML = defs.data
-        .map(
-          (d) => `<div class="row" style="display:flex;gap:0.75rem;align-items:center;margin-bottom:0.75rem;flex-wrap:wrap;">
-            <div style="flex:1;min-width:200px">
-              <strong>${d.name}</strong>
-              <div class="muted" style="font-size:12px">${d.schemaId} · ${d.triggerMode} · ${d.status}
-              ${d.schedule ? ` · cron ${d.schedule.spec.expression}${d.schedule.spec.timezone ? " (" + d.schedule.spec.timezone + ")" : ""}` : ""}
-              ${d.schedule?.nextRunAt ? ` · next ${d.schedule.nextRunAt}` : ""}
-              ${d.schedule?.lastRunAt ? ` · last ${d.schedule.lastRunAt}` : ""}
-              </div>
-            </div>
-            ${
-              d.schedule
-                ? `<button data-sched="${d.id}" data-enabled="${d.schedule.enabled ? "0" : "1"}">${d.schedule.enabled ? "Disable schedule" : "Enable schedule"}</button>`
-                : ""
-            }
-            <button data-id="${d.id}" data-dry="1">Dry run</button>
-            <button data-id="${d.id}" data-dry="0">Run</button>
-          </div>`,
-        )
+      const grouped = groupItemsByIds(defs.data, ops.importGroups, (d) => d.id);
+      defsEl.innerHTML = grouped
+        .map((g) => {
+          const heading = g.title
+            ? `<h3 class="ops-group-title">${g.title}</h3>`
+            : "";
+          return `${heading}${g.items.map(renderDef).join("")}`;
+        })
         .join("");
 
       defsEl.querySelectorAll("button[data-id]").forEach((btn) => {
@@ -141,15 +141,42 @@ import Layout from "../layouts/Layout.astro";
     const hist = await api<Run[]>(`/imports?dataset=${encodeURIComponent(dataset)}&limit=20`);
     const rows = Array.isArray(hist) ? hist : [];
     histEl.innerHTML = rows.length
-      ? `<table><thead><tr><th>Definition</th><th>Status</th><th>Dry</th><th>Total</th><th>Imported</th><th>Failed</th><th>Started</th><th>Errors</th></tr></thead>
+      ? `<table><thead><tr><th>Definition</th><th>Status</th><th>Trigger</th><th>Dry</th><th>Imported</th><th>Failed</th><th>Started</th><th>Errors</th></tr></thead>
          <tbody>${rows.map((r) => {
-           const err = formatErrors(r.errors ?? []);
-           return `<tr>
-           <td>${r.definitionId ?? "—"}</td><td>${r.status}</td><td>${r.dryRun}</td>
-           <td>${r.total}</td><td>${r.imported}</td><td>${r.failed}</td><td>${r.startedAt ?? "—"}</td>
-           <td style="max-width:280px;font-size:12px;color:${err ? "var(--danger, #b33)" : "inherit"}">${err || "—"}</td>
-         </tr>`;
-         }).join("")}</tbody></table>`
+           const preview = formatErrorPreview(r.errors ?? [], 2);
+           const all = formatErrorList(r.errors ?? []);
+           const detail = [
+             `Trigger: ${r.trigger ?? "—"}`,
+             `Counts: total ${r.total} · imported ${r.imported} · failed ${r.failed}`,
+             `Dry run: ${r.dryRun}`,
+             `Started: ${r.startedAt ?? "—"}`,
+             `Completed: ${r.completedAt ?? "—"}`,
+             all.length
+               ? `Errors (${all.length}):\n${all.map((e) => `• ${e}`).join("\n")}`
+               : "Errors: none",
+           ].join("\n");
+           return `<tr class="ops-expand" data-run="${r.id}" title="Show run detail">
+           <td>${r.definitionId ?? "—"}</td>
+           <td>${r.status}</td>
+           <td>${r.trigger ?? "—"}</td>
+           <td>${r.dryRun}</td>
+           <td>${r.imported} / ${r.total}</td>
+           <td>${r.failed}</td>
+           <td>${r.startedAt ?? "—"}</td>
+           <td style="max-width:280px;font-size:12px;color:${preview ? "var(--red)" : "inherit"}">${preview || "—"}</td>
+         </tr>
+         <tr class="hidden" data-detail="${r.id}"><td colspan="8">
+           <pre class="json">${detail.replace(/</g, "&lt;")}</pre>
+         </td></tr>`;
+         }).join("")}</tbody></table>
+         <p class="muted" style="margin-top:0.75rem;font-size:12px">Click a row to expand full errors, trigger, and counts.</p>`
       : "<p class='muted'>No runs yet.</p>";
+
+    histEl.querySelectorAll("tr.ops-expand").forEach((tr) => {
+      tr.addEventListener("click", () => {
+        const id = (tr as HTMLElement).dataset.run;
+        histEl.querySelector(`tr[data-detail="${id}"]`)?.classList.toggle("hidden");
+      });
+    });
   }
 </script>

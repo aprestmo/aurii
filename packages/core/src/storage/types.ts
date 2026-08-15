@@ -45,6 +45,8 @@ export interface ImportRunRecord {
 	startedAt: string | null;
 	completedAt: string | null;
 	createdAt: string;
+	/** How the run was initiated. Null/omitted on legacy rows. */
+	trigger?: "user" | "schedule" | "system" | "webhook" | null;
 }
 
 export interface SchemaStats {

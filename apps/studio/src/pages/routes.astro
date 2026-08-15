@@ -3,12 +3,13 @@ import Layout from "../layouts/Layout.astro";
 ---
 <Layout title="API routes" active="routes">
   <h1>Published API routes</h1>
-  <p class="muted">Enable declarative delivery endpoints. Consumers call Core — not Studio.</p>
+  <p class="muted">Enable declarative delivery endpoints. Consumers call Core — not Studio. Groups come from <code>defineStudio</code>.</p>
   <div id="list" class="card" style="margin-top: 1rem;">Loading…</div>
 </Layout>
 
 <script>
-  import { api, getDataset } from "../lib/api";
+  import { groupItemsByIds } from "@aurii/studio";
+  import { api, getDataset, readStudioOpsConfig } from "../lib/api";
 
   type Project = { id: string; slug: string };
   type Route = {
@@ -22,12 +23,31 @@ import Layout from "../layouts/Layout.astro";
     definition: { path: string; method: string; query: { schema: string } };
   };
 
+  const ops = readStudioOpsConfig();
   const projectSlug = localStorage.getItem("aurii.projectSlug");
   const projects = await api<{ data: Project[] }>("/api/projects");
   const project = projectSlug
     ? projects.data.find((p) => p.slug === projectSlug)
     : projects.data[0];
   const el = document.getElementById("list")!;
+
+  function renderRoute(r: Route, slug: string): string {
+    return `<tr>
+      <td>${r.routeId}</td>
+      <td><code>/public/${slug}/v1${r.definition.path}</code></td>
+      <td>${r.definition.query.schema}</td>
+      <td>${r.access}</td>
+      <td>${r.enabled ? "yes" : "no"}</td>
+      <td>${r.hitCount}</td>
+      <td style="max-width:200px;font-size:12px;color:${r.lastError ? "var(--red)" : "inherit"}">${r.lastError ?? "—"}</td>
+      <td>
+        <button data-id="${r.routeId}" data-en="${r.enabled ? "0" : "1"}">
+          ${r.enabled ? "Disable" : "Enable"}
+        </button>
+        <button data-test="${r.routeId}">Test</button>
+      </td>
+    </tr>`;
+  }
 
   if (!project) {
     el.textContent = "No project selected.";
@@ -36,26 +56,17 @@ import Layout from "../layouts/Layout.astro";
     if (!res.data.length) {
       el.innerHTML = "<p class='muted'>No routes registered. Bootstrap the project package.</p>";
     } else {
-      el.innerHTML = `<table><thead><tr>
-        <th>Id</th><th>Path</th><th>Schema</th><th>Access</th><th>Enabled</th><th>Hits</th><th></th>
-      </tr></thead><tbody>${res.data
-        .map(
-          (r) => `<tr>
-          <td>${r.routeId}</td>
-          <td><code>/public/${project.slug}/v1${r.definition.path}</code></td>
-          <td>${r.definition.query.schema}</td>
-          <td>${r.access}</td>
-          <td>${r.enabled ? "yes" : "no"}</td>
-          <td>${r.hitCount}</td>
-          <td>
-            <button data-id="${r.routeId}" data-en="${r.enabled ? "0" : "1"}">
-              ${r.enabled ? "Disable" : "Enable"}
-            </button>
-            <button data-test="${r.routeId}">Test</button>
-          </td>
-        </tr>`,
-        )
-        .join("")}</tbody></table>`;
+      const grouped = groupItemsByIds(res.data, ops.routeGroups, (r) => r.routeId);
+      el.innerHTML = grouped
+        .map((g) => {
+          const heading = g.title
+            ? `<h3 class="ops-group-title">${g.title}</h3>`
+            : "";
+          return `${heading}<table><thead><tr>
+            <th>Id</th><th>Path</th><th>Schema</th><th>Access</th><th>Enabled</th><th>Hits</th><th>Last error</th><th></th>
+          </tr></thead><tbody>${g.items.map((r) => renderRoute(r, project.slug)).join("")}</tbody></table>`;
+        })
+        .join("");
 
       el.querySelectorAll("button[data-id]").forEach((btn) => {
         btn.addEventListener("click", async () => {

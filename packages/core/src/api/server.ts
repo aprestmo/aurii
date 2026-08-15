@@ -29,6 +29,8 @@ import { mkdir } from "fs/promises";
 import { join, resolve } from "path";
 import { parse as parseYaml } from "yaml";
 import { listCapabilities } from "../capabilities/registry";
+import { getPlatformStore } from "../platform/store";
+import { getImportScheduler } from "../schedule/scheduler";
 import { isDatasetError } from "../dataset/errors";
 import { countEntities, getEntity, listEntities } from "../entity/store";
 import { analyzeContent } from "../import/analyze";
@@ -158,6 +160,8 @@ export function buildApp(options: AppOptions = {}) {
 						phase: "2",
 						version: "0.2.0",
 						storage: storage.kind,
+						scheduler: { enabled: getImportScheduler().isStarted() },
+						platformStore: { mode: getPlatformStore().kind },
 						capabilities: listCapabilities().map((c) => ({
 							id: c.id,
 							kind: c.kind,

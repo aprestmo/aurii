@@ -17,6 +17,8 @@ import type { ImportDefinition, ImportResult, RowError } from "./types";
 export interface RunImportOptions {
 	datasetId?: string;
 	dryRun?: boolean;
+	/** How the run was initiated (persisted on the import-run record). */
+	trigger?: "user" | "schedule" | "system" | "webhook";
 	/**
 	 * Optional hook invoked immediately before entity writes.
 	 * Used in tests to simulate project status changing after job start.
@@ -107,6 +109,7 @@ export async function runImport(
 		errors: [],
 		startedAt: new Date().toISOString(),
 		completedAt: null,
+		trigger: options.trigger ?? null,
 	});
 
 	emit({

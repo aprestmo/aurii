@@ -25,11 +25,13 @@ import Layout from "../layouts/Layout.astro";
 
   <script>
     import { getClient } from "../lib/client";
-    import { getDataset } from "../lib/api";
+    import { getDataset, readStudioOpsConfig } from "../lib/api";
+    import { pickEntityColumns } from "../lib/ops-format";
     import type { Entity } from "@aurii/sdk";
 
     const ds = getDataset();
     const client = getClient();
+    const ops = readStudioOpsConfig();
     const PAGE = 25;
     let offset = 0;
     let total = 0;
@@ -40,15 +42,33 @@ import Layout from "../layouts/Layout.astro";
     const results = document.getElementById("results")!;
 
     const schemas = await client.schemas.list(ds);
+    const featured = new Set(ops.featuredSchemas);
     schemaFilter.innerHTML =
       '<option value="">Choose schema…</option>' +
-      schemas.map((s) => `<option value="${s.id}">${s.name}</option>`).join("");
+      schemas
+        .map((s) => {
+          const mark = featured.has(s.id) ? " ★" : "";
+          return `<option value="${s.id}">${s.name}${mark}</option>`;
+        })
+        .join("");
+
+    const initialSchema = new URLSearchParams(window.location.search).get("schema");
+    if (initialSchema && schemas.some((s) => s.id === initialSchema)) {
+      schemaFilter.value = initialSchema;
+      currentSchema = initialSchema;
+    }
 
     schemaFilter.addEventListener("change", () => {
       currentSchema = schemaFilter.value;
       offset = 0;
+      const url = new URL(window.location.href);
+      if (currentSchema) url.searchParams.set("schema", currentSchema);
+      else url.searchParams.delete("schema");
+      history.replaceState(null, "", url);
       if (currentSchema) load();
     });
+
+    if (currentSchema) load();
 
     document.getElementById("run-query")!.addEventListener("click", runQuery);
     queryInput.addEventListener("keydown", (e) => { if (e.key === "Enter") runQuery(); });
@@ -90,7 +110,10 @@ import Layout from "../layouts/Layout.astro";
         results.innerHTML = `<p class="muted">No entities found.</p>`;
         return;
       }
-      const keys = Object.keys(entities[0]!.data).slice(0, 5);
+      const keys = pickEntityColumns(
+        entities[0]!.data,
+        ops.collectionColumns[currentSchema],
+      );
       const header = keys.map((k) => `<th>${k}</th>`).join("") + "<th></th>";
       const rows = entities.map((e) => {
         const cells = keys.map((k) => {

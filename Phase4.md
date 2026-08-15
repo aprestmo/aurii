@@ -195,13 +195,13 @@ Workstreams may overlap in engineering time, but dependencies run roughly A → 
 
 | Priority | Item | Notes |
 |----------|------|-------|
-| P0 | Clear Studio surfacing of sources, saved definitions, dry-run vs commit, and run results (inserted/updated/skipped/errors) | Build on wizard + history + DataSource beta |
+| P0 | Clear Studio surfacing of sources, saved definitions, dry-run vs commit, and run results (inserted/updated/skipped/errors) | **Done** — expandable source/run detail; groups from `defineStudio` |
 | P0 | Documented dependency ordering for multi-schema imports | Norwegian Geo already requires order |
 | P0 | Project-oriented Studio operable via `aurii.config.ts` + env (local / `studio:build`) | Beta hardening, not a CMS |
 | P0 | Architecture: provenance/override concepts and Studio extension trajectory documented | ADR-0019, ADR-0020, fitness tests — **design**, not feature build |
 | P1 | Provenance / source metadata on entities (start small; prefer Core metadata over product JSON) | [ADR-0019](adr/ADR-0019%20—%20Provenance%20and%20Editorial%20Overrides.md); NG `standardFields` only as a temporary convention |
-| P1 | Retry and clearer failure reporting for partial runs | Measure before inventing job queues |
-| P1 | Published routes operable from Studio (enable/disable, inspect) | Complements workstream C |
+| P1 | Retry and clearer failure reporting for partial runs | Expandable `errors[]` landed; retry still later |
+| P1 | Published routes operable from Studio (enable/disable, inspect) | **Done** — grouped by `routeGroups` |
 | P1 | Generated record forms as default entity editor (schema-driven, not CMS) | Optional in Phase 4; must not be classified as Editorial |
 | P2 | Resumability for large imports | Design with tax-list scale in mind |
 | P2 | Richer HTTP connectors / `packages/sources` adapters | Design only unless assigned; HA scheduler remains non-goal |
@@ -296,11 +296,11 @@ Phase 4 is complete when all of the following are true:
 
 That document assumes [PR #52](https://github.com/aprestmo/aurii/pull/52) (persistence, package-driven Studio, register-via-api, AuthScopes) as baseline and sequences:
 
-1. Live delivery contract + `apps/geo` integration proof (N1)
-2. Studio ops polish — groups, provenance, run errors (N2)
-3. Package/composition alignment + shared register helper (N3)
+1. Live delivery contract + `apps/geo` integration proof (N1) — **done** (#53)
+2. Studio ops polish — groups, run errors, System signals (N2.1–N2.4) — **done**
+3. Package/composition alignment + shared register helper (N3) — **next**
 4. Scale measurements / pushdown spike (N4)
-5. Optional hardening — Postgres platform store, scheduler e2e (N5)
+5. Optional hardening — Postgres platform store, scheduler e2e, tokens UI (N5)
 
 Older split (still valid themes, superseded in order by the doc above):
 

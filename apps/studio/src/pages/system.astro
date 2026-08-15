@@ -3,6 +3,7 @@ import Layout from "../layouts/Layout.astro";
 ---
 <Layout title="System" active="system">
   <h1>System status</h1>
+  <p class="muted">Runtime signals from Core. Studio does not own this state.</p>
   <div id="status" class="card" style="margin-top: 1rem;">Loading…</div>
 </Layout>
 
@@ -25,12 +26,21 @@ import Layout from "../layouts/Layout.astro";
     statsHtml = "<p class='muted'>Stats unavailable</p>";
   }
 
+  const scheduler = health?.scheduler
+    ? health.scheduler.enabled
+      ? "enabled (in-process)"
+      : "disabled"
+    : "unknown";
+  const storeMode = health?.platformStore?.mode ?? "unknown";
+
   el.innerHTML = `
     <p><strong>Core URL:</strong> ${getApiUrl()}</p>
-    <p><strong>Project:</strong> ${projectSlug}</p>
+    <p><strong>Project slug:</strong> ${projectSlug}</p>
     <p><strong>Dataset:</strong> ${getDataset()}</p>
-    <p><strong>Health:</strong> ${health ? `${health.status} (${health.storage})` : "unreachable"}</p>
+    <p><strong>Health:</strong> ${health ? `${health.status} (entity storage: ${health.storage})` : "unreachable"}</p>
+    <p><strong>Scheduler:</strong> ${scheduler}</p>
+    <p><strong>Platform store:</strong> ${storeMode}</p>
     ${statsHtml}
-    <p class="muted" style="margin-top:1rem">Studio is a client of Core. Frontends must not depend on Studio.</p>
+    <p class="muted" style="margin-top:1rem">Studio is a client of Core. Frontends must not depend on Studio. Platform store is memory unless <code>AURII_DB_PATH</code> is a file. Scheduler starts when Core is served with <code>AURII_ENABLE_SCHEDULER=1</code>.</p>
   `;
 </script>

@@ -5,6 +5,8 @@
  * It talks to the public HTTP API and nothing else.
  */
 
+import { emptyStudioOpsConfig, type StudioOpsConfig } from "./ops-format";
+
 export function getApiUrl(): string {
   return localStorage.getItem("aurii.apiUrl") ?? "http://localhost:3000";
 }
@@ -57,11 +59,28 @@ export async function api<T>(path: string, init: RequestInit = {}): Promise<T> {
   return data;
 }
 
-export async function checkHealth(): Promise<{ status: string; storage: string } | null> {
+export type StudioHealth = {
+  status: string;
+  storage: string;
+  scheduler?: { enabled: boolean };
+  platformStore?: { mode: "memory" | "sqlite" };
+};
+
+export async function checkHealth(): Promise<StudioHealth | null> {
   try {
     const res = await fetch(`${getApiUrl()}/health`);
-    return (await res.json()) as { status: string; storage: string };
+    return (await res.json()) as StudioHealth;
   } catch {
     return null;
+  }
+}
+
+export function readStudioOpsConfig(): StudioOpsConfig {
+  const el = document.getElementById("studio-ops-config");
+  if (!el?.textContent) return emptyStudioOpsConfig();
+  try {
+    return JSON.parse(el.textContent) as StudioOpsConfig;
+  } catch {
+    return emptyStudioOpsConfig();
   }
 }

@@ -12,6 +12,7 @@ The specification is the **source of truth**. Code implements the specification.
 
 - [PRODUCT_MODEL.md](./PRODUCT_MODEL.md) — **Canonical product model** (Core, datasets, products, modules, Studio, authoring, consumers)
 - [PRODUCT_STRATEGY.md](./PRODUCT_STRATEGY.md) — Open Core, product boundaries, Studio audience, customer-led evolution
+- [PLATFORM_VALIDATION.md](./PLATFORM_VALIDATION.md) — Prove Aurii through a diverse real-product portfolio (discovery loop, maturity model, 6–12 month gates)
 - [ARCHITECTURE_FITNESS.md](./ARCHITECTURE_FITNESS.md) — Kampbart, playgrounds, Gaselle, Geo as architecture tests
 - [PROJECTS.md](./PROJECTS.md) — Project as top-level Core boundary (API, migration, seed)
 - [Phase4.md](../Phase4.md) — Phase 4 report: Data Products and Delivery (**complete**)
@@ -57,6 +58,7 @@ The specification is the **source of truth**. Code implements the specification.
 - [Vision.md](./Vision.md) — Product vision
 - [Constitution.md](./Constitution.md) — Architectural principles (including customer-led evolution)
 - [PRODUCT_STRATEGY.md](./PRODUCT_STRATEGY.md) — Open Core, product boundaries, Studio audience
+- [PLATFORM_VALIDATION.md](./PLATFORM_VALIDATION.md) — Real-project validation portfolio and v1 decision criteria
 - [Toc.md](./Toc.md) — Table of contents for the full specification
 
 ### Development

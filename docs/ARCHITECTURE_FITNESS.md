@@ -33,7 +33,7 @@ without each project inventing its own backend architecture.
 
 These cases are **architecture tests and possible products**, not a closed catalog of what Aurii is allowed to become. Customer needs may evolve the platform beyond them. **Products discover requirements. Core absorbs durable generalizations.** See [`PRODUCT_STRATEGY.md`](PRODUCT_STRATEGY.md).
 
-They are design pressure, not automatic validation proof. Whether Aurii should remain a platform is judged by real projects in [`PLATFORM_VALIDATION.md`](PLATFORM_VALIDATION.md).
+They are design pressure, not automatic validation proof. Whether Aurii should remain a platform is judged by real products, convergence evidence, and decision gates in [`PLATFORM_VALIDATION.md`](PLATFORM_VALIDATION.md).
 
 Norwegian Geo remains the **implemented** canonical vertical for import, schema, query, storage, SDK, and delivery. Editorial + Context remains the **planned** vertical for authoring, revision, publishing, preview, workflow, and media ([`Phase5.md`](../Phase5.md)).
 
@@ -253,7 +253,7 @@ When changing Core, Schema Language, Query Language, Studio, or the roadmap:
 
 - [`PRODUCT_MODEL.md`](PRODUCT_MODEL.md) — product composition and modes
 - [`PRODUCT_STRATEGY.md`](PRODUCT_STRATEGY.md) — open Core, product boundaries, Studio audience
-- [`PLATFORM_VALIDATION.md`](PLATFORM_VALIDATION.md) — real-project portfolio and MVP criteria
+- [`PLATFORM_VALIDATION.md`](PLATFORM_VALIDATION.md) — real-product portfolio, maturity model, and decision gates
 - [`Architecture.md`](Architecture.md) — engines, sources, provenance
 - [`Studio.md`](Studio.md) — generated UI and extension surface
 - [`Phase4.md`](../Phase4.md) — data products and delivery

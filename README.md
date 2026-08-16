@@ -14,7 +14,7 @@ Aurii is **not** a traditional CMS, database, or API framework.
 
 Canonical product vocabulary: [`docs/PRODUCT_MODEL.md`](docs/PRODUCT_MODEL.md).  
 Product strategy (open Core, product boundaries, Studio audience): [`docs/PRODUCT_STRATEGY.md`](docs/PRODUCT_STRATEGY.md).  
-Platform validation (real-project portfolio, success/failure): [`docs/PLATFORM_VALIDATION.md`](docs/PLATFORM_VALIDATION.md).  
+Platform validation (real-product portfolio, discovery, decision gates): [`docs/PLATFORM_VALIDATION.md`](docs/PLATFORM_VALIDATION.md).  
 Architecture fitness tests: [`docs/ARCHITECTURE_FITNESS.md`](docs/ARCHITECTURE_FITNESS.md).  
 Optional authoring decision: [`adr/ADR-0010 — Optional Authoring Layer.md`](adr/ADR-0010%20—%20Optional%20Authoring%20Layer.md).  
 Project packages: [`adr/ADR-0014 — Project Configuration Package.md`](adr/ADR-0014%20—%20Project%20Configuration%20Package.md).  

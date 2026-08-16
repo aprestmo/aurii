@@ -436,7 +436,7 @@ Phase 4 adds `registerProjectPackage` / `loadProjectPackage` helpers in `@aurii/
 | **Norwegian Geo** | Canonical import, schema, query, storage, SDK, Studio project package, and delivery testbed | Implemented core path; project Studio / routes / sources **beta**; Phase 4 strengthens delivery |
 | **Editorial** (planned) | Canonical authoring, revision, publishing, preview, workflow, media, **Context** | Not built; post–Phase 4 roadmap in [`Phase5.md`](../Phase5.md) |
 | **Architecture fitness tests** | Kampbart, playgrounds, Gaselle, Geo as design tests for the unified platform | Documentation — [`ARCHITECTURE_FITNESS.md`](ARCHITECTURE_FITNESS.md). Do not implement those products unless assigned. |
-| **Platform validation portfolio** | Prove a shared Core across diverse real projects; reuse test; v1 keep-or-narrow decision | Process + register — [`PLATFORM_VALIDATION.md`](PLATFORM_VALIDATION.md). Phase 4 data-product slice alone is not full validation. |
+| **Platform validation portfolio** | Prove a shared Core across diverse real products; discovery loop; maturity model; 6–12 month evidence/decision gates | Process + register — [`PLATFORM_VALIDATION.md`](PLATFORM_VALIDATION.md). Phase 4 data-product slice alone is not full validation. Convergence over early stability. |
 
 Use the vertical that matches the capability under change. Cross-cutting Runtime changes must eventually be validated against both implemented/planned verticals **and** must still answer the four fitness questions. See `AGENTS.md`.
 

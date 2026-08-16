@@ -16,7 +16,7 @@ Phase 5 should validate Aurii on two dimensions.
 
 Prove that a sophisticated authored/hybrid product can be built entirely on the generic Aurii Runtime **without turning Core into a newsroom CMS**.
 
-This is one entry in the broader real-project portfolio — [`docs/PLATFORM_VALIDATION.md`](docs/PLATFORM_VALIDATION.md). It does not replace the need for other diverse projects.
+This is one entry in the broader real-product validation portfolio — [`docs/PLATFORM_VALIDATION.md`](docs/PLATFORM_VALIDATION.md). It does not replace the need for other diverse projects, and editorial capabilities introduced for it should start as Experimental / product-local until reuse is proven.
 
 ### Market validation
 

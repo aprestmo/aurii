@@ -396,7 +396,7 @@ The measure of progress is not the quality of documentation.
 
 The measure of progress is what the system can do.
 
-Platform-level validation — whether a shared Core justifies Aurii as a platform across a diverse project portfolio — is recorded in [`PLATFORM_VALIDATION.md`](PLATFORM_VALIDATION.md). Success and failure criteria there are binding decision aids for approaching v1.
+Platform-level validation — whether a shared Core justifies Aurii as a platform across a diverse product portfolio — is recorded in [`PLATFORM_VALIDATION.md`](PLATFORM_VALIDATION.md). Success and failure criteria, the Experimental → Candidate → Core maturity model, and the approximate 6–12 month evidence and decision gates there are binding decision aids. During discovery, breaking changes and removing Core abstractions that fail reuse are expected learning, not constitutional violations.
 
 ---
 

@@ -59,7 +59,8 @@ Before implementing anything, ask yourself:
 7. Does this make Aurii more generic?
 8. Has a real product proven this need, or is it hypothetical?
 9. Would this turn Studio into a domain CMS, or Core into a media backend?
-10. Does the reuse test in `docs/PLATFORM_VALIDATION.md` say this belongs in Core yet?
+10. Does the reuse / platform boundary test in `docs/PLATFORM_VALIDATION.md` say this belongs in Core yet?
+11. If it enters Core now, is it Experimental, Candidate, or Core — and which projects will challenge it?
 
 If you cannot answer these questions, stop and think before writing code.
 
@@ -444,7 +445,7 @@ Aurii uses **two** planned reference verticals, plus **architecture fitness test
 
 **Fitness tests** (design, not in-repo demos unless assigned): Kampbart, playground directory, DN Gaselle, Geo — [`docs/ARCHITECTURE_FITNESS.md`](docs/ARCHITECTURE_FITNESS.md).
 
-**Platform validation** (hypothesis, portfolio, success/failure, v1 decision): [`docs/PLATFORM_VALIDATION.md`](docs/PLATFORM_VALIDATION.md). Norwegian Geo alone does not complete platform validation.
+**Platform validation** (hypothesis, discovery loop, maturity model, 6–12 month gates, success/failure): [`docs/PLATFORM_VALIDATION.md`](docs/PLATFORM_VALIDATION.md). Norwegian Geo alone does not complete platform validation. Prefer convergence evidence over early API stability; removing Core abstractions that fail reuse is learning.
 
 If a change would require Core to know football, playgrounds, Gaselle rankings, or Norwegian geography, stop. Express the domain in schemas, sources, pipelines, and Studio extensions.
 

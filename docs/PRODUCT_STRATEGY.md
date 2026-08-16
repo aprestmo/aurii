@@ -14,6 +14,8 @@
 
 Aurii is deliberately broader than a CMS. Current examples — Norwegian Geo, Gaselle, Kampbart, a future Editorial/Context product, magazines, newsrooms, reports, and other structured-data products — are **architecture tests and possible products**. They are not a fixed list of what Aurii is allowed to become.
 
+How Aurii **earns** the right to be a platform — hypothesis, portfolio, success/failure criteria, and the v1 decision — is recorded in [`PLATFORM_VALIDATION.md`](PLATFORM_VALIDATION.md). This file assumes that process; it does not replace it.
+
 The risk this document protects against is accidental narrowing:
 
 - turning **Studio** into the CMS / product layer
@@ -238,6 +240,7 @@ The intended outcome is clearer boundaries that preserve future optionality — 
 ## Related documents
 
 - [PRODUCT_MODEL.md](PRODUCT_MODEL.md) — canonical terms, modes, and boundaries
+- [PLATFORM_VALIDATION.md](PLATFORM_VALIDATION.md) — real-project portfolio, reuse test, MVP success/failure criteria
 - [Studio.md](Studio.md) — Studio contract and audience
 - [Constitution.md](Constitution.md) — durable principles, including customer-led evolution
 - [ARCHITECTURE_FITNESS.md](ARCHITECTURE_FITNESS.md) — representative product tests

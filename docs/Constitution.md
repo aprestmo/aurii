@@ -396,6 +396,8 @@ The measure of progress is not the quality of documentation.
 
 The measure of progress is what the system can do.
 
+Platform-level validation — whether a shared Core justifies Aurii as a platform across a diverse project portfolio — is recorded in [`PLATFORM_VALIDATION.md`](PLATFORM_VALIDATION.md). Success and failure criteria there are binding decision aids for approaching v1.
+
 ---
 
 # Article 22 — Vertical Before Horizontal
@@ -463,7 +465,8 @@ Opinionated products may be separate applications. They need not share one unive
 
 Studio shall remain a developer- and operator-oriented workspace for working with Aurii. It shall not become the default CMS or product shell for journalists, editors, authors, or other domain users.
 
-Direction and optionality: [`PRODUCT_STRATEGY.md`](PRODUCT_STRATEGY.md).
+Direction and optionality: [`PRODUCT_STRATEGY.md`](PRODUCT_STRATEGY.md).  
+Portfolio validation and v1 decision criteria: [`PLATFORM_VALIDATION.md`](PLATFORM_VALIDATION.md).
 
 ---
 

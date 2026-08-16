@@ -73,6 +73,8 @@ without each product requiring its own backend architecture.
 
 These are architecture tests and possible products, not a boundary on what Aurii may become. **Products discover requirements. Core absorbs durable generalizations.**
 
+Whether Aurii should remain a platform is decided by a diverse real-project portfolio — [`docs/PLATFORM_VALIDATION.md`](docs/PLATFORM_VALIDATION.md) — not by specifications alone.
+
 A platform where organizations can model their knowledge, data and workflows without being constrained by predefined content types or publishing assumptions.
 
 ---

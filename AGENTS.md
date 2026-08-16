@@ -40,7 +40,7 @@ Aurii is a **Declarative Runtime for Structured Knowledge** — a schema-driven 
 - **Products discover requirements. Core absorbs durable generalizations.** Do not move a need into Core merely because it could theoretically be useful elsewhere. Do not make Core media-specific because publishing is an early vertical.
 - Relations, sources, provenance/overrides, and Studio extensibility are **foundations**. Do not treat them as late optional integrations. Do not implement them as large features unless that is the assigned task.
 
-See `docs/PRODUCT_MODEL.md`, `docs/PRODUCT_STRATEGY.md`, `docs/Studio.md`, `docs/PROJECT_PACKAGES.md`, `docs/ARCHITECTURE_FITNESS.md`, [ADR-0010](adr/ADR-0010%20—%20Optional%20Authoring%20Layer.md), [ADR-0019](adr/ADR-0019%20—%20Provenance%20and%20Editorial%20Overrides.md), [ADR-0020](adr/ADR-0020%20—%20Extensible%20Studio.md), and ADRs 0014–0018.
+See `docs/PRODUCT_MODEL.md`, `docs/PRODUCT_STRATEGY.md`, `docs/PLATFORM_VALIDATION.md`, `docs/Studio.md`, `docs/PROJECT_PACKAGES.md`, `docs/ARCHITECTURE_FITNESS.md`, [ADR-0010](adr/ADR-0010%20—%20Optional%20Authoring%20Layer.md), [ADR-0019](adr/ADR-0019%20—%20Provenance%20and%20Editorial%20Overrides.md), [ADR-0020](adr/ADR-0020%20—%20Extensible%20Studio.md), and ADRs 0014–0018.
 
 Everything you build should reinforce that vision.
 
@@ -59,6 +59,7 @@ Before implementing anything, ask yourself:
 7. Does this make Aurii more generic?
 8. Has a real product proven this need, or is it hypothetical?
 9. Would this turn Studio into a domain CMS, or Core into a media backend?
+10. Does the reuse test in `docs/PLATFORM_VALIDATION.md` say this belongs in Core yet?
 
 If you cannot answer these questions, stop and think before writing code.
 
@@ -443,11 +444,13 @@ Aurii uses **two** planned reference verticals, plus **architecture fitness test
 
 **Fitness tests** (design, not in-repo demos unless assigned): Kampbart, playground directory, DN Gaselle, Geo — [`docs/ARCHITECTURE_FITNESS.md`](docs/ARCHITECTURE_FITNESS.md).
 
+**Platform validation** (hypothesis, portfolio, success/failure, v1 decision): [`docs/PLATFORM_VALIDATION.md`](docs/PLATFORM_VALIDATION.md). Norwegian Geo alone does not complete platform validation.
+
 If a change would require Core to know football, playgrounds, Gaselle rankings, or Norwegian geography, stop. Express the domain in schemas, sources, pipelines, and Studio extensions.
 
 Cross-cutting Runtime changes must eventually be validated against both verticals. Until Editorial exists, do **not** add editorial concepts to Core merely because Norwegian Geo cannot exercise them. Express draft/publish/revision as generic schemas and capabilities when that phase begins—not as hardcoded news CMS behavior. Structured + rich fields on the same record is already in the unified model—do not wait for Editorial to allow hybrid records in schemas.
 
-Product model: `docs/PRODUCT_MODEL.md`. Product strategy: `docs/PRODUCT_STRATEGY.md`. Project packages: `docs/PROJECT_PACKAGES.md`. Studio: `docs/Studio.md`. Delivery: `docs/DELIVERY.md`. Phase plan: `Phase4.md`. Editorial roadmap (planned): `Phase5.md`. ADRs: `0010`, `0014`–`0020`.
+Product model: `docs/PRODUCT_MODEL.md`. Product strategy: `docs/PRODUCT_STRATEGY.md`. Platform validation: `docs/PLATFORM_VALIDATION.md`. Project packages: `docs/PROJECT_PACKAGES.md`. Studio: `docs/Studio.md`. Delivery: `docs/DELIVERY.md`. Phase plan: `Phase4.md`. Editorial roadmap (planned): `Phase5.md`. ADRs: `0010`, `0014`–`0020`.
 
 ---
 

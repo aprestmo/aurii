@@ -7,6 +7,7 @@
 > Implementation status: Phase 4 is **complete** (`Phase4.md`). Editorial + Context is **planned / post–Phase 4** — see [`Phase5.md`](../Phase5.md) (roadmap only; not implemented).
 > Architecture fitness tests: [`ARCHITECTURE_FITNESS.md`](ARCHITECTURE_FITNESS.md).
 > Product strategy (open Core, Studio audience, customer-led evolution): [`PRODUCT_STRATEGY.md`](PRODUCT_STRATEGY.md).
+> Platform validation (portfolio, reuse test, MVP criteria): [`PLATFORM_VALIDATION.md`](PLATFORM_VALIDATION.md).
 
 ---
 
@@ -34,7 +35,7 @@ These refine existing ADRs; they do not replace them.
 8. **Generated Studio is the default, not the limitation.** ([ADR-0020](../adr/ADR-0020%20—%20Extensible%20Studio.md))
 9. **Domain-specific interfaces must be buildable without domain-special logic in Core.** Kampbart’s match desk is a Studio extension, not a Match engine.
 10. **Core must be usable without Studio.** Imports, query, and delivery never require a UI.
-11. **Products discover requirements. Core absorbs durable generalizations.** A need should not enter Core merely because it could theoretically be useful elsewhere. See [`PRODUCT_STRATEGY.md`](PRODUCT_STRATEGY.md).
+11. **Products discover requirements. Core absorbs durable generalizations.** A need should not enter Core merely because it could theoretically be useful elsewhere. See [`PRODUCT_STRATEGY.md`](PRODUCT_STRATEGY.md) and the reuse test in [`PLATFORM_VALIDATION.md`](PLATFORM_VALIDATION.md).
 12. **Studio is an Aurii workspace, not the default domain product.** Journalists, magazine editors, and report authors should normally work in products built for those jobs.
 
 ---
@@ -435,6 +436,7 @@ Phase 4 adds `registerProjectPackage` / `loadProjectPackage` helpers in `@aurii/
 | **Norwegian Geo** | Canonical import, schema, query, storage, SDK, Studio project package, and delivery testbed | Implemented core path; project Studio / routes / sources **beta**; Phase 4 strengthens delivery |
 | **Editorial** (planned) | Canonical authoring, revision, publishing, preview, workflow, media, **Context** | Not built; post–Phase 4 roadmap in [`Phase5.md`](../Phase5.md) |
 | **Architecture fitness tests** | Kampbart, playgrounds, Gaselle, Geo as design tests for the unified platform | Documentation — [`ARCHITECTURE_FITNESS.md`](ARCHITECTURE_FITNESS.md). Do not implement those products unless assigned. |
+| **Platform validation portfolio** | Prove a shared Core across diverse real projects; reuse test; v1 keep-or-narrow decision | Process + register — [`PLATFORM_VALIDATION.md`](PLATFORM_VALIDATION.md). Phase 4 data-product slice alone is not full validation. |
 
 Use the vertical that matches the capability under change. Cross-cutting Runtime changes must eventually be validated against both implemented/planned verticals **and** must still answer the four fitness questions. See `AGENTS.md`.
 
@@ -459,6 +461,7 @@ Use the vertical that matches the capability under change. Cross-cutting Runtime
 ## Related documents
 
 - [PRODUCT_STRATEGY.md](./PRODUCT_STRATEGY.md) — open Core, product boundaries, Studio audience, customer-led evolution
+- [PLATFORM_VALIDATION.md](./PLATFORM_VALIDATION.md) — real-project portfolio and whether Aurii should remain a platform
 - [ARCHITECTURE_FITNESS.md](./ARCHITECTURE_FITNESS.md) — Kampbart, playgrounds, Gaselle, Geo as architecture tests
 - [PROJECT_PACKAGES.md](./PROJECT_PACKAGES.md) — `aurii.config.ts`, `defineProject` / `defineStudio` / `defineRoute`
 - [PROJECTS.md](./PROJECTS.md) — Core Project boundary

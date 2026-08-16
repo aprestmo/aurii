@@ -4,7 +4,7 @@
 >
 > Phase 4 exit criteria are **met** ([`Phase4.md`](Phase4.md)). Do **not** implement Phase 5 capabilities unless that is the assigned task.
 >
-> Parent: [`Phase4.md`](Phase4.md). Product vocabulary: [`docs/PRODUCT_MODEL.md`](docs/PRODUCT_MODEL.md). Strategy: [`docs/PRODUCT_STRATEGY.md`](docs/PRODUCT_STRATEGY.md). Authoring boundary: [`adr/ADR-0010 — Optional Authoring Layer.md`](adr/ADR-0010%20—%20Optional%20Authoring%20Layer.md). Delivery contract: [`docs/DELIVERY.md`](docs/DELIVERY.md).
+> Parent: [`Phase4.md`](Phase4.md). Product vocabulary: [`docs/PRODUCT_MODEL.md`](docs/PRODUCT_MODEL.md). Strategy: [`docs/PRODUCT_STRATEGY.md`](docs/PRODUCT_STRATEGY.md). Platform validation: [`docs/PLATFORM_VALIDATION.md`](docs/PLATFORM_VALIDATION.md). Authoring boundary: [`adr/ADR-0010 — Optional Authoring Layer.md`](adr/ADR-0010%20—%20Optional%20Authoring%20Layer.md). Delivery contract: [`docs/DELIVERY.md`](docs/DELIVERY.md).
 
 ---
 
@@ -15,6 +15,8 @@ Phase 5 should validate Aurii on two dimensions.
 ### Platform validation
 
 Prove that a sophisticated authored/hybrid product can be built entirely on the generic Aurii Runtime **without turning Core into a newsroom CMS**.
+
+This is one entry in the broader real-project portfolio — [`docs/PLATFORM_VALIDATION.md`](docs/PLATFORM_VALIDATION.md). It does not replace the need for other diverse projects.
 
 ### Market validation
 

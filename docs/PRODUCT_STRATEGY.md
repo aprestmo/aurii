@@ -12,7 +12,7 @@
 
 ## Why this document exists
 
-Aurii is deliberately broader than a CMS. Current examples — Norwegian Geo, Gaselle, Kampbart, a future Editorial/Context product, magazines, newsrooms, reports, and other structured-data products — are **architecture tests and possible products**. They are not a fixed list of what Aurii is allowed to become.
+Aurii is deliberately broader than a CMS. Current examples — Norwegian Geo, Gaselle, Kampbart, a future Editorial/Context product, a planned Research product hypothesis, magazines, newsrooms, reports, and other structured-data products — are **architecture tests and possible products**. They are not a fixed list of what Aurii is allowed to become.
 
 How Aurii **earns** the right to be a platform — discovery loop, maturity model, portfolio, 6–12 month evidence/decision gates, and success/failure criteria — is recorded in [`PLATFORM_VALIDATION.md`](PLATFORM_VALIDATION.md). This file assumes that process; it does not replace it. During validation, prefer discovering the smallest useful Core over freezing APIs early.
 
@@ -97,7 +97,7 @@ See [`Core.md`](Core.md), [ADR-0002](../adr/ADR-0002%20—%20Core%20as%20the%20C
 
 A **Product** is a coherent solution composed from datasets, schemas, imports, capabilities, modules, and consumers. It is not another name for a dataset, Core Project, project package, or Studio.
 
-Products built on Core may be **separate, opinionated applications** — for example publishing, magazine, newsroom, reports, or future products that have not been identified yet.
+Products built on Core may be **separate, opinionated applications** — for example publishing, magazine, newsroom, research/knowledge-work, reports, or future products that have not been identified yet.
 
 Different products may share underlying packages and capabilities while having completely different:
 
@@ -120,6 +120,8 @@ Products are tools for doing a job.
 ```
 
 Those products may use exactly the same Core entities and APIs without exposing Studio’s operational model.
+
+Separate products may optionally interoperate through Core data, references, and public APIs while still remaining independently usable.
 
 We do not know what future customers will need. Customer needs are explicitly allowed to evolve the platform beyond the currently imagined products.
 
@@ -222,6 +224,20 @@ This document does **not** assign specific capabilities to an open or commercial
 
 ---
 
+## Product delivery boundary vs data-custody boundary
+
+Some product domains (including planned Research use cases) require strong customer control over sensitive data.
+
+Aurii should remain cloud-native but not cloud-dependent:
+
+- Core should be deployable where data must live (self-hosted, partner-managed, dedicated managed, or hybrid).
+- Product UX delivery and Core data custody do not have to share the same deployment boundary.
+- A SaaS-delivered product UX over customer-controlled Core is a valid future pattern.
+
+This is an architectural principle, not a commitment to a specific SaaS packaging or licensing model.
+
+---
+
 ## What this document does not decide
 
 Do not read this file as locking:
@@ -241,6 +257,7 @@ The intended outcome is clearer boundaries that preserve future optionality — 
 
 - [PRODUCT_MODEL.md](PRODUCT_MODEL.md) — canonical terms, modes, and boundaries
 - [PLATFORM_VALIDATION.md](PLATFORM_VALIDATION.md) — real-product portfolio, discovery loop, maturity model, 6–12 month gates
+- [RESEARCH.md](RESEARCH.md) — planned Research sibling-product hypothesis and data-custody pressures
 - [Studio.md](Studio.md) — Studio contract and audience
 - [Constitution.md](Constitution.md) — durable principles, including customer-led evolution
 - [ARCHITECTURE_FITNESS.md](ARCHITECTURE_FITNESS.md) — representative product tests

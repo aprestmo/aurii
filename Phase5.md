@@ -55,6 +55,7 @@ Consumers
 
 - **Core** remains the system of record. It is not a media backend. Publishing/news/magazine is an important validation domain, not a limit on what Core can support.
 - **Editorial** is a **client** / separate product — not Studio renamed, and not a required layer between Core and frontends. Other publishing cases (magazine, newsroom, small publisher) may justify separate products that share capabilities rather than one universal CMS.
+- **Aurii Research** is a separate planned sibling product hypothesis ([`docs/RESEARCH.md`](docs/RESEARCH.md)). It is not part of Phase 5 implementation scope, but it may later consume Context/Core capabilities independently of Editorial.
 - **Frontends consume Core/delivery APIs directly** and must never depend on Editorial as a read proxy.
 - **Studio** remains the **extensible developer/operator project workspace** (sources, imports, schedules, entities, query, published routes, generated default UI, custom editors/views via extensions). It must not evolve into the publication CMS or the journalist’s default tool. Domain-specific Studio experiences (match desk, map) are operator-facing extensions and may be designed before Phase 5; they are not Editorial.
 
@@ -153,14 +154,14 @@ Design Context so it could eventually be exposed independently of Aurii Editoria
                          │
           ┌──────────────┼──────────────┐
           ▼              ▼              ▼
- Aurii Editorial    external CMS    research tool
+ Aurii Editorial    external CMS   Aurii Research
           │              │              │
           └──────────────┼──────────────┘
                          ▼
                      Aurii Core
 ```
 
-This matters for later market validation: Context may be valuable even when the customer does not use our editor.
+This matters for later market validation: Context may be valuable even when the customer does not use our editor. Aurii Research is one possible sibling consumer, but it is documented separately and is not implemented by this phase roadmap.
 
 ### D. Realtime collaboration
 
@@ -281,6 +282,7 @@ At minimum:
 Initially reject:
 
 - turning Studio into the publication CMS (custom Studio editors for matches/maps are ADR-0020 extensions, not this product)
+- turning Phase 5 into implementation of Aurii Research
 - hardcoded `Article`, `Desk`, `PrintReady` or similar newsroom concepts in generic Core
 - making Editorial a required proxy between Core and frontends
 - representing all realtime collaboration state as ordinary durable Core entities

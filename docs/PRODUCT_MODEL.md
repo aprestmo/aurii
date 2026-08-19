@@ -13,7 +13,7 @@
 
 ## One-sentence definition
 
-Aurii is a platform for **modeling, ingesting, editing, enriching, relating, and publishing structured data and editorial content**. Aurii Core is the system of record. Studio is a **customizable project workspace** for developers and operators on the same Core model (generated UI by default; replaceable by extensions). Opinionated products — including a future publication CMS — are **separate clients** that may consume Core. None of them is a synonym for Studio, and none is a required layer between Core and a frontend.
+Aurii is a platform for **modeling, ingesting, editing, enriching, relating, and publishing structured data and editorial content**. Aurii Core is the system of record. Studio is a **customizable project workspace** for developers and operators on the same Core model (generated UI by default; replaceable by extensions). Opinionated products — including a future publication CMS and a planned Research product — are **separate clients** that may consume Core. None of them is a synonym for Studio, and none is a required layer between Core and a frontend.
 
 Aurii is not only an alternative to a traditional headless CMS. The same Core must be able to support publication CMS, Kampbart, playground directories, DN Gaselle, Geo datasets, LiveCenter, documentation, and other structured-data applications without each project inventing its own backend. Those examples are architecture tests and possible products — not a closed list of what Aurii may become.
 
@@ -194,7 +194,7 @@ Declared transforms, validation, enrichment, and persistence steps. Imports use 
 
 A coherent solution composed from datasets, schemas, imports, capabilities, modules, and consumers. A product is **not** merely another name for a dataset, Core Project, or project package.
 
-Products may be **separate, opinionated clients** over Core. They may share capabilities, packages, and APIs while differing in navigation, workflows, mental models, defaults, terminology, and interaction patterns. Aurii should not assume one modular CMS UI can cover every product by toggling features. See [`PRODUCT_STRATEGY.md`](PRODUCT_STRATEGY.md).
+Products may be **separate, opinionated clients** over Core. They may share capabilities, packages, and APIs while differing in navigation, workflows, mental models, defaults, terminology, and interaction patterns. Separate products may also optionally interoperate through Core data/references/public APIs without becoming runtime dependencies of each other. Aurii should not assume one modular CMS UI can cover every product by toggling features. See [`PRODUCT_STRATEGY.md`](PRODUCT_STRATEGY.md).
 
 Examples (architecture tests and possible products — not a closed catalog):
 
@@ -207,6 +207,7 @@ Examples (architecture tests and possible products — not a closed catalog):
 | Tax-list explorer | Data product + visualization consumer |
 | Classic blog / publication CMS | Authored product (future CMS client) |
 | News CMS | Authored / hybrid product (future) |
+| Aurii Research | Research/knowledge-work product (planned hypothesis; see `RESEARCH.md`) |
 | LiveCenter | Hybrid realtime product (later phase) |
 | Documentation | Authored product on the same entity model |
 
@@ -435,6 +436,7 @@ Phase 4 adds `registerProjectPackage` / `loadProjectPackage` helpers in `@aurii/
 |-----------------|---------|--------|
 | **Norwegian Geo** | Canonical import, schema, query, storage, SDK, Studio project package, and delivery testbed | Implemented core path; project Studio / routes / sources **beta**; Phase 4 strengthens delivery |
 | **Editorial** (planned) | Canonical authoring, revision, publishing, preview, workflow, media, **Context** | Not built; post–Phase 4 roadmap in [`Phase5.md`](../Phase5.md) |
+| **Research** (planned) | Canonical research/knowledge-work pressure: heterogeneous sources + evidence/provenance + sensitive data custody | Planned hypothesis — [`RESEARCH.md`](RESEARCH.md); not implemented |
 | **Architecture fitness tests** | Kampbart, playgrounds, Gaselle, Geo as design tests for the unified platform | Documentation — [`ARCHITECTURE_FITNESS.md`](ARCHITECTURE_FITNESS.md). Do not implement those products unless assigned. |
 | **Platform validation portfolio** | Prove a shared Core across diverse real products; discovery loop; maturity model; 6–12 month evidence/decision gates | Process + register — [`PLATFORM_VALIDATION.md`](PLATFORM_VALIDATION.md). Phase 4 data-product slice alone is not full validation. Convergence over early stability. |
 
@@ -462,6 +464,7 @@ Use the vertical that matches the capability under change. Cross-cutting Runtime
 
 - [PRODUCT_STRATEGY.md](./PRODUCT_STRATEGY.md) — open Core, product boundaries, Studio audience, customer-led evolution
 - [PLATFORM_VALIDATION.md](./PLATFORM_VALIDATION.md) — real-project portfolio and whether Aurii should remain a platform
+- [RESEARCH.md](./RESEARCH.md) — planned Research sibling-product hypothesis (not implemented)
 - [ARCHITECTURE_FITNESS.md](./ARCHITECTURE_FITNESS.md) — Kampbart, playgrounds, Gaselle, Geo as architecture tests
 - [PROJECT_PACKAGES.md](./PROJECT_PACKAGES.md) — `aurii.config.ts`, `defineProject` / `defineStudio` / `defineRoute`
 - [PROJECTS.md](./PROJECTS.md) — Core Project boundary

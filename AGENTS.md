@@ -37,8 +37,10 @@ Aurii is a **Declarative Runtime for Structured Knowledge** — a schema-driven 
 - Data enters Core from **many sources** (file, HTTP, database, manual, automation, AI, future product clients)—not only from an authoring UI.
 - Developers describe installable projects with a **project package** (`aurii.config.ts` / `defineProject`), complementary to product composition (`product.yaml`).
 - **Products** may be separate, opinionated clients over Core. They do not need to share one universal UI. A publication CMS is a future separate product that may consume Core. It is never required between Core and a frontend, and it is not Studio renamed. Domain-specific Studio tools (match desk, map) are operator-facing extensions, not that CMS.
+- Separate products may optionally integrate through Core data/references/public APIs, but they should remain independently usable. Do not introduce Core coupling solely to connect two products.
 - **Products discover requirements. Core absorbs durable generalizations.** Do not move a need into Core merely because it could theoretically be useful elsewhere. Do not make Core media-specific because publishing is an early vertical.
 - Relations, sources, provenance/overrides, and Studio extensibility are **foundations**. Do not treat them as late optional integrations. Do not implement them as large features unless that is the assigned task.
+- Products with sensitive-data requirements may need customer-controlled/self-hosted Core. Product delivery and data-custody boundaries do not have to be the same.
 
 See `docs/PRODUCT_MODEL.md`, `docs/PRODUCT_STRATEGY.md`, `docs/PLATFORM_VALIDATION.md`, `docs/Studio.md`, `docs/PROJECT_PACKAGES.md`, `docs/ARCHITECTURE_FITNESS.md`, [ADR-0010](adr/ADR-0010%20—%20Optional%20Authoring%20Layer.md), [ADR-0019](adr/ADR-0019%20—%20Provenance%20and%20Editorial%20Overrides.md), [ADR-0020](adr/ADR-0020%20—%20Extensible%20Studio.md), and ADRs 0014–0018.
 

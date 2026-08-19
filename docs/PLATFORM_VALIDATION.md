@@ -118,6 +118,7 @@ Potential categories:
 - applications requiring custom user interfaces
 - products delivering the same data through multiple formats
 - API-only systems with no traditional CMS interface
+- research/knowledge-work products combining structured + unstructured evidence
 
 Not every project needs to validate every part of Aurii.
 
@@ -189,6 +190,7 @@ Challenge the other end of the spectrum with:
 **Question:** Which editorial capabilities belong in Core, plugins, or the product itself?
 
 Editorial + Context ([`Phase5.md`](../Phase5.md)) is a planned portfolio entry — do not implement unless assigned.
+Research/knowledge-work ([`RESEARCH.md`](RESEARCH.md)) is another planned portfolio entry and should remain a separate sibling-product hypothesis.
 
 ### Production-oriented projects
 
@@ -623,7 +625,7 @@ Commercial validation is separate, but ideally we have also identified one or mo
 | Clear “when not to use Aurii” | **Emerging** — conventional CMS-only needs are a candidate |
 | Clearer cost without Aurii | **Unproven** across a portfolio |
 
-Phase 4 proved a **data-product delivery slice**. It did **not** complete platform validation. Phase 5 (Editorial & Context) is one planned portfolio entry for authoring — [`Phase5.md`](../Phase5.md) — and must not be treated as the only remaining proof.
+Phase 4 proved a **data-product delivery slice**. It did **not** complete platform validation. Phase 5 (Editorial & Context) is one planned portfolio entry for authoring — [`Phase5.md`](../Phase5.md) — and must not be treated as the only remaining proof. Planned Research ([`RESEARCH.md`](RESEARCH.md)) is a second distinct pressure profile for validating provenance-heavy, sensitive, mixed-structure knowledge work.
 
 ---
 
@@ -748,6 +750,19 @@ Record one entry per real project. Design-only fitness cases may be listed as **
 | Did Aurii help? | TBD when built |
 | Product opportunity signal | Primary Phase 5 commercial hypothesis if Context proves valuable |
 
+### Research (planned)
+
+| Field | Value |
+|-------|-------|
+| Status | **candidate** (planned hypothesis — [`RESEARCH.md`](RESEARCH.md); do not implement unless assigned) |
+| Domain shape | Research / knowledge-work with mixed structured data, notes/documents, evidence graphs, and sensitive/private inputs |
+| Sequence role | cross-domain + non-CMS + editorial-adjacent + production-oriented data custody |
+| What this project should test | Heterogeneous sources, provenance from claim to source, files/media references, permissions/privacy pressure, customer-controlled data custody, optional interoperability with Editorial |
+| Clients (intended) | Separate Research product; optional downstream Editorial references; AI assistant as ordinary Core client |
+| Alternatives considered | Internal tools, spreadsheets + scripts, generic CMS + plugins, bespoke graph/doc systems |
+| Did Aurii help? | TBD when built |
+| Product opportunity signal | Tests a non-journalism-specific knowledge-work product hypothesis while pressure-testing deployability and custody boundaries |
+
 ### Architecture fitness cases (design)
 
 Kampbart, playground directory, DN Gaselle, and Geo-as-design-case: see [`ARCHITECTURE_FITNESS.md`](ARCHITECTURE_FITNESS.md). Promote to register entries above when they become real projects. Prefer them as cross-domain / specialized-UI pressure when adopted.
@@ -757,6 +772,7 @@ Kampbart, playground directory, DN Gaselle, and Geo-as-design-case: see [`ARCHIT
 ## Related documents
 
 - [PRODUCT_STRATEGY.md](./PRODUCT_STRATEGY.md) — open Core, product boundaries, Studio audience, customer-led evolution
+- [RESEARCH.md](./RESEARCH.md) — planned Research vertical and custody/provenance pressure profile
 - [ARCHITECTURE_FITNESS.md](./ARCHITECTURE_FITNESS.md) — Kampbart, playgrounds, Gaselle, Geo as design tests
 - [PRODUCT_MODEL.md](./PRODUCT_MODEL.md) — canonical vocabulary
 - [Constitution.md](./Constitution.md) — Articles 21, 22, 24

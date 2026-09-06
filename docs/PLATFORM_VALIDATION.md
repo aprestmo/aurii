@@ -7,6 +7,7 @@
 > Canonical vocabulary: [`PRODUCT_MODEL.md`](PRODUCT_MODEL.md).  
 > Product direction: [`PRODUCT_STRATEGY.md`](PRODUCT_STRATEGY.md).  
 > Design stress tests: [`ARCHITECTURE_FITNESS.md`](ARCHITECTURE_FITNESS.md).  
+> Competitive guardrails (Kyro test, commodity vs Core): [`COMPETITIVE_GUARDRAILS.md`](COMPETITIVE_GUARDRAILS.md).  
 > Runnable proof today: Norwegian Geo — [`NORWEGIAN_GEO.md`](NORWEGIAN_GEO.md), [`REFERENCE_DEMO.md`](REFERENCE_DEMO.md).
 
 ---
@@ -37,6 +38,7 @@ This complements:
 |----------|------|
 | [`PRODUCT_STRATEGY.md`](PRODUCT_STRATEGY.md) | How products and Core should relate once we build |
 | [`ARCHITECTURE_FITNESS.md`](ARCHITECTURE_FITNESS.md) | Design tests that Core must not special-case |
+| [`COMPETITIVE_GUARDRAILS.md`](COMPETITIVE_GUARDRAILS.md) | Aurii must not become a better headless CMS; Kyro test before Core growth |
 | This document | Whether the platform hypothesis is true enough to keep building Aurii — and how to discover that |
 
 Constitutional anchors: Article 21 (specifications are not proof), Article 22 (vertical before horizontal), Article 24 (products discover, Core generalizes) — [`Constitution.md`](Constitution.md).
@@ -265,6 +267,8 @@ Prefer keeping functionality in the product, client, or plugin until multiple pr
 This is the operational form of:
 
 > **Products discover requirements. Core absorbs durable generalizations.**
+
+Also apply the **Kyro test** before introducing a substantial Core capability: if a conventional modern headless CMS such as Kyro, Payload, or Sanity could solve the requirement adequately, the default is to keep it product-local, integration-based, or replaceable unless ingest, provenance, datasets, relations, query, or cross-product information make it fundamental. See [`COMPETITIVE_GUARDRAILS.md`](COMPETITIVE_GUARDRAILS.md).
 
 See [`PRODUCT_STRATEGY.md`](PRODUCT_STRATEGY.md) and Constitution Article 24.
 
@@ -499,6 +503,7 @@ For appropriate projects, continuously ask:
 
 Possible alternatives:
 
+- Kyro
 - Sanity
 - Payload
 - Directus
@@ -507,7 +512,7 @@ Possible alternatives:
 - static files / Git
 - domain-specific products
 
-Aurii does not need to outperform each competitor feature-for-feature.
+Aurii does not need to outperform each competitor feature-for-feature. Protocol count, database-adapter count, and admin-UI completeness are **not** validation goals. [`COMPETITIVE_GUARDRAILS.md`](COMPETITIVE_GUARDRAILS.md) records the Kyro test and rejects competitor-parity development.
 
 The relevant comparison is the **portfolio as a whole**.
 
@@ -677,7 +682,7 @@ If the answer is no after a maximum of roughly twelve months of real-world valid
 
 1. Prefer real validation products over synthetic demos when proving architecture.
 2. Expect and allow Core change during discovery; do not treat Experimental APIs as frozen.
-3. When proposing a Core feature, apply the **platform boundary test**, state maturity level (**Experimental** / **Candidate** / **Core**), and cite which projects already need it.
+3. When proposing a Core feature, apply the **platform boundary test**, the **Kyro test**, state maturity level (**Experimental** / **Candidate** / **Core**), and cite which projects already need it. See [`COMPETITIVE_GUARDRAILS.md`](COMPETITIVE_GUARDRAILS.md).
 4. Prefer removing or relocating abstractions that fail reuse over expanding Core “just in case.”
 5. When starting or adopting a validation project, add or update a register / report entry below.
 6. Do not treat Norwegian Geo alone as full platform validation.
@@ -685,6 +690,7 @@ If the answer is no after a maximum of roughly twelve months of real-world valid
 8. Keep Studio a Core client; keep domain UX in products or extensions.
 9. Do not build Core features solely for anticipated commercial products.
 10. Judge progress by **convergence and evidence**, not by feature-checklist completion or early API stability.
+11. Do not treat conventional CMS completeness (article editing, uploads, drafts, publish, admin UI) as platform success. Phase 5 must prove Context against independently managed datasets — [`Phase5.md`](../Phase5.md).
 
 ---
 
@@ -744,7 +750,7 @@ Record one entry per real project. Design-only fitness cases may be listed as **
 | Status | **candidate** (planned — [`Phase5.md`](../Phase5.md); do not implement unless assigned) |
 | Domain shape | Larger editorial application; custom workflows; hybrid structured + rich content |
 | Sequence role | editorial / workflow-heavy |
-| What this project should test | Whether authored/hybrid products stay on generic Core; which draft/revision/publish concerns are Core vs product |
+| What this project should test | Whether authored/hybrid products stay on generic Core; which draft/revision/publish concerns are Core vs product; Context differentiation before CMS completeness; Context usable without Editorial as host |
 | Clients (intended) | Separate Editorial product (not Studio); Context as research/writing aid |
 | Alternatives considered | Sanity, Payload, in-house CMS |
 | Did Aurii help? | TBD when built |
@@ -772,6 +778,7 @@ Kampbart, playground directory, DN Gaselle, and Geo-as-design-case: see [`ARCHIT
 ## Related documents
 
 - [PRODUCT_STRATEGY.md](./PRODUCT_STRATEGY.md) — open Core, product boundaries, Studio audience, customer-led evolution
+- [COMPETITIVE_GUARDRAILS.md](./COMPETITIVE_GUARDRAILS.md) — Kyro test, commodity vs strategic capabilities, promotion ladder
 - [RESEARCH.md](./RESEARCH.md) — planned Research vertical and custody/provenance pressure profile
 - [ARCHITECTURE_FITNESS.md](./ARCHITECTURE_FITNESS.md) — Kampbart, playgrounds, Gaselle, Geo as design tests
 - [PRODUCT_MODEL.md](./PRODUCT_MODEL.md) — canonical vocabulary

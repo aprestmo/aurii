@@ -4,7 +4,7 @@ Status: Accepted
 Date: 2026-07-30  
 Decision Makers: Aurii Project  
 Supersedes: None  
-Related: [ADR-0001 — Platform Vision](./ADR-0001%20—%20Platform%20Vision.md), [ADR-0001 Adopt a Runtime-First Architecture](./ADR-0001%20Adopt%20a%20Runtime-First%20Architecture.md), [ADR-0005 — API-First Architecture](./ADR-0005%20—%20API-First%20Architecture.md), [docs/PRODUCT_MODEL.md](../docs/PRODUCT_MODEL.md), [docs/PRODUCT_STRATEGY.md](../docs/PRODUCT_STRATEGY.md)
+Related: [ADR-0001 — Platform Vision](./ADR-0001%20—%20Platform%20Vision.md), [ADR-0001 Adopt a Runtime-First Architecture](./ADR-0001%20Adopt%20a%20Runtime-First%20Architecture.md), [ADR-0005 — API-First Architecture](./ADR-0005%20—%20API-First%20Architecture.md), [docs/PRODUCT_MODEL.md](../docs/PRODUCT_MODEL.md), [docs/PRODUCT_STRATEGY.md](../docs/PRODUCT_STRATEGY.md), [docs/COMPETITIVE_GUARDRAILS.md](../docs/COMPETITIVE_GUARDRAILS.md)
 
 ⸻
 
@@ -53,7 +53,7 @@ Studio may host **domain-specific editors** (match desk, map collection view, de
 
 Studio’s intended audience is a **developer, data operator, integrator, or technical project administrator**. A journalist, magazine editor, or report author should normally work in a dedicated product, not in Studio. Point 6 (one shell, multiple workspaces) remains technically possible; it must not be read as “Studio is the CMS” or as a requirement that every publishing use case share one universal UI.
 
-**Products discover requirements. Core absorbs durable generalizations.** Publishing/news/magazine is an important early vertical, not a boundary on Core. Core is not a media backend. Direction: [`docs/PRODUCT_STRATEGY.md`](../docs/PRODUCT_STRATEGY.md).
+**Products discover requirements. Core absorbs durable generalizations.** Publishing/news/magazine is an important early vertical, not a boundary on Core. Core is not a media backend. Aurii must not become “a better headless CMS”. Direction: [`docs/PRODUCT_STRATEGY.md`](../docs/PRODUCT_STRATEGY.md). Guardrails: [`docs/COMPETITIVE_GUARDRAILS.md`](../docs/COMPETITIVE_GUARDRAILS.md).
 
 Provenance and editorial overrides are Core metadata concerns ([ADR-0019](./ADR-0019%20—%20Provenance%20and%20Editorial%20Overrides.md)), not CMS features.
 

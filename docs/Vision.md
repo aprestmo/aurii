@@ -56,7 +56,7 @@ Aurii should never become "just another CMS."
 
 Instead, it should become a general platform for **modeling, ingesting, editing, enriching, relating, and publishing** structured data and editorial content.
 
-**Aurii Core is not a CMS.** Studio is a customizable **developer/operator** client on the same Core model. Products may still add optional authoring workspaces and deliver classic CMS experiences (blogs, docs, news, magazines) while frontends consume Core through APIs. Those products need not share one universal UI. See [`PRODUCT_MODEL.md`](PRODUCT_MODEL.md), [`PRODUCT_STRATEGY.md`](PRODUCT_STRATEGY.md), and [ADR-0010](../adr/ADR-0010%20—%20Optional%20Authoring%20Layer.md).
+**Aurii Core is not a CMS.** Studio is a customizable **developer/operator** client on the same Core model. Products may still add optional authoring workspaces and deliver classic CMS experiences (blogs, docs, news, magazines) while frontends consume Core through APIs. Those products need not share one universal UI. Aurii must not optimize for becoming another headless CMS — [`COMPETITIVE_GUARDRAILS.md`](COMPETITIVE_GUARDRAILS.md). See [`PRODUCT_MODEL.md`](PRODUCT_MODEL.md), [`PRODUCT_STRATEGY.md`](PRODUCT_STRATEGY.md), and [ADR-0010](../adr/ADR-0010%20—%20Optional%20Authoring%20Layer.md).
 
 The same Core should support:
 

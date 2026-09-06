@@ -10,11 +10,14 @@ Aurii is a platform for **modeling, ingesting, editing, enriching, relating, and
 
 The same Core is intended to support publication CMS, Kampbart, playground directories, DN Gaselle, Geo datasets, LiveCenter, documentation, and other structured-data applications without each project inventing its own backend. Those examples are tests and possible products, not a closed list. **Products discover requirements. Core absorbs durable generalizations.**
 
+**Aurii must not become “a better headless CMS.”** Conventional CMS capabilities are enabling infrastructure. Aurii’s hypothesis is a system of record for structured data, authored information, and hybrids consumed by multiple independent products. Canonical guardrails: [`docs/COMPETITIVE_GUARDRAILS.md`](docs/COMPETITIVE_GUARDRAILS.md).
+
 Aurii is **not** a traditional CMS, database, or API framework.
 
 Canonical product vocabulary: [`docs/PRODUCT_MODEL.md`](docs/PRODUCT_MODEL.md).  
 Product strategy (open Core, product boundaries, Studio audience): [`docs/PRODUCT_STRATEGY.md`](docs/PRODUCT_STRATEGY.md).  
 Platform validation (real-product portfolio, discovery, decision gates): [`docs/PLATFORM_VALIDATION.md`](docs/PLATFORM_VALIDATION.md).  
+Competitive guardrails (Kyro test, commodity vs Core): [`docs/COMPETITIVE_GUARDRAILS.md`](docs/COMPETITIVE_GUARDRAILS.md).  
 Architecture fitness tests: [`docs/ARCHITECTURE_FITNESS.md`](docs/ARCHITECTURE_FITNESS.md).  
 Optional authoring decision: [`adr/ADR-0010 — Optional Authoring Layer.md`](adr/ADR-0010%20—%20Optional%20Authoring%20Layer.md).  
 Project packages: [`adr/ADR-0014 — Project Configuration Package.md`](adr/ADR-0014%20—%20Project%20Configuration%20Package.md).  
@@ -176,6 +179,7 @@ Projects: [`docs/PROJECTS.md`](docs/PROJECTS.md). Studio: [`docs/Studio.md`](doc
 6. One entity model for structured data, editorial content, and hybrids.
 7. Sources, relations, provenance, and Studio extensibility are foundations.
 8. Products discover requirements; Core absorbs durable generalizations.
+9. Aurii must not become “a better headless CMS”; apply the Kyro test before growing Core — [`docs/COMPETITIVE_GUARDRAILS.md`](docs/COMPETITIVE_GUARDRAILS.md).
 
 ---
 

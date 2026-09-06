@@ -2,7 +2,7 @@
 
 > Prove that Aurii can live as an independently deployed platform, consumed over a real network/package boundary.
 >
-> **Status:** in-repo / CI operational proof. A public `*.aurii.dev` host is an operator step (DNS + secrets), not something this repository can complete from CI alone.
+> **Status:** in-repo / CI operational proof **passed** (container build → migrate → health → 401 → fail-closed start; Postgres backup/restore). A public `*.aurii.dev` host is an operator step (DNS + secrets), not something this repository can complete from CI alone.
 
 Related: [`DEPLOYMENT.md`](../DEPLOYMENT.md), [`OPERATIONS.md`](../OPERATIONS.md), [`EXTERNAL_CONSUMERS.md`](../EXTERNAL_CONSUMERS.md), [`DELIVERY.md`](../DELIVERY.md).
 
@@ -46,19 +46,19 @@ Prerequisites from the phase brief:
 
 | Test | How | Result |
 |------|-----|--------|
-| Clean production image build | `scripts/ci-runtime-container.sh` / CI `runtime-container` | See CI |
-| Migrations on empty Postgres | Same script | See CI |
-| Runtime start + `/health` (Postgres connected, release identity) | Same script + unit tests | See CI / unit |
-| Invalid production config refuses to listen | Same script + `runtime-config.test.ts` | Pass (unit); CI script |
-| Management unauthenticated → 401 | CI script + `api-server.test.ts` | Pass |
-| Optimistic concurrency → 409 | `api-server.test.ts` | Pass |
-| CORS allow-list + preflight; unapproved origin not reflected | `api-server.test.ts` | Pass |
-| Generic external consumer (schema → import → public route → SDK) | existing fixture tests | Pass (existing) |
-| Product-boundary architecture | `tests/architecture` | Pass (existing) |
-| Persistence restart + backup/restore | `scripts/ops-persistence-proof.ts` | Local/ops script (Postgres) |
-| Container recreate / new image | Documented procedure; CI rebuilds image each run | Procedure defined |
+| Clean production image build | `scripts/ci-runtime-container.sh` | **Pass** (`aurii-core:ci`) |
+| Migrations on empty Postgres | Same script | **Pass** (`0000_projects.sql`, `0001_datasets_project_id.sql`) |
+| Runtime start + `/health` | Same script | **Pass** — `status=ok`, `storage=postgres`, `database.connected=true`, `release.gitSha` set, `platformStore.mode=postgres` |
+| Invalid production config refuses to listen | Same script + `runtime-config.test.ts` | **Pass** — `Aurii refused to start: Production requires AURII_API_TOKEN…` |
+| Management unauthenticated → 401 | CI script + `api-server.test.ts` | **Pass** |
+| Optimistic concurrency → 409 | `api-server.test.ts` | **Pass** |
+| CORS allow-list + preflight; unapproved origin not reflected | `api-server.test.ts` | **Pass** |
+| Generic external consumer (schema → import → public route → SDK) | fixture tests | **Pass** |
+| Product-boundary architecture | `tests/architecture` | **Pass** |
+| Persistence restart + backup/restore | `scripts/ops-persistence-proof.ts` against Postgres 16 | **Pass** — revision 2 survived restart; dump/restore recovered pre-damage state |
+| Container recreate / new image | Documented procedure; image rebuilt each CI run | Procedure defined; state lives in Postgres volume |
 | Live HTTPS `api.aurii.dev` + deployed Geo | Requires operator DNS/secrets | **Not run in this environment** |
-| Studio stopped while consumer works | In-process public routes do not start Studio | Pass (architecture + fixture HTTP) |
+| Studio stopped while consumer works | Public routes do not start Studio | **Pass** (architecture + fixture HTTP) |
 
 ---
 

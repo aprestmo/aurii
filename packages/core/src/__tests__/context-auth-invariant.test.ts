@@ -25,7 +25,12 @@ import {
 	registerSchema,
 	resetPlatformStore,
 	resetProjectService,
+	type ProjectService,
+	type StorageAdapter,
 } from "../index";
+
+let testStorage: StorageAdapter;
+let testProjects: ProjectService;
 
 beforeEach(async () => {
 	process.env["AURII_STORAGE"] = "sqlite";
@@ -34,15 +39,11 @@ beforeEach(async () => {
 	resetProjectService();
 	resetPlatformStore();
 	await closeStorage().catch(() => undefined);
-	const storage = await getStorage();
+	testStorage = await getStorage();
 	const repo = new MemoryProjectRepository();
-	const projects = createProjectService(repo);
-	configureProjectService(projects);
+	testProjects = createProjectService(repo);
+	configureProjectService(testProjects);
 	configurePlatformStore(new MemoryPlatformStore());
-	(globalThis as { __auriiTestStorage?: typeof storage }).__auriiTestStorage =
-		storage;
-	(globalThis as { __auriiTestProjects?: typeof projects }).__auriiTestProjects =
-		projects;
 });
 
 afterEach(async () => {
@@ -52,13 +53,8 @@ afterEach(async () => {
 });
 
 function harness() {
-	const storage = (globalThis as { __auriiTestStorage: Awaited<ReturnType<typeof getStorage>> })
-		.__auriiTestStorage;
-	const projects = (globalThis as {
-		__auriiTestProjects: ReturnType<typeof createProjectService>;
-	}).__auriiTestProjects;
-	const datasets = createDatasetService(storage, projects);
-	return { storage, projects, datasets };
+	const datasets = createDatasetService(testStorage, testProjects);
+	return { storage: testStorage, projects: testProjects, datasets };
 }
 
 describe("authorization / Context invariant", () => {

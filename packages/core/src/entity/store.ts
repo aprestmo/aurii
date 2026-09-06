@@ -40,12 +40,15 @@ export async function updateEntity(
 	const schemaVersion =
 		input.schemaVersion ??
 		(await resolveSchemaVersion(existing.schemaId, existing.datasetId));
-	const updated = await storage.updateEntity(id, {
+	const update: EntityUpdateInput = {
 		data: input.data,
 		expectedRevision: input.expectedRevision,
-		state: input.state,
 		schemaVersion,
-	});
+	};
+	if (input.state !== undefined) {
+		update.state = input.state;
+	}
+	const updated = await storage.updateEntity(id, update);
 	if (!updated) {
 		const current = await storage.getEntity(id);
 		throw new ConcurrencyConflictError(

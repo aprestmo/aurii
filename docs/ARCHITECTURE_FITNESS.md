@@ -9,6 +9,7 @@
 > Product vocabulary: [`PRODUCT_MODEL.md`](PRODUCT_MODEL.md).  
 > Product strategy: [`PRODUCT_STRATEGY.md`](PRODUCT_STRATEGY.md).  
 > Platform validation (portfolio, success/failure): [`PLATFORM_VALIDATION.md`](PLATFORM_VALIDATION.md).  
+> Competitive guardrails: [`COMPETITIVE_GUARDRAILS.md`](COMPETITIVE_GUARDRAILS.md).  
 > Studio extension: [ADR-0017](../adr/ADR-0017%20—%20Studio%20Extension%20Model.md), [ADR-0020](../adr/ADR-0020%20—%20Extensible%20Studio.md).  
 > Provenance: [ADR-0019](../adr/ADR-0019%20—%20Provenance%20and%20Editorial%20Overrides.md).
 
@@ -236,6 +237,50 @@ Express the domain in:
 
 Keep Core generic.
 
+Also apply [`COMPETITIVE_GUARDRAILS.md`](COMPETITIVE_GUARDRAILS.md): Aurii must not become “a better headless CMS”. Commodity CMS capabilities are not architecture proof.
+
+---
+
+## Cross-cutting fitness tests
+
+These tests sit **across** the four cases. They are design assertions, not a claim that the products exist.
+
+### Fitness test: conventional CMS
+
+If a simple blog can be built with Aurii, that is useful but does **not** validate Aurii as a platform.
+
+Schema-derived CRUD, generated admin, drafts, and publish would also describe Kyro, Payload, or Sanity. Platform validation requires information capabilities beyond that category.
+
+### Fitness test: shared information
+
+Gaselle should be able to reuse company entities populated independently of Editorial.
+
+The same company record must remain usable by rankings, profiles, APIs, and later authored content without being copied into a CMS-specific store.
+
+### Fitness test: imported + authored
+
+Kampbart should support imported/structured match information and domain-specific authored content without requiring Core to understand football.
+
+`Match`, `Player`, and `Event` remain schemas. A dedicated Kampbart product UI is valid. Studio is not the required host for match reporting.
+
+### Fitness test: external authoring client
+
+A future CMS should be replaceable while Core information remains intact.
+
+Editorial is a client. Frontends and other products must continue to read Core without it.
+
+### Fitness test: no Studio dependency
+
+Products must continue to function when Studio is not running.
+
+Imports, query, delivery, and product clients talk to Core. Studio is an optional operator workspace.
+
+### Fitness test: Context portability
+
+Context must be architecturally capable of serving a client other than Editorial.
+
+Research, an external CMS, a custom application, or an API-level test client must be able to consume the same Context/Core capability. Do not couple Context to one rich-text editor. Context is **planned** ([`Phase5.md`](../Phase5.md)); this test constrains its design when implementation starts.
+
 ---
 
 ## How to use this document
@@ -243,9 +288,10 @@ Keep Core generic.
 When changing Core, Schema Language, Query Language, Studio, or the roadmap:
 
 1. Ask whether the change still answers the four architecture questions above.
-2. Prefer Norwegian Geo for **implementation** proof of import, query, delivery, and sources.
-3. Use Kampbart, playgrounds, and Gaselle as **design** tests even before those products exist in-repo.
-4. Do not add demo datasets for Kampbart/Gaselle/playgrounds unless that is the assigned task.
+2. Ask whether it still passes the cross-cutting fitness tests and the Kyro test.
+3. Prefer Norwegian Geo for **implementation** proof of import, query, delivery, and sources.
+4. Use Kampbart, playgrounds, and Gaselle as **design** tests even before those products exist in-repo.
+5. Do not add demo datasets for Kampbart/Gaselle/playgrounds unless that is the assigned task.
 
 ---
 
@@ -254,6 +300,7 @@ When changing Core, Schema Language, Query Language, Studio, or the roadmap:
 - [`PRODUCT_MODEL.md`](PRODUCT_MODEL.md) — product composition and modes
 - [`PRODUCT_STRATEGY.md`](PRODUCT_STRATEGY.md) — open Core, product boundaries, Studio audience
 - [`PLATFORM_VALIDATION.md`](PLATFORM_VALIDATION.md) — real-product portfolio, maturity model, and decision gates
+- [`COMPETITIVE_GUARDRAILS.md`](COMPETITIVE_GUARDRAILS.md) — Kyro test, commodity vs strategic capabilities
 - [`Architecture.md`](Architecture.md) — engines, sources, provenance
 - [`Studio.md`](Studio.md) — generated UI and extension surface
 - [`Phase4.md`](../Phase4.md) — data products and delivery

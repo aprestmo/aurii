@@ -6,6 +6,8 @@
 >
 > Canonical vocabulary remains [`PRODUCT_MODEL.md`](PRODUCT_MODEL.md). This file does not redefine Core, Studio, Project, Project package, Product, Plugin, capability, or Editorial.
 >
+> Competitive and Core-boundary guardrails: [`COMPETITIVE_GUARDRAILS.md`](COMPETITIVE_GUARDRAILS.md).
+>
 > Nothing here claims that planned or visionary capabilities are already implemented.
 
 ---
@@ -21,6 +23,7 @@ The risk this document protects against is accidental narrowing:
 - turning **Studio** into the CMS / product layer
 - making **Core** media-specific or newsroom-shaped
 - assuming one universal modular CMS UI can serve every product
+- optimizing Aurii into “a better headless CMS” by copying competitor feature matrices
 - freezing an open-vs-commercial boundary before real products and customers have validated it
 - putting hypothetical abstractions into Core before a concrete product has proven the need
 
@@ -32,7 +35,7 @@ Aurii Core is a general-purpose, developer-friendly information platform and sys
 
 ---
 
-## Canonical principle
+## Canonical principles
 
 > **Products discover requirements. Core absorbs durable generalizations.**
 
@@ -43,6 +46,14 @@ Aurii should not attempt to predict every abstraction required by hypothetical f
 A requirement should not move into Core simply because it could theoretically be useful elsewhere.
 
 This protects Core from both premature abstraction and product-specific or domain-specific logic.
+
+> **Aurii must not become “a better headless CMS”.**
+
+Conventional CMS capabilities — generated forms, schema-derived CRUD, rich text, media, drafts, preview, auth/RBAC, standard publishing APIs — are **enabling infrastructure**, not the primary reason Aurii exists.
+
+When an established CMS such as Kyro, Payload, or Sanity can solve a requirement without compromising Aurii’s platform model, that is evidence the capability should remain product-local, integration-based, or replaceable rather than becoming a defining Core abstraction.
+
+Apply the **Kyro test** and the product-local → Core **promotion ladder** before introducing substantial Core capabilities. Canonical rules, commodity vs strategic lists, and accept/reject examples: [`COMPETITIVE_GUARDRAILS.md`](COMPETITIVE_GUARDRAILS.md).
 
 ---
 
@@ -179,6 +190,8 @@ fundamental / general enough?
 | “Publishing needs X, therefore Core is a media backend.” | Express X in the publishing product first. Promote only what proves generic. |
 | “One modular CMS can cover blog, magazine, and newsroom.” | Share capabilities. Do not assume one UI. |
 | “Leave a Core primitive incomplete so a commercial package can finish it.” | Do not hobble fundamentals to force an upgrade. |
+| “Kyro / Payload / Sanity have this, so Core should too.” | Competitor parity is not evidence of need. Apply the Kyro test. |
+| “Editorial needs Article / Desk / GraphQL, so put it in Core.” | Product-local first. Promote only after multi-product reuse. |
 
 Real customer needs should continue to define Aurii over time. The platform should not be limited to the products we can name today.
 
@@ -251,12 +264,15 @@ Do not read this file as locking:
 
 The intended outcome is clearer boundaries that preserve future optionality — not more architecture than Aurii currently needs.
 
+Detailed commodity/strategic lists, the Kyro test, and accept/reject examples live in [`COMPETITIVE_GUARDRAILS.md`](COMPETITIVE_GUARDRAILS.md), not here.
+
 ---
 
 ## Related documents
 
 - [PRODUCT_MODEL.md](PRODUCT_MODEL.md) — canonical terms, modes, and boundaries
 - [PLATFORM_VALIDATION.md](PLATFORM_VALIDATION.md) — real-product portfolio, discovery loop, maturity model, 6–12 month gates
+- [COMPETITIVE_GUARDRAILS.md](COMPETITIVE_GUARDRAILS.md) — Kyro test, commodity vs strategic capabilities, promotion ladder
 - [RESEARCH.md](RESEARCH.md) — planned Research sibling-product hypothesis and data-custody pressures
 - [Studio.md](Studio.md) — Studio contract and audience
 - [Constitution.md](Constitution.md) — durable principles, including customer-led evolution

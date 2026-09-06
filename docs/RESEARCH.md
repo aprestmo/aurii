@@ -342,6 +342,7 @@ When future capabilities are referenced here, they are planned/exploratory hypot
 - [`PRODUCT_MODEL.md`](./PRODUCT_MODEL.md)
 - [`PRODUCT_STRATEGY.md`](./PRODUCT_STRATEGY.md)
 - [`PLATFORM_VALIDATION.md`](./PLATFORM_VALIDATION.md)
+- [`COMPETITIVE_GUARDRAILS.md`](./COMPETITIVE_GUARDRAILS.md)
 - [`Studio.md`](./Studio.md)
 - [`PROJECT_PACKAGES.md`](./PROJECT_PACKAGES.md)
 - [`ARCHITECTURE_FITNESS.md`](./ARCHITECTURE_FITNESS.md)

@@ -8,6 +8,7 @@
 > Architecture fitness tests: [`ARCHITECTURE_FITNESS.md`](ARCHITECTURE_FITNESS.md).
 > Product strategy (open Core, Studio audience, customer-led evolution): [`PRODUCT_STRATEGY.md`](PRODUCT_STRATEGY.md).
 > Platform validation (portfolio, reuse test, MVP criteria): [`PLATFORM_VALIDATION.md`](PLATFORM_VALIDATION.md).
+> Competitive guardrails (Kyro test; Aurii must not become a better headless CMS): [`COMPETITIVE_GUARDRAILS.md`](COMPETITIVE_GUARDRAILS.md).
 
 ---
 
@@ -37,6 +38,7 @@ These refine existing ADRs; they do not replace them.
 10. **Core must be usable without Studio.** Imports, query, and delivery never require a UI.
 11. **Products discover requirements. Core absorbs durable generalizations.** A need should not enter Core merely because it could theoretically be useful elsewhere. See [`PRODUCT_STRATEGY.md`](PRODUCT_STRATEGY.md) and the reuse test in [`PLATFORM_VALIDATION.md`](PLATFORM_VALIDATION.md).
 12. **Studio is an Aurii workspace, not the default domain product.** Journalists, magazine editors, and report authors should normally work in products built for those jobs.
+13. **Aurii must not become “a better headless CMS.”** Commodity CMS capabilities are enabling infrastructure. Apply the Kyro test before growing Core — [`COMPETITIVE_GUARDRAILS.md`](COMPETITIVE_GUARDRAILS.md).
 
 ---
 
@@ -464,6 +466,7 @@ Use the vertical that matches the capability under change. Cross-cutting Runtime
 
 - [PRODUCT_STRATEGY.md](./PRODUCT_STRATEGY.md) — open Core, product boundaries, Studio audience, customer-led evolution
 - [PLATFORM_VALIDATION.md](./PLATFORM_VALIDATION.md) — real-project portfolio and whether Aurii should remain a platform
+- [COMPETITIVE_GUARDRAILS.md](./COMPETITIVE_GUARDRAILS.md) — Kyro test, commodity vs strategic capabilities, promotion ladder
 - [RESEARCH.md](./RESEARCH.md) — planned Research sibling-product hypothesis (not implemented)
 - [ARCHITECTURE_FITNESS.md](./ARCHITECTURE_FITNESS.md) — Kampbart, playgrounds, Gaselle, Geo as architecture tests
 - [PROJECT_PACKAGES.md](./PROJECT_PACKAGES.md) — `aurii.config.ts`, `defineProject` / `defineStudio` / `defineRoute`

@@ -39,10 +39,11 @@ Aurii is a **Declarative Runtime for Structured Knowledge** — a schema-driven 
 - **Products** may be separate, opinionated clients over Core. They do not need to share one universal UI. A publication CMS is a future separate product that may consume Core. It is never required between Core and a frontend, and it is not Studio renamed. Domain-specific Studio tools (match desk, map) are operator-facing extensions, not that CMS.
 - Separate products may optionally integrate through Core data/references/public APIs, but they should remain independently usable. Do not introduce Core coupling solely to connect two products.
 - **Products discover requirements. Core absorbs durable generalizations.** Do not move a need into Core merely because it could theoretically be useful elsewhere. Do not make Core media-specific because publishing is an early vertical.
+- **Aurii must not become “a better headless CMS.”** Conventional CMS capabilities are enabling infrastructure, not the reason Aurii exists. Canonical rules: [`docs/COMPETITIVE_GUARDRAILS.md`](docs/COMPETITIVE_GUARDRAILS.md).
 - Relations, sources, provenance/overrides, and Studio extensibility are **foundations**. Do not treat them as late optional integrations. Do not implement them as large features unless that is the assigned task.
 - Products with sensitive-data requirements may need customer-controlled/self-hosted Core. Product delivery and data-custody boundaries do not have to be the same.
 
-See `docs/PRODUCT_MODEL.md`, `docs/PRODUCT_STRATEGY.md`, `docs/PLATFORM_VALIDATION.md`, `docs/Studio.md`, `docs/PROJECT_PACKAGES.md`, `docs/ARCHITECTURE_FITNESS.md`, [ADR-0010](adr/ADR-0010%20—%20Optional%20Authoring%20Layer.md), [ADR-0019](adr/ADR-0019%20—%20Provenance%20and%20Editorial%20Overrides.md), [ADR-0020](adr/ADR-0020%20—%20Extensible%20Studio.md), and ADRs 0014–0018.
+See `docs/PRODUCT_MODEL.md`, `docs/PRODUCT_STRATEGY.md`, `docs/PLATFORM_VALIDATION.md`, `docs/COMPETITIVE_GUARDRAILS.md`, `docs/Studio.md`, `docs/PROJECT_PACKAGES.md`, `docs/ARCHITECTURE_FITNESS.md`, [ADR-0010](adr/ADR-0010%20—%20Optional%20Authoring%20Layer.md), [ADR-0019](adr/ADR-0019%20—%20Provenance%20and%20Editorial%20Overrides.md), [ADR-0020](adr/ADR-0020%20—%20Extensible%20Studio.md), and ADRs 0014–0018.
 
 Everything you build should reinforce that vision.
 
@@ -63,6 +64,7 @@ Before implementing anything, ask yourself:
 9. Would this turn Studio into a domain CMS, or Core into a media backend?
 10. Does the reuse / platform boundary test in `docs/PLATFORM_VALIDATION.md` say this belongs in Core yet?
 11. If it enters Core now, is it Experimental, Candidate, or Core — and which projects will challenge it?
+12. Does the **Kyro test** in `docs/COMPETITIVE_GUARDRAILS.md` say a conventional headless CMS already solves this adequately — and if so, why must it be Core?
 
 If you cannot answer these questions, stop and think before writing code.
 
@@ -229,6 +231,32 @@ Generic Runtime.
 Specific Plugins.
 
 **Products discover requirements. Core absorbs durable generalizations.** Do not promote a product need into Core until it has proven durable and general.
+
+---
+
+# Competitive guardrails before changing Core
+
+Aurii must not optimize for becoming another headless CMS. Schema-driven CRUD, generated admin, drafts, media, preview, and standard publishing APIs are already well-served by systems such as Kyro, Payload, Sanity, Directus, and Strapi. Detailed rules: [`docs/COMPETITIVE_GUARDRAILS.md`](docs/COMPETITIVE_GUARDRAILS.md).
+
+Before adding a substantial capability to Core, apply:
+
+1. **Product-local test** — can this live in Editorial, Research, Studio, or another product first?
+2. **Kyro test** — could a conventional modern headless CMS such as Kyro, Payload, or Sanity solve this adequately? If yes, why must it exist in Core?
+3. **Multi-product reuse test** — has the need appeared in at least two materially different products? Two screens inside one product do not count.
+4. **Core-fundamentality test** — does this interact fundamentally with ingest, provenance, datasets, relations, query, or cross-product information?
+
+If the capability is conventional CMS functionality and has not demonstrated cross-product platform value, **keep it outside Core by default**.
+
+Also:
+
+- Do **not** infer that roadmap concepts are implemented. Phase 5, Context, Editorial, and Research are planned unless the assigned task says otherwise.
+- Do **not** move product schemas (`Article`, `Story`, `Desk`, `Newsroom`, `ResearchNote`, …) into Core.
+- Do **not** expand Studio into a universal CMS. Studio is the developer/operator workspace. Domain users belong in products.
+- Do **not** add competitor-parity features (GraphQL, extra database adapters, protocol checklists, framework-native runtimes) without a concrete Aurii use case.
+- Prefer an **ADR** before altering Core boundaries.
+- Prefer existing packages and standard protocols for commodity needs (rich text, CRDT collaboration, auth, media upload) rather than inventing Aurii-specific equivalents in Core.
+
+Promotion path: product-local → experimental shared capability → candidate reusable capability → proven across multiple products → Core only if fundamental.
 
 ---
 
@@ -430,6 +458,8 @@ Choose the one that:
 
 Prefer implementing a need in a product first. Promote it to a reusable capability or Core only after the pattern proves durable.
 
+If the need is conventional CMS functionality, apply the Kyro test and keep it outside Core by default.
+
 Aurii should become simpler over time.
 
 Never more complicated.
@@ -453,7 +483,7 @@ If a change would require Core to know football, playgrounds, Gaselle rankings, 
 
 Cross-cutting Runtime changes must eventually be validated against both verticals. Until Editorial exists, do **not** add editorial concepts to Core merely because Norwegian Geo cannot exercise them. Express draft/publish/revision as generic schemas and capabilities when that phase begins—not as hardcoded news CMS behavior. Structured + rich fields on the same record is already in the unified model—do not wait for Editorial to allow hybrid records in schemas.
 
-Product model: `docs/PRODUCT_MODEL.md`. Product strategy: `docs/PRODUCT_STRATEGY.md`. Platform validation: `docs/PLATFORM_VALIDATION.md`. Project packages: `docs/PROJECT_PACKAGES.md`. Studio: `docs/Studio.md`. Delivery: `docs/DELIVERY.md`. Phase plan: `Phase4.md`. Editorial roadmap (planned): `Phase5.md`. ADRs: `0010`, `0014`–`0020`.
+Product model: `docs/PRODUCT_MODEL.md`. Product strategy: `docs/PRODUCT_STRATEGY.md`. Platform validation: `docs/PLATFORM_VALIDATION.md`. Competitive guardrails: `docs/COMPETITIVE_GUARDRAILS.md`. Project packages: `docs/PROJECT_PACKAGES.md`. Studio: `docs/Studio.md`. Delivery: `docs/DELIVERY.md`. Phase plan: `Phase4.md`. Editorial roadmap (planned): `Phase5.md`. ADRs: `0010`, `0014`–`0020`.
 
 ---
 
@@ -534,6 +564,10 @@ Until that vertical exists:
 - Domain-specific Studio extensions are planned ([ADR-0020](adr/ADR-0020%20—%20Extensible%20Studio.md)); do not build match desks or map views unless assigned
 - Do not turn Studio into the Editorial product or assume every publishing use case belongs in one universal CMS
 - Publishing/news/magazine is an important validation domain, not a boundary on what Core can support
+- Editorial concepts (`Article`, `Story`, `Headline`, `Byline`, `Desk`, `Publication`, `PrintReady`, `Breaking`, `Embargo`) begin **product-local**. They must not become Core concepts merely because Editorial needs them
+- Phase 5 must prove a sophisticated authored-content product can be built on Aurii **without making Core a CMS backend**. Judge early Editorial work on Context differentiation, not CMS feature completeness
+- Context may start inside Editorial while experimentally validating it, but its data/query model must not assume Editorial is its permanent host. Context must remain architecturally consumable by Research, an external CMS, custom applications, and AI clients
+- Apply the Kyro test and promotion ladder in [`docs/COMPETITIVE_GUARDRAILS.md`](docs/COMPETITIVE_GUARDRAILS.md) before promoting any Editorial need into Core
 
 ---
 

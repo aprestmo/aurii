@@ -8,6 +8,7 @@
 > **Product boundaries** (Core vs Studio vs optional authoring vs consumers): [`PRODUCT_MODEL.md`](PRODUCT_MODEL.md).  
 > **Product strategy** (open Core, Studio audience, customer-led evolution): [`PRODUCT_STRATEGY.md`](PRODUCT_STRATEGY.md).  
 > **Fitness tests** (Kampbart, playgrounds, Gaselle, Geo): [`ARCHITECTURE_FITNESS.md`](ARCHITECTURE_FITNESS.md).  
+> **Competitive guardrails** (Kyro test; do not become a better headless CMS): [`COMPETITIVE_GUARDRAILS.md`](COMPETITIVE_GUARDRAILS.md).  
 > **Status:** Phase 3 complete; many engines below are visionary. Prefer README / Phase docs for what is implemented.
 
 ---

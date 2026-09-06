@@ -13,6 +13,7 @@ The specification is the **source of truth**. Code implements the specification.
 - [PRODUCT_MODEL.md](./PRODUCT_MODEL.md) — **Canonical product model** (Core, datasets, products, modules, Studio, authoring, consumers)
 - [PRODUCT_STRATEGY.md](./PRODUCT_STRATEGY.md) — Open Core, product boundaries, Studio audience, customer-led evolution
 - [PLATFORM_VALIDATION.md](./PLATFORM_VALIDATION.md) — Prove Aurii through a diverse real-product portfolio (discovery loop, maturity model, 6–12 month gates)
+- [COMPETITIVE_GUARDRAILS.md](./COMPETITIVE_GUARDRAILS.md) — Aurii must not become a better headless CMS (Kyro test, commodity vs strategic, promotion ladder)
 - [ARCHITECTURE_FITNESS.md](./ARCHITECTURE_FITNESS.md) — Kampbart, playgrounds, Gaselle, Geo as architecture tests
 - [PROJECTS.md](./PROJECTS.md) — Project as top-level Core boundary (API, migration, seed)
 - [Phase4.md](../Phase4.md) — Phase 4 report: Data Products and Delivery (**complete**)
@@ -28,6 +29,7 @@ The specification is the **source of truth**. Code implements the specification.
 
 - [Architecture.md](./Architecture.md) — Overall system architecture and engine design
 - [ARCHITECTURE_FITNESS.md](./ARCHITECTURE_FITNESS.md) — Representative product tests of the architecture
+- [COMPETITIVE_GUARDRAILS.md](./COMPETITIVE_GUARDRAILS.md) — Core-boundary tests against conventional CMS architecture
 - [Runtime.md](./Runtime.md) — Runtime design and execution model
 - [Core.md](./Core.md) — Core package internals
 - [Domain Model.md](./Domain%20Model.md) — Entity, Dataset, Schema, Pipeline domain model
@@ -59,6 +61,7 @@ The specification is the **source of truth**. Code implements the specification.
 - [Constitution.md](./Constitution.md) — Architectural principles (including customer-led evolution)
 - [PRODUCT_STRATEGY.md](./PRODUCT_STRATEGY.md) — Open Core, product boundaries, Studio audience
 - [PLATFORM_VALIDATION.md](./PLATFORM_VALIDATION.md) — Real-project validation portfolio and v1 decision criteria
+- [COMPETITIVE_GUARDRAILS.md](./COMPETITIVE_GUARDRAILS.md) — Do not optimize Aurii into another headless CMS
 - [Toc.md](./Toc.md) — Table of contents for the full specification
 
 ### Development

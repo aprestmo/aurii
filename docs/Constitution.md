@@ -466,7 +466,8 @@ Opinionated products may be separate applications. They need not share one unive
 Studio shall remain a developer- and operator-oriented workspace for working with Aurii. It shall not become the default CMS or product shell for journalists, editors, authors, or other domain users.
 
 Direction and optionality: [`PRODUCT_STRATEGY.md`](PRODUCT_STRATEGY.md).  
-Portfolio validation and v1 decision criteria: [`PLATFORM_VALIDATION.md`](PLATFORM_VALIDATION.md).
+Portfolio validation and v1 decision criteria: [`PLATFORM_VALIDATION.md`](PLATFORM_VALIDATION.md).  
+Competitive guardrails (Aurii must not become a better headless CMS): [`COMPETITIVE_GUARDRAILS.md`](COMPETITIVE_GUARDRAILS.md).
 
 ---
 

@@ -12,7 +12,7 @@
 >
 > **Status:** project-oriented Studio is **beta** (Phase 4). Full extension API is **planned** ([ADR-0020](../adr/ADR-0020%20—%20Extensible%20Studio.md)). A future CMS / Editorial product is separate ([ADR-0010](../adr/ADR-0010%20—%20Optional%20Authoring%20Layer.md)).
 >
-> Product boundaries: [`PRODUCT_MODEL.md`](PRODUCT_MODEL.md). Strategy: [`PRODUCT_STRATEGY.md`](PRODUCT_STRATEGY.md). Fitness tests: [`ARCHITECTURE_FITNESS.md`](ARCHITECTURE_FITNESS.md). Extension model: [ADR-0017](../adr/ADR-0017%20—%20Studio%20Extension%20Model.md), [ADR-0020](../adr/ADR-0020%20—%20Extensible%20Studio.md).
+> Product boundaries: [`PRODUCT_MODEL.md`](PRODUCT_MODEL.md). Strategy: [`PRODUCT_STRATEGY.md`](PRODUCT_STRATEGY.md). Fitness tests: [`ARCHITECTURE_FITNESS.md`](ARCHITECTURE_FITNESS.md). Guardrails: [`COMPETITIVE_GUARDRAILS.md`](COMPETITIVE_GUARDRAILS.md). Extension model: [ADR-0017](../adr/ADR-0017%20—%20Studio%20Extension%20Model.md), [ADR-0020](../adr/ADR-0020%20—%20Extensible%20Studio.md).
 
 ---
 
@@ -40,7 +40,7 @@ Studio is a tool for working with Aurii.
 Products are tools for doing a job.
 ```
 
-Do not evolve Studio into the default CMS for those jobs. See [`PRODUCT_STRATEGY.md`](PRODUCT_STRATEGY.md).
+Do not evolve Studio into the default CMS for those jobs. See [`PRODUCT_STRATEGY.md`](PRODUCT_STRATEGY.md) and [`COMPETITIVE_GUARDRAILS.md`](COMPETITIVE_GUARDRAILS.md).
 
 ---
 
@@ -334,6 +334,7 @@ If Studio contains business logic, the architecture has failed.
 
 - [PRODUCT_MODEL.md](PRODUCT_MODEL.md)
 - [PRODUCT_STRATEGY.md](PRODUCT_STRATEGY.md)
+- [COMPETITIVE_GUARDRAILS.md](COMPETITIVE_GUARDRAILS.md)
 - [DELIVERY.md](DELIVERY.md)
 - [PROJECT_PACKAGES.md](PROJECT_PACKAGES.md)
 - [ADR-0017 — Studio Extension Model](../adr/ADR-0017%20—%20Studio%20Extension%20Model.md)

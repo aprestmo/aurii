@@ -28,8 +28,11 @@ AI.md
 STUDIO.md
 AGENTS.md
 
-Phase reports: Phase1.md … Phase4.md (historical), Phase5.md (planned Editorial & Context), docs/DELIVERY.md, docs/SCALE.md, docs/ARCHITECTURE_FITNESS.md
+Phase reports: Phase1.md … Phase4.md (historical), Phase5.md (planned Editorial & Context; Pre–Phase 5 architecture gate), docs/DELIVERY.md, docs/SCALE.md, docs/ARCHITECTURE_FITNESS.md, docs/SCHEMA_EVOLUTION.md, docs/HISTORY_MODEL.md, docs/TEMPORAL_REFERENCES.md, docs/OPERATIONS.md
 ADR-0010 — Optional Authoring Layer
 ADR-0011 — Project as Top-Level Boundary
 ADR-0019 — Provenance and Editorial Overrides
 ADR-0020 — Extensible Studio
+ADR-0021 — Schema Evolution and Historical Interpretation
+ADR-0022 — Entity Revision and Optimistic Concurrency
+ADR-0023 — Live vs Pinned References

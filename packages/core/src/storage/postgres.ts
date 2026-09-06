@@ -1,5 +1,6 @@
 import { SQL } from "bun";
-import type { Entity, EntityInput, EntityState } from "../entity/types";
+import type { Entity, EntityInput, EntityState, EntityUpdateInput } from "../entity/types";
+import type { EntityRevisionSnapshot } from "../entity/revision";
 import type { WhereExpr } from "../query/ast";
 import type { ExecutionPlan, ScanStep } from "../query/plan";
 import type { SchemaDefinition, StoredSchema } from "../schema/types";
@@ -32,10 +33,23 @@ interface RawEntityRow {
 	id: string;
 	dataset_id: string;
 	schema_id: string;
+	schema_version: number;
+	entity_revision: number;
 	data: Record<string, unknown>;
 	state: string;
 	created_at: string | Date;
 	updated_at: string | Date;
+}
+
+interface RawRevisionRow {
+	entity_id: string;
+	dataset_id: string;
+	schema_id: string;
+	schema_version: number;
+	entity_revision: number;
+	data: Record<string, unknown>;
+	state: string;
+	recorded_at: string | Date;
 }
 
 function ts(v: string | Date): string {
@@ -52,10 +66,25 @@ function rowToEntity(row: RawEntityRow): Entity {
 		id: row.id,
 		datasetId: row.dataset_id,
 		schemaId: row.schema_id,
+		schemaVersion: Number(row.schema_version ?? 1),
+		entityRevision: Number(row.entity_revision ?? 1),
 		data: jsonb<Record<string, unknown>>(row.data),
 		state: row.state as EntityState,
 		createdAt: ts(row.created_at),
 		updatedAt: ts(row.updated_at),
+	};
+}
+
+function rowToRevision(row: RawRevisionRow): EntityRevisionSnapshot {
+	return {
+		entityId: row.entity_id,
+		datasetId: row.dataset_id,
+		schemaId: row.schema_id,
+		schemaVersion: Number(row.schema_version),
+		entityRevision: Number(row.entity_revision),
+		data: jsonb<Record<string, unknown>>(row.data),
+		state: row.state as EntityState,
+		recordedAt: ts(row.recorded_at),
 	};
 }
 
@@ -65,7 +94,7 @@ function buildScanSql(
 ): { sql: string; params: unknown[] } {
 	const params: unknown[] = [datasetId, step.schemaId];
 	let sql =
-		"SELECT id, dataset_id, schema_id, data, state, created_at, updated_at " +
+		"SELECT id, dataset_id, schema_id, schema_version, entity_revision, data, state, created_at, updated_at " +
 		"FROM aurii_entities WHERE dataset_id = $1 AND schema_id = $2";
 
 	if (step.where) {
@@ -141,10 +170,24 @@ export class PostgresAdapter implements StorageAdapter {
         id         UUID PRIMARY KEY,
         dataset_id TEXT NOT NULL REFERENCES aurii_datasets(id),
         schema_id  TEXT NOT NULL,
+        schema_version INTEGER NOT NULL DEFAULT 1,
+        entity_revision INTEGER NOT NULL DEFAULT 1,
         data       JSONB NOT NULL,
         state      TEXT NOT NULL DEFAULT 'active',
         created_at TIMESTAMPTZ NOT NULL DEFAULT now(),
         updated_at TIMESTAMPTZ NOT NULL DEFAULT now()
+      );
+
+      CREATE TABLE IF NOT EXISTS aurii_entity_revisions (
+        entity_id       UUID NOT NULL,
+        entity_revision INTEGER NOT NULL,
+        dataset_id      TEXT NOT NULL,
+        schema_id       TEXT NOT NULL,
+        schema_version  INTEGER NOT NULL DEFAULT 1,
+        data            JSONB NOT NULL,
+        state           TEXT NOT NULL,
+        recorded_at     TIMESTAMPTZ NOT NULL DEFAULT now(),
+        PRIMARY KEY (entity_id, entity_revision)
       );
 
       CREATE INDEX IF NOT EXISTS idx_entities_dataset_schema
@@ -179,6 +222,7 @@ export class PostgresAdapter implements StorageAdapter {
 		// safety net for adapter-only startups).
 		await this.ensureProjectIdColumn();
 		await this.ensureImportRunTriggerColumn();
+		await this.ensureEntityRevisionColumns();
 
 		await this.sql`
       INSERT INTO aurii_datasets (id, name, description, project_id)
@@ -198,6 +242,40 @@ export class PostgresAdapter implements StorageAdapter {
           ALTER TABLE aurii_import_runs ADD COLUMN run_trigger TEXT;
         END IF;
       END $$;
+    `);
+	}
+
+	private async ensureEntityRevisionColumns(): Promise<void> {
+		await this.sql.unsafe(`
+      DO $$
+      BEGIN
+        IF NOT EXISTS (
+          SELECT 1 FROM information_schema.columns
+          WHERE table_name = 'aurii_entities' AND column_name = 'schema_version'
+        ) THEN
+          ALTER TABLE aurii_entities
+            ADD COLUMN schema_version INTEGER NOT NULL DEFAULT 1;
+        END IF;
+        IF NOT EXISTS (
+          SELECT 1 FROM information_schema.columns
+          WHERE table_name = 'aurii_entities' AND column_name = 'entity_revision'
+        ) THEN
+          ALTER TABLE aurii_entities
+            ADD COLUMN entity_revision INTEGER NOT NULL DEFAULT 1;
+        END IF;
+      END $$;
+
+      CREATE TABLE IF NOT EXISTS aurii_entity_revisions (
+        entity_id       UUID NOT NULL,
+        entity_revision INTEGER NOT NULL,
+        dataset_id      TEXT NOT NULL,
+        schema_id       TEXT NOT NULL,
+        schema_version  INTEGER NOT NULL DEFAULT 1,
+        data            JSONB NOT NULL,
+        state           TEXT NOT NULL,
+        recorded_at     TIMESTAMPTZ NOT NULL DEFAULT now(),
+        PRIMARY KEY (entity_id, entity_revision)
+      );
     `);
 	}
 
@@ -371,6 +449,31 @@ export class PostgresAdapter implements StorageAdapter {
 
 	// ── Entities ───────────────────────────────────────────────────────────────
 
+	private async insertRevisionSnapshot(
+		tx: SQL,
+		entity: Entity,
+	): Promise<void> {
+		await tx`
+      INSERT INTO aurii_entity_revisions
+        (entity_id, entity_revision, dataset_id, schema_id, schema_version, data, state, recorded_at)
+      VALUES (
+        ${entity.id}::uuid,
+        ${entity.entityRevision},
+        ${entity.datasetId},
+        ${entity.schemaId},
+        ${entity.schemaVersion},
+        ${entity.data as never},
+        ${entity.state},
+        ${entity.updatedAt}::timestamptz
+      )
+      ON CONFLICT (entity_id, entity_revision) DO UPDATE SET
+        data = EXCLUDED.data,
+        state = EXCLUDED.state,
+        schema_version = EXCLUDED.schema_version,
+        recorded_at = EXCLUDED.recorded_at
+    `;
+	}
+
 	async insertEntities(
 		inputs: EntityInput[],
 		datasetId: string,
@@ -381,10 +484,15 @@ export class PostgresAdapter implements StorageAdapter {
 		await this.sql.begin(async (tx: SQL) => {
 			for (const input of inputs) {
 				const id = crypto.randomUUID();
+				const schemaVersion = input.schemaVersion ?? 1;
 				await tx`
-          INSERT INTO aurii_entities (id, dataset_id, schema_id, data, state)
-          VALUES (${id}, ${datasetId}, ${input.schemaId},
-                  ${input.data as never}, ${input.state ?? "active"})
+          INSERT INTO aurii_entities
+            (id, dataset_id, schema_id, schema_version, entity_revision, data, state)
+          VALUES (
+            ${id}::uuid, ${datasetId}, ${input.schemaId},
+            ${schemaVersion}, 1,
+            ${input.data as never}, ${input.state ?? "active"}
+          )
         `;
 				ids.push(id);
 			}
@@ -395,7 +503,41 @@ export class PostgresAdapter implements StorageAdapter {
 			`SELECT * FROM aurii_entities WHERE id IN (${placeholders})`,
 			ids as never[],
 		);
-		return (rows as unknown as RawEntityRow[]).map(rowToEntity);
+		const entities = (rows as unknown as RawEntityRow[]).map(rowToEntity);
+		await this.sql.begin(async (tx: SQL) => {
+			for (const entity of entities) {
+				await this.insertRevisionSnapshot(tx, entity);
+			}
+		});
+		return entities;
+	}
+
+	async updateEntity(
+		id: string,
+		input: EntityUpdateInput,
+	): Promise<Entity | null> {
+		const nextRevision = input.expectedRevision + 1;
+		const schemaVersion = input.schemaVersion ?? 1;
+		const state = input.state ?? null;
+
+		const rows = await this.sql`
+      UPDATE aurii_entities
+      SET
+        data = ${input.data as never},
+        state = COALESCE(${state}, state),
+        schema_version = ${schemaVersion},
+        entity_revision = ${nextRevision},
+        updated_at = now()
+      WHERE id = ${id}::uuid AND entity_revision = ${input.expectedRevision}
+      RETURNING *
+    `;
+
+		if (!rows[0]) return null;
+		const entity = rowToEntity(rows[0] as RawEntityRow);
+		await this.sql.begin(async (tx: SQL) => {
+			await this.insertRevisionSnapshot(tx, entity);
+		});
+		return entity;
 	}
 
 	async upsertEntitiesByField(
@@ -408,28 +550,36 @@ export class PostgresAdapter implements StorageAdapter {
 		const schemaId = inputs[0]!.schemaId;
 		const safeField = fieldName.replace(/[^a-zA-Z0-9_]/g, "");
 
-		// Fetch all existing natural-key values for this schema in one query.
 		const existingRows = await this.sql.unsafe(
-			`SELECT id, data->>'${safeField}' AS key
+			`SELECT id, entity_revision, data->>'${safeField}' AS key
        FROM aurii_entities
        WHERE dataset_id = $1 AND schema_id = $2`,
 			[datasetId, schemaId] as never[],
 		);
 		const existingMap = new Map(
-			(existingRows as { id: string; key: string }[]).map((r) => [
-				String(r.key),
-				r.id,
-			]),
+			(existingRows as { id: string; entity_revision: number; key: string }[]).map(
+				(r) => [String(r.key), r] as const,
+			),
 		);
 
 		const toInsert: EntityInput[] = [];
-		const toUpdate: { id: string; data: Record<string, unknown> }[] = [];
+		const toUpdate: {
+			id: string;
+			data: Record<string, unknown>;
+			expectedRevision: number;
+			schemaVersion: number;
+		}[] = [];
 
 		for (const input of inputs) {
 			const keyValue = String(input.data[fieldName] ?? "");
-			const existingId = existingMap.get(keyValue);
-			if (existingId !== undefined) {
-				toUpdate.push({ id: existingId, data: input.data });
+			const existing = existingMap.get(keyValue);
+			if (existing !== undefined) {
+				toUpdate.push({
+					id: existing.id,
+					data: input.data,
+					expectedRevision: Number(existing.entity_revision),
+					schemaVersion: input.schemaVersion ?? 1,
+				});
 			} else {
 				toInsert.push(input);
 			}
@@ -437,12 +587,26 @@ export class PostgresAdapter implements StorageAdapter {
 
 		if (toUpdate.length > 0) {
 			await this.sql.begin(async (tx: SQL) => {
-				for (const { id, data } of toUpdate) {
-					await tx`
+				for (const row of toUpdate) {
+					const updated = await tx`
             UPDATE aurii_entities
-            SET data = ${data as never}, updated_at = now()
-            WHERE id = ${id}::uuid
+            SET
+              data = ${row.data as never},
+              schema_version = ${row.schemaVersion},
+              entity_revision = entity_revision + 1,
+              updated_at = now()
+            WHERE id = ${row.id}::uuid AND entity_revision = ${row.expectedRevision}
+            RETURNING *
           `;
+					if (!updated[0]) {
+						throw new Error(
+							`Import upsert conflict for entity "${row.id}" (stale entityRevision)`,
+						);
+					}
+					await this.insertRevisionSnapshot(
+						tx,
+						rowToEntity(updated[0] as RawEntityRow),
+					);
 				}
 			});
 		}
@@ -458,6 +622,17 @@ export class PostgresAdapter implements StorageAdapter {
 		const rows = await this
 			.sql`SELECT * FROM aurii_entities WHERE id = ${id}::uuid`;
 		return rows[0] ? rowToEntity(rows[0] as RawEntityRow) : null;
+	}
+
+	async getEntityRevision(
+		id: string,
+		entityRevision: number,
+	): Promise<EntityRevisionSnapshot | null> {
+		const rows = await this.sql`
+      SELECT * FROM aurii_entity_revisions
+      WHERE entity_id = ${id}::uuid AND entity_revision = ${entityRevision}
+    `;
+		return rows[0] ? rowToRevision(rows[0] as RawRevisionRow) : null;
 	}
 
 	async listEntities(

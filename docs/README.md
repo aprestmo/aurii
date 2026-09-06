@@ -24,16 +24,23 @@ The specification is the **source of truth**. Code implements the specification.
 - [ADR-0011 — Project as Top-Level Boundary](../adr/ADR-0011%20—%20Project%20as%20Top-Level%20Boundary.md) — Project tenancy model
 - [ADR-0019 — Provenance and Editorial Overrides](../adr/ADR-0019%20—%20Provenance%20and%20Editorial%20Overrides.md)
 - [ADR-0020 — Extensible Studio](../adr/ADR-0020%20—%20Extensible%20Studio.md)
+- [ADR-0021 — Schema Evolution](../adr/ADR-0021%20—%20Schema%20Evolution%20and%20Historical%20Interpretation.md)
+- [ADR-0022 — Entity Revision and Optimistic Concurrency](../adr/ADR-0022%20—%20Entity%20Revision%20and%20Optimistic%20Concurrency.md)
+- [ADR-0023 — Live vs Pinned References](../adr/ADR-0023%20—%20Live%20vs%20Pinned%20References.md)
 
 ### Architecture
 
 - [Architecture.md](./Architecture.md) — Overall system architecture and engine design
 - [ARCHITECTURE_FITNESS.md](./ARCHITECTURE_FITNESS.md) — Representative product tests of the architecture
 - [COMPETITIVE_GUARDRAILS.md](./COMPETITIVE_GUARDRAILS.md) — Core-boundary tests against conventional CMS architecture
+- [SCHEMA_EVOLUTION.md](./SCHEMA_EVOLUTION.md) — Schema identity, versioning, change classification
+- [HISTORY_MODEL.md](./HISTORY_MODEL.md) — Provenance vs audit vs revision vs publication
+- [TEMPORAL_REFERENCES.md](./TEMPORAL_REFERENCES.md) — Live vs pinned references; recordedAt / effectiveAt
+- [OPERATIONS.md](./OPERATIONS.md) — Persistent Postgres startup, backup, restore
 - [Runtime.md](./Runtime.md) — Runtime design and execution model
 - [Core.md](./Core.md) — Core package internals
 - [Domain Model.md](./Domain%20Model.md) — Entity, Dataset, Schema, Pipeline domain model
-- [Capabilities.md](./Capabilities.md) — Capability model and plugin surface
+- [Capabilities.md](./Capabilities.md) — Capability model and plugin surface (**vision**; see status banner)
 
 ### Languages
 

@@ -107,6 +107,41 @@ Everything else derives from these.
 
 ---
 
+# Entity mutations and optimistic concurrency (implemented)
+
+Canonical contract: [`ADR-0022`](../adr/ADR-0022%20—%20Entity%20Revision%20and%20Optimistic%20Concurrency.md).
+
+Every entity includes:
+
+| Field | Meaning |
+|-------|---------|
+| `entityRevision` | Monotonic concurrency / pinned-addressing revision (starts at 1) |
+| `schemaVersion` | Schema version associated with the live state |
+
+| Method | Path | Notes |
+|--------|------|-------|
+| GET | `/entities/:id` | Returns entity; `ETag` mirrors `entityRevision` |
+| PUT | `/entities/:id` | Body: `{ data, expectedRevision, state? }` |
+| GET | `/entities/:id/revisions/:revision` | Immutable revision snapshot (pinned reference) |
+
+Successful update increments `entityRevision`. Stale `expectedRevision` returns **409**:
+
+```json
+{
+  "error": {
+    "code": "concurrency_conflict",
+    "message": "...",
+    "expectedRevision": 17,
+    "currentRevision": 18,
+    "entityId": "..."
+  }
+}
+```
+
+SDK: `client.entities.update(id, { data, expectedRevision })` throws `ConcurrencyConflictError` — it does **not** silently retry.
+
+---
+
 # Projects API (implemented)
 
 Projects are the administrative top-level boundary. Full contract: [`PROJECTS.md`](PROJECTS.md).

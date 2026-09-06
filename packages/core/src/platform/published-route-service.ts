@@ -195,6 +195,14 @@ export class PublishedRouteService {
 		const match = matchRoute(routes, path);
 		if (!match || !match.enabled) return null;
 
+		if (match.access === "private") {
+			throw new PublishedRouteError(
+				"Private routes are not available on the public delivery surface",
+				"forbidden",
+				403,
+			);
+		}
+
 		if (match.access !== "public" && !options.authenticated) {
 			throw new PublishedRouteError("Authentication required", "unauthorized", 401);
 		}

@@ -6,14 +6,32 @@ export {
 	createEntities,
 	createEntity,
 	getEntity,
+	getEntityRevision,
 	listEntities,
+	updateEntity,
 } from "./entity/store";
 export type {
 	Entity,
 	EntityInput,
 	EntityPage,
 	EntityState,
+	EntityUpdateInput,
 } from "./entity/types";
+export {
+	ConcurrencyConflictError,
+	isConcurrencyConflictError,
+} from "./entity/revision";
+export type { EntityRevisionSnapshot } from "./entity/revision";
+export type { EntityRef, LiveEntityRef, PinnedEntityRef } from "./entity/refs";
+export { isLiveEntityRef, isPinnedEntityRef } from "./entity/refs";
+export type {
+	AuditHistoryRecord,
+	HistoryKind,
+	ProvenanceRecord,
+	PublicationHistoryRecord,
+	RevisionHistoryRecord,
+} from "./history/types";
+export { HISTORY_KINDS } from "./history/types";
 export type { AnalysisResult } from "./import/analyze";
 export {
 	analyzeContent,
@@ -59,7 +77,9 @@ export {
 	getSchema,
 	listSchemas,
 	registerSchema,
+	registerSchemaDetailed,
 } from "./schema/registry";
+export type { RegisterSchemaResult } from "./schema/registry";
 export type {
 	FieldDefinition,
 	FieldType,
@@ -67,6 +87,14 @@ export type {
 	StoredSchema,
 	ValidationResult,
 } from "./schema/types";
+export {
+	classifySchemaChange,
+	nextSchemaVersion,
+} from "./schema/evolution";
+export type {
+	SchemaChangeClassification,
+	SchemaChangeKind,
+} from "./schema/evolution";
 export { validateEntity, validateSchemaDefinition } from "./schema/validator";
 export type {
 	Dataset,

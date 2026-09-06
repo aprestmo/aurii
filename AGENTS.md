@@ -40,6 +40,7 @@ Aurii is a **Declarative Runtime for Structured Knowledge** — a schema-driven 
 - Separate products may optionally integrate through Core data/references/public APIs, but they should remain independently usable. Do not introduce Core coupling solely to connect two products.
 - **Products discover requirements. Core absorbs durable generalizations.** Do not move a need into Core merely because it could theoretically be useful elsewhere. Do not make Core media-specific because publishing is an early vertical.
 - **Aurii must not become “a better headless CMS.”** Conventional CMS capabilities are enabling infrastructure, not the reason Aurii exists. Canonical rules: [`docs/COMPETITIVE_GUARDRAILS.md`](docs/COMPETITIVE_GUARDRAILS.md).
+- **Product apps must not import `@aurii/core` or `@aurii/db`.** They consume `@aurii/sdk` / HTTP APIs. See [`docs/PRODUCT_STRATEGY.md`](docs/PRODUCT_STRATEGY.md) and the product-boundary architecture test. Pre–Phase 5 contracts: [`docs/SCHEMA_EVOLUTION.md`](docs/SCHEMA_EVOLUTION.md), [`docs/HISTORY_MODEL.md`](docs/HISTORY_MODEL.md), [`docs/TEMPORAL_REFERENCES.md`](docs/TEMPORAL_REFERENCES.md), [`docs/OPERATIONS.md`](docs/OPERATIONS.md).
 - Relations, sources, provenance/overrides, and Studio extensibility are **foundations**. Do not treat them as late optional integrations. Do not implement them as large features unless that is the assigned task.
 - Products with sensitive-data requirements may need customer-controlled/self-hosted Core. Product delivery and data-custody boundaries do not have to be the same.
 

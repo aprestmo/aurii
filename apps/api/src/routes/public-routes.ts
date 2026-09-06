@@ -5,6 +5,7 @@
  */
 
 import {
+	createProjectTokenService,
 	createPublishedRouteService,
 	extractPathParams,
 	PublishedRouteError,
@@ -17,6 +18,7 @@ export function createPublicRoutesPlugin(options: {
 }) {
 	const { projectService } = options;
 	const routes = createPublishedRouteService();
+	const tokens = createProjectTokenService();
 
 	return new Elysia({ name: "public-routes" }).get(
 		"/public/:projectSlug/v1/*",
@@ -33,7 +35,10 @@ export function createPublicRoutesPlugin(options: {
 				}
 
 				const auth = request.headers.get("authorization") ?? "";
-				const authenticated = auth.startsWith("Bearer ");
+				const bearer = auth.startsWith("Bearer ")
+					? auth.slice("Bearer ".length).trim()
+					: "";
+				const authenticated = bearer.length > 0;
 
 				// Find matching definition for path params
 				const listed = await routes.list(project.id);
@@ -44,6 +49,19 @@ export function createPublicRoutesPlugin(options: {
 				if (!match) {
 					set.status = 404;
 					return { error: { code: "not_found", message: "Route not found" } };
+				}
+
+				if (match.access === "authenticated") {
+					const token = await tokens.resolve(bearer);
+					if (!token || token.projectId !== project.id) {
+						set.status = 401;
+						return {
+							error: {
+								code: "unauthorized",
+								message: "Valid project token required",
+							},
+						};
+					}
 				}
 
 				const pathParams = extractPathParams(match.definition.path, path);

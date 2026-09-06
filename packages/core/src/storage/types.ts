@@ -1,4 +1,5 @@
-import type { Entity, EntityInput } from "../entity/types";
+import type { EntityRevisionSnapshot } from "../entity/revision";
+import type { Entity, EntityInput, EntityUpdateInput } from "../entity/types";
 import type { ExecutionPlan } from "../query/plan";
 import type { PlanResult } from "./plan-executor";
 import type { SchemaDefinition, StoredSchema } from "../schema/types";
@@ -108,10 +109,19 @@ export interface StorageAdapter {
 	// Entities
 	insertEntities(inputs: EntityInput[], datasetId: string): Promise<Entity[]>;
 	/**
+	 * Atomic optimistic-concurrency update.
+	 * Returns null when expectedRevision does not match (conflict).
+	 */
+	updateEntity(
+		id: string,
+		input: EntityUpdateInput,
+	): Promise<Entity | null>;
+	/**
 	 * Upsert entities by a natural key field.
 	 *
 	 * For each input, if an entity with the same value in `fieldName` already
-	 * exists (same schema + dataset), its `data` is updated in-place.
+	 * exists (same schema + dataset), its `data` is updated in-place and
+	 * entityRevision is incremented atomically.
 	 * Otherwise a new entity is inserted.  This is the foundation for
 	 * idempotent imports: running the same import twice never creates duplicates.
 	 */
@@ -121,6 +131,11 @@ export interface StorageAdapter {
 		fieldName: string,
 	): Promise<UpsertByFieldResult>;
 	getEntity(id: string): Promise<Entity | null>;
+	/** Resolve a pinned historical revision snapshot. */
+	getEntityRevision(
+		id: string,
+		entityRevision: number,
+	): Promise<EntityRevisionSnapshot | null>;
 	listEntities(
 		schemaId: string,
 		datasetId: string,

@@ -1,5 +1,13 @@
 # Capabilities
 
+> **Status: architectural vision / partially unrealized.**
+>
+> This document describes the capability *idea*: schemas declare behaviour, runtimes and products implement it.
+> Listing a capability here does **not** mean Core implements it today, and does **not** imply every capability belongs in Core.
+>
+> Implementations follow the promotion ladder: product-local → experimental shared capability → candidate → Core only when proven fundamental.
+> See [`COMPETITIVE_GUARDRAILS.md`](COMPETITIVE_GUARDRAILS.md), [`PLATFORM_VALIDATION.md`](PLATFORM_VALIDATION.md), [`PRODUCT_STRATEGY.md`](PRODUCT_STRATEGY.md), [`Phase5.md`](../Phase5.md).
+
 > Capabilities define what an Entity can do.
 >
 > Schemas describe what an Entity is.
@@ -24,11 +32,12 @@ Aurii takes a different approach.
 
 Behavior is declarative.
 
-Schemas declare capabilities.
+Schemas may declare capabilities.
 
-Core implements capabilities.
+**Proven, fundamental** capabilities may execute in Core.
+Others stay product-local, live as plugins/extensions, or remain Experimental / Candidate until reuse is proven.
 
-Applications consume capabilities.
+Applications and products consume declared behaviour through public APIs — they do not invent private forks of Core contracts when a shared capability already exists.
 
 ---
 
@@ -72,9 +81,9 @@ capabilities:
 - localization
 ```
 
-Core understands capabilities.
+Where a capability is registered and proven, Core (or a shared package) understands it.
 
-Applications never inspect entity types.
+Applications should prefer capability/schema contracts over hardcoding entity-type special cases — without requiring every product behaviour to live in Core first.
 
 ---
 
@@ -104,7 +113,12 @@ Every application observes the same behavior.
 
 Capabilities fall into categories.
 
+> Listing a category does **not** mean Core implements it. Prefer maturity labels:
+> Implemented / Beta / Designed / Planned / Visionary / Product-local candidate.
+
 ## Lifecycle
+
+> **Maturity: product-local candidate for draft/publish; Planned as generic capability exploration (ADR-0010).** Not automatically Core-owned.
 
 Examples:
 
@@ -128,6 +142,8 @@ schedule
 
 ## Versioning
 
+> **Maturity: Pre–Phase 5 implements `entityRevision` + snapshots for concurrency/pinned refs. Full authored revision/publication UX is Planned.** See [`HISTORY_MODEL.md`](HISTORY_MODEL.md).
+
 Examples:
 
 ```
@@ -142,9 +158,13 @@ compare
 rollback
 ```
 
+Do not collapse provenance, audit, revision, and publication into one generic “history” capability.
+
 ---
 
 ## Localization
+
+> **Maturity: visionary / product-local until proven across products.**
 
 Examples:
 
@@ -161,6 +181,8 @@ locale inheritance
 ---
 
 ## Workflow
+
+> **Maturity: product-local candidate. Do not promote into Core for Editorial alone.**
 
 Examples:
 
@@ -388,15 +410,17 @@ Core does not need to know them beforehand.
 
 # Runtime
 
-Capabilities execute inside Core.
+Capabilities may execute in Core when they are fundamental and proven.
 
-Schemas declare them.
+Schemas declare them when behaviour is declarative.
 
-Core enforces them.
+Core enforces Core-owned capabilities.
 
-Applications consume them.
+Applications and products consume public contracts.
 
-No application should implement capability logic independently.
+Products **may** implement product-local behaviour until promotion is justified.
+Do not fork or bypass Core contracts when a shared capability already exists.
+Do **not** treat publish, workflow, comments, localization, or similar commodity CMS features as automatically Core-owned — apply the Kyro test first.
 
 ---
 
@@ -450,7 +474,8 @@ Toolbar
 Action
 ```
 
-Adding a new capability automatically enables new UI.
+Studio may *eventually* map known capabilities to UI via configuration and extensions ([ADR-0020](../adr/ADR-0020%20—%20Extensible%20Studio.md)).
+Automatic UI for every capability is **not** guaranteed and must not imply Studio is a universal CMS.
 
 ---
 
@@ -590,10 +615,23 @@ The second question scales indefinitely.
 
 Schemas define structure.
 
-Capabilities define behavior.
+Capabilities define behavior where behaviour is declarative and reusable.
 
-Core executes behavior.
+Core executes **proven fundamental** behaviour.
 
-Applications observe behavior.
+Applications and products observe public contracts.
 
-Every new feature should first be considered a Capability before becoming hardcoded functionality.
+Every new feature should first be considered as:
+
+1. product-local behaviour, or
+2. a Capability / plugin / extension,
+
+before becoming hardcoded Core functionality.
+
+Do **not** skip the promotion ladder:
+
+```text
+product-local → experimental shared → candidate → Core only if fundamental
+```
+
+Commodity CMS capabilities stay outside Core by default ([`COMPETITIVE_GUARDRAILS.md`](COMPETITIVE_GUARDRAILS.md)).

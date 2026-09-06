@@ -72,6 +72,8 @@ Single-schema filter / sort / limit was already partially pushed to SQL (Phase 3
 
 **One-sentence honesty:** Aurii Query Language and delivery are correct at Norwegian Geo scale (~18k entities, largest schema ~5.7k). They are **not ready** for million-row joins, million-row offset pagination, or a tax-list dump over a published route.
 
+Pre–Phase 5 architecture readiness (schema evolution, optimistic concurrency, operations) does **not** claim these scale limitations are solved.
+
 ---
 
 ## Named next bottlenecks

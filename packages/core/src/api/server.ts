@@ -8,6 +8,8 @@
  *   GET  /schemas/:id?dataset=
  *   GET  /entities?schema=&dataset=&limit=&offset=
  *   GET  /entities/:id
+ *   PUT  /entities/:id            { data, expectedRevision, state? }
+ *   GET  /entities/:id/revisions/:revision
  *   GET  /query?q=&dataset=
  *   POST /import/analyze          (multipart file upload)
  *   POST /import/run              { uploadId, schemaId, datasetId, mapping, transforms, dryRun }
@@ -32,7 +34,10 @@ import { listCapabilities } from "../capabilities/registry";
 import { getPlatformStore } from "../platform/store";
 import { getImportScheduler } from "../schedule/scheduler";
 import { isDatasetError } from "../dataset/errors";
-import { countEntities, getEntity, listEntities } from "../entity/store";
+import { countEntities, getEntity, getEntityRevision, listEntities, updateEntity } from "../entity/store";
+import {
+	isConcurrencyConflictError,
+} from "../entity/revision";
 import { analyzeContent } from "../import/analyze";
 import { loadImportDefinition, runImport } from "../import/engine";
 import type {
@@ -236,8 +241,81 @@ export function buildApp(options: AppOptions = {}) {
 							set.status = 404;
 							return { error: `Entity "${params.id}" not found` };
 						}
+						set.headers["ETag"] = `"${entity.entityRevision}"`;
 						return entity;
 					})
+					.put("/entities/:id", async ({ params, body, set }) => {
+						const payload = body as {
+							data?: Record<string, unknown>;
+							expectedRevision?: number;
+							state?: "active" | "archived" | "deleted";
+							schemaVersion?: number;
+						};
+						if (!payload?.data || typeof payload.data !== "object") {
+							set.status = 400;
+							return { error: 'Body must include "data" object' };
+						}
+						if (
+							typeof payload.expectedRevision !== "number" ||
+							!Number.isInteger(payload.expectedRevision)
+						) {
+							set.status = 400;
+							return {
+								error: 'Body must include integer "expectedRevision"',
+							};
+						}
+						try {
+							const entity = await updateEntity(params.id, {
+								data: payload.data,
+								expectedRevision: payload.expectedRevision,
+								...(payload.state !== undefined ? { state: payload.state } : {}),
+								...(payload.schemaVersion !== undefined
+									? { schemaVersion: payload.schemaVersion }
+									: {}),
+							});
+							set.headers["ETag"] = `"${entity.entityRevision}"`;
+							return entity;
+						} catch (error) {
+							if (isConcurrencyConflictError(error)) {
+								set.status = 409;
+								return {
+									error: {
+										code: error.code,
+										message: error.message,
+										expectedRevision: error.expectedRevision,
+										currentRevision: error.currentRevision,
+										entityId: error.entityId,
+									},
+								};
+							}
+							if (
+								error instanceof Error &&
+								error.message.includes("not found")
+							) {
+								set.status = 404;
+								return { error: error.message };
+							}
+							throw error;
+						}
+					})
+					.get(
+						"/entities/:id/revisions/:revision",
+						async ({ params, set }) => {
+							const revision = Number.parseInt(params.revision, 10);
+							if (!Number.isInteger(revision) || revision < 1) {
+								set.status = 400;
+								return { error: "Invalid revision" };
+							}
+							const snapshot = await getEntityRevision(params.id, revision);
+							if (!snapshot) {
+								set.status = 404;
+								return {
+									error: `Revision ${revision} not found for entity "${params.id}"`,
+								};
+							}
+							return snapshot;
+						},
+					)
 
 					// Query
 					.get("/query", async ({ query, dataset, set }) => {

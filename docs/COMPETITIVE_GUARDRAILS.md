@@ -463,6 +463,10 @@ This ladder is the operational form of Constitution Article 24 and the Experimen
 
 Prefer an ADR before moving a capability across a Core boundary.
 
+### Product package isolation
+
+Future product apps (including Editorial) must not import `@aurii/core` / `@aurii/db`. Enforce via architecture tests and package dependencies. Canonical note: [`PRODUCT_STRATEGY.md`](PRODUCT_STRATEGY.md) and [`Phase5.md`](../Phase5.md).
+
 ---
 
 ## Rejection examples

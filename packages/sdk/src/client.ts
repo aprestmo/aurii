@@ -14,6 +14,8 @@ import type {
 	DatasetInput,
 	Entity,
 	EntityPage,
+	EntityRevisionSnapshot,
+	EntityUpdateInput,
 	HealthResponse,
 	ImportResult,
 	ImportRunRecord,
@@ -27,7 +29,7 @@ import type {
 	StoredSchema,
 	UpdateDatasetInput,
 } from "./types";
-import { AuriiError } from "./types";
+import { AuriiError, ConcurrencyConflictError } from "./types";
 
 // ── HTTP Transport ────────────────────────────────────────────────────────────
 
@@ -55,17 +57,46 @@ async function request<T>(
 
 	if (!res.ok) {
 		let message = `Request failed: ${res.status}`;
+		let code: string | undefined;
+		let expectedRevision: number | undefined;
+		let currentRevision: number | undefined;
+		let entityId: string | undefined;
 		try {
 			const err = (await res.json()) as {
-				error?: string | { message?: string; code?: string };
+				error?:
+					| string
+					| {
+							message?: string;
+							code?: string;
+							expectedRevision?: number;
+							currentRevision?: number;
+							entityId?: string;
+					  };
 			};
 			if (typeof err.error === "string") {
 				message = err.error;
 			} else if (err.error?.message) {
 				message = err.error.message;
+				code = err.error.code;
+				expectedRevision = err.error.expectedRevision;
+				currentRevision = err.error.currentRevision;
+				entityId = err.error.entityId;
 			}
 		} catch {
 			// ignore JSON parse failure
+		}
+		if (
+			res.status === 409 &&
+			(code === "concurrency_conflict" ||
+				(expectedRevision !== undefined && currentRevision !== undefined))
+		) {
+			throw new ConcurrencyConflictError(
+				message,
+				expectedRevision ?? -1,
+				currentRevision ?? -1,
+				entityId,
+				res.status,
+			);
 		}
 		throw new AuriiError(message, res.status);
 	}
@@ -287,6 +318,24 @@ function buildEntitiesApi(
 		},
 		get(id: string): Promise<Entity> {
 			return request(baseUrl, `/entities/${encodeURIComponent(id)}`, token);
+		},
+		update(id: string, input: EntityUpdateInput): Promise<Entity> {
+			return request(
+				baseUrl,
+				`/entities/${encodeURIComponent(id)}`,
+				token,
+				{ method: "PUT", body: JSON.stringify(input) },
+			);
+		},
+		getRevision(
+			id: string,
+			entityRevision: number,
+		): Promise<EntityRevisionSnapshot> {
+			return request(
+				baseUrl,
+				`/entities/${encodeURIComponent(id)}/revisions/${entityRevision}`,
+				token,
+			);
 		},
 	};
 }

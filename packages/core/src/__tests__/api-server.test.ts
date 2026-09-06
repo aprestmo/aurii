@@ -422,3 +422,59 @@ describe("CORS", () => {
 		expect(res.headers.get("access-control-allow-origin")).toBe("*");
 	});
 });
+
+describe("PUT /entities/:id optimistic concurrency", () => {
+	it("updates with expectedRevision and rejects stale writes with 409", async () => {
+		const app = buildApp({ uploadDir });
+		await app.handle(
+			req("POST", "/schemas", {
+				body: articleSchema,
+			}),
+		);
+
+		// Create via import path is heavy; use storage create through temporary import
+		// Prefer direct create via Core in a thin HTTP-less helper — insert through
+		// schema + in-process store is not exposed; use POST isn't available for create.
+		// Seed using Core createEntity import.
+		const { createEntity } = await import("../entity/store");
+		const entity = await createEntity({
+			schemaId: "article",
+			data: { title: "Hello", author: "Ada", views: 1 },
+		});
+		expect(entity.entityRevision).toBe(1);
+
+		const ok = await app.handle(
+			req("PUT", `/entities/${entity.id}`, {
+				body: {
+					data: { title: "Hello 2", author: "Ada", views: 2 },
+					expectedRevision: 1,
+				},
+			}),
+		);
+		expect(ok.status).toBe(200);
+		const updated = await json(ok);
+		expect(updated.entityRevision).toBe(2);
+		expect(ok.headers.get("etag")).toBe('"2"');
+
+		const stale = await app.handle(
+			req("PUT", `/entities/${entity.id}`, {
+				body: {
+					data: { title: "stale", author: "Ada", views: 3 },
+					expectedRevision: 1,
+				},
+			}),
+		);
+		expect(stale.status).toBe(409);
+		const err = await json(stale);
+		expect(err.error.code).toBe("concurrency_conflict");
+		expect(err.error.currentRevision).toBe(2);
+
+		const pinned = await app.handle(
+			req("GET", `/entities/${entity.id}/revisions/1`),
+		);
+		expect(pinned.status).toBe(200);
+		const snap = await json(pinned);
+		expect(snap.data.title).toBe("Hello");
+		expect(snap.entityRevision).toBe(1);
+	});
+});

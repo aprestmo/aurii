@@ -38,7 +38,9 @@ export type {
 	DatasetInput,
 	Entity,
 	EntityPage,
+	EntityRevisionSnapshot,
 	EntityState,
+	EntityUpdateInput,
 	FieldDefinition,
 	FieldTransform,
 	FieldType,
@@ -55,4 +57,4 @@ export type {
 	StoredSchema,
 	UpdateDatasetInput,
 } from "./types";
-export { AuriiError } from "./types";
+export { AuriiError, ConcurrencyConflictError } from "./types";

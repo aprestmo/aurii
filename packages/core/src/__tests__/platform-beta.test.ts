@@ -307,7 +307,7 @@ describe("published routes", () => {
 		expect(JSON.stringify(result!.data)).not.toContain("nope");
 	});
 
-	test("private route requires auth", async () => {
+	test("private route is not available on the public delivery surface", async () => {
 		const { project } = await setup();
 		await registerSchema(
 			{
@@ -333,7 +333,10 @@ describe("published routes", () => {
 		});
 		await expect(
 			routes.execute(project.id, "/counties", { authenticated: false }),
-		).rejects.toMatchObject({ status: 401 });
+		).rejects.toMatchObject({ status: 403, code: "forbidden" });
+		await expect(
+			routes.execute(project.id, "/counties", { authenticated: true }),
+		).rejects.toMatchObject({ status: 403, code: "forbidden" });
 	});
 
 	test("invalid route cannot be activated when schema missing", async () => {

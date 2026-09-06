@@ -1,5 +1,7 @@
 import { afterEach, describe, expect, test } from "bun:test";
-import { resolve } from "node:path";
+import { readFile } from "node:fs/promises";
+import { parse } from "yaml";
+import { EXTERNAL_PRODUCT_ROOT } from "../../../../tests/fixtures/external-product/paths";
 import {
 	applyProjectPackage,
 	closeStorage,
@@ -19,60 +21,29 @@ import {
 	resetProjectService,
 } from "../index";
 
-const DEMO = resolve(import.meta.dir, "../../../../demo/norwegian-geo");
+const FIXTURE = EXTERNAL_PRODUCT_ROOT;
 
-describe("materializeProjectPackage / applyProjectPackage (N3)", () => {
+describe("materializeProjectPackage / applyProjectPackage", () => {
 	afterEach(async () => {
 		await closeStorage().catch(() => undefined);
 		resetPlatformStore();
 		resetProjectService();
 	});
 
-	test("Norwegian Geo package materializes core and module ops resources", async () => {
-		const pkg = await loadProjectPackage(DEMO);
+	test("external-product fixture materializes sources, imports, and routes", async () => {
+		const pkg = await loadProjectPackage(FIXTURE);
 		const plan = await materializeProjectPackage(pkg);
 
-		expect(pkg.config.id).toBe("norwegian-geo");
-		expect(plan.projectSlug).toBe("norge-data");
-		expect(plan.datasetId).toBe("norwegian-geo");
-
-		const sourceIds = plan.sources.map((s) => s.id);
-		expect(sourceIds).toEqual(
-			expect.arrayContaining([
-				"kartverket",
-				"bring",
-				"udir-nsr",
-				"udir-nbr",
-				"brreg",
-				"nager-date",
-			]),
-		);
-
-		const importIds = plan.imports.map((i) => i.id);
-		expect(importIds).toEqual(
-			expect.arrayContaining([
-				"counties",
-				"municipalities",
-				"postal-codes",
-				"postal-codes-nightly",
-				"schools",
-				"kindergartens",
-				"hospitals",
-				"public-holidays",
-			]),
-		);
-
-		expect(plan.imports.find((i) => i.id === "schools")?.payload.definitionPath).toContain(
-			"modules/education/imports/schools.yaml",
-		);
-		expect(plan.routes.map((r) => r.id)).toEqual(
-			expect.arrayContaining([
-				"counties",
-				"municipalities",
-				"municipality-by-id",
-				"postal-codes",
-			]),
-		);
+		expect(pkg.config.id).toBe("external-catalog");
+		expect(plan.projectSlug).toBe("catalog");
+		expect(plan.datasetId).toBe("catalog");
+		expect(plan.sources.map((s) => s.id)).toEqual(["catalog-file"]);
+		expect(plan.imports.map((i) => i.id)).toEqual(["regions", "cities"]);
+		expect(plan.routes.map((r) => r.id)).toEqual([
+			"regions",
+			"cities",
+			"city-by-id",
+		]);
 	});
 
 	test("applyProjectPackage is idempotent for sources and saved imports", async () => {
@@ -80,7 +51,7 @@ describe("materializeProjectPackage / applyProjectPackage (N3)", () => {
 		process.env["AURII_DB_PATH"] = ":memory:";
 		await closeStorage().catch(() => undefined);
 
-		const pkg = await loadProjectPackage(DEMO);
+		const pkg = await loadProjectPackage(FIXTURE);
 		const repo = new MemoryProjectRepository();
 		const projects = createProjectService(repo);
 		configureProjectService(projects);
@@ -88,13 +59,12 @@ describe("materializeProjectPackage / applyProjectPackage (N3)", () => {
 
 		const storage = await getStorage();
 		const project = await projects.createProject({
-			name: "Norge Data",
-			slug: "norge-data",
-			description: "n3 apply",
+			name: "Catalog",
+			slug: "catalog",
 		});
 		await storage.createDataset({
-			id: "norwegian-geo",
-			name: "Norwegian Public Reference Data",
+			id: "catalog",
+			name: "Catalog",
 			projectId: project.id,
 		});
 
@@ -110,12 +80,14 @@ describe("materializeProjectPackage / applyProjectPackage (N3)", () => {
 			routes,
 			strictRoutes: false,
 		});
-		expect(first.events.filter((e) => e.kind === "source" && e.outcome === "created").length).toBe(
-			6,
-		);
-		expect(first.events.filter((e) => e.kind === "import" && e.outcome === "created").length).toBe(
-			8,
-		);
+		expect(
+			first.events.filter((e) => e.kind === "source" && e.outcome === "created")
+				.length,
+		).toBe(1);
+		expect(
+			first.events.filter((e) => e.kind === "import" && e.outcome === "created")
+				.length,
+		).toBe(2);
 
 		const second = await applyProjectPackage({
 			pkg,
@@ -125,25 +97,20 @@ describe("materializeProjectPackage / applyProjectPackage (N3)", () => {
 			routes,
 			strictRoutes: false,
 		});
-		expect(second.events.filter((e) => e.kind === "source").every((e) => e.outcome === "exists")).toBe(
-			true,
-		);
-		expect(second.events.filter((e) => e.kind === "import").every((e) => e.outcome === "exists")).toBe(
-			true,
-		);
-
-		const listed = await sources.list(project.id, "norwegian-geo");
-		expect(listed.map((s) => s.id)).toEqual(
-			expect.arrayContaining(["kartverket", "udir-nsr", "brreg", "nager-date"]),
-		);
+		expect(
+			second.events.filter((e) => e.kind === "source").every((e) => e.outcome === "exists"),
+		).toBe(true);
+		expect(
+			second.events.filter((e) => e.kind === "import").every((e) => e.outcome === "exists"),
+		).toBe(true);
 	});
 
-	test("applyProjectPackage upserts routes after core schemas are registered", async () => {
+	test("applyProjectPackage upserts routes after schemas are registered", async () => {
 		process.env["AURII_STORAGE"] = "sqlite";
 		process.env["AURII_DB_PATH"] = ":memory:";
 		await closeStorage().catch(() => undefined);
 
-		const pkg = await loadProjectPackage(DEMO);
+		const pkg = await loadProjectPackage(FIXTURE);
 		const repo = new MemoryProjectRepository();
 		const projects = createProjectService(repo);
 		configureProjectService(projects);
@@ -151,21 +118,18 @@ describe("materializeProjectPackage / applyProjectPackage (N3)", () => {
 
 		const storage = await getStorage();
 		const project = await projects.createProject({
-			name: "Norge Data",
-			slug: "norge-data",
-			description: "n3 routes",
+			name: "Catalog",
+			slug: "catalog",
 		});
 		await storage.createDataset({
-			id: "norwegian-geo",
-			name: "Norwegian Public Reference Data",
+			id: "catalog",
+			name: "Catalog",
 			projectId: project.id,
 		});
 
-		const { readFile } = await import("node:fs/promises");
-		const { parse } = await import("yaml");
 		for (const schemaPath of pkg.schemaPaths) {
 			const def = parse(await readFile(schemaPath, "utf-8"));
-			await registerSchema(def, "norwegian-geo");
+			await registerSchema(def, "catalog");
 		}
 
 		const result = await applyProjectPackage({
@@ -175,8 +139,9 @@ describe("materializeProjectPackage / applyProjectPackage (N3)", () => {
 			imports: createSavedImportService(),
 			routes: createPublishedRouteService(),
 		});
-		expect(result.events.filter((e) => e.kind === "route" && e.outcome === "upserted").length).toBe(
-			pkg.routes.length,
-		);
+		expect(
+			result.events.filter((e) => e.kind === "route" && e.outcome === "upserted")
+				.length,
+		).toBe(pkg.routes.length);
 	});
 });

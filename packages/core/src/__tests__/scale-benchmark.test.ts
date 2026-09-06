@@ -1,53 +1,49 @@
 /**
- * N4 scale honesty: measure Norwegian Geo query sizes on the real API surface
- * (`executeQuery` → planner → storage). Timings are logged; assertions use
- * generous bounds so CI does not flake. Recorded numbers live in docs/SCALE.md.
+ * Scale honesty: measure query sizes on the real API surface with synthetic
+ * catalog data. Does not keep Norwegian geography in Aurii.
+ *
+ * Recorded numbers for the extracted product live in that product's repo.
+ * This file keeps a generic CI bound so Core does not silently regress.
  */
 
 import { afterEach, beforeEach, describe, expect, test } from "bun:test";
-import { join, resolve } from "node:path";
-import { loadImportDefinition, runImport } from "../import/engine";
 import { executeQuery } from "../query/executor";
 import { resetProjectService } from "../project/runtime";
 import { registerSchema } from "../schema/registry";
 import type { SchemaDefinition } from "../schema/types";
 import { closeStorage, getStorage } from "../storage";
 
-const ROOT = resolve(import.meta.dir, "../../../..");
 const DATASET = "n4-scale";
-const CORE = join(ROOT, "demo/norwegian-geo/core");
+const REGION_COUNT = 20;
+const CITY_COUNT = 400;
+const PLACE_COUNT = 6000;
 
-const COUNTY: SchemaDefinition = {
-	id: "county",
-	name: "County",
+const REGION: SchemaDefinition = {
+	id: "region",
+	name: "Region",
 	fields: [
 		{ name: "id", type: "string", required: true },
 		{ name: "name", type: "string", required: true },
 	],
 };
 
-const MUNICIPALITY: SchemaDefinition = {
-	id: "municipality",
-	name: "Municipality",
+const CITY: SchemaDefinition = {
+	id: "city",
+	name: "City",
 	fields: [
 		{ name: "id", type: "string", required: true },
 		{ name: "name", type: "string", required: true },
-		{ name: "countyId", type: "reference", to: "county", required: true },
+		{ name: "regionId", type: "reference", to: "region", required: true },
 	],
 };
 
-const POSTAL: SchemaDefinition = {
-	id: "postal-code",
-	name: "Postal Code",
+const PLACE: SchemaDefinition = {
+	id: "place",
+	name: "Place",
 	fields: [
-		{ name: "code", type: "string", required: true },
-		{ name: "city", type: "string", required: true },
-		{
-			name: "municipalityId",
-			type: "reference",
-			to: "municipality",
-			required: true,
-		},
+		{ name: "id", type: "string", required: true },
+		{ name: "name", type: "string", required: true },
+		{ name: "cityId", type: "reference", to: "city", required: true },
 	],
 };
 
@@ -59,7 +55,7 @@ async function timeMs(label: string, fn: () => Promise<unknown>): Promise<number
 	return ms;
 }
 
-describe("N4 Norwegian Geo scale benchmark (SQLite)", () => {
+describe("N4 synthetic catalog scale benchmark (SQLite)", () => {
 	beforeEach(async () => {
 		delete process.env["DATABASE_URL"];
 		process.env["AURII_STORAGE"] = "sqlite";
@@ -68,15 +64,33 @@ describe("N4 Norwegian Geo scale benchmark (SQLite)", () => {
 		await closeStorage();
 		const storage = await getStorage();
 		await storage.createDataset({ id: DATASET, name: "N4 Scale" });
-		await registerSchema(COUNTY, DATASET);
-		await registerSchema(MUNICIPALITY, DATASET);
-		await registerSchema(POSTAL, DATASET);
-		const importsDir = join(CORE, "imports");
-		for (const name of ["counties", "municipalities", "postal-codes"]) {
-			const file = join(importsDir, `${name}.yaml`);
-			const def = await loadImportDefinition(file);
-			await runImport(def, resolve(file, ".."), { datasetId: DATASET });
-		}
+		await registerSchema(REGION, DATASET);
+		await registerSchema(CITY, DATASET);
+		await registerSchema(PLACE, DATASET);
+
+		const regions = Array.from({ length: REGION_COUNT }, (_, i) => ({
+			schemaId: "region",
+			data: { id: `r${String(i).padStart(2, "0")}`, name: `Region ${i}` },
+		}));
+		const cities = Array.from({ length: CITY_COUNT }, (_, i) => ({
+			schemaId: "city",
+			data: {
+				id: `c${String(i).padStart(4, "0")}`,
+				name: `City ${i}`,
+				regionId: `r${String(i % REGION_COUNT).padStart(2, "0")}`,
+			},
+		}));
+		const places = Array.from({ length: PLACE_COUNT }, (_, i) => ({
+			schemaId: "place",
+			data: {
+				id: `p${String(i).padStart(5, "0")}`,
+				name: `Place ${i}`,
+				cityId: `c${String(i % CITY_COUNT).padStart(4, "0")}`,
+			},
+		}));
+		await storage.insertEntities(regions, DATASET);
+		await storage.insertEntities(cities, DATASET);
+		await storage.insertEntities(places, DATASET);
 	});
 
 	afterEach(async () => {
@@ -87,75 +101,60 @@ describe("N4 Norwegian Geo scale benchmark (SQLite)", () => {
 	test("measured query sizes stay correct and within demo-scale bounds", async () => {
 		const storage = await getStorage();
 
-		const counties = await executeQuery("count county", DATASET);
-		const municipalities = await executeQuery("count municipality", DATASET);
-		const postal = await executeQuery("count postal-code", DATASET);
-		expect(counties.count).toBe(15);
-		expect(municipalities.count).toBe(357);
-		expect(postal.count).toBeGreaterThan(5000);
+		expect((await executeQuery("count region", DATASET)).count).toBe(REGION_COUNT);
+		expect((await executeQuery("count city", DATASET)).count).toBe(CITY_COUNT);
+		expect((await executeQuery("count place", DATASET)).count).toBe(PLACE_COUNT);
 
-		const countAllMs = await timeMs("count municipality", () =>
-			executeQuery("count municipality", DATASET),
+		const countAllMs = await timeMs("count city", () =>
+			executeQuery("count city", DATASET),
 		);
-		const countFilterMs = await timeMs(
-			'count municipality where countyId == "03"',
-			() => executeQuery('count municipality where countyId == "03"', DATASET),
+		const countFilterMs = await timeMs('count city where regionId == "r00"', () =>
+			executeQuery('count city where regionId == "r00"', DATASET),
 		);
-		const countPostalMs = await timeMs("count postal-code", () =>
-			executeQuery("count postal-code", DATASET),
+		const countPlaceMs = await timeMs("count place", () =>
+			executeQuery("count place", DATASET),
 		);
-		const joinMs = await timeMs("municipality join county (full)", () =>
+		const joinMs = await timeMs("city join region (full)", () =>
+			executeQuery("from city join region on city.regionId = region.id", DATASET),
+		);
+		const joinFilterMs = await timeMs("city join region where c0000", () =>
 			executeQuery(
-				"from municipality join county on municipality.countyId = county.id",
+				'from city join region on city.regionId = region.id where city.id == "c0000"',
 				DATASET,
 			),
 		);
-		const joinFilterMs = await timeMs("municipality join county where Oslo", () =>
-			executeQuery(
-				'from municipality join county on municipality.countyId = county.id where municipality.id == "0301"',
-				DATASET,
-			),
+		const pageMs = await timeMs("place limit 100 offset 5000", () =>
+			executeQuery("from place order by id asc limit 100 offset 5000", DATASET),
 		);
-		const pageMs = await timeMs("postal-code limit 100 offset 5000", () =>
-			executeQuery("from postal-code order by code asc limit 100 offset 5000", DATASET),
-		);
-		const lookupMs = await timeMs("findEntityByField municipality 0301", () =>
-			storage.findEntityByField("municipality", DATASET, "id", "0301"),
+		const lookupMs = await timeMs("findEntityByField city c0000", () =>
+			storage.findEntityByField("city", DATASET, "id", "c0000"),
 		);
 
-		const oslo = await executeQuery(
-			'count municipality where countyId == "03"',
+		const filtered = await executeQuery(
+			'count city where regionId == "r00"',
 			DATASET,
 		);
-		expect(oslo.count).toBeGreaterThan(0);
-		expect(oslo.count).toBeLessThan(357);
+		expect(filtered.count).toBe(CITY_COUNT / REGION_COUNT);
 
 		const joined = await executeQuery(
-			"from municipality join county on municipality.countyId = county.id",
+			"from city join region on city.regionId = region.id",
 			DATASET,
 		);
-		expect(joined.count).toBe(357);
-		expect(joined.entities[0]?.data["county.name"]).toBeDefined();
+		expect(joined.count).toBe(CITY_COUNT);
+		expect(joined.entities[0]?.data["region.name"]).toBeDefined();
 
 		const page = await executeQuery(
-			"from postal-code order by code asc limit 100 offset 5000",
+			"from place order by id asc limit 100 offset 5000",
 			DATASET,
 		);
-		expect(page.entities.length).toBeGreaterThan(0);
-		expect(page.entities.length).toBeLessThanOrEqual(100);
+		expect(page.entities.length).toBe(100);
 
-		const found = await storage.findEntityByField(
-			"municipality",
-			DATASET,
-			"id",
-			"0301",
-		);
+		const found = await storage.findEntityByField("city", DATASET, "id", "c0000");
 		expect(found?.data["name"]).toBeTruthy();
 
-		// Generous CI bounds — Norwegian Geo is the proven size, not tax-list.
 		expect(countAllMs).toBeLessThan(200);
 		expect(countFilterMs).toBeLessThan(200);
-		expect(countPostalMs).toBeLessThan(200);
+		expect(countPlaceMs).toBeLessThan(200);
 		expect(joinMs).toBeLessThan(500);
 		expect(joinFilterMs).toBeLessThan(500);
 		expect(pageMs).toBeLessThan(500);

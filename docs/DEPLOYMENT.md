@@ -1,41 +1,8 @@
 # Deployment
 
-## Geo demo (free — GitHub Pages)
+## Norwegian Geo (external product)
 
-The Norwegian geo website (`apps/geo`) is a **fully static** Astro site. It reads bundled JSON from `demo/norwegian-geo/core/data/` and `demo/norwegian-geo/modules/*/data/` at build time and needs no running API.
-
-### Live URL
-
-**https://aprestmo.github.io/aurii/**
-
-Deployed automatically when `main` changes (workflow: `.github/workflows/deploy-geo.yml`).
-
-### How it works
-
-- Workflow: `.github/workflows/deploy-geo.yml`
-- Triggers on push to `main` when `apps/geo/` or demo data changes
-- Builds with `ASTRO_BASE=/aurii/` for GitHub project pages
-- Deploys `apps/geo/dist` via GitHub Pages
-
-### One-time setup (repo admin)
-
-1. Open **Settings → Pages** on GitHub
-2. Under **Build and deployment**, set **Source** to **GitHub Actions**
-3. Merge a change to `main` (or run **Actions → Deploy Geo Demo → Run workflow**)
-
-Alternatively via CLI:
-
-```bash
-gh api repos/aprestmo/aurii/pages -X POST -f build_type=workflow
-```
-
-### Local preview (production paths)
-
-```bash
-cd apps/geo
-ASTRO_SITE=https://aprestmo.github.io ASTRO_BASE=/aurii/ bun run build
-bun run preview
-```
+Norwegian Geo is no longer deployed from this repository. The consumer site and project package live in [`aprestmo/norwegian-geo`](https://github.com/aprestmo/norwegian-geo) and consume Aurii through versioned packages and HTTP contracts. See [`EXTERNAL_CONSUMERS.md`](EXTERNAL_CONSUMERS.md).
 
 ---
 
@@ -43,8 +10,8 @@ bun run preview
 
 Studio and the Core API need a persistent backend (PostgreSQL + HTTP server). Free options for a future demo:
 
-| Platform | Geo site | Studio + Core |
-|----------|----------|-----------------|
+| Platform | Static product sites | Studio + Core |
+|----------|----------------------|-----------------|
 | GitHub Pages | Yes (static) | No |
 | Cloudflare Pages | Yes (static) | No |
 | Render | Static or Docker | Free web + Postgres (cold start) |
@@ -55,7 +22,7 @@ Recommended path when you want the dashboard live:
 
 1. Deploy Core + Postgres on **Render** or **Fly.io** (Dockerfiles in repo root)
 2. Point Studio `PUBLIC_AURII_API_URL` at the Core URL
-3. Run `bun run import:norwegian-geo` on first boot
+3. Register a project package and import its data on first boot
 
 Local full stack:
 
@@ -71,14 +38,3 @@ Operational contracts (startup order, migrations, backup/restore, health checks,
 - Persistence proof: `bun run ops:persistence-proof`
 
 Do not promise HA, SLA, or zero-downtime deploys from this documentation.
----
-
-## Cloudflare Pages (alternative for geo)
-
-Connect the GitHub repo in Cloudflare Pages:
-
-- **Build command:** `cd apps/geo && bun install && ASTRO_SITE=https://<your-subdomain>.pages.dev ASTRO_BASE=/ bun run build`
-- **Build output:** `apps/geo/dist`
-- **Root directory:** `/` (monorepo — set build command as above)
-
-No base path prefix needed if using a custom `*.pages.dev` subdomain at root.

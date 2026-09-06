@@ -23,7 +23,9 @@ RUN bun install --frozen-lockfile
 FROM oven/bun:1
 WORKDIR /app
 
-COPY --from=deps /app/node_modules ./node_modules
+# Full workspace install first so package-local node_modules (postgres, etc.)
+# survive the source overlay. Root node_modules alone is not enough for Bun.
+COPY --from=deps /app /app
 COPY package.json bun.lock ./
 COPY packages/types ./packages/types
 COPY packages/validation ./packages/validation

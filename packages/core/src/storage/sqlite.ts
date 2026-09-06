@@ -314,6 +314,10 @@ export class SqliteAdapter implements StorageAdapter {
 		this.db.close();
 	}
 
+	async ping(): Promise<void> {
+		this.db.query("SELECT 1").get();
+	}
+
 	// ── Datasets ───────────────────────────────────────────────────────────────
 
 	private mapDatasetRow(row: {

@@ -198,7 +198,7 @@ bun test packages/core/src/__tests__/dataset-service.test.ts
 # HTTP routes
 bun run --filter='@aurii/api' test
 
-# Migration (requires DATABASE_URL)
+# Migration (DATABASE_URL is required; the migrate entrypoint has no default credentials)
 bun run --filter='@aurii/db' test
 ```
 

@@ -27,7 +27,8 @@ Project packages: [`adr/ADR-0014 — Project Configuration Package.md`](adr/ADR-
 **External consumers:** [`docs/EXTERNAL_CONSUMERS.md`](docs/EXTERNAL_CONSUMERS.md).  
 **Phase 4 (complete):** [`Phase4.md`](Phase4.md).  
 **Phase 5 (planned):** [`Phase5.md`](Phase5.md) — Editorial & Context; not implemented.  
-**Pre–Phase 5 contracts:** [`docs/SCHEMA_EVOLUTION.md`](docs/SCHEMA_EVOLUTION.md), [`docs/HISTORY_MODEL.md`](docs/HISTORY_MODEL.md), [`docs/TEMPORAL_REFERENCES.md`](docs/TEMPORAL_REFERENCES.md), [`docs/OPERATIONS.md`](docs/OPERATIONS.md).
+**Pre–Phase 5 contracts:** [`docs/SCHEMA_EVOLUTION.md`](docs/SCHEMA_EVOLUTION.md), [`docs/HISTORY_MODEL.md`](docs/HISTORY_MODEL.md), [`docs/TEMPORAL_REFERENCES.md`](docs/TEMPORAL_REFERENCES.md), [`docs/OPERATIONS.md`](docs/OPERATIONS.md), [`docs/DEPLOYMENT.md`](docs/DEPLOYMENT.md).  
+**Phase 4.6 (external runtime):** [`docs/validation/PHASE_4_6_EXTERNAL_RUNTIME.md`](docs/validation/PHASE_4_6_EXTERNAL_RUNTIME.md).
 
 ---
 
@@ -136,6 +137,7 @@ Norwegian Geo is Aurii’s first external downstream/reference product. The tree
 |-------|--------|--------|
 | Phase 1–3 | Import, storage, query, references | Complete |
 | Phase 4 | Data products, Studio ops, published routes, live delivery, scale honesty | **Complete** — [`Phase4.md`](Phase4.md), [`docs/DELIVERY.md`](docs/DELIVERY.md), [`docs/SCALE.md`](docs/SCALE.md) |
+| Phase 4.6 | Persistent runtime deployment (Postgres, HTTPS-ready, CORS/auth, backup) | **In-repo / CI** — [`docs/DEPLOYMENT.md`](docs/DEPLOYMENT.md), [`docs/validation/PHASE_4_6_EXTERNAL_RUNTIME.md`](docs/validation/PHASE_4_6_EXTERNAL_RUNTIME.md) |
 | Phase 5 | Editorial & Context (separate client on generic Core) | **Planned** — [`Phase5.md`](Phase5.md) |
 
 ### Repository layout

@@ -81,6 +81,8 @@ export interface StorageAdapter {
 
 	init(): Promise<void>;
 	close(): Promise<void>;
+	/** Cheap connectivity probe for /health. Throws when the engine is unreachable. */
+	ping(): Promise<void>;
 
 	// Datasets
 	createDataset(input: DatasetInput): Promise<Dataset>;

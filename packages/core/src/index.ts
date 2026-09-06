@@ -189,6 +189,25 @@ export type {
 // HTTP (for apps/api composition)
 export { buildApp } from "./api/server";
 export type { AppOptions } from "./api/server";
+export {
+	assertRuntimeConfigOrExit,
+	attachShutdownHandlers,
+	buildHealthReport,
+	corsOriginOption,
+	isProductionEnv,
+	publicInternalErrorMessage,
+	resolveCorsPolicy,
+	resolveRuntimeIdentity,
+	RuntimeConfigError,
+	validateRuntimeConfig,
+} from "./runtime";
+export type {
+	CorsPolicy,
+	HealthBody,
+	HealthReport,
+	RuntimeConfig,
+	RuntimeIdentity,
+} from "./runtime";
 // Project package configuration
 export {
 	applyProjectPackage,

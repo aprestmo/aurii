@@ -4,7 +4,7 @@
 >
 > Phase 4 proved Norwegian Geo **inside** the monorepo. Extracting it tests whether the same product can consume Aurii only through supported package and HTTP contracts.
 
-Related: [`PACKAGES.md`](PACKAGES.md), [`PROJECT_PACKAGES.md`](PROJECT_PACKAGES.md), [`DELIVERY.md`](DELIVERY.md), [`PLATFORM_VALIDATION.md`](PLATFORM_VALIDATION.md), [`NORWEGIAN_GEO.md`](NORWEGIAN_GEO.md).
+Related: [`PACKAGES.md`](PACKAGES.md), [`PROJECT_PACKAGES.md`](PROJECT_PACKAGES.md), [`DELIVERY.md`](DELIVERY.md), [`DEPLOYMENT.md`](DEPLOYMENT.md), [`PLATFORM_VALIDATION.md`](PLATFORM_VALIDATION.md), [`NORWEGIAN_GEO.md`](NORWEGIAN_GEO.md), [`validation/PHASE_4_6_EXTERNAL_RUNTIME.md`](validation/PHASE_4_6_EXTERNAL_RUNTIME.md).
 
 ---
 

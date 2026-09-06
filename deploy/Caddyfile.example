@@ -1,0 +1,21 @@
+# Example HTTPS terminator in front of the Aurii reference compose.
+# Hostnames are examples — do not hardcode these into Core.
+#
+#   api.example      → core :3000
+#   studio.example   → studio :4321
+#
+# Protect Studio at the edge (basic auth, IP allow-list, or VPN) if Core
+# operator login is not enough for a public hostname.
+
+api.example {
+	encode gzip
+	reverse_proxy 127.0.0.1:3000
+}
+
+studio.example {
+	encode gzip
+	# basicauth * {
+	#	operator $2a$14$replace_with_caddy_hash
+	# }
+	reverse_proxy 127.0.0.1:4321
+}

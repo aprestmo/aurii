@@ -1,5 +1,6 @@
-# Aurii Core — Docker image
-# Multi-stage: install workspace deps, then run @aurii/api
+# Aurii Runtime / API — production image
+# Multi-stage: install workspace deps, then run @aurii/api.
+# Does not copy product datasets, Studio, or repository-local demo paths.
 
 FROM oven/bun:1 AS deps
 WORKDIR /app
@@ -10,11 +11,12 @@ COPY packages/db/package.json ./packages/db/
 COPY packages/types/package.json ./packages/types/
 COPY packages/validation/package.json ./packages/validation/
 COPY packages/sdk/package.json ./packages/sdk/
+COPY packages/studio/package.json ./packages/studio/
 COPY apps/api/package.json ./apps/api/
-
-RUN mkdir -p apps/studio apps/geo && \
-  printf '{"name":"@aurii/studio","private":true}\n' > apps/studio/package.json && \
-  printf '{"name":"@aurii/geo","private":true}\n' > apps/geo/package.json
+COPY apps/studio/package.json ./apps/studio/
+COPY apps/geo/package.json ./apps/geo/
+COPY demo/norwegian-geo/package.json ./demo/norwegian-geo/
+COPY tests/fixtures/external-product/package.json ./tests/fixtures/external-product/
 
 RUN bun install --frozen-lockfile
 
@@ -29,12 +31,23 @@ COPY packages/db ./packages/db
 COPY packages/core ./packages/core
 COPY apps/api ./apps/api
 
-ENV PORT=3000
-ENV AURII_STORAGE=postgres
+ARG AURII_VERSION=0.1.0
+ARG AURII_GIT_SHA=unknown
+ARG AURII_BUILD_TIME=unknown
+
+ENV AURII_VERSION=$AURII_VERSION \
+    AURII_GIT_SHA=$AURII_GIT_SHA \
+    AURII_BUILD_TIME=$AURII_BUILD_TIME \
+    AURII_STORAGE=postgres \
+    PORT=3000
 
 EXPOSE 3000
 
-HEALTHCHECK --interval=10s --timeout=5s --retries=5 \
-  CMD curl -f http://localhost:3000/health || exit 1
+# Writable uploads only when AURII_UPLOAD_DIR is set (default /tmp/aurii-uploads).
+ENV AURII_UPLOAD_DIR=/tmp/aurii-uploads
 
+HEALTHCHECK --interval=10s --timeout=5s --retries=5 \
+  CMD bun -e 'const r = await fetch("http://127.0.0.1:" + (process.env.PORT ?? "3000") + "/health"); if (!r.ok) process.exit(1)'
+
+# Serve only. Run migrations as a separate container/command before start.
 CMD ["bun", "run", "apps/api/src/index.ts"]

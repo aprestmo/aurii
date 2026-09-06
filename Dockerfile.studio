@@ -1,26 +1,41 @@
-# Aurii Studio — Docker image
-# Builds the Astro static site and serves it with a minimal HTTP server.
+# Aurii Studio — static operator workspace
+# Bakes PUBLIC_AURII_CORE_URL at build time. Do not embed API tokens.
 
 FROM oven/bun:1 AS builder
 WORKDIR /app
 
-# Install deps
-COPY apps/studio/package.json apps/studio/bun.lock* ./
-# Also need the SDK package for workspace resolution
-COPY packages/sdk/ /sdk/
-RUN bun install
+COPY package.json bun.lock ./
+COPY packages/sdk/package.json ./packages/sdk/
+COPY packages/studio/package.json ./packages/studio/
+COPY packages/types/package.json ./packages/types/
+COPY packages/validation/package.json ./packages/validation/
+COPY packages/core/package.json ./packages/core/
+COPY packages/db/package.json ./packages/db/
+COPY apps/studio/package.json ./apps/studio/
+COPY apps/api/package.json ./apps/api/
+COPY apps/geo/package.json ./apps/geo/
+COPY demo/norwegian-geo/package.json ./demo/norwegian-geo/
+COPY tests/fixtures/external-product/package.json ./tests/fixtures/external-product/
 
-COPY apps/studio/ .
+RUN bun install --frozen-lockfile
+
+COPY packages/sdk ./packages/sdk
+COPY packages/studio ./packages/studio
+COPY packages/types ./packages/types
+COPY apps/studio ./apps/studio
+
+ARG PUBLIC_AURII_CORE_URL=http://localhost:3000
+ENV PUBLIC_AURII_CORE_URL=$PUBLIC_AURII_CORE_URL
+ENV AURII_CORE_URL=$PUBLIC_AURII_CORE_URL
+
+WORKDIR /app/apps/studio
 RUN bun run build
-
-# ── Static server ─────────────────────────────────────────────────────────────
-# Serve the built dist/ using a lightweight static file server
 
 FROM oven/bun:1
 WORKDIR /app
 
-COPY --from=builder /app/dist ./dist
+COPY --from=builder /app/apps/studio/dist ./dist
 
 EXPOSE 4321
 
-CMD ["bun", "--eval", "Bun.serve({ port: 4321, fetch: async (req) => { const url = new URL(req.url); let path = url.pathname === '/' ? '/index.html' : url.pathname; if (!path.includes('.')) path += '/index.html'; const file = Bun.file('./dist' + path); if (await file.exists()) return new Response(file); return new Response(await Bun.file('./dist/404.html').text(), { status: 404 }); } })"]
+CMD ["bun", "--eval", "Bun.serve({ port: 4321, fetch: async (req) => { const url = new URL(req.url); let path = url.pathname === '/' ? '/index.html' : url.pathname; if (!path.includes('.')) path += '/index.html'; const file = Bun.file('./dist' + path); if (await file.exists()) return new Response(file); const missing = Bun.file('./dist/404.html'); if (await missing.exists()) return new Response(await missing.text(), { status: 404 }); return new Response('Not Found', { status: 404 }); } })"]

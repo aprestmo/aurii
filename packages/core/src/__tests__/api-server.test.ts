@@ -51,6 +51,11 @@ beforeEach(async () => {
 	process.env["AURII_STORAGE"] = "sqlite";
 	process.env["AURII_DB_PATH"] = ":memory:";
 	delete process.env["DATABASE_URL"];
+	delete process.env["AURII_CORS_ORIGINS"];
+	delete process.env["AURII_ENV"];
+	delete process.env["AURII_VERSION"];
+	delete process.env["AURII_GIT_SHA"];
+	delete process.env["AURII_BUILD_TIME"];
 	resetProjectService();
 	resetImportScheduler();
 	uploadDir = await mkdtemp(join(tmpdir(), "aurii-api-test-"));
@@ -74,6 +79,8 @@ const articleSchema = {
 
 describe("GET /health", () => {
 	it("returns 200 without requiring auth, even when a token is configured", async () => {
+		process.env["AURII_VERSION"] = "0.1.0-test";
+		process.env["AURII_GIT_SHA"] = "deadbeef";
 		const app = buildApp({ apiToken: "secret", uploadDir });
 		const res = await app.handle(req("GET", "/health"));
 		expect(res.status).toBe(200);
@@ -83,7 +90,21 @@ describe("GET /health", () => {
 			storage: "sqlite",
 			scheduler: { enabled: false },
 			platformStore: { mode: "memory" },
+			database: { connected: true },
+			release: { version: "0.1.0-test", gitSha: "deadbeef" },
 		});
+	});
+
+	it("returns 503 when postgres is configured without DATABASE_URL", async () => {
+		process.env["AURII_STORAGE"] = "postgres";
+		delete process.env["DATABASE_URL"];
+		await closeStorage();
+		const app = buildApp({ uploadDir });
+		const res = await app.handle(req("GET", "/health"));
+		expect(res.status).toBe(503);
+		const body = await json(res);
+		expect(body.status).toBe("unavailable");
+		expect(body.database.connected).toBe(false);
 	});
 });
 
@@ -416,10 +437,58 @@ describe("POST /import — Phase 1 compatibility", () => {
 });
 
 describe("CORS", () => {
-	it("adds Access-Control-Allow-Origin to responses", async () => {
+	it("defaults to wildcard Access-Control-Allow-Origin in development", async () => {
 		const app = buildApp({ uploadDir });
 		const res = await app.handle(req("GET", "/health"));
 		expect(res.headers.get("access-control-allow-origin")).toBe("*");
+	});
+
+	it("reflects an allowed origin and answers preflight", async () => {
+		process.env["AURII_CORS_ORIGINS"] = "https://geo.example";
+		const app = buildApp({ apiToken: "secret", uploadDir });
+		const preflight = await app.handle(
+			req("OPTIONS", "/schemas", {
+				headers: {
+					origin: "https://geo.example",
+					"access-control-request-method": "GET",
+					"access-control-request-headers": "authorization",
+				},
+			}),
+		);
+		expect(preflight.status).toBeLessThan(400);
+		expect(preflight.headers.get("access-control-allow-origin")).toBe(
+			"https://geo.example",
+		);
+
+		const allowed = await app.handle(
+			req("GET", "/schemas", {
+				headers: {
+					origin: "https://geo.example",
+					authorization: "Bearer secret",
+				},
+			}),
+		);
+		expect(allowed.status).toBe(200);
+		expect(allowed.headers.get("access-control-allow-origin")).toBe(
+			"https://geo.example",
+		);
+	});
+
+	it("does not grant CORS to an unapproved origin on protected APIs", async () => {
+		process.env["AURII_CORS_ORIGINS"] = "https://geo.example";
+		const app = buildApp({ apiToken: "secret", uploadDir });
+		const res = await app.handle(
+			req("GET", "/schemas", {
+				headers: {
+					origin: "https://evil.example",
+					authorization: "Bearer secret",
+				},
+			}),
+		);
+		expect(res.status).toBe(200);
+		const allowed = res.headers.get("access-control-allow-origin");
+		expect(allowed).not.toBe("*");
+		expect(allowed).not.toBe("https://evil.example");
 	});
 });
 

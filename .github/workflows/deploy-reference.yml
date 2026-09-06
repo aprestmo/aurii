@@ -1,0 +1,47 @@
+name: Reference runtime image
+
+# Build the production-shaped Aurii image. Does not auto-deploy to a host
+# and does not use Norwegian Geo source. An operator runs:
+#   build → migrate → start → health
+# on the reference host. See docs/DEPLOYMENT.md.
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - "Dockerfile.core"
+      - "Dockerfile.studio"
+      - "deploy/**"
+      - "apps/api/**"
+      - "packages/core/**"
+      - "packages/db/**"
+      - "packages/types/**"
+      - "packages/validation/**"
+      - "scripts/ci-runtime-container.sh"
+      - ".github/workflows/deploy-reference.yml"
+
+permissions:
+  contents: read
+
+jobs:
+  image:
+    name: build runtime image
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Build Core image
+        run: |
+          docker build \
+            -f Dockerfile.core \
+            --build-arg AURII_VERSION=0.1.0 \
+            --build-arg AURII_GIT_SHA="${GITHUB_SHA}" \
+            --build-arg AURII_BUILD_TIME="$(date -u +%Y-%m-%dT%H:%M:%SZ)" \
+            -t "aurii-core:${GITHUB_SHA}" \
+            .
+
+      - name: Deploy note
+        run: |
+          echo "Image built. Reference deploy remains a manual host operation."
+          echo "Do not treat this workflow as a production control plane."

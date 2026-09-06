@@ -123,8 +123,9 @@ describe("Phase 3 — Relational Core", () => {
 	});
 
 	it("rejects rows with missing references in strict mode", async () => {
-		const tmpPath = join(ROOT, "tmp-bad-ref.json");
-		await Bun.write(
+		const tmp = await mkdtemp(join(tmpdir(), "aurii-bad-ref-"));
+		const tmpPath = join(tmp, "bad-ref.json");
+		await writeFile(
 			tmpPath,
 			JSON.stringify([{ id: "ghost", name: "Ghost", regionId: "missing" }]),
 		);
@@ -147,7 +148,7 @@ describe("Phase 3 — Relational Core", () => {
 					],
 				},
 			},
-			ROOT,
+			tmp,
 			{ datasetId: DATASET },
 		);
 		expect(result.failed).toBeGreaterThan(0);

@@ -23,6 +23,8 @@ Optional authoring decision: [`adr/ADR-0010 — Optional Authoring Layer.md`](ad
 Project packages: [`adr/ADR-0014 — Project Configuration Package.md`](adr/ADR-0014%20—%20Project%20Configuration%20Package.md).  
 **Delivery contract:** [`docs/DELIVERY.md`](docs/DELIVERY.md).  
 **Scale honesty:** [`docs/SCALE.md`](docs/SCALE.md).  
+**Public packages (experimental 0.x):** [`docs/PACKAGES.md`](docs/PACKAGES.md).  
+**External consumers:** [`docs/EXTERNAL_CONSUMERS.md`](docs/EXTERNAL_CONSUMERS.md).  
 **Phase 4 (complete):** [`Phase4.md`](Phase4.md).  
 **Phase 5 (planned):** [`Phase5.md`](Phase5.md) — Editorial & Context; not implemented.  
 **Pre–Phase 5 contracts:** [`docs/SCHEMA_EVOLUTION.md`](docs/SCHEMA_EVOLUTION.md), [`docs/HISTORY_MODEL.md`](docs/HISTORY_MODEL.md), [`docs/TEMPORAL_REFERENCES.md`](docs/TEMPORAL_REFERENCES.md), [`docs/OPERATIONS.md`](docs/OPERATIONS.md).
@@ -122,7 +124,7 @@ bun run studio:build           # static Studio for hosting
 
 Do **not** put API tokens into a public Studio build.
 
-Norwegian Geo project package: `demo/norwegian-geo/aurii.config.ts`.
+Norwegian Geo is Aurii’s first external downstream/reference product. The tree is still in this monorepo (`demo/norwegian-geo`, `apps/geo`) pending extraction to [`aprestmo/norwegian-geo`](https://github.com/aprestmo/norwegian-geo). Aurii CI no longer builds Geo; platform coverage uses `tests/fixtures/external-product/`. See [`docs/EXTERNAL_CONSUMERS.md`](docs/EXTERNAL_CONSUMERS.md).
 
 ---
 
@@ -142,7 +144,7 @@ Norwegian Geo project package: `demo/norwegian-geo/aurii.config.ts`.
 apps/
   api/             @aurii/api         — HTTP API + published public routes
   studio/          @aurii/studio-app  — Astro data workspace
-  geo/             @aurii/geo         — Norwegian Geo consumer (Core/snapshots)
+  geo/             @aurii/geo         — Norwegian Geo consumer (pending extraction)
 packages/
   core/            @aurii/core        — Runtime + defineProject / defineRoute
   studio/          @aurii/studio      — defineStudio helpers
@@ -150,7 +152,8 @@ packages/
   types/           @aurii/types       — Shared domain types
   validation/      @aurii/validation  — Shared validation
   db/              @aurii/db          — Drizzle schema / migrations
-demo/norwegian-geo/                   — Reference project package + product.yaml
+demo/norwegian-geo/                   — Reference project package (pending extraction)
+tests/fixtures/external-product/      — Generic external-consumer contract fixture
 ```
 
 Projects: [`docs/PROJECTS.md`](docs/PROJECTS.md). Studio: [`docs/Studio.md`](docs/Studio.md).

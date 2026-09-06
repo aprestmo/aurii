@@ -95,6 +95,7 @@ Aurii Core remains a **general-purpose information platform**.
 - Core does not assume records are articles, pages, or media documents.
 - Core does not encode newsroom, magazine, report, or other product-domain workflow.
 - Developers should be able to evaluate, self-host, understand, and build a genuinely useful product on Core.
+- That product should be able to live in its own repository and consume Core through versioned packages and HTTP — see [`EXTERNAL_CONSUMERS.md`](EXTERNAL_CONSUMERS.md).
 
 Publishing, news, and magazine are important early validation domains because of existing experience. They must not define the limits of Core.
 

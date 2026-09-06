@@ -20,7 +20,7 @@ published route / Query API / @aurii/sdk
 independent frontend
 ```
 
-`apps/geo` is the reference consumer. **Studio is not required** for frontend delivery and must not sit on this path.
+`apps/geo` is the in-tree reference consumer pending extraction to [`aprestmo/norwegian-geo`](https://github.com/aprestmo/norwegian-geo). Aurii CI proves the same path with `tests/fixtures/external-product/`. **Studio is not required** for frontend delivery and must not sit on this path. See [`EXTERNAL_CONSUMERS.md`](EXTERNAL_CONSUMERS.md).
 
 ---
 

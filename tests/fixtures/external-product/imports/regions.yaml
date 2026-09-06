@@ -1,0 +1,17 @@
+id: import-regions
+name: Import Regions
+description: Fixture import for the generic external-product contract
+schema: region
+dataset: catalog
+deduplicateBy: id
+source:
+  type: json
+  path: ../data/regions.json
+pipeline:
+  steps:
+    - type: map
+      mapping:
+        id: id
+        name: name
+    - type: validate
+    - type: persist

@@ -138,7 +138,7 @@ A project package is **not** a Core Project row, **not** a Product, and **not** 
 
 ### Dataset
 
-A logical data boundary inside Core. Entities and schemas are scoped to a dataset (owned by a Project). Norwegian Geo uses dataset id `norwegian-geo`. A product may use one dataset or several; a dataset alone is not a product.
+A logical data boundary inside Core. Entities and schemas are scoped to a dataset (owned by a Project). Norwegian Geo uses dataset id `norwegian-geo` (product pending extraction to `aprestmo/norwegian-geo`). A product may use one dataset or several; a dataset alone is not a product.
 
 **Status:** implemented.
 

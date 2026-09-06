@@ -1,0 +1,18 @@
+id: import-cities
+name: Import Cities
+description: Fixture import for the generic external-product contract
+schema: city
+dataset: catalog
+deduplicateBy: id
+source:
+  type: json
+  path: ../data/cities.json
+pipeline:
+  steps:
+    - type: map
+      mapping:
+        id: id
+        name: name
+        regionId: regionId
+    - type: validate
+    - type: persist

@@ -43,16 +43,16 @@ describe("product-client boundary", () => {
 		);
 	});
 
-	test("Geo product libraries do not import Core/DB/Studio", async () => {
-		const files = [
-			"apps/geo/src/lib/live.ts",
-			"apps/geo/src/lib/data.ts",
-		];
-		for (const file of files) {
-			const source = await sourceOf(file);
-			assertNoForbiddenImports(source, file);
-		}
-		const live = await sourceOf("apps/geo/src/lib/live.ts");
+	test("no in-repo product client imports Core/DB/Studio", async () => {
+		// Norwegian Geo left the monorepo. The fixture consumer is the
+		// remaining product-client surface Aurii CI owns.
+		const live = await sourceOf(
+			"tests/fixtures/external-product/consumer.ts",
+		);
 		expect(live).toContain('from "@aurii/sdk"');
+		assertNoForbiddenImports(
+			live,
+			"tests/fixtures/external-product/consumer.ts",
+		);
 	});
 });

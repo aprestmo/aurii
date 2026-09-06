@@ -1,9 +1,10 @@
 /**
- * N3: registerProjectPackage is the shared HTTP path used by
- * `bun run register:norwegian-geo-platform`.
+ * registerProjectPackage is the shared HTTP path external products use.
  */
 
 import { afterEach, describe, expect, test } from "bun:test";
+import { readFile } from "node:fs/promises";
+import { parse } from "yaml";
 import {
 	closeStorage,
 	configurePlatformStore,
@@ -19,24 +20,24 @@ import {
 	resetProjectService,
 } from "@aurii/core";
 import { buildApiApp } from "../server";
-import { PRODUCT_ROOT } from "../../../../demo/norwegian-geo/lib/paths";
+import { EXTERNAL_PRODUCT_ROOT } from "../../../../tests/fixtures/external-product/paths";
 
-const DEMO = PRODUCT_ROOT;
+const FIXTURE = EXTERNAL_PRODUCT_ROOT;
 const MOCK_BASE = "http://localhost:3000";
 
-describe("registerProjectPackage HTTP helper (N3)", () => {
+describe("registerProjectPackage HTTP helper", () => {
 	afterEach(async () => {
 		await closeStorage().catch(() => undefined);
 		resetPlatformStore();
 		resetProjectService();
 	});
 
-	test("registers NG sources, module imports, and routes against Core", async () => {
+	test("registers fixture sources, imports, and routes against Core", async () => {
 		process.env["AURII_STORAGE"] = "sqlite";
 		process.env["AURII_DB_PATH"] = ":memory:";
 		await closeStorage().catch(() => undefined);
 
-		const pkg = await loadProjectPackage(DEMO);
+		const pkg = await loadProjectPackage(FIXTURE);
 		const repo = new MemoryProjectRepository();
 		const projects = createProjectService(repo);
 		configureProjectService(projects);
@@ -44,21 +45,18 @@ describe("registerProjectPackage HTTP helper (N3)", () => {
 
 		const storage = await getStorage();
 		const project = await projects.createProject({
-			name: "Norge Data",
-			slug: "norge-data",
-			description: "n3 register",
+			name: "Catalog",
+			slug: "catalog",
 		});
 		await storage.createDataset({
-			id: "norwegian-geo",
-			name: "Norwegian Public Reference Data",
+			id: "catalog",
+			name: "Catalog",
 			projectId: project.id,
 		});
 
-		const { readFile } = await import("node:fs/promises");
-		const { parse } = await import("yaml");
 		for (const schemaPath of pkg.schemaPaths) {
 			const def = parse(await readFile(schemaPath, "utf-8"));
-			await registerSchema(def, "norwegian-geo");
+			await registerSchema(def, "catalog");
 		}
 
 		const app = buildApiApp({
@@ -81,43 +79,43 @@ describe("registerProjectPackage HTTP helper (N3)", () => {
 			pkg,
 			coreUrl: MOCK_BASE,
 			fetch: fetchImpl,
-			project: { name: "Norge Data", slug: "norge-data" },
+			project: { name: "Catalog", slug: "catalog" },
 		});
 
-		expect(first.project.slug).toBe("norge-data");
-		expect(first.events.some((e) => e.kind === "source" && e.id === "udir-nsr" && e.outcome === "created")).toBe(
-			true,
-		);
-		expect(first.events.some((e) => e.kind === "import" && e.id === "schools" && e.outcome === "created")).toBe(
-			true,
-		);
-		expect(first.events.some((e) => e.kind === "import" && e.id === "hospitals" && e.outcome === "created")).toBe(
-			true,
-		);
-		expect(first.events.filter((e) => e.kind === "route" && e.outcome === "upserted").length).toBe(
-			pkg.routes.length,
-		);
+		expect(first.project.slug).toBe("catalog");
+		expect(
+			first.events.some(
+				(e) => e.kind === "source" && e.id === "catalog-file" && e.outcome === "created",
+			),
+		).toBe(true);
+		expect(
+			first.events.some(
+				(e) => e.kind === "import" && e.id === "cities" && e.outcome === "created",
+			),
+		).toBe(true);
+		expect(
+			first.events.filter((e) => e.kind === "route" && e.outcome === "upserted")
+				.length,
+		).toBe(pkg.routes.length);
 
 		const second = await registerProjectPackage({
 			pkg,
 			coreUrl: MOCK_BASE,
 			fetch: fetchImpl,
-			project: { name: "Norge Data", slug: "norge-data" },
+			project: { name: "Catalog", slug: "catalog" },
 		});
-		expect(second.events.filter((e) => e.kind === "source").every((e) => e.outcome === "exists")).toBe(
-			true,
-		);
-		expect(second.events.filter((e) => e.kind === "import").every((e) => e.outcome === "exists")).toBe(
-			true,
-		);
+		expect(
+			second.events.filter((e) => e.kind === "source").every((e) => e.outcome === "exists"),
+		).toBe(true);
+		expect(
+			second.events.filter((e) => e.kind === "import").every((e) => e.outcome === "exists"),
+		).toBe(true);
 
 		const listed = await app.handle(
 			new Request(`http://localhost/api/projects/${project.id}/sources`),
 		);
 		expect(listed.status).toBe(200);
 		const body = (await listed.json()) as { data: Array<{ id: string }> };
-		expect(body.data.map((s) => s.id)).toEqual(
-			expect.arrayContaining(["kartverket", "udir-nsr", "brreg", "nager-date"]),
-		);
+		expect(body.data.map((s) => s.id)).toContain("catalog-file");
 	});
 });

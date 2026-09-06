@@ -338,7 +338,7 @@ Older split (still valid themes, superseded in order by the doc above):
 
 Authoring, newsroom, and LiveCenter wait for later phases. The post–Phase 4 Editorial + Context hypothesis is captured in [`Phase5.md`](Phase5.md) (planning only).
 
-**External-consumer follow-up (not a Phase 4 reopen):** extracting Norwegian Geo to `aprestmo/norwegian-geo` tests whether the Phase 4 product can live outside the monorepo. See [`docs/EXTERNAL_CONSUMERS.md`](docs/EXTERNAL_CONSUMERS.md). Historical Phase 4 paths (`apps/geo`, `demo/norwegian-geo`) remain true of what Phase 4 shipped.
+**External-consumer follow-up (not a Phase 4 reopen):** Norwegian Geo now lives at [`aprestmo/norwegian-geo`](https://github.com/aprestmo/norwegian-geo) and consumes Aurii through versioned packages and HTTP contracts. See [`docs/EXTERNAL_CONSUMERS.md`](docs/EXTERNAL_CONSUMERS.md). Historical Phase 4 paths (`apps/geo`, `demo/norwegian-geo`) remain true of what Phase 4 shipped; they are no longer in this repository.
 
 ---
 

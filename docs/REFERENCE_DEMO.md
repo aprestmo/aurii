@@ -11,38 +11,29 @@
 **Norwegian Geo** is Aurii's primary real-world reference implementation — a reusable Norwegian reference data product, not just a demo.
 
 ```
-Kartverket + Bring + UDIR + Brreg  →  import  →  storage  →  query  →  API  →  SDK  →  Studio / apps/geo
+Kartverket + Bring + UDIR + Brreg  →  import  →  storage  →  query  →  API  →  SDK  →  Studio / norwegian-geo web
 ```
 
-**Delivery note:** `apps/geo` live mode reads Core published routes via `@aurii/sdk` when `AURII_CORE_URL` is set. Snapshots are an explicit offline/build-time mode (`AURII_DELIVERY_MODE=snapshot`). Contract: [`docs/DELIVERY.md`](DELIVERY.md). Integration test: `apps/api/src/__tests__/live-geo-delivery.test.ts`.
+**Delivery note:** The product lives at [`aprestmo/norwegian-geo`](https://github.com/aprestmo/norwegian-geo). Live mode reads Core published routes via `@aurii/sdk`. Snapshots are an explicit offline/build-time mode. Contract: [`docs/DELIVERY.md`](DELIVERY.md). Aurii CI uses `tests/fixtures/external-product/`.
 
 ### Three layers
 
 ```
 Aurii Core (packages/core)
         ↓
-Norwegian Geo Core (demo/norwegian-geo/core/)
+Norwegian Geo Core (aprestmo/norwegian-geo project/core/)
         ↓
-Dataset Modules (demo/norwegian-geo/modules/)
+Dataset Modules (aprestmo/norwegian-geo project/modules/)
 ```
 
 | Component | Path |
 |-----------|------|
-| Product manifest | `demo/norwegian-geo/product.yaml` |
+| Product repository | [aprestmo/norwegian-geo](https://github.com/aprestmo/norwegian-geo) |
 | Architecture guide | `docs/NORWEGIAN_GEO.md` |
-| Norwegian Geo Core | `demo/norwegian-geo/core/` |
-| Dataset modules | `demo/norwegian-geo/modules/` |
-| Fetch / import scripts | `demo/norwegian-geo/scripts/` |
-| Dataset survey & strategy | `docs/Public Reference Datasets.md` |
-| Import | `bun run import:norwegian-geo` |
-| Refresh from live APIs | `bun run fetch:norwegian-geo` |
+| External-consumer contract | `docs/EXTERNAL_CONSUMERS.md` |
+| Generic CI fixture | `tests/fixtures/external-product/` |
 | Core integration tests | `packages/core/src/__tests__/vertical-slice.test.ts` |
-| Public reference datasets test | `packages/core/src/__tests__/public-reference-datasets.test.ts` |
-| Route feasibility tests | `packages/core/src/__tests__/geo-website-routes.test.ts` |
-| Live API import test | `packages/core/src/__tests__/norwegian-geo-import.test.ts` |
 | SDK vertical slice | `packages/sdk/src/__tests__/vertical-slice.test.ts` |
-| Live geo delivery (N1) | `apps/geo/src/__tests__/live-geo-delivery.integration.test.ts` |
-| Public website demo | `apps/geo` |
 | Phase 3 relational tests | `packages/core/src/__tests__/phase-3-relational.test.ts` |
 
 ---
@@ -73,23 +64,13 @@ Dataset ID: **`norwegian-geo`**
 ## Quick commands
 
 ```bash
-# Import into SQLite (local dev)
-bun run import:norwegian-geo
+# Platform contract tests (this repo)
+bun test tests/architecture tests/pack
+cd packages/core && bun test src/__tests__/external-product-contract.test.ts
 
-# Import into PostgreSQL (after docker compose up)
-AURII_STORAGE=postgres \
-  DATABASE_URL=postgres://aurii:aurii@localhost:5432/aurii \
-  bun run import:norwegian-geo
-
-# Run all integration tests
-bun run test
-
-# Run geo website demo
-cd apps/geo && bun run dev    # http://localhost:4322
-cd apps/geo && bun run build
-
-# Studio
-# Open http://localhost:4321/login → dataset: norwegian-geo
+# Product (separate repo)
+# git clone https://github.com/aprestmo/norwegian-geo.git
+# bun install && bun run import && bun run test && bun run build
 ```
 
 ---
@@ -98,14 +79,11 @@ cd apps/geo && bun run build
 
 Use this checklist:
 
-1. **Does it affect Core geography?** → Extend `demo/norwegian-geo/core/`
-2. **Does it affect a domain dataset?** → Add or extend a module under `demo/norwegian-geo/modules/`
-3. **Does it affect import?** → Update `product.yaml`, `lib/manifest.ts`, and `scripts/import.ts`; add tests in `vertical-slice.test.ts` or `public-reference-datasets.test.ts`
-3b. **Does it add a shipped module to Studio?** → Add source/import descriptors to `aurii.config.ts` and collections to `studio/studio.config.ts`; register via `registerProjectPackage`
-4. **Does it affect query?** → Add cases to `geo-website-routes.test.ts` using real county/municipality IDs
-5. **Does it affect the API/SDK?** → Extend `packages/sdk/src/__tests__/vertical-slice.test.ts`
-6. **Does it affect public consumers?** → Update `apps/geo`
-7. **Does it affect Studio?** → Verify against dataset `norwegian-geo` after import
+1. **Does it affect Core geography?** → No. Core must stay generic. Product work belongs in `aprestmo/norwegian-geo`.
+2. **Does it affect a domain dataset?** → Add or extend a module in `aprestmo/norwegian-geo`.
+3. **Does it affect import/query/API/SDK contracts?** → Extend `tests/fixtures/external-product/` and `vertical-slice` / `external-product-contract` tests.
+4. **Does it affect public consumers?** → Update `aprestmo/norwegian-geo`.
+5. **Does it affect Studio?** → Point `AURII_PROJECT_ROOT` at a project package (fixture or the external product).
 
 ### Test IDs (stable)
 
@@ -129,7 +107,7 @@ bun run cli query 'from school where municipalityId == "0301" limit 10' --datase
 
 ---
 
-## Website routes (`apps/geo`)
+## Website routes ([`aprestmo/norwegian-geo`](https://github.com/aprestmo/norwegian-geo) `apps/web`)
 
 | Route | Description |
 |-------|-------------|
@@ -139,7 +117,7 @@ bun run cli query 'from school where municipalityId == "0301" limit 10' --datase
 | `/skoler/`, `/barnehager/`, `/sykehus/`, `/helligdager/` | Module datasets |
 | `/historikk/` | Historical admin (from `core/historical/data/`) |
 
-Build validates routes resolve. See `apps/geo/README.md`.
+Build validates routes resolve in the Norwegian Geo repository.
 
 ---
 
@@ -150,7 +128,7 @@ Build validates routes resolve. See `apps/geo/README.md`.
 - Features explicitly deferred past Phase 4 (full RBAC, plugins as production, AI as production, CMS/LiveCenter)
 - Domain-specific Core hacks — behaviour belongs in schemas, imports, or the Norwegian Geo product
 
-Product composition: `demo/norwegian-geo/product.yaml`. Model: `docs/PRODUCT_MODEL.md`.
+Product composition: [`aprestmo/norwegian-geo`](https://github.com/aprestmo/norwegian-geo) `project/product.yaml`. Model: `docs/PRODUCT_MODEL.md`.
 
 ---
 
@@ -159,10 +137,11 @@ Product composition: `demo/norwegian-geo/product.yaml`. Model: `docs/PRODUCT_MOD
 Refresh data periodically from authoritative sources:
 
 ```bash
-bun run fetch:norwegian-geo
-bun run import:norwegian-geo
+# in aprestmo/norwegian-geo
+bun run fetch
+bun run import
 bun run test
-cd apps/geo && bun run build
+bun run build
 ```
 
-Commit updated snapshots under `demo/norwegian-geo/core/data/` and `demo/norwegian-geo/modules/*/data/` when sources publish changes.
+Commit updated snapshots under `project/core/data/` and `project/modules/*/data/` in that repository when sources publish changes.

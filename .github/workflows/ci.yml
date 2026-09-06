@@ -73,6 +73,8 @@ jobs:
       - name: Install SDK dependencies
         working-directory: packages/sdk
         run: bun install --frozen-lockfile
+      # Isolated install + tsc on src only. Tests stay out of typecheck: client.test.ts
+      # imports apps/api and would otherwise resolve a second Elysia copy.
       - name: Typecheck
         working-directory: packages/sdk
         run: bun run typecheck

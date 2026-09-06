@@ -53,7 +53,7 @@ export default defineProject({
 
 `version: 1` is applied by `defineProject`. Paths are relative to the package root. Invalid or duplicate references fail at load/validate time ([ADR-0014](../adr/ADR-0014%20—%20Project%20Configuration%20Package.md)).
 
-Reference package: `demo/norwegian-geo/aurii.config.ts`.
+Reference package: `demo/norwegian-geo/aurii.config.ts` (pending move to `aprestmo/norwegian-geo`). Generic CI stand-in: `tests/fixtures/external-product/aurii.config.ts`. See [`EXTERNAL_CONSUMERS.md`](EXTERNAL_CONSUMERS.md).
 
 ---
 

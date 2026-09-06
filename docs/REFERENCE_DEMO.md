@@ -1,6 +1,6 @@
 # Reference Demo Project
 
-> **For AI agents:** Norwegian Geo is the canonical demo for validating **import, schema, query, storage, SDK, and delivery**. Read this before adding those capabilities. Also see **Reference Verticals** in `AGENTS.md`, [`docs/NORWEGIAN_GEO.md`](NORWEGIAN_GEO.md), and [`docs/PRODUCT_MODEL.md`](PRODUCT_MODEL.md).
+> **For AI agents:** Norwegian Geo is the first real-world reference **product** for import, schema, query, storage, SDK, and delivery. New **platform contract** tests should use `tests/fixtures/external-product/` (see [`EXTERNAL_CONSUMERS.md`](EXTERNAL_CONSUMERS.md)). Also see **Reference Verticals** in `AGENTS.md`, [`docs/NORWEGIAN_GEO.md`](NORWEGIAN_GEO.md), and [`docs/PRODUCT_MODEL.md`](PRODUCT_MODEL.md).
 >
 > Norwegian Geo does **not** validate authoring, drafts, publishing, preview, workflow, or media. Those belong to a future Editorial vertical after Phase 4 — [`Phase5.md`](../Phase5.md) (planned only). Do not invent editorial Core features to compensate.
 

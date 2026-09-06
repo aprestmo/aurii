@@ -2,6 +2,21 @@
 	"name": "@aurii/db",
 	"version": "0.1.0",
 	"description": "Aurii database schema, migrations, and seed (Drizzle)",
+	"license": "UNLICENSED",
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/aprestmo/aurii.git",
+		"directory": "packages/db"
+	},
+	"publishConfig": {
+		"access": "public"
+	},
+	"files": [
+		"src",
+		"!src/**/__tests__",
+		"scripts",
+		"README.md"
+	],
 	"module": "src/index.ts",
 	"main": "src/index.ts",
 	"type": "module",

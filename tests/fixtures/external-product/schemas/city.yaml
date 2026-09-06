@@ -1,0 +1,18 @@
+id: city
+name: City
+description: Neutral city that references a region
+version: 1
+fields:
+  - name: id
+    type: string
+    required: true
+    label: City id
+  - name: name
+    type: string
+    required: true
+    label: City name
+  - name: regionId
+    type: reference
+    to: region
+    required: true
+    label: Region

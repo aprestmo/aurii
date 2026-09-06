@@ -2,6 +2,20 @@
 	"name": "@aurii/validation",
 	"version": "0.1.0",
 	"description": "Aurii shared validation helpers",
+	"license": "UNLICENSED",
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/aprestmo/aurii.git",
+		"directory": "packages/validation"
+	},
+	"publishConfig": {
+		"access": "public"
+	},
+	"files": [
+		"src",
+		"!src/**/__tests__",
+		"README.md"
+	],
 	"module": "src/index.ts",
 	"main": "src/index.ts",
 	"type": "module",

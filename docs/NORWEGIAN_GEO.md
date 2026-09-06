@@ -1,6 +1,8 @@
 # Norwegian Geo — Reference Data Product
 
-> Norwegian Geo is Aurii's primary real-world reference implementation and a reusable Norwegian reference data platform built on top of Aurii.
+> Norwegian Geo is Aurii's first **external** downstream/reference product — a reusable Norwegian reference data platform built on top of Aurii.
+>
+> Phase 4 proved it inside this monorepo. Extraction to [`aprestmo/norwegian-geo`](https://github.com/aprestmo/norwegian-geo) tests whether the same product can consume Aurii only through versioned packages and HTTP contracts. Until that repository is the live product home, the in-tree paths below remain accurate. Aurii CI no longer builds `apps/geo`; generic coverage is [`tests/fixtures/external-product/`](../tests/fixtures/external-product/) and [`EXTERNAL_CONSUMERS.md`](EXTERNAL_CONSUMERS.md).
 >
 > It is a **data product without a CMS**: imports → Core → API/SDK → consumers. Studio is used only as a generic developer/operator data workspace. See [`docs/PRODUCT_MODEL.md`](PRODUCT_MODEL.md) and [`docs/PRODUCT_STRATEGY.md`](PRODUCT_STRATEGY.md).
 
@@ -242,7 +244,7 @@ Norwegian Geo is structured so it can eventually deploy independently:
 - **Frontend:** `apps/geo` (Astro) via `@aurii/sdk` published routes against Core, or committed snapshots as an explicit offline/build-time mode ([`docs/DELIVERY.md`](DELIVERY.md))
 - **Hosting:** Docker, Coolify, self-hosted
 
-The product boundary is `demo/norwegian-geo/` plus its consumer apps. Aurii Core is the engine behind it. Product composition: `product.yaml` (convention). Package ops: `aurii.config.ts` + `registerProjectPackage`. No Product Runtime.
+The product boundary is `demo/norwegian-geo/` plus its consumer apps (moving to `aprestmo/norwegian-geo`). Aurii Core is the engine behind it. Product composition: `product.yaml` (convention). Package ops: `aurii.config.ts` + `registerProjectPackage`. No Product Runtime.
 
 ---
 

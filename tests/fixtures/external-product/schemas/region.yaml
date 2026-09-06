@@ -1,0 +1,13 @@
+id: region
+name: Region
+description: Neutral geographic region for the external-product contract fixture
+version: 1
+fields:
+  - name: id
+    type: string
+    required: true
+    label: Region id
+  - name: name
+    type: string
+    required: true
+    label: Region name

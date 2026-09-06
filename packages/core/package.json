@@ -2,6 +2,21 @@
   "name": "@aurii/core",
   "version": "0.3.0",
   "description": "Aurii Core — Declarative Runtime for Structured Knowledge",
+  "license": "UNLICENSED",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/aprestmo/aurii.git",
+    "directory": "packages/core"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "files": [
+    "src",
+    "!src/**/__tests__",
+    "examples",
+    "README.md"
+  ],
   "module": "src/index.ts",
   "type": "module",
   "exports": {

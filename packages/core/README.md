@@ -2,7 +2,7 @@
 
 > Aurii Core Runtime — schema-driven, import-first, storage-agnostic. Same entity model for structured data, editorial content, and hybrids.
 >
-> **Status:** Phase 3 complete (relational references, joins, query planner). Next: [`Phase4.md`](../../Phase4.md). Product model: [`docs/PRODUCT_MODEL.md`](../../docs/PRODUCT_MODEL.md). Fitness tests: [`docs/ARCHITECTURE_FITNESS.md`](../../docs/ARCHITECTURE_FITNESS.md).
+> **Status:** Phase 4 complete. Experimental pack/publish: [`docs/PACKAGES.md`](../../docs/PACKAGES.md). Product model: [`docs/PRODUCT_MODEL.md`](../../docs/PRODUCT_MODEL.md). Fitness tests: [`docs/ARCHITECTURE_FITNESS.md`](../../docs/ARCHITECTURE_FITNESS.md).
 
 **External data → Declarative mapping → Entity storage → Query → API / SDK**
 

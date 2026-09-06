@@ -19,6 +19,8 @@ The specification is the **source of truth**. Code implements the specification.
 - [Phase4.md](../Phase4.md) — Phase 4 report: Data Products and Delivery (**complete**)
 - [Phase5.md](../Phase5.md) — Phase 5 plan: Editorial & Context (**planned / post–Phase 4**)
 - [DELIVERY.md](./DELIVERY.md) — Live frontend delivery contract
+- [PACKAGES.md](./PACKAGES.md) — Experimental 0.x public package distribution
+- [EXTERNAL_CONSUMERS.md](./EXTERNAL_CONSUMERS.md) — Products outside the Aurii monorepo
 - [SCALE.md](./SCALE.md) — Query scale measurements and named bottlenecks
 - [ADR-0010 — Optional Authoring Layer](../adr/ADR-0010%20—%20Optional%20Authoring%20Layer.md) — CMS/authoring as optional Core clients
 - [ADR-0011 — Project as Top-Level Boundary](../adr/ADR-0011%20—%20Project%20as%20Top-Level%20Boundary.md) — Project tenancy model
@@ -73,8 +75,9 @@ The specification is the **source of truth**. Code implements the specification.
 
 ### Development
 
-- [REFERENCE_DEMO.md](./REFERENCE_DEMO.md) — **Canonical data/delivery demo** for agents and contributors (Norwegian Geo)
+- [REFERENCE_DEMO.md](./REFERENCE_DEMO.md) — **Canonical data/delivery demo** for agents and contributors (Norwegian Geo; pending external repo)
 - [NORWEGIAN_GEO.md](./NORWEGIAN_GEO.md) — Norwegian Geo product layer boundaries
+- [EXTERNAL_CONSUMERS.md](./EXTERNAL_CONSUMERS.md) — First external product extraction / generic fixture
 - [../AGENTS.md](../AGENTS.md) — Agent rules, including Norwegian Geo vs future Editorial vertical
 
 ### Phase reports (historical + plan)

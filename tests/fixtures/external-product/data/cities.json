@@ -1,0 +1,5 @@
+[
+  { "id": "alpha", "name": "Alpha", "regionId": "north" },
+  { "id": "beta", "name": "Beta", "regionId": "south" },
+  { "id": "gamma", "name": "Gamma", "regionId": "north" }
+]

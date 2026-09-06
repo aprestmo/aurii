@@ -2,6 +2,20 @@
   "name": "@aurii/studio",
   "version": "0.1.0",
   "description": "Aurii Studio — declarative project configuration helpers",
+  "license": "UNLICENSED",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/aprestmo/aurii.git",
+    "directory": "packages/studio"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "files": [
+    "src",
+    "!src/**/__tests__",
+    "README.md"
+  ],
   "type": "module",
   "exports": {
     ".": "./src/index.ts"

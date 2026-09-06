@@ -8,7 +8,7 @@
 > Product direction: [`PRODUCT_STRATEGY.md`](PRODUCT_STRATEGY.md).  
 > Design stress tests: [`ARCHITECTURE_FITNESS.md`](ARCHITECTURE_FITNESS.md).  
 > Competitive guardrails (Kyro test, commodity vs Core): [`COMPETITIVE_GUARDRAILS.md`](COMPETITIVE_GUARDRAILS.md).  
-> Runnable proof today: Norwegian Geo — [`NORWEGIAN_GEO.md`](NORWEGIAN_GEO.md), [`REFERENCE_DEMO.md`](REFERENCE_DEMO.md).
+> Runnable proof today: Norwegian Geo — [`NORWEGIAN_GEO.md`](NORWEGIAN_GEO.md), [`REFERENCE_DEMO.md`](REFERENCE_DEMO.md). External-consumer extraction: [`EXTERNAL_CONSUMERS.md`](EXTERNAL_CONSUMERS.md).
 
 ---
 
@@ -726,12 +726,12 @@ Record one entry per real project. Design-only fitness cases may be listed as **
 
 | Field | Value |
 |-------|-------|
-| Status | **active** (canonical implemented vertical) |
+| Status | **active** — first external downstream/reference product (in-monorepo pending extraction to `aprestmo/norwegian-geo`) |
 | Domain shape | Structured reference datasets; public data API; website delivery; import-heavy |
 | Sequence role | early + non-CMS + distribution |
 | What this project tested | Schema, import/sync, relations, query, published routes, SDK, project packages, Core without Studio dependency |
 | Core exercised | Modelling, validation, relations, import/sync, query, published routes, SDK, project packages, sources/schedules |
-| Clients | Studio (ops), CLI/import pipeline, `apps/geo` consumer (no Studio dependency) |
+| Clients | Studio (ops), CLI/import pipeline, `apps/geo` consumer (no Studio dependency); generic CI fixture `tests/fixtures/external-product/` |
 | Distribution | Published REST routes, SDK, public website, snapshot offline mode |
 | Maturity pressure | Project packages, published routes, DataSources — treat contracts as Candidate until more products reuse them |
 | What was reused unchanged | (baseline — first real vertical) |

@@ -140,7 +140,9 @@ describe("Studio API client — health", () => {
 		const noAuthClient = createClient({ baseUrl: MOCK_BASE });
 		const health = await noAuthClient.health.check();
 		expect(health.status).toBe("ok");
-		expect(health.version).toBe("0.2.0");
+		expect(typeof health.version).toBe("string");
+		expect(health.version.length).toBeGreaterThan(0);
+		expect(health.database?.connected).toBe(true);
 	});
 });
 

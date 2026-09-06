@@ -44,20 +44,48 @@ docker run -d --name "$PG_NAME" \
 	-p "${PG_PORT}:5432" \
 	postgres:16-alpine
 
-for _ in $(seq 1 40); do
-	if docker exec "$PG_NAME" pg_isready -U aurii -d aurii >/dev/null 2>&1; then
-		break
+echo "== Waiting for PostgreSQL =="
+n=0
+until docker exec "$PG_NAME" pg_isready -U aurii -d aurii; do
+	n=$((n + 1))
+	if [ "$n" -ge 60 ]; then
+		echo "Postgres did not become ready" >&2
+		docker logs "$PG_NAME" >&2 || true
+		exit 1
 	fi
 	sleep 1
 done
-docker exec "$PG_NAME" pg_isready -U aurii -d aurii
+
+echo "== Waiting for published port ${PG_PORT} =="
+n=0
+until python3 -c "import socket; socket.create_connection(('127.0.0.1', int('${PG_PORT}')), 2).close()"; do
+	n=$((n + 1))
+	if [ "$n" -ge 30 ]; then
+		echo "Postgres port ${PG_PORT} is not reachable on the host" >&2
+		exit 1
+	fi
+	sleep 1
+done
 
 echo "== Running migrations =="
-docker run --rm \
-	--add-host="${HOST_GATEWAY}:host-gateway" \
-	-e DATABASE_URL="$DATABASE_URL_FROM_CONTAINER" \
-	"$IMAGE" \
-	bun run packages/db/scripts/migrate.ts
+migrated=0
+n=0
+until [ "$n" -ge 10 ]; do
+	if docker run --rm \
+		--add-host="${HOST_GATEWAY}:host-gateway" \
+		-e DATABASE_URL="$DATABASE_URL_FROM_CONTAINER" \
+		"$IMAGE" \
+		bun run packages/db/scripts/migrate.ts; then
+		migrated=1
+		break
+	fi
+	n=$((n + 1))
+	sleep 2
+done
+if [ "$migrated" -ne 1 ]; then
+	echo "Migrations failed" >&2
+	exit 1
+fi
 
 echo "== Starting runtime =="
 docker run -d --name "$CORE_NAME" \

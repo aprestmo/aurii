@@ -11,7 +11,10 @@ import {
 	studioConfigForProject,
 } from "../lib/studio-config";
 
-const DEMO = resolve(import.meta.dir, "../../../../demo/norwegian-geo");
+const FIXTURE = resolve(
+	import.meta.dir,
+	"../../../../tests/fixtures/external-product",
+);
 
 describe("studio config from project package", () => {
 	afterEach(() => {
@@ -20,38 +23,29 @@ describe("studio config from project package", () => {
 		delete process.env["AURII_PROJECT_SLUG"];
 	});
 
-	test("loads Norwegian Geo defineStudio from disk", async () => {
-		const loaded = await loadStudioConfigFromPackage(DEMO);
+	test("loads fixture defineStudio from disk", async () => {
+		const loaded = await loadStudioConfigFromPackage(FIXTURE);
 		expect(loaded).not.toBeNull();
-		expect(loaded!.title).toBe("Norwegian Geo");
-		expect(loaded!.config.featuredSchemas).toContain("county");
-		expect(loaded!.config.views?.some((v) => v.id === "coverage")).toBe(true);
-		expect(loaded!.config.importGroups?.length).toBeGreaterThan(0);
-		expect(loaded!.config.routeGroups?.length).toBeGreaterThan(0);
+		expect(loaded!.title).toBe("External Catalog");
+		expect(loaded!.config.featuredSchemas).toContain("region");
+		expect(loaded!.config.featuredSchemas).toContain("city");
 		expect(
-			loaded!.config.navigation?.some((g) => g.title === "Drift"),
-		).toBe(true);
-		expect(
-			loaded!.config.navigation?.some((g) => g.title === "Utdanning"),
-		).toBe(true);
-		expect(
-			loaded!.config.importGroups?.some((g) => g.title === "Helse"),
+			loaded!.config.navigation?.some((g) => g.title === "Catalog"),
 		).toBe(true);
 	});
 
 	test("resolveActiveStudioConfig prefers AURII_PROJECT_ROOT", async () => {
-		process.env["AURII_PROJECT_ROOT"] = DEMO;
+		process.env["AURII_PROJECT_ROOT"] = FIXTURE;
 		process.env["AURII_PROJECT_SLUG"] = "other-slug";
 		const { config, title } = await resolveActiveStudioConfig();
-		expect(title).toBe("Norwegian Geo");
-		expect(config.navigation?.some((g) => g.title === "Geografi")).toBe(true);
+		expect(title).toBe("External Catalog");
+		expect(config.navigation?.some((g) => g.title === "Catalog")).toBe(true);
 	});
 
-	test("fallback without package still works for norge-data slug", () => {
+	test("fallback without package is generic, not product-specific", () => {
 		const cfg = studioConfigForProject("norge-data");
-		expect(cfg.title).toBe("Norwegian Geo");
-		expect(cfg.importGroups?.length).toBeGreaterThan(0);
-		expect(cfg.routeGroups?.length).toBeGreaterThan(0);
+		expect(cfg.title).toBe("Project norge-data");
+		expect(cfg.importGroups ?? []).toHaveLength(0);
 	});
 
 	test("default studio without slug", () => {

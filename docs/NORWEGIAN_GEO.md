@@ -2,7 +2,9 @@
 
 > Norwegian Geo is Aurii's first **external** downstream/reference product — a reusable Norwegian reference data platform built on top of Aurii.
 >
-> Phase 4 proved it inside this monorepo. Extraction to [`aprestmo/norwegian-geo`](https://github.com/aprestmo/norwegian-geo) tests whether the same product can consume Aurii only through versioned packages and HTTP contracts. Until that repository is the live product home, the in-tree paths below remain accurate. Aurii CI no longer builds `apps/geo`; generic coverage is [`tests/fixtures/external-product/`](../tests/fixtures/external-product/) and [`EXTERNAL_CONSUMERS.md`](EXTERNAL_CONSUMERS.md).
+> Phase 4 proved it inside this monorepo. The product now lives at [`aprestmo/norwegian-geo`](https://github.com/aprestmo/norwegian-geo) and consumes Aurii only through versioned packages and HTTP contracts. Aurii CI does not build or deploy it. Generic platform coverage is [`tests/fixtures/external-product/`](../tests/fixtures/external-product/) and [`EXTERNAL_CONSUMERS.md`](EXTERNAL_CONSUMERS.md).
+>
+> Historical in-monorepo paths (`demo/norwegian-geo`, `apps/geo`) below describe what Phase 4 shipped. They are no longer present in this repository.
 >
 > It is a **data product without a CMS**: imports → Core → API/SDK → consumers. Studio is used only as a generic developer/operator data workspace. See [`docs/PRODUCT_MODEL.md`](PRODUCT_MODEL.md) and [`docs/PRODUCT_STRATEGY.md`](PRODUCT_STRATEGY.md).
 
@@ -23,8 +25,8 @@ Dataset Modules
 | Layer | Owner | Location | Responsibility |
 |-------|-------|----------|----------------|
 | **Aurii Core** | Aurii platform | `packages/core/` | Generic runtime: schemas, import engine, query language, API, pipelines, storage |
-| **Norwegian Geo Core** | Norwegian Geo product | `demo/norwegian-geo/core/` | Stable geographic reference: counties, municipalities, postal codes, history, heraldry |
-| **Dataset Modules** | Norwegian Geo product | `demo/norwegian-geo/modules/` | Domain datasets that reference Core entities |
+| **Norwegian Geo Core** | Norwegian Geo product | [`aprestmo/norwegian-geo`](https://github.com/aprestmo/norwegian-geo) `project/core/` | Stable geographic reference: counties, municipalities, postal codes, history, heraldry |
+| **Dataset Modules** | Norwegian Geo product | [`aprestmo/norwegian-geo`](https://github.com/aprestmo/norwegian-geo) `project/modules/` | Domain datasets that reference Core entities |
 
 **Aurii remains the platform. Norwegian Geo is a product built on Aurii.**
 

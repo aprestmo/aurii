@@ -15,7 +15,6 @@ const REPO_ROOT = join(import.meta.dir, "../../../..");
 
 /** Product apps that must stay on the public client boundary. */
 const PRODUCT_APPS = [
-	{ dir: "apps/geo", packageName: "@aurii/geo" },
 	{ dir: "apps/studio", packageName: "@aurii/studio-app" },
 	// Future Phase 5 scaffold — rule reserved now:
 	{ dir: "apps/editorial", packageName: "@aurii/editorial", optional: true },

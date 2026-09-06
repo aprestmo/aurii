@@ -229,6 +229,18 @@ Intended commercial direction, **without locking the final license model**:
 4. **Commercial products should, where practical, consume the same documented public Core APIs / SDK** available to other clients.
 5. **The exact boundary** between open and licensed capabilities remains a future product and business decision.
 
+### Product / client package boundary
+
+Product applications (including future `apps/editorial`, and existing product clients such as `apps/geo` / Studio app) must **not** import `@aurii/core` or `@aurii/db` internals.
+
+They may consume:
+
+- `@aurii/sdk`
+- HTTP APIs
+- documented public client packages (e.g. `@aurii/types` where published for clients)
+
+`apps/api` is the HTTP adapter and may depend on Core. This rule is enforced by an architecture test. See also [`COMPETITIVE_GUARDRAILS.md`](COMPETITIVE_GUARDRAILS.md) and [`Phase5.md`](../Phase5.md).
+
 The docs must not promise that all future Core-adjacent capabilities will be open source.
 
 Equally, they must not imply that an open Core is only a crippled demo for commercial products.

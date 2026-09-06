@@ -167,3 +167,38 @@ describe("AuriiError", () => {
 		}
 	});
 });
+
+describe("entity update concurrency", () => {
+	test("exposes concurrency conflict without silently retrying", async () => {
+		const { createEntity, registerSchema } = await import(
+			"../../../core/src/index"
+		);
+		await registerSchema({
+			id: "sdk-doc",
+			name: "SDK Doc",
+			fields: [{ name: "title", type: "string", required: true }],
+		});
+		const entity = await createEntity({
+			schemaId: "sdk-doc",
+			data: { title: "v1" },
+		});
+
+		const client = createClient({ baseUrl: MOCK_BASE, token: "test-token" });
+		const updated = await client.entities.update(entity.id, {
+			data: { title: "v2" },
+			expectedRevision: 1,
+		});
+		expect(updated.entityRevision).toBe(2);
+
+		const { ConcurrencyConflictError } = await import("../index");
+		await expect(
+			client.entities.update(entity.id, {
+				data: { title: "stale" },
+				expectedRevision: 1,
+			}),
+		).rejects.toBeInstanceOf(ConcurrencyConflictError);
+
+		const pinned = await client.entities.getRevision(entity.id, 1);
+		expect(pinned.data["title"]).toBe("v1");
+	});
+});

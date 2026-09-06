@@ -1,7 +1,8 @@
 import type { SQLQueryBindings } from "bun:sqlite";
 import { Database } from "bun:sqlite";
 import { join } from "path";
-import type { Entity, EntityInput, EntityState } from "../entity/types";
+import type { Entity, EntityInput, EntityState, EntityUpdateInput } from "../entity/types";
+import type { EntityRevisionSnapshot } from "../entity/revision";
 import type { WhereExpr } from "../query/ast";
 import type { ExecutionPlan, ScanStep } from "../query/plan";
 import type { SchemaDefinition, StoredSchema } from "../schema/types";
@@ -34,6 +35,8 @@ interface RawEntityRow {
 	id: string;
 	dataset_id: string;
 	schema_id: string;
+	schema_version: number;
+	entity_revision: number;
 	data: string;
 	state: string;
 	created_at: string;
@@ -51,15 +54,41 @@ interface RawSchemaRow {
 	updated_at: string;
 }
 
+interface RawRevisionRow {
+	entity_id: string;
+	dataset_id: string;
+	schema_id: string;
+	schema_version: number;
+	entity_revision: number;
+	data: string;
+	state: string;
+	recorded_at: string;
+}
+
 function rowToEntity(row: RawEntityRow): Entity {
 	return {
 		id: row.id,
 		datasetId: row.dataset_id,
 		schemaId: row.schema_id,
+		schemaVersion: Number(row.schema_version ?? 1),
+		entityRevision: Number(row.entity_revision ?? 1),
 		data: JSON.parse(row.data) as Record<string, unknown>,
 		state: row.state as EntityState,
 		createdAt: row.created_at,
 		updatedAt: row.updated_at,
+	};
+}
+
+function rowToRevision(row: RawRevisionRow): EntityRevisionSnapshot {
+	return {
+		entityId: row.entity_id,
+		datasetId: row.dataset_id,
+		schemaId: row.schema_id,
+		schemaVersion: Number(row.schema_version),
+		entityRevision: Number(row.entity_revision),
+		data: JSON.parse(row.data) as Record<string, unknown>,
+		state: row.state as EntityState,
+		recordedAt: row.recorded_at,
 	};
 }
 
@@ -83,7 +112,7 @@ function buildScanSql(
 ): { sql: string; params: SQLQueryBindings[] } {
 	const params: SQLQueryBindings[] = [datasetId, step.schemaId];
 	let sql =
-		"SELECT id, dataset_id, schema_id, data, state, created_at, updated_at " +
+		"SELECT id, dataset_id, schema_id, schema_version, entity_revision, data, state, created_at, updated_at " +
 		"FROM aurii_entities WHERE dataset_id = ? AND schema_id = ?";
 
 	if (step.where) {
@@ -154,10 +183,24 @@ export class SqliteAdapter implements StorageAdapter {
         id         TEXT PRIMARY KEY,
         dataset_id TEXT NOT NULL REFERENCES aurii_datasets(id),
         schema_id  TEXT NOT NULL,
+        schema_version INTEGER NOT NULL DEFAULT 1,
+        entity_revision INTEGER NOT NULL DEFAULT 1,
         data       TEXT NOT NULL,
         state      TEXT NOT NULL DEFAULT 'active',
         created_at TEXT NOT NULL,
         updated_at TEXT NOT NULL
+      );
+
+      CREATE TABLE IF NOT EXISTS aurii_entity_revisions (
+        entity_id       TEXT NOT NULL,
+        entity_revision INTEGER NOT NULL,
+        dataset_id      TEXT NOT NULL,
+        schema_id       TEXT NOT NULL,
+        schema_version  INTEGER NOT NULL DEFAULT 1,
+        data            TEXT NOT NULL,
+        state           TEXT NOT NULL,
+        recorded_at     TEXT NOT NULL,
+        PRIMARY KEY (entity_id, entity_revision)
       );
 
       CREATE INDEX IF NOT EXISTS idx_entities_dataset_schema
@@ -190,6 +233,7 @@ export class SqliteAdapter implements StorageAdapter {
 		// Migrate pre-existing SQLite DBs that lack project_id
 		this.ensureProjectIdColumn();
 		this.ensureImportRunTriggerColumn();
+		this.ensureEntityRevisionColumns();
 
 		// Ensure default dataset exists (owned by Legacy fallback project)
 		this.db
@@ -213,6 +257,36 @@ export class SqliteAdapter implements StorageAdapter {
 		if (!cols.some((c) => c.name === "run_trigger")) {
 			this.db.exec(`ALTER TABLE aurii_import_runs ADD COLUMN run_trigger TEXT`);
 		}
+	}
+
+	/** Add entityRevision / schemaVersion columns and revision snapshot table. */
+	private ensureEntityRevisionColumns(): void {
+		const cols = this.db
+			.prepare("PRAGMA table_info(aurii_entities)")
+			.all() as { name: string }[];
+		if (!cols.some((c) => c.name === "schema_version")) {
+			this.db.exec(
+				`ALTER TABLE aurii_entities ADD COLUMN schema_version INTEGER NOT NULL DEFAULT 1`,
+			);
+		}
+		if (!cols.some((c) => c.name === "entity_revision")) {
+			this.db.exec(
+				`ALTER TABLE aurii_entities ADD COLUMN entity_revision INTEGER NOT NULL DEFAULT 1`,
+			);
+		}
+		this.db.exec(`
+      CREATE TABLE IF NOT EXISTS aurii_entity_revisions (
+        entity_id       TEXT NOT NULL,
+        entity_revision INTEGER NOT NULL,
+        dataset_id      TEXT NOT NULL,
+        schema_id       TEXT NOT NULL,
+        schema_version  INTEGER NOT NULL DEFAULT 1,
+        data            TEXT NOT NULL,
+        state           TEXT NOT NULL,
+        recorded_at     TEXT NOT NULL,
+        PRIMARY KEY (entity_id, entity_revision)
+      );
+    `);
 	}
 
 	/** Add and backfill project_id for databases created before project scoping. */
@@ -400,24 +474,47 @@ export class SqliteAdapter implements StorageAdapter {
 
 	// ── Entities ───────────────────────────────────────────────────────────────
 
+	private insertRevisionSnapshot(entity: Entity): void {
+		this.db
+			.prepare(
+				`INSERT OR REPLACE INTO aurii_entity_revisions
+         (entity_id, entity_revision, dataset_id, schema_id, schema_version, data, state, recorded_at)
+         VALUES (?, ?, ?, ?, ?, ?, ?, ?)`,
+			)
+			.run(
+				entity.id,
+				entity.entityRevision,
+				entity.datasetId,
+				entity.schemaId,
+				entity.schemaVersion,
+				JSON.stringify(entity.data),
+				entity.state,
+				entity.updatedAt,
+			);
+	}
+
 	async insertEntities(
 		inputs: EntityInput[],
 		datasetId: string,
 	): Promise<Entity[]> {
 		const now = new Date().toISOString();
 		const insert = this.db.prepare(
-			`INSERT INTO aurii_entities (id, dataset_id, schema_id, data, state, created_at, updated_at)
-       VALUES (?, ?, ?, ?, ?, ?, ?)`,
+			`INSERT INTO aurii_entities
+       (id, dataset_id, schema_id, schema_version, entity_revision, data, state, created_at, updated_at)
+       VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)`,
 		);
 
 		const insertMany = this.db.transaction((rows: EntityInput[]) => {
 			const ids: string[] = [];
 			for (const input of rows) {
 				const id = crypto.randomUUID();
+				const schemaVersion = input.schemaVersion ?? 1;
 				insert.run(
 					id,
 					datasetId,
 					input.schemaId,
+					schemaVersion,
+					1,
 					JSON.stringify(input.data),
 					input.state ?? "active",
 					now,
@@ -435,7 +532,42 @@ export class SqliteAdapter implements StorageAdapter {
 		const rows = this.db
 			.prepare(`SELECT * FROM aurii_entities WHERE id IN (${placeholders})`)
 			.all(...ids) as RawEntityRow[];
-		return rows.map(rowToEntity);
+		const entities = rows.map(rowToEntity);
+		this.db.transaction(() => {
+			for (const entity of entities) this.insertRevisionSnapshot(entity);
+		})();
+		return entities;
+	}
+
+	async updateEntity(
+		id: string,
+		input: EntityUpdateInput,
+	): Promise<Entity | null> {
+		const now = new Date().toISOString();
+		const nextRevision = input.expectedRevision + 1;
+		const schemaVersion = input.schemaVersion ?? 1;
+		const result = this.db
+			.prepare(
+				`UPDATE aurii_entities
+         SET data = ?, state = COALESCE(?, state), schema_version = ?,
+             entity_revision = ?, updated_at = ?
+         WHERE id = ? AND entity_revision = ?`,
+			)
+			.run(
+				JSON.stringify(input.data),
+				input.state ?? null,
+				schemaVersion,
+				nextRevision,
+				now,
+				id,
+				input.expectedRevision,
+			);
+
+		if (result.changes === 0) return null;
+
+		const entity = await this.getEntity(id);
+		if (entity) this.insertRevisionSnapshot(entity);
+		return entity;
 	}
 
 	async upsertEntitiesByField(
@@ -448,39 +580,71 @@ export class SqliteAdapter implements StorageAdapter {
 		const schemaId = inputs[0]!.schemaId;
 		const safeField = fieldName.replace(/[^a-zA-Z0-9_]/g, "");
 
-		// Fetch all existing natural-key values for this schema in one query.
 		const existingRows = this.db
 			.prepare(
-				`SELECT id, json_extract(data, '$.${safeField}') AS key
+				`SELECT id, entity_revision, json_extract(data, '$.${safeField}') AS key
          FROM aurii_entities
          WHERE dataset_id = ? AND schema_id = ?`,
 			)
-			.all(datasetId, schemaId) as { id: string; key: string }[];
+			.all(datasetId, schemaId) as {
+			id: string;
+			entity_revision: number;
+			key: string;
+		}[];
 
-		const existingMap = new Map(existingRows.map((r) => [String(r.key), r.id]));
+		const existingMap = new Map(
+			existingRows.map((r) => [String(r.key), r] as const),
+		);
 
 		const toInsert: EntityInput[] = [];
-		const toUpdate: { id: string; data: Record<string, unknown> }[] = [];
+		const toUpdate: {
+			id: string;
+			data: Record<string, unknown>;
+			expectedRevision: number;
+			schemaVersion: number;
+		}[] = [];
 
 		for (const input of inputs) {
 			const keyValue = String(input.data[fieldName] ?? "");
-			const existingId = existingMap.get(keyValue);
-			if (existingId !== undefined) {
-				toUpdate.push({ id: existingId, data: input.data });
+			const existing = existingMap.get(keyValue);
+			if (existing !== undefined) {
+				toUpdate.push({
+					id: existing.id,
+					data: input.data,
+					expectedRevision: Number(existing.entity_revision),
+					schemaVersion: input.schemaVersion ?? 1,
+				});
 			} else {
 				toInsert.push(input);
 			}
 		}
 
-		const now = new Date().toISOString();
-
 		if (toUpdate.length > 0) {
-			const update = this.db.prepare(
-				"UPDATE aurii_entities SET data = ?, updated_at = ? WHERE id = ?",
-			);
 			this.db.transaction(() => {
-				for (const { id, data } of toUpdate) {
-					update.run(JSON.stringify(data), now, id);
+				for (const row of toUpdate) {
+					const updated = this.db
+						.prepare(
+							`UPDATE aurii_entities
+               SET data = ?, schema_version = ?, entity_revision = entity_revision + 1,
+                   updated_at = ?
+               WHERE id = ? AND entity_revision = ?`,
+						)
+						.run(
+							JSON.stringify(row.data),
+							row.schemaVersion,
+							new Date().toISOString(),
+							row.id,
+							row.expectedRevision,
+						);
+					if (updated.changes === 0) {
+						throw new Error(
+							`Import upsert conflict for entity "${row.id}" (stale entityRevision)`,
+						);
+					}
+					const entity = this.db
+						.prepare("SELECT * FROM aurii_entities WHERE id = ?")
+						.get(row.id) as RawEntityRow;
+					this.insertRevisionSnapshot(rowToEntity(entity));
 				}
 			})();
 		}
@@ -497,6 +661,19 @@ export class SqliteAdapter implements StorageAdapter {
 			.prepare("SELECT * FROM aurii_entities WHERE id = ?")
 			.get(id) as RawEntityRow | null;
 		return row ? rowToEntity(row) : null;
+	}
+
+	async getEntityRevision(
+		id: string,
+		entityRevision: number,
+	): Promise<EntityRevisionSnapshot | null> {
+		const row = this.db
+			.prepare(
+				`SELECT * FROM aurii_entity_revisions
+         WHERE entity_id = ? AND entity_revision = ?`,
+			)
+			.get(id, entityRevision) as RawRevisionRow | null;
+		return row ? rowToRevision(row) : null;
 	}
 
 	async listEntities(

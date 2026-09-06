@@ -73,11 +73,14 @@ export interface SchemaDefinition {
 	id: string;
 	name: string;
 	description?: string;
+	/** Schema version (schemaVersion). Not entityRevision. */
+	version?: number;
 	fields: FieldDefinition[];
 }
 
 export interface StoredSchema extends SchemaDefinition {
 	datasetId: string;
+	version: number;
 	createdAt: string;
 	updatedAt: string;
 }
@@ -90,10 +93,32 @@ export interface Entity {
 	id: string;
 	datasetId: string;
 	schemaId: string;
+	/** Schema version associated with this live state. */
+	schemaVersion: number;
+	/** Optimistic concurrency / pinned addressing revision. */
+	entityRevision: number;
 	data: Record<string, unknown>;
 	state: EntityState;
 	createdAt: string;
 	updatedAt: string;
+}
+
+export interface EntityUpdateInput {
+	data: Record<string, unknown>;
+	expectedRevision: number;
+	state?: EntityState;
+	schemaVersion?: number;
+}
+
+export interface EntityRevisionSnapshot {
+	entityId: string;
+	datasetId: string;
+	schemaId: string;
+	schemaVersion: number;
+	entityRevision: number;
+	data: Record<string, unknown>;
+	state: EntityState;
+	recordedAt: string;
 }
 
 export interface EntityPage {
@@ -247,5 +272,19 @@ export class AuriiError extends Error {
 	) {
 		super(message);
 		this.name = "AuriiError";
+	}
+}
+
+export class ConcurrencyConflictError extends AuriiError {
+	readonly code = "concurrency_conflict" as const;
+	constructor(
+		message: string,
+		public readonly expectedRevision: number,
+		public readonly currentRevision: number,
+		public readonly entityId?: string,
+		status = 409,
+	) {
+		super(message, status);
+		this.name = "ConcurrencyConflictError";
 	}
 }

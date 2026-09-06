@@ -355,6 +355,56 @@ At minimum:
 
 ---
 
+## Pre–Phase 5 architecture gate
+
+Phase 5 implementation should begin only after:
+
+* [x] Schema evolution semantics are documented ([`docs/SCHEMA_EVOLUTION.md`](docs/SCHEMA_EVOLUTION.md), [ADR-0021](adr/ADR-0021%20—%20Schema%20Evolution%20and%20Historical%20Interpretation.md)).
+* [x] Schema versioning is sufficient to interpret historical entities/revisions (`schemaVersion` on entities and revision snapshots).
+* [x] Provenance, audit history, revision history and publication history are explicitly separate concepts ([`docs/HISTORY_MODEL.md`](docs/HISTORY_MODEL.md)).
+* [x] Optimistic concurrency is implemented for canonical entity mutations (`entityRevision` + `expectedRevision`, [ADR-0022](adr/ADR-0022%20—%20Entity%20Revision%20and%20Optimistic%20Concurrency.md)).
+* [x] Stale concurrent writes fail deterministically (HTTP 409 / `ConcurrencyConflictError`).
+* [x] Live vs pinned reference semantics are documented ([`docs/TEMPORAL_REFERENCES.md`](docs/TEMPORAL_REFERENCES.md), [ADR-0023](adr/ADR-0023%20—%20Live%20vs%20Pinned%20References.md)).
+* [x] Temporal metadata (`recordedAt` / `effectiveAt`) has an architectural home even if full temporal querying is not implemented.
+* [x] Product applications are prevented from depending on Core/DB internals (architecture test + docs).
+* [x] Context authorization invariant is documented and covered by relevant permission tests.
+* [x] Canonical documentation has been audited for outdated Core-everything assumptions (`Capabilities.md`, `AI.md`).
+* [x] A persistent Core + Postgres deployment has survived restart (`bun run ops:persistence-proof`, [`docs/OPERATIONS.md`](docs/OPERATIONS.md)).
+* [x] Backup + destructive change + restore has been exercised successfully.
+* [x] Existing scale limitations remain explicitly documented and are not falsely described as solved ([`docs/SCALE.md`](docs/SCALE.md)).
+
+Canonical public client rule: future `apps/editorial` (and other product apps) must consume `@aurii/sdk` / HTTP APIs — not `@aurii/core` or `@aurii/db`. See [`docs/PRODUCT_STRATEGY.md`](docs/PRODUCT_STRATEGY.md).
+
+### Context authorization invariant
+
+```text
+Principal
+   ↓
+authorization boundary
+   ↓
+eligible entities/datasets
+   ↓
+Context retrieval
+   ↓
+ranking / relation traversal
+   ↓
+result
+```
+
+Explicitly reject:
+
+```text
+retrieve everything
+   ↓
+rank/process/AI
+   ↓
+filter unauthorized results afterwards
+```
+
+AI and Context must inherit authorization **before** retrieval.
+
+---
+
 ## Guardrails / non-goals
 
 Initially reject:

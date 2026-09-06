@@ -785,7 +785,14 @@ Kampbart, playground directory, DN Gaselle, and Geo-as-design-case: see [`ARCHIT
 - [Constitution.md](./Constitution.md) — Articles 21, 22, 24
 - [Studio.md](./Studio.md) — Studio as Core client
 - [NORWEGIAN_GEO.md](./NORWEGIAN_GEO.md) — implemented validation vertical
-- [Phase5.md](../Phase5.md) — planned Editorial & Context portfolio entry
+- [Phase5.md](../Phase5.md) — planned Editorial & Context portfolio entry (includes Pre–Phase 5 architecture gate)
+- [SCHEMA_EVOLUTION.md](./SCHEMA_EVOLUTION.md) — schema identity/version/historical interpretation
+- [HISTORY_MODEL.md](./HISTORY_MODEL.md) — provenance vs audit vs revision vs publication
+- [TEMPORAL_REFERENCES.md](./TEMPORAL_REFERENCES.md) — live vs pinned references
+- [OPERATIONS.md](./OPERATIONS.md) — persistent Postgres backup/restore proof
 - [ADR-0010 — Optional Authoring Layer](../adr/ADR-0010%20—%20Optional%20Authoring%20Layer.md)
 - [ADR-0020 — Extensible Studio](../adr/ADR-0020%20—%20Extensible%20Studio.md)
+- [ADR-0021 — Schema Evolution](../adr/ADR-0021%20—%20Schema%20Evolution%20and%20Historical%20Interpretation.md)
+- [ADR-0022 — Entity Revision and Optimistic Concurrency](../adr/ADR-0022%20—%20Entity%20Revision%20and%20Optimistic%20Concurrency.md)
+- [ADR-0023 — Live vs Pinned References](../adr/ADR-0023%20—%20Live%20vs%20Pinned%20References.md)
 - [BREAKING_CHANGES.md](./BREAKING_CHANGES.md) — change discipline (validation period still prefers discovery over premature stability)

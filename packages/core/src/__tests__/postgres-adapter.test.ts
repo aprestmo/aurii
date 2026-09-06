@@ -32,7 +32,7 @@ const DATABASE_URL = process.env["DATABASE_URL"];
 async function truncateAll(url: string): Promise<void> {
 	const sql = new SQL(url);
 	await sql.unsafe(
-		"TRUNCATE aurii_entities, aurii_import_runs, aurii_schemas, aurii_datasets CASCADE",
+		"TRUNCATE aurii_entity_revisions, aurii_entities, aurii_import_runs, aurii_schemas, aurii_datasets CASCADE",
 	);
 	await sql.close();
 }

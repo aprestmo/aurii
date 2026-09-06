@@ -24,7 +24,8 @@ Project packages: [`adr/ADR-0014 — Project Configuration Package.md`](adr/ADR-
 **Delivery contract:** [`docs/DELIVERY.md`](docs/DELIVERY.md).  
 **Scale honesty:** [`docs/SCALE.md`](docs/SCALE.md).  
 **Phase 4 (complete):** [`Phase4.md`](Phase4.md).  
-**Phase 5 (planned):** [`Phase5.md`](Phase5.md) — Editorial & Context; not implemented.
+**Phase 5 (planned):** [`Phase5.md`](Phase5.md) — Editorial & Context; not implemented.  
+**Pre–Phase 5 contracts:** [`docs/SCHEMA_EVOLUTION.md`](docs/SCHEMA_EVOLUTION.md), [`docs/HISTORY_MODEL.md`](docs/HISTORY_MODEL.md), [`docs/TEMPORAL_REFERENCES.md`](docs/TEMPORAL_REFERENCES.md), [`docs/OPERATIONS.md`](docs/OPERATIONS.md).
 
 ---
 

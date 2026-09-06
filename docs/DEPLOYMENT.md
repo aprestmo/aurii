@@ -65,6 +65,12 @@ docker compose up
 # Studio: http://localhost:4321
 ```
 
+Operational contracts (startup order, migrations, backup/restore, health checks, limitations):
+
+- [`OPERATIONS.md`](OPERATIONS.md)
+- Persistence proof: `bun run ops:persistence-proof`
+
+Do not promise HA, SLA, or zero-downtime deploys from this documentation.
 ---
 
 ## Cloudflare Pages (alternative for geo)

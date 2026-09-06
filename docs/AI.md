@@ -1,14 +1,25 @@
 # AI
 
-> Artificial Intelligence is a native capability of Aurii.
+> **Status: architectural vision / not an implemented platform surface.**
 >
-> AI is not a feature.
-> AI is not an assistant.
-> AI is an execution layer that helps users and applications understand, create and transform structured knowledge.
+> This document describes possible future direction. It does **not** imply that AI is available in every Studio or product surface today.
+>
+> AI is a **consumer of Core contracts** (ADR-0007). AI does **not** define Core architecture.
+> Context must work deterministically without AI ([`Phase5.md`](../Phase5.md)).
+> AI provider infrastructure should not enter Core without product evidence.
+> MCP is an integration option/hypothesis, not a mandatory platform architecture.
+>
+> Related: [`COMPETITIVE_GUARDRAILS.md`](COMPETITIVE_GUARDRAILS.md), [`PRODUCT_STRATEGY.md`](PRODUCT_STRATEGY.md), [ADR-0007](../adr/ADR-0007%20—%20AI-Native%20Platform.md).
+
+> Artificial Intelligence is a first-class **consumer** of Aurii.
+>
+> AI is not a substitute for the Runtime.
+> AI is not a required product surface.
+> Optional assistance layers must help users and applications understand, create and transform structured knowledge **through the same APIs, schemas, queries, and permissions as other clients**.
 >
 > AI never replaces the Runtime.
 >
-> AI augments the Runtime.
+> AI augments the Runtime — when a product chooses to enable it.
 
 ---
 
@@ -18,7 +29,7 @@ Modern software should not merely store information.
 
 It should understand it.
 
-Aurii integrates AI directly into the platform so that every Entity, Schema, Query and Pipeline can benefit from intelligent assistance.
+Aurii may integrate AI as a client of the platform so that Entities, Schemas, Queries and Pipelines can benefit from intelligent assistance — without making AI a Core architectural dependency.
 
 The purpose of AI is to reduce complexity for humans without sacrificing transparency or control.
 
@@ -26,11 +37,11 @@ The purpose of AI is to reduce complexity for humans without sacrificing transpa
 
 # Philosophy
 
-AI should never become another application inside Aurii.
+AI should never become another application that bypasses Aurii.
 
-Instead, AI should be available everywhere.
+Instead, AI **may** assist across surfaces over time — when products enable it.
 
-Examples:
+Examples of surfaces that *could* benefit (visionary; not shipped as a platform guarantee):
 
 - while defining Schemas
 - while importing data
@@ -41,9 +52,8 @@ Examples:
 - while generating documentation
 - while building APIs
 
-AI should feel like part of the platform.
-
-Not a separate product.
+AI assistance is **not** a separate Aurii product boundary (Editorial / Research remain products).
+Surfaces that require deterministic behaviour (for example Context MVP) must ship without depending on AI.
 
 ---
 
@@ -425,17 +435,21 @@ Security always precedes intelligence.
 
 # Future
 
+> **Status: visionary.**
+
 The long-term vision is not an AI chatbot.
 
-The vision is an AI-native platform.
+The vision is a platform where AI can assist as a first-class client.
 
-Every capability of Aurii should be understandable, discoverable and executable through AI.
+Every capability of Aurii *may eventually* be understandable, discoverable and executable through AI — as a client of Core, not as Core itself.
 
-Eventually, developers should be able to build complete applications by describing intent rather than implementation.
+Eventually, developers may build applications by describing intent rather than implementation.
 
 The Runtime remains deterministic.
 
-AI becomes the interface.
+AI becomes *an* interface — not the only interface, and not the architecture Context depends on.
+
+AI must inherit authorization **before** retrieval. Never retrieve everything and filter unauthorized results afterwards.
 
 ---
 

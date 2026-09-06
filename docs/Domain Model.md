@@ -252,19 +252,20 @@ State transitions should be configurable.
 
 # History
 
-Aurii keeps history.
+> See the canonical separation in [`HISTORY_MODEL.md`](HISTORY_MODEL.md):
+> provenance, audit, revision, and publication are four distinct concepts —
+> not one generic history store.
 
-History includes:
+Aurii may retain several kinds of history over time:
 
-- revisions
-- imports
-- edits
-- publishing
-- schema migrations
+- provenance (origin of values — ADR-0019)
+- audit (who/what performed operations)
+- revisions (durable entity state / `entityRevision`)
+- publication (externally visible state — Phase 5)
+- import runs
+- explicit schema migrations
 
-History should be append-only.
-
-Nothing important should disappear.
+Revision snapshots and import runs are append-oriented. Nothing important should disappear from historical interpretation when the active schema changes ([`SCHEMA_EVOLUTION.md`](SCHEMA_EVOLUTION.md)).
 
 ---
 

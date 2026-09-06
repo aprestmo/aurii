@@ -387,7 +387,7 @@ Hybrid products compose imported entities with authored fields or entities throu
 
 | Example | Mode | Core role | Clients | Notes |
 |---------|------|-----------|---------|-------|
-| **Norwegian Geo** | Data-only (enrichment/overrides later) | Counties, municipalities, postal codes, module entities | Studio project workspace; `apps/geo` consumer | Canonical import/data/delivery vertical; fitness test **Geo** |
+| **Norwegian Geo** | Data-only (enrichment/overrides later) | Counties, municipalities, postal codes, module entities | Studio project workspace; external [`norwegian-geo`](https://github.com/aprestmo/norwegian-geo) consumer | Canonical import/data/delivery vertical; fitness test **Geo** |
 | **Playground directory** | Hybrid | Structured place records + rich fields; geo references | Studio list/table/map views; public site | Fitness test; not implemented as a demo unless assigned |
 | **DN Gaselle** | Hybrid | Companies, financials, rankings related to articles | Studio tables; publication frontend; APIs | Fitness test: data must not be modeled as articles |
 | **Kampbart** | Hybrid | Sports graph (match, team, player, events) + report | Custom Studio match editor; public site | Fitness test: Studio as specialized tool via extensions |

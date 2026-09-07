@@ -138,7 +138,7 @@ jobs:
       - name: DB
         run: bun run --filter='@aurii/db' test && bun run --filter='@aurii/db' typecheck
       - name: Studio package
-        run: bun run --filter='@aurii/studio' test
+        run: bun run --filter='@aurii/studio' test && bun run --filter='@aurii/studio' typecheck && bun run --filter='@aurii/studio' typecheck:tests
 
   # ── External-consumer contract ────────────────────────────────────────────────
   external-consumer:

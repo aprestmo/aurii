@@ -38,7 +38,7 @@ jobs:
           ASTRO_BASE: /aurii/
           GITHUB_PAGES: "true"
           PUBLIC_AURII_DEPLOY: pages
-        run: bun run --filter="@aurii/studio" build
+        run: bun run --filter="@aurii/studio-app" build
 
       - name: Disable Jekyll
         run: touch apps/studio/dist/.nojekyll

@@ -23,6 +23,7 @@
   "scripts": {
     "test": "bun test src/__tests__",
     "typecheck": "tsc --noEmit",
+    "typecheck:tests": "tsc --noEmit -p tsconfig.test.json",
     "lint": "bunx @biomejs/biome lint src/",
     "build": "bun run typecheck"
   },

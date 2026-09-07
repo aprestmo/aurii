@@ -53,7 +53,7 @@ export default defineProject({
 
 `version: 1` is applied by `defineProject`. Paths are relative to the package root. Invalid or duplicate references fail at load/validate time ([ADR-0014](../adr/ADR-0014%20—%20Project%20Configuration%20Package.md)).
 
-Reference package: `demo/norwegian-geo/aurii.config.ts` (pending move to `aprestmo/norwegian-geo`). Generic CI stand-in: `tests/fixtures/external-product/aurii.config.ts`. See [`EXTERNAL_CONSUMERS.md`](EXTERNAL_CONSUMERS.md).
+Reference package: [`aprestmo/norwegian-geo`](https://github.com/aprestmo/norwegian-geo) `project/aurii.config.ts`. Generic CI stand-in: `tests/fixtures/external-product/aurii.config.ts`. See [`EXTERNAL_CONSUMERS.md`](EXTERNAL_CONSUMERS.md).
 
 ---
 
@@ -128,7 +128,7 @@ CLI scripts are thin wrappers. Do not copy register loops into new product scrip
 import { registerProjectPackage } from "@aurii/core";
 
 await registerProjectPackage({
-  root: "demo/norwegian-geo",
+  root: process.env.AURII_PROJECT_ROOT ?? "tests/fixtures/external-product",
   coreUrl: process.env.AURII_CORE_URL ?? "http://localhost:3000",
   token: process.env.AURII_API_TOKEN,
 });
@@ -140,23 +140,16 @@ await registerProjectPackage({
 
 1. Clone or create a project package with `aurii.config.ts`.
 2. Ensure a Core Project exists for `core.projectSlug` (and dataset for `defaultDataset`).
-3. Import / register schemas and run imports (`bun run import:norwegian-geo` for the reference vertical).
+3. Import / register schemas and run imports (Norwegian Geo: `bun run import` in that repository).
 4. Start Core (`bun run serve`).
-5. Register package resources (sources, saved imports, routes) against the running API:
-
-   ```bash
-   AURII_CORE_URL=http://localhost:3000 bun run register:norwegian-geo-platform
-   ```
-
-   That script calls `registerProjectPackage` from `@aurii/core`.
-
+5. Register package resources (sources, saved imports, routes) against the running API via `registerProjectPackage` from `@aurii/core`.
 6. Run Studio locally with env vars pointing at Core + project package:
 
    ```bash
    AURII_CORE_URL=http://localhost:3000 \
-   AURII_PROJECT_SLUG=norge-data \
-   AURII_DEFAULT_DATASET=norwegian-geo \
-   AURII_PROJECT_ROOT=demo/norwegian-geo \
+   AURII_PROJECT_SLUG=catalog \
+   AURII_DEFAULT_DATASET=catalog \
+   AURII_PROJECT_ROOT=tests/fixtures/external-product \
    bun run studio
    ```
 

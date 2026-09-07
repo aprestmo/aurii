@@ -28,10 +28,11 @@ From the repo root (Core must be running):
 bun run serve
 
 AURII_CORE_URL=http://localhost:3000 \
-AURII_PROJECT_SLUG=norge-data \
-AURII_DEFAULT_DATASET=norwegian-geo \
-AURII_PROJECT_ROOT=demo/norwegian-geo \
+AURII_PROJECT_SLUG=catalog \
+AURII_DEFAULT_DATASET=catalog \
+AURII_PROJECT_ROOT=tests/fixtures/external-product \
 bun run studio
+# Or point AURII_PROJECT_ROOT at a clone of aprestmo/norwegian-geo/project
 ```
 
 Or from this package:
@@ -45,8 +46,8 @@ Hosted / static build (from repo root):
 
 ```bash
 AURII_CORE_URL=https://api.example.com \
-AURII_PROJECT_SLUG=norge-data \
-AURII_DEFAULT_DATASET=norwegian-geo \
+AURII_PROJECT_SLUG=catalog \
+AURII_DEFAULT_DATASET=catalog \
 bun run studio:build
 ```
 

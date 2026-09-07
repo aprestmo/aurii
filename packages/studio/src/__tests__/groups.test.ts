@@ -21,9 +21,10 @@ describe("groupItemsByIds", () => {
 	});
 
 	test("returns empty when there are no items", () => {
-		expect(groupItemsByIds([], [{ title: "A", ids: ["x"] }], (i) => i.id)).toEqual(
-			[],
-		);
+		const none: Array<{ id: string; name: string }> = [];
+		expect(
+			groupItemsByIds(none, [{ title: "A", ids: ["x"] }], (i) => i.id),
+		).toEqual([]);
 	});
 
 	test("partitions by declared groups and leftover Other", () => {

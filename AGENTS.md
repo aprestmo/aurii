@@ -473,7 +473,7 @@ Aurii uses **two** planned reference verticals, plus **architecture fitness test
 
 | Vertical | Validates | Status |
 |----------|-----------|--------|
-| **Norwegian Geo** | Import, schema, query, storage, SDK, **delivery**, product modules, sources | First external downstream/reference product (in-tree pending extraction to `aprestmo/norwegian-geo`) |
+| **Norwegian Geo** | Import, schema, query, storage, SDK, **delivery**, product modules, sources | First external downstream/reference product ([`aprestmo/norwegian-geo`](https://github.com/aprestmo/norwegian-geo)) |
 | **Editorial** (future) | Authoring, revision, publishing, preview, workflow, media, Context | Planned after Phase 4 — [`Phase5.md`](Phase5.md); **do not implement unless assigned** |
 
 **Fitness tests** (design, not in-repo demos unless assigned): Kampbart, playground directory, DN Gaselle, Geo — [`docs/ARCHITECTURE_FITNESS.md`](docs/ARCHITECTURE_FITNESS.md).
@@ -490,34 +490,30 @@ Product model: `docs/PRODUCT_MODEL.md`. Product strategy: `docs/PRODUCT_STRATEGY
 
 ## Norwegian Geo (first external downstream product)
 
-Norwegian Geo is Aurii’s first real-world reference **product**. Phase 4 proved it inside this monorepo. It is being extracted to [`aprestmo/norwegian-geo`](https://github.com/aprestmo/norwegian-geo) so it can consume Aurii only through versioned packages and HTTP contracts. See [`docs/EXTERNAL_CONSUMERS.md`](docs/EXTERNAL_CONSUMERS.md).
+Norwegian Geo is Aurii’s first real-world reference **product**. Phase 4 proved it inside this monorepo. It now lives at [`aprestmo/norwegian-geo`](https://github.com/aprestmo/norwegian-geo) and consumes Aurii only through versioned packages and HTTP contracts. See [`docs/EXTERNAL_CONSUMERS.md`](docs/EXTERNAL_CONSUMERS.md).
 
 For **new** platform/import/query/delivery **contract** coverage, extend `tests/fixtures/external-product/` (City / Region). Do not add new Norwegian-geography tests to Core. Do not invent a third synthetic dataset.
 
-The in-tree product (`demo/norwegian-geo`, `apps/geo`) still exists until extraction PR B. Aurii CI no longer builds Geo.
+The product lives in [`aprestmo/norwegian-geo`](https://github.com/aprestmo/norwegian-geo). Aurii CI does not build or deploy it.
 
 Norwegian Geo is **not** sufficient to validate authoring-specific functionality (drafts, publishing UI, preview, editorial workflow, media libraries). Those wait for the Editorial vertical.
 
 ### What it is
 
-A three-layer product built on Aurii:
+A three-layer product built on Aurii, now a separate repository:
 
 ```
-Aurii Core → Norwegian Geo Core → Dataset Modules
+Aurii Core (this repo) → Norwegian Geo project package → Astro web product
 ```
 
 | Layer | Location | Purpose |
 |-------|----------|---------|
 | **Aurii Core** | `packages/core/` | Generic runtime (no Norwegian logic) |
-| **Norwegian Geo Core** | `demo/norwegian-geo/core/` | Counties, municipalities, postal codes, history |
-| **Dataset modules** | `demo/norwegian-geo/modules/` | Schools, kindergartens, hospitals, holidays (+ future domains) |
-| **Import** | `bun run import:norwegian-geo` | One-command import into Core (dataset: `norwegian-geo`) |
+| **Norwegian Geo** | [aprestmo/norwegian-geo](https://github.com/aprestmo/norwegian-geo) | Project package, datasets, scripts, Astro site |
 | **Platform contract tests** | `tests/fixtures/external-product/` + `external-product-contract` tests | Generic schema → import → route → SDK path |
-| **Consumer site** | `apps/geo` | Public website |
-| **Studio** | `apps/studio` (`@aurii/studio-app`) | Project workspace (dataset: `norwegian-geo`; config via `aurii.config.ts`) |
-| **Project package** | `demo/norwegian-geo/aurii.config.ts` | Schemas, sources, imports, sync, routes, Studio config |
+| **Studio** | `apps/studio` (`@aurii/studio-app`) | Generic operator workspace; point `AURII_PROJECT_ROOT` at any project package |
 
-Full documentation: `docs/NORWEGIAN_GEO.md`, `docs/REFERENCE_DEMO.md`, and `Phase2.2.md`.
+Full documentation: `docs/NORWEGIAN_GEO.md`, `docs/EXTERNAL_CONSUMERS.md`, `docs/REFERENCE_DEMO.md`, and `Phase2.2.md`.
 
 ### When to use it
 
@@ -532,7 +528,7 @@ Full documentation: `docs/NORWEGIAN_GEO.md`, `docs/REFERENCE_DEMO.md`, and `Phas
 1. Read `docs/EXTERNAL_CONSUMERS.md` and `docs/PACKAGES.md`
 2. Exercise `tests/fixtures/external-product/`
 3. Run `external-product-contract` tests plus Core/SDK/API/Studio suites
-4. Product-domain work belongs in Norwegian Geo (soon `aprestmo/norwegian-geo`), not Core
+4. Product-domain work belongs in [`aprestmo/norwegian-geo`](https://github.com/aprestmo/norwegian-geo), not Core
 
 **Do not:**
 

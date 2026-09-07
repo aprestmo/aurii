@@ -20,7 +20,7 @@ published route / Query API / @aurii/sdk
 independent frontend
 ```
 
-`apps/geo` is the in-tree reference consumer pending extraction to [`aprestmo/norwegian-geo`](https://github.com/aprestmo/norwegian-geo). Aurii CI proves the same path with `tests/fixtures/external-product/`. **Studio is not required** for frontend delivery and must not sit on this path. See [`EXTERNAL_CONSUMERS.md`](EXTERNAL_CONSUMERS.md).
+The reference consumer is [`aprestmo/norwegian-geo`](https://github.com/aprestmo/norwegian-geo). Aurii CI proves the same path with `tests/fixtures/external-product/`. **Studio is not required** for frontend delivery and must not sit on this path. See [`EXTERNAL_CONSUMERS.md`](EXTERNAL_CONSUMERS.md).
 
 ---
 
@@ -29,7 +29,7 @@ independent frontend
 | Mode | When | What it does |
 |------|------|----------------|
 | **Live** | `AURII_CORE_URL` (or `PUBLIC_AURII_CORE_URL`) is set, unless mode is forced to snapshot | Reads Core published routes via `@aurii/sdk`. **Does not** fall back to snapshot files. |
-| **Snapshot** | No Core URL, or `AURII_DELIVERY_MODE=snapshot` | Reads committed JSON under `demo/norwegian-geo/**/data/`. Offline / GitHub Pages / build-time fallback. |
+| **Snapshot** | No Core URL, or `AURII_DELIVERY_MODE=snapshot` | Reads committed JSON owned by the product (Norwegian Geo: `project/**/data/` in the external repo). Offline / GitHub Pages / build-time fallback. |
 
 Live is the **normal production integration contract**. Snapshot is an **explicit** fallback for environments that cannot reach Core.
 
@@ -95,14 +95,14 @@ const counties = await client.published.get("norge-data", "/counties");
 // counties.data — array of selected fields
 ```
 
-`apps/geo` uses this SDK method in live mode. It does not duplicate ad-hoc query parsing.
+The Norwegian Geo web product uses this SDK method in live mode. It does not duplicate ad-hoc query parsing.
 
 ---
 
 ## How published routes are versioned and enabled
 
 1. **Definition** lives in the project package (`defineRoute` files listed from `aurii.config.ts`): path, method (`GET` only), declarative query (`schema`, `select`, `filter`, `orderBy`, `limit`), defaults.
-2. **Register** the definition into Core (`POST /api/projects/:id/routes` or `bun run register:norwegian-geo-platform`).
+2. **Register** the definition into Core (`POST /api/projects/:id/routes` or `registerProjectPackage`).
 3. **State** lives in Core: `enabled`, `access`, `cacheTtl`, `version`, bound to the Project + dataset.
 4. **Enable** (`PATCH …/routes/:routeId` with `{ "enabled": true }`, or upsert with `enabled: true`). Enabling validates that the target schema exists in the dataset.
 5. **URL prefix** is currently always `/public/:projectSlug/v1/…` (ADR-0016). The definition’s `version` field (typically `"1"`) is stored on the route state; it is not a second URL namespace in this beta.
@@ -128,7 +128,7 @@ Offset pagination and in-memory joins are **not** a scale contract for millions 
 ## Frontend independence from Studio
 
 - Consumers talk to Core (published routes, Query API, or SDK).
-- `apps/geo` must not depend on `@aurii/studio` or `@aurii/studio-app`.
+- Product frontends must not depend on `@aurii/studio` or `@aurii/studio-app`.
 - Studio may **operate** published routes (enable/disable, inspect). It is never a read proxy.
 - A future Editorial/CMS client is also not a read proxy ([ADR-0010](../adr/ADR-0010%20—%20Optional%20Authoring%20Layer.md)).
 
@@ -144,7 +144,7 @@ Offset pagination and in-memory joins are **not** a scale contract for millions 
 | Failure behavior | **Fail closed** (error). No silent snapshot fallback | Read files |
 | Typical use | Production / local Core-backed site | GitHub Pages, air-gapped builds, tests of static pages |
 
-Module datasets in `apps/geo` (schools, kindergartens, hospitals, holidays) still use snapshots in this beta; only the Norwegian Geo **core** schemas (counties, municipalities, postal codes) are on published routes.
+In Norwegian Geo, module datasets (schools, kindergartens, hospitals, holidays) still use snapshots in this beta; only the **core** schemas (counties, municipalities, postal codes) are on published routes.
 
 ---
 
@@ -181,32 +181,15 @@ Module datasets in `apps/geo` (schools, kindergartens, hospitals, holidays) stil
 
 ## Reference: run the Norwegian Geo consumer
 
-See [`apps/geo/README.md`](../apps/geo/README.md) for commands.
+See [`aprestmo/norwegian-geo`](https://github.com/aprestmo/norwegian-geo).
 
 ```bash
-# 1. Import entities into Core
-bun run import:norwegian-geo
-
-# 2. Serve Core
+# In aprestmo/aurii
 bun run serve
 
-# 3. Register package resources (sources, saved imports, routes)
-AURII_CORE_URL=http://localhost:3000 bun run register:norwegian-geo-platform
-
-# 4. Enable routes in Studio, or PATCH /api/projects/:id/routes/:routeId
-#    { "enabled": true }
-
-# 5. Live geo site
-cd apps/geo
-AURII_CORE_URL=http://localhost:3000 \
-AURII_PROJECT_SLUG=norge-data \
-bun run dev
-```
-
-Snapshot / offline (default when Core URL is unset):
-
-```bash
-cd apps/geo
-bun run dev
-# or: AURII_DELIVERY_MODE=snapshot bun run build
+# In aprestmo/norwegian-geo
+bun run import
+AURII_CORE_URL=http://localhost:3000 bun run register
+# Enable routes in Studio, or PATCH /api/projects/:id/routes/:routeId
+AURII_CORE_URL=http://localhost:3000 AURII_PROJECT_SLUG=norge-data bun run dev
 ```

@@ -10,7 +10,7 @@ Related: [`PACKAGES.md`](PACKAGES.md), [`PROJECT_PACKAGES.md`](PROJECT_PACKAGES.
 
 ## Why this exists
 
-Norwegian Geo currently still lives in this repository (`demo/norwegian-geo`, `apps/geo`). That was correct for Phase 4. It is the wrong long-term shape for a platform:
+Norwegian Geo **lived** in this repository (`demo/norwegian-geo`, `apps/geo`) during Phase 4. That was correct then. It is the wrong long-term shape for a platform:
 
 - Aurii CI was building a product, not only the runtime
 - product scripts and datasets sat next to Core
@@ -24,7 +24,7 @@ The external-repository extraction tests whether the same product can
 consume Aurii solely through supported package/API boundaries.
 ```
 
-Until that repository is the system of record for the product, this monorepo keeps the Geo tree so the product exists somewhere. Aurii CI no longer builds or deploys it as a platform job.
+The product’s system of record is [`aprestmo/norwegian-geo`](https://github.com/aprestmo/norwegian-geo). Aurii no longer contains or builds the Geo application.
 
 ---
 
@@ -90,10 +90,10 @@ Classification used for the move. Do not delete historical ADRs.
 | Root Geo scripts (`fetch:norwegian-geo`, `import:norwegian-geo`, …) | Move |
 | Root `@turf/*`, `fflate` (Geo-only) | Move with Geo; delete from Aurii if unused |
 | `.github/workflows/ci.yml` `geo` job | Delete from Aurii (done) |
-| `.github/workflows/deploy-geo.yml` | Move after the new repo deploy is reproducible |
+| `.github/workflows/deploy-geo.yml` | Moved to norwegian-geo `.github/workflows/deploy.yml`; removed from Aurii |
 | Core/SDK/API tests that import `demo/norwegian-geo` | Replace with this fixture; keep Geo-specific tests only in the product repo |
 | `packages/core/scripts/*norwegian-geo*` | Delete after extraction (deprecated wrappers) |
-| `apps/studio` hardcoded `norge-data` fallback | Replace with generic fallback; product config stays in the package |
+| `apps/studio` hardcoded `norge-data` fallback | Replaced with generic `defaultStudioConfig`; product config stays in the package |
 | `docs/NORWEGIAN_GEO.md`, `REFERENCE_DEMO.md`, live paths in README | Update to the external repository |
 | Phase 2 / 2.2 / 4 history, ADRs that mention Geo paths | Retain as historical |
 | `packages/core/examples/schemas/{county,municipality,postal-code}.yaml` | Retain as generic examples or replace later; not product data |

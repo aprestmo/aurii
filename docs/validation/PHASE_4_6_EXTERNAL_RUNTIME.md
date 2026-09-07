@@ -25,7 +25,7 @@ This phase is **not** Aurii Cloud.
 | Hosting shape | Production-shaped Docker: Postgres 16 (private) + Aurii Runtime image + optional Studio. TLS at a reverse proxy. |
 | Aurii version | `0.1.0` + `AURII_GIT_SHA` / `AURII_BUILD_TIME` on `/health` |
 | PostgreSQL | 16 (CI service / Compose `postgres:16-alpine`) |
-| Downstream consumer | Generic City/Region fixture (`tests/fixtures/external-product`). Norwegian Geo remains the first *intended* external product; it is still in-tree pending `aprestmo/norwegian-geo`. |
+| Downstream consumer | Generic City/Region fixture (`tests/fixtures/external-product`). Norwegian Geo is the first external product at [`aprestmo/norwegian-geo`](https://github.com/aprestmo/norwegian-geo). |
 | Example URLs | `https://api.example`, `https://studio.example` (not hardcoded in Core) |
 
 Prerequisites from the phase brief:

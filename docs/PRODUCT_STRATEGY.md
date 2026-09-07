@@ -232,7 +232,7 @@ Intended commercial direction, **without locking the final license model**:
 
 ### Product / client package boundary
 
-Product applications (including future `apps/editorial`, and existing product clients such as `apps/geo` / Studio app) must **not** import `@aurii/core` or `@aurii/db` internals.
+Product applications (including future `apps/editorial`, the Studio app, and external products such as Norwegian Geo) must **not** import `@aurii/core` or `@aurii/db` internals.
 
 They may consume:
 

@@ -618,7 +618,7 @@ Commercial validation is separate, but ideally we have also identified one or mo
 |-----------|----------------------------------|
 | Several substantially different real projects on one Core | **Not met** — Norwegian Geo is the primary implemented vertical |
 | Core independent of Studio | **Met** — Core serves without Studio; geo consumer never imports Studio |
-| Domain-specific client | **Partial** — `apps/geo` is a domain consumer; Studio remains generic ops UI |
+| Domain-specific client | **Partial** — [`aprestmo/norwegian-geo`](https://github.com/aprestmo/norwegian-geo) is a domain consumer; Studio remains generic ops UI |
 | Meaningfully non-CMS-like application | **Partial** — Norwegian Geo is import/delivery-led |
 | Meaningful platform reuse | **Partial** — schemas, import, query, published routes, SDK, project packages |
 | Later projects easier to start | **Unproven** — second real product not yet in portfolio |
@@ -731,7 +731,7 @@ Record one entry per real project. Design-only fitness cases may be listed as **
 | Sequence role | early + non-CMS + distribution |
 | What this project tested | Schema, import/sync, relations, query, published routes, SDK, project packages, Core without Studio dependency |
 | Core exercised | Modelling, validation, relations, import/sync, query, published routes, SDK, project packages, sources/schedules |
-| Clients | Studio (ops), CLI/import pipeline, `apps/geo` consumer (no Studio dependency); generic CI fixture `tests/fixtures/external-product/` |
+| Clients | Studio (ops), CLI/import pipeline, external [`norwegian-geo`](https://github.com/aprestmo/norwegian-geo) consumer (no Studio dependency); generic CI fixture `tests/fixtures/external-product/` |
 | Distribution | Published REST routes, SDK, public website, snapshot offline mode |
 | Maturity pressure | Project packages, published routes, DataSources — treat contracts as Candidate until more products reuse them |
 | What was reused unchanged | (baseline — first real vertical) |

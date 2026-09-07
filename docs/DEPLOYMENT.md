@@ -5,6 +5,8 @@
 > Related: [`OPERATIONS.md`](OPERATIONS.md), [`EXTERNAL_CONSUMERS.md`](EXTERNAL_CONSUMERS.md), [`DELIVERY.md`](DELIVERY.md), [`validation/PHASE_4_6_EXTERNAL_RUNTIME.md`](validation/PHASE_4_6_EXTERNAL_RUNTIME.md).
 >
 > This is a **production-shaped reference deployment**, not Aurii Cloud. It does not promise HA, multi-region, or zero-downtime deploys.
+>
+> Norwegian Geo is Aurii’s first **external** downstream product ([`aprestmo/norwegian-geo`](https://github.com/aprestmo/norwegian-geo)). It is not deployed from this repository.
 
 ---
 
@@ -266,10 +268,10 @@ Norwegian Geo has its own lifecycle. Aurii deploy automation must not check out 
 - No zero-downtime schema deploy
 - Studio has no enterprise SSO/RBAC
 - Host deploy (DNS, TLS certs, off-machine backup copy) is an operator step
-- Norwegian Geo extraction to `aprestmo/norwegian-geo` is a separate repository operation; this repo keeps the in-tree product until that lands
+- Norwegian Geo lives in [`aprestmo/norwegian-geo`](https://github.com/aprestmo/norwegian-geo) and is not built or deployed from this repository
 
 ---
 
 ## Historical: static Geo Pages
 
-The previous GitHub Pages static Geo site is **not** the Phase 4.6 runtime proof. Live delivery is Core published routes over HTTPS. Snapshot mode remains an explicit offline fallback (`AURII_DELIVERY_MODE=snapshot`).
+The previous in-repo GitHub Pages static Geo site is **not** the Phase 4.6 runtime proof. Live delivery is Core published routes over HTTPS. Snapshot mode remains an explicit offline fallback (`AURII_DELIVERY_MODE=snapshot`). The Geo site now deploys from [`aprestmo/norwegian-geo`](https://github.com/aprestmo/norwegian-geo).

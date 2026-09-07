@@ -105,27 +105,20 @@ Each project can configure its Studio. Frontends never depend on Studio running.
 
 ```bash
 bun install
-bun run import:norwegian-geo   # schemas + entities into Core
 bun run serve                  # Core API (default :3000)
+# Point Studio at any project package (example: the extracted Norwegian Geo repo)
 AURII_CORE_URL=http://localhost:3000 \
-AURII_PROJECT_SLUG=norge-data \
-AURII_DEFAULT_DATASET=norwegian-geo \
-AURII_PROJECT_ROOT=demo/norwegian-geo \
-bun run studio                 # project Studio locally (loads defineStudio from package)
+AURII_PROJECT_SLUG=catalog \
+AURII_DEFAULT_DATASET=catalog \
+AURII_PROJECT_ROOT=tests/fixtures/external-product \
+bun run studio
 
 bun run studio:build           # static Studio for hosting
-# After import: register sources/imports/routes:
-#   bun run register:norwegian-geo-platform
-
-# Live geo consumer (after import + serve + register + enable routes):
-#   cd apps/geo && AURII_CORE_URL=http://localhost:3000 bun run dev
-# Snapshot / offline geo (no Core):
-#   cd apps/geo && bun run dev
 ```
 
 Do **not** put API tokens into a public Studio build.
 
-Norwegian Geo is Aurii’s first external downstream/reference product. The tree is still in this monorepo (`demo/norwegian-geo`, `apps/geo`) pending extraction to [`aprestmo/norwegian-geo`](https://github.com/aprestmo/norwegian-geo). Aurii CI no longer builds Geo; platform coverage uses `tests/fixtures/external-product/`. See [`docs/EXTERNAL_CONSUMERS.md`](docs/EXTERNAL_CONSUMERS.md).
+Norwegian Geo is Aurii’s first **external** downstream/reference product: [`aprestmo/norwegian-geo`](https://github.com/aprestmo/norwegian-geo). It is not in this monorepo. Platform contract coverage uses `tests/fixtures/external-product/`. See [`docs/EXTERNAL_CONSUMERS.md`](docs/EXTERNAL_CONSUMERS.md).
 
 ---
 
@@ -146,7 +139,6 @@ Norwegian Geo is Aurii’s first external downstream/reference product. The tree
 apps/
   api/             @aurii/api         — HTTP API + published public routes
   studio/          @aurii/studio-app  — Astro data workspace
-  geo/             @aurii/geo         — Norwegian Geo consumer (pending extraction)
 packages/
   core/            @aurii/core        — Runtime + defineProject / defineRoute
   studio/          @aurii/studio      — defineStudio helpers
@@ -154,9 +146,10 @@ packages/
   types/           @aurii/types       — Shared domain types
   validation/      @aurii/validation  — Shared validation
   db/              @aurii/db          — Drizzle schema / migrations
-demo/norwegian-geo/                   — Reference project package (pending extraction)
 tests/fixtures/external-product/      — Generic external-consumer contract fixture
 ```
+
+Reference product (separate repository): [`aprestmo/norwegian-geo`](https://github.com/aprestmo/norwegian-geo).
 
 Projects: [`docs/PROJECTS.md`](docs/PROJECTS.md). Studio: [`docs/Studio.md`](docs/Studio.md).
 

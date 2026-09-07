@@ -221,7 +221,7 @@ Domain data packaged for a product—for example education or health under Norwe
 
 A product module is **not** a runtime plugin.
 
-Norwegian Geo convention: `demo/norwegian-geo/product.yaml` and `modules/<id>/module.yaml`. Phase 4 formalizes useful generic parts without inventing a large new Core “Product Runtime.”
+Norwegian Geo convention: `product.yaml` and `modules/<id>/module.yaml` in [`aprestmo/norwegian-geo`](https://github.com/aprestmo/norwegian-geo). Phase 4 formalizes useful generic parts without inventing a large new Core “Product Runtime.”
 
 ### Plugin
 
@@ -340,7 +340,7 @@ Frontend, visualization, API consumer, AI, or print
 
 Studio’s project workspace configures and inspects sources, imports, schedules, schemas, entities, queries, published routes, runs, and errors. Domain-specific collection views (for example Map) are extensions, not Core. No publication-CMS client is required.
 
-**Status:** Path proven through import, Core, query, API, SDK, and live published routes (Norwegian Geo core schemas). Project-oriented Studio, DataSources, schedules, and published routes are **beta**. Live frontend delivery is documented in [`DELIVERY.md`](DELIVERY.md); `apps/geo` uses committed snapshots only as an explicit offline/build-time mode.
+**Status:** Path proven through import, Core, query, API, SDK, and live published routes (Norwegian Geo core schemas, now in the external product). Project-oriented Studio, DataSources, schedules, and published routes are **beta**. Live frontend delivery is documented in [`DELIVERY.md`](DELIVERY.md).
 
 ### 2. Authored content with an optional CMS layer
 
@@ -387,7 +387,7 @@ Hybrid products compose imported entities with authored fields or entities throu
 
 | Example | Mode | Core role | Clients | Notes |
 |---------|------|-----------|---------|-------|
-| **Norwegian Geo** | Data-only (enrichment/overrides later) | Counties, municipalities, postal codes, module entities | Studio project workspace; `apps/geo` consumer | Canonical import/data/delivery vertical; fitness test **Geo** |
+| **Norwegian Geo** | Data-only (enrichment/overrides later) | Counties, municipalities, postal codes, module entities | Studio project workspace; external [`norwegian-geo`](https://github.com/aprestmo/norwegian-geo) consumer | Canonical import/data/delivery vertical; fitness test **Geo** |
 | **Playground directory** | Hybrid | Structured place records + rich fields; geo references | Studio list/table/map views; public site | Fitness test; not implemented as a demo unless assigned |
 | **DN Gaselle** | Hybrid | Companies, financials, rankings related to articles | Studio tables; publication frontend; APIs | Fitness test: data must not be modeled as articles |
 | **Kampbart** | Hybrid | Sports graph (match, team, player, events) + report | Custom Studio match editor; public site | Fitness test: Studio as specialized tool via extensions |
@@ -415,9 +415,9 @@ Architecture questions and capability matrix: [`ARCHITECTURE_FITNESS.md`](ARCHIT
 
 ## Relationship to Norwegian Geo’s product.yaml
 
-`demo/norwegian-geo/product.yaml` is the working example of **product composition** (modules, layers, dependencies).
+[`aprestmo/norwegian-geo`](https://github.com/aprestmo/norwegian-geo) `project/product.yaml` is the working example of **product composition** (modules, layers, dependencies).
 
-`demo/norwegian-geo/aurii.config.ts` is the **project package** for Studio, sources, imports, sync, and published routes. It points at Core Project slug `norge-data` and dataset `norwegian-geo`.
+[`aprestmo/norwegian-geo`](https://github.com/aprestmo/norwegian-geo) `project/aurii.config.ts` is the **project package** for Studio, sources, imports, sync, and published routes. It points at Core Project slug `norge-data` and dataset `norwegian-geo`. The in-repo stand-in is `tests/fixtures/external-product/`.
 
 The two coexist ([ADR-0014](../adr/ADR-0014%20—%20Project%20Configuration%20Package.md)):
 

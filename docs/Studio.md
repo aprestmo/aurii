@@ -198,10 +198,11 @@ Studio should later use Core relations to show **context around a record** (inco
 bun run serve                  # Core API (default :3000)
 
 AURII_CORE_URL=http://localhost:3000 \
-AURII_PROJECT_SLUG=norge-data \
-AURII_DEFAULT_DATASET=norwegian-geo \
-AURII_PROJECT_ROOT=demo/norwegian-geo \
+AURII_PROJECT_SLUG=catalog \
+AURII_DEFAULT_DATASET=catalog \
+AURII_PROJECT_ROOT=tests/fixtures/external-product \
 bun run studio                 # → @aurii/studio-app dev
+# Or point AURII_PROJECT_ROOT at a clone of aprestmo/norwegian-geo/project
 ```
 
 ### Static / hosted build
@@ -293,7 +294,7 @@ Rules for custom views **and** future editors:
 4. No Core domain logic inside the view module.
 5. Isolation is thin (client modules)—sufficient for beta; expand later if needed.
 
-Norwegian Geo example: coverage view under `demo/norwegian-geo/studio/`.
+Norwegian Geo example: coverage view in [`aprestmo/norwegian-geo`](https://github.com/aprestmo/norwegian-geo) under `project/studio/`.
 
 ---
 

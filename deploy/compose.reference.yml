@@ -1,0 +1,140 @@
+name: aurii-reference
+
+# Production-shaped reference deployment.
+# Provider (VPS, reverse proxy, DNS) is an operational choice — not Core.
+#
+#   cp deploy/env.reference.example deploy/.env
+#   # fill secrets
+#   docker compose -f deploy/compose.reference.yml --env-file deploy/.env up -d
+#
+# Postgres is not published to the host. Put TLS in front of `core` and `studio`.
+
+services:
+  postgres:
+    image: postgres:16-alpine
+    restart: unless-stopped
+    env_file:
+      - .env
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+      POSTGRES_DB: ${POSTGRES_DB}
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U $$POSTGRES_USER -d $$POSTGRES_DB"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+    networks:
+      - internal
+
+  migrate:
+    image: ${AURII_IMAGE:-aurii-core:local}
+    build:
+      context: ..
+      dockerfile: Dockerfile.core
+      args:
+        AURII_VERSION: ${AURII_VERSION:-0.1.0}
+        AURII_GIT_SHA: ${AURII_GIT_SHA:-unknown}
+        AURII_BUILD_TIME: ${AURII_BUILD_TIME:-unknown}
+    env_file:
+      - .env
+    environment:
+      DATABASE_URL: ${DATABASE_URL}
+    command: ["bun", "run", "packages/db/scripts/migrate.ts"]
+    depends_on:
+      postgres:
+        condition: service_healthy
+    restart: "no"
+    networks:
+      - internal
+
+  core:
+    image: ${AURII_IMAGE:-aurii-core:local}
+    build:
+      context: ..
+      dockerfile: Dockerfile.core
+      args:
+        AURII_VERSION: ${AURII_VERSION:-0.1.0}
+        AURII_GIT_SHA: ${AURII_GIT_SHA:-unknown}
+        AURII_BUILD_TIME: ${AURII_BUILD_TIME:-unknown}
+    restart: unless-stopped
+    env_file:
+      - .env
+    environment:
+      AURII_ENV: production
+      AURII_STORAGE: postgres
+      DATABASE_URL: ${DATABASE_URL}
+      AURII_API_TOKEN: ${AURII_API_TOKEN}
+      AURII_CORS_ORIGINS: ${AURII_CORS_ORIGINS}
+      PORT: ${PORT:-3000}
+    depends_on:
+      migrate:
+        condition: service_completed_successfully
+    healthcheck:
+      test:
+        [
+          "CMD",
+          "bun",
+          "-e",
+          "const r = await fetch('http://127.0.0.1:' + (process.env.PORT ?? '3000') + '/health'); if (!r.ok) process.exit(1)",
+        ]
+      interval: 10s
+      timeout: 5s
+      retries: 10
+    ports:
+      - "127.0.0.1:3000:3000"
+    networks:
+      - internal
+
+  studio:
+    profiles: ["studio"]
+    build:
+      context: ..
+      dockerfile: Dockerfile.studio
+      args:
+        PUBLIC_AURII_CORE_URL: ${PUBLIC_AURII_CORE_URL}
+    restart: unless-stopped
+    depends_on:
+      core:
+        condition: service_healthy
+    ports:
+      - "127.0.0.1:4321:4321"
+    networks:
+      - internal
+
+  backup:
+    profiles: ["backup"]
+    image: postgres:16-alpine
+    env_file:
+      - .env
+    environment:
+      DATABASE_URL: ${DATABASE_URL}
+      BACKUP_DIR: /backups
+      BACKUP_KEEP: ${BACKUP_KEEP:-14}
+      BACKUP_INTERVAL_SECONDS: ${BACKUP_INTERVAL_SECONDS:-86400}
+      BACKUP_UPLOAD_COMMAND: ${BACKUP_UPLOAD_COMMAND:-}
+    volumes:
+      - backups:/backups
+      - ./backup-postgres.sh:/usr/local/bin/aurii-backup:ro
+    command:
+      [
+        "sh",
+        "-c",
+        "while true; do /usr/local/bin/aurii-backup || true; sleep $${BACKUP_INTERVAL_SECONDS:-86400}; done",
+      ]
+    depends_on:
+      postgres:
+        condition: service_healthy
+    restart: unless-stopped
+    networks:
+      - internal
+
+volumes:
+  postgres_data:
+  backups:
+
+networks:
+  internal:
+    driver: bridge

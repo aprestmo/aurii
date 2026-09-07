@@ -28,7 +28,7 @@ AI.md
 STUDIO.md
 AGENTS.md
 
-Phase reports: Phase1.md … Phase4.md (historical), Phase5.md (planned Editorial & Context; Pre–Phase 5 architecture gate), docs/DELIVERY.md, docs/SCALE.md, docs/ARCHITECTURE_FITNESS.md, docs/SCHEMA_EVOLUTION.md, docs/HISTORY_MODEL.md, docs/TEMPORAL_REFERENCES.md, docs/OPERATIONS.md
+Phase reports: Phase1.md … Phase4.md (historical), Phase 4.6 external runtime ([`docs/validation/PHASE_4_6_EXTERNAL_RUNTIME.md`](validation/PHASE_4_6_EXTERNAL_RUNTIME.md)), Phase5.md (planned Editorial & Context; Pre–Phase 5 architecture gate), docs/DELIVERY.md, docs/SCALE.md, docs/ARCHITECTURE_FITNESS.md, docs/SCHEMA_EVOLUTION.md, docs/HISTORY_MODEL.md, docs/TEMPORAL_REFERENCES.md, docs/OPERATIONS.md, docs/DEPLOYMENT.md
 ADR-0010 — Optional Authoring Layer
 ADR-0011 — Project as Top-Level Boundary
 ADR-0019 — Provenance and Editorial Overrides

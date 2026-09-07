@@ -36,7 +36,8 @@
     "import:norwegian-geo": "bun run demo/norwegian-geo/scripts/import.ts",
 		"migrate:norwegian-geo-project": "bun run demo/norwegian-geo/scripts/migrate-project.ts",
 		"build:geodata": "bun run demo/norwegian-geo/geodata/scripts/build-boundaries.ts",
-		"ops:persistence-proof": "bun run scripts/ops-persistence-proof.ts"
+		"ops:persistence-proof": "bun run scripts/ops-persistence-proof.ts",
+		"ops:runtime-container": "bash scripts/ci-runtime-container.sh"
   },
   "devDependencies": {
     "drizzle-kit": "^0.31.10"

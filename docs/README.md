@@ -39,6 +39,8 @@ The specification is the **source of truth**. Code implements the specification.
 - [HISTORY_MODEL.md](./HISTORY_MODEL.md) — Provenance vs audit vs revision vs publication
 - [TEMPORAL_REFERENCES.md](./TEMPORAL_REFERENCES.md) — Live vs pinned references; recordedAt / effectiveAt
 - [OPERATIONS.md](./OPERATIONS.md) — Persistent Postgres startup, backup, restore
+- [DEPLOYMENT.md](./DEPLOYMENT.md) — Production-shaped runtime (containers, CORS, HTTPS, migrate)
+- [validation/PHASE_4_6_EXTERNAL_RUNTIME.md](./validation/PHASE_4_6_EXTERNAL_RUNTIME.md) — External runtime validation report
 - [Runtime.md](./Runtime.md) — Runtime design and execution model
 - [Core.md](./Core.md) — Core package internals
 - [Domain Model.md](./Domain%20Model.md) — Entity, Dataset, Schema, Pipeline domain model
@@ -89,6 +91,7 @@ The specification is the **source of truth**. Code implements the specification.
 | [Phase2.2.md](../Phase2.2.md) | Historical — complete |
 | [Phase3.md](../Phase3.md) | Historical — complete |
 | [Phase4.md](../Phase4.md) | Historical — complete (data products + delivery) |
+| [PHASE_4_6_EXTERNAL_RUNTIME.md](./validation/PHASE_4_6_EXTERNAL_RUNTIME.md) | External runtime — in-repo / CI proof |
 | [Phase5.md](../Phase5.md) | Plan — Editorial & Context (post–Phase 4; not implemented) |
 
 Historical phase reports are records of what was true when written. Prefer status notes over rewriting them.

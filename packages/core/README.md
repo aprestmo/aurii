@@ -43,6 +43,9 @@ parser produces an AST; each adapter translates it to its own SQL dialect.
 | `DATABASE_URL`          | PostgreSQL connection URL           | —          |
 | `AURII_PLATFORM_STORE`  | `memory` \| `sqlite` \| `postgres`  | inferred   |
 | `AURII_API_TOKEN`       | Protect the HTTP API                | (open)     |
+| `AURII_ENV`             | `production` fail-closed start      | (dev)      |
+| `AURII_CORS_ORIGINS`    | Comma-separated browser origins     | `*` (dev)  |
+| `AURII_VERSION` / `AURII_GIT_SHA` / `AURII_BUILD_TIME` | Release identity on `/health` | `0.1.0` |
 
 ```bash
 # PostgreSQL

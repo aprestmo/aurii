@@ -2,7 +2,7 @@
 
 > Engineering report for Phase 4 completion.
 >
-> **Status: complete.** Current platform status: repository [`README.md`](README.md). Next phase (planning only): [`Phase5.md`](Phase5.md). Delivery: [`docs/DELIVERY.md`](docs/DELIVERY.md). Scale: [`docs/SCALE.md`](docs/SCALE.md). Slice plan that closed the exit criteria: [`docs/NEXT_AFTER_STUDIO_BETA.md`](docs/NEXT_AFTER_STUDIO_BETA.md).
+> **Status: complete.** Current platform status: repository [`README.md`](README.md). External runtime (Phase 4.6): [`docs/validation/PHASE_4_6_EXTERNAL_RUNTIME.md`](docs/validation/PHASE_4_6_EXTERNAL_RUNTIME.md), [`docs/DEPLOYMENT.md`](docs/DEPLOYMENT.md). Next phase (planning only): [`Phase5.md`](Phase5.md). Delivery: [`docs/DELIVERY.md`](docs/DELIVERY.md). Scale: [`docs/SCALE.md`](docs/SCALE.md). Slice plan that closed the exit criteria: [`docs/NEXT_AFTER_STUDIO_BETA.md`](docs/NEXT_AFTER_STUDIO_BETA.md).
 >
 > Phase 3 completed the relational Core. Phase 4 completed the **data-product path** before the repository attempts a full newsroom, LiveCenter, or authoring CMS.
 >

@@ -4,6 +4,9 @@ node_modules/
 *.db-wal
 .env
 .env.*
+!.env.example
+!deploy/env.reference.example
+*.dump
 dist/
 .astro/
 .aurii-uploads/

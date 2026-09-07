@@ -1,18 +1,15 @@
 name: aurii
 
-# One-command local developer environment.
+# Local developer environment. Not the internet-facing reference deployment.
+# See deploy/compose.reference.yml and docs/DEPLOYMENT.md for production shape.
 #
-# Usage:
 #   docker compose up
 #
-# Services:
-#   - postgres  PostgreSQL 16 database
-#   - core      Aurii Runtime HTTP API (port 3000)
-#   - studio    Aurii Studio admin client (port 4321)
+# Core:    http://localhost:3000
+# Studio:  http://localhost:4321
+# Swagger: http://localhost:3000/swagger
 #
-# The Core API is available at http://localhost:3000
-# Swagger UI is available at http://localhost:3000/swagger
-# Studio is available at http://localhost:4321
+# Postgres is bound to loopback only.
 
 services:
   postgres:
@@ -23,7 +20,7 @@ services:
       POSTGRES_PASSWORD: aurii
       POSTGRES_DB: aurii
     ports:
-      - "5432:5432"
+      - "127.0.0.1:5432:5432"
     volumes:
       - postgres_data:/var/lib/postgresql/data
     healthcheck:
@@ -32,10 +29,26 @@ services:
       timeout: 5s
       retries: 10
 
+  migrate:
+    build:
+      context: .
+      dockerfile: Dockerfile.core
+    environment:
+      DATABASE_URL: postgres://aurii:aurii@postgres:5432/aurii
+    command: ["bun", "run", "packages/db/scripts/migrate.ts"]
+    depends_on:
+      postgres:
+        condition: service_healthy
+    restart: "no"
+
   core:
     build:
       context: .
       dockerfile: Dockerfile.core
+      args:
+        AURII_VERSION: ${AURII_VERSION:-0.1.0}
+        AURII_GIT_SHA: ${AURII_GIT_SHA:-dev}
+        AURII_BUILD_TIME: ${AURII_BUILD_TIME:-local}
     restart: unless-stopped
     ports:
       - "3000:3000"
@@ -43,20 +56,19 @@ services:
       AURII_STORAGE: postgres
       DATABASE_URL: postgres://aurii:aurii@postgres:5432/aurii
       PORT: "3000"
-      # Optional: uncomment to require an API token
-      # AURII_API_TOKEN: your-secret-token
+      AURII_CORS_ORIGINS: ${AURII_CORS_ORIGINS:-http://localhost:4321,http://127.0.0.1:4321}
+      AURII_API_TOKEN: ${AURII_API_TOKEN:-}
     depends_on:
-      postgres:
-        condition: service_healthy
-    # Apply project migrations before serving (idempotent).
-    command:
-      [
-        "sh",
-        "-c",
-        "bun run packages/db/scripts/migrate.ts && bun run apps/api/src/index.ts",
-      ]
+      migrate:
+        condition: service_completed_successfully
     healthcheck:
-      test: ["CMD-SHELL", "curl -f http://localhost:3000/health || exit 1"]
+      test:
+        [
+          "CMD",
+          "bun",
+          "-e",
+          "const r = await fetch('http://127.0.0.1:3000/health'); if (!r.ok) process.exit(1)",
+        ]
       interval: 10s
       timeout: 5s
       retries: 10
@@ -65,12 +77,15 @@ services:
     build:
       context: .
       dockerfile: Dockerfile.studio
+      args:
+        PUBLIC_AURII_CORE_URL: ${PUBLIC_AURII_CORE_URL:-http://localhost:3000}
     restart: unless-stopped
     ports:
       - "4321:4321"
     depends_on:
       core:
         condition: service_healthy
+    profiles: ["studio"]
 
 volumes:
   postgres_data:

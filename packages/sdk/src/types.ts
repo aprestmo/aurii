@@ -233,12 +233,18 @@ export interface StorageStats {
 // ── Health ────────────────────────────────────────────────────────────────────
 
 export interface HealthResponse {
-	status: "ok";
+	status: "ok" | "unavailable";
 	phase: string;
 	version: string;
 	storage: "sqlite" | "postgres";
 	scheduler?: { enabled: boolean };
 	platformStore?: { mode: "memory" | "sqlite" | "postgres" };
+	release?: {
+		version: string;
+		gitSha?: string | null;
+		buildTime?: string | null;
+	};
+	database?: { connected: boolean };
 }
 
 // ── Published routes ──────────────────────────────────────────────────────────

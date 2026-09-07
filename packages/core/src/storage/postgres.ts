@@ -302,6 +302,10 @@ export class PostgresAdapter implements StorageAdapter {
 		await this.sql.close();
 	}
 
+	async ping(): Promise<void> {
+		await this.sql`SELECT 1`;
+	}
+
 	// ── Datasets ───────────────────────────────────────────────────────────────
 
 	private mapDatasetRow(row: Record<string, unknown>): Dataset {

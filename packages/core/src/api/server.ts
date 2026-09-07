@@ -30,9 +30,6 @@ import { Elysia } from "elysia";
 import { mkdir } from "fs/promises";
 import { join, resolve } from "path";
 import { parse as parseYaml } from "yaml";
-import { listCapabilities } from "../capabilities/registry";
-import { getPlatformStore } from "../platform/store";
-import { getImportScheduler } from "../schedule/scheduler";
 import { isDatasetError } from "../dataset/errors";
 import { countEntities, getEntity, getEntityRevision, listEntities, updateEntity } from "../entity/store";
 import {
@@ -50,6 +47,15 @@ import { executeQuery, explainQuery } from "../query/executor";
 import { getSchema, listSchemas, registerSchema } from "../schema/registry";
 import type { SchemaDefinition } from "../schema/types";
 import { DEFAULT_DATASET, getStorage } from "../storage";
+import {
+	assertRuntimeConfigOrExit,
+	attachShutdownHandlers,
+	buildHealthReport,
+	corsOriginOption,
+	publicInternalErrorMessage,
+	resolveCorsPolicy,
+	resolveRuntimeIdentity,
+} from "../runtime";
 
 export interface AppOptions {
 	/** Bearer token required on protected routes. Unset = open (no auth). */
@@ -98,13 +104,17 @@ export function buildApp(options: AppOptions = {}) {
 		process.env["AURII_UPLOAD_DIR"] ??
 		join(process.cwd(), ".aurii-uploads");
 
+	const corsPolicy = resolveCorsPolicy();
+	const identity = resolveRuntimeIdentity();
+
 	return (
 		new Elysia()
 			.use(
 				cors({
-					origin: "*",
+					origin: corsOriginOption(),
 					methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
 					allowedHeaders: ["Content-Type", "Authorization"],
+					credentials: corsPolicy.mode === "list",
 				}),
 			)
 			.use(
@@ -112,7 +122,7 @@ export function buildApp(options: AppOptions = {}) {
 					documentation: {
 						info: {
 							title: "Aurii Runtime API",
-							version: "0.2.0",
+							version: identity.version,
 							description:
 								"Declarative Runtime for Structured Knowledge — HTTP API",
 						},
@@ -152,27 +162,16 @@ export function buildApp(options: AppOptions = {}) {
 					};
 				}
 				set.status = 500;
-				return { error: String(error) };
+				return { error: publicInternalErrorMessage(error) };
 			})
 
 			// ── Public ──────────────────────────────────────────────────────────────────
 			.get(
 				"/health",
-				async () => {
-					const storage = await getStorage();
-					return {
-						status: "ok",
-						phase: "2",
-						version: "0.2.0",
-						storage: storage.kind,
-						scheduler: { enabled: getImportScheduler().isStarted() },
-						platformStore: { mode: getPlatformStore().kind },
-						capabilities: listCapabilities().map((c) => ({
-							id: c.id,
-							kind: c.kind,
-							status: c.status,
-						})),
-					};
+				async ({ set }) => {
+					const report = await buildHealthReport();
+					set.status = report.httpStatus;
+					return report.body;
 				},
 				{ tags: ["Health"] },
 			)
@@ -446,17 +445,16 @@ export function buildApp(options: AppOptions = {}) {
 // in-process without a network socket.
 
 if (import.meta.main) {
+	assertRuntimeConfigOrExit();
 	const PORT = parseInt(process.env["PORT"] ?? "3000", 10);
-	const API_TOKEN = process.env["AURII_API_TOKEN"];
 
 	const app = buildApp().listen({
 		port: PORT,
 		maxRequestBodySize: 100 * 1024 * 1024, // 100 MB uploads
 	});
+	attachShutdownHandlers(async () => {
+		await app.stop();
+	});
 
-	console.log(`Aurii API running on http://localhost:${app.server?.port}`);
-	console.log(`Storage: ${process.env["AURII_STORAGE"] ?? "sqlite"}`);
-	console.log(
-		`Auth: ${API_TOKEN ? "token required" : "open (set AURII_API_TOKEN to protect)"}`,
-	);
+	console.log(`Aurii API listening on :${app.server?.port}`);
 }

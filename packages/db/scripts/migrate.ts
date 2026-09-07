@@ -12,9 +12,11 @@ import postgres from "postgres";
 const MIGRATIONS_DIR = join(import.meta.dir, "..", "migrations");
 
 async function main() {
-	const url =
-		process.env["DATABASE_URL"] ??
-		"postgres://aurii:aurii@localhost:5432/aurii";
+	const url = process.env["DATABASE_URL"]?.trim();
+	if (!url) {
+		console.error("DATABASE_URL is required to run migrations");
+		process.exit(1);
+	}
 
 	const sql = postgres(url, { max: 1, connect_timeout: 10 });
 

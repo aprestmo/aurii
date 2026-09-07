@@ -2,7 +2,7 @@
 
 > **Status: planned / post–Phase 4.** This is a roadmap only.
 >
-> Phase 4 exit criteria are **met** ([`Phase4.md`](Phase4.md)). Do **not** implement Phase 5 capabilities unless that is the assigned task.
+> Phase 4 exit criteria are **met** ([`Phase4.md`](Phase4.md)). Phase 4.6 (persistent external runtime) is the operational gate before Editorial work — [`docs/validation/PHASE_4_6_EXTERNAL_RUNTIME.md`](docs/validation/PHASE_4_6_EXTERNAL_RUNTIME.md). Do **not** implement Phase 5 capabilities unless that is the assigned task.
 >
 > Parent: [`Phase4.md`](Phase4.md). Product vocabulary: [`docs/PRODUCT_MODEL.md`](docs/PRODUCT_MODEL.md). Strategy: [`docs/PRODUCT_STRATEGY.md`](docs/PRODUCT_STRATEGY.md). Platform validation: [`docs/PLATFORM_VALIDATION.md`](docs/PLATFORM_VALIDATION.md). Competitive guardrails: [`docs/COMPETITIVE_GUARDRAILS.md`](docs/COMPETITIVE_GUARDRAILS.md). Authoring boundary: [`adr/ADR-0010 — Optional Authoring Layer.md`](adr/ADR-0010%20—%20Optional%20Authoring%20Layer.md). Delivery contract: [`docs/DELIVERY.md`](docs/DELIVERY.md).
 

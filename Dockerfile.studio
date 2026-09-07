@@ -13,8 +13,6 @@ COPY packages/core/package.json ./packages/core/
 COPY packages/db/package.json ./packages/db/
 COPY apps/studio/package.json ./apps/studio/
 COPY apps/api/package.json ./apps/api/
-COPY apps/geo/package.json ./apps/geo/
-COPY demo/norwegian-geo/package.json ./demo/norwegian-geo/
 COPY tests/fixtures/external-product/package.json ./tests/fixtures/external-product/
 
 RUN bun install --frozen-lockfile

@@ -7,11 +7,11 @@
  * and runs imports.
  *
  * Usage (from repo root):
- *   bun run import:norwegian-geo
+ *   bun run import
  *
  * With PostgreSQL:
  *   AURII_STORAGE=postgres DATABASE_URL=postgres://aurii:aurii@localhost:5432/aurii \
- *     bun run import:norwegian-geo
+ *     bun run import
  */
 
 import { resolve } from "node:path";
@@ -30,9 +30,9 @@ import {
 	registerSchema,
 	resetProjectService,
 	runImport,
-} from "../../../packages/core/src/index";
-import type { SchemaDefinition } from "../../../packages/core/src/schema/types";
-import { createDb } from "../../../packages/db/src/index";
+} from "@aurii/core";
+import type { SchemaDefinition } from "@aurii/core";
+import { createDb } from "@aurii/db";
 import {
 	getDatasetId,
 	listAllImports,

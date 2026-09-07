@@ -17,12 +17,11 @@ import {
   resolveGeoDelivery,
   type GeoDeliveryMode,
 } from "./live";
+import { productRoot } from "./paths";
 
-// Resolved from the current working directory (apps/geo) rather than
-// import.meta.dirname, since the build output nests compiled chunks at
-// varying depths (e.g. dist/.prerender/chunks/) across Astro versions.
-const ROOT = resolve(process.cwd(), "../..");
-const PRODUCT = resolve(ROOT, "demo/norwegian-geo");
+// Resolved by walking up from cwd rather than import.meta.dirname,
+// since the build output nests compiled chunks at varying depths.
+const PRODUCT = productRoot();
 const CORE_DATA = resolve(PRODUCT, "core/data");
 const EDUCATION_DATA = resolve(PRODUCT, "modules/education/data");
 const HEALTH_DATA = resolve(PRODUCT, "modules/health/data");

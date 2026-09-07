@@ -1,5 +1,5 @@
 /**
- * Live Core / published-route delivery for apps/geo.
+ * Live Core / published-route delivery for the Norwegian Geo web product.
  *
  * Live mode is the production integration contract:
  *   Import → Core → published route / @aurii/sdk → this frontend

@@ -3,7 +3,7 @@
  * For a running Core API, use registerProjectPackage / register-via-api.ts.
  *
  * Usage:
- *   bun run demo/norwegian-geo/scripts/bootstrap-platform.ts
+ *   bun run project/scripts/bootstrap-platform.ts
  */
 
 import {

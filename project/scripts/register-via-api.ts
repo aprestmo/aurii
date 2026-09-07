@@ -4,13 +4,13 @@
  * Thin wrapper around `registerProjectPackage` from `@aurii/core`.
  *
  * Prerequisites:
- *   bun run import:norwegian-geo   # schemas + entities
- *   bun run serve                  # Core API on :3000
+ *   bun run import                 # schemas + entities
+ *   # Aurii Runtime listening on :3000
  *
  * Usage:
  *   AURII_CORE_URL=http://localhost:3000 \
  *   AURII_API_TOKEN=... \
- *   bun run register:norwegian-geo-platform
+ *   bun run register
  */
 
 import { registerProjectPackage } from "@aurii/core";

@@ -12,8 +12,8 @@ import {
 } from "../lib/historical-data";
 
 const ROOT = resolve(import.meta.dir, "../../../..");
-const DATA_DIR = resolve(ROOT, "demo/norwegian-geo/core/historical/data");
-const HERALDRY_ROOT = resolve(ROOT, "apps/geo/public/assets/heraldry");
+const DATA_DIR = resolve(ROOT, "project/core/historical/data");
+const HERALDRY_ROOT = resolve(ROOT, "apps/web/public/assets/heraldry");
 
 describe("historical norwegian geo dataset", () => {
   it("data files exist", () => {
@@ -88,7 +88,7 @@ describe("historical norwegian geo dataset", () => {
 
     for (const entity of withCoats) {
       const localPath = entity.coatOfArms!.localPath.replace(/^\//, "");
-      const absolute = resolve(ROOT, "apps/geo/public", localPath);
+      const absolute = resolve(ROOT, "apps/web/public", localPath);
       expect(existsSync(absolute)).toBe(true);
     }
   });

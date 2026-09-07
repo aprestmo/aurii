@@ -39,7 +39,7 @@ The `historical/` pipeline extends Core with:
 - Municipality enrichment (timeline, predecessors, area, language form)
 - Heraldry (coat of arms SVGs)
 
-Historical data is consumed by `apps/geo` at build time. It is not yet imported into the Aurii `norwegian-geo` dataset.
+Historical data is consumed by `apps/web` at build time. It is not yet imported into the Aurii `norwegian-geo` dataset.
 
 See [`historical/README.md`](historical/README.md).
 

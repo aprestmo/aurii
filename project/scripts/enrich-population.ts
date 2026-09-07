@@ -3,7 +3,7 @@
  * Enrich Norwegian Geo Core county and municipality snapshots with SSB population.
  *
  * Usage (from repo root):
- *   bun run demo/norwegian-geo/scripts/enrich-population.ts
+ *   bun run project/scripts/enrich-population.ts
  */
 
 import { resolve } from "node:path";

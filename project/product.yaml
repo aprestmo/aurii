@@ -21,7 +21,7 @@ dataset:
 layers:
   aurii:
     description: Declarative Runtime — schemas, import engine, query language, API, pipelines
-    location: packages/core
+    location: "@aurii/core (external package)"
     owner: Aurii platform
 
   norwegianGeoCore:

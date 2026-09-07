@@ -1,7 +1,7 @@
 #!/usr/bin/env bun
 /**
  * Validates the historical Norwegian geo dataset.
- * Run: bun run validate:historical-norwegian-geo
+ * Run: bun run validate:historical
  */
 
 import { existsSync } from "node:fs";
@@ -12,9 +12,9 @@ import type {
   HistoricalMunicipality,
 } from "./types";
 
-const ROOT = resolve(import.meta.dir, "../../../..");
+const ROOT = resolve(import.meta.dir, "../../..");
 const DATA_DIR = resolve(import.meta.dir, "data");
-const PUBLIC_ROOT = resolve(ROOT, "apps/geo/public");
+const PUBLIC_ROOT = resolve(ROOT, "apps/web/public");
 
 interface ValidationResult {
   ok: boolean;

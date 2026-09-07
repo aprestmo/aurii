@@ -1,0 +1,50 @@
+{
+  "name": "norwegian-geo",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Norwegian Geo — standalone data product and reference application built on Aurii",
+  "license": "UNLICENSED",
+  "type": "module",
+  "workspaces": ["project", "apps/web"],
+  "packageManager": "bun@1.4.2",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/aprestmo/norwegian-geo.git"
+  },
+  "dependencies": {
+    "@turf/bbox": "^7.2.0",
+    "@turf/simplify": "^7.2.0",
+    "fflate": "^0.8.2",
+    "yaml": "^2.7.1"
+  },
+  "overrides": {
+    "@aurii/types": "file:./vendor/aurii/aurii-types-0.1.0.tgz",
+    "@aurii/validation": "file:./vendor/aurii/aurii-validation-0.1.0.tgz",
+    "@aurii/db": "file:./vendor/aurii/aurii-db-0.1.0.tgz",
+    "@aurii/core": "file:./vendor/aurii/aurii-core-0.3.0.tgz",
+    "@aurii/sdk": "file:./vendor/aurii/aurii-sdk-0.1.0.tgz",
+    "@aurii/studio": "file:./vendor/aurii/aurii-studio-0.1.0.tgz"
+  },
+  "scripts": {
+    "dev": "bun run --filter='@norwegian-geo/web' dev",
+    "build": "bun run --filter='@norwegian-geo/web' build",
+    "preview": "bun run --filter='@norwegian-geo/web' preview",
+    "test": "bun test apps/web/src/__tests__ project/__tests__ project/core/historical/resolve-lineage.test.ts",
+    "typecheck": "bun run --filter='@norwegian-geo/web' typecheck",
+    "validate:project": "bun test project/__tests__/project-package.test.ts",
+    "fetch": "bun run project/scripts/fetch.ts",
+    "fetch:historical": "bun run project/core/historical/fetch-historical.ts",
+    "fetch:ssb-identifiers": "bun run project/core/historical/fetch-ssb-identifiers.ts",
+    "build:enrichment": "bun run project/core/historical/build-enrichment.ts",
+    "validate:historical": "bun run project/core/historical/validate.ts",
+    "import": "bun run project/scripts/import.ts",
+    "register": "bun run project/scripts/register-via-api.ts",
+    "migrate": "bun run project/scripts/migrate-project.ts",
+    "build:geodata": "bun run project/geodata/scripts/build-boundaries.ts",
+    "refresh:aurii": "bun run scripts/refresh-aurii-packages.ts"
+  },
+  "devDependencies": {
+    "@types/bun": "^1.3.14",
+    "typescript": "^6.0.3"
+  }
+}

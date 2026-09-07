@@ -40,14 +40,14 @@ import {
 } from "./infer-county-changes";
 
 const USER_AGENT =
-  "AuriiHistoricalGeoBot/1.0 (https://github.com/aprestmo/aurii; research)";
+  "NorwegianGeoHistoricalBot/1.0 (https://github.com/aprestmo/norwegian-geo; research)";
 const MUNICIPALITY_SOURCE =
   "https://no.wikipedia.org/wiki/Liste_over_tidligere_norske_kommuner";
 const COUNTY_SOURCE = "https://no.wikipedia.org/wiki/Norges_fylker";
 
-const ROOT = resolve(import.meta.dir, "../../../..");
+const ROOT = resolve(import.meta.dir, "../../..");
 const DATA_DIR = resolve(import.meta.dir, "data");
-const PUBLIC_ASSETS = resolve(ROOT, "apps/geo/public");
+const PUBLIC_ASSETS = resolve(ROOT, "apps/web/public");
 const CURRENT_DATA = resolve(import.meta.dir, "../data");
 
 async function fetchWikipediaHtml(page: string): Promise<string> {

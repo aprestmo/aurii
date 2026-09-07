@@ -4,16 +4,16 @@ import { resolve } from "node:path";
 import { geoAssetPaths, loadGeoManifest } from "../lib/geodata";
 
 const ROOT = resolve(import.meta.dir, "../../../..");
-const GEODATA_DIR = resolve(ROOT, "apps/geo/public/assets/geodata");
+const GEODATA_DIR = resolve(ROOT, "apps/web/public/assets/geodata");
 
 describe("geodata assets", () => {
   it("exposes county and municipality boundary files", () => {
     const paths = geoAssetPaths();
-    expect(existsSync(resolve(ROOT, "apps/geo/public", paths.counties))).toBe(true);
-    expect(existsSync(resolve(ROOT, "apps/geo/public", paths.municipalities))).toBe(
+    expect(existsSync(resolve(ROOT, "apps/web/public", paths.counties))).toBe(true);
+    expect(existsSync(resolve(ROOT, "apps/web/public", paths.municipalities))).toBe(
       true,
     );
-    expect(existsSync(resolve(ROOT, "apps/geo/public", paths.manifest))).toBe(true);
+    expect(existsSync(resolve(ROOT, "apps/web/public", paths.manifest))).toBe(true);
   });
 
   it("manifest covers all current counties and municipalities", async () => {

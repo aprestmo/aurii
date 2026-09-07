@@ -1,8 +1,8 @@
 import { readFile } from "node:fs/promises";
 import { resolve } from "node:path";
+import { webPublicDir } from "./paths";
 
-const ROOT = resolve(process.cwd(), "../..");
-const GEODATA_DIR = resolve(ROOT, "apps/geo/public/assets/geodata");
+const GEODATA_DIR = resolve(webPublicDir(), "assets/geodata");
 
 export interface GeoManifestEntry {
 	name: string;

@@ -1,14 +1,15 @@
 {
-  "name": "@aurii/norwegian-geo",
+  "name": "@norwegian-geo/project",
   "version": "0.1.0",
   "private": true,
   "type": "module",
-  "description": "Norwegian Geo — Aurii reference project package",
+  "description": "Norwegian Geo — Aurii project package",
   "dependencies": {
-    "@aurii/core": "workspace:*",
-    "@aurii/studio": "workspace:*"
+    "@aurii/core": "0.3.0",
+    "@aurii/db": "0.1.0",
+    "@aurii/studio": "0.1.0"
   },
   "scripts": {
-    "test": "bun test scripts/bootstrap-platform.ts --dry-run 2>/dev/null || true"
+    "test": "bun test __tests__ core/historical/resolve-lineage.test.ts"
   }
 }

@@ -37,7 +37,7 @@ modules/<id>/
 3. Set `dependsOn: [norwegian-geo-core]` in `module.yaml`
 4. Register the module in `../product.yaml` under `modules:`
 5. Add fetch logic to `../scripts/fetch.ts` if the module has a live API
-6. Run `bun run import:norwegian-geo`
+6. Run `bun run import`
 
 Planned modules are listed in `../product.yaml` under `futureModules`.
 

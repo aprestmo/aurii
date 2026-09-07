@@ -1,30 +1,12 @@
 /**
- * N1 live delivery proof:
- * Import → Core → published routes → apps/geo loaders.
+ * Live delivery proof for the standalone product:
+ * published HTTP routes → @aurii/sdk → web loaders.
  *
- * Uses the same geo consumer loaders as the public site. Live mode must not
- * silently fall back to snapshot files.
+ * Does not import @aurii/core or @aurii/db. A running Aurii Runtime is
+ * simulated with a mock HTTP published-route contract.
  */
 
 import { afterEach, describe, expect, test } from "bun:test";
-import { resolve } from "node:path";
-import {
-	closeStorage,
-	configurePlatformStore,
-	configureProjectService,
-	createProjectService,
-	getStorage,
-	loadImportDefinition,
-	loadProjectPackage,
-	MemoryPlatformStore,
-	MemoryProjectRepository,
-	registerSchema,
-	resetPlatformStore,
-	resetProjectService,
-	runImport,
-} from "../../../../packages/core/src/index";
-import { buildApiApp } from "../../../api/src/server";
-import { PRODUCT_ROOT } from "../../../../demo/norwegian-geo/lib/paths";
 import {
 	loadCountiesLoaded,
 	loadMunicipalitiesLoaded,
@@ -32,11 +14,7 @@ import {
 } from "../lib/data";
 import { LiveDeliveryError } from "../lib/live";
 
-const DEMO = PRODUCT_ROOT;
-const CORE_IMPORTS = resolve(DEMO, "core/imports");
 const MOCK_BASE = "http://localhost:3000";
-const DATASET = "norwegian-geo";
-
 const originalFetch = globalThis.fetch;
 const envKeys = [
 	"AURII_CORE_URL",
@@ -56,109 +34,64 @@ function restoreEnv() {
 	}
 }
 
-async function registerPackageSchemas(
-	pkg: Awaited<ReturnType<typeof loadProjectPackage>>,
-) {
-	const { readFile } = await import("node:fs/promises");
-	const { parse } = await import("yaml");
-	for (const schemaPath of pkg.schemaPaths) {
-		const def = parse(await readFile(schemaPath, "utf-8"));
-		await registerSchema(def, DATASET);
-	}
+function publishedEnvelope<T>(data: T[]) {
+	return {
+		data,
+		meta: { total: data.length, limit: data.length, offset: 0 },
+	};
 }
 
-describe("live geo delivery (N1)", () => {
-	afterEach(async () => {
+describe("live geo delivery (SDK / HTTP)", () => {
+	afterEach(() => {
 		globalThis.fetch = originalFetch;
 		restoreEnv();
-		await closeStorage().catch(() => undefined);
-		resetPlatformStore();
-		resetProjectService();
 	});
 
-	test("apps/geo loaders read counties, municipalities, and postal codes from Core", async () => {
-		process.env["AURII_STORAGE"] = "sqlite";
-		process.env["AURII_DB_PATH"] = ":memory:";
-		await closeStorage().catch(() => undefined);
+	test("web loaders read counties, municipalities, and postal codes via SDK", async () => {
+		process.env["AURII_CORE_URL"] = MOCK_BASE;
+		process.env["AURII_PROJECT_SLUG"] = "norge-data";
+		process.env["AURII_DELIVERY_MODE"] = "live";
+		delete process.env["PUBLIC_AURII_CORE_URL"];
 
-		const pkg = await loadProjectPackage(DEMO);
-		const repo = new MemoryProjectRepository();
-		const projects = createProjectService(repo);
-		configureProjectService(projects);
-		const store = new MemoryPlatformStore();
-		configurePlatformStore(store);
-
-		const storage = await getStorage();
-		const project = await projects.createProject({
-			name: "Norge Data",
-			slug: "norge-data",
-			description: "live delivery test",
-		});
-		await storage.createDataset({
-			id: DATASET,
-			name: "Norwegian Public Reference Data",
-			projectId: project.id,
-		});
-
-		await registerPackageSchemas(pkg);
-
-		for (const name of ["counties", "municipalities", "postal-codes"] as const) {
-			const def = await loadImportDefinition(
-				resolve(CORE_IMPORTS, `${name}.yaml`),
-			);
-			const result = await runImport(def, CORE_IMPORTS, {
-				dryRun: false,
-				datasetId: DATASET,
-			});
-			expect(result.imported).toBeGreaterThan(0);
-		}
-
-		const app = buildApiApp({
-			projectService: projects,
-			skipPlatformStoreInit: true,
-		});
-
-		const mockFetch = async (input: RequestInfo | URL, init?: RequestInit) => {
+		const mockFetch = async (input: RequestInfo | URL) => {
 			const url =
 				typeof input === "string"
 					? input
 					: input instanceof URL
 						? input.toString()
-						: (input as Request).url;
-			if (url.startsWith(MOCK_BASE)) {
-				return app.handle(new Request(url, init as RequestInit));
+						: input.url;
+			const pathname = new URL(url).pathname;
+			if (pathname === "/public/norge-data/v1/counties") {
+				return Response.json(
+					publishedEnvelope([
+						{ id: "03", name: "Oslo" },
+						{ id: "11", name: "Rogaland" },
+					]),
+				);
 			}
-			return originalFetch(input as RequestInfo, init);
+			if (pathname === "/public/norge-data/v1/municipalities") {
+				return Response.json(
+					publishedEnvelope([
+						{ id: "0301", name: "Oslo", countyId: "03" },
+						{ id: "1103", name: "Stavanger", countyId: "11" },
+					]),
+				);
+			}
+			if (pathname === "/public/norge-data/v1/postal-codes") {
+				return Response.json(
+					publishedEnvelope([
+						{
+							code: "0010",
+							city: "OSLO",
+							municipalityId: "0301",
+						},
+					]),
+				);
+			}
+			return new Response("not found", { status: 404 });
 		};
 		// @ts-expect-error — replacing with a compatible subset for testing
 		globalThis.fetch = mockFetch;
-
-		for (const route of pkg.routes) {
-			if (!["counties", "municipalities", "postal-codes"].includes(route.id)) {
-				continue;
-			}
-			const upsert = await app.handle(
-				new Request(`http://localhost/api/projects/${project.id}/routes`, {
-					method: "POST",
-					headers: { "Content-Type": "application/json" },
-					body: JSON.stringify({
-						routeId: route.id,
-						datasetId: DATASET,
-						definition: route,
-						enabled: true,
-						access: "public",
-						cacheTtl: 60,
-						version: route.version ?? "1",
-					}),
-				}),
-			);
-			expect(upsert.status).toBe(201);
-		}
-
-		process.env["AURII_CORE_URL"] = MOCK_BASE;
-		process.env["AURII_PROJECT_SLUG"] = "norge-data";
-		process.env["AURII_DELIVERY_MODE"] = "live";
-		delete process.env["PUBLIC_AURII_CORE_URL"];
 
 		const counties = await loadCountiesLoaded();
 		const municipalities = await loadMunicipalitiesLoaded();
@@ -167,11 +100,6 @@ describe("live geo delivery (N1)", () => {
 		expect(counties.source).toBe("live");
 		expect(municipalities.source).toBe("live");
 		expect(postalCodes.source).toBe("live");
-
-		expect(counties.data.length).toBe(15);
-		expect(municipalities.data.length).toBe(357);
-		expect(postalCodes.data.length).toBeGreaterThan(5000);
-
 		expect(counties.data.some((c) => c.id === "03" && c.name === "Oslo")).toBe(
 			true,
 		);

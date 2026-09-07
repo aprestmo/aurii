@@ -1,6 +1,6 @@
 # Historisk norsk administrasjon
 
-Datasett med tidligere norske kommuner og fylker, importert fra Wikipedia og koblet mot dagens referansedata i `demo/norwegian-geo/`.
+Datasett med tidligere norske kommuner og fylker, importert fra Wikipedia og koblet mot dagens referansedata i `project/`.
 
 ## Kilder
 
@@ -14,14 +14,14 @@ Datasett med tidligere norske kommuner og fylker, importert fra Wikipedia og kob
 | Tidligere fylker | Wikipedia | [Norges fylker — «Tidligere fylker»](https://no.wikipedia.org/wiki/Norges_fylker#Tidligere_fylker) |
 | Dagens fylker (2024–) | Wikipedia | [Norges fylker — «Norges fylker 2024–»](https://no.wikipedia.org/wiki/Norges_fylker#Norges_fylker_2024–) |
 | Våpenskjold | Wikimedia Commons | Hentes via Commons API fra lenker i Wikipedia-tabellene |
-| Dagens sannhet | Kartverket (eksisterende) | `demo/norwegian-geo/core/data/` |
+| Dagens sannhet | Kartverket (eksisterende) | `project/core/data/` |
 
 **Viktig:** Historiske data utvider — overskriver ikke — dagens kommuner og fylker.
 
 ## Output
 
 ```
-demo/norwegian-geo/core/historical/data/
+project/core/historical/data/
   municipalities.json
   counties.json              # tidligere + mellomliggende (Viken, V-T, T-F)
   current-counties.json      # dagens 15 fylker fra Wikipedia 2024–
@@ -34,7 +34,7 @@ demo/norwegian-geo/core/historical/data/
   unresolved-matches.json
   heraldry-manifest.json
 
-apps/geo/public/assets/heraldry/
+apps/web/public/assets/heraldry/
   municipalities/
   counties/
 ```
@@ -42,14 +42,14 @@ apps/geo/public/assets/heraldry/
 ## Importer på nytt
 
 ```bash
-bun run fetch:historical-norwegian-geo
-bun run fetch:ssb-identifiers-norwegian-geo
-bun run build:municipality-enrichment
+bun run fetch:historical
+bun run fetch:ssb-identifiers
+bun run build:enrichment
 ```
 
-`fetch:historical-norwegian-geo` henter tidligere kommuner og fylker.
-`fetch:ssb-identifiers-norwegian-geo` henter offisielle nummerperioder og endringslogg fra SSB Klass (standard fra 2008).
-`build:municipality-enrichment` kombinerer alle tre kommunekildene til `municipality-enrichment.json` for dagens 357 kommuner.
+`fetch:historical` henter tidligere kommuner og fylker.
+`fetch:ssb-identifiers` henter offisielle nummerperioder og endringslogg fra SSB Klass (standard fra 2008).
+`build:enrichment` kombinerer alle tre kommunekildene til `municipality-enrichment.json` for dagens 357 kommuner.
 
 Skriptet for historiske enheter:
 

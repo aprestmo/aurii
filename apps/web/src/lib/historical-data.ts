@@ -10,12 +10,9 @@ import {
   type County,
   type Municipality,
 } from "./data";
+import { productRoot } from "./paths";
 
-const ROOT = resolve(process.cwd(), "../..");
-const HISTORICAL_DATA = resolve(
-  ROOT,
-  "demo/norwegian-geo/core/historical/data",
-);
+const HISTORICAL_DATA = resolve(productRoot(), "core/historical/data");
 
 export type ChangeType =
   | "merged"

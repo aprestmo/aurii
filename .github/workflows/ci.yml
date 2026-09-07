@@ -1,0 +1,47 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  product:
+    name: install, test, typecheck, build
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: oven-sh/setup-bun@v2
+        with:
+          bun-version: latest
+
+      - name: Install (no sibling Aurii checkout)
+        run: bun install --frozen-lockfile
+
+      - name: Assert no workspace Aurii pins
+        run: |
+          if grep -R --include='package.json' '"workspace:' package.json project/package.json apps/web/package.json | grep '@aurii/'; then
+            echo "Aurii workspace:* pins are forbidden in this repository" >&2
+            exit 1
+          fi
+          if grep -R --exclude-dir=node_modules --exclude-dir=.git -n -E '\.\./aurii|bun link|npm link' \
+            package.json project/package.json apps/web/package.json project/scripts apps/web/src; then
+            echo "Sibling Aurii paths or linkers are forbidden" >&2
+            exit 1
+          fi
+
+      - name: Project package loads through @aurii/core
+        run: bun test project/__tests__
+
+      - name: Web + historical tests
+        run: bun test apps/web/src/__tests__ project/core/historical/resolve-lineage.test.ts
+
+      - name: Typecheck
+        run: bun run typecheck
+
+      - name: Astro build (Pages base)
+        env:
+          ASTRO_SITE: https://aprestmo.github.io
+          ASTRO_BASE: /norwegian-geo/
+        run: bun run build

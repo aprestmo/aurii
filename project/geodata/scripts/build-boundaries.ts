@@ -1,7 +1,7 @@
 #!/usr/bin/env bun
 /**
  * Fetch official administrative boundaries from GeoNorge, simplify for web,
- * and publish GeoJSON snapshots for apps/geo.
+ * and publish GeoJSON snapshots for apps/web.
  *
  * Usage (from repo root):
  *   bun run build:geodata
@@ -12,8 +12,8 @@ import { resolve } from "node:path";
 import simplify from "@turf/simplify";
 import bbox from "@turf/bbox";
 
-const ROOT = resolve(import.meta.dir, "../../../..");
-const OUTPUT_DIR = resolve(ROOT, "apps/geo/public/assets/geodata");
+const ROOT = resolve(import.meta.dir, "../../..");
+const OUTPUT_DIR = resolve(ROOT, "apps/web/public/assets/geodata");
 
 const MUNICIPALITY_METADATA_UUID = "041f1e6e-bdbc-4091-b48f-8a5990f3cc5b";
 const COUNTY_METADATA_UUID = "6093c8a8-fa80-11e6-bc64-92361f002671";

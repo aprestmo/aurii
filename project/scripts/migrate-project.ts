@@ -8,11 +8,11 @@
  * - Preserves dataset ids, entities, schemas, imports, and history
  *
  * Usage (from repo root):
- *   bun run migrate:norwegian-geo-project
+ *   bun run migrate
  *
  * With PostgreSQL:
  *   AURII_STORAGE=postgres DATABASE_URL=postgres://aurii:aurii@localhost:5432/aurii \
- *     bun run migrate:norwegian-geo-project
+ *     bun run migrate
  */
 
 import {
@@ -26,8 +26,8 @@ import {
 	MemoryProjectRepository,
 	ProjectNotFoundError,
 	resetProjectService,
-} from "../../../packages/core/src/index";
-import { createDb } from "../../../packages/db/src/index";
+} from "@aurii/core";
+import { createDb } from "@aurii/db";
 import { getDatasetId, loadManifest } from "../lib/manifest";
 import {
 	NORGE_DATA_PROJECT_DESCRIPTION,

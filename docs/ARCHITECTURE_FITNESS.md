@@ -36,7 +36,7 @@ These cases are **architecture tests and possible products**, not a closed catal
 
 They are design pressure, not automatic validation proof. Whether Aurii should remain a platform is judged by real products, convergence evidence, and decision gates in [`PLATFORM_VALIDATION.md`](PLATFORM_VALIDATION.md).
 
-Norwegian Geo remains the **implemented** first external downstream/reference product for import, schema, query, storage, SDK, and delivery (in-tree pending extraction — [`EXTERNAL_CONSUMERS.md`](EXTERNAL_CONSUMERS.md)). Editorial + Context remains the **planned** vertical for authoring, revision, publishing, preview, workflow, and media ([`Phase5.md`](../Phase5.md)).
+Norwegian Geo remains the **implemented** first external downstream/reference product for import, schema, query, storage, SDK, and delivery ([`aprestmo/norwegian-geo`](https://github.com/aprestmo/norwegian-geo) — [`EXTERNAL_CONSUMERS.md`](EXTERNAL_CONSUMERS.md)). Editorial + Context remains the **planned** vertical for authoring, revision, publishing, preview, workflow, and media ([`Phase5.md`](../Phase5.md)).
 
 These four cases sit **across** that split. They test whether the unified record model, relations, sources, provenance, and Studio extensibility are strong enough that domain products stay outside Core.
 

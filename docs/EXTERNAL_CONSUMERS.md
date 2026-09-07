@@ -24,7 +24,7 @@ The external-repository extraction tests whether the same product can
 consume Aurii solely through supported package/API boundaries.
 ```
 
-The product’s system of record is [`aprestmo/norwegian-geo`](https://github.com/aprestmo/norwegian-geo). Aurii no longer contains or builds the Geo application. If that GitHub repository has not been created yet, the extracted history is prepared locally (see that tree’s `BOOTSTRAP.md`). Do not merge this extraction until the destination exists.
+The product’s system of record is [`aprestmo/norwegian-geo`](https://github.com/aprestmo/norwegian-geo). Aurii no longer contains or builds the Geo application.
 
 ---
 

@@ -473,7 +473,7 @@ Aurii uses **two** planned reference verticals, plus **architecture fitness test
 
 | Vertical | Validates | Status |
 |----------|-----------|--------|
-| **Norwegian Geo** | Import, schema, query, storage, SDK, **delivery**, product modules, sources | First external downstream/reference product (in-tree pending extraction to `aprestmo/norwegian-geo`) |
+| **Norwegian Geo** | Import, schema, query, storage, SDK, **delivery**, product modules, sources | First external downstream/reference product ([`aprestmo/norwegian-geo`](https://github.com/aprestmo/norwegian-geo)) |
 | **Editorial** (future) | Authoring, revision, publishing, preview, workflow, media, Context | Planned after Phase 4 — [`Phase5.md`](Phase5.md); **do not implement unless assigned** |
 
 **Fitness tests** (design, not in-repo demos unless assigned): Kampbart, playground directory, DN Gaselle, Geo — [`docs/ARCHITECTURE_FITNESS.md`](docs/ARCHITECTURE_FITNESS.md).
@@ -490,7 +490,7 @@ Product model: `docs/PRODUCT_MODEL.md`. Product strategy: `docs/PRODUCT_STRATEGY
 
 ## Norwegian Geo (first external downstream product)
 
-Norwegian Geo is Aurii’s first real-world reference **product**. Phase 4 proved it inside this monorepo. It is being extracted to [`aprestmo/norwegian-geo`](https://github.com/aprestmo/norwegian-geo) so it can consume Aurii only through versioned packages and HTTP contracts. See [`docs/EXTERNAL_CONSUMERS.md`](docs/EXTERNAL_CONSUMERS.md).
+Norwegian Geo is Aurii’s first real-world reference **product**. Phase 4 proved it inside this monorepo. It now lives at [`aprestmo/norwegian-geo`](https://github.com/aprestmo/norwegian-geo) and consumes Aurii only through versioned packages and HTTP contracts. See [`docs/EXTERNAL_CONSUMERS.md`](docs/EXTERNAL_CONSUMERS.md).
 
 For **new** platform/import/query/delivery **contract** coverage, extend `tests/fixtures/external-product/` (City / Region). Do not add new Norwegian-geography tests to Core. Do not invent a third synthetic dataset.
 

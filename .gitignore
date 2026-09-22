@@ -14,3 +14,10 @@ dist/
 tmp-bad-ref.json
 .tmp/
 *.tgz
+
+# DuckDB verification working data (benchmarks regenerate)
+experiments/duckdb-verification/data/
+# Keep committed result tables; ignore accidental local dumps
+experiments/duckdb-verification/results/*.parquet
+experiments/duckdb-verification/results/tmp-*
+experiments/duckdb-verification/**/__pycache__/

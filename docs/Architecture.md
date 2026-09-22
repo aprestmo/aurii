@@ -81,6 +81,8 @@ Plugin Engine
 ──────────────────────────────────────────────────────────
 
               PostgreSQL + Object Storage
+              (+ DuckDB compute for large
+                 Parquet datasets — ADR-0024)
 
 └──────────────────────────────────────────────────────────┘
 ```
@@ -625,8 +627,9 @@ Logical resources include:
 
 Physical storage may be:
 
-- PostgreSQL
-- Object Storage
+- PostgreSQL (system of record for entities, catalog, permissions)
+- Object Storage (Parquet and binaries; large analytical datasets — [ADR-0024](../adr/ADR-0024%20—%20DuckDB%20as%20Analytical%20Compute%20for%20Large%20Datasets.md))
+- DuckDB (embedded analytical compute over Parquet; not a second SoR)
 - Search Index
 - Cache
 

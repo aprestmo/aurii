@@ -76,6 +76,22 @@ Pre–Phase 5 architecture readiness (schema evolution, optimistic concurrency, 
 
 ---
 
+## Large analytical datasets (DuckDB verification)
+
+Entity Query Language is the wrong tool for tax-list-class fact tables. A 77M-row synthetic tax-list verification ([ADR-0024](../adr/ADR-0024%20—%20DuckDB%20as%20Analytical%20Compute%20for%20Large%20Datasets.md), harness [`experiments/duckdb-verification/`](../experiments/duckdb-verification/)) measured:
+
+| Path | Scale | Result (4 CPU / 15.6 GiB) |
+|------|-------|---------------------------|
+| CSV → wash/dedup → Parquet (ZSTD) | 77M rows | **72.9 s**, 3.69 GiB → 170 MiB |
+| DuckDB vs relational Postgres wash | 2M rows | **0.51 s vs 4.76 s** (~9×) |
+| History joins (Heim/Halsa) | 77M rows | **44.3 s** |
+| Year filter / mun aggregate on Parquet | 11M (one year) | **14–70 ms** |
+| Allowlisted API query (sequential) | partitioned year | **~55 ms** |
+
+**Architecture (Candidate):** PostgreSQL remains system of record; large datasets may live as Parquet in object storage; DuckDB is embedded compute for batch and allowlisted analytics — not a replacement for Aurii QL on entities. See ADR-0024.
+
+---
+
 ## Named next bottlenecks
 
 1. **In-memory joins** — left WHERE is stripped; both schemas are fully scanned. Next spike: SQL equijoin *or* push left-only predicates onto the left scan.

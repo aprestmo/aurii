@@ -1,0 +1,11 @@
+county_id,name,valid_from,valid_to,notes
+15,Møre og Romsdal,1838-01-01,9999-12-31,Lost Halsa to Trøndelag 2020 via Heim
+50,Trøndelag,2018-01-01,9999-12-31,Gained Halsa area via Heim 2020
+03,Oslo,1838-01-01,9999-12-31,Stable
+11,Rogaland,1838-01-01,9999-12-31,Stable
+46,Vestland,2020-01-01,9999-12-31,Formed 2020 from Hordaland/Sogn
+42,Agder,2020-01-01,9999-12-31,Formed 2020
+30,Viken,2020-01-01,2023-12-31,Dissolved 2024
+31,Østfold,2024-01-01,9999-12-31,Re-established 2024
+32,Akershus,2024-01-01,9999-12-31,Re-established 2024
+33,Buskerud,2024-01-01,9999-12-31,Re-established 2024

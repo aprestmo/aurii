@@ -1,0 +1,20 @@
+municipality_id,name,county_id,valid_from,valid_to,successor_id,change_type,notes
+5011,Hemne,50,1838-01-01,2019-12-31,5055,merger,Merged into Heim 2020-01-01
+1571,Halsa,15,1838-01-01,2019-12-31,5055,merger_and_county_change,From Møre og Romsdal into Trøndelag Heim
+5012,Snillfjord,50,1838-01-01,2019-12-31,5055,partial_merger,Part of Snillfjord joined Heim; rest to Orkland/Hitra
+5055,Heim,50,2020-01-01,9999-12-31,,formation,Formed from Hemne + Halsa + part of Snillfjord
+5025,Rosdal,50,1838-01-01,2019-12-31,5059,merger,Merged into Orkland
+5024,Orkdal,50,1838-01-01,2019-12-31,5059,merger,Merged into Orkland
+5023,Meldal,50,1838-01-01,2019-12-31,5059,merger,Merged into Orkland
+5016,Agdenes,50,1838-01-01,2019-12-31,5059,merger,Merged into Orkland
+5059,Orkland,50,2020-01-01,9999-12-31,,formation,Formed 2020 from Orkdal/Meldal/Agdenes/parts of Snillfjord
+5001,Trondheim,50,1964-01-01,9999-12-31,,stable,Current Trondheim
+0301,Oslo,03,1838-01-01,9999-12-31,,stable,Oslo kommune = Oslo fylke
+1103,Stavanger,11,1838-01-01,9999-12-31,,stable,Stavanger
+4601,Bergen,46,1838-01-01,9999-12-31,,stable,Bergen (Vestland)
+5006,Hitra,50,1838-01-01,9999-12-31,,border_gain,Received part of Snillfjord 2020
+15,Møre og Romsdal county marker,15,1838-01-01,9999-12-31,,county,County row for reference only
+50,Trøndelag county marker,50,2018-01-01,9999-12-31,,county,County row for reference only
+03,Oslo county marker,03,1838-01-01,9999-12-31,,county,County row for reference only
+11,Rogaland county marker,11,1838-01-01,9999-12-31,,county,County row for reference only
+46,Vestland county marker,46,2020-01-01,9999-12-31,,county,County row for reference only

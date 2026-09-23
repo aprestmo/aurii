@@ -1,0 +1,541 @@
+[
+  {
+    "test": "1a_generate_csv",
+    "rows": 77000000,
+    "input_bytes": null,
+    "output_bytes": 3967215868,
+    "runtime_s": 30.652,
+    "peak_rss_mb": 99.0,
+    "cpu_percent": 0.0,
+    "query_latency_ms": null,
+    "disk_read_mb": 0.0,
+    "disk_write_mb": 3783.4,
+    "implementation_complexity": "Low \u2014 DuckDB range() COPY",
+    "notes": "years=[2018, 2019, 2020, 2021, 2022, 2023, 2024] rows/year=11000000",
+    "extra": {}
+  },
+  {
+    "test": "1b_csv_transform_parquet",
+    "rows": 77000000,
+    "input_bytes": 3967215868,
+    "output_bytes": 178070705,
+    "runtime_s": 72.916,
+    "peak_rss_mb": 8143.7,
+    "cpu_percent": 0.0,
+    "query_latency_ms": null,
+    "disk_read_mb": 36849.1,
+    "disk_write_mb": 13870.2,
+    "implementation_complexity": "Low \u2014 ~40 lines SQL",
+    "notes": "people=11,000,000 heim_rows=4,400,000 null_income=0 compression=zstd",
+    "extra": {
+      "heim_rows": 4400000,
+      "people": 11000000
+    }
+  },
+  {
+    "test": "1c_postgres_copy_transform",
+    "rows": 2000000,
+    "input_bytes": 103044635,
+    "output_bytes": null,
+    "runtime_s": 4.763,
+    "peak_rss_mb": 8143.7,
+    "cpu_percent": 0.0,
+    "query_latency_ms": null,
+    "disk_read_mb": 0.0,
+    "disk_write_mb": 0.0,
+    "implementation_complexity": "Medium \u2014 SQL + COPY + DISTINCT ON",
+    "notes": "relational Postgres (not Aurii JSON entities); sample=2,000,000 rows",
+    "extra": {}
+  },
+  {
+    "test": "1d_duckdb_same_sample",
+    "rows": 2000000,
+    "input_bytes": 103044635,
+    "output_bytes": null,
+    "runtime_s": 0.509,
+    "peak_rss_mb": 8143.7,
+    "cpu_percent": 0.0,
+    "query_latency_ms": null,
+    "disk_read_mb": 0.4,
+    "disk_write_mb": 0.0,
+    "implementation_complexity": "Low",
+    "notes": "same sample as 1c for head-to-head",
+    "extra": {}
+  },
+  {
+    "test": "2_history_joins",
+    "rows": 77000000,
+    "input_bytes": 178070705,
+    "output_bytes": 192998392,
+    "runtime_s": 44.315,
+    "peak_rss_mb": 8625.0,
+    "cpu_percent": 0.0,
+    "query_latency_ms": null,
+    "disk_read_mb": 6638.9,
+    "disk_write_mb": 18473.1,
+    "implementation_complexity": "Medium \u2014 temporal joins + successor map",
+    "notes": "Heim yearly=[(2018, 880000, 3, 2), (2019, 880000, 3, 2), (2020, 880000, 1, 1), (2021, 880000, 1, 1), (2022, 880000, 1, 1), (2023, 880000, 1, 1), (2024, 880000, 1, 1)]; Halsa postal county/mun transitions=[(2018, '1571', '15', '5055'), (2019, '1571', '15', '5055'), (2020, '5055', '50', '5055'), (2021, '5055', '50', '5055'), (2022, '5055', '50', '5055'), (2023, '5055', '50', '5055'), (2024, '5055', '50', '5055')]",
+    "extra": {
+      "heim_by_year": [
+        [
+          2018,
+          880000,
+          3,
+          2
+        ],
+        [
+          2019,
+          880000,
+          3,
+          2
+        ],
+        [
+          2020,
+          880000,
+          1,
+          1
+        ],
+        [
+          2021,
+          880000,
+          1,
+          1
+        ],
+        [
+          2022,
+          880000,
+          1,
+          1
+        ],
+        [
+          2023,
+          880000,
+          1,
+          1
+        ],
+        [
+          2024,
+          880000,
+          1,
+          1
+        ]
+      ],
+      "halsa_transitions": [
+        [
+          2018,
+          "1571",
+          "15",
+          "5055"
+        ],
+        [
+          2019,
+          "1571",
+          "15",
+          "5055"
+        ],
+        [
+          2020,
+          "5055",
+          "50",
+          "5055"
+        ],
+        [
+          2021,
+          "5055",
+          "50",
+          "5055"
+        ],
+        [
+          2022,
+          "5055",
+          "50",
+          "5055"
+        ],
+        [
+          2023,
+          "5055",
+          "50",
+          "5055"
+        ],
+        [
+          2024,
+          "5055",
+          "50",
+          "5055"
+        ]
+      ]
+    }
+  },
+  {
+    "test": "3_filter_year",
+    "rows": 11000000,
+    "input_bytes": 192998392,
+    "output_bytes": null,
+    "runtime_s": 0.015,
+    "peak_rss_mb": 8625.0,
+    "cpu_percent": 0.0,
+    "query_latency_ms": 14.42,
+    "disk_read_mb": 0.0,
+    "disk_write_mb": 0.0,
+    "implementation_complexity": "Low \u2014 SQL on Parquet",
+    "notes": "result_rows=1",
+    "extra": {}
+  },
+  {
+    "test": "3_filter_municipality",
+    "rows": 6160000,
+    "input_bytes": 192998392,
+    "output_bytes": null,
+    "runtime_s": 0.143,
+    "peak_rss_mb": 8625.0,
+    "cpu_percent": 0.0,
+    "query_latency_ms": 142.68,
+    "disk_read_mb": 4.2,
+    "disk_write_mb": 0.0,
+    "implementation_complexity": "Low \u2014 SQL on Parquet",
+    "notes": "result_rows=1",
+    "extra": {}
+  },
+  {
+    "test": "3_agg_by_mun",
+    "rows": 6,
+    "input_bytes": 192998392,
+    "output_bytes": null,
+    "runtime_s": 0.069,
+    "peak_rss_mb": 8625.0,
+    "cpu_percent": 0.0,
+    "query_latency_ms": 69.15,
+    "disk_read_mb": 9.9,
+    "disk_write_mb": 0.0,
+    "implementation_complexity": "Low \u2014 SQL on Parquet",
+    "notes": "result_rows=6",
+    "extra": {}
+  },
+  {
+    "test": "3_top_income",
+    "rows": 50,
+    "input_bytes": 192998392,
+    "output_bytes": null,
+    "runtime_s": 0.046,
+    "peak_rss_mb": 8625.0,
+    "cpu_percent": 0.0,
+    "query_latency_ms": 45.57,
+    "disk_read_mb": 1.1,
+    "disk_write_mb": 0.0,
+    "implementation_complexity": "Low \u2014 SQL on Parquet",
+    "notes": "result_rows=50",
+    "extra": {}
+  },
+  {
+    "test": "3_percentiles",
+    "rows": 6,
+    "input_bytes": 192998392,
+    "output_bytes": null,
+    "runtime_s": 0.23,
+    "peak_rss_mb": 8625.0,
+    "cpu_percent": 0.0,
+    "query_latency_ms": 230.29,
+    "disk_read_mb": 0.9,
+    "disk_write_mb": 0.0,
+    "implementation_complexity": "Low \u2014 SQL on Parquet",
+    "notes": "result_rows=6",
+    "extra": {}
+  },
+  {
+    "test": "3_window_rank",
+    "rows": 72,
+    "input_bytes": 192998392,
+    "output_bytes": null,
+    "runtime_s": 1.131,
+    "peak_rss_mb": 8625.0,
+    "cpu_percent": 0.0,
+    "query_latency_ms": 1130.51,
+    "disk_read_mb": 3.7,
+    "disk_write_mb": 0.0,
+    "implementation_complexity": "Low \u2014 SQL on Parquet",
+    "notes": "result_rows=72",
+    "extra": {}
+  },
+  {
+    "test": "3_join_years",
+    "rows": 6,
+    "input_bytes": 192998392,
+    "output_bytes": null,
+    "runtime_s": 0.77,
+    "peak_rss_mb": 8625.0,
+    "cpu_percent": 0.0,
+    "query_latency_ms": 769.45,
+    "disk_read_mb": 17.2,
+    "disk_write_mb": 0.0,
+    "implementation_complexity": "Low \u2014 SQL on Parquet",
+    "notes": "result_rows=6",
+    "extra": {}
+  },
+  {
+    "test": "4a_write_partition_year",
+    "rows": 77000000,
+    "input_bytes": 192998392,
+    "output_bytes": 194218865,
+    "runtime_s": 13.387,
+    "peak_rss_mb": 8625.0,
+    "cpu_percent": 0.0,
+    "query_latency_ms": null,
+    "disk_read_mb": 106.0,
+    "disk_write_mb": 185.2,
+    "implementation_complexity": "Low",
+    "notes": "files=7",
+    "extra": {}
+  },
+  {
+    "test": "4b_write_partition_year_county",
+    "rows": 77000000,
+    "input_bytes": null,
+    "output_bytes": 172278470,
+    "runtime_s": 16.032,
+    "peak_rss_mb": 8625.0,
+    "cpu_percent": 0.0,
+    "query_latency_ms": null,
+    "disk_read_mb": 0.1,
+    "disk_write_mb": 164.4,
+    "implementation_complexity": "Low",
+    "notes": "files=30",
+    "extra": {}
+  },
+  {
+    "test": "4c_query_year2024_flat",
+    "rows": 11000000,
+    "input_bytes": null,
+    "output_bytes": null,
+    "runtime_s": 0.05,
+    "peak_rss_mb": 8625.0,
+    "cpu_percent": 0.0,
+    "query_latency_ms": 49.63,
+    "disk_read_mb": 0.0,
+    "disk_write_mb": 0.0,
+    "implementation_complexity": "Low",
+    "notes": "avg_income=723635.9",
+    "extra": {}
+  },
+  {
+    "test": "4c_query_year2024_part_year",
+    "rows": 11000000,
+    "input_bytes": null,
+    "output_bytes": null,
+    "runtime_s": 0.033,
+    "peak_rss_mb": 8625.0,
+    "cpu_percent": 0.0,
+    "query_latency_ms": 32.96,
+    "disk_read_mb": 0.1,
+    "disk_write_mb": 0.0,
+    "implementation_complexity": "Low",
+    "notes": "avg_income=723635.9",
+    "extra": {}
+  },
+  {
+    "test": "4c_query_year2024_part_year_county",
+    "rows": 11000000,
+    "input_bytes": null,
+    "output_bytes": null,
+    "runtime_s": 0.029,
+    "peak_rss_mb": 8625.0,
+    "cpu_percent": 0.0,
+    "query_latency_ms": 29.25,
+    "disk_read_mb": 0.0,
+    "disk_write_mb": 0.0,
+    "implementation_complexity": "Low",
+    "notes": "avg_income=723635.9",
+    "extra": {}
+  },
+  {
+    "test": "4d_parquet_metadata",
+    "rows": 7,
+    "input_bytes": null,
+    "output_bytes": null,
+    "runtime_s": 0.0,
+    "peak_rss_mb": 8625.0,
+    "cpu_percent": 0.0,
+    "query_latency_ms": null,
+    "disk_read_mb": 0.0,
+    "disk_write_mb": 0.0,
+    "implementation_complexity": "Low",
+    "notes": "avg_rows/file=11000000 avg_file_bytes=27745552 avg_row_groups=99.1 avg_rg_rows=110951 avg_rg_compressed=19854",
+    "extra": {
+      "avg_rows": 11000000.0,
+      "avg_file_bytes": 27745552.14285714,
+      "avg_row_groups": 99.14285714285714,
+      "avg_rg_rows": 110951.00864553315,
+      "avg_rg_compressed": 19854.298373816386
+    }
+  },
+  {
+    "test": "5a_upload_parquet_s3",
+    "rows": 1,
+    "input_bytes": null,
+    "output_bytes": 26278309,
+    "runtime_s": 0.161,
+    "peak_rss_mb": 8625.0,
+    "cpu_percent": 0.0,
+    "query_latency_ms": null,
+    "disk_read_mb": 0.5,
+    "disk_write_mb": 49.1,
+    "implementation_complexity": "Low \u2014 boto3 + metadata pointer",
+    "notes": "uploaded 1 files to s3://aurii-datasets/tax/ (moto)",
+    "extra": {}
+  },
+  {
+    "test": "5b_duckdb_query_s3_parquet",
+    "rows": 11000000,
+    "input_bytes": null,
+    "output_bytes": null,
+    "runtime_s": 0.478,
+    "peak_rss_mb": 8625.0,
+    "cpu_percent": 0.0,
+    "query_latency_ms": 478.07,
+    "disk_read_mb": 0.4,
+    "disk_write_mb": 0.0,
+    "implementation_complexity": "Low",
+    "notes": "avg_income=723635.9; S3-compatible (moto stands in for R2)",
+    "extra": {}
+  },
+  {
+    "test": "6a_ephemeral_jobs_x3",
+    "rows": null,
+    "input_bytes": null,
+    "output_bytes": null,
+    "runtime_s": 0.172,
+    "peak_rss_mb": 8625.0,
+    "cpu_percent": 0.0,
+    "query_latency_ms": 57.43,
+    "disk_read_mb": 0.1,
+    "disk_write_mb": 0.0,
+    "implementation_complexity": "Low \u2014 embed library, no daemon",
+    "notes": "per_job_s=[0.062, 0.055, 0.055]",
+    "extra": {
+      "per_job_s": [
+        0.062339405999978226,
+        0.05464178099998662,
+        0.05531760399992436
+      ]
+    }
+  },
+  {
+    "test": "6b_persistent_connection_x3",
+    "rows": null,
+    "input_bytes": null,
+    "output_bytes": null,
+    "runtime_s": 0.145,
+    "peak_rss_mb": 8625.0,
+    "cpu_percent": 0.0,
+    "query_latency_ms": 42.65,
+    "disk_read_mb": 0.0,
+    "disk_write_mb": 0.0,
+    "implementation_complexity": "Low",
+    "notes": "per_query_s=[0.044, 0.041, 0.043]",
+    "extra": {
+      "per_query_s": [
+        0.04354010899999139,
+        0.04099422199999481,
+        0.04342858699999397
+      ]
+    }
+  },
+  {
+    "test": "7a_duckdb_aggregate",
+    "rows": 42,
+    "input_bytes": null,
+    "output_bytes": 1804,
+    "runtime_s": 0.91,
+    "peak_rss_mb": 8625.0,
+    "cpu_percent": 0.0,
+    "query_latency_ms": null,
+    "disk_read_mb": 0.3,
+    "disk_write_mb": 0.0,
+    "implementation_complexity": "Low",
+    "notes": null,
+    "extra": {}
+  },
+  {
+    "test": "7b_load_aggregates_postgres",
+    "rows": 42,
+    "input_bytes": null,
+    "output_bytes": null,
+    "runtime_s": 0.02,
+    "peak_rss_mb": 8625.0,
+    "cpu_percent": 0.0,
+    "query_latency_ms": null,
+    "disk_read_mb": 0.0,
+    "disk_write_mb": 0.0,
+    "implementation_complexity": "Low",
+    "notes": "API can serve common stats from Postgres without scanning Parquet",
+    "extra": {}
+  },
+  {
+    "test": "7c_postgres_serve_aggregate",
+    "rows": null,
+    "input_bytes": null,
+    "output_bytes": null,
+    "runtime_s": 0.005,
+    "peak_rss_mb": 8625.0,
+    "cpu_percent": 0.0,
+    "query_latency_ms": 4.94,
+    "disk_read_mb": 0.0,
+    "disk_write_mb": 0.0,
+    "implementation_complexity": "Low",
+    "notes": "operational read path",
+    "extra": {}
+  },
+  {
+    "test": "8a_api_sequential_x10",
+    "rows": null,
+    "input_bytes": null,
+    "output_bytes": null,
+    "runtime_s": 0.597,
+    "peak_rss_mb": 8625.0,
+    "cpu_percent": 0.0,
+    "query_latency_ms": 54.68,
+    "disk_read_mb": 0.4,
+    "disk_write_mb": 0.0,
+    "implementation_complexity": "Low \u2014 allowlisted queries only",
+    "notes": "min=52.0 max=64.0 p50=54.1",
+    "extra": {
+      "latencies_ms": [
+        64.05,
+        55.04,
+        52.65,
+        54.1,
+        52.7,
+        54.79,
+        52.01,
+        52.75,
+        53.43,
+        55.25
+      ]
+    }
+  },
+  {
+    "test": "8b_api_concurrency_8",
+    "rows": null,
+    "input_bytes": null,
+    "output_bytes": null,
+    "runtime_s": 2.624,
+    "peak_rss_mb": 8625.0,
+    "cpu_percent": 0.0,
+    "query_latency_ms": 2495.43,
+    "disk_read_mb": 0.0,
+    "disk_write_mb": 0.0,
+    "implementation_complexity": "Low",
+    "notes": "8 parallel allowlisted queries; latencies=[2411.8, 2447.4, 2435.2, 2447.4, 2515.5, 2530.4, 2578.6, 2597.2]",
+    "extra": {
+      "latencies_ms": [
+        2411.82,
+        2447.4,
+        2435.18,
+        2447.44,
+        2515.46,
+        2530.36,
+        2578.59,
+        2597.15
+      ]
+    }
+  }
+]

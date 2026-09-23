@@ -15,6 +15,10 @@ Canonical table: **`aurii_datasets`** (Core storage adapters). See [ADR-0012](..
 | `name` / `description` | Human-facing metadata |
 | `createdAt` | Created timestamp |
 
+### Large analytical datasets (Candidate — ADR-0024)
+
+Operational entities continue to live in Core storage adapters (SQLite/Postgres JSON). For **large columnar fact tables** (tax-list class), Aurii may keep dataset **bytes** in object storage as Parquet and dataset **catalog** fields in PostgreSQL, with DuckDB as embedded compute. Planned catalog extensions (not yet in schema migrations): `storage_location`, `format`, `row_count`, `version`. See [ADR-0024](../adr/ADR-0024%20—%20DuckDB%20as%20Analytical%20Compute%20for%20Large%20Datasets.md) and [`experiments/duckdb-verification/`](../experiments/duckdb-verification/).
+
 ### Uniqueness
 
 Dataset `id` remains **globally unique**. The same id cannot exist in two projects.

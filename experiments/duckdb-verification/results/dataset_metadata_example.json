@@ -1,0 +1,9 @@
+{
+  "id": "tax-lists",
+  "name": "Norwegian tax lists (synthetic)",
+  "schema": "tax_record",
+  "storage_location": "s3://aurii-datasets/tax/",
+  "format": "parquet",
+  "row_count": 11000000,
+  "version": "v1-synthetic"
+}

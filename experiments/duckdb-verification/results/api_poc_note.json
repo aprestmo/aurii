@@ -1,0 +1,9 @@
+{
+  "endpoint": "GET /datasets/:datasetId/query?q=mun_stats&year=2024",
+  "allowed_queries": [
+    "mun_stats",
+    "heim_overview"
+  ],
+  "mean_sequential_ms": 54.68,
+  "mean_concurrency_ms": 2495.43
+}

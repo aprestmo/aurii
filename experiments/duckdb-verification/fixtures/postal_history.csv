@@ -1,0 +1,18 @@
+postal_code,place_name,municipality_id,valid_from,valid_to,notes
+7200,Kyrksæterøra,5011,1900-01-01,2019-12-31,Hemne before Heim
+7200,Kyrksæterøra,5055,2020-01-01,9999-12-31,Heim after merger
+7201,Vinjeøra,5011,1900-01-01,2019-12-31,Hemne before Heim
+7201,Vinjeøra,5055,2020-01-01,9999-12-31,Heim after merger
+6680,Halsa,1571,1900-01-01,2019-12-31,Halsa in Møre og Romsdal
+6680,Halsa,5055,2020-01-01,9999-12-31,Halsa area now Heim / Trøndelag
+6683,Valsøyfjord,1571,1900-01-01,2019-12-31,Former Halsa
+6683,Valsøyfjord,5055,2020-01-01,9999-12-31,Now Heim
+7250,Snillfjord,5012,1900-01-01,2019-12-31,Snillfjord before split
+7250,Krokstadøra,5055,2020-01-01,9999-12-31,Part joined Heim
+7252,Snillfjord rest,5059,2020-01-01,9999-12-31,Part joined Orkland
+7000,Heimdal,5001,1900-01-01,9999-12-31,Trondheim area
+0150,Oslo,0301,1900-01-01,9999-12-31,Oslo
+4000,Stavanger,1103,1900-01-01,9999-12-31,Stavanger
+5000,Bergen,4601,1900-01-01,9999-12-31,Bergen
+7300,Orkanger,5024,1900-01-01,2019-12-31,Orkdal before Orkland
+7300,Orkanger,5059,2020-01-01,9999-12-31,Orkland after merger

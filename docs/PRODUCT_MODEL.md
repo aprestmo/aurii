@@ -6,6 +6,7 @@
 > It distinguishes **implemented** concepts from **planned** / **beta** ones.
 > Implementation status: Phase 4 is **complete** (`Phase4.md`). Editorial + Context is **planned / post–Phase 4** — see [`Phase5.md`](../Phase5.md) (roadmap only; not implemented).
 > Architecture fitness tests: [`ARCHITECTURE_FITNESS.md`](ARCHITECTURE_FITNESS.md).
+> Product vision (developer-product thesis, Core vs Cloud, schema → primitives): [`PRODUCT_VISION.md`](PRODUCT_VISION.md).
 > Product strategy (open Core, Studio audience, customer-led evolution): [`PRODUCT_STRATEGY.md`](PRODUCT_STRATEGY.md).
 > Platform validation (portfolio, reuse test, MVP criteria): [`PLATFORM_VALIDATION.md`](PLATFORM_VALIDATION.md).
 > Competitive guardrails (Kyro test; Aurii must not become a better headless CMS): [`COMPETITIVE_GUARDRAILS.md`](COMPETITIVE_GUARDRAILS.md).

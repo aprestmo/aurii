@@ -1,6 +1,8 @@
 # Vision
 
 > We believe the future is built on structured information.
+>
+> **Developer-product direction** (CRM-style apps on schemas, Core vs Cloud, funnel hypothesis): [`PRODUCT_VISION.md`](PRODUCT_VISION.md). This file focuses on *why* information-first; that file focuses on *what* Aurii aims to be for developers.
 
 ---
 

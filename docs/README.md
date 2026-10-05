@@ -68,7 +68,8 @@ The specification is the **source of truth**. Code implements the specification.
 
 ### Vision & Philosophy
 
-- [Vision.md](./Vision.md) — Product vision
+- [PRODUCT_VISION.md](./PRODUCT_VISION.md) — **Canonical product direction** (developer-product thesis, Core vs Cloud, non-media test)
+- [Vision.md](./Vision.md) — Information-first philosophy (“why Aurii”)
 - [Constitution.md](./Constitution.md) — Architectural principles (including customer-led evolution)
 - [PRODUCT_STRATEGY.md](./PRODUCT_STRATEGY.md) — Open Core, product boundaries, Studio audience
 - [PLATFORM_VALIDATION.md](./PLATFORM_VALIDATION.md) — Real-project validation portfolio and v1 decision criteria

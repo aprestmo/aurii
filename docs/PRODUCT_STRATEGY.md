@@ -4,7 +4,7 @@
 >
 > This document records **intended direction and design criteria**. It does not freeze a license model, a commercial feature matrix, a plugin API, or a product packaging scheme.
 >
-> Canonical vocabulary remains [`PRODUCT_MODEL.md`](PRODUCT_MODEL.md). This file does not redefine Core, Studio, Project, Project package, Product, Plugin, capability, or Editorial.
+> Canonical vocabulary remains [`PRODUCT_MODEL.md`](PRODUCT_MODEL.md). Developer-product thesis and Core vs Cloud direction: [`PRODUCT_VISION.md`](PRODUCT_VISION.md). This file does not redefine Core, Studio, Project, Project package, Product, Plugin, capability, or Editorial.
 >
 > Competitive and Core-boundary guardrails: [`COMPETITIVE_GUARDRAILS.md`](COMPETITIVE_GUARDRAILS.md).
 >
@@ -283,6 +283,7 @@ Detailed commodity/strategic lists, the Kyro test, and accept/reject examples li
 
 ## Related documents
 
+- [PRODUCT_VISION.md](PRODUCT_VISION.md) — developer-product thesis, developer journey, Core vs Cloud (hypothesis)
 - [PRODUCT_MODEL.md](PRODUCT_MODEL.md) — canonical terms, modes, and boundaries
 - [PLATFORM_VALIDATION.md](PLATFORM_VALIDATION.md) — real-product portfolio, discovery loop, maturity model, 6–12 month gates
 - [COMPETITIVE_GUARDRAILS.md](COMPETITIVE_GUARDRAILS.md) — Kyro test, commodity vs strategic capabilities, promotion ladder

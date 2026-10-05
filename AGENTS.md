@@ -44,7 +44,9 @@ Aurii is a **Declarative Runtime for Structured Knowledge** — a schema-driven 
 - Relations, sources, provenance/overrides, and Studio extensibility are **foundations**. Do not treat them as late optional integrations. Do not implement them as large features unless that is the assigned task.
 - Products with sensitive-data requirements may need customer-controlled/self-hosted Core. Product delivery and data-custody boundaries do not have to be the same.
 
-See `docs/PRODUCT_MODEL.md`, `docs/PRODUCT_STRATEGY.md`, `docs/PLATFORM_VALIDATION.md`, `docs/COMPETITIVE_GUARDRAILS.md`, `docs/Studio.md`, `docs/PROJECT_PACKAGES.md`, `docs/ARCHITECTURE_FITNESS.md`, [ADR-0010](adr/ADR-0010%20—%20Optional%20Authoring%20Layer.md), [ADR-0019](adr/ADR-0019%20—%20Provenance%20and%20Editorial%20Overrides.md), [ADR-0020](adr/ADR-0020%20—%20Extensible%20Studio.md), and ADRs 0014–0018.
+For **product direction** (developer-product thesis, Core vs Cloud, non-media platform test), read [`docs/PRODUCT_VISION.md`](docs/PRODUCT_VISION.md) together with the canonical product docs below.
+
+See `docs/PRODUCT_MODEL.md`, `docs/PRODUCT_STRATEGY.md`, `docs/PRODUCT_VISION.md`, `docs/PLATFORM_VALIDATION.md`, `docs/COMPETITIVE_GUARDRAILS.md`, `docs/Studio.md`, `docs/PROJECT_PACKAGES.md`, `docs/ARCHITECTURE_FITNESS.md`, [ADR-0010](adr/ADR-0010%20—%20Optional%20Authoring%20Layer.md), [ADR-0019](adr/ADR-0019%20—%20Provenance%20and%20Editorial%20Overrides.md), [ADR-0020](adr/ADR-0020%20—%20Extensible%20Studio.md), and ADRs 0014–0018.
 
 Everything you build should reinforce that vision.
 

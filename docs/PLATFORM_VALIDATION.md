@@ -5,6 +5,7 @@
 > This document records **validation intent, discovery process, maturity rules, and decision criteria**. It does not invent commercial products, freeze a portfolio roster, or claim that Aurii is already validated.
 >
 > Canonical vocabulary: [`PRODUCT_MODEL.md`](PRODUCT_MODEL.md).  
+> Product vision (developer-product thesis, non-media platform test): [`PRODUCT_VISION.md`](PRODUCT_VISION.md).  
 > Product direction: [`PRODUCT_STRATEGY.md`](PRODUCT_STRATEGY.md).  
 > Design stress tests: [`ARCHITECTURE_FITNESS.md`](ARCHITECTURE_FITNESS.md).  
 > Competitive guardrails (Kyro test, commodity vs Core): [`COMPETITIVE_GUARDRAILS.md`](COMPETITIVE_GUARDRAILS.md).  
@@ -36,6 +37,7 @@ This complements:
 
 | Document | Role |
 |----------|------|
+| [`PRODUCT_VISION.md`](PRODUCT_VISION.md) | Developer-product thesis, non-media validation intent, Core vs Cloud hypothesis |
 | [`PRODUCT_STRATEGY.md`](PRODUCT_STRATEGY.md) | How products and Core should relate once we build |
 | [`ARCHITECTURE_FITNESS.md`](ARCHITECTURE_FITNESS.md) | Design tests that Core must not special-case |
 | [`COMPETITIVE_GUARDRAILS.md`](COMPETITIVE_GUARDRAILS.md) | Aurii must not become a better headless CMS; Kyro test before Core growth |
